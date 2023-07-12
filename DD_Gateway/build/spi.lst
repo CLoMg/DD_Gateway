@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
   28:Core/Src/spi.c **** 
   29:Core/Src/spi.c **** /* SPI3 init function */
   30:Core/Src/spi.c **** void MX_SPI3_Init(void)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 2
 
 
   31:Core/Src/spi.c **** {
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
   66              		.loc 1 47 32 is_stmt 0 view .LVU16
   67 0022 0822     		movs	r2, #8
   68 0024 C261     		str	r2, [r0, #28]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 3
 
 
   48:Core/Src/spi.c ****   hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  107 0048 00300140 		.word	1073819648
  108              		.cfi_endproc
  109              	.LFE132:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 4
 
 
  111              		.section	.text.HAL_SPI_MspInit,"ax",%progbits
@@ -230,7 +230,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
   71:Core/Src/spi.c **** 
   72:Core/Src/spi.c ****   /* USER CODE END SPI3_MspInit 0 */
   73:Core/Src/spi.c ****     /* SPI3 clock enable */
-  74:Core/Src/spi.c ****     __HAL_RCC_SPI3_CLK_ENABLE();
+  74:Core/Src/spi.c ****     __HAL_RCC_SPI1_CLK_ENABLE();
   75:Core/Src/spi.c **** 
   76:Core/Src/spi.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
   77:Core/Src/spi.c ****     /**SPI3 GPIO Configuration
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
   79:Core/Src/spi.c ****     PB4 (NJTRST)     ------> SPI3_MISO
   80:Core/Src/spi.c ****     PB5     ------> SPI3_MOSI
   81:Core/Src/spi.c ****     */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 5
 
 
   82:Core/Src/spi.c ****     GPIO_InitStruct.Pin = GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5;
@@ -272,13 +272,13 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
   74:Core/Src/spi.c **** 
  164              		.loc 1 74 5 view .LVU45
  165 001e 03F56043 		add	r3, r3, #57344
- 166 0022 9A6D     		ldr	r2, [r3, #88]
- 167 0024 42F40042 		orr	r2, r2, #32768
- 168 0028 9A65     		str	r2, [r3, #88]
+ 166 0022 1A6E     		ldr	r2, [r3, #96]
+ 167 0024 42F48052 		orr	r2, r2, #4096
+ 168 0028 1A66     		str	r2, [r3, #96]
   74:Core/Src/spi.c **** 
  169              		.loc 1 74 5 view .LVU46
- 170 002a 9A6D     		ldr	r2, [r3, #88]
- 171 002c 02F40042 		and	r2, r2, #32768
+ 170 002a 1A6E     		ldr	r2, [r3, #96]
+ 171 002c 02F48052 		and	r2, r2, #4096
  172 0030 0192     		str	r2, [sp, #4]
   74:Core/Src/spi.c **** 
  173              		.loc 1 74 5 view .LVU47
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  183 003a DA64     		str	r2, [r3, #76]
   76:Core/Src/spi.c ****     /**SPI3 GPIO Configuration
  184              		.loc 1 76 5 view .LVU52
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 6
 
 
  185 003c DB6C     		ldr	r3, [r3, #76]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  227              		.align	1
  228              		.global	HAL_SPI_MspDeInit
  229              		.syntax unified
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 7
 
 
  230              		.thumb
@@ -395,7 +395,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  101:Core/Src/spi.c **** 
  102:Core/Src/spi.c ****   /* USER CODE END SPI3_MspDeInit 0 */
  103:Core/Src/spi.c ****     /* Peripheral clock disable */
- 104:Core/Src/spi.c ****     __HAL_RCC_SPI3_CLK_DISABLE();
+ 104:Core/Src/spi.c ****     __HAL_RCC_SPI1_CLK_DISABLE();
  105:Core/Src/spi.c **** 
  106:Core/Src/spi.c ****     /**SPI3 GPIO Configuration
  107:Core/Src/spi.c ****     PB3 (JTDO-TRACESWO)     ------> SPI3_SCK
@@ -416,12 +416,12 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  104:Core/Src/spi.c **** 
  259              		.loc 1 104 5 is_stmt 1 view .LVU73
  260 000c 054A     		ldr	r2, .L17+4
- 261 000e 936D     		ldr	r3, [r2, #88]
- 262 0010 23F40043 		bic	r3, r3, #32768
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 8
+ 261 000e 136E     		ldr	r3, [r2, #96]
+ 262 0010 23F48053 		bic	r3, r3, #4096
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 8
 
 
- 263 0014 9365     		str	r3, [r2, #88]
+ 263 0014 1366     		str	r3, [r2, #96]
  111:Core/Src/spi.c **** 
  264              		.loc 1 111 5 view .LVU74
  265 0016 3821     		movs	r1, #56
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  305              	.LCFI6:
  306              		.cfi_def_cfa_offset 16
  307              		.cfi_offset 3, -16
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 9
 
 
  308              		.cfi_offset 4, -12
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  355              	.L21:
  129:Core/Src/spi.c ****     printf("HAL_SPI_Receive err:%0x",err);
  130:Core/Src/spi.c ****   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_SET);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 10
 
 
  356              		.loc 1 130 3 is_stmt 1 view .LVU93
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  403              		.align	1
  404              		.global	Flash_Reset
  405              		.syntax unified
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 11
 
 
  406              		.thumb
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  451 002a 1021     		movs	r1, #16
  452 002c 4FF09040 		mov	r0, #1207959552
  453 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 12
 
 
  454              	.LVL34:
@@ -718,32 +718,32 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 1
  503              		.file 9 "<built-in>"
  504              		.file 10 "Core/Inc/main.h"
  505              		.file 11 "Core/Inc/spi.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 13
 
 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccP1x25c.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:20     .text.MX_SPI3_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:26     .text.MX_SPI3_Init:00000000 MX_SPI3_Init
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:106    .text.MX_SPI3_Init:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:112    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:118    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:221    .text.HAL_SPI_MspInit:00000060 $d
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:227    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:233    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:276    .text.HAL_SPI_MspDeInit:00000020 $d
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:283    .rodata.Flash_Read_Write.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:290    .text.Flash_Read_Write:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:296    .text.Flash_Read_Write:00000000 Flash_Read_Write
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:395    .text.Flash_Read_Write:00000058 $d
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:403    .text.Flash_Reset:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:409    .text.Flash_Reset:00000000 Flash_Reset
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:480    .text.Flash_Reset:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:492    .bss.hspi3:00000000 hspi3
-C:\Users\CL\AppData\Local\Temp\ccNJSoD1.s:488    .bss.hspi3:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:20     .text.MX_SPI3_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:26     .text.MX_SPI3_Init:00000000 MX_SPI3_Init
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:106    .text.MX_SPI3_Init:00000044 $d
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:112    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:118    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:221    .text.HAL_SPI_MspInit:00000060 $d
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:227    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:233    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:276    .text.HAL_SPI_MspDeInit:00000020 $d
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:283    .rodata.Flash_Read_Write.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:290    .text.Flash_Read_Write:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:296    .text.Flash_Read_Write:00000000 Flash_Read_Write
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:395    .text.Flash_Read_Write:00000058 $d
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:403    .text.Flash_Reset:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:409    .text.Flash_Reset:00000000 Flash_Reset
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:480    .text.Flash_Reset:00000044 $d
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:492    .bss.hspi3:00000000 hspi3
+C:\Users\CL\AppData\Local\Temp\ccP1x25c.s:488    .bss.hspi3:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

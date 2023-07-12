@@ -87,7 +87,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART3_UART_Init();
-  MX_SPI3_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
   BSP_W25Qx_Init();
   /* USER CODE END 2 */
