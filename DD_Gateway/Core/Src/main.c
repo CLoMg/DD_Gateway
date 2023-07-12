@@ -21,7 +21,6 @@
 #include "spi.h"
 #include "usart.h"
 #include "gpio.h"
-#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -60,7 +59,6 @@ void SystemClock_Config(void);
 /* USER CODE END 0 */
 
 /**
- * `
   * @brief  The application entry point.
   * @retval int
   */
@@ -88,27 +86,35 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI1_Init();
   MX_USART3_UART_Init();
+  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
-  Flash_Reset();
+  BSP_W25Qx_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  static uint8_t cnt = 0x00;
   while (1)
   {
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    uint8_t tx_buff[4] = {0x9f,};
-    uint8_t rx_buff[10] = {0xff,};
-    uint8_t err = 0;
+    //uint8_t tx_buff[4] = {0x9f,};
+    uint8_t rx_buff[300] = {0xff,};
+    uint8_t tx_data = 0;
     HAL_Delay(1000);
-    err = Flash_Read_Write(tx_buff,rx_buff,4);
-    if(err == 0)
-      printf("MID:%d,ID:%d\r\n",rx_buff[1],(uint16_t)rx_buff[2]<<8 | rx_buff[3]);
+    cnt++;
+    BSP_W25Qx_Read_ID(rx_buff);
+    BSP_W25Qx_Read(rx_buff, 0x001FF000, 256);
+    BSP_W25Qx_Erase_Page(0x1FF000);
+    for(int i = 0;i < 256; ++i)
+    {
+      tx_data = cnt + i;
+      BSP_W25Qx_Write(&tx_data, 0x001FF000+i, 1);
+    }
+    printf("MID:%d,ID:%d\r\n",rx_buff[1],(uint16_t)rx_buff[2]<<8 | rx_buff[3]);
   }
   /* USER CODE END 3 */
 }

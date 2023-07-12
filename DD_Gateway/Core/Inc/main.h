@@ -63,12 +63,6 @@ void Error_Handler(void);
 #define U3_TX_GPIO_Port GPIOB
 #define U3_RX_Pin GPIO_PIN_11
 #define U3_RX_GPIO_Port GPIOB
-#define LORA1_SPI_SCK_Pin GPIO_PIN_3
-#define LORA1_SPI_SCK_GPIO_Port GPIOB
-#define LORA1_SPI_MISO_Pin GPIO_PIN_4
-#define LORA1_SPI_MISO_GPIO_Port GPIOB
-#define LORA1_SPI_MOSI_Pin GPIO_PIN_5
-#define LORA1_SPI_MOSI_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
