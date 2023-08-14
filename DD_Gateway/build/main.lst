@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
   28:Core/Src/main.c **** /* USER CODE END Includes */
   29:Core/Src/main.c **** 
   30:Core/Src/main.c **** /* Private typedef -----------------------------------------------------------*/
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 2
 
 
   31:Core/Src/main.c **** /* USER CODE BEGIN PTD */
@@ -118,12 +118,12 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
   85:Core/Src/main.c ****   /* USER CODE END SysInit */
   86:Core/Src/main.c **** 
   87:Core/Src/main.c ****   /* Initialize all configured peripherals */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 3
 
 
   88:Core/Src/main.c ****   MX_GPIO_Init();
   89:Core/Src/main.c ****   MX_USART3_UART_Init();
-  90:Core/Src/main.c ****   MX_SPI3_Init();
+  90:Core/Src/main.c ****   MX_SPI1_Init();
   91:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
   92:Core/Src/main.c ****   BSP_W25Qx_Init();
   93:Core/Src/main.c ****   /* USER CODE END 2 */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  142:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
  143:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
  144:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 1;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 4
 
 
  145:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 40;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
    9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
   11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 5
 
 
   12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
   66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
   68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 6
 
 
   69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Initializes data and bss sections
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 7
 
 
  126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details This default implementations initialized all data and additional bss
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  180:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  181:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __VECTOR_TABLE_ATTRIBUTE
  182:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __VECTOR_TABLE_ATTRIBUTE  __attribute((used, section(".vectors")))
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 8
 
 
  183:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
   63              		.thumb_func
   65              	SystemClock_Config:
   66              	.LFB133:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 9
 
 
  127:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  108              		.loc 1 142 3 is_stmt 1 view .LVU19
  142:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
  109              		.loc 1 142 34 is_stmt 0 view .LVU20
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 10
 
 
  110 002e 0223     		movs	r3, #2
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  157:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
  146              		.loc 1 157 34 is_stmt 0 view .LVU39
  147 0052 0323     		movs	r3, #3
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 11
 
 
  148 0054 0193     		str	r3, [sp, #4]
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  189              	.LFE133:
  191              		.section	.rodata.main.str1.4,"aMS",%progbits,1
  192              		.align	2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 12
 
 
  193              	.LC0:
@@ -700,13 +700,13 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  223              		.loc 1 88 3 view .LVU56
  224 000c FFF7FEFF 		bl	MX_GPIO_Init
  225              	.LVL9:
-  89:Core/Src/main.c ****   MX_SPI3_Init();
+  89:Core/Src/main.c ****   MX_SPI1_Init();
  226              		.loc 1 89 3 view .LVU57
  227 0010 FFF7FEFF 		bl	MX_USART3_UART_Init
  228              	.LVL10:
   90:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
  229              		.loc 1 90 3 view .LVU58
- 230 0014 FFF7FEFF 		bl	MX_SPI3_Init
+ 230 0014 FFF7FEFF 		bl	MX_SPI1_Init
  231              	.LVL11:
   92:Core/Src/main.c ****   /* USER CODE END 2 */
  232              		.loc 1 92 3 view .LVU59
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  238              	.LBB6:
  239              	.LBB7:
  240              	.LBB8:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 13
 
 
  114:Core/Src/main.c ****       BSP_W25Qx_Write(&tx_data, 0x001FF000+i, 1);
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  281              	.LBB10:
  105:Core/Src/main.c ****     uint8_t tx_data = 0;
  282              		.loc 1 105 5 view .LVU74
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 14
 
 
  105:Core/Src/main.c ****     uint8_t tx_data = 0;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  325              	.L17:
  326              		.align	2
  327              	.L16:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 15
 
 
  328 0098 00000000 		.word	.LANCHOR0
@@ -864,21 +864,21 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 1
  351              		.file 10 "Core/Inc/usart.h"
  352              		.file 11 "Core/Inc/spi.h"
  353              		.file 12 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:20     .text.Error_Handler:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:26     .text.Error_Handler:00000000 Error_Handler
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:59     .text.SystemClock_Config:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:65     .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:192    .rodata.main.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:196    .text.main:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:202    .text.main:00000000 main
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:328    .text.main:00000098 $d
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:340    .bss.cnt.0:00000000 cnt.0
-C:\Users\CL\AppData\Local\Temp\ccWaquSJ.s:341    .bss.cnt.0:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:20     .text.Error_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:26     .text.Error_Handler:00000000 Error_Handler
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:59     .text.SystemClock_Config:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:65     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:192    .rodata.main.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:196    .text.main:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:202    .text.main:00000000 main
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:328    .text.main:00000098 $d
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:340    .bss.cnt.0:00000000 cnt.0
+C:\Users\CL\AppData\Local\Temp\cco6Hr1U.s:341    .bss.cnt.0:00000000 $d
 
 UNDEFINED SYMBOLS
 memset
@@ -888,7 +888,7 @@ HAL_RCC_ClockConfig
 HAL_Init
 MX_GPIO_Init
 MX_USART3_UART_Init
-MX_SPI3_Init
+MX_SPI1_Init
 BSP_W25Qx_Init
 BSP_W25Qx_Write
 printf

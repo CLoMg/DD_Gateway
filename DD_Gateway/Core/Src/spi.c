@@ -121,10 +121,10 @@ int Flash_Read_Write(uint8_t *wData,uint8_t *rData,unsigned short len)
 {
   int err = 0;
   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_RESET);
-  err = HAL_SPI_Transmit(&hspi3,wData,4,1000);
+  err = HAL_SPI_Transmit(&hspi1,wData,4,1000);
   if(err != HAL_OK)
     printf("HAL_SPI_Transmit err:%0x",err);
-  err = HAL_SPI_Receive(&hspi3,rData,2,1000);
+  err = HAL_SPI_Receive(&hspi1,rData,2,1000);
   if(err != HAL_OK)
     printf("HAL_SPI_Receive err:%0x",err);
   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_SET);
@@ -136,7 +136,7 @@ int Flash_Reset(void)
   uint8_t reset_cmd[2] = {0x66,0x99};
   int err = 0;
   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_RESET);
-  err = HAL_SPI_Transmit(&hspi3,reset_cmd,2,0xff);
+  err = HAL_SPI_Transmit(&hspi1,reset_cmd,2,0xff);
   if(err != HAL_OK)
     printf("HAL_SPI_Transmit err:%0x",err);
   HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_SET);
