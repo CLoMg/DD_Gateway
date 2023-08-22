@@ -1,14 +1,14 @@
-build/spi.o: HAL/Src/spi.c HAL/Inc/spi.h Core/Inc/main.h \
- Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
- Core/Inc/stm32l4xx_hal_conf.h \
- Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
- Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h \
+build/W25QXX.o: FML/Src/W25QXX.c FML/Inc/W25QXX.h \
  Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h \
  Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h \
  Drivers/CMSIS/Include/core_cm4.h Drivers/CMSIS/Include/cmsis_version.h \
  Drivers/CMSIS/Include/cmsis_compiler.h Drivers/CMSIS/Include/cmsis_gcc.h \
  Drivers/CMSIS/Include/mpu_armv7.h \
  Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h \
+ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
+ Core/Inc/stm32l4xx_hal_conf.h \
+ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
+ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc_ex.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h \
@@ -29,13 +29,9 @@ build/spi.o: HAL/Src/spi.c HAL/Inc/spi.h Core/Inc/main.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
- Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h
-HAL/Inc/spi.h:
-Core/Inc/main.h:
-Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
-Core/Inc/stm32l4xx_hal_conf.h:
-Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:
-Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:
+ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h HAL/Inc/spi.h \
+ Core/Inc/main.h
+FML/Inc/W25QXX.h:
 Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h:
 Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h:
 Drivers/CMSIS/Include/core_cm4.h:
@@ -44,6 +40,10 @@ Drivers/CMSIS/Include/cmsis_compiler.h:
 Drivers/CMSIS/Include/cmsis_gcc.h:
 Drivers/CMSIS/Include/mpu_armv7.h:
 Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h:
+Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
+Core/Inc/stm32l4xx_hal_conf.h:
+Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h:
+Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc_ex.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h:
@@ -65,3 +65,5 @@ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
+HAL/Inc/spi.h:
+Core/Inc/main.h:

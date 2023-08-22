@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "shell_port.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -170,15 +171,19 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void LDR_Value_Get(void)
+void LDR_Value_Get(int a, char b, char *str,float val)
 {   
     uint32_t ldr_adc_value = 0;
     ldr_adc_value = ADC_Average_Get(10,50);
-    shellPrint(&shell,"LDR ADC Value:%d lux \r\n",ldr_adc_value);
+    shellPrint(&shell,"LDR:%d, input int:%d, input char:%c, input str:%s, input float:%.4f \r\n",ldr_adc_value,a,b,str,val);
 }
-SHELL_EXPORT_CMD(
+
+SHELL_EXPORT_CMD_AGENCY(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-LDR_Get, LDR_Value_Get, get ldr value);
+LDR_Get, LDR_Value_Get, get ldr value,p1,(char)p2,(char *)p3,SHELL_PARAM_FLOAT(p4));
+// SHELL_EXPORT_CMD(
+// SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+// LDR_Get, LDR_Value_Get, get ldr value);
 /* USER CODE END 4 */
 
 /**

@@ -37,10 +37,6 @@ BUILD_DIR = build
 # C sources
 C_SOURCES =  \
 Core/Src/main.c \
-Core/Src/gpio.c \
-Core/Src/adc.c \
-Core/Src/spi.c \
-Core/Src/usart.c \
 Core/Src/stm32l4xx_it.c \
 Core/Src/stm32l4xx_hal_msp.c \
 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_adc.c \
@@ -71,7 +67,12 @@ ThirdParty/Letter-shell/Src/shell_cmd_list.c \
 ThirdParty/Letter-shell/Src/shell_companion.c \
 ThirdParty\Letter-shell\Src\shell_ext.c \
 ThirdParty\Letter-shell\Src\shell_port.c \
-ThirdParty\Letter-shell\Src\shell.c
+ThirdParty\Letter-shell\Src\shell.c \
+HAL/Src/gpio.c \
+HAL/Src/adc.c \
+HAL/Src/spi.c \
+HAL/Src/usart.c \
+FML/Src/W25QXX.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -133,7 +134,9 @@ C_INCLUDES =  \
 -IDrivers/STM32L4xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32L4xx/Include \
 -IDrivers/CMSIS/Include \
--IThirdParty/Letter-shell/Inc
+-IThirdParty/Letter-shell/Inc \
+-IFML/Inc \
+-IHAL/Inc
 
 
 # compile gcc flags
@@ -160,7 +163,7 @@ LDSCRIPT = STM32L431CBTx_FLASH.ld
 LIBS = -lc -lm -lnosys 
 LIBDIR = 
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
-
+LDFLAGS += -Wl,-u_printf_float
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 

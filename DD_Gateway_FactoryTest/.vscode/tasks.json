@@ -9,14 +9,14 @@
             "type": "shell",
             "command": "make",
             "args": [
-                "-j8",
+                "-j8"
             ],
             "group": "build"
         },
         {
             "label": "download",
             "type": "shell",
-            "command":"openocd",
+            "command": "openocd",
             "args": [
                 "-f",
                 "./config/stlink.cfg",
@@ -25,7 +25,8 @@
                 "-c",
                 "program ./build/${workspaceRootFolderName}.hex verify reset exit"
             ],
-            "group": "build"
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }

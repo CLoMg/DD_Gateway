@@ -29,8 +29,8 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
- Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h Core/Inc/adc.h \
- Core/Inc/main.h Core/Inc/spi.h Core/Inc/usart.h Core/Inc/gpio.h \
+ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h HAL/Inc/adc.h \
+ HAL/Inc/spi.h HAL/Inc/usart.h HAL/Inc/gpio.h \
  ThirdParty/Letter-shell/Inc/shell_port.h \
  ThirdParty/Letter-shell/Inc/shell.h \
  ThirdParty/Letter-shell/Inc/shell_cfg.h
@@ -68,11 +68,10 @@ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-Core/Inc/adc.h:
-Core/Inc/main.h:
-Core/Inc/spi.h:
-Core/Inc/usart.h:
-Core/Inc/gpio.h:
+HAL/Inc/adc.h:
+HAL/Inc/spi.h:
+HAL/Inc/usart.h:
+HAL/Inc/gpio.h:
 ThirdParty/Letter-shell/Inc/shell_port.h:
 ThirdParty/Letter-shell/Inc/shell.h:
 ThirdParty/Letter-shell/Inc/shell_cfg.h:

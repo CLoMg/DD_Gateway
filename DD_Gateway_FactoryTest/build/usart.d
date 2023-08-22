@@ -1,4 +1,4 @@
-build/usart.o: Core/Src/usart.c Core/Inc/usart.h Core/Inc/main.h \
+build/usart.o: HAL/Src/usart.c HAL/Inc/usart.h Core/Inc/main.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  Core/Inc/stm32l4xx_hal_conf.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -33,7 +33,7 @@ build/usart.o: Core/Src/usart.c Core/Inc/usart.h Core/Inc/main.h \
  ThirdParty/Letter-shell/Inc/shell_port.h \
  ThirdParty/Letter-shell/Inc/shell.h \
  ThirdParty/Letter-shell/Inc/shell_cfg.h
-Core/Inc/usart.h:
+HAL/Inc/usart.h:
 Core/Inc/main.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 Core/Inc/stm32l4xx_hal_conf.h:
