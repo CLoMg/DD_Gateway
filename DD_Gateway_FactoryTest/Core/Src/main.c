@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "shell_port.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,15 +94,30 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  /* TODO:fix shell initialize */
+  User_Shell_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+ 
   while (1)
   {
+   
     /* USER CODE END WHILE */
-
+    /* ADC 电压监测接口测试*/
+    /* LED 测试 */
+    /* 亮度监测接口测试 */
+    
+    /* RS485接口测试 */
+     /* Flash 接口测试 */
+     /* LORA 1发送 LORA2 接收测试*/
+     /* LORA2发送 LORA1 接收测试*/
+     /* Cat-1 测试 */
+     /* ETH 测试 */
+     /* ATGM223D接口测试 */
+     
+     HAL_Delay(100);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -155,7 +170,15 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void LDR_Value_Get(void)
+{   
+    uint32_t ldr_adc_value = 0;
+    ldr_adc_value = ADC_Average_Get(10,50);
+    shellPrint(&shell,"LDR ADC Value:%d lux \r\n",ldr_adc_value);
+}
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+LDR_Get, LDR_Value_Get, get ldr value);
 /* USER CODE END 4 */
 
 /**

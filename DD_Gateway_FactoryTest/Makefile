@@ -66,7 +66,12 @@ Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim.c \
 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_tim_ex.c \
 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart.c \
 Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c \
-Core/Src/system_stm32l4xx.c  
+Core/Src/system_stm32l4xx.c \
+ThirdParty/Letter-shell/Src/shell_cmd_list.c \
+ThirdParty/Letter-shell/Src/shell_companion.c \
+ThirdParty\Letter-shell\Src\shell_ext.c \
+ThirdParty\Letter-shell\Src\shell_port.c \
+ThirdParty\Letter-shell\Src\shell.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -127,7 +132,8 @@ C_INCLUDES =  \
 -IDrivers/STM32L4xx_HAL_Driver/Inc \
 -IDrivers/STM32L4xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32L4xx/Include \
--IDrivers/CMSIS/Include
+-IDrivers/CMSIS/Include \
+-IThirdParty/Letter-shell/Inc
 
 
 # compile gcc flags

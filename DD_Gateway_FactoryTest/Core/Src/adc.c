@@ -73,6 +73,9 @@ void MX_ADC1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN ADC1_Init 2 */
+  /** 单端校准
+  */
+  HAL_ADCEx_Calibration_Start(&hadc1,ADC_SINGLE_ENDED);
 
   /* USER CODE END ADC1_Init 2 */
 
@@ -148,4 +151,50 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
 
 /* USER CODE BEGIN 1 */
 
+/** 读取指定通道adc采样值
+*/
+uint32_t ADC_Average_Get(uint8_t ch,uint8_t times){
+  uint32_t value_sum = 0;
+  ADC_ChannelConfTypeDef sConfig;  //通道初始化
+  uint8_t i = 0;
+
+  /** 选择adc通道
+  */
+  switch (ch) 
+  {
+    case 5:sConfig.Channel = ADC_CHANNEL_5;
+      break;
+    case 10:sConfig.Channel = ADC_CHANNEL_10;
+      break;
+    default:
+      break;
+  }
+  /** 初始化通道
+  */
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** 开启ADC转换
+  */
+  for(i = 0;i < times; ++i){
+    HAL_ADC_Start(&hadc1);
+    /** 等待转换完成
+    */
+    HAL_ADC_PollForConversion(&hadc1,10);
+
+    if(HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc1),HAL_ADC_STATE_EOC_REG))
+    {
+      value_sum += HAL_ADC_GetValue(&hadc1);
+    }
+    HAL_ADC_Stop(&hadc1);
+  }
+  return value_sum/times;
+}
 /* USER CODE END 1 */

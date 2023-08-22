@@ -41,7 +41,7 @@ extern ADC_HandleTypeDef hadc1;
 void MX_ADC1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+uint32_t ADC_Average_Get(uint8_t ch,uint8_t times);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

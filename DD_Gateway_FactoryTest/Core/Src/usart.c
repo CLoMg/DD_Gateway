@@ -19,9 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "usart.h"
+#include "shell_port.h"
 
 /* USER CODE BEGIN 0 */
-
+uint8_t u1_cache = 0;
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -55,7 +56,6 @@ void MX_USART1_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART1_Init 2 */
-
   /* USER CODE END USART1_Init 2 */
 
 }
@@ -117,7 +117,7 @@ void MX_USART3_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART3_Init 2 */
-
+  HAL_UART_Receive_IT(&huart3,(uint8_t *)&u1_cache,1);
   /* USER CODE END USART3_Init 2 */
 
 }
@@ -305,5 +305,14 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
+{
+
+  if(UartHandle->Instance == USART3){
+     shellHandler(&shell,u1_cache);
+     HAL_UART_Receive_IT(&huart3,(uint8_t *)&u1_cache,1);
+  }
+
+}
 
 /* USER CODE END 1 */
