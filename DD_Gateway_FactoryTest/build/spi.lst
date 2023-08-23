@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
   28:HAL/Src/spi.c **** SPI_HandleTypeDef hspi3;
   29:HAL/Src/spi.c **** 
   30:HAL/Src/spi.c **** /* SPI2 init function */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 2
 
 
   31:HAL/Src/spi.c **** void MX_SPI2_Init(void)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
   65              		.loc 1 48 3 is_stmt 1 view .LVU15
   66              		.loc 1 48 32 is_stmt 0 view .LVU16
   67 0022 C361     		str	r3, [r0, #28]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 3
 
 
   49:HAL/Src/spi.c ****   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  106 0044 00000000 		.word	.LANCHOR0
  107 0048 00380040 		.word	1073756160
  108              		.cfi_endproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 4
 
 
  109              	.LFE288:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
   80:HAL/Src/spi.c ****   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
  149              		.loc 1 80 3 is_stmt 1 view .LVU46
  150              		.loc 1 80 23 is_stmt 0 view .LVU47
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 5
 
 
  151 001a 4361     		str	r3, [r0, #20]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  188              	.L10:
   91:HAL/Src/spi.c ****   }
  189              		.loc 1 91 5 is_stmt 1 view .LVU68
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 6
 
 
  190 003c FFF7FEFF 		bl	Error_Handler
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  240 0012 374A     		ldr	r2, .L19
  241 0014 9342     		cmp	r3, r2
  242 0016 04D0     		beq	.L17
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 7
 
 
  104:HAL/Src/spi.c ****   {
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  151:HAL/Src/spi.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  152:HAL/Src/spi.c ****     GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
  153:HAL/Src/spi.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 8
 
 
  154:HAL/Src/spi.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  111:HAL/Src/spi.c ****     /**SPI2 GPIO Configuration
  280              		.loc 1 111 5 view .LVU88
  281 0036 DA6C     		ldr	r2, [r3, #76]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 9
 
 
  282 0038 42F00202 		orr	r2, r2, #2
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  321              	.LVL9:
  127:HAL/Src/spi.c ****   /* USER CODE BEGIN SPI2_MspInit 1 */
  322              		.loc 1 127 5 view .LVU104
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 10
 
 
  323 006c 2420     		movs	r0, #36
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  141:HAL/Src/spi.c ****     /**SPI3 GPIO Configuration
  363              		.loc 1 141 5 view .LVU119
  364 009a DA6C     		ldr	r2, [r3, #76]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 11
 
 
  365 009c 42F00202 		orr	r2, r2, #2
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  156:HAL/Src/spi.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
  403              		.loc 1 156 5 is_stmt 1 view .LVU136
  156:HAL/Src/spi.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 12
 
 
  404              		.loc 1 156 26 is_stmt 0 view .LVU137
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  451              	.LVL17:
  452              	.LFB291:
  170:HAL/Src/spi.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 13
 
 
  171:HAL/Src/spi.c **** void HAL_SPI_MspDeInit(SPI_HandleTypeDef* spiHandle)
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  201:HAL/Src/spi.c ****     /* Peripheral clock disable */
  202:HAL/Src/spi.c ****     __HAL_RCC_SPI3_CLK_DISABLE();
  203:HAL/Src/spi.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 14
 
 
  204:HAL/Src/spi.c ****     /**SPI3 GPIO Configuration
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  508              	.LVL24:
  210:HAL/Src/spi.c **** 
  509              		.loc 1 210 5 is_stmt 0 view .LVU162
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 15
 
 
  510 0044 FFF7FEFF 		bl	HAL_GPIO_DeInit
@@ -896,27 +896,27 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 1
  557              		.file 9 "HAL/Inc/spi.h"
  558              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
  559              		.file 11 "Core/Inc/main.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:20     .text.MX_SPI2_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:26     .text.MX_SPI2_Init:00000000 MX_SPI2_Init
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:106    .text.MX_SPI2_Init:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:112    .text.MX_SPI3_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:118    .text.MX_SPI3_Init:00000000 MX_SPI3_Init
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:197    .text.MX_SPI3_Init:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:203    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:209    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:436    .text.HAL_SPI_MspInit:000000f0 $d
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:444    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:450    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:526    .text.HAL_SPI_MspDeInit:00000058 $d
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:546    .bss.hspi3:00000000 hspi3
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:539    .bss.hspi2:00000000 hspi2
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:535    .bss.hspi2:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccEOdkX7.s:542    .bss.hspi3:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:20     .text.MX_SPI2_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:26     .text.MX_SPI2_Init:00000000 MX_SPI2_Init
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:106    .text.MX_SPI2_Init:00000044 $d
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:112    .text.MX_SPI3_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:118    .text.MX_SPI3_Init:00000000 MX_SPI3_Init
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:197    .text.MX_SPI3_Init:00000044 $d
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:203    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:209    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:436    .text.HAL_SPI_MspInit:000000f0 $d
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:444    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:450    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:526    .text.HAL_SPI_MspDeInit:00000058 $d
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:546    .bss.hspi3:00000000 hspi3
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:539    .bss.hspi2:00000000 hspi2
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:535    .bss.hspi2:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc2yxRAl.s:542    .bss.hspi3:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

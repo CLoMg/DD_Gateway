@@ -6,6 +6,7 @@
 
 #include "shell.h"
 #include <stm32l4xx_hal.h>
+#include "rs485.h"
 #include "usart.h"
 #include "shell_port.h"
 
@@ -21,8 +22,9 @@ char shell_buffer[512];
 {   
     signed short re_code = 0;
     //调用STM32 HAL库 API 使用查询方式发送
-    while(len--)
-        re_code = HAL_UART_Transmit(&huart3, (uint8_t *)(ch++), 1, 0xFFFF);
+    //while(len--)
+       // re_code = HAL_UART_Transmit(&huart3, (uint8_t *)(ch++), 1, 0xFFFF);
+       RS485_SendData(&dev_rs485[0], (uint8_t *)ch, len);
     return re_code; 
 }
 

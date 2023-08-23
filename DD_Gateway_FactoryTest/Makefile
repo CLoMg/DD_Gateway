@@ -72,7 +72,9 @@ HAL/Src/gpio.c \
 HAL/Src/adc.c \
 HAL/Src/spi.c \
 HAL/Src/usart.c \
-FML/Src/W25QXX.c
+FML/Src/W25QXX.c \
+FML/Src/led.c \
+FML/Src/rs485.c
 
 # ASM sources
 ASM_SOURCES =  \

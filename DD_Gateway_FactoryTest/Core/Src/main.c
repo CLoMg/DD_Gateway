@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "led.h"
 #include "adc.h"
 #include "spi.h"
 #include "usart.h"
@@ -26,7 +27,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "shell_port.h"
-#include "stdio.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdarg.h>
+#include "rs485.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,6 +92,8 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  LED_Init(&dev_led[0]);
+  LED_Init(&dev_led[1]);
   MX_ADC1_Init();
   MX_SPI2_Init();
   MX_SPI3_Init();
@@ -107,7 +113,7 @@ int main(void)
    
     /* USER CODE END WHILE */
     /* ADC 电压监测接口测试*/
-    /* LED 测试 */
+    /* LED 测试 */ 
     /* 亮度监测接口测试 */
     
     /* RS485接口测试 */
@@ -171,6 +177,14 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+/**
+ * @brief 
+ * 
+ * @param a 
+ * @param b 
+ * @param str 
+ * @param val 
+ */
 void LDR_Value_Get(int a, char b, char *str,float val)
 {   
     uint32_t ldr_adc_value = 0;
@@ -178,12 +192,92 @@ void LDR_Value_Get(int a, char b, char *str,float val)
     shellPrint(&shell,"LDR:%d, input int:%d, input char:%c, input str:%s, input float:%.4f \r\n",ldr_adc_value,a,b,str,val);
 }
 
+/**
+ * @brief 
+ * 
+ */
 SHELL_EXPORT_CMD_AGENCY(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
 LDR_Get, LDR_Value_Get, get ldr value,p1,(char)p2,(char *)p3,SHELL_PARAM_FLOAT(p4));
-// SHELL_EXPORT_CMD(
-// SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-// LDR_Get, LDR_Value_Get, get ldr value);
+
+/**
+ * @brief 
+ * 
+ * @param name 
+ * @param type 
+ * @param ... 
+ */
+void LED_Test(char *name, char *type, ...){
+  LED_HandleTypeDef *test_led;
+  uint32_t gap = 0;
+  uint8_t cycle = 0;
+
+  if(strcmp(name,"D6") == 0)
+    test_led = &dev_led[0];
+  else if((strcmp(name,"D7") == 0))
+    test_led = &dev_led[1];
+  else{
+    shellPrint(&shell,"invalid led name");
+    return;
+  }
+
+  if(strcmp(type,"on") == 0)
+    LED_On(test_led);
+  else if(strcmp(type,"off") == 0)
+    LED_Off(test_led);
+  else if(strcmp(type,"toggle") == 0)
+    LED_Toggle(test_led);
+  else if(strcmp(type,"blink") == 0)
+  {
+    va_list p_args;
+    va_start(p_args,type);
+    gap = va_arg(p_args,int);
+    cycle = va_arg(p_args,int);
+    va_end(p_args);
+    LED_Blink(test_led, gap, cycle);
+  }
+  else{
+    shellPrint(&shell,"invalid cmd type");
+    return;
+  }
+}
+/**
+ * @brief 
+ * 
+ */
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+led, LED_Test, test led func);
+
+/**
+ * @brief 
+ * 
+ */
+void Battery_Test(void)
+{   
+    float voltage = 0;
+    voltage = (float)ADC_Average_Get(5,50)/4096 * 3.3 * 2;
+    
+    shellPrint(&shell,"voltage:%.2fv\r\n",voltage);
+}
+
+/**
+ * @brief 
+ * 
+ */
+SHELL_EXPORT_CMD_AGENCY(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+battery, Battery_Test, get battery voltage value);
+
+void RS485_Test(char *str)
+{
+  RS485_SendData(&dev_rs485[0], (uint8_t *)str, strlen(str));
+}
+
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+rs485_send, RS485_Test, rs485 send test);
+
 /* USER CODE END 4 */
 
 /**

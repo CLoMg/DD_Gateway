@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
   28:HAL/Src/usart.c **** UART_HandleTypeDef huart1;
   29:HAL/Src/usart.c **** UART_HandleTypeDef huart2;
   30:HAL/Src/usart.c **** UART_HandleTypeDef huart3;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 2
 
 
   31:HAL/Src/usart.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
   63 001a 8361     		str	r3, [r0, #24]
   51:HAL/Src/usart.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   64              		.loc 1 51 3 is_stmt 1 view .LVU15
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 3
 
 
   65              		.loc 1 51 28 is_stmt 0 view .LVU16
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  106              		.cfi_startproc
  107              		@ args = 0, pretend = 0, frame = 0
  108              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 4
 
 
  109 0000 08B5     		push	{r3, lr}
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
   83:HAL/Src/usart.c ****   huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
  146              		.loc 1 83 3 is_stmt 1 view .LVU46
  147              		.loc 1 83 38 is_stmt 0 view .LVU47
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 5
 
 
  148 0020 4362     		str	r3, [r0, #36]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
   97:HAL/Src/usart.c **** 
   98:HAL/Src/usart.c ****   /* USER CODE BEGIN USART3_Init 0 */
   99:HAL/Src/usart.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 6
 
 
  100:HAL/Src/usart.c ****   /* USER CODE END USART3_Init 0 */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  228              	.LVL4:
  229              		.loc 1 115 6 view .LVU77
  230 0026 28B9     		cbnz	r0, .L16
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 7
 
 
  231              	.L14:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  275 0002 A3B0     		sub	sp, sp, #140
  276              	.LCFI4:
  277              		.cfi_def_cfa_offset 152
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 8
 
 
  278 0004 0446     		mov	r4, r0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  157:HAL/Src/usart.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
  158:HAL/Src/usart.c **** 
  159:HAL/Src/usart.c ****     /* USART1 interrupt Init */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 9
 
 
  160:HAL/Src/usart.c ****     HAL_NVIC_SetPriority(USART1_IRQn, 1, 0);
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  312              	.LVL10:
  313              	.L19:
  204:HAL/Src/usart.c ****   {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 10
 
 
  205:HAL/Src/usart.c ****   /* USER CODE BEGIN USART3_MspInit 0 */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  329              		.loc 1 138 5 is_stmt 1 view .LVU98
  139:HAL/Src/usart.c ****     {
  330              		.loc 1 139 5 view .LVU99
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 11
 
 
  139:HAL/Src/usart.c ****     {
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  152:HAL/Src/usart.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  370              		.loc 1 152 25 is_stmt 0 view .LVU115
  371 0064 4FF4C063 		mov	r3, #1536
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 12
 
 
  372 0068 1D93     		str	r3, [sp, #116]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  413              	.L28:
  174:HAL/Src/usart.c ****     PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
  414              		.loc 1 174 5 view .LVU129
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 13
 
 
  174:HAL/Src/usart.c ****     PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  184:HAL/Src/usart.c ****     /**USART2 GPIO Configuration
  454              		.loc 1 184 5 view .LVU145
  455 00cc 039B     		ldr	r3, [sp, #12]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 14
 
 
  456              	.LBE5:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  495 00fc 97E7     		b	.L19
  496              	.LVL24:
  497              	.L31:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 15
 
 
  178:HAL/Src/usart.c ****     }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  536 0124 DA6C     		ldr	r2, [r3, #76]
  537 0126 42F00202 		orr	r2, r2, #2
  538 012a DA64     		str	r2, [r3, #76]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 16
 
 
  221:HAL/Src/usart.c ****     /**USART3 GPIO Configuration
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  235:HAL/Src/usart.c ****   /* USER CODE BEGIN USART3_MspInit 1 */
  578              		.loc 1 235 5 view .LVU192
  579 015e 2720     		movs	r0, #39
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 17
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 17
 
 
  580 0160 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  249:HAL/Src/usart.c ****   /* USER CODE END USART1_MspDeInit 0 */
  250:HAL/Src/usart.c ****     /* Peripheral clock disable */
  251:HAL/Src/usart.c ****     __HAL_RCC_USART1_CLK_DISABLE();
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 18
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 18
 
 
  252:HAL/Src/usart.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  294:HAL/Src/usart.c ****     PB10     ------> USART3_TX
  295:HAL/Src/usart.c ****     PB11     ------> USART3_RX
  296:HAL/Src/usart.c ****     */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 19
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 19
 
 
  297:HAL/Src/usart.c ****     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_10|GPIO_PIN_11);
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  676 0050 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
  677              	.LVL40:
  678 0054 DFE7     		b	.L35
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 20
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 20
 
 
  679              	.LVL41:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  725 0000 0268     		ldr	r2, [r0]
  726              		.loc 1 311 5 view .LVU221
  727 0002 084B     		ldr	r3, .L52
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 21
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 21
 
 
  728 0004 9A42     		cmp	r2, r3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  775              		.section	.bss.huart2,"aw",%nobits
  776              		.align	2
  777              		.set	.LANCHOR1,. + 0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 22
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 22
 
 
  780              	huart2:
@@ -1296,37 +1296,37 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 1
  808              		.file 13 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
  809              		.file 14 "Core/Inc/main.h"
  810              		.file 15 "<built-in>"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s 			page 23
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usart.c
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:20     .text.MX_USART1_UART_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:26     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:91     .text.MX_USART1_UART_Init:00000030 $d
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:97     .text.MX_USART2_UART_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:103    .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:167    .text.MX_USART2_UART_Init:00000030 $d
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:173    .text.MX_USART3_UART_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:179    .text.MX_USART3_UART_Init:00000000 MX_USART3_UART_Init
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:248    .text.MX_USART3_UART_Init:0000003c $d
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:255    .text.HAL_UART_MspInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:261    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:592    .text.HAL_UART_MspInit:0000016c $d
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:601    .text.HAL_UART_MspDeInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:607    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:702    .text.HAL_UART_MspDeInit:00000074 $d
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:710    .text.HAL_UART_RxCpltCallback:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:716    .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:757    .text.HAL_UART_RxCpltCallback:00000024 $d
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:787    .bss.huart3:00000000 huart3
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:780    .bss.huart2:00000000 huart2
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:773    .bss.huart1:00000000 huart1
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:793    .bss.u1_cache:00000000 u1_cache
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:769    .bss.huart1:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:776    .bss.huart2:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:783    .bss.huart3:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc6k8KN7.s:794    .bss.u1_cache:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:20     .text.MX_USART1_UART_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:26     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:91     .text.MX_USART1_UART_Init:00000030 $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:97     .text.MX_USART2_UART_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:103    .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:167    .text.MX_USART2_UART_Init:00000030 $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:173    .text.MX_USART3_UART_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:179    .text.MX_USART3_UART_Init:00000000 MX_USART3_UART_Init
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:248    .text.MX_USART3_UART_Init:0000003c $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:255    .text.HAL_UART_MspInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:261    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:592    .text.HAL_UART_MspInit:0000016c $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:601    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:607    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:702    .text.HAL_UART_MspDeInit:00000074 $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:710    .text.HAL_UART_RxCpltCallback:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:716    .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:757    .text.HAL_UART_RxCpltCallback:00000024 $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:787    .bss.huart3:00000000 huart3
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:780    .bss.huart2:00000000 huart2
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:773    .bss.huart1:00000000 huart1
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:793    .bss.u1_cache:00000000 u1_cache
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:769    .bss.huart1:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:776    .bss.huart2:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:783    .bss.huart3:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccqbcQVJ.s:794    .bss.u1_cache:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Init
