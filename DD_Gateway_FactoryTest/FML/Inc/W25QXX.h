@@ -137,6 +137,7 @@ static void	BSP_W25Qx_Reset(void);
 static uint8_t BSP_W25Qx_GetStatus(void);
 uint8_t BSP_W25Qx_WriteEnable(void);
 void BSP_W25Qx_Read_ID(uint8_t *ID);
+void BSP_W25Qx_Read_JEDEC_ID(uint8_t *ID);
 uint8_t BSP_W25Qx_Read(uint8_t* pData, uint32_t ReadAddr, uint32_t Size);
 uint8_t BSP_W25Qx_Write(uint8_t* pData, uint32_t WriteAddr, uint32_t Size);
 uint8_t BSP_W25Qx_Erase_Page(uint32_t Address);

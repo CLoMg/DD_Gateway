@@ -31,6 +31,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include "rs485.h"
+#include "W25QXX.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -103,6 +104,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   /* TODO:fix shell initialize */
   User_Shell_Init();
+  BSP_W25Qx_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -269,6 +271,11 @@ SHELL_EXPORT_CMD_AGENCY(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
 battery, Battery_Test, get battery voltage value);
 
+/**
+ * @brief 
+ * 
+ * @param str 
+ */
 void RS485_Test(char *str)
 {
   RS485_SendData(&dev_rs485[0], (uint8_t *)str, strlen(str));
@@ -277,6 +284,32 @@ void RS485_Test(char *str)
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
 rs485_send, RS485_Test, rs485 send test);
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ */
+void Flash_Test(void)
+{
+  uint8_t flash_id[2] = {0x00,};
+  uint8_t JEDEC_id[3] = {0x00,};
+  uint32_t cap_kb = 0;
+  float cap_mb = 0.0f;
+
+  BSP_W25Qx_Read_ID(flash_id);
+  BSP_W25Qx_Read_JEDEC_ID(JEDEC_id);
+  cap_kb = pow(2 , (JEDEC_id[2] - 10)) *8 ;
+  cap_mb = (float)cap_kb / 1024.0;
+
+  shellPrint(&shell,"Manu_ID:0x%02x,Dev_ID:0x%02x\r\nManu_Identi:0x%02x,Memory_Type:0x%02x\r\n\
+  Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_id[2],cap_kb,cap_mb);
+}
+
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+flash_test, Flash_Test, rs485 send test);
+
 
 /* USER CODE END 4 */
 

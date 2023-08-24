@@ -116,6 +116,24 @@ void BSP_W25Qx_Read_ID(uint8_t *ID)
 }
 
 /**
+  * @brief  Read JEDEC ID.
+	* @param  return value address
+  * @retval None
+  */
+void BSP_W25Qx_Read_JEDEC_ID(uint8_t *JDEDC_ID)
+{
+	uint8_t cmd[4] = {READ_JEDEC_ID_CMD,0x00,0x00,0x00};
+	
+	W25Qx_Enable();
+	/* Send the read ID command */
+	HAL_SPI_Transmit(&hspi3, cmd, 1, W25Qx_TIMEOUT_VALUE);	
+	/* Reception of the data */
+	HAL_SPI_Receive(&hspi3,JDEDC_ID, 3, W25Qx_TIMEOUT_VALUE);
+	W25Qx_Disable();
+		
+}
+
+/**
   * @brief  Reads an amount of data from the QSPI memory.
   * @param  pData: Pointer to data to be read
   * @param  ReadAddr: Read start address
