@@ -27,11 +27,13 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "shell_port.h"
+#include "stdint.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
 #include "rs485.h"
 #include "W25QXX.h"
+#include "ATGM332D.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,7 +53,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+int bds_dev = -1;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -105,6 +107,7 @@ int main(void)
   /* TODO:fix shell initialize */
   User_Shell_Init();
   BSP_W25Qx_Init();
+  bds_dev = atgm_open("uart2/bds_0");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -310,6 +313,29 @@ SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
 flash_test, Flash_Test, rs485 send test);
 
+void BDS_Test(char *cmd,...)
+{
+  LED_HandleTypeDef *test_led;
+  int param_1 = -1;
+  uint16_t len;
+  uint8_t buff[300];
+
+  if(strcmp(cmd,"read") == 0)
+  {
+    va_list p_args;
+    va_start(p_args,cmd);
+    param_1 = va_arg(p_args,int);
+    va_end(p_args);
+    len  = atgm_read(bds_dev,buff,param_1);
+
+    if(len > 0)
+      shellPrint(&shell,buff,len);
+    memset(buff,0,300);
+  }
+}
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+bds_test, BDS_Test, bde_dev test);
 
 /* USER CODE END 4 */
 

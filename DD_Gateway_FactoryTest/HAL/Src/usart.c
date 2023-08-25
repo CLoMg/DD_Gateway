@@ -23,6 +23,7 @@
 
 /* USER CODE BEGIN 0 */
 uint8_t u1_cache = 0;
+uint8_t u2_cache[400];
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -72,11 +73,11 @@ void MX_USART2_UART_Init(void)
 
   /* USER CODE END USART2_Init 1 */
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 115200;
+  huart2.Init.BaudRate = 9600;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
-  huart2.Init.Mode = UART_MODE_TX_RX;
+  huart2.Init.Mode = UART_MODE_RX;
   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
@@ -86,7 +87,7 @@ void MX_USART2_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART2_Init 2 */
-
+  HAL_UARTEx_ReceiveToIdle_IT(&huart2,u2_cache,400);
   /* USER CODE END USART2_Init 2 */
 
 }
@@ -183,10 +184,10 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
 
     __HAL_RCC_GPIOA_CLK_ENABLE();
     /**USART2 GPIO Configuration
-    PA2     ------> USART2_TX
+    //PA2     ------> USART2_TX
     PA3     ------> USART2_RX
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3;
+    GPIO_InitStruct.Pin = GPIO_PIN_3;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -308,11 +309,41 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
 
+
   if(UartHandle->Instance == USART3){
      shellHandler(&shell,u1_cache);
      HAL_UART_Receive_IT(&huart3,(uint8_t *)&u1_cache,1);
   }
 
 }
+
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *UartHandle,uint16_t Size){
+  if(UartHandle->Instance == USART2){
+     atgm_handler(UartHandle,u2_cache,Size);
+     memset(u2_cache,0,Size);
+     HAL_UARTEx_ReceiveToIdle_IT(&huart2,u2_cache,400);
+  }
+}
+
+/**
+  * @brief  UART error callbacks.
+  * @param  huart  Pointer to a UART_HandleTypeDef structure that contains
+  *                the configuration information for the specified UART module.
+  * @retval None
+  */
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+  /* Prevent unused argument(s) compilation warning */
+  HAL_StatusTypeDef Err;
+	if(huart->Instance == USART2){
+		//__HAL_UNLOCK(&huart1);
+		Err = HAL_UARTEx_ReceiveToIdle_IT(&huart2,u2_cache,400);
+	}
+	
+  /* NOTE: This function should not be modified, when the callback is needed,
+           the HAL_UART_ErrorCallback could be implemented in the user file
+   */
+}
+
 
 /* USER CODE END 1 */

@@ -1,4 +1,4 @@
-build/main.o: Core/Src/main.c Core/Inc/main.h \
+build/ATGM332D.o: FML/Src/ATGM332D.c FML/Inc/ATGM332D.h Core/Inc/main.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  Core/Inc/stm32l4xx_hal_conf.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -29,12 +29,11 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
- Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h FML/Inc/led.h \
- HAL/Inc/adc.h HAL/Inc/spi.h HAL/Inc/usart.h HAL/Inc/gpio.h \
+ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h HAL/Inc/usart.h \
  ThirdParty/Letter-shell/Inc/shell_port.h \
  ThirdParty/Letter-shell/Inc/shell.h \
- ThirdParty/Letter-shell/Inc/shell_cfg.h FML/Inc/rs485.h FML/Inc/W25QXX.h \
- FML/Inc/ATGM332D.h
+ ThirdParty/Letter-shell/Inc/shell_cfg.h
+FML/Inc/ATGM332D.h:
 Core/Inc/main.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 Core/Inc/stm32l4xx_hal_conf.h:
@@ -69,14 +68,7 @@ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-FML/Inc/led.h:
-HAL/Inc/adc.h:
-HAL/Inc/spi.h:
 HAL/Inc/usart.h:
-HAL/Inc/gpio.h:
 ThirdParty/Letter-shell/Inc/shell_port.h:
 ThirdParty/Letter-shell/Inc/shell.h:
 ThirdParty/Letter-shell/Inc/shell_cfg.h:
-FML/Inc/rs485.h:
-FML/Inc/W25QXX.h:
-FML/Inc/ATGM332D.h:
