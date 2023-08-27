@@ -65,9 +65,9 @@ Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex.c \
 Core/Src/system_stm32l4xx.c \
 ThirdParty/Letter-shell/Src/shell_cmd_list.c \
 ThirdParty/Letter-shell/Src/shell_companion.c \
-ThirdParty\Letter-shell\Src\shell_ext.c \
-ThirdParty\Letter-shell\Src\shell_port.c \
-ThirdParty\Letter-shell\Src\shell.c \
+ThirdParty/Letter-shell/Src/shell_ext.c \
+ThirdParty/Letter-shell/Src/shell_port.c \
+ThirdParty/Letter-shell\Src/shell.c \
 HAL/Src/gpio.c \
 HAL/Src/adc.c \
 HAL/Src/spi.c \

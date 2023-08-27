@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccDuTufp.s 			page 1
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,16 +19,16 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccDuTufp.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.User_Shell_Write,"ax",%progbits
-  20              		.align	1
-  21              		.global	User_Shell_Write
-  22              		.syntax unified
-  23              		.thumb
-  24              		.thumb_func
-  26              	User_Shell_Write:
-  27              	.LVL0:
-  28              	.LFB288:
-  29              		.file 1 "ThirdParty/Letter-shell/Src/shell_port.c"
+  19              		.file 1 "ThirdParty/Letter-shell/Src/shell_port.c"
+  20              		.section	.text.User_Shell_Write,"ax",%progbits
+  21              		.align	1
+  22              		.global	User_Shell_Write
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	User_Shell_Write:
+  28              	.LVL0:
+  29              	.LFB288:
    1:ThirdParty/Letter-shell/Src/shell_port.c **** /**
    2:ThirdParty/Letter-shell/Src/shell_port.c ****  * @brief shell移植到STM32L431时的接口实现
    3:ThirdParty/Letter-shell/Src/shell_port.c ****  * @author mculover666
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccDuTufp.s 			page 1
   34              		.loc 1 22 1 is_stmt 0 view .LVU1
   35 0000 08B5     		push	{r3, lr}
   36              	.LCFI0:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccDuTufp.s 			page 2
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s 			page 2
 
 
   37              		.cfi_def_cfa_offset 8
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccDuTufp.s 			page 1
   35:ThirdParty/Letter-shell/Src/shell_port.c ****     shell.write = User_Shell_Write;
   81              		.loc 1 35 5 view .LVU9
   82              		.loc 1 35 17 is_stmt 0 view .LVU10
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccDuTufp.s 			page 3
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s 			page 3
 
 
   83 0002 0448     		ldr	r0, .L7
@@ -138,57 +138,55 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccDuTufp.s 			page 1
   93              	.L8:
   94              		.align	2
   95              	.L7:
-  96 0014 00000000 		.word	.LANCHOR0
+  96 0014 00000000 		.word	shell
   97 0018 00000000 		.word	User_Shell_Write
-  98 001c 00000000 		.word	.LANCHOR1
+  98 001c 00000000 		.word	shell_buffer
   99              		.cfi_endproc
  100              	.LFE289:
  102              		.global	shell_buffer
- 103              		.global	shell
- 104              		.section	.bss.shell,"aw",%nobits
- 105              		.align	2
- 106              		.set	.LANCHOR0,. + 0
- 109              	shell:
- 110 0000 00000000 		.space	108
- 110      00000000 
- 110      00000000 
- 110      00000000 
- 110      00000000 
- 111              		.section	.bss.shell_buffer,"aw",%nobits
- 112              		.align	2
- 113              		.set	.LANCHOR1,. + 0
- 116              	shell_buffer:
- 117 0000 00000000 		.space	512
- 117      00000000 
- 117      00000000 
- 117      00000000 
- 117      00000000 
- 118              		.text
- 119              	.Letext0:
- 120              		.file 2 "ThirdParty/Letter-shell/Inc/shell.h"
- 121              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 122              		.file 4 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 123              		.file 5 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 124              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 125              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 126              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
- 127              		.file 9 "FML/Inc/rs485.h"
- 128              		.file 10 "ThirdParty/Letter-shell/Inc/shell_port.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccDuTufp.s 			page 4
+ 103              		.section	.bss.shell_buffer,"aw",%nobits
+ 104              		.align	2
+ 107              	shell_buffer:
+ 108 0000 00000000 		.space	512
+ 108      00000000 
+ 108      00000000 
+ 108      00000000 
+ 108      00000000 
+ 109              		.global	shell
+ 110              		.section	.bss.shell,"aw",%nobits
+ 111              		.align	2
+ 114              	shell:
+ 115 0000 00000000 		.space	108
+ 115      00000000 
+ 115      00000000 
+ 115      00000000 
+ 115      00000000 
+ 116              		.text
+ 117              	.Letext0:
+ 118              		.file 2 "ThirdParty/Letter-shell/Inc/shell.h"
+ 119              		.file 3 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
+ 120              		.file 4 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+ 121              		.file 5 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 122              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 123              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 124              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 125              		.file 9 "FML/Inc/rs485.h"
+ 126              		.file 10 "ThirdParty/Letter-shell/Inc/shell_port.h"
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 shell_port.c
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:20     .text.User_Shell_Write:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:26     .text.User_Shell_Write:00000000 User_Shell_Write
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:59     .text.User_Shell_Write:00000010 $d
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:64     .text.User_Shell_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:70     .text.User_Shell_Init:00000000 User_Shell_Init
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:96     .text.User_Shell_Init:00000014 $d
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:116    .bss.shell_buffer:00000000 shell_buffer
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:109    .bss.shell:00000000 shell
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:105    .bss.shell:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccDuTufp.s:112    .bss.shell_buffer:00000000 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:21     .text.User_Shell_Write:00000000 $t
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:27     .text.User_Shell_Write:00000000 User_Shell_Write
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:59     .text.User_Shell_Write:00000010 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:64     .text.User_Shell_Init:00000000 $t
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:70     .text.User_Shell_Init:00000000 User_Shell_Init
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:96     .text.User_Shell_Init:00000014 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:114    .bss.shell:00000000 shell
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:107    .bss.shell_buffer:00000000 shell_buffer
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:104    .bss.shell_buffer:00000000 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//cc1j0DkB.s:111    .bss.shell:00000000 $d
 
 UNDEFINED SYMBOLS
 RS485_SendData
