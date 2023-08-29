@@ -74,7 +74,7 @@ void timer_update(void){
  * @brief 定时事件列表插入函数（尾插法）
  * 
  * @param timeout 定时时间
- * @param timeout 重入次数，-1 为无限循环，0为不可重入，正整数为重入次数
+ * @param cycles 重入次数，-1 为无限循环，0为不可重入，正整数为重入次数（总的运行事件为cycles+1(cycles ≥ 0) 次）
  * @param func 回调函数
  */
 void timer_insert(uint32_t timeout,int8_t cycles,void *func,void *param){

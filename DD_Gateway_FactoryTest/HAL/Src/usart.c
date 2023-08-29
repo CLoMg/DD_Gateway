@@ -22,8 +22,9 @@
 #include "shell_port.h"
 
 /* USER CODE BEGIN 0 */
-uint8_t u1_cache = 0;
+uint8_t u1_cache[300];
 uint8_t u2_cache[400];
+uint8_t u3_cache = 0;
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -57,6 +58,7 @@ void MX_USART1_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART1_Init 2 */
+   HAL_UARTEx_ReceiveToIdle_IT(&huart1,u1_cache,300);
   /* USER CODE END USART1_Init 2 */
 
 }
@@ -118,7 +120,7 @@ void MX_USART3_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART3_Init 2 */
-  HAL_UART_Receive_IT(&huart3,(uint8_t *)&u1_cache,1);
+  HAL_UART_Receive_IT(&huart3,(uint8_t *)&u3_cache,1);
   /* USER CODE END USART3_Init 2 */
 
 }
@@ -311,18 +313,25 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 
 
   if(UartHandle->Instance == USART3){
-     shellHandler(&shell,u1_cache);
-     HAL_UART_Receive_IT(&huart3,(uint8_t *)&u1_cache,1);
+     shellHandler(&shell,u3_cache);
+     HAL_UART_Receive_IT(&huart3,(uint8_t *)&u3_cache,1);
   }
 
 }
 
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *UartHandle,uint16_t Size){
-  if(UartHandle->Instance == USART2){
+  if(UartHandle->Instance == USART1){
+     //HAL_UART_Transmit_IT(&huart3,u1_cache,Size);
+     ec2x_handler(UartHandle,u1_cache,Size);
+     memset(u1_cache,0,Size);
+     HAL_UARTEx_ReceiveToIdle_IT(&huart1,u1_cache,300);
+  }
+  else if(UartHandle->Instance == USART2){
      atgm_handler(UartHandle,u2_cache,Size);
      memset(u2_cache,0,Size);
      HAL_UARTEx_ReceiveToIdle_IT(&huart2,u2_cache,400);
   }
+  else;
 }
 
 /**
@@ -338,6 +347,10 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 	if(huart->Instance == USART2){
 		//__HAL_UNLOCK(&huart1);
 		Err = HAL_UARTEx_ReceiveToIdle_IT(&huart2,u2_cache,400);
+	}
+  else if (huart->Instance == USART1){
+		//__HAL_UNLOCK(&huart1);
+		Err = HAL_UARTEx_ReceiveToIdle_IT(&huart1,u1_cache,300);
 	}
 	
   /* NOTE: This function should not be modified, when the callback is needed,

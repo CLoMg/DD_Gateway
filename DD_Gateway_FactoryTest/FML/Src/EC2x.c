@@ -17,6 +17,9 @@
 /*----------------------------------include-----------------------------------*/
 #include "EC2x.h"
 #include "usart.h"
+#include "timer.h"
+#include "shell_port.h"
+#include <stdio.h>
 /*-----------------------------------macro------------------------------------*/
 #define BUFF_LEN 300
 /*----------------------------------typedef-----------------------------------*/
@@ -30,6 +33,8 @@ EC2x_HandleTypeDef ec2x_dev[]=
     {
         "uart1/ec200s",
         &huart1,
+        GPIOA,
+        GPIO_PIN_12,
         GPIOA,
         GPIO_PIN_8,
         GPIOA,
@@ -71,11 +76,20 @@ void ec2x_io_init(EC2x_HandleTypeDef *device)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(device->wake_port, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = device->pwren_pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(device->pwren_port, &GPIO_InitStruct);
     
     
     // 初始化复位引脚为高电平
     HAL_GPIO_WritePin(device->reset_port, device->reset_pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(device->wake_port, device->wake_pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_SET);
+    HAL_Delay(1000);
+    HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
 }
 /**
  * @brief 设备文件open函数
@@ -160,7 +174,7 @@ int ec2x_read(int fd,uint8_t *rx_buff,uint16_t len){
                 len = src->size;
             for(j = 0 ; j < len; j++){
                 dest[j] = src->data[src->head];
-                src->head = (src->head + j) % src->capacity;
+                src->head = (src->head + 1) % src->capacity;
                 src->size--;
             }
             src->block = 0;
@@ -180,7 +194,7 @@ int ec2x_ioctl(int fd);
 void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
 {
     uint8_t i = 0,j = 0;
-    //shellPrint(&shell,"%s",data);
+    shellPrint(&shell,"%s",data);
     for(i = 0;i < sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef);i++)
     {
         if(huart == ec2x_dev[i].huart)
@@ -189,8 +203,9 @@ void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
             if(dest->block  == 0){
                 dest->block = 1;
                 for(j = 0 ; j < len; j++){
+                   
                     dest->data[dest->tail] = data[j];
-                    dest->tail = (dest->tail +j) % dest->capacity;
+                    dest->tail = (dest->tail +1) % dest->capacity;
                     dest->size++;
                     dest->size = dest->size > dest->capacity ? dest->capacity : dest->size;
                 }
@@ -202,14 +217,54 @@ void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
     }
 }
 
+static uint8_t timeout_cnt = 0;
+void ec2x_timeout_handle(void){
+    shellPrint(&shell,"no valid data\r\n");
+}
+
+int ec2x_replymatch(char* expect){
+    uint8_t rx_buff[300]  = {0x00};
+    int bytes_num = 0;
+    bytes_num =  ec2x_read(0,rx_buff,300);
+    if(bytes_num > 0)
+    {
+        if(strstr(rx_buff,expect) != NULL){
+            shellPrint(&shell,"recv success");
+            return 1;
+        }
+    }
+    
+    if(timeout_cnt == 0)
+        ec2x_timeout_handle(); 
+    else
+        timeout_cnt--;
+    return 0;
+}
+
 void ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uint16_t timeout)
 {
     ec2x_write(fd,tx_buff,len);
-
+    ec2x_waitreply(expect_reply,timeout);
 }
 
-
+void ec2x_waitreply(uint8_t *expect,uint16_t timeout){
+    timeout_cnt = timeout / 100;
+    timer_insert(100,timeout_cnt,ec2x_replymatch,expect);
+}
 /*------------------------------------test------------------------------------*/
 
+void EC2x_Test(int fd,char *tx_buff,char *expect_reply,uint16_t timeout)
+{
+    uint8_t *tx_data,len=0;
+    len = strlen(tx_buff);
+    tx_data = (char *)malloc((len+2)*sizeof(uint8_t));
+    memcpy(tx_data,tx_buff,len);
+    tx_data[len] = 0x0D;
+    tx_data[len+1] = 0x0A;
+    ec2x_cmd_send(fd, tx_data,len+2, expect_reply,timeout);
+}
 
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+ec2x_cmd_send, EC2x_Test, ec2x test);
 

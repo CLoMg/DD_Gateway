@@ -27,6 +27,8 @@ typedef struct EC2x
     /* data */
     char dev_name[15];
     UART_HandleTypeDef *huart;
+    GPIO_TypeDef *pwren_port; // 复位控制引脚所在的GPIO
+    uint16_t pwren_pin; // 复位控制引脚 
     GPIO_TypeDef *reset_port; // 复位控制引脚所在的GPIO
     uint16_t reset_pin; // 复位控制引脚 
     GPIO_TypeDef *wake_port; // 休眠控制引脚所在的GPIO
@@ -39,8 +41,8 @@ typedef struct EC2x
 /*-------------------------------------os-------------------------------------*/
 
 /*----------------------------------function----------------------------------*/
-int atgm_read(int fd,uint8_t *buff,...);
-int atgm_open(char *dev_name);
+int ec2x_open(char *dev_name);
+void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len);
 
 /*------------------------------------test------------------------------------*/
 

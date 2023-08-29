@@ -35,6 +35,7 @@
 #include "rs485.h"
 #include "W25QXX.h"
 #include "ATGM332D.h"
+#include "EC2x.h"
 
 /* USER CODE END Includes */
 
@@ -110,6 +111,7 @@ int main(void)
   User_Shell_Init();
   BSP_W25Qx_Init();
   bds_dev = atgm_open("uart2/bds_0");
+  ec2x_open("uart1/ec200s");
   timer_insert(1000,-1,LED_Toggle,&dev_led[0]);
   timer_insert(1000,10,LED_Toggle,&dev_led[1]);
   /* USER CODE END 2 */
