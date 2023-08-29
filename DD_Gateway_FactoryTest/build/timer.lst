@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,13 +19,13 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.timer_update,"ax",%progbits
+  19              		.section	.text.timer_init,"ax",%progbits
   20              		.align	1
-  21              		.global	timer_update
+  21              		.global	timer_init
   22              		.syntax unified
   23              		.thumb
   24              		.thumb_func
-  26              	timer_update:
+  26              	timer_init:
   27              	.LFB288:
   28              		.file 1 "HAL/Src/timer.c"
    1:HAL/Src/timer.c **** /**
@@ -57,132 +57,420 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 1
   27:HAL/Src/timer.c **** 
   28:HAL/Src/timer.c **** /*----------------------------------function----------------------------------*/
   29:HAL/Src/timer.c **** /**
-  30:HAL/Src/timer.c ****  * @brief 定时器更新函数
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 2
+  30:HAL/Src/timer.c ****  * @brief 定时列表初始化函数
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s 			page 2
 
 
-  31:HAL/Src/timer.c ****  *        需要将此函数作为定时触发中断的回调函数，定时更新base_tick
-  32:HAL/Src/timer.c ****  *        每次更新后比较链表中是否有定时到达，触发对应回调函数
-  33:HAL/Src/timer.c ****  * 
-  34:HAL/Src/timer.c ****  */
-  35:HAL/Src/timer.c **** void timer_update(void){
-  29              		.loc 1 35 24 view -0
+  31:HAL/Src/timer.c ****  * 
+  32:HAL/Src/timer.c ****  */
+  33:HAL/Src/timer.c **** void timer_init(void){
+  29              		.loc 1 33 22 view -0
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33 0000 10B5     		push	{r4, lr}
+  33 0000 08B5     		push	{r3, lr}
   34              	.LCFI0:
   35              		.cfi_def_cfa_offset 8
-  36              		.cfi_offset 4, -8
+  36              		.cfi_offset 3, -8
   37              		.cfi_offset 14, -4
-  36:HAL/Src/timer.c ****     base_tick++;
-  38              		.loc 1 36 5 view .LVU1
-  39              		.loc 1 36 14 is_stmt 0 view .LVU2
-  40 0002 0B4A     		ldr	r2, .L7
-  41 0004 1368     		ldr	r3, [r2]
-  42 0006 0133     		adds	r3, r3, #1
-  43 0008 1360     		str	r3, [r2]
-  37:HAL/Src/timer.c ****     Timer_HandleTypeDef *p  = timer_list, *q = NULL;
-  44              		.loc 1 37 5 is_stmt 1 view .LVU3
-  45              		.loc 1 37 26 is_stmt 0 view .LVU4
-  46 000a 0A4B     		ldr	r3, .L7+4
-  47 000c 1C68     		ldr	r4, [r3]
-  48              	.LVL0:
-  38:HAL/Src/timer.c ****     while(p->next !=NULL){
-  49              		.loc 1 38 5 is_stmt 1 view .LVU5
-  50              	.L3:
-  51              		.loc 1 38 10 view .LVU6
-  52              		.loc 1 38 12 is_stmt 0 view .LVU7
-  53 000e A368     		ldr	r3, [r4, #8]
-  54              		.loc 1 38 10 view .LVU8
-  55 0010 63B1     		cbz	r3, .L6
-  39:HAL/Src/timer.c ****         if(p->next->triggle_tick <= base_tick){
-  56              		.loc 1 39 9 is_stmt 1 view .LVU9
-  57              		.loc 1 39 19 is_stmt 0 view .LVU10
-  58 0012 1968     		ldr	r1, [r3]
-  59              		.loc 1 39 34 view .LVU11
-  60 0014 064A     		ldr	r2, .L7
-  61 0016 1268     		ldr	r2, [r2]
-  62              		.loc 1 39 11 view .LVU12
-  63 0018 9142     		cmp	r1, r2
-  64 001a F8D8     		bhi	.L3
-  65              	.LBB2:
-  40:HAL/Src/timer.c ****             //执行回调函数，回调函数要求时间尽可能短
-  41:HAL/Src/timer.c ****             p->next->func();
-  66              		.loc 1 41 13 is_stmt 1 view .LVU13
-  67              		.loc 1 41 20 is_stmt 0 view .LVU14
-  68 001c 5B68     		ldr	r3, [r3, #4]
-  69              		.loc 1 41 13 view .LVU15
-  70 001e 9847     		blx	r3
-  71              	.LVL1:
-  42:HAL/Src/timer.c ****             q = p->next;  
-  72              		.loc 1 42 13 is_stmt 1 view .LVU16
-  73              		.loc 1 42 15 is_stmt 0 view .LVU17
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 3
+  34:HAL/Src/timer.c ****     timer_list = (Timer_HandleTypeDef *)malloc(sizeof(Timer_HandleTypeDef));
+  38              		.loc 1 34 5 view .LVU1
+  39              		.loc 1 34 41 is_stmt 0 view .LVU2
+  40 0002 1820     		movs	r0, #24
+  41 0004 FFF7FEFF 		bl	malloc
+  42              	.LVL0:
+  43              		.loc 1 34 16 view .LVU3
+  44 0008 024B     		ldr	r3, .L3
+  45 000a 1860     		str	r0, [r3]
+  35:HAL/Src/timer.c ****     timer_list->next = NULL;
+  46              		.loc 1 35 5 is_stmt 1 view .LVU4
+  47              		.loc 1 35 22 is_stmt 0 view .LVU5
+  48 000c 0023     		movs	r3, #0
+  49 000e 4361     		str	r3, [r0, #20]
+  36:HAL/Src/timer.c **** }
+  50              		.loc 1 36 1 view .LVU6
+  51 0010 08BD     		pop	{r3, pc}
+  52              	.L4:
+  53 0012 00BF     		.align	2
+  54              	.L3:
+  55 0014 00000000 		.word	.LANCHOR0
+  56              		.cfi_endproc
+  57              	.LFE288:
+  59              		.section	.text.timer_update,"ax",%progbits
+  60              		.align	1
+  61              		.global	timer_update
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  66              	timer_update:
+  67              	.LFB289:
+  37:HAL/Src/timer.c **** /**
+  38:HAL/Src/timer.c ****  * @brief 定时器更新函数
+  39:HAL/Src/timer.c ****  *        需要将此函数作为定时触发中断的回调函数，定时更新base_tick
+  40:HAL/Src/timer.c ****  *        每次更新后比较链表中是否有定时到达，触发对应回调函数
+  41:HAL/Src/timer.c ****  * 
+  42:HAL/Src/timer.c ****  */
+  43:HAL/Src/timer.c **** void timer_update(void){
+  68              		.loc 1 43 24 is_stmt 1 view -0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72 0000 10B5     		push	{r4, lr}
+  73              	.LCFI1:
+  74              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s 			page 3
 
 
-  74 0020 A068     		ldr	r0, [r4, #8]
-  75              	.LVL2:
-  43:HAL/Src/timer.c ****             p->next = q->next;
-  76              		.loc 1 43 13 is_stmt 1 view .LVU18
-  77              		.loc 1 43 24 is_stmt 0 view .LVU19
-  78 0022 8368     		ldr	r3, [r0, #8]
-  79              		.loc 1 43 21 view .LVU20
-  80 0024 A360     		str	r3, [r4, #8]
-  44:HAL/Src/timer.c ****             free(q);
-  81              		.loc 1 44 13 is_stmt 1 view .LVU21
-  82 0026 FFF7FEFF 		bl	free
-  83              	.LVL3:
-  45:HAL/Src/timer.c ****             q = NULL;
-  84              		.loc 1 45 13 view .LVU22
-  85              		.loc 1 45 13 is_stmt 0 view .LVU23
-  86 002a F0E7     		b	.L3
-  87              	.L6:
-  88              	.LBE2:
-  46:HAL/Src/timer.c ****         }
-  47:HAL/Src/timer.c ****     }
-  48:HAL/Src/timer.c **** }
-  89              		.loc 1 48 1 view .LVU24
-  90 002c 10BD     		pop	{r4, pc}
-  91              	.LVL4:
-  92              	.L8:
-  93              		.loc 1 48 1 view .LVU25
-  94 002e 00BF     		.align	2
-  95              	.L7:
-  96 0030 00000000 		.word	.LANCHOR0
-  97 0034 00000000 		.word	.LANCHOR1
-  98              		.cfi_endproc
-  99              	.LFE288:
- 101              		.global	timer_list
- 102              		.global	base_tick
- 103              		.section	.bss.base_tick,"aw",%nobits
- 104              		.align	2
- 105              		.set	.LANCHOR0,. + 0
- 108              	base_tick:
- 109 0000 00000000 		.space	4
- 110              		.section	.bss.timer_list,"aw",%nobits
- 111              		.align	2
- 112              		.set	.LANCHOR1,. + 0
- 115              	timer_list:
- 116 0000 00000000 		.space	4
- 117              		.text
- 118              	.Letext0:
- 119              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 120              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 121              		.file 4 "HAL/Inc/timer.h"
- 122              		.file 5 "<built-in>"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 4
+  75              		.cfi_offset 4, -8
+  76              		.cfi_offset 14, -4
+  44:HAL/Src/timer.c ****     base_tick++;
+  77              		.loc 1 44 5 view .LVU8
+  78              		.loc 1 44 14 is_stmt 0 view .LVU9
+  79 0002 1A4A     		ldr	r2, .L19
+  80 0004 1368     		ldr	r3, [r2]
+  81 0006 0133     		adds	r3, r3, #1
+  82 0008 1360     		str	r3, [r2]
+  45:HAL/Src/timer.c ****     Timer_HandleTypeDef *p  = timer_list, *q = NULL;
+  83              		.loc 1 45 5 is_stmt 1 view .LVU10
+  84              		.loc 1 45 26 is_stmt 0 view .LVU11
+  85 000a 194B     		ldr	r3, .L19+4
+  86 000c 1B68     		ldr	r3, [r3]
+  87              	.LVL1:
+  46:HAL/Src/timer.c ****     while(p->next !=NULL){
+  88              		.loc 1 46 5 is_stmt 1 view .LVU12
+  89              		.loc 1 46 10 is_stmt 0 view .LVU13
+  90 000e 04E0     		b	.L9
+  91              	.LVL2:
+  92              	.L7:
+  93              	.LBB2:
+  47:HAL/Src/timer.c ****         uint32_t err_tick;
+  48:HAL/Src/timer.c ****         err_tick = base_tick > p->next->init_tick ?  (base_tick - p->next->init_tick) :  (0xFFFFFFF
+  94              		.loc 1 48 123 discriminator 2 view .LVU14
+  95 0010 521A     		subs	r2, r2, r1
+  96              		.loc 1 48 87 discriminator 2 view .LVU15
+  97 0012 013A     		subs	r2, r2, #1
+  98              	.L8:
+  99              	.LVL3:
+  49:HAL/Src/timer.c ****         if(err_tick >= p->next->timeout){
+ 100              		.loc 1 49 9 is_stmt 1 discriminator 4 view .LVU16
+ 101              		.loc 1 49 31 is_stmt 0 discriminator 4 view .LVU17
+ 102 0014 5968     		ldr	r1, [r3, #4]
+ 103              		.loc 1 49 11 discriminator 4 view .LVU18
+ 104 0016 9142     		cmp	r1, r2
+ 105 0018 09D9     		bls	.L15
+ 106              	.LVL4:
+ 107              	.L9:
+ 108              		.loc 1 49 11 discriminator 4 view .LVU19
+ 109              	.LBE2:
+  46:HAL/Src/timer.c ****     while(p->next !=NULL){
+ 110              		.loc 1 46 10 is_stmt 1 view .LVU20
+ 111 001a 1C46     		mov	r4, r3
+  46:HAL/Src/timer.c ****     while(p->next !=NULL){
+ 112              		.loc 1 46 12 is_stmt 0 view .LVU21
+ 113 001c 5B69     		ldr	r3, [r3, #20]
+ 114              	.LVL5:
+  46:HAL/Src/timer.c ****     while(p->next !=NULL){
+ 115              		.loc 1 46 10 view .LVU22
+ 116 001e 1BB3     		cbz	r3, .L16
+ 117              	.LBB4:
+  47:HAL/Src/timer.c ****         uint32_t err_tick;
+ 118              		.loc 1 47 9 is_stmt 1 view .LVU23
+  48:HAL/Src/timer.c ****         if(err_tick >= p->next->timeout){
+ 119              		.loc 1 48 9 view .LVU24
+  48:HAL/Src/timer.c ****         if(err_tick >= p->next->timeout){
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s 			page 4
+
+
+ 120              		.loc 1 48 39 is_stmt 0 view .LVU25
+ 121 0020 1968     		ldr	r1, [r3]
+  48:HAL/Src/timer.c ****         if(err_tick >= p->next->timeout){
+ 122              		.loc 1 48 30 view .LVU26
+ 123 0022 124A     		ldr	r2, .L19
+ 124 0024 1268     		ldr	r2, [r2]
+  48:HAL/Src/timer.c ****         if(err_tick >= p->next->timeout){
+ 125              		.loc 1 48 87 view .LVU27
+ 126 0026 9142     		cmp	r1, r2
+ 127 0028 F2D2     		bcs	.L7
+  48:HAL/Src/timer.c ****         if(err_tick >= p->next->timeout){
+ 128              		.loc 1 48 87 discriminator 1 view .LVU28
+ 129 002a 521A     		subs	r2, r2, r1
+ 130 002c F2E7     		b	.L8
+ 131              	.LVL6:
+ 132              	.L15:
+  50:HAL/Src/timer.c ****             //执行回调函数，回调函数要求时间尽可能短
+  51:HAL/Src/timer.c ****             p->next->func(p->next->param);
+ 133              		.loc 1 51 13 is_stmt 1 view .LVU29
+ 134              		.loc 1 51 20 is_stmt 0 view .LVU30
+ 135 002e DA68     		ldr	r2, [r3, #12]
+ 136              	.LVL7:
+ 137              		.loc 1 51 13 view .LVU31
+ 138 0030 1869     		ldr	r0, [r3, #16]
+ 139 0032 9047     		blx	r2
+ 140              	.LVL8:
+  52:HAL/Src/timer.c ****             if(p->next->reenter_times == 0){
+ 141              		.loc 1 52 13 is_stmt 1 view .LVU32
+ 142              		.loc 1 52 17 is_stmt 0 view .LVU33
+ 143 0034 6069     		ldr	r0, [r4, #20]
+ 144              		.loc 1 52 23 view .LVU34
+ 145 0036 90F90830 		ldrsb	r3, [r0, #8]
+ 146              		.loc 1 52 15 view .LVU35
+ 147 003a 53B1     		cbz	r3, .L17
+  53:HAL/Src/timer.c ****                 q = p->next;  
+  54:HAL/Src/timer.c ****                 p->next = q->next;
+  55:HAL/Src/timer.c ****                 free(q);
+  56:HAL/Src/timer.c ****                 q = NULL;
+  57:HAL/Src/timer.c ****             }
+  58:HAL/Src/timer.c ****             else if(p->next->reenter_times == -1){
+ 148              		.loc 1 58 18 is_stmt 1 view .LVU36
+ 149              		.loc 1 58 20 is_stmt 0 view .LVU37
+ 150 003c B3F1FF3F 		cmp	r3, #-1
+ 151 0040 0DD0     		beq	.L18
+  59:HAL/Src/timer.c ****                 p->next->init_tick = base_tick;
+  60:HAL/Src/timer.c ****                 p = p->next;
+  61:HAL/Src/timer.c ****             }
+  62:HAL/Src/timer.c ****             else{
+  63:HAL/Src/timer.c ****                 p->next->reenter_times--;
+ 152              		.loc 1 63 17 is_stmt 1 view .LVU38
+ 153              		.loc 1 63 39 is_stmt 0 view .LVU39
+ 154 0042 013B     		subs	r3, r3, #1
+ 155 0044 0372     		strb	r3, [r0, #8]
+  64:HAL/Src/timer.c ****                 p->next->init_tick = base_tick;
+ 156              		.loc 1 64 17 is_stmt 1 view .LVU40
+ 157              		.loc 1 64 18 is_stmt 0 view .LVU41
+ 158 0046 6369     		ldr	r3, [r4, #20]
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s 			page 5
+
+
+ 159              		.loc 1 64 36 view .LVU42
+ 160 0048 084A     		ldr	r2, .L19
+ 161 004a 1268     		ldr	r2, [r2]
+ 162 004c 1A60     		str	r2, [r3]
+  65:HAL/Src/timer.c ****                 p = p->next;
+ 163              		.loc 1 65 17 is_stmt 1 view .LVU43
+ 164              		.loc 1 65 19 is_stmt 0 view .LVU44
+ 165 004e 6369     		ldr	r3, [r4, #20]
+ 166              	.LVL9:
+ 167              		.loc 1 65 19 view .LVU45
+ 168 0050 E3E7     		b	.L9
+ 169              	.LVL10:
+ 170              	.L17:
+ 171              	.LBB3:
+  53:HAL/Src/timer.c ****                 p->next = q->next;
+ 172              		.loc 1 53 17 is_stmt 1 view .LVU46
+  54:HAL/Src/timer.c ****                 free(q);
+ 173              		.loc 1 54 17 view .LVU47
+  54:HAL/Src/timer.c ****                 free(q);
+ 174              		.loc 1 54 28 is_stmt 0 view .LVU48
+ 175 0052 4369     		ldr	r3, [r0, #20]
+  54:HAL/Src/timer.c ****                 free(q);
+ 176              		.loc 1 54 25 view .LVU49
+ 177 0054 6361     		str	r3, [r4, #20]
+  55:HAL/Src/timer.c ****                 q = NULL;
+ 178              		.loc 1 55 17 is_stmt 1 view .LVU50
+ 179 0056 FFF7FEFF 		bl	free
+ 180              	.LVL11:
+  56:HAL/Src/timer.c ****             }
+ 181              		.loc 1 56 17 view .LVU51
+  56:HAL/Src/timer.c ****             }
+ 182              		.loc 1 56 17 is_stmt 0 view .LVU52
+ 183              	.LBE3:
+ 184 005a 2346     		mov	r3, r4
+ 185 005c DDE7     		b	.L9
+ 186              	.L18:
+  59:HAL/Src/timer.c ****                 p = p->next;
+ 187              		.loc 1 59 17 is_stmt 1 view .LVU53
+  59:HAL/Src/timer.c ****                 p = p->next;
+ 188              		.loc 1 59 36 is_stmt 0 view .LVU54
+ 189 005e 034B     		ldr	r3, .L19
+ 190 0060 1B68     		ldr	r3, [r3]
+ 191 0062 0360     		str	r3, [r0]
+  60:HAL/Src/timer.c ****             }
+ 192              		.loc 1 60 17 is_stmt 1 view .LVU55
+  60:HAL/Src/timer.c ****             }
+ 193              		.loc 1 60 19 is_stmt 0 view .LVU56
+ 194 0064 6369     		ldr	r3, [r4, #20]
+ 195              	.LVL12:
+  60:HAL/Src/timer.c ****             }
+ 196              		.loc 1 60 19 view .LVU57
+ 197 0066 D8E7     		b	.L9
+ 198              	.LVL13:
+ 199              	.L16:
+  60:HAL/Src/timer.c ****             }
+ 200              		.loc 1 60 19 view .LVU58
+ 201              	.LBE4:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s 			page 6
+
+
+  66:HAL/Src/timer.c ****             }
+  67:HAL/Src/timer.c ****         }
+  68:HAL/Src/timer.c ****         else
+  69:HAL/Src/timer.c ****             p = p->next;
+  70:HAL/Src/timer.c ****     }
+  71:HAL/Src/timer.c **** }
+ 202              		.loc 1 71 1 view .LVU59
+ 203 0068 10BD     		pop	{r4, pc}
+ 204              	.LVL14:
+ 205              	.L20:
+ 206              		.loc 1 71 1 view .LVU60
+ 207 006a 00BF     		.align	2
+ 208              	.L19:
+ 209 006c 00000000 		.word	.LANCHOR1
+ 210 0070 00000000 		.word	.LANCHOR0
+ 211              		.cfi_endproc
+ 212              	.LFE289:
+ 214              		.section	.text.timer_insert,"ax",%progbits
+ 215              		.align	1
+ 216              		.global	timer_insert
+ 217              		.syntax unified
+ 218              		.thumb
+ 219              		.thumb_func
+ 221              	timer_insert:
+ 222              	.LVL15:
+ 223              	.LFB290:
+  72:HAL/Src/timer.c **** 
+  73:HAL/Src/timer.c **** /**
+  74:HAL/Src/timer.c ****  * @brief 定时事件列表插入函数（尾插法）
+  75:HAL/Src/timer.c ****  * 
+  76:HAL/Src/timer.c ****  * @param timeout 定时时间
+  77:HAL/Src/timer.c ****  * @param timeout 重入次数，-1 为无限循环，0为不可重入，正整数为重入次数
+  78:HAL/Src/timer.c ****  * @param func 回调函数
+  79:HAL/Src/timer.c ****  */
+  80:HAL/Src/timer.c **** void timer_insert(uint32_t timeout,int8_t cycles,void *func,void *param){
+ 224              		.loc 1 80 73 is_stmt 1 view -0
+ 225              		.cfi_startproc
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228              		.loc 1 80 73 is_stmt 0 view .LVU62
+ 229 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 230              	.LCFI2:
+ 231              		.cfi_def_cfa_offset 24
+ 232              		.cfi_offset 4, -24
+ 233              		.cfi_offset 5, -20
+ 234              		.cfi_offset 6, -16
+ 235              		.cfi_offset 7, -12
+ 236              		.cfi_offset 8, -8
+ 237              		.cfi_offset 14, -4
+ 238 0004 0646     		mov	r6, r0
+ 239 0006 0D46     		mov	r5, r1
+ 240 0008 9046     		mov	r8, r2
+ 241 000a 1F46     		mov	r7, r3
+  81:HAL/Src/timer.c ****     Timer_HandleTypeDef *new,*p;
+ 242              		.loc 1 81 5 is_stmt 1 view .LVU63
+  82:HAL/Src/timer.c ****     new = (Timer_HandleTypeDef *)malloc(sizeof(Timer_HandleTypeDef));
+ 243              		.loc 1 82 5 view .LVU64
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s 			page 7
+
+
+ 244              		.loc 1 82 34 is_stmt 0 view .LVU65
+ 245 000c 1820     		movs	r0, #24
+ 246              	.LVL16:
+ 247              		.loc 1 82 34 view .LVU66
+ 248 000e FFF7FEFF 		bl	malloc
+ 249              	.LVL17:
+  83:HAL/Src/timer.c ****     p = timer_list;
+ 250              		.loc 1 83 5 is_stmt 1 view .LVU67
+ 251              		.loc 1 83 7 is_stmt 0 view .LVU68
+ 252 0012 094B     		ldr	r3, .L24
+ 253 0014 1C68     		ldr	r4, [r3]
+ 254              	.LVL18:
+  84:HAL/Src/timer.c **** 
+  85:HAL/Src/timer.c ****     new->func = func;
+ 255              		.loc 1 85 5 is_stmt 1 view .LVU69
+ 256              		.loc 1 85 15 is_stmt 0 view .LVU70
+ 257 0016 C0F80C80 		str	r8, [r0, #12]
+  86:HAL/Src/timer.c ****     new->param = param;
+ 258              		.loc 1 86 5 is_stmt 1 view .LVU71
+ 259              		.loc 1 86 16 is_stmt 0 view .LVU72
+ 260 001a 0761     		str	r7, [r0, #16]
+  87:HAL/Src/timer.c ****     new->next = NULL;
+ 261              		.loc 1 87 5 is_stmt 1 view .LVU73
+ 262              		.loc 1 87 15 is_stmt 0 view .LVU74
+ 263 001c 0023     		movs	r3, #0
+ 264 001e 4361     		str	r3, [r0, #20]
+  88:HAL/Src/timer.c ****     new->init_tick = base_tick;
+ 265              		.loc 1 88 5 is_stmt 1 view .LVU75
+ 266              		.loc 1 88 20 is_stmt 0 view .LVU76
+ 267 0020 064B     		ldr	r3, .L24+4
+ 268 0022 1B68     		ldr	r3, [r3]
+ 269 0024 0360     		str	r3, [r0]
+  89:HAL/Src/timer.c ****     new->timeout = timeout;
+ 270              		.loc 1 89 5 is_stmt 1 view .LVU77
+ 271              		.loc 1 89 18 is_stmt 0 view .LVU78
+ 272 0026 4660     		str	r6, [r0, #4]
+  90:HAL/Src/timer.c ****     new->reenter_times = cycles;
+ 273              		.loc 1 90 5 is_stmt 1 view .LVU79
+ 274              		.loc 1 90 24 is_stmt 0 view .LVU80
+ 275 0028 0572     		strb	r5, [r0, #8]
+  91:HAL/Src/timer.c **** 
+  92:HAL/Src/timer.c ****     while(p->next != NULL)
+ 276              		.loc 1 92 5 is_stmt 1 view .LVU81
+ 277              	.LVL19:
+ 278              	.L22:
+ 279              		.loc 1 92 10 view .LVU82
+ 280 002a 2346     		mov	r3, r4
+ 281              		.loc 1 92 12 is_stmt 0 view .LVU83
+ 282 002c 6469     		ldr	r4, [r4, #20]
+ 283              	.LVL20:
+ 284              		.loc 1 92 10 view .LVU84
+ 285 002e 002C     		cmp	r4, #0
+ 286 0030 FBD1     		bne	.L22
+  93:HAL/Src/timer.c ****         p = p->next;
+  94:HAL/Src/timer.c ****     p->next  = new;    
+ 287              		.loc 1 94 5 is_stmt 1 view .LVU85
+ 288              		.loc 1 94 14 is_stmt 0 view .LVU86
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s 			page 8
+
+
+ 289 0032 5861     		str	r0, [r3, #20]
+  95:HAL/Src/timer.c **** };
+ 290              		.loc 1 95 1 view .LVU87
+ 291 0034 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 292              	.LVL21:
+ 293              	.L25:
+ 294              		.loc 1 95 1 view .LVU88
+ 295              		.align	2
+ 296              	.L24:
+ 297 0038 00000000 		.word	.LANCHOR0
+ 298 003c 00000000 		.word	.LANCHOR1
+ 299              		.cfi_endproc
+ 300              	.LFE290:
+ 302              		.global	timer_list
+ 303              		.global	base_tick
+ 304              		.section	.bss.base_tick,"aw",%nobits
+ 305              		.align	2
+ 306              		.set	.LANCHOR1,. + 0
+ 309              	base_tick:
+ 310 0000 00000000 		.space	4
+ 311              		.section	.bss.timer_list,"aw",%nobits
+ 312              		.align	2
+ 313              		.set	.LANCHOR0,. + 0
+ 316              	timer_list:
+ 317 0000 00000000 		.space	4
+ 318              		.text
+ 319              	.Letext0:
+ 320              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 321              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 322              		.file 4 "HAL/Inc/timer.h"
+ 323              		.file 5 "<built-in>"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 timer.c
-C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:20     .text.timer_update:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:26     .text.timer_update:00000000 timer_update
-C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:96     .text.timer_update:00000030 $d
-C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:115    .bss.timer_list:00000000 timer_list
-C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:108    .bss.base_tick:00000000 base_tick
-C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:104    .bss.base_tick:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:111    .bss.timer_list:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:20     .text.timer_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:26     .text.timer_init:00000000 timer_init
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:55     .text.timer_init:00000014 $d
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:60     .text.timer_update:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:66     .text.timer_update:00000000 timer_update
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:209    .text.timer_update:0000006c $d
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:215    .text.timer_insert:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:221    .text.timer_insert:00000000 timer_insert
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:297    .text.timer_insert:00000038 $d
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:316    .bss.timer_list:00000000 timer_list
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:309    .bss.base_tick:00000000 base_tick
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:305    .bss.base_tick:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccvCBPFh.s:312    .bss.timer_list:00000000 $d
 
 UNDEFINED SYMBOLS
+malloc
 free

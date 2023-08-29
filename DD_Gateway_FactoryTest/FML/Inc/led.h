@@ -33,7 +33,7 @@ void LED_Off(LED_HandleTypeDef *led);
 
 // 翻转LED状态
 void LED_Toggle(LED_HandleTypeDef *led);
-
+void LED1_Toggle(void);
 // 闪烁LED
 void LED_Blink(LED_HandleTypeDef *led,uint32_t gap,uint8_t cycle);
 /*------------------------------------test------------------------------------*/

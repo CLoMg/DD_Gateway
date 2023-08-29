@@ -31,7 +31,7 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h FML/Inc/led.h \
  HAL/Inc/adc.h HAL/Inc/spi.h HAL/Inc/usart.h HAL/Inc/gpio.h \
- ThirdParty/Letter-shell/Inc/shell_port.h \
+ HAL/Inc/timer.h ThirdParty/Letter-shell/Inc/shell_port.h \
  ThirdParty/Letter-shell/Inc/shell.h \
  ThirdParty/Letter-shell/Inc/shell_cfg.h FML/Inc/rs485.h FML/Inc/W25QXX.h \
  FML/Inc/ATGM332D.h
@@ -74,6 +74,7 @@ HAL/Inc/adc.h:
 HAL/Inc/spi.h:
 HAL/Inc/usart.h:
 HAL/Inc/gpio.h:
+HAL/Inc/timer.h:
 ThirdParty/Letter-shell/Inc/shell_port.h:
 ThirdParty/Letter-shell/Inc/shell.h:
 ThirdParty/Letter-shell/Inc/shell_cfg.h:

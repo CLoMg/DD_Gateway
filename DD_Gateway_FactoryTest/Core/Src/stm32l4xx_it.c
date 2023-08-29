@@ -187,9 +187,10 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-
+  timer_update();//进行定时事件列表更新
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
+ 
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */

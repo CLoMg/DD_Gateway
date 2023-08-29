@@ -23,6 +23,7 @@
 #include "spi.h"
 #include "usart.h"
 #include "gpio.h"
+#include "timer.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -34,6 +35,7 @@
 #include "rs485.h"
 #include "W25QXX.h"
 #include "ATGM332D.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -83,7 +85,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  timer_init();//定时事件列表初始化，需要在时基更新函数运行之前进行
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -108,6 +110,8 @@ int main(void)
   User_Shell_Init();
   BSP_W25Qx_Init();
   bds_dev = atgm_open("uart2/bds_0");
+  timer_insert(1000,-1,LED_Toggle,&dev_led[0]);
+  timer_insert(1000,10,LED_Toggle,&dev_led[1]);
   /* USER CODE END 2 */
 
   /* Infinite loop */
