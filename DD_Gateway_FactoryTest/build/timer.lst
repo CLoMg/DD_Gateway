@@ -1,0 +1,188 @@
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"timer.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.timer_update,"ax",%progbits
+  20              		.align	1
+  21              		.global	timer_update
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	timer_update:
+  27              	.LFB288:
+  28              		.file 1 "HAL/Src/timer.c"
+   1:HAL/Src/timer.c **** /**
+   2:HAL/Src/timer.c ****  ******************************************************************************
+   3:HAL/Src/timer.c **** *
+   4:HAL/Src/timer.c **** * @file   
+   5:HAL/Src/timer.c **** *
+   6:HAL/Src/timer.c **** * @brief   
+   7:HAL/Src/timer.c **** *
+   8:HAL/Src/timer.c **** * @attention
+   9:HAL/Src/timer.c **** *
+  10:HAL/Src/timer.c **** *Copyright (c) 2023 JiuTong.
+  11:HAL/Src/timer.c **** *
+  12:HAL/Src/timer.c **** *All rights reserved.
+  13:HAL/Src/timer.c ****  ******************************************************************************
+  14:HAL/Src/timer.c **** */
+  15:HAL/Src/timer.c **** 
+  16:HAL/Src/timer.c **** /*----------------------------------include-----------------------------------*/
+  17:HAL/Src/timer.c **** #include "timer.h"
+  18:HAL/Src/timer.c **** /*-----------------------------------macro------------------------------------*/
+  19:HAL/Src/timer.c **** 
+  20:HAL/Src/timer.c **** /*----------------------------------typedef-----------------------------------*/
+  21:HAL/Src/timer.c **** 
+  22:HAL/Src/timer.c **** /*----------------------------------variable----------------------------------*/
+  23:HAL/Src/timer.c **** uint32_t base_tick = 0; //定义定时基准tick
+  24:HAL/Src/timer.c **** 
+  25:HAL/Src/timer.c **** Timer_HandleTypeDef *timer_list = NULL;
+  26:HAL/Src/timer.c **** /*-------------------------------------os-------------------------------------*/
+  27:HAL/Src/timer.c **** 
+  28:HAL/Src/timer.c **** /*----------------------------------function----------------------------------*/
+  29:HAL/Src/timer.c **** /**
+  30:HAL/Src/timer.c ****  * @brief 定时器更新函数
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 2
+
+
+  31:HAL/Src/timer.c ****  *        需要将此函数作为定时触发中断的回调函数，定时更新base_tick
+  32:HAL/Src/timer.c ****  *        每次更新后比较链表中是否有定时到达，触发对应回调函数
+  33:HAL/Src/timer.c ****  * 
+  34:HAL/Src/timer.c ****  */
+  35:HAL/Src/timer.c **** void timer_update(void){
+  29              		.loc 1 35 24 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  36:HAL/Src/timer.c ****     base_tick++;
+  38              		.loc 1 36 5 view .LVU1
+  39              		.loc 1 36 14 is_stmt 0 view .LVU2
+  40 0002 0B4A     		ldr	r2, .L7
+  41 0004 1368     		ldr	r3, [r2]
+  42 0006 0133     		adds	r3, r3, #1
+  43 0008 1360     		str	r3, [r2]
+  37:HAL/Src/timer.c ****     Timer_HandleTypeDef *p  = timer_list, *q = NULL;
+  44              		.loc 1 37 5 is_stmt 1 view .LVU3
+  45              		.loc 1 37 26 is_stmt 0 view .LVU4
+  46 000a 0A4B     		ldr	r3, .L7+4
+  47 000c 1C68     		ldr	r4, [r3]
+  48              	.LVL0:
+  38:HAL/Src/timer.c ****     while(p->next !=NULL){
+  49              		.loc 1 38 5 is_stmt 1 view .LVU5
+  50              	.L3:
+  51              		.loc 1 38 10 view .LVU6
+  52              		.loc 1 38 12 is_stmt 0 view .LVU7
+  53 000e A368     		ldr	r3, [r4, #8]
+  54              		.loc 1 38 10 view .LVU8
+  55 0010 63B1     		cbz	r3, .L6
+  39:HAL/Src/timer.c ****         if(p->next->triggle_tick <= base_tick){
+  56              		.loc 1 39 9 is_stmt 1 view .LVU9
+  57              		.loc 1 39 19 is_stmt 0 view .LVU10
+  58 0012 1968     		ldr	r1, [r3]
+  59              		.loc 1 39 34 view .LVU11
+  60 0014 064A     		ldr	r2, .L7
+  61 0016 1268     		ldr	r2, [r2]
+  62              		.loc 1 39 11 view .LVU12
+  63 0018 9142     		cmp	r1, r2
+  64 001a F8D8     		bhi	.L3
+  65              	.LBB2:
+  40:HAL/Src/timer.c ****             //执行回调函数，回调函数要求时间尽可能短
+  41:HAL/Src/timer.c ****             p->next->func();
+  66              		.loc 1 41 13 is_stmt 1 view .LVU13
+  67              		.loc 1 41 20 is_stmt 0 view .LVU14
+  68 001c 5B68     		ldr	r3, [r3, #4]
+  69              		.loc 1 41 13 view .LVU15
+  70 001e 9847     		blx	r3
+  71              	.LVL1:
+  42:HAL/Src/timer.c ****             q = p->next;  
+  72              		.loc 1 42 13 is_stmt 1 view .LVU16
+  73              		.loc 1 42 15 is_stmt 0 view .LVU17
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 3
+
+
+  74 0020 A068     		ldr	r0, [r4, #8]
+  75              	.LVL2:
+  43:HAL/Src/timer.c ****             p->next = q->next;
+  76              		.loc 1 43 13 is_stmt 1 view .LVU18
+  77              		.loc 1 43 24 is_stmt 0 view .LVU19
+  78 0022 8368     		ldr	r3, [r0, #8]
+  79              		.loc 1 43 21 view .LVU20
+  80 0024 A360     		str	r3, [r4, #8]
+  44:HAL/Src/timer.c ****             free(q);
+  81              		.loc 1 44 13 is_stmt 1 view .LVU21
+  82 0026 FFF7FEFF 		bl	free
+  83              	.LVL3:
+  45:HAL/Src/timer.c ****             q = NULL;
+  84              		.loc 1 45 13 view .LVU22
+  85              		.loc 1 45 13 is_stmt 0 view .LVU23
+  86 002a F0E7     		b	.L3
+  87              	.L6:
+  88              	.LBE2:
+  46:HAL/Src/timer.c ****         }
+  47:HAL/Src/timer.c ****     }
+  48:HAL/Src/timer.c **** }
+  89              		.loc 1 48 1 view .LVU24
+  90 002c 10BD     		pop	{r4, pc}
+  91              	.LVL4:
+  92              	.L8:
+  93              		.loc 1 48 1 view .LVU25
+  94 002e 00BF     		.align	2
+  95              	.L7:
+  96 0030 00000000 		.word	.LANCHOR0
+  97 0034 00000000 		.word	.LANCHOR1
+  98              		.cfi_endproc
+  99              	.LFE288:
+ 101              		.global	timer_list
+ 102              		.global	base_tick
+ 103              		.section	.bss.base_tick,"aw",%nobits
+ 104              		.align	2
+ 105              		.set	.LANCHOR0,. + 0
+ 108              	base_tick:
+ 109 0000 00000000 		.space	4
+ 110              		.section	.bss.timer_list,"aw",%nobits
+ 111              		.align	2
+ 112              		.set	.LANCHOR1,. + 0
+ 115              	timer_list:
+ 116 0000 00000000 		.space	4
+ 117              		.text
+ 118              	.Letext0:
+ 119              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 120              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 121              		.file 4 "HAL/Inc/timer.h"
+ 122              		.file 5 "<built-in>"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cchdUpXi.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 timer.c
+C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:20     .text.timer_update:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:26     .text.timer_update:00000000 timer_update
+C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:96     .text.timer_update:00000030 $d
+C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:115    .bss.timer_list:00000000 timer_list
+C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:108    .bss.base_tick:00000000 base_tick
+C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:104    .bss.base_tick:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cchdUpXi.s:111    .bss.timer_list:00000000 $d
+
+UNDEFINED SYMBOLS
+free

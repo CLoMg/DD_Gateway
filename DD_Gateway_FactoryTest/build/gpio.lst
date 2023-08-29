@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccSmtvNU.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,15 +19,15 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.file 1 "HAL/Src/gpio.c"
-  20              		.section	.text.MX_GPIO_Init,"ax",%progbits
-  21              		.align	1
-  22              		.global	MX_GPIO_Init
-  23              		.syntax unified
-  24              		.thumb
-  25              		.thumb_func
-  27              	MX_GPIO_Init:
-  28              	.LFB288:
+  19              		.section	.text.MX_GPIO_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	MX_GPIO_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	MX_GPIO_Init:
+  27              	.LFB288:
+  28              		.file 1 "HAL/Src/gpio.c"
    1:HAL/Src/gpio.c **** /* USER CODE BEGIN Header */
    2:HAL/Src/gpio.c **** /**
    3:HAL/Src/gpio.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 1
   28:HAL/Src/gpio.c **** /*----------------------------------------------------------------------------*/
   29:HAL/Src/gpio.c **** /* Configure GPIO                                                             */
   30:HAL/Src/gpio.c **** /*----------------------------------------------------------------------------*/
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccSmtvNU.s 			page 2
 
 
   31:HAL/Src/gpio.c **** /* USER CODE BEGIN 1 */
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 1
   65              	.LBE2:
   66              		.loc 1 48 3 view .LVU8
   49:HAL/Src/gpio.c ****   __HAL_RCC_GPIOH_CLK_ENABLE();
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccSmtvNU.s 			page 3
 
 
   67              		.loc 1 49 3 view .LVU9
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 1
  116 0064 FFF7FEFF 		bl	HAL_GPIO_WritePin
  117              	.LVL0:
   55:HAL/Src/gpio.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccSmtvNU.s 			page 4
 
 
   56:HAL/Src/gpio.c ****   /*Configure GPIO pin Output Level */
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 1
  157 009a FFF7FEFF 		bl	HAL_GPIO_Init
  158              	.LVL3:
   71:HAL/Src/gpio.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccSmtvNU.s 			page 5
 
 
   72:HAL/Src/gpio.c ****   /*Configure GPIO pins : PB1 PB2 PB6 */
@@ -283,18 +283,18 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 1
  190              	.LFE288:
  192              		.text
  193              	.Letext0:
- 194              		.file 2 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
- 195              		.file 3 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+ 194              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 195              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
  196              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
  197              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccSmtvNU.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s:21     .text.MX_GPIO_Init:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s:27     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccgfxxAS.s:186    .text.MX_GPIO_Init:000000b4 $d
+C:\Users\CL\AppData\Local\Temp\ccSmtvNU.s:20     .text.MX_GPIO_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccSmtvNU.s:26     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\CL\AppData\Local\Temp\ccSmtvNU.s:186    .text.MX_GPIO_Init:000000b4 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

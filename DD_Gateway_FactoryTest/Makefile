@@ -75,7 +75,9 @@ HAL/Src/usart.c \
 FML/Src/W25QXX.c \
 FML/Src/led.c \
 FML/Src/rs485.c \
-FML/Src/ATGM332D.c
+FML/Src/ATGM332D.c \
+FML/Src/EC2x.c \
+HAL/Src/timer.c 
 
 # ASM sources
 ASM_SOURCES =  \

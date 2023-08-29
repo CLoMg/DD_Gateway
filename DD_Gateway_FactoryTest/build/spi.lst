@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,15 +19,15 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.file 1 "HAL/Src/spi.c"
-  20              		.section	.text.MX_SPI2_Init,"ax",%progbits
-  21              		.align	1
-  22              		.global	MX_SPI2_Init
-  23              		.syntax unified
-  24              		.thumb
-  25              		.thumb_func
-  27              	MX_SPI2_Init:
-  28              	.LFB288:
+  19              		.section	.text.MX_SPI2_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	MX_SPI2_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	MX_SPI2_Init:
+  27              	.LFB288:
+  28              		.file 1 "HAL/Src/spi.c"
    1:HAL/Src/spi.c **** /* USER CODE BEGIN Header */
    2:HAL/Src/spi.c **** /**
    3:HAL/Src/spi.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
   28:HAL/Src/spi.c **** SPI_HandleTypeDef hspi3;
   29:HAL/Src/spi.c **** 
   30:HAL/Src/spi.c **** /* SPI2 init function */
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 2
 
 
   31:HAL/Src/spi.c **** void MX_SPI2_Init(void)
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
   65              		.loc 1 48 3 is_stmt 1 view .LVU15
   66              		.loc 1 48 32 is_stmt 0 view .LVU16
   67 0022 C361     		str	r3, [r0, #28]
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 3
 
 
   49:HAL/Src/spi.c ****   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
@@ -175,10 +175,10 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  103              	.L6:
  104 0042 00BF     		.align	2
  105              	.L5:
- 106 0044 00000000 		.word	hspi2
+ 106 0044 00000000 		.word	.LANCHOR0
  107 0048 00380040 		.word	1073756160
  108              		.cfi_endproc
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 4
 
 
  109              	.LFE288:
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
   80:HAL/Src/spi.c ****   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
  149              		.loc 1 80 3 is_stmt 1 view .LVU46
  150              		.loc 1 80 23 is_stmt 0 view .LVU47
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 5
 
 
  151 001a 4361     		str	r3, [r0, #20]
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  188              	.L10:
   91:HAL/Src/spi.c ****   }
  189              		.loc 1 91 5 is_stmt 1 view .LVU68
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 6
 
 
  190 003c FFF7FEFF 		bl	Error_Handler
@@ -308,7 +308,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  194              	.L12:
  195 0042 00BF     		.align	2
  196              	.L11:
- 197 0044 00000000 		.word	hspi3
+ 197 0044 00000000 		.word	.LANCHOR1
  198 0048 003C0040 		.word	1073757184
  199              		.cfi_endproc
  200              	.LFE289:
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  104:HAL/Src/spi.c ****   {
  105:HAL/Src/spi.c ****   /* USER CODE BEGIN SPI2_MspInit 0 */
  106:HAL/Src/spi.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 7
 
 
  107:HAL/Src/spi.c ****   /* USER CODE END SPI2_MspInit 0 */
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  154:HAL/Src/spi.c **** 
  155:HAL/Src/spi.c ****     /* SPI3 interrupt Init */
  156:HAL/Src/spi.c ****     // HAL_NVIC_SetPriority(SPI3_IRQn, 2, 0);
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 8
 
 
  157:HAL/Src/spi.c ****     // HAL_NVIC_EnableIRQ(SPI3_IRQn);
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  111:HAL/Src/spi.c ****     /**SPI2 GPIO Configuration
  285              		.loc 1 111 5 view .LVU90
  286 0046 029B     		ldr	r3, [sp, #8]
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 9
 
 
  287              	.LBE3:
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  326              		.loc 1 138 5 view .LVU105
  327              	.LBB4:
  138:HAL/Src/spi.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 10
 
 
  328              		.loc 1 138 5 view .LVU106
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  366              		.loc 1 151 5 view .LVU122
  151:HAL/Src/spi.c ****     GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
  367              		.loc 1 151 27 is_stmt 0 view .LVU123
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 11
 
 
  368 00a2 0323     		movs	r3, #3
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  415 0002 0368     		ldr	r3, [r0]
  416              		.loc 1 167 5 view .LVU133
  417 0004 144A     		ldr	r2, .L27
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 12
 
 
  418 0006 9342     		cmp	r3, r2
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  213:HAL/Src/spi.c **** }
  427              		.loc 1 213 1 view .LVU136
  428 0010 08BD     		pop	{r3, pc}
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 13
 
 
  429              	.LVL16:
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  474              		.align	2
  475              	.L27:
  476 0058 00380040 		.word	1073756160
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 14
 
 
  477 005c 003C0040 		.word	1073757184
@@ -786,56 +786,58 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 1
  479              		.cfi_endproc
  480              	.LFE291:
  482              		.global	hspi3
- 483              		.section	.bss.hspi3,"aw",%nobits
- 484              		.align	2
- 487              	hspi3:
- 488 0000 00000000 		.space	100
- 488      00000000 
- 488      00000000 
- 488      00000000 
- 488      00000000 
- 489              		.global	hspi2
- 490              		.section	.bss.hspi2,"aw",%nobits
- 491              		.align	2
- 494              	hspi2:
- 495 0000 00000000 		.space	100
- 495      00000000 
- 495      00000000 
- 495      00000000 
- 495      00000000 
- 496              		.text
- 497              	.Letext0:
- 498              		.file 2 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 499              		.file 3 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
- 500              		.file 4 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
- 501              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 502              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 503              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 504              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
- 505              		.file 9 "HAL/Inc/spi.h"
- 506              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
- 507              		.file 11 "Core/Inc/main.h"
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s 			page 15
+ 483              		.global	hspi2
+ 484              		.section	.bss.hspi2,"aw",%nobits
+ 485              		.align	2
+ 486              		.set	.LANCHOR0,. + 0
+ 489              	hspi2:
+ 490 0000 00000000 		.space	100
+ 490      00000000 
+ 490      00000000 
+ 490      00000000 
+ 490      00000000 
+ 491              		.section	.bss.hspi3,"aw",%nobits
+ 492              		.align	2
+ 493              		.set	.LANCHOR1,. + 0
+ 496              	hspi3:
+ 497 0000 00000000 		.space	100
+ 497      00000000 
+ 497      00000000 
+ 497      00000000 
+ 497      00000000 
+ 498              		.text
+ 499              	.Letext0:
+ 500              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 501              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 502              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 503              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 504              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 505              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 506              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
+ 507              		.file 9 "HAL/Inc/spi.h"
+ 508              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
+ 509              		.file 11 "Core/Inc/main.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:21     .text.MX_SPI2_Init:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:27     .text.MX_SPI2_Init:00000000 MX_SPI2_Init
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:106    .text.MX_SPI2_Init:00000044 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:494    .bss.hspi2:00000000 hspi2
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:112    .text.MX_SPI3_Init:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:118    .text.MX_SPI3_Init:00000000 MX_SPI3_Init
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:197    .text.MX_SPI3_Init:00000044 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:487    .bss.hspi3:00000000 hspi3
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:203    .text.HAL_SPI_MspInit:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:209    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:386    .text.HAL_SPI_MspInit:000000b4 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:394    .text.HAL_SPI_MspDeInit:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:400    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:476    .text.HAL_SPI_MspDeInit:00000058 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:484    .bss.hspi3:00000000 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccTvMwTW.s:491    .bss.hspi2:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:20     .text.MX_SPI2_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:26     .text.MX_SPI2_Init:00000000 MX_SPI2_Init
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:106    .text.MX_SPI2_Init:00000044 $d
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:112    .text.MX_SPI3_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:118    .text.MX_SPI3_Init:00000000 MX_SPI3_Init
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:197    .text.MX_SPI3_Init:00000044 $d
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:203    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:209    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:386    .text.HAL_SPI_MspInit:000000b4 $d
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:394    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:400    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:476    .text.HAL_SPI_MspDeInit:00000058 $d
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:496    .bss.hspi3:00000000 hspi3
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:489    .bss.hspi2:00000000 hspi2
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:485    .bss.hspi2:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccNz6Lzc.s:492    .bss.hspi3:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

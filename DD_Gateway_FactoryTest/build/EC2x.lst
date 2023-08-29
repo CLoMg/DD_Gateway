@@ -1,0 +1,1065 @@
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"EC2x.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ec2x_io_init,"ax",%progbits
+  20              		.align	1
+  21              		.global	ec2x_io_init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	ec2x_io_init:
+  27              	.LVL0:
+  28              	.LFB288:
+  29              		.file 1 "FML/Src/EC2x.c"
+   1:FML/Src/EC2x.c **** /**
+   2:FML/Src/EC2x.c ****  ******************************************************************************
+   3:FML/Src/EC2x.c **** *
+   4:FML/Src/EC2x.c **** * @file   
+   5:FML/Src/EC2x.c **** *
+   6:FML/Src/EC2x.c **** * @brief   
+   7:FML/Src/EC2x.c **** *
+   8:FML/Src/EC2x.c **** * @attention
+   9:FML/Src/EC2x.c **** *
+  10:FML/Src/EC2x.c **** *Copyright (c) 2023 STMicroelectronics.
+  11:FML/Src/EC2x.c **** *
+  12:FML/Src/EC2x.c **** *All rights reserved.
+  13:FML/Src/EC2x.c ****  ******************************************************************************
+  14:FML/Src/EC2x.c **** */
+  15:FML/Src/EC2x.c **** 
+  16:FML/Src/EC2x.c **** 
+  17:FML/Src/EC2x.c **** /*----------------------------------include-----------------------------------*/
+  18:FML/Src/EC2x.c **** #include "EC2x.h"
+  19:FML/Src/EC2x.c **** #include "usart.h"
+  20:FML/Src/EC2x.c **** /*-----------------------------------macro------------------------------------*/
+  21:FML/Src/EC2x.c **** #define BUFF_LEN 300
+  22:FML/Src/EC2x.c **** /*----------------------------------typedef-----------------------------------*/
+  23:FML/Src/EC2x.c **** 
+  24:FML/Src/EC2x.c **** /*----------------------------------variable----------------------------------*/
+  25:FML/Src/EC2x.c **** uint8_t ec2x_buff[BUFF_LEN]={0xff,};
+  26:FML/Src/EC2x.c **** 
+  27:FML/Src/EC2x.c **** /*----------------------------------typedef-----------------------------------*/
+  28:FML/Src/EC2x.c **** EC2x_HandleTypeDef ec2x_dev[]=
+  29:FML/Src/EC2x.c **** {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 2
+
+
+  30:FML/Src/EC2x.c ****     {
+  31:FML/Src/EC2x.c ****         "uart1/ec200s",
+  32:FML/Src/EC2x.c ****         &huart1,
+  33:FML/Src/EC2x.c ****         GPIOA,
+  34:FML/Src/EC2x.c ****         GPIO_PIN_8,
+  35:FML/Src/EC2x.c ****         GPIOA,
+  36:FML/Src/EC2x.c ****         GPIO_PIN_11,
+  37:FML/Src/EC2x.c ****         {
+  38:FML/Src/EC2x.c ****             0,
+  39:FML/Src/EC2x.c ****            ec2x_buff,
+  40:FML/Src/EC2x.c ****             0,
+  41:FML/Src/EC2x.c ****             0,
+  42:FML/Src/EC2x.c ****             0,
+  43:FML/Src/EC2x.c ****             BUFF_LEN 
+  44:FML/Src/EC2x.c ****         }
+  45:FML/Src/EC2x.c ****     }
+  46:FML/Src/EC2x.c **** };
+  47:FML/Src/EC2x.c **** /*-------------------------------------os-------------------------------------*/
+  48:FML/Src/EC2x.c **** 
+  49:FML/Src/EC2x.c **** /*----------------------------------function----------------------------------*/
+  50:FML/Src/EC2x.c **** /**
+  51:FML/Src/EC2x.c ****  * @brief 设备初始化函数
+  52:FML/Src/EC2x.c ****  * 
+  53:FML/Src/EC2x.c ****  */
+  54:FML/Src/EC2x.c **** void ec2x_io_init(EC2x_HandleTypeDef *device)
+  55:FML/Src/EC2x.c **** {
+  30              		.loc 1 55 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 24
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 55 1 is_stmt 0 view .LVU1
+  35 0000 70B5     		push	{r4, r5, r6, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 4, -16
+  39              		.cfi_offset 5, -12
+  40              		.cfi_offset 6, -8
+  41              		.cfi_offset 14, -4
+  42 0002 86B0     		sub	sp, sp, #24
+  43              	.LCFI1:
+  44              		.cfi_def_cfa_offset 40
+  45 0004 0446     		mov	r4, r0
+  56:FML/Src/EC2x.c ****      GPIO_InitTypeDef GPIO_InitStruct = {0};
+  46              		.loc 1 56 6 is_stmt 1 view .LVU2
+  47              		.loc 1 56 23 is_stmt 0 view .LVU3
+  48 0006 0025     		movs	r5, #0
+  49 0008 0195     		str	r5, [sp, #4]
+  50 000a 0295     		str	r5, [sp, #8]
+  51 000c 0395     		str	r5, [sp, #12]
+  52 000e 0495     		str	r5, [sp, #16]
+  53 0010 0595     		str	r5, [sp, #20]
+  57:FML/Src/EC2x.c ****     
+  58:FML/Src/EC2x.c ****     // 使能UART和GPIO时钟
+  59:FML/Src/EC2x.c ****     //__HAL_RCC_UARTX_CLK_ENABLE(); // 替换为实际的UART时钟
+  60:FML/Src/EC2x.c ****     __HAL_RCC_GPIOA_CLK_ENABLE(); // 替换为实际的GPIO时钟
+  54              		.loc 1 60 5 is_stmt 1 view .LVU4
+  55              	.LBB2:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 3
+
+
+  56              		.loc 1 60 5 view .LVU5
+  57              		.loc 1 60 5 view .LVU6
+  58 0012 134B     		ldr	r3, .L3
+  59 0014 DA6C     		ldr	r2, [r3, #76]
+  60 0016 42F00102 		orr	r2, r2, #1
+  61 001a DA64     		str	r2, [r3, #76]
+  62              		.loc 1 60 5 view .LVU7
+  63 001c DB6C     		ldr	r3, [r3, #76]
+  64 001e 03F00103 		and	r3, r3, #1
+  65 0022 0093     		str	r3, [sp]
+  66              		.loc 1 60 5 view .LVU8
+  67 0024 009B     		ldr	r3, [sp]
+  68              	.LBE2:
+  69              		.loc 1 60 5 view .LVU9
+  61:FML/Src/EC2x.c ****     
+  62:FML/Src/EC2x.c ****     // 配置GPIO引脚
+  63:FML/Src/EC2x.c ****     GPIO_InitStruct.Pin = device->reset_pin;
+  70              		.loc 1 63 5 view .LVU10
+  71              		.loc 1 63 33 is_stmt 0 view .LVU11
+  72 0026 038B     		ldrh	r3, [r0, #24]
+  73              		.loc 1 63 25 view .LVU12
+  74 0028 0193     		str	r3, [sp, #4]
+  64:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  75              		.loc 1 64 5 is_stmt 1 view .LVU13
+  76              		.loc 1 64 26 is_stmt 0 view .LVU14
+  77 002a 0126     		movs	r6, #1
+  78 002c 0296     		str	r6, [sp, #8]
+  65:FML/Src/EC2x.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  79              		.loc 1 65 5 is_stmt 1 view .LVU15
+  66:FML/Src/EC2x.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  80              		.loc 1 66 5 view .LVU16
+  67:FML/Src/EC2x.c ****     HAL_GPIO_Init(device->reset_port, &GPIO_InitStruct);
+  81              		.loc 1 67 5 view .LVU17
+  82 002e 01A9     		add	r1, sp, #4
+  83 0030 4069     		ldr	r0, [r0, #20]
+  84              	.LVL1:
+  85              		.loc 1 67 5 is_stmt 0 view .LVU18
+  86 0032 FFF7FEFF 		bl	HAL_GPIO_Init
+  87              	.LVL2:
+  68:FML/Src/EC2x.c **** 
+  69:FML/Src/EC2x.c ****     GPIO_InitStruct.Pin = device->wake_pin;
+  88              		.loc 1 69 5 is_stmt 1 view .LVU19
+  89              		.loc 1 69 33 is_stmt 0 view .LVU20
+  90 0036 238C     		ldrh	r3, [r4, #32]
+  91              		.loc 1 69 25 view .LVU21
+  92 0038 0193     		str	r3, [sp, #4]
+  70:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  93              		.loc 1 70 5 is_stmt 1 view .LVU22
+  94              		.loc 1 70 26 is_stmt 0 view .LVU23
+  95 003a 0296     		str	r6, [sp, #8]
+  71:FML/Src/EC2x.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  96              		.loc 1 71 5 is_stmt 1 view .LVU24
+  97              		.loc 1 71 26 is_stmt 0 view .LVU25
+  98 003c 0395     		str	r5, [sp, #12]
+  72:FML/Src/EC2x.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  99              		.loc 1 72 5 is_stmt 1 view .LVU26
+ 100              		.loc 1 72 27 is_stmt 0 view .LVU27
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 4
+
+
+ 101 003e 0495     		str	r5, [sp, #16]
+  73:FML/Src/EC2x.c ****     HAL_GPIO_Init(device->wake_port, &GPIO_InitStruct);
+ 102              		.loc 1 73 5 is_stmt 1 view .LVU28
+ 103 0040 01A9     		add	r1, sp, #4
+ 104 0042 E069     		ldr	r0, [r4, #28]
+ 105 0044 FFF7FEFF 		bl	HAL_GPIO_Init
+ 106              	.LVL3:
+  74:FML/Src/EC2x.c ****     
+  75:FML/Src/EC2x.c ****     
+  76:FML/Src/EC2x.c ****     // 初始化复位引脚为高电平
+  77:FML/Src/EC2x.c ****     HAL_GPIO_WritePin(device->reset_port, device->reset_pin, GPIO_PIN_SET);
+ 107              		.loc 1 77 5 view .LVU29
+ 108 0048 3246     		mov	r2, r6
+ 109 004a 218B     		ldrh	r1, [r4, #24]
+ 110 004c 6069     		ldr	r0, [r4, #20]
+ 111 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 112              	.LVL4:
+  78:FML/Src/EC2x.c ****     HAL_GPIO_WritePin(device->wake_port, device->wake_pin, GPIO_PIN_SET);
+ 113              		.loc 1 78 5 view .LVU30
+ 114 0052 3246     		mov	r2, r6
+ 115 0054 218C     		ldrh	r1, [r4, #32]
+ 116 0056 E069     		ldr	r0, [r4, #28]
+ 117 0058 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 118              	.LVL5:
+  79:FML/Src/EC2x.c **** }
+ 119              		.loc 1 79 1 is_stmt 0 view .LVU31
+ 120 005c 06B0     		add	sp, sp, #24
+ 121              	.LCFI2:
+ 122              		.cfi_def_cfa_offset 16
+ 123              		@ sp needed
+ 124 005e 70BD     		pop	{r4, r5, r6, pc}
+ 125              	.LVL6:
+ 126              	.L4:
+ 127              		.loc 1 79 1 view .LVU32
+ 128              		.align	2
+ 129              	.L3:
+ 130 0060 00100240 		.word	1073876992
+ 131              		.cfi_endproc
+ 132              	.LFE288:
+ 134              		.section	.text.ec2x_open,"ax",%progbits
+ 135              		.align	1
+ 136              		.global	ec2x_open
+ 137              		.syntax unified
+ 138              		.thumb
+ 139              		.thumb_func
+ 141              	ec2x_open:
+ 142              	.LVL7:
+ 143              	.LFB289:
+  80:FML/Src/EC2x.c **** /**
+  81:FML/Src/EC2x.c ****  * @brief 设备文件open函数
+  82:FML/Src/EC2x.c ****  * 
+  83:FML/Src/EC2x.c ****  * @param dev_name 
+  84:FML/Src/EC2x.c ****  * @return int 
+  85:FML/Src/EC2x.c ****  *         返回设备文件索引，未查找到则返回-1
+  86:FML/Src/EC2x.c ****  */
+  87:FML/Src/EC2x.c **** int ec2x_open(char *dev_name)
+  88:FML/Src/EC2x.c **** {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 5
+
+
+ 144              		.loc 1 88 1 is_stmt 1 view -0
+ 145              		.cfi_startproc
+ 146              		@ args = 0, pretend = 0, frame = 0
+ 147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 148              		.loc 1 88 1 is_stmt 0 view .LVU34
+ 149 0000 70B5     		push	{r4, r5, r6, lr}
+ 150              	.LCFI3:
+ 151              		.cfi_def_cfa_offset 16
+ 152              		.cfi_offset 4, -16
+ 153              		.cfi_offset 5, -12
+ 154              		.cfi_offset 6, -8
+ 155              		.cfi_offset 14, -4
+ 156 0002 0546     		mov	r5, r0
+  89:FML/Src/EC2x.c ****     uint8_t i = 0;
+ 157              		.loc 1 89 5 is_stmt 1 view .LVU35
+ 158              	.LVL8:
+  90:FML/Src/EC2x.c ****     for(i = 0;i < sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef);i++)
+ 159              		.loc 1 90 5 view .LVU36
+ 160              		.loc 1 90 11 is_stmt 0 view .LVU37
+ 161 0004 0024     		movs	r4, #0
+ 162              	.LVL9:
+ 163              	.L6:
+ 164              		.loc 1 90 15 is_stmt 1 discriminator 1 view .LVU38
+ 165              		.loc 1 90 5 is_stmt 0 discriminator 1 view .LVU39
+ 166 0006 1CB1     		cbz	r4, .L9
+  91:FML/Src/EC2x.c ****     {
+  92:FML/Src/EC2x.c ****         if(strcmp(dev_name,ec2x_dev[i].dev_name) == 0)
+  93:FML/Src/EC2x.c ****         {
+  94:FML/Src/EC2x.c ****             ec2x_io_init(&ec2x_dev[i]);
+  95:FML/Src/EC2x.c ****             return i;
+  96:FML/Src/EC2x.c ****         }
+  97:FML/Src/EC2x.c ****     }
+  98:FML/Src/EC2x.c ****     return -1;
+ 167              		.loc 1 98 12 view .LVU40
+ 168 0008 4FF0FF36 		mov	r6, #-1
+ 169              	.L5:
+  99:FML/Src/EC2x.c **** };
+ 170              		.loc 1 99 1 view .LVU41
+ 171 000c 3046     		mov	r0, r6
+ 172 000e 70BD     		pop	{r4, r5, r6, pc}
+ 173              	.LVL10:
+ 174              	.L9:
+  92:FML/Src/EC2x.c ****         {
+ 175              		.loc 1 92 9 is_stmt 1 view .LVU42
+ 176              	.LBB3:
+  92:FML/Src/EC2x.c ****         {
+ 177              		.loc 1 92 39 is_stmt 0 view .LVU43
+ 178 0010 2646     		mov	r6, r4
+  92:FML/Src/EC2x.c ****         {
+ 179              		.loc 1 92 12 view .LVU44
+ 180 0012 094B     		ldr	r3, .L12
+ 181 0014 3421     		movs	r1, #52
+ 182 0016 01FB0431 		mla	r1, r1, r4, r3
+ 183 001a 2846     		mov	r0, r5
+ 184 001c FFF7FEFF 		bl	strcmp
+ 185              	.LVL11:
+  92:FML/Src/EC2x.c ****         {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 6
+
+
+ 186              		.loc 1 92 11 view .LVU45
+ 187 0020 10B1     		cbz	r0, .L11
+ 188              	.LBE3:
+  90:FML/Src/EC2x.c ****     {
+ 189              		.loc 1 90 64 is_stmt 1 discriminator 2 view .LVU46
+  90:FML/Src/EC2x.c ****     {
+ 190              		.loc 1 90 65 is_stmt 0 discriminator 2 view .LVU47
+ 191 0022 0134     		adds	r4, r4, #1
+ 192              	.LVL12:
+  90:FML/Src/EC2x.c ****     {
+ 193              		.loc 1 90 65 discriminator 2 view .LVU48
+ 194 0024 E4B2     		uxtb	r4, r4
+ 195              	.LVL13:
+  90:FML/Src/EC2x.c ****     {
+ 196              		.loc 1 90 65 discriminator 2 view .LVU49
+ 197 0026 EEE7     		b	.L6
+ 198              	.L11:
+ 199              	.LBB4:
+  94:FML/Src/EC2x.c ****             return i;
+ 200              		.loc 1 94 13 is_stmt 1 view .LVU50
+ 201 0028 034B     		ldr	r3, .L12
+ 202 002a 3420     		movs	r0, #52
+ 203 002c 00FB0430 		mla	r0, r0, r4, r3
+ 204 0030 FFF7FEFF 		bl	ec2x_io_init
+ 205              	.LVL14:
+  95:FML/Src/EC2x.c ****         }
+ 206              		.loc 1 95 13 view .LVU51
+  95:FML/Src/EC2x.c ****         }
+ 207              		.loc 1 95 20 is_stmt 0 view .LVU52
+ 208 0034 EAE7     		b	.L5
+ 209              	.L13:
+ 210 0036 00BF     		.align	2
+ 211              	.L12:
+ 212 0038 00000000 		.word	.LANCHOR0
+ 213              	.LBE4:
+ 214              		.cfi_endproc
+ 215              	.LFE289:
+ 217              		.section	.text.ec2x_write,"ax",%progbits
+ 218              		.align	1
+ 219              		.global	ec2x_write
+ 220              		.syntax unified
+ 221              		.thumb
+ 222              		.thumb_func
+ 224              	ec2x_write:
+ 225              	.LVL15:
+ 226              	.LFB290:
+ 100:FML/Src/EC2x.c **** 
+ 101:FML/Src/EC2x.c **** /**
+ 102:FML/Src/EC2x.c ****  * @brief 设备文件close函数
+ 103:FML/Src/EC2x.c ****  * 
+ 104:FML/Src/EC2x.c ****  * @param fd 
+ 105:FML/Src/EC2x.c ****  * @return int 
+ 106:FML/Src/EC2x.c ****  */
+ 107:FML/Src/EC2x.c **** int ec2x_close(int fd);
+ 108:FML/Src/EC2x.c **** 
+ 109:FML/Src/EC2x.c **** /**
+ 110:FML/Src/EC2x.c ****  * @brief 设备文件写入函数
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 7
+
+
+ 111:FML/Src/EC2x.c ****  * 
+ 112:FML/Src/EC2x.c ****  * @param fd 
+ 113:FML/Src/EC2x.c ****  * @param tx_buff 
+ 114:FML/Src/EC2x.c ****  * @param len 
+ 115:FML/Src/EC2x.c ****  * @return int 
+ 116:FML/Src/EC2x.c ****  *         设备号无效返回-1
+ 117:FML/Src/EC2x.c ****  *         写入失败返回 0
+ 118:FML/Src/EC2x.c ****  *          写入成功返回1
+ 119:FML/Src/EC2x.c ****  *         
+ 120:FML/Src/EC2x.c ****  */
+ 121:FML/Src/EC2x.c **** int ec2x_write(int fd,uint8_t *tx_buff,uint16_t len){
+ 227              		.loc 1 121 53 is_stmt 1 view -0
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122:FML/Src/EC2x.c ****     int err_code = 0;
+ 231              		.loc 1 122 5 view .LVU54
+ 123:FML/Src/EC2x.c ****     if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
+ 232              		.loc 1 123 5 view .LVU55
+ 233              		.loc 1 123 7 is_stmt 0 view .LVU56
+ 234 0000 10B1     		cbz	r0, .L21
+ 124:FML/Src/EC2x.c ****         return (err_code = -1);
+ 235              		.loc 1 124 26 view .LVU57
+ 236 0002 4FF0FF30 		mov	r0, #-1
+ 237              	.LVL16:
+ 125:FML/Src/EC2x.c ****     else{
+ 126:FML/Src/EC2x.c ****         err_code =  HAL_UART_Transmit_IT(ec2x_dev[fd].huart, tx_buff,len);
+ 127:FML/Src/EC2x.c ****         return(!err_code);
+ 128:FML/Src/EC2x.c ****     }
+ 129:FML/Src/EC2x.c **** };
+ 238              		.loc 1 129 1 view .LVU58
+ 239 0006 7047     		bx	lr
+ 240              	.LVL17:
+ 241              	.L21:
+ 121:FML/Src/EC2x.c ****     int err_code = 0;
+ 242              		.loc 1 121 53 view .LVU59
+ 243 0008 08B5     		push	{r3, lr}
+ 244              	.LCFI4:
+ 245              		.cfi_def_cfa_offset 8
+ 246              		.cfi_offset 3, -8
+ 247              		.cfi_offset 14, -4
+ 248 000a 0346     		mov	r3, r0
+ 126:FML/Src/EC2x.c ****         return(!err_code);
+ 249              		.loc 1 126 9 is_stmt 1 view .LVU60
+ 126:FML/Src/EC2x.c ****         return(!err_code);
+ 250              		.loc 1 126 21 is_stmt 0 view .LVU61
+ 251 000c 0548     		ldr	r0, .L22
+ 252              	.LVL18:
+ 126:FML/Src/EC2x.c ****         return(!err_code);
+ 253              		.loc 1 126 21 view .LVU62
+ 254 000e 4FF0340C 		mov	ip, #52
+ 255 0012 0CFB0303 		mla	r3, ip, r3, r0
+ 256              	.LVL19:
+ 126:FML/Src/EC2x.c ****         return(!err_code);
+ 257              		.loc 1 126 21 view .LVU63
+ 258 0016 1869     		ldr	r0, [r3, #16]
+ 259 0018 FFF7FEFF 		bl	HAL_UART_Transmit_IT
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 8
+
+
+ 260              	.LVL20:
+ 127:FML/Src/EC2x.c ****     }
+ 261              		.loc 1 127 9 is_stmt 1 view .LVU64
+ 127:FML/Src/EC2x.c ****     }
+ 262              		.loc 1 127 16 is_stmt 0 view .LVU65
+ 263 001c B0FA80F0 		clz	r0, r0
+ 264              	.LVL21:
+ 127:FML/Src/EC2x.c ****     }
+ 265              		.loc 1 127 16 view .LVU66
+ 266 0020 4009     		lsrs	r0, r0, #5
+ 267              		.loc 1 129 1 view .LVU67
+ 268 0022 08BD     		pop	{r3, pc}
+ 269              	.L23:
+ 270              		.align	2
+ 271              	.L22:
+ 272 0024 00000000 		.word	.LANCHOR0
+ 273              		.cfi_endproc
+ 274              	.LFE290:
+ 276              		.section	.text.ec2x_read,"ax",%progbits
+ 277              		.align	1
+ 278              		.global	ec2x_read
+ 279              		.syntax unified
+ 280              		.thumb
+ 281              		.thumb_func
+ 283              	ec2x_read:
+ 284              	.LVL22:
+ 285              	.LFB291:
+ 130:FML/Src/EC2x.c **** /**
+ 131:FML/Src/EC2x.c ****  * @brief 设备文件读取函数
+ 132:FML/Src/EC2x.c ****  *        读取环形缓冲区指定长度数据
+ 133:FML/Src/EC2x.c ****  * 
+ 134:FML/Src/EC2x.c ****  * @param fd 
+ 135:FML/Src/EC2x.c ****  * @param rx_buff 
+ 136:FML/Src/EC2x.c ****  * @param len 
+ 137:FML/Src/EC2x.c ****  * @return int 
+ 138:FML/Src/EC2x.c ****  *         -1 接口错误
+ 139:FML/Src/EC2x.c ****  *          0 读取失败
+ 140:FML/Src/EC2x.c ****  *          n 读取成功字节数
+ 141:FML/Src/EC2x.c ****  */
+ 142:FML/Src/EC2x.c **** int ec2x_read(int fd,uint8_t *rx_buff,uint16_t len){
+ 286              		.loc 1 142 52 is_stmt 1 view -0
+ 287              		.cfi_startproc
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143:FML/Src/EC2x.c ****     uint8_t *dest = rx_buff;
+ 290              		.loc 1 143 5 view .LVU69
+ 144:FML/Src/EC2x.c ****     if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
+ 291              		.loc 1 144 5 view .LVU70
+ 292              		.loc 1 144 7 is_stmt 0 view .LVU71
+ 293 0000 0028     		cmp	r0, #0
+ 294 0002 47D1     		bne	.L31
+ 142:FML/Src/EC2x.c ****     uint8_t *dest = rx_buff;
+ 295              		.loc 1 142 52 view .LVU72
+ 296 0004 70B5     		push	{r4, r5, r6, lr}
+ 297              	.LCFI5:
+ 298              		.cfi_def_cfa_offset 16
+ 299              		.cfi_offset 4, -16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 9
+
+
+ 300              		.cfi_offset 5, -12
+ 301              		.cfi_offset 6, -8
+ 302              		.cfi_offset 14, -4
+ 303 0006 1546     		mov	r5, r2
+ 304 0008 0446     		mov	r4, r0
+ 305              	.LBB5:
+ 145:FML/Src/EC2x.c ****         return -1;
+ 146:FML/Src/EC2x.c ****     else{
+ 147:FML/Src/EC2x.c ****         uint16_t j = 0;
+ 306              		.loc 1 147 9 is_stmt 1 view .LVU73
+ 307              	.LVL23:
+ 148:FML/Src/EC2x.c ****         
+ 149:FML/Src/EC2x.c ****         RingBuffer_TypeDef *src = &ec2x_dev[fd].msg;
+ 308              		.loc 1 149 9 view .LVU74
+ 150:FML/Src/EC2x.c ****         //如果队列被上锁了，则等待100ms
+ 151:FML/Src/EC2x.c ****         if(src->block == 1)
+ 309              		.loc 1 151 9 view .LVU75
+ 310              		.loc 1 151 15 is_stmt 0 view .LVU76
+ 311 000a 254B     		ldr	r3, .L38
+ 312 000c 3422     		movs	r2, #52
+ 313              	.LVL24:
+ 314              		.loc 1 151 15 view .LVU77
+ 315 000e 02FB0033 		mla	r3, r2, r0, r3
+ 316 0012 93F82430 		ldrb	r3, [r3, #36]	@ zero_extendqisi2
+ 317              		.loc 1 151 11 view .LVU78
+ 318 0016 63B9     		cbnz	r3, .L37
+ 152:FML/Src/EC2x.c ****         {
+ 153:FML/Src/EC2x.c ****             HAL_Delay(100);
+ 154:FML/Src/EC2x.c ****             if(src->block == 1)
+ 155:FML/Src/EC2x.c ****                 return 0;
+ 156:FML/Src/EC2x.c ****         }
+ 157:FML/Src/EC2x.c ****         else{
+ 158:FML/Src/EC2x.c ****             src->block = 1;
+ 319              		.loc 1 158 13 is_stmt 1 view .LVU79
+ 320              		.loc 1 158 24 is_stmt 0 view .LVU80
+ 321 0018 214B     		ldr	r3, .L38
+ 322 001a 3422     		movs	r2, #52
+ 323 001c 02FB0033 		mla	r3, r2, r0, r3
+ 324 0020 0122     		movs	r2, #1
+ 325 0022 83F82420 		strb	r2, [r3, #36]
+ 159:FML/Src/EC2x.c ****             if(len > src->size)
+ 326              		.loc 1 159 13 is_stmt 1 view .LVU81
+ 327              		.loc 1 159 25 is_stmt 0 view .LVU82
+ 328 0026 188E     		ldrh	r0, [r3, #48]
+ 329              	.LVL25:
+ 330              		.loc 1 159 15 view .LVU83
+ 331 0028 A842     		cmp	r0, r5
+ 332 002a 00D3     		bcc	.L28
+ 333 002c 2846     		mov	r0, r5
+ 334              	.L28:
+ 335              	.LVL26:
+ 160:FML/Src/EC2x.c ****                 len = src->size;
+ 161:FML/Src/EC2x.c ****             for(j = 0 ; j < len; j++){
+ 336              		.loc 1 161 13 is_stmt 1 view .LVU84
+ 337              		.loc 1 161 19 is_stmt 0 view .LVU85
+ 338 002e 0022     		movs	r2, #0
+ 339              		.loc 1 161 13 view .LVU86
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 10
+
+
+ 340 0030 26E0     		b	.L29
+ 341              	.LVL27:
+ 342              	.L37:
+ 153:FML/Src/EC2x.c ****             if(src->block == 1)
+ 343              		.loc 1 153 13 is_stmt 1 view .LVU87
+ 344 0032 6420     		movs	r0, #100
+ 345              	.LVL28:
+ 153:FML/Src/EC2x.c ****             if(src->block == 1)
+ 346              		.loc 1 153 13 is_stmt 0 view .LVU88
+ 347 0034 FFF7FEFF 		bl	HAL_Delay
+ 348              	.LVL29:
+ 154:FML/Src/EC2x.c ****                 return 0;
+ 349              		.loc 1 154 13 is_stmt 1 view .LVU89
+ 154:FML/Src/EC2x.c ****                 return 0;
+ 350              		.loc 1 154 19 is_stmt 0 view .LVU90
+ 351 0038 194B     		ldr	r3, .L38
+ 352 003a 3422     		movs	r2, #52
+ 353 003c 02FB0433 		mla	r3, r2, r4, r3
+ 354 0040 93F82430 		ldrb	r3, [r3, #36]	@ zero_extendqisi2
+ 154:FML/Src/EC2x.c ****                 return 0;
+ 355              		.loc 1 154 15 view .LVU91
+ 356 0044 4BBB     		cbnz	r3, .L32
+ 357 0046 2846     		mov	r0, r5
+ 358 0048 23E0     		b	.L24
+ 359              	.LVL30:
+ 360              	.L30:
+ 162:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 361              		.loc 1 162 17 is_stmt 1 discriminator 3 view .LVU92
+ 362              		.loc 1 162 30 is_stmt 0 discriminator 3 view .LVU93
+ 363 004a 154B     		ldr	r3, .L38
+ 364 004c 3425     		movs	r5, #52
+ 365 004e 05FB0433 		mla	r3, r5, r4, r3
+ 366              		.loc 1 162 40 discriminator 3 view .LVU94
+ 367 0052 9D8D     		ldrh	r5, [r3, #44]
+ 368              		.loc 1 162 36 discriminator 3 view .LVU95
+ 369 0054 9E6A     		ldr	r6, [r3, #40]
+ 370 0056 755D     		ldrb	r5, [r6, r5]	@ zero_extendqisi2
+ 371              		.loc 1 162 25 discriminator 3 view .LVU96
+ 372 0058 8D54     		strb	r5, [r1, r2]
+ 163:FML/Src/EC2x.c ****                 src->head = (src->head + j) % src->capacity;
+ 373              		.loc 1 163 17 is_stmt 1 discriminator 3 view .LVU97
+ 374              		.loc 1 163 33 is_stmt 0 discriminator 3 view .LVU98
+ 375 005a B3F82CC0 		ldrh	ip, [r3, #44]
+ 376              		.loc 1 163 40 discriminator 3 view .LVU99
+ 377 005e 9444     		add	ip, ip, r2
+ 378              		.loc 1 163 50 discriminator 3 view .LVU100
+ 379 0060 B3F832E0 		ldrh	lr, [r3, #50]
+ 380              		.loc 1 163 45 discriminator 3 view .LVU101
+ 381 0064 9CFBFEF5 		sdiv	r5, ip, lr
+ 382 0068 0EFB15CC 		mls	ip, lr, r5, ip
+ 383              		.loc 1 163 27 discriminator 3 view .LVU102
+ 384 006c A3F82CC0 		strh	ip, [r3, #44]	@ movhi
+ 164:FML/Src/EC2x.c ****                 src->size--;
+ 385              		.loc 1 164 17 is_stmt 1 discriminator 3 view .LVU103
+ 386              		.loc 1 164 20 is_stmt 0 discriminator 3 view .LVU104
+ 387 0070 B3F830C0 		ldrh	ip, [r3, #48]
+ 388              		.loc 1 164 26 discriminator 3 view .LVU105
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 11
+
+
+ 389 0074 0CF1FF3C 		add	ip, ip, #-1
+ 390 0078 A3F830C0 		strh	ip, [r3, #48]	@ movhi
+ 161:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 391              		.loc 1 161 34 is_stmt 1 discriminator 3 view .LVU106
+ 161:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 392              		.loc 1 161 35 is_stmt 0 discriminator 3 view .LVU107
+ 393 007c 0132     		adds	r2, r2, #1
+ 394              	.LVL31:
+ 161:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 395              		.loc 1 161 35 discriminator 3 view .LVU108
+ 396 007e 92B2     		uxth	r2, r2
+ 397              	.LVL32:
+ 398              	.L29:
+ 161:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 399              		.loc 1 161 25 is_stmt 1 discriminator 1 view .LVU109
+ 161:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 400              		.loc 1 161 13 is_stmt 0 discriminator 1 view .LVU110
+ 401 0080 9042     		cmp	r0, r2
+ 402 0082 E2D8     		bhi	.L30
+ 165:FML/Src/EC2x.c ****             }
+ 166:FML/Src/EC2x.c ****             src->block = 0;
+ 403              		.loc 1 166 13 is_stmt 1 view .LVU111
+ 404              		.loc 1 166 24 is_stmt 0 view .LVU112
+ 405 0084 064B     		ldr	r3, .L38
+ 406 0086 3422     		movs	r2, #52
+ 407              	.LVL33:
+ 408              		.loc 1 166 24 view .LVU113
+ 409 0088 02FB0434 		mla	r4, r2, r4, r3
+ 410              	.LVL34:
+ 411              		.loc 1 166 24 view .LVU114
+ 412 008c 0023     		movs	r3, #0
+ 413 008e 84F82430 		strb	r3, [r4, #36]
+ 167:FML/Src/EC2x.c ****         }
+ 168:FML/Src/EC2x.c ****         return len;
+ 414              		.loc 1 168 9 is_stmt 1 view .LVU115
+ 415              	.LVL35:
+ 416              	.L24:
+ 417              		.loc 1 168 9 is_stmt 0 view .LVU116
+ 418              	.LBE5:
+ 169:FML/Src/EC2x.c ****     }
+ 170:FML/Src/EC2x.c **** };
+ 419              		.loc 1 170 1 view .LVU117
+ 420 0092 70BD     		pop	{r4, r5, r6, pc}
+ 421              	.LVL36:
+ 422              	.L31:
+ 423              	.LCFI6:
+ 424              		.cfi_def_cfa_offset 0
+ 425              		.cfi_restore 4
+ 426              		.cfi_restore 5
+ 427              		.cfi_restore 6
+ 428              		.cfi_restore 14
+ 145:FML/Src/EC2x.c ****     else{
+ 429              		.loc 1 145 16 view .LVU118
+ 430 0094 4FF0FF30 		mov	r0, #-1
+ 431              	.LVL37:
+ 432              		.loc 1 170 1 view .LVU119
+ 433 0098 7047     		bx	lr
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 12
+
+
+ 434              	.LVL38:
+ 435              	.L32:
+ 436              	.LCFI7:
+ 437              		.cfi_def_cfa_offset 16
+ 438              		.cfi_offset 4, -16
+ 439              		.cfi_offset 5, -12
+ 440              		.cfi_offset 6, -8
+ 441              		.cfi_offset 14, -4
+ 442              	.LBB6:
+ 155:FML/Src/EC2x.c ****         }
+ 443              		.loc 1 155 24 view .LVU120
+ 444 009a 2046     		mov	r0, r4
+ 445 009c F9E7     		b	.L24
+ 446              	.L39:
+ 447 009e 00BF     		.align	2
+ 448              	.L38:
+ 449 00a0 00000000 		.word	.LANCHOR0
+ 450              	.LBE6:
+ 451              		.cfi_endproc
+ 452              	.LFE291:
+ 454              		.section	.text.ec2x_handler,"ax",%progbits
+ 455              		.align	1
+ 456              		.global	ec2x_handler
+ 457              		.syntax unified
+ 458              		.thumb
+ 459              		.thumb_func
+ 461              	ec2x_handler:
+ 462              	.LVL39:
+ 463              	.LFB292:
+ 171:FML/Src/EC2x.c **** int ec2x_ioctl(int fd);
+ 172:FML/Src/EC2x.c **** 
+ 173:FML/Src/EC2x.c **** /**
+ 174:FML/Src/EC2x.c ****  * @brief 将串口接收数据copy到环形缓冲区，并更新缓冲区状态
+ 175:FML/Src/EC2x.c ****  * 
+ 176:FML/Src/EC2x.c ****  * @param huart 
+ 177:FML/Src/EC2x.c ****  * @param data 
+ 178:FML/Src/EC2x.c ****  * @param len 
+ 179:FML/Src/EC2x.c ****  */
+ 180:FML/Src/EC2x.c **** void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
+ 181:FML/Src/EC2x.c **** {
+ 464              		.loc 1 181 1 is_stmt 1 view -0
+ 465              		.cfi_startproc
+ 466              		@ args = 0, pretend = 0, frame = 0
+ 467              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182:FML/Src/EC2x.c ****     uint8_t i = 0,j = 0;
+ 468              		.loc 1 182 5 view .LVU122
+ 183:FML/Src/EC2x.c ****     //shellPrint(&shell,"%s",data);
+ 184:FML/Src/EC2x.c ****     for(i = 0;i < sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef);i++)
+ 469              		.loc 1 184 5 view .LVU123
+ 470              		.loc 1 184 11 is_stmt 0 view .LVU124
+ 471 0000 0023     		movs	r3, #0
+ 472              	.LVL40:
+ 473              		.loc 1 184 15 is_stmt 1 view .LVU125
+ 474              		.loc 1 184 5 is_stmt 0 view .LVU126
+ 475 0002 002B     		cmp	r3, #0
+ 476 0004 57D0     		beq	.L49
+ 477 0006 7047     		bx	lr
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 13
+
+
+ 478              	.LVL41:
+ 479              	.L51:
+ 480              	.LCFI8:
+ 481              		.cfi_def_cfa_offset 20
+ 482              		.cfi_offset 4, -20
+ 483              		.cfi_offset 5, -16
+ 484              		.cfi_offset 6, -12
+ 485              		.cfi_offset 7, -8
+ 486              		.cfi_offset 14, -4
+ 487              	.LBB7:
+ 185:FML/Src/EC2x.c ****     {
+ 186:FML/Src/EC2x.c ****         if(huart == ec2x_dev[i].huart)
+ 187:FML/Src/EC2x.c ****         {
+ 188:FML/Src/EC2x.c ****             RingBuffer_TypeDef *dest = &ec2x_dev[i].msg;
+ 488              		.loc 1 188 13 is_stmt 1 view .LVU127
+ 189:FML/Src/EC2x.c ****             if(dest->block  == 0){
+ 489              		.loc 1 189 13 view .LVU128
+ 490              		.loc 1 189 20 is_stmt 0 view .LVU129
+ 491 0008 324C     		ldr	r4, .L52
+ 492 000a 05FB0344 		mla	r4, r5, r3, r4
+ 493 000e 94F82440 		ldrb	r4, [r4, #36]	@ zero_extendqisi2
+ 494              		.loc 1 189 15 view .LVU130
+ 495 0012 002C     		cmp	r4, #0
+ 496 0014 58D1     		bne	.L42
+ 190:FML/Src/EC2x.c ****                 dest->block = 1;
+ 497              		.loc 1 190 17 is_stmt 1 view .LVU131
+ 498              		.loc 1 190 29 is_stmt 0 view .LVU132
+ 499 0016 2F4C     		ldr	r4, .L52
+ 500 0018 05FB0344 		mla	r4, r5, r3, r4
+ 501 001c 0125     		movs	r5, #1
+ 502 001e 84F82450 		strb	r5, [r4, #36]
+ 191:FML/Src/EC2x.c ****                 for(j = 0 ; j < len; j++){
+ 503              		.loc 1 191 17 is_stmt 1 view .LVU133
+ 504              	.LVL42:
+ 505              		.loc 1 191 23 is_stmt 0 view .LVU134
+ 506 0022 9E46     		mov	lr, r3
+ 507              		.loc 1 191 17 view .LVU135
+ 508 0024 25E0     		b	.L43
+ 509              	.LVL43:
+ 510              	.L44:
+ 192:FML/Src/EC2x.c ****                     dest->data[dest->tail] = data[j];
+ 511              		.loc 1 192 21 is_stmt 1 discriminator 3 view .LVU136
+ 512              		.loc 1 192 25 is_stmt 0 discriminator 3 view .LVU137
+ 513 0026 2B4C     		ldr	r4, .L52
+ 514 0028 4FF0340C 		mov	ip, #52
+ 515 002c 0CFB064C 		mla	ip, ip, r6, r4
+ 516 0030 DCF82840 		ldr	r4, [ip, #40]
+ 517              		.loc 1 192 36 discriminator 3 view .LVU138
+ 518 0034 BCF82E50 		ldrh	r5, [ip, #46]
+ 519              		.loc 1 192 50 discriminator 3 view .LVU139
+ 520 0038 11F80E70 		ldrb	r7, [r1, lr]	@ zero_extendqisi2
+ 521              		.loc 1 192 44 discriminator 3 view .LVU140
+ 522 003c 6755     		strb	r7, [r4, r5]
+ 193:FML/Src/EC2x.c ****                     dest->tail = (dest->tail +j) % dest->capacity;
+ 523              		.loc 1 193 21 is_stmt 1 discriminator 3 view .LVU141
+ 524              		.loc 1 193 39 is_stmt 0 discriminator 3 view .LVU142
+ 525 003e BCF82E50 		ldrh	r5, [ip, #46]
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 14
+
+
+ 526              		.loc 1 193 46 discriminator 3 view .LVU143
+ 527 0042 7544     		add	r5, r5, lr
+ 528              		.loc 1 193 56 discriminator 3 view .LVU144
+ 529 0044 BCF83270 		ldrh	r7, [ip, #50]
+ 530              		.loc 1 193 50 discriminator 3 view .LVU145
+ 531 0048 95FBF7F4 		sdiv	r4, r5, r7
+ 532 004c 07FB1455 		mls	r5, r7, r4, r5
+ 533              		.loc 1 193 32 discriminator 3 view .LVU146
+ 534 0050 ACF82E50 		strh	r5, [ip, #46]	@ movhi
+ 194:FML/Src/EC2x.c ****                     dest->size++;
+ 535              		.loc 1 194 21 is_stmt 1 discriminator 3 view .LVU147
+ 536              		.loc 1 194 25 is_stmt 0 discriminator 3 view .LVU148
+ 537 0054 BCF83040 		ldrh	r4, [ip, #48]
+ 538              		.loc 1 194 31 discriminator 3 view .LVU149
+ 539 0058 0134     		adds	r4, r4, #1
+ 540 005a A4B2     		uxth	r4, r4
+ 541 005c ACF83040 		strh	r4, [ip, #48]	@ movhi
+ 195:FML/Src/EC2x.c ****                     dest->size = dest->size > dest->capacity ? dest->capacity : dest->size;
+ 542              		.loc 1 195 21 is_stmt 1 discriminator 3 view .LVU150
+ 543              		.loc 1 195 79 is_stmt 0 discriminator 3 view .LVU151
+ 544 0060 BC42     		cmp	r4, r7
+ 545 0062 28BF     		it	cs
+ 546 0064 3C46     		movcs	r4, r7
+ 547              		.loc 1 195 32 discriminator 3 view .LVU152
+ 548 0066 ACF83040 		strh	r4, [ip, #48]	@ movhi
+ 191:FML/Src/EC2x.c ****                     dest->data[dest->tail] = data[j];
+ 549              		.loc 1 191 38 is_stmt 1 discriminator 3 view .LVU153
+ 191:FML/Src/EC2x.c ****                     dest->data[dest->tail] = data[j];
+ 550              		.loc 1 191 39 is_stmt 0 discriminator 3 view .LVU154
+ 551 006a 0EF1010E 		add	lr, lr, #1
+ 552              	.LVL44:
+ 191:FML/Src/EC2x.c ****                     dest->data[dest->tail] = data[j];
+ 553              		.loc 1 191 39 discriminator 3 view .LVU155
+ 554 006e 5FFA8EFE 		uxtb	lr, lr
+ 555              	.LVL45:
+ 556              	.L43:
+ 191:FML/Src/EC2x.c ****                     dest->data[dest->tail] = data[j];
+ 557              		.loc 1 191 29 is_stmt 1 discriminator 1 view .LVU156
+ 191:FML/Src/EC2x.c ****                     dest->data[dest->tail] = data[j];
+ 558              		.loc 1 191 31 is_stmt 0 discriminator 1 view .LVU157
+ 559 0072 1FFA8EF4 		uxth	r4, lr
+ 191:FML/Src/EC2x.c ****                     dest->data[dest->tail] = data[j];
+ 560              		.loc 1 191 17 discriminator 1 view .LVU158
+ 561 0076 9442     		cmp	r4, r2
+ 562 0078 D5D3     		bcc	.L44
+ 196:FML/Src/EC2x.c ****                 }
+ 197:FML/Src/EC2x.c ****                 if((dest->tail > dest->head)&&(dest->size == dest->capacity))
+ 563              		.loc 1 197 17 is_stmt 1 view .LVU159
+ 564              		.loc 1 197 25 is_stmt 0 view .LVU160
+ 565 007a 164C     		ldr	r4, .L52
+ 566 007c 3425     		movs	r5, #52
+ 567 007e 05FB0644 		mla	r4, r5, r6, r4
+ 568 0082 E58D     		ldrh	r5, [r4, #46]
+ 569              		.loc 1 197 38 view .LVU161
+ 570 0084 A48D     		ldrh	r4, [r4, #44]
+ 571              		.loc 1 197 19 view .LVU162
+ 572 0086 A542     		cmp	r5, r4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 15
+
+
+ 573 0088 07D9     		bls	.L45
+ 574              		.loc 1 197 52 discriminator 1 view .LVU163
+ 575 008a 124C     		ldr	r4, .L52
+ 576 008c 3427     		movs	r7, #52
+ 577 008e 07FB0644 		mla	r4, r7, r6, r4
+ 578 0092 278E     		ldrh	r7, [r4, #48]
+ 579              		.loc 1 197 66 discriminator 1 view .LVU164
+ 580 0094 648E     		ldrh	r4, [r4, #50]
+ 581              		.loc 1 197 45 discriminator 1 view .LVU165
+ 582 0096 A742     		cmp	r7, r4
+ 583 0098 07D0     		beq	.L50
+ 584              	.L45:
+ 198:FML/Src/EC2x.c ****                     dest->head = dest->tail;
+ 199:FML/Src/EC2x.c ****                 dest->block = 0;
+ 585              		.loc 1 199 17 is_stmt 1 view .LVU166
+ 586              		.loc 1 199 29 is_stmt 0 view .LVU167
+ 587 009a 0E4C     		ldr	r4, .L52
+ 588 009c 3425     		movs	r5, #52
+ 589 009e 05FB0646 		mla	r6, r5, r6, r4
+ 590 00a2 0024     		movs	r4, #0
+ 591 00a4 86F82440 		strb	r4, [r6, #36]
+ 592 00a8 0EE0     		b	.L42
+ 593              	.L50:
+ 198:FML/Src/EC2x.c ****                     dest->head = dest->tail;
+ 594              		.loc 1 198 21 is_stmt 1 view .LVU168
+ 198:FML/Src/EC2x.c ****                     dest->head = dest->tail;
+ 595              		.loc 1 198 32 is_stmt 0 view .LVU169
+ 596 00aa 0A4C     		ldr	r4, .L52
+ 597 00ac 3427     		movs	r7, #52
+ 598 00ae 07FB0644 		mla	r4, r7, r6, r4
+ 599 00b2 A585     		strh	r5, [r4, #44]	@ movhi
+ 600 00b4 F1E7     		b	.L45
+ 601              	.LVL46:
+ 602              	.L49:
+ 603              	.LCFI9:
+ 604              		.cfi_def_cfa_offset 0
+ 605              		.cfi_restore 4
+ 606              		.cfi_restore 5
+ 607              		.cfi_restore 6
+ 608              		.cfi_restore 7
+ 609              		.cfi_restore 14
+ 198:FML/Src/EC2x.c ****                     dest->head = dest->tail;
+ 610              		.loc 1 198 32 view .LVU170
+ 611              	.LBE7:
+ 181:FML/Src/EC2x.c ****     uint8_t i = 0,j = 0;
+ 612              		.loc 1 181 1 view .LVU171
+ 613 00b6 F0B5     		push	{r4, r5, r6, r7, lr}
+ 614              	.LCFI10:
+ 615              		.cfi_def_cfa_offset 20
+ 616              		.cfi_offset 4, -20
+ 617              		.cfi_offset 5, -16
+ 618              		.cfi_offset 6, -12
+ 619              		.cfi_offset 7, -8
+ 620              		.cfi_offset 14, -4
+ 621              	.LVL47:
+ 622              	.L46:
+ 186:FML/Src/EC2x.c ****         {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 16
+
+
+ 623              		.loc 1 186 9 is_stmt 1 view .LVU172
+ 186:FML/Src/EC2x.c ****         {
+ 624              		.loc 1 186 32 is_stmt 0 view .LVU173
+ 625 00b8 1E46     		mov	r6, r3
+ 626 00ba 064C     		ldr	r4, .L52
+ 627 00bc 3425     		movs	r5, #52
+ 628 00be 05FB0344 		mla	r4, r5, r3, r4
+ 629 00c2 2469     		ldr	r4, [r4, #16]
+ 186:FML/Src/EC2x.c ****         {
+ 630              		.loc 1 186 11 view .LVU174
+ 631 00c4 8442     		cmp	r4, r0
+ 632 00c6 9FD0     		beq	.L51
+ 633              	.L42:
+ 184:FML/Src/EC2x.c ****     {
+ 634              		.loc 1 184 64 is_stmt 1 discriminator 2 view .LVU175
+ 184:FML/Src/EC2x.c ****     {
+ 635              		.loc 1 184 65 is_stmt 0 discriminator 2 view .LVU176
+ 636 00c8 0133     		adds	r3, r3, #1
+ 637              	.LVL48:
+ 184:FML/Src/EC2x.c ****     {
+ 638              		.loc 1 184 65 discriminator 2 view .LVU177
+ 639 00ca DBB2     		uxtb	r3, r3
+ 640              	.LVL49:
+ 184:FML/Src/EC2x.c ****     {
+ 641              		.loc 1 184 15 is_stmt 1 discriminator 2 view .LVU178
+ 184:FML/Src/EC2x.c ****     {
+ 642              		.loc 1 184 5 is_stmt 0 discriminator 2 view .LVU179
+ 643 00cc 002B     		cmp	r3, #0
+ 644 00ce F3D0     		beq	.L46
+ 200:FML/Src/EC2x.c ****             }
+ 201:FML/Src/EC2x.c ****         }
+ 202:FML/Src/EC2x.c ****     }
+ 203:FML/Src/EC2x.c **** }
+ 645              		.loc 1 203 1 view .LVU180
+ 646 00d0 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 647              	.L53:
+ 648 00d2 00BF     		.align	2
+ 649              	.L52:
+ 650 00d4 00000000 		.word	.LANCHOR0
+ 651              		.cfi_endproc
+ 652              	.LFE292:
+ 654              		.section	.text.ec2x_cmd_send,"ax",%progbits
+ 655              		.align	1
+ 656              		.global	ec2x_cmd_send
+ 657              		.syntax unified
+ 658              		.thumb
+ 659              		.thumb_func
+ 661              	ec2x_cmd_send:
+ 662              	.LVL50:
+ 663              	.LFB293:
+ 204:FML/Src/EC2x.c **** 
+ 205:FML/Src/EC2x.c **** void ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uint16_t timeout)
+ 206:FML/Src/EC2x.c **** {
+ 664              		.loc 1 206 1 is_stmt 1 view -0
+ 665              		.cfi_startproc
+ 666              		@ args = 4, pretend = 0, frame = 0
+ 667              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 17
+
+
+ 668              		.loc 1 206 1 is_stmt 0 view .LVU182
+ 669 0000 08B5     		push	{r3, lr}
+ 670              	.LCFI11:
+ 671              		.cfi_def_cfa_offset 8
+ 672              		.cfi_offset 3, -8
+ 673              		.cfi_offset 14, -4
+ 207:FML/Src/EC2x.c ****     ec2x_write(fd,tx_buff,len);
+ 674              		.loc 1 207 5 is_stmt 1 view .LVU183
+ 675 0002 FFF7FEFF 		bl	ec2x_write
+ 676              	.LVL51:
+ 208:FML/Src/EC2x.c **** 
+ 209:FML/Src/EC2x.c **** }
+ 677              		.loc 1 209 1 is_stmt 0 view .LVU184
+ 678 0006 08BD     		pop	{r3, pc}
+ 679              		.loc 1 209 1 view .LVU185
+ 680              		.cfi_endproc
+ 681              	.LFE293:
+ 683              		.global	ec2x_dev
+ 684              		.global	ec2x_buff
+ 685              		.section	.data.ec2x_buff,"aw"
+ 686              		.align	2
+ 689              	ec2x_buff:
+ 690 0000 FF00     		.ascii	"\377\000"
+ 691 0002 00000000 		.space	298
+ 691      00000000 
+ 691      00000000 
+ 691      00000000 
+ 691      00000000 
+ 692              		.section	.data.ec2x_dev,"aw"
+ 693              		.align	2
+ 694              		.set	.LANCHOR0,. + 0
+ 697              	ec2x_dev:
+ 698 0000 75617274 		.ascii	"uart1/ec200s\000"
+ 698      312F6563 
+ 698      32303073 
+ 698      00
+ 699 000d 0000     		.space	2
+ 700 000f 00       		.space	1
+ 701 0010 00000000 		.word	huart1
+ 702 0014 00000048 		.word	1207959552
+ 703 0018 0001     		.short	256
+ 704 001a 0000     		.space	2
+ 705 001c 00000048 		.word	1207959552
+ 706 0020 0008     		.short	2048
+ 707 0022 0000     		.space	2
+ 708 0024 00       		.byte	0
+ 709 0025 000000   		.space	3
+ 710 0028 00000000 		.word	ec2x_buff
+ 711 002c 0000     		.short	0
+ 712 002e 0000     		.short	0
+ 713 0030 0000     		.short	0
+ 714 0032 2C01     		.short	300
+ 715              		.text
+ 716              	.Letext0:
+ 717              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 718              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 719              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 18
+
+
+ 720              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 721              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 722              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 723              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 724              		.file 9 "FML/Inc/EC2x.h"
+ 725              		.file 10 "HAL/Inc/usart.h"
+ 726              		.file 11 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 727              		.file 12 "<built-in>"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 EC2x.c
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:20     .text.ec2x_io_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:26     .text.ec2x_io_init:00000000 ec2x_io_init
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:130    .text.ec2x_io_init:00000060 $d
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:135    .text.ec2x_open:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:141    .text.ec2x_open:00000000 ec2x_open
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:212    .text.ec2x_open:00000038 $d
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:218    .text.ec2x_write:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:224    .text.ec2x_write:00000000 ec2x_write
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:272    .text.ec2x_write:00000024 $d
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:277    .text.ec2x_read:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:283    .text.ec2x_read:00000000 ec2x_read
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:449    .text.ec2x_read:000000a0 $d
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:455    .text.ec2x_handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:461    .text.ec2x_handler:00000000 ec2x_handler
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:650    .text.ec2x_handler:000000d4 $d
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:655    .text.ec2x_cmd_send:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:661    .text.ec2x_cmd_send:00000000 ec2x_cmd_send
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:697    .data.ec2x_dev:00000000 ec2x_dev
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:689    .data.ec2x_buff:00000000 ec2x_buff
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:686    .data.ec2x_buff:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccHlbUNe.s:693    .data.ec2x_dev:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+HAL_GPIO_WritePin
+strcmp
+HAL_UART_Transmit_IT
+HAL_Delay
+huart1
