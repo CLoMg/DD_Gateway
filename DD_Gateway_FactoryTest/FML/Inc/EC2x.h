@@ -44,6 +44,11 @@ typedef struct EC2x
 int ec2x_open(char *dev_name);
 void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len);
 
+static int ec2x_reset(int fd);
+static void ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uint16_t timeout);
+static void ec2x_waitreply(uint8_t *expect,uint16_t timeout);
+
+
 /*------------------------------------test------------------------------------*/
 
 #ifdef __cplusplus

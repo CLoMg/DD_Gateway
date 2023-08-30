@@ -47,8 +47,10 @@ static StateTransform_T trans_table[] =
 	{AT_MODE,CMDSend_Event,WAIT_REPLY,ec2x_cmd_send},
 	{WAIT_REPLY,ReplyScs_Event,AT_MODE,NULL},
 	{WAIT_REPLY,Timeout_Event,AT_MODE,NULL},
-	{TRANS_MODE,MsgSend_Event,TRANS_MODE,ec2x_msg_send},
+	{TRANS_MODE,MsgSend_Event,TRANS_MODE,ec2x_cmd_send},
 };
+
+
 /*----------------------------------typedef-----------------------------------*/
 
 EC2x_HandleTypeDef ec2x_dev[]=
@@ -126,7 +128,7 @@ int ec2x_reset(int fd){
     if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
         return (err_code = -1);
     else{
-        EC2x_HandleTypeDef *device = ec2x_dev[fd];
+        EC2x_HandleTypeDef *device = &ec2x_dev[fd];
         HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_SET);
         HAL_Delay(500);
         HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
