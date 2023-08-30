@@ -74,6 +74,7 @@ HAL/Src/adc.c \
 HAL/Src/spi.c \
 HAL/Src/usart.c \
 HAL/Src/timer.c \
+HAL/Src/queue.c \
 FML/Src/W25QXX.c \
 FML/Src/led.c \
 FML/Src/rs485.c \

@@ -1,4 +1,4 @@
-build/EC2x.o: FML/Src/EC2x.c FML/Inc/EC2x.h Core/Inc/main.h \
+build/queue.o: HAL/Src/queue.c HAL/Inc/queue.h Core/Inc/main.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h \
  Core/Inc/stm32l4xx_hal_conf.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h \
@@ -29,11 +29,8 @@ build/EC2x.o: FML/Src/EC2x.c FML/Inc/EC2x.h Core/Inc/main.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h \
- Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h HAL/Inc/usart.h \
- HAL/Inc/timer.h ThirdParty/Letter-shell/Inc/shell_port.h \
- ThirdParty/Letter-shell/Inc/shell.h \
- ThirdParty/Letter-shell/Inc/shell_cfg.h ThirdParty/FSM/fsm.h
-FML/Inc/EC2x.h:
+ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h
+HAL/Inc/queue.h:
 Core/Inc/main.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 Core/Inc/stm32l4xx_hal_conf.h:
@@ -68,9 +65,3 @@ Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi_ex.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h:
-HAL/Inc/usart.h:
-HAL/Inc/timer.h:
-ThirdParty/Letter-shell/Inc/shell_port.h:
-ThirdParty/Letter-shell/Inc/shell.h:
-ThirdParty/Letter-shell/Inc/shell_cfg.h:
-ThirdParty/FSM/fsm.h:
