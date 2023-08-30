@@ -67,17 +67,19 @@ ThirdParty/Letter-shell/Src/shell_cmd_list.c \
 ThirdParty/Letter-shell/Src/shell_companion.c \
 ThirdParty/Letter-shell/Src/shell_ext.c \
 ThirdParty/Letter-shell/Src/shell_port.c \
-ThirdParty/Letter-shell\Src/shell.c \
+ThirdParty/Letter-shell/Src/shell.c \
+ThirdParty/FSM/fsm.c \
 HAL/Src/gpio.c \
 HAL/Src/adc.c \
 HAL/Src/spi.c \
 HAL/Src/usart.c \
+HAL/Src/timer.c \
 FML/Src/W25QXX.c \
 FML/Src/led.c \
 FML/Src/rs485.c \
 FML/Src/ATGM332D.c \
 FML/Src/EC2x.c \
-HAL/Src/timer.c 
+
 
 # ASM sources
 ASM_SOURCES =  \
@@ -140,6 +142,7 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Device/ST/STM32L4xx/Include \
 -IDrivers/CMSIS/Include \
 -IThirdParty/Letter-shell/Inc \
+-IThirdParty/FSM \
 -IFML/Inc \
 -IHAL/Inc
 

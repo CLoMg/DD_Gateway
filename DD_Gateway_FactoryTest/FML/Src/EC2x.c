@@ -20,6 +20,7 @@
 #include "timer.h"
 #include "shell_port.h"
 #include <stdio.h>
+#include "fsm.h"
 /*-----------------------------------macro------------------------------------*/
 #define BUFF_LEN 300
 /*----------------------------------typedef-----------------------------------*/
@@ -27,7 +28,29 @@
 /*----------------------------------variable----------------------------------*/
 uint8_t ec2x_buff[BUFF_LEN]={0xff,};
 
+FSM_T *ec2x_fsm = NULL;
+static EventsID_T event;
+enum  EC2x_States
+{
+    UINIT = 0x00, AT_MODE , WAIT_REPLY, TRANS_MODE
+};
+
+typedef enum{
+    Init_Event = 0x00, Timeout_Event ,ReplyScs_Event, CMDSend_Event,
+    MsgSend_Event,
+}EC2x_Event_t;
+
+static StateTransform_T trans_table[] = 
+{
+	{UINIT,Timeout_Event,UINIT,ec2x_reset},
+	{UINIT,ReplyScs_Event,AT_MODE,NULL},
+	{AT_MODE,CMDSend_Event,WAIT_REPLY,ec2x_cmd_send},
+	{WAIT_REPLY,ReplyScs_Event,AT_MODE,NULL},
+	{WAIT_REPLY,Timeout_Event,AT_MODE,NULL},
+	{TRANS_MODE,MsgSend_Event,TRANS_MODE,ec2x_msg_send},
+};
 /*----------------------------------typedef-----------------------------------*/
+
 EC2x_HandleTypeDef ec2x_dev[]=
 {
     {
@@ -52,6 +75,7 @@ EC2x_HandleTypeDef ec2x_dev[]=
 /*-------------------------------------os-------------------------------------*/
 
 /*----------------------------------function----------------------------------*/
+
 /**
  * @brief 设备初始化函数
  * 
@@ -91,6 +115,25 @@ void ec2x_io_init(EC2x_HandleTypeDef *device)
     HAL_Delay(1000);
     HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
 }
+/**
+ * @brief 通过POWEREN引脚，对模块进行掉电复位
+ * 
+ * @param fd 
+ * @return int 
+ */
+int ec2x_reset(int fd){
+    int err_code = 0;
+    if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
+        return (err_code = -1);
+    else{
+        EC2x_HandleTypeDef *device = ec2x_dev[fd];
+        HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_SET);
+        HAL_Delay(500);
+        HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
+    }
+    ec2x_waitreply("\r\nRDY",10000);
+}
+
 /**
  * @brief 设备文件open函数
  * 
