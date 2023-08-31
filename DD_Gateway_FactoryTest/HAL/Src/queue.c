@@ -87,7 +87,7 @@ int queue_pull(Queue_HandleTypeDef *self,int *temp,uint16_t len){
  *          -1: 队列无法访问
  *          len： 弹出元素数量
  */
-int queue_pop(Queue_HandleTypeDef *self,int *temp,uint16_t len){
+int queue_pop(Queue_HandleTypeDef *self,uint8_t *temp,uint16_t len){
     uint16_t j = 0 ;
     //如果队列被上锁了，则等待100ms
     if(self->block == 1)

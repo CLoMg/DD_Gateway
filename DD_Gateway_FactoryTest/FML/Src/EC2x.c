@@ -29,7 +29,7 @@
 /*----------------------------------variable----------------------------------*/
 uint8_t ec2x_buff[BUFF_LEN]={0xff,};
 
-FSM_T *ec2x_fsm = NULL;
+FSM_T ec2x_fsm;
 
 StateTransform_T ec2x_transtable[] = 
 {
@@ -44,6 +44,7 @@ StateTransform_T ec2x_transtable[] =
 uint8_t event_buff[10];
 Queue_HandleTypeDef ec2x_event_queue;
 
+uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2";
 
 /*----------------------------------typedef-----------------------------------*/
 
@@ -120,14 +121,14 @@ void ec2x_io_init(EC2x_HandleTypeDef *device)
 int ec2x_reset(int fd){
     fd = 0;
     int err_code = 0;
-    if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
-        return (err_code = -1);
-    else{
-        EC2x_HandleTypeDef *device = &ec2x_dev[fd];
-        HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_SET);
-        HAL_Delay(500);
-        HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
-    }
+    // if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
+    //     return (err_code = -1);
+    // else{
+    //     EC2x_HandleTypeDef *device = &ec2x_dev[fd];
+    //     HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_SET);
+    //     HAL_Delay(500);
+    //     HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
+    // }
     ec2x_waitreply("\r\nRDY",10000);
 }
 
@@ -147,11 +148,12 @@ int ec2x_open(char *dev_name)
         {
             ec2x_io_init(&ec2x_dev[i]);
 
-             queue_init(&ec2x_event_queue,event_buff,10);
-            // ec2x_fsm = (FSM_T*)malloc(sizeof(FSM_T));
-            // uint8_t num = sizeof(ec2x_transtable)/sizeof(ec2x_transtable[0]);
-            // FSM_Regist(ec2x_fsm,ec2x_transtable,num,UINIT);
-            // queue_insert(&ec2x_event_queue,Timeout_Event);
+            queue_init(&ec2x_event_queue,event_buff,10);
+        
+           // ec2x_fsm = (FSM_T*)malloc(sizeof(FSM_T));
+            uint8_t num = sizeof(ec2x_transtable)/sizeof(ec2x_transtable[0]);
+            FSM_Regist(&ec2x_fsm,ec2x_transtable,num,UINIT);
+            queue_insert(&ec2x_event_queue,(uint8_t)Timeout_Event);
             return i;
         }
     }
@@ -266,20 +268,18 @@ void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
 static uint8_t timeout_cnt = 0;
 void ec2x_timeout_handle(void){
     shellPrint(&shell,"no valid data\r\n");
-    queue_insert(&ec2x_event_queue,Timeout_Event);
+    queue_insert(&ec2x_event_queue,(uint8_t)Timeout_Event);
 }
 
 int ec2x_replymatch(char* expect){
     uint8_t rx_buff[300]  = {0x00};
-    uint8_t evt = 0;
     int bytes_num = 0;
     bytes_num =  ec2x_read(0,rx_buff,300);
     if(bytes_num > 0)
     {
         if(strstr(rx_buff,expect) != NULL){
              shellPrint(&shell,"recv success");
-             evt = ReplyScs_Event;
-             queue_insert(&ec2x_event_queue,evt);
+             queue_insert(&ec2x_event_queue,(uint8_t)ReplyScs_Event);
             return 1;
         }
     }
@@ -294,6 +294,7 @@ int ec2x_replymatch(char* expect){
 void ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uint16_t timeout)
 {
     ec2x_write(fd,tx_buff,len);
+    queue_insert(&ec2x_event_queue,(uint8_t)CMDSend_Event);
     ec2x_waitreply(expect_reply,timeout);
 }
 
@@ -308,7 +309,9 @@ void ec2x_fms_proccess(void){
     if(queue_is_empty(&ec2x_event_queue) == 0){
         EC2x_Event_T evt = 0x00;
         queue_pop(&ec2x_event_queue,&evt,1);
-        FSM_EventHandle(ec2x_fsm,evt);
+        shellPrint(&shell,"Cur->State:%d ,Evt:%d,",(&ec2x_fsm)->state,evt);
+        FSM_EventHandle(&ec2x_fsm,evt);
+        shellPrint(&shell,"Next->State:%d\r\n",(&ec2x_fsm)->state);
     }
 }
 /*------------------------------------test------------------------------------*/
@@ -325,8 +328,15 @@ void EC2x_Test(int fd,char *tx_buff,char *expect_reply,uint16_t timeout)
 {
     uint8_t *tx_data,len=0;
     len = strlen(tx_buff);
-    tx_data = (char *)malloc((len+2)*sizeof(uint8_t));
-    memcpy(tx_data,tx_buff,len);
+    if(strcmp(tx_buff,"tcp_connect")==0){
+        len = strlen(tcp_connect);
+        tx_data = (char *)malloc(len*sizeof(uint8_t));
+        memcpy(tx_data,tcp_connect,len);
+    }
+    else{
+        tx_data = (char *)malloc((len+2)*sizeof(uint8_t));
+        memcpy(tx_data,tx_buff,len);
+    }
     tx_data[len] = 0x0D;
     tx_data[len+1] = 0x0A;
     ec2x_cmd_send(fd, tx_data,len+2, expect_reply,timeout);

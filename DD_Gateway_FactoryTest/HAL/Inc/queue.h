@@ -51,7 +51,7 @@ int queue_pull(Queue_HandleTypeDef *self,int *temp,uint16_t len);
 /**
  * @brief  弹出队列len个元素（要从队列中删除）
  */
-int queue_pop(Queue_HandleTypeDef *self,int *temp,uint16_t len);
+int queue_pop(Queue_HandleTypeDef *self,uint8_t *temp,uint16_t len);
 /**
  * @brief 判断队列是否满
  */
