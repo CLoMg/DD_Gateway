@@ -24,7 +24,7 @@ typedef struct{
 }FSM_T;
 
 
-void FSM_Regist(FSM_T*,StateTransform_T*);
+void FSM_Regist(FSM_T* pFSM,StateTransform_T* pTable,unsigned char trans_num,States_T init_state);
 void FSM_StateTransfer(FSM_T*,States_T);
 void FSM_EventHandle(FSM_T* pFSM,const EventsID_T);
 void LED_Process(void);

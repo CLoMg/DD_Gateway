@@ -21,6 +21,7 @@
 #include "shell_port.h"
 #include <stdio.h>
 #include "fsm.h"
+#include "queue.h"
 /*-----------------------------------macro------------------------------------*/
 #define BUFF_LEN 300
 /*----------------------------------typedef-----------------------------------*/
@@ -29,26 +30,19 @@
 uint8_t ec2x_buff[BUFF_LEN]={0xff,};
 
 FSM_T *ec2x_fsm = NULL;
-static EventsID_T event;
-enum  EC2x_States
-{
-    UINIT = 0x00, AT_MODE , WAIT_REPLY, TRANS_MODE
-};
 
-typedef enum{
-    Init_Event = 0x00, Timeout_Event ,ReplyScs_Event, CMDSend_Event,
-    MsgSend_Event,
-}EC2x_Event_t;
-
-static StateTransform_T trans_table[] = 
+StateTransform_T ec2x_transtable[] = 
 {
 	{UINIT,Timeout_Event,UINIT,ec2x_reset},
 	{UINIT,ReplyScs_Event,AT_MODE,NULL},
-	{AT_MODE,CMDSend_Event,WAIT_REPLY,ec2x_cmd_send},
+	{AT_MODE,CMDSend_Event,WAIT_REPLY,NULL},
 	{WAIT_REPLY,ReplyScs_Event,AT_MODE,NULL},
 	{WAIT_REPLY,Timeout_Event,AT_MODE,NULL},
-	{TRANS_MODE,MsgSend_Event,TRANS_MODE,ec2x_cmd_send},
+	{TRANS_MODE,MsgSend_Event,TRANS_MODE,NULL},
 };
+
+uint8_t event_buff[10];
+Queue_HandleTypeDef ec2x_event_queue;
 
 
 /*----------------------------------typedef-----------------------------------*/
@@ -124,6 +118,7 @@ void ec2x_io_init(EC2x_HandleTypeDef *device)
  * @return int 
  */
 int ec2x_reset(int fd){
+    fd = 0;
     int err_code = 0;
     if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
         return (err_code = -1);
@@ -151,6 +146,12 @@ int ec2x_open(char *dev_name)
         if(strcmp(dev_name,ec2x_dev[i].dev_name) == 0)
         {
             ec2x_io_init(&ec2x_dev[i]);
+
+             queue_init(&ec2x_event_queue,event_buff,10);
+            // ec2x_fsm = (FSM_T*)malloc(sizeof(FSM_T));
+            // uint8_t num = sizeof(ec2x_transtable)/sizeof(ec2x_transtable[0]);
+            // FSM_Regist(ec2x_fsm,ec2x_transtable,num,UINIT);
+            // queue_insert(&ec2x_event_queue,Timeout_Event);
             return i;
         }
     }
@@ -265,22 +266,26 @@ void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
 static uint8_t timeout_cnt = 0;
 void ec2x_timeout_handle(void){
     shellPrint(&shell,"no valid data\r\n");
+    queue_insert(&ec2x_event_queue,Timeout_Event);
 }
 
 int ec2x_replymatch(char* expect){
     uint8_t rx_buff[300]  = {0x00};
+    uint8_t evt = 0;
     int bytes_num = 0;
     bytes_num =  ec2x_read(0,rx_buff,300);
     if(bytes_num > 0)
     {
         if(strstr(rx_buff,expect) != NULL){
-            shellPrint(&shell,"recv success");
+             shellPrint(&shell,"recv success");
+             evt = ReplyScs_Event;
+             queue_insert(&ec2x_event_queue,evt);
             return 1;
         }
     }
     
     if(timeout_cnt == 0)
-        ec2x_timeout_handle(); 
+         ec2x_timeout_handle(); 
     else
         timeout_cnt--;
     return 0;
@@ -292,12 +297,30 @@ void ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,ui
     ec2x_waitreply(expect_reply,timeout);
 }
 
+/***/
 void ec2x_waitreply(uint8_t *expect,uint16_t timeout){
     timeout_cnt = timeout / 100;
     timer_insert(100,timeout_cnt,ec2x_replymatch,expect);
 }
+
+
+void ec2x_fms_proccess(void){
+    if(queue_is_empty(&ec2x_event_queue) == 0){
+        EC2x_Event_T evt = 0x00;
+        queue_pop(&ec2x_event_queue,&evt,1);
+        FSM_EventHandle(ec2x_fsm,evt);
+    }
+}
 /*------------------------------------test------------------------------------*/
 
+/**
+ * @brief 
+ * 
+ * @param fd 
+ * @param tx_buff 
+ * @param expect_reply 
+ * @param timeout 
+ */
 void EC2x_Test(int fd,char *tx_buff,char *expect_reply,uint16_t timeout)
 {
     uint8_t *tx_data,len=0;
@@ -307,6 +330,8 @@ void EC2x_Test(int fd,char *tx_buff,char *expect_reply,uint16_t timeout)
     tx_data[len] = 0x0D;
     tx_data[len+1] = 0x0A;
     ec2x_cmd_send(fd, tx_data,len+2, expect_reply,timeout);
+    free(tx_data);
+    tx_data = NULL;
 }
 
 SHELL_EXPORT_CMD(

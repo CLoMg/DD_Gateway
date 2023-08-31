@@ -16,13 +16,12 @@
  * @param  buff             My Param doc
  * @param  size             My Param doc
  */
-void queue_init(Queue_HandleTypeDef *self,void *buff,uint16_t capacity,uint16_t size){
+void queue_init(Queue_HandleTypeDef *self,void *buff,uint16_t capacity){
     self->block = 0;
     self->head = 0;
     self->tail = 0;
     self->capacity = capacity; 
     self->buff = buff;
-    self->size = 0;
 }
 /**
  * @brief 
@@ -30,15 +29,19 @@ void queue_init(Queue_HandleTypeDef *self,void *buff,uint16_t capacity,uint16_t 
  * @param  item             My Param doc
  * @return int 
  */
-int queue_insert(Queue_HandleTypeDef *self,int *item){
+int queue_insert(Queue_HandleTypeDef *self,uint8_t item){
     if(self->block  == 0){
         self->block = 1;
-        self->buff[self->tail] = &item;
+
+        //先判断队列是否满了
+        if((self->tail + 1) % self->capacity == self->head){
+            //如果满了，需要把现在的队列头删了，然后再进行插入,
+            //这里会牺牲一个单元的空间，用于区分队列空和队列满
+            self->head = (self->head + 1) % self->capacity;
+        }
+
+        self->buff[self->tail] = item;
         self->tail = (self->tail +1) % self->capacity;
-        self->size++;
-        self->size = self->size > self->capacity ? self->capacity : self->size;
-        if((self->tail > self->head)&&(self->size == self->capacity))
-            self->head = self->tail;
         self->block = 0;
         return 1;
     }
@@ -63,8 +66,10 @@ int queue_pull(Queue_HandleTypeDef *self,int *temp,uint16_t len){
     }
     else{
         self->block = 1;
-        if(len > self->size)
-            len = self->size;
+        uint16_t size  = 0;
+        size = self->tail >= self->head ? (self->tail - self->head):(self->tail + self->capacity - self->head);
+        if(len > size)
+            len = size;
         for(j = 0 ; j < len; j++){
             temp[j] = self->buff[(self->head+j)% self->capacity];
         }
@@ -93,12 +98,12 @@ int queue_pop(Queue_HandleTypeDef *self,int *temp,uint16_t len){
     }
     else{
         self->block = 1;
-        if(len > self->size)
-            len = self->size;
+        uint16_t size  = self->tail >= self->head ? (self->tail - self->head):(self->tail + self->capacity - self->head) ;
+        if(len > size)
+            len = size;
         for(j = 0 ; j < len; j++){
             temp[j] = self->buff[self->head];
             self->head = (self->head + 1) % self->capacity;
-            self->size--;
         }
         self->block = 0;
     }
@@ -114,7 +119,7 @@ int queue_pop(Queue_HandleTypeDef *self,int *temp,uint16_t len){
  *          0: 队列未满
  */
 
-int queue_is_empty(Queue_HandleTypeDef *self){
+int queue_is_full(Queue_HandleTypeDef *self){
     int re_code = -1;
     if(self->block == 1)
     {
@@ -124,11 +129,11 @@ int queue_is_empty(Queue_HandleTypeDef *self){
     }
     else{
         self->block = 1;
-       if(self->size == self->capacity)
+       if(self->head == ((self->tail + 1) % self->capacity))
         re_code = 1;
         else
         re_code = 0;
-        self->block = 1;
+        self->block = 0;
     }
     return re_code;
 }
@@ -142,7 +147,7 @@ int queue_is_empty(Queue_HandleTypeDef *self){
  *          0: 队列非空
  */
 
-int queue_is_full(Queue_HandleTypeDef *self){
+int queue_is_empty(Queue_HandleTypeDef *self){
     int re_code = -1;
     if(self->block == 1)
     {
@@ -152,11 +157,11 @@ int queue_is_full(Queue_HandleTypeDef *self){
     }
     else{
         self->block = 1;
-       if(self->size == 0)
+       if(self->head == self->tail)
         re_code = 1;
         else
         re_code = 0;
-        self->block = 1;
+        self->block = 0;
     }
     return re_code;
 }

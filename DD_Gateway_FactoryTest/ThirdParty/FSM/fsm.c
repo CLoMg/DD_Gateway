@@ -1,9 +1,12 @@
 #include "fsm.h"
 #include "stdlib.h"
 
-void FSM_Regist(FSM_T* pFSM,StateTransform_T* pTable)
+void FSM_Regist(FSM_T* pFSM,StateTransform_T* pTable,unsigned char trans_num,States_T init_state)
 {
 	pFSM->pTransTable = pTable;
+	pFSM->state = init_state;
+	pFSM->transform_num = trans_num;
+
 }
 void FSM_StateTransfer(FSM_T* pFSM,States_T next_state)
 {
@@ -26,6 +29,7 @@ void FSM_EventHandle(FSM_T* pFSM,EventsID_T evt){
 	if(pActTrans !=NULL)
 	{
 		FSM_StateTransfer(pFSM,pActTrans->NextState);
-		pActTrans->Actfunc();
+		if(pActTrans->Actfunc != NULL)
+			pActTrans->Actfunc();
 	}
 }

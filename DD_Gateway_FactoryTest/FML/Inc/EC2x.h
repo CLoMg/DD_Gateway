@@ -36,6 +36,16 @@ typedef struct EC2x
     RingBuffer_TypeDef msg;
 }EC2x_HandleTypeDef;
 
+
+enum  EC2x_States
+{
+    UINIT = 0x00, AT_MODE , WAIT_REPLY, TRANS_MODE
+};
+
+typedef enum{
+    Init_Event = 0x00, Timeout_Event ,ReplyScs_Event, CMDSend_Event,
+    MsgSend_Event,
+}EC2x_Event_T;
 /*----------------------------------variable----------------------------------*/
 
 /*-------------------------------------os-------------------------------------*/
@@ -43,10 +53,12 @@ typedef struct EC2x
 /*----------------------------------function----------------------------------*/
 int ec2x_open(char *dev_name);
 void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len);
+void ec2x_fms_proccess(void);
 
 static int ec2x_reset(int fd);
 static void ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uint16_t timeout);
 static void ec2x_waitreply(uint8_t *expect,uint16_t timeout);
+
 
 
 /*------------------------------------test------------------------------------*/

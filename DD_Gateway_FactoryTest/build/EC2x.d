@@ -32,7 +32,8 @@ build/EC2x.o: FML/Src/EC2x.c FML/Inc/EC2x.h Core/Inc/main.h \
  Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h HAL/Inc/usart.h \
  HAL/Inc/timer.h ThirdParty/Letter-shell/Inc/shell_port.h \
  ThirdParty/Letter-shell/Inc/shell.h \
- ThirdParty/Letter-shell/Inc/shell_cfg.h ThirdParty/FSM/fsm.h
+ ThirdParty/Letter-shell/Inc/shell_cfg.h ThirdParty/FSM/fsm.h \
+ HAL/Inc/queue.h
 FML/Inc/EC2x.h:
 Core/Inc/main.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
@@ -74,3 +75,4 @@ ThirdParty/Letter-shell/Inc/shell_port.h:
 ThirdParty/Letter-shell/Inc/shell.h:
 ThirdParty/Letter-shell/Inc/shell_cfg.h:
 ThirdParty/FSM/fsm.h:
+HAL/Inc/queue.h:

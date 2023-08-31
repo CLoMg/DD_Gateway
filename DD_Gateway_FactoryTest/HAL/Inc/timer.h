@@ -14,6 +14,7 @@ extern "C"{
 typedef struct timer
 {
     /* data */
+    uint8_t block;
     uint32_t  init_tick;
     uint32_t timeout;
     int8_t reenter_times;

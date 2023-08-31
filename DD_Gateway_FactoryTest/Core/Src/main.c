@@ -24,6 +24,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "timer.h"
+#include "math.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -134,7 +135,7 @@ int main(void)
      /* Cat-1 测试 */
      /* ETH 测试 */
      /* ATGM223D接口测试 */
-     
+    //  ec2x_fms_proccess();
      HAL_Delay(100);
     /* USER CODE BEGIN 3 */
   }

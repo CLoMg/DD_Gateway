@@ -33,6 +33,7 @@ Timer_HandleTypeDef *timer_list = NULL;
 void timer_init(void){
     timer_list = (Timer_HandleTypeDef *)malloc(sizeof(Timer_HandleTypeDef));
     timer_list->next = NULL;
+    timer_list->block = 0;
 }
 /**
  * @brief 定时器更新函数
@@ -43,30 +44,37 @@ void timer_init(void){
 void timer_update(void){
     base_tick++;
     Timer_HandleTypeDef *p  = timer_list, *q = NULL;
-    while(p->next !=NULL){
-        uint32_t err_tick;
-        err_tick = base_tick > p->next->init_tick ?  (base_tick - p->next->init_tick) :  (0xFFFFFFFF - p->next->init_tick + base_tick);
-        if(err_tick >= p->next->timeout){
-            //执行回调函数，回调函数要求时间尽可能短
-            p->next->func(p->next->param);
-            if(p->next->reenter_times == 0){
-                q = p->next;  
-                p->next = q->next;
-                free(q);
-                q = NULL;
+    if(timer_list->block == 0){
+
+        while(p->next !=NULL){
+            uint32_t err_tick;
+            err_tick = base_tick > p->next->init_tick ?  (base_tick - p->next->init_tick) :  (0xFFFFFFFF - p->next->init_tick + base_tick);
+            if(err_tick >= p->next->timeout){
+                //执行回调函数，回调函数要求时间尽可能短
+                if(p->next->func != NULL)
+                    p->next->func(p->next->param);
+                if(p->next->reenter_times == 0){
+                    q = p->next;  
+                    p->next = q->next;
+                    q->func = NULL;
+                    q->param = NULL;
+                    q->next = NULL;
+                    free(q);
+                    q = NULL;
+                }
+                else if(p->next->reenter_times == -1){
+                    p->next->init_tick = base_tick;
+                    p = p->next;
+                }
+                else{
+                    p->next->reenter_times--;
+                    p->next->init_tick = base_tick;
+                    p = p->next;
+                }
             }
-            else if(p->next->reenter_times == -1){
-                p->next->init_tick = base_tick;
+            else
                 p = p->next;
-            }
-            else{
-                p->next->reenter_times--;
-                p->next->init_tick = base_tick;
-                p = p->next;
-            }
         }
-        else
-            p = p->next;
     }
 }
 
@@ -80,8 +88,8 @@ void timer_update(void){
 void timer_insert(uint32_t timeout,int8_t cycles,void *func,void *param){
     Timer_HandleTypeDef *new,*p;
     new = (Timer_HandleTypeDef *)malloc(sizeof(Timer_HandleTypeDef));
+    timer_list->block = 1;
     p = timer_list;
-
     new->func = func;
     new->param = param;
     new->next = NULL;
@@ -91,6 +99,8 @@ void timer_insert(uint32_t timeout,int8_t cycles,void *func,void *param){
 
     while(p->next != NULL)
         p = p->next;
+
     p->next  = new;    
+    timer_list->block =0;
 };
 /*------------------------------------test------------------------------------*/

@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,15 +19,15 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.file 1 "HAL/Src/usart.c"
-  20              		.section	.text.MX_USART1_UART_Init,"ax",%progbits
-  21              		.align	1
-  22              		.global	MX_USART1_UART_Init
-  23              		.syntax unified
-  24              		.thumb
-  25              		.thumb_func
-  27              	MX_USART1_UART_Init:
-  28              	.LFB288:
+  19              		.section	.text.MX_USART1_UART_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	MX_USART1_UART_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	MX_USART1_UART_Init:
+  27              	.LFB288:
+  28              		.file 1 "HAL/Src/usart.c"
    1:HAL/Src/usart.c **** /* USER CODE BEGIN Header */
    2:HAL/Src/usart.c **** /**
    3:HAL/Src/usart.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
   28:HAL/Src/usart.c **** /* USER CODE END 0 */
   29:HAL/Src/usart.c **** 
   30:HAL/Src/usart.c **** UART_HandleTypeDef huart1;
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 2
 
 
   31:HAL/Src/usart.c **** UART_HandleTypeDef huart2;
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
   61              		.loc 1 52 3 is_stmt 1 view .LVU13
   62              		.loc 1 52 25 is_stmt 0 view .LVU14
   63 001a 8361     		str	r3, [r0, #24]
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 3
 
 
   53:HAL/Src/usart.c ****   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
@@ -166,9 +166,9 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
   93              	.L6:
   94              		.align	2
   95              	.L5:
-  96 003c 00000000 		.word	huart1
+  96 003c 00000000 		.word	.LANCHOR0
   97 0040 00380140 		.word	1073821696
-  98 0044 00000000 		.word	u1_cache
+  98 0044 00000000 		.word	.LANCHOR1
   99              		.cfi_endproc
  100              	.LFE288:
  102              		.section	.text.MX_USART2_UART_Init,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  106              		.thumb
  107              		.thumb_func
  109              	MX_USART2_UART_Init:
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 4
 
 
  110              	.LFB289:
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  145 001a 8361     		str	r3, [r0, #24]
   84:HAL/Src/usart.c ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
  146              		.loc 1 84 3 is_stmt 1 view .LVU42
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 5
 
 
  147              		.loc 1 84 28 is_stmt 0 view .LVU43
@@ -284,9 +284,9 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  175              	.L12:
  176              		.align	2
  177              	.L11:
- 178 003c 00000000 		.word	huart2
+ 178 003c 00000000 		.word	.LANCHOR2
  179 0040 00440040 		.word	1073759232
- 180 0044 00000000 		.word	u2_cache
+ 180 0044 00000000 		.word	.LANCHOR3
  181              		.cfi_endproc
  182              	.LFE289:
  184              		.section	.text.MX_USART3_UART_Init,"ax",%progbits
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  191              	MX_USART3_UART_Init:
  192              	.LFB290:
   96:HAL/Src/usart.c **** /* USART3 init function */
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 6
 
 
   97:HAL/Src/usart.c **** 
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  228              		.loc 1 115 3 is_stmt 1 view .LVU69
  229              		.loc 1 115 28 is_stmt 0 view .LVU70
  230 001c C361     		str	r3, [r0, #28]
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 7
 
 
  116:HAL/Src/usart.c ****   huart3.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
@@ -402,9 +402,9 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  257              	.L18:
  258 003a 00BF     		.align	2
  259              	.L17:
- 260 003c 00000000 		.word	huart3
+ 260 003c 00000000 		.word	.LANCHOR4
  261 0040 00480040 		.word	1073760256
- 262 0044 00000000 		.word	u3_cache
+ 262 0044 00000000 		.word	.LANCHOR5
  263              		.cfi_endproc
  264              	.LFE290:
  266              		.section	.text.HAL_UART_MspInit,"ax",%progbits
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  275              	.LFB291:
  127:HAL/Src/usart.c **** 
  128:HAL/Src/usart.c **** void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 8
 
 
  129:HAL/Src/usart.c **** {
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  145:HAL/Src/usart.c ****     }
  146:HAL/Src/usart.c **** 
  147:HAL/Src/usart.c ****     /* USART1 clock enable */
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 9
 
 
  148:HAL/Src/usart.c ****     __HAL_RCC_USART1_CLK_ENABLE();
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  197:HAL/Src/usart.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
  198:HAL/Src/usart.c **** 
  199:HAL/Src/usart.c ****     /* USART2 interrupt Init */
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 10
 
 
  200:HAL/Src/usart.c ****     HAL_NVIC_SetPriority(USART2_IRQn, 2, 0);
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  329              		.cfi_remember_state
  330              		.cfi_def_cfa_offset 12
  331              		@ sp needed
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 11
 
 
  332 0030 30BD     		pop	{r4, r5, pc}
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  371 0054 42F00102 		orr	r2, r2, #1
  372 0058 DA64     		str	r2, [r3, #76]
  150:HAL/Src/usart.c ****     /**USART1 GPIO Configuration
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 12
 
 
  373              		.loc 1 150 5 view .LVU111
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  412 008a FFF7FEFF 		bl	HAL_NVIC_SetPriority
  413              	.LVL17:
  164:HAL/Src/usart.c ****   /* USER CODE BEGIN USART1_MspInit 1 */
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 13
 
 
  414              		.loc 1 164 5 view .LVU127
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  187:HAL/Src/usart.c ****     /**USART2 GPIO Configuration
  455              		.loc 1 187 5 view .LVU141
  456              	.LBB5:
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 14
 
 
  187:HAL/Src/usart.c ****     /**USART2 GPIO Configuration
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  494 00e4 4FF09040 		mov	r0, #1207959552
  495 00e8 FFF7FEFF 		bl	HAL_GPIO_Init
  496              	.LVL23:
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 15
 
 
  200:HAL/Src/usart.c ****     HAL_NVIC_EnableIRQ(USART2_IRQn);
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  538 011c 02F48022 		and	r2, r2, #262144
  539 0120 0492     		str	r2, [sp, #16]
  222:HAL/Src/usart.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 16
 
 
  540              		.loc 1 222 5 view .LVU172
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  577 0148 0723     		movs	r3, #7
  578 014a 2193     		str	r3, [sp, #132]
  234:HAL/Src/usart.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 17
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 17
 
 
  579              		.loc 1 234 5 is_stmt 1 view .LVU190
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  629              		.cfi_def_cfa_offset 8
  630              		.cfi_offset 3, -8
  631              		.cfi_offset 14, -4
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 18
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 18
 
 
  247:HAL/Src/usart.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  644              		.loc 1 288 8 is_stmt 1 view .LVU202
  645              		.loc 1 288 10 is_stmt 0 view .LVU203
  646 0010 1A4A     		ldr	r2, .L43+8
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 19
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 19
 
 
  647 0012 9342     		cmp	r3, r2
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  676 003c 936D     		ldr	r3, [r2, #88]
  677 003e 23F40033 		bic	r3, r3, #131072
  678 0042 9365     		str	r3, [r2, #88]
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 20
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 20
 
 
  280:HAL/Src/usart.c **** 
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  728              	HAL_UART_RxCpltCallback:
  729              	.LVL47:
  730              	.LFB293:
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 21
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 21
 
 
  309:HAL/Src/usart.c **** 
@@ -1253,12 +1253,12 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  767 0022 00BF     		.align	2
  768              	.L52:
  769 0024 00480040 		.word	1073760256
- 770 0028 00000000 		.word	u3_cache
+ 770 0028 00000000 		.word	.LANCHOR5
  771 002c 00000000 		.word	shell
- 772 0030 00000000 		.word	huart3
+ 772 0030 00000000 		.word	.LANCHOR4
  773              		.cfi_endproc
  774              	.LFE293:
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 22
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 22
 
 
  776              		.section	.text.HAL_UARTEx_RxEventCallback,"ax",%progbits
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  816              	.L58:
  817              	.LBB8:
  325:HAL/Src/usart.c ****      memset(u1_cache,0,Size);
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 23
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 23
 
 
  818              		.loc 1 325 6 is_stmt 1 view .LVU235
@@ -1378,16 +1378,16 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  865 0056 DCE7     		b	.L54
  866              	.L61:
  867              		.align	2
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 24
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 24
 
 
  868              	.L60:
  869 0058 00380140 		.word	1073821696
  870 005c 00440040 		.word	1073759232
- 871 0060 00000000 		.word	u1_cache
- 872 0064 00000000 		.word	huart1
- 873 0068 00000000 		.word	u2_cache
- 874 006c 00000000 		.word	huart2
+ 871 0060 00000000 		.word	.LANCHOR1
+ 872 0064 00000000 		.word	.LANCHOR0
+ 873 0068 00000000 		.word	.LANCHOR3
+ 874 006c 00000000 		.word	.LANCHOR2
  875              		.cfi_endproc
  876              	.LFE294:
  878              		.section	.text.HAL_UART_ErrorCallback,"ax",%progbits
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  908 000a 0A4A     		ldr	r2, .L68+4
  909 000c 9342     		cmp	r3, r2
  910 000e 07D0     		beq	.L67
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 25
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 25
 
 
  911              	.LVL64:
@@ -1489,125 +1489,131 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 1
  942              	.L68:
  943 0030 00440040 		.word	1073759232
  944 0034 00380140 		.word	1073821696
- 945 0038 00000000 		.word	u2_cache
- 946 003c 00000000 		.word	huart2
- 947 0040 00000000 		.word	u1_cache
- 948 0044 00000000 		.word	huart1
+ 945 0038 00000000 		.word	.LANCHOR3
+ 946 003c 00000000 		.word	.LANCHOR2
+ 947 0040 00000000 		.word	.LANCHOR1
+ 948 0044 00000000 		.word	.LANCHOR0
  949              		.cfi_endproc
  950              	.LFE295:
  952              		.global	huart3
- 953              		.section	.bss.huart3,"aw",%nobits
- 954              		.align	2
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 26
+ 953              		.global	huart2
+ 954              		.global	huart1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 26
 
 
- 957              	huart3:
- 958 0000 00000000 		.space	132
- 958      00000000 
- 958      00000000 
- 958      00000000 
- 958      00000000 
- 959              		.global	huart2
- 960              		.section	.bss.huart2,"aw",%nobits
- 961              		.align	2
- 964              	huart2:
- 965 0000 00000000 		.space	132
- 965      00000000 
- 965      00000000 
- 965      00000000 
- 965      00000000 
- 966              		.global	huart1
- 967              		.section	.bss.huart1,"aw",%nobits
- 968              		.align	2
- 971              	huart1:
- 972 0000 00000000 		.space	132
- 972      00000000 
- 972      00000000 
- 972      00000000 
- 972      00000000 
- 973              		.global	u3_cache
- 974              		.section	.bss.u3_cache,"aw",%nobits
- 977              	u3_cache:
- 978 0000 00       		.space	1
- 979              		.global	u2_cache
- 980              		.section	.bss.u2_cache,"aw",%nobits
- 981              		.align	2
- 984              	u2_cache:
- 985 0000 00000000 		.space	400
+ 955              		.global	u3_cache
+ 956              		.global	u2_cache
+ 957              		.global	u1_cache
+ 958              		.section	.bss.huart1,"aw",%nobits
+ 959              		.align	2
+ 960              		.set	.LANCHOR0,. + 0
+ 963              	huart1:
+ 964 0000 00000000 		.space	132
+ 964      00000000 
+ 964      00000000 
+ 964      00000000 
+ 964      00000000 
+ 965              		.section	.bss.huart2,"aw",%nobits
+ 966              		.align	2
+ 967              		.set	.LANCHOR2,. + 0
+ 970              	huart2:
+ 971 0000 00000000 		.space	132
+ 971      00000000 
+ 971      00000000 
+ 971      00000000 
+ 971      00000000 
+ 972              		.section	.bss.huart3,"aw",%nobits
+ 973              		.align	2
+ 974              		.set	.LANCHOR4,. + 0
+ 977              	huart3:
+ 978 0000 00000000 		.space	132
+ 978      00000000 
+ 978      00000000 
+ 978      00000000 
+ 978      00000000 
+ 979              		.section	.bss.u1_cache,"aw",%nobits
+ 980              		.align	2
+ 981              		.set	.LANCHOR1,. + 0
+ 984              	u1_cache:
+ 985 0000 00000000 		.space	300
  985      00000000 
  985      00000000 
  985      00000000 
  985      00000000 
- 986              		.global	u1_cache
- 987              		.section	.bss.u1_cache,"aw",%nobits
- 988              		.align	2
- 991              	u1_cache:
- 992 0000 00000000 		.space	300
+ 986              		.section	.bss.u2_cache,"aw",%nobits
+ 987              		.align	2
+ 988              		.set	.LANCHOR3,. + 0
+ 991              	u2_cache:
+ 992 0000 00000000 		.space	400
  992      00000000 
  992      00000000 
  992      00000000 
  992      00000000 
- 993              		.text
- 994              	.Letext0:
- 995              		.file 2 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 996              		.file 3 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
- 997              		.file 4 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
- 998              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 999              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc_ex.h"
- 1000              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 1001              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 1002              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
- 1003              		.file 10 "HAL/Inc/usart.h"
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 27
+ 993              		.section	.bss.u3_cache,"aw",%nobits
+ 994              		.set	.LANCHOR5,. + 0
+ 997              	u3_cache:
+ 998 0000 00       		.space	1
+ 999              		.text
+ 1000              	.Letext0:
+ 1001              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 1002              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 1003              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 27
 
 
- 1004              		.file 11 "ThirdParty/Letter-shell/Inc/shell.h"
- 1005              		.file 12 "ThirdParty/Letter-shell/Inc/shell_port.h"
- 1006              		.file 13 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
- 1007              		.file 14 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h"
- 1008              		.file 15 "<built-in>"
- 1009              		.file 16 "Core/Inc/main.h"
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s 			page 28
+ 1004              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 1005              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc_ex.h"
+ 1006              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 1007              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 1008              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 1009              		.file 10 "HAL/Inc/usart.h"
+ 1010              		.file 11 "ThirdParty/Letter-shell/Inc/shell.h"
+ 1011              		.file 12 "ThirdParty/Letter-shell/Inc/shell_port.h"
+ 1012              		.file 13 "<built-in>"
+ 1013              		.file 14 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_ex.h"
+ 1014              		.file 15 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
+ 1015              		.file 16 "Core/Inc/main.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccMwOFok.s 			page 28
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usart.c
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:21     .text.MX_USART1_UART_Init:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:27     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:96     .text.MX_USART1_UART_Init:0000003c $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:971    .bss.huart1:00000000 huart1
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:991    .bss.u1_cache:00000000 u1_cache
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:103    .text.MX_USART2_UART_Init:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:109    .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:178    .text.MX_USART2_UART_Init:0000003c $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:964    .bss.huart2:00000000 huart2
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:984    .bss.u2_cache:00000000 u2_cache
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:185    .text.MX_USART3_UART_Init:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:191    .text.MX_USART3_UART_Init:00000000 MX_USART3_UART_Init
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:260    .text.MX_USART3_UART_Init:0000003c $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:957    .bss.huart3:00000000 huart3
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:977    .bss.u3_cache:00000000 u3_cache
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:267    .text.HAL_UART_MspInit:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:273    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:604    .text.HAL_UART_MspInit:0000016c $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:613    .text.HAL_UART_MspDeInit:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:619    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:714    .text.HAL_UART_MspDeInit:00000074 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:722    .text.HAL_UART_RxCpltCallback:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:728    .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:769    .text.HAL_UART_RxCpltCallback:00000024 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:777    .text.HAL_UARTEx_RxEventCallback:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:783    .text.HAL_UARTEx_RxEventCallback:00000000 HAL_UARTEx_RxEventCallback
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:869    .text.HAL_UARTEx_RxEventCallback:00000058 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:879    .text.HAL_UART_ErrorCallback:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:885    .text.HAL_UART_ErrorCallback:00000000 HAL_UART_ErrorCallback
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:943    .text.HAL_UART_ErrorCallback:00000030 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:954    .bss.huart3:00000000 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:961    .bss.huart2:00000000 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:968    .bss.huart1:00000000 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:978    .bss.u3_cache:00000000 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:981    .bss.u2_cache:00000000 $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccugPXI5.s:988    .bss.u1_cache:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:20     .text.MX_USART1_UART_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:26     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:96     .text.MX_USART1_UART_Init:0000003c $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:103    .text.MX_USART2_UART_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:109    .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:178    .text.MX_USART2_UART_Init:0000003c $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:185    .text.MX_USART3_UART_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:191    .text.MX_USART3_UART_Init:00000000 MX_USART3_UART_Init
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:260    .text.MX_USART3_UART_Init:0000003c $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:267    .text.HAL_UART_MspInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:273    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:604    .text.HAL_UART_MspInit:0000016c $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:613    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:619    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:714    .text.HAL_UART_MspDeInit:00000074 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:722    .text.HAL_UART_RxCpltCallback:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:728    .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:769    .text.HAL_UART_RxCpltCallback:00000024 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:777    .text.HAL_UARTEx_RxEventCallback:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:783    .text.HAL_UARTEx_RxEventCallback:00000000 HAL_UARTEx_RxEventCallback
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:869    .text.HAL_UARTEx_RxEventCallback:00000058 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:879    .text.HAL_UART_ErrorCallback:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:885    .text.HAL_UART_ErrorCallback:00000000 HAL_UART_ErrorCallback
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:943    .text.HAL_UART_ErrorCallback:00000030 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:977    .bss.huart3:00000000 huart3
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:970    .bss.huart2:00000000 huart2
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:963    .bss.huart1:00000000 huart1
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:997    .bss.u3_cache:00000000 u3_cache
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:991    .bss.u2_cache:00000000 u2_cache
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:984    .bss.u1_cache:00000000 u1_cache
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:959    .bss.huart1:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:966    .bss.huart2:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:973    .bss.huart3:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:980    .bss.u1_cache:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:987    .bss.u2_cache:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccMwOFok.s:998    .bss.u3_cache:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Init
