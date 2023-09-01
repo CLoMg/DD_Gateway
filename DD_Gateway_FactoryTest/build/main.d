@@ -34,7 +34,7 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  HAL/Inc/timer.h ThirdParty/Letter-shell/Inc/shell_port.h \
  ThirdParty/Letter-shell/Inc/shell.h \
  ThirdParty/Letter-shell/Inc/shell_cfg.h FML/Inc/rs485.h FML/Inc/W25QXX.h \
- FML/Inc/ATGM332D.h FML/Inc/EC2x.h
+ FML/Inc/ATGM332D.h FML/Inc/EC2x.h FML/Inc/y_lora.h
 Core/Inc/main.h:
 Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:
 Core/Inc/stm32l4xx_hal_conf.h:
@@ -82,3 +82,4 @@ FML/Inc/rs485.h:
 FML/Inc/W25QXX.h:
 FML/Inc/ATGM332D.h:
 FML/Inc/EC2x.h:
+FML/Inc/y_lora.h:

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
   28:FML/Src/EC2x.c **** 
   29:FML/Src/EC2x.c **** /*----------------------------------variable----------------------------------*/
   30:FML/Src/EC2x.c **** uint8_t ec2x_buff[BUFF_LEN]={0xff,};
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 2
 
 
   31:FML/Src/EC2x.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
   85:FML/Src/EC2x.c ****     //__HAL_RCC_UARTX_CLK_ENABLE(); // 替换为实际的UART时钟
   86:FML/Src/EC2x.c ****     __HAL_RCC_GPIOA_CLK_ENABLE(); // 替换为实际的GPIO时钟
   87:FML/Src/EC2x.c ****     
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 3
 
 
   88:FML/Src/EC2x.c ****     // 配置GPIO引脚
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  142:FML/Src/EC2x.c **** int ec2x_open(char *dev_name)
  143:FML/Src/EC2x.c **** {
  144:FML/Src/EC2x.c ****     uint8_t i = 0;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 4
 
 
  145:FML/Src/EC2x.c ****     for(i = 0;i < sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef);i++)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  199:FML/Src/EC2x.c ****  * @return int 
  200:FML/Src/EC2x.c ****  *         -1 接口错误
  201:FML/Src/EC2x.c ****  *          0 读取失败
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 5
 
 
  202:FML/Src/EC2x.c ****  *          n 读取成功字节数
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  256:FML/Src/EC2x.c ****                     dest->tail = (dest->tail +1) % dest->capacity;
  257:FML/Src/EC2x.c ****                     dest->size++;
  258:FML/Src/EC2x.c ****                     dest->size = dest->size > dest->capacity ? dest->capacity : dest->size;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 6
 
 
  259:FML/Src/EC2x.c ****                 }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
   39 0002 0346     		mov	r3, r0
  303:FML/Src/EC2x.c ****     timeout_cnt = timeout / 100;
   40              		.loc 1 303 5 is_stmt 1 view .LVU2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 7
 
 
   41              		.loc 1 303 17 is_stmt 0 view .LVU3
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
   91              		.loc 1 122 5 is_stmt 1 view .LVU10
   92              	.LVL5:
  123:FML/Src/EC2x.c ****     // if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 8
 
 
   93              		.loc 1 123 5 view .LVU11
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  142              		.loc 1 86 5 is_stmt 1 view .LVU18
  143              	.LBB2:
   86:FML/Src/EC2x.c ****     
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 9
 
 
  144              		.loc 1 86 5 view .LVU19
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  181              		.loc 1 96 5 is_stmt 1 view .LVU36
   96:FML/Src/EC2x.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
  182              		.loc 1 96 26 is_stmt 0 view .LVU37
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 10
 
 
  183 003a 0296     		str	r6, [sp, #8]
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  220              		.loc 1 110 5 view .LVU54
  221 0064 3246     		mov	r2, r6
  222 0066 218D     		ldrh	r1, [r4, #40]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 11
 
 
  223 0068 606A     		ldr	r0, [r4, #36]
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  272 0000 70B5     		push	{r4, r5, r6, lr}
  273              	.LCFI5:
  274              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 12
 
 
  275              		.cfi_offset 4, -16
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  316              	.LVL24:
  145:FML/Src/EC2x.c ****     {
  317              		.loc 1 145 65 discriminator 2 view .LVU75
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 13
 
 
  318 0026 E4B2     		uxtb	r4, r4
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  363 006c 00000000 		.word	.LANCHOR5
  364              	.LBE4:
  365              	.LBE5:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 14
 
 
  366              		.cfi_endproc
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  189:FML/Src/EC2x.c ****     }
  411              		.loc 1 189 16 is_stmt 0 view .LVU96
  412 001a B0FA80F0 		clz	r0, r0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 15
 
 
  413              	.LVL36:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  461              	.L35:
  299:FML/Src/EC2x.c **** 
  462              		.loc 1 299 1 view .LVU105
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 16
 
 
  463              		.align	2
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  494              		.cfi_offset 7, -20
  495              		.cfi_offset 8, -16
  496              		.cfi_offset 9, -12
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 17
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 17
 
 
  497              		.cfi_offset 10, -8
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  546 0036 0446     		mov	r4, r0
  547              	.LVL52:
  334:FML/Src/EC2x.c ****         memcpy(tx_data,tcp_connect,len);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 18
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 18
 
 
  548              		.loc 1 334 9 is_stmt 1 view .LVU123
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  591              	.LBB9:
  592              	.LBB8:
  337:FML/Src/EC2x.c ****         memcpy(tx_data,tx_buff,len);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 19
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 19
 
 
  593              		.loc 1 337 9 is_stmt 1 view .LVU134
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  641              		.cfi_offset 3, -16
  642              		.cfi_offset 4, -12
  643              		.cfi_offset 5, -8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 20
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 20
 
 
  644              		.cfi_offset 14, -4
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  684              	.L55:
  215:FML/Src/EC2x.c ****             if(src->block == 1)
  685              		.loc 1 215 13 is_stmt 1 view .LVU157
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 21
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 21
 
 
  686 0038 6420     		movs	r0, #100
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  725              		.loc 1 225 27 discriminator 3 view .LVU172
  726 0076 9A86     		strh	r2, [r3, #52]	@ movhi
  226:FML/Src/EC2x.c ****             }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 22
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 22
 
 
  727              		.loc 1 226 17 is_stmt 1 discriminator 3 view .LVU173
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  768              		.cfi_restore 14
  207:FML/Src/EC2x.c ****     else{
  769              		.loc 1 207 16 view .LVU187
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 23
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 23
 
 
  770 009c 4FF0FF30 		mov	r0, #-1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  822 0002 0546     		mov	r5, r0
  823 0004 0C46     		mov	r4, r1
  824 0006 1646     		mov	r6, r2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 24
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 24
 
 
  244:FML/Src/EC2x.c ****     shellPrint(&shell,"%s",data);
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  864 002a 0133     		adds	r3, r3, #1
  865              	.LVL84:
  246:FML/Src/EC2x.c ****     {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 25
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 25
 
 
  866              		.loc 1 246 65 discriminator 2 view .LVU207
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  906 0064 275C     		ldrb	r7, [r4, r0]	@ zero_extendqisi2
  255:FML/Src/EC2x.c ****                     dest->tail = (dest->tail +1) % dest->capacity;
  907              		.loc 1 255 44 discriminator 3 view .LVU222
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 26
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 26
 
 
  908 0066 5754     		strb	r7, [r2, r1]
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  945 0098 82B2     		uxth	r2, r0
  253:FML/Src/EC2x.c ****                    
  946              		.loc 1 253 17 discriminator 1 view .LVU240
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 27
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 27
 
 
  947 009a B242     		cmp	r2, r6
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  990 00e0 00000000 		.word	.LC2
  991 00e4 00000000 		.word	shell
  992 00e8 00000000 		.word	.LANCHOR1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 28
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 28
 
 
  993              	.LBE12:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  1043 0000 72656376 		.ascii	"recv success\000"
  1043      20737563 
  1043      63657373 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 29
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 29
 
 
  1043      00
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  278:FML/Src/EC2x.c ****     {
  1089              		.loc 1 278 7 is_stmt 0 view .LVU265
  1090 0022 A042     		cmp	r0, r4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 30
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 30
 
 
  1091 0024 04DD     		ble	.L75
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  1133 0044 0848     		ldr	r0, .L81+8
  1134 0046 FFF7FEFF 		bl	shellPrint
  1135              	.LVL101:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 31
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 31
 
 
  282:FML/Src/EC2x.c ****             return 1;
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  308:FML/Src/EC2x.c ****     if(queue_is_empty(&ec2x_event_queue) == 0){
  1179              		.loc 1 308 29 is_stmt 1 view -0
  1180              		.cfi_startproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 32
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 32
 
 
  1181              		@ args = 0, pretend = 0, frame = 8
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  1225 0024 0B4D     		ldr	r5, .L87+8
  1226 0026 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2
  1227 002a 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 33
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 33
 
 
  1228 002c 0A49     		ldr	r1, .L87+12
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  1280      00000000 
  1280      00000000 
  1281              		.section	.bss.event_buff,"aw",%nobits
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 34
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 34
 
 
  1282              		.align	2
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  1337 0004 00000000 		.word	ec2x_reset
  1338 0008 00       		.byte	0
  1339 0009 02       		.byte	2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 35
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 35
 
 
  1340 000a 01       		.byte	1
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  1393              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
  1394              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
  1395              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 36
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 36
 
 
  1396              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
@@ -2114,77 +2114,77 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 1
  1406              		.file 15 "<built-in>"
  1407              		.file 16 "HAL/Inc/timer.h"
  1408              		.file 17 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 37
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 37
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 EC2x.c
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:20     .text.ec2x_waitreply:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:25     .text.ec2x_waitreply:00000000 ec2x_waitreply
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:62     .text.ec2x_waitreply:00000020 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1051   .text.ec2x_replymatch:00000000 ec2x_replymatch
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:69     .rodata.ec2x_reset.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:73     .text.ec2x_reset:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:78     .text.ec2x_reset:00000000 ec2x_reset
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:104    .text.ec2x_reset:00000010 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:109    .text.ec2x_io_init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:115    .text.ec2x_io_init:00000000 ec2x_io_init
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:253    .text.ec2x_io_init:00000090 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:258    .text.ec2x_open:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:264    .text.ec2x_open:00000000 ec2x_open
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:359    .text.ec2x_open:0000005c $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:370    .text.ec2x_write:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:376    .text.ec2x_write:00000000 ec2x_write
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:421    .text.ec2x_write:00000024 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:426    .text.ec2x_cmd_send:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:431    .text.ec2x_cmd_send:00000000 ec2x_cmd_send
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:465    .text.ec2x_cmd_send:0000001c $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:470    .rodata.EC2x_Test.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:474    .text.EC2x_Test:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:480    .text.EC2x_Test:00000000 EC2x_Test
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:611    .text.EC2x_Test:00000080 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:619    .text.ec2x_read:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:625    .text.ec2x_read:00000000 ec2x_read
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:789    .text.ec2x_read:000000a8 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:795    .rodata.ec2x_handler.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:799    .text.ec2x_handler:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:805    .text.ec2x_handler:00000000 ec2x_handler
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:990    .text.ec2x_handler:000000e0 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:998    .rodata.ec2x_timeout_handle.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1002   .text.ec2x_timeout_handle:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1008   .text.ec2x_timeout_handle:00000000 ec2x_timeout_handle
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1034   .text.ec2x_timeout_handle:00000014 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1041   .rodata.ec2x_replymatch.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1045   .text.ec2x_replymatch:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1156   .text.ec2x_replymatch:00000060 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1164   .rodata.ec2x_fms_proccess.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1171   .text.ec2x_fms_proccess:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1177   .text.ec2x_fms_proccess:00000000 ec2x_fms_proccess
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1249   .text.ec2x_fms_proccess:0000004c $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1386   shellCommand:00000000 shellCommandec2x_cmd_send
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1381   .rodata.shellDescec2x_cmd_send:00000000 shellDescec2x_cmd_send
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1375   .rodata.shellCmdec2x_cmd_send:00000000 shellCmdec2x_cmd_send
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1306   .data.ec2x_dev:00000000 ec2x_dev
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1368   .data.tcp_connect:00000000 tcp_connect
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1272   .bss.ec2x_event_queue:00000000 ec2x_event_queue
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1286   .bss.event_buff:00000000 event_buff
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1332   .data.ec2x_transtable:00000000 ec2x_transtable
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1279   .bss.ec2x_fsm:00000000 ec2x_fsm
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1298   .data.ec2x_buff:00000000 ec2x_buff
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1268   .bss.ec2x_event_queue:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1275   .bss.ec2x_fsm:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1282   .bss.event_buff:00000000 $d
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s 			page 38
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:20     .text.ec2x_waitreply:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:25     .text.ec2x_waitreply:00000000 ec2x_waitreply
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:62     .text.ec2x_waitreply:00000020 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1051   .text.ec2x_replymatch:00000000 ec2x_replymatch
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:69     .rodata.ec2x_reset.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:73     .text.ec2x_reset:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:78     .text.ec2x_reset:00000000 ec2x_reset
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:104    .text.ec2x_reset:00000010 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:109    .text.ec2x_io_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:115    .text.ec2x_io_init:00000000 ec2x_io_init
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:253    .text.ec2x_io_init:00000090 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:258    .text.ec2x_open:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:264    .text.ec2x_open:00000000 ec2x_open
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:359    .text.ec2x_open:0000005c $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:370    .text.ec2x_write:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:376    .text.ec2x_write:00000000 ec2x_write
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:421    .text.ec2x_write:00000024 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:426    .text.ec2x_cmd_send:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:431    .text.ec2x_cmd_send:00000000 ec2x_cmd_send
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:465    .text.ec2x_cmd_send:0000001c $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:470    .rodata.EC2x_Test.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:474    .text.EC2x_Test:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:480    .text.EC2x_Test:00000000 EC2x_Test
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:611    .text.EC2x_Test:00000080 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:619    .text.ec2x_read:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:625    .text.ec2x_read:00000000 ec2x_read
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:789    .text.ec2x_read:000000a8 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:795    .rodata.ec2x_handler.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:799    .text.ec2x_handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:805    .text.ec2x_handler:00000000 ec2x_handler
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:990    .text.ec2x_handler:000000e0 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:998    .rodata.ec2x_timeout_handle.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1002   .text.ec2x_timeout_handle:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1008   .text.ec2x_timeout_handle:00000000 ec2x_timeout_handle
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1034   .text.ec2x_timeout_handle:00000014 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1041   .rodata.ec2x_replymatch.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1045   .text.ec2x_replymatch:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1156   .text.ec2x_replymatch:00000060 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1164   .rodata.ec2x_fms_proccess.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1171   .text.ec2x_fms_proccess:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1177   .text.ec2x_fms_proccess:00000000 ec2x_fms_proccess
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1249   .text.ec2x_fms_proccess:0000004c $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1386   shellCommand:00000000 shellCommandec2x_cmd_send
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1381   .rodata.shellDescec2x_cmd_send:00000000 shellDescec2x_cmd_send
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1375   .rodata.shellCmdec2x_cmd_send:00000000 shellCmdec2x_cmd_send
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1306   .data.ec2x_dev:00000000 ec2x_dev
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1368   .data.tcp_connect:00000000 tcp_connect
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1272   .bss.ec2x_event_queue:00000000 ec2x_event_queue
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1286   .bss.event_buff:00000000 event_buff
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1332   .data.ec2x_transtable:00000000 ec2x_transtable
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1279   .bss.ec2x_fsm:00000000 ec2x_fsm
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1298   .data.ec2x_buff:00000000 ec2x_buff
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1268   .bss.ec2x_event_queue:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1275   .bss.ec2x_fsm:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1282   .bss.event_buff:00000000 $d
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s 			page 38
 
 
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1292   .bss.timeout_cnt:00000000 timeout_cnt
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1293   .bss.timeout_cnt:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1295   .data.ec2x_buff:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1302   .data.ec2x_dev:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1328   .data.ec2x_transtable:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1364   .data.tcp_connect:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1372   .rodata.shellCmdec2x_cmd_send:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccqx3LmY.s:1378   .rodata.shellDescec2x_cmd_send:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1292   .bss.timeout_cnt:00000000 timeout_cnt
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1293   .bss.timeout_cnt:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1295   .data.ec2x_buff:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1302   .data.ec2x_dev:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1328   .data.ec2x_transtable:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1364   .data.tcp_connect:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1372   .rodata.shellCmdec2x_cmd_send:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccZmBRpZ.s:1378   .rodata.shellDescec2x_cmd_send:00000000 $d
 
 UNDEFINED SYMBOLS
 timer_insert

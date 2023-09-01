@@ -67,6 +67,8 @@ void Error_Handler(void);
 #define LDR_ADC_GPIO_Port GPIOA
 #define LORA2_RST_Pin GPIO_PIN_1
 #define LORA2_RST_GPIO_Port GPIOB
+#define LORA2_DIO0_Pin GPIO_PIN_6
+#define LORA2_DIO0_GPIO_Port GPIOA
 #define RS485EN_Pin GPIO_PIN_2
 #define RS485EN_GPIO_Port GPIOB
 #define LORA2_SPI_NSS_Pin GPIO_PIN_12

@@ -37,6 +37,7 @@
 #include "W25QXX.h"
 #include "ATGM332D.h"
 #include "EC2x.h"
+#include "y_lora.h"
 
 /* USER CODE END Includes */
 
@@ -115,6 +116,11 @@ int main(void)
   ec2x_open("uart1/ec200s");
   timer_insert(1000,-1,LED_Toggle,&dev_led[0]);
   timer_insert(1000,10,LED_Toggle,&dev_led[1]);
+  if(Lora_Init())
+  ;
+    //y_lora_set_rx_time(lora_dev, 0);
+  else
+    ;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -135,7 +141,7 @@ int main(void)
      /* Cat-1 测试 */
      /* ETH 测试 */
      /* ATGM223D接口测试 */
-     ec2x_fms_proccess();
+    // ec2x_fms_proccess();
      HAL_Delay(100);
     /* USER CODE BEGIN 3 */
   }

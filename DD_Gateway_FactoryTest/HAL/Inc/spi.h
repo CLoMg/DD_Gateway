@@ -31,7 +31,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
-
+extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi2;
 extern SPI_HandleTypeDef hspi3;
 
