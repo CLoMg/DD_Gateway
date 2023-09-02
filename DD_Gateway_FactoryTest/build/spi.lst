@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,15 +19,15 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.MX_SPI2_Init,"ax",%progbits
-  20              		.align	1
-  21              		.global	MX_SPI2_Init
-  22              		.syntax unified
-  23              		.thumb
-  24              		.thumb_func
-  26              	MX_SPI2_Init:
-  27              	.LFB288:
-  28              		.file 1 "HAL/Src/spi.c"
+  19              		.file 1 "HAL/Src/spi.c"
+  20              		.section	.text.MX_SPI2_Init,"ax",%progbits
+  21              		.align	1
+  22              		.global	MX_SPI2_Init
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	MX_SPI2_Init:
+  28              	.LFB288:
    1:HAL/Src/spi.c **** /* USER CODE BEGIN Header */
    2:HAL/Src/spi.c **** /**
    3:HAL/Src/spi.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
   28:HAL/Src/spi.c **** SPI_HandleTypeDef hspi3;
   29:HAL/Src/spi.c **** 
   30:HAL/Src/spi.c **** /* SPI2 init function */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 2
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 2
 
 
   31:HAL/Src/spi.c **** void MX_SPI2_Init(void)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
   65              		.loc 1 48 3 is_stmt 1 view .LVU15
   66              		.loc 1 48 32 is_stmt 0 view .LVU16
   67 0022 C361     		str	r3, [r0, #28]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 3
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 3
 
 
   49:HAL/Src/spi.c ****   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
@@ -175,10 +175,10 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  103              	.L6:
  104 0042 00BF     		.align	2
  105              	.L5:
- 106 0044 00000000 		.word	.LANCHOR0
+ 106 0044 00000000 		.word	hspi2
  107 0048 00380040 		.word	1073756160
  108              		.cfi_endproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 4
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 4
 
 
  109              	.LFE288:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
   80:HAL/Src/spi.c ****   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
  149              		.loc 1 80 3 is_stmt 1 view .LVU46
  150              		.loc 1 80 23 is_stmt 0 view .LVU47
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 5
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 5
 
 
  151 001a 4361     		str	r3, [r0, #20]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  188              	.L10:
   91:HAL/Src/spi.c ****   }
  189              		.loc 1 91 5 is_stmt 1 view .LVU68
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 6
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 6
 
 
  190 003c FFF7FEFF 		bl	Error_Handler
@@ -308,7 +308,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  194              	.L12:
  195 0042 00BF     		.align	2
  196              	.L11:
- 197 0044 00000000 		.word	.LANCHOR1
+ 197 0044 00000000 		.word	hspi3
  198 0048 003C0040 		.word	1073757184
  199              		.cfi_endproc
  200              	.LFE289:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  105:HAL/Src/spi.c ****   /* USER CODE BEGIN SPI2_MspInit 0 */
  106:HAL/Src/spi.c **** 
  107:HAL/Src/spi.c ****   /* USER CODE END SPI2_MspInit 0 */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 7
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 7
 
 
  108:HAL/Src/spi.c ****     /* SPI2 clock enable */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  155:HAL/Src/spi.c ****     /* SPI3 interrupt Init */
  156:HAL/Src/spi.c ****     // HAL_NVIC_SetPriority(SPI3_IRQn, 2, 0);
  157:HAL/Src/spi.c ****     // HAL_NVIC_EnableIRQ(SPI3_IRQn);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 8
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 8
 
 
  158:HAL/Src/spi.c ****   /* USER CODE BEGIN SPI3_MspInit 1 */
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  284              		.loc 1 111 5 view .LVU90
  285 0048 029B     		ldr	r3, [sp, #8]
  286              	.LBE3:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 9
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 9
 
 
  111:HAL/Src/spi.c ****     /**SPI2 GPIO Configuration
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  325 0072 02F40042 		and	r2, r2, #32768
  326 0076 0392     		str	r2, [sp, #12]
  138:HAL/Src/spi.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 10
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 10
 
 
  327              		.loc 1 138 5 view .LVU107
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  364 009c 05A9     		add	r1, sp, #20
  365 009e 0548     		ldr	r0, .L19+12
  366              	.LVL10:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 11
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 11
 
 
  153:HAL/Src/spi.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  176:HAL/Src/spi.c ****     PB12     ------> SPI2_NSS
  177:HAL/Src/spi.c ****     PB13     ------> SPI2_SCK
  178:HAL/Src/spi.c ****     PB14     ------> SPI2_MISO
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 12
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 12
 
 
  179:HAL/Src/spi.c ****     PB15     ------> SPI2_MOSI
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  426 001e 4FF47041 		mov	r1, #61440
  427 0022 0F48     		ldr	r0, .L27+8
  428              	.LVL15:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 13
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 13
 
 
  181:HAL/Src/spi.c **** 
@@ -770,72 +770,70 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 1
  468              		.cfi_endproc
  469              	.LFE291:
  471              		.global	hspi3
- 472              		.global	hspi2
- 473              		.global	hspi1
- 474              		.section	.bss.hspi1,"aw",%nobits
- 475              		.align	2
- 478              	hspi1:
- 479 0000 00000000 		.space	100
- 479      00000000 
- 479      00000000 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 14
+ 472              		.section	.bss.hspi3,"aw",%nobits
+ 473              		.align	2
+ 476              	hspi3:
+ 477 0000 00000000 		.space	100
+ 477      00000000 
+ 477      00000000 
+ 477      00000000 
+ 477      00000000 
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 14
 
 
- 479      00000000 
- 479      00000000 
- 480              		.section	.bss.hspi2,"aw",%nobits
- 481              		.align	2
- 482              		.set	.LANCHOR0,. + 0
- 485              	hspi2:
- 486 0000 00000000 		.space	100
- 486      00000000 
- 486      00000000 
- 486      00000000 
- 486      00000000 
- 487              		.section	.bss.hspi3,"aw",%nobits
- 488              		.align	2
- 489              		.set	.LANCHOR1,. + 0
- 492              	hspi3:
- 493 0000 00000000 		.space	100
- 493      00000000 
- 493      00000000 
- 493      00000000 
- 493      00000000 
- 494              		.text
- 495              	.Letext0:
- 496              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 497              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 498              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 499              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 500              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 501              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 502              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
- 503              		.file 9 "HAL/Inc/spi.h"
- 504              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
- 505              		.file 11 "Core/Inc/main.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s 			page 15
+ 478              		.global	hspi2
+ 479              		.section	.bss.hspi2,"aw",%nobits
+ 480              		.align	2
+ 483              	hspi2:
+ 484 0000 00000000 		.space	100
+ 484      00000000 
+ 484      00000000 
+ 484      00000000 
+ 484      00000000 
+ 485              		.global	hspi1
+ 486              		.section	.bss.hspi1,"aw",%nobits
+ 487              		.align	2
+ 490              	hspi1:
+ 491 0000 00000000 		.space	100
+ 491      00000000 
+ 491      00000000 
+ 491      00000000 
+ 491      00000000 
+ 492              		.text
+ 493              	.Letext0:
+ 494              		.file 2 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 495              		.file 3 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
+ 496              		.file 4 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+ 497              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 498              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 499              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 500              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
+ 501              		.file 9 "HAL/Inc/spi.h"
+ 502              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
+ 503              		.file 11 "Core/Inc/main.h"
+ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:20     .text.MX_SPI2_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:26     .text.MX_SPI2_Init:00000000 MX_SPI2_Init
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:106    .text.MX_SPI2_Init:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:112    .text.MX_SPI3_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:118    .text.MX_SPI3_Init:00000000 MX_SPI3_Init
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:197    .text.MX_SPI3_Init:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:203    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:209    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:375    .text.HAL_SPI_MspInit:000000a8 $d
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:383    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:389    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:465    .text.HAL_SPI_MspDeInit:00000058 $d
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:492    .bss.hspi3:00000000 hspi3
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:485    .bss.hspi2:00000000 hspi2
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:478    .bss.hspi1:00000000 hspi1
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:475    .bss.hspi1:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:481    .bss.hspi2:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccUuGPVK.s:488    .bss.hspi3:00000000 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:21     .text.MX_SPI2_Init:00000000 $t
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:27     .text.MX_SPI2_Init:00000000 MX_SPI2_Init
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:106    .text.MX_SPI2_Init:00000044 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:483    .bss.hspi2:00000000 hspi2
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:112    .text.MX_SPI3_Init:00000000 $t
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:118    .text.MX_SPI3_Init:00000000 MX_SPI3_Init
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:197    .text.MX_SPI3_Init:00000044 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:476    .bss.hspi3:00000000 hspi3
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:203    .text.HAL_SPI_MspInit:00000000 $t
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:209    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:375    .text.HAL_SPI_MspInit:000000a8 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:383    .text.HAL_SPI_MspDeInit:00000000 $t
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:389    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:465    .text.HAL_SPI_MspDeInit:00000058 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:473    .bss.hspi3:00000000 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:480    .bss.hspi2:00000000 $d
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:490    .bss.hspi1:00000000 hspi1
+/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccYgrS5B.s:487    .bss.hspi1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

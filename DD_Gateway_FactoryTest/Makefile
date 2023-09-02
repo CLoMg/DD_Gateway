@@ -76,12 +76,13 @@ HAL/Src/usart.c \
 HAL/Src/timer.c \
 HAL/Src/queue.c \
 HAL/Src/y_lora.c \
+HAL/Src/SX1278_hw.c \
 FML/Src/W25QXX.c \
 FML/Src/led.c \
 FML/Src/rs485.c \
 FML/Src/ATGM332D.c \
 FML/Src/EC2x.c \
-FML/Src/SX1278.c
+FML/Src/SX1278.c \
 
 # ASM sources
 ASM_SOURCES =  \

@@ -8,6 +8,23 @@
 
 #include "SX1278.h"
 #include <string.h>
+#include "spi.h"
+#include "shell_port.h"
+
+
+SX1278_t Lora_dev[]={
+	{
+	 .hw = &lora_dev_hw[0],
+	 .frequency = 437000000,
+	 .power = 20,
+	 .LoRa_SF = 5,
+	 .LoRa_BW = 2,
+	 .LoRa_CR = 1,
+	 .LoRa_CRC_sum = 0,
+	 .packetLength = 0, 
+	 .readBytes = 0,
+	}
+};
 
 uint8_t SX1278_SPIRead(SX1278_t *module, uint8_t addr) {
 	uint8_t tmp;
@@ -189,6 +206,8 @@ uint8_t SX1278_LoRaRxPacket(SX1278_t *module) {
 		module->readBytes = packet_size;
 		SX1278_clearLoRaIrq(module);
 	}
+	shellPrint(&shell,"lora%d has received %dbytes\r\n",(module - &Lora_dev[0])/sizeof(SX1278_t),module->readBytes);
+	shellPrint(&shell,module->rxBuffer);
 	return module->readBytes;
 }
 
@@ -296,3 +315,30 @@ uint8_t SX1278_RSSI(SX1278_t *module) {
 	temp = 127 - (temp >> 1);	//127:Max RSSI
 	return temp;
 }
+
+/**
+ * @brief 
+ * 
+ * @param fd 
+ * @param tx_buff 
+ * @param expect_reply 
+ * @param timeout 
+ */
+void LORA_Send(char fd,char *tx_buff,uint32_t timeout)
+{
+    uint8_t *tx_data,len=0;
+    len = strlen(tx_buff);
+
+    tx_data = (char *)malloc((len)*sizeof(uint8_t));
+    memcpy(tx_data,tx_buff,len);
+
+    if(SX1278_transmit(&Lora_dev[fd],tx_data,len,timeout))
+		shellPrint(&shell,"lora %d transmit success\r\n",fd);
+    free(tx_data);
+    tx_data = NULL;
+    SX1278_receive(&Lora_dev[fd],100,100);
+}
+
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+lora_send, LORA_Send, ec2x test);

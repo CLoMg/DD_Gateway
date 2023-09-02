@@ -37,7 +37,8 @@
 #include "W25QXX.h"
 #include "ATGM332D.h"
 #include "EC2x.h"
-#include "y_lora.h"
+#include "SX1278.h"
+
 
 /* USER CODE END Includes */
 
@@ -116,11 +117,11 @@ int main(void)
   ec2x_open("uart1/ec200s");
   timer_insert(1000,-1,LED_Toggle,&dev_led[0]);
   timer_insert(1000,10,LED_Toggle,&dev_led[1]);
-  if(Lora_Init())
-  ;
-    //y_lora_set_rx_time(lora_dev, 0);
-  else
-    ;
+
+  SX1278_init(&Lora_dev[0], Lora_dev[0].frequency, Lora_dev[0].power,
+		Lora_dev[0].LoRa_SF, Lora_dev[0].LoRa_BW, Lora_dev[0].LoRa_CR,
+		Lora_dev[0].LoRa_CRC_sum, Lora_dev[0].packetLength);
+  SX1278_receive(&Lora_dev[0], 100, 500);
   /* USER CODE END 2 */
 
   /* Infinite loop */

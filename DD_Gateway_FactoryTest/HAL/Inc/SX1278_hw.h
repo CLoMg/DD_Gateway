@@ -13,7 +13,7 @@
 typedef struct {
 	int pin;
 	void *port;
-} SX1278_hw_dio_t;
+}SX1278_hw_dio_t;
 
 typedef struct {
 	SX1278_hw_dio_t pwren;
@@ -23,6 +23,7 @@ typedef struct {
 	void *spi;
 } SX1278_hw_t;
 
+extern SX1278_hw_t lora_dev_hw[];
 /**
  * \brief Initialize hardware layer
  *

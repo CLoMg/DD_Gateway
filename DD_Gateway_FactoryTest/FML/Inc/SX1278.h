@@ -226,6 +226,8 @@ typedef struct {
 	uint8_t readBytes;
 } SX1278_t;
 
+
+extern SX1278_t Lora_dev[];
 /**
  * \brief Read byte from LoRa module
  *

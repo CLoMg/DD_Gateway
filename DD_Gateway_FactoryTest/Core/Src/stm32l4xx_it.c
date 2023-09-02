@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32l4xx_it.h"
+#include "SX1278.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -274,6 +275,15 @@ void SPI3_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+void EXTI9_5_IRQHandler(void){
 
+  if(__HAL_GPIO_EXTI_GET_IT(LORA2_DIO0_Pin) != RESET){
+    if(HAL_GPIO_ReadPin(LORA2_DIO0_GPIO_Port,LORA2_DIO0_Pin) == SET)
+    {
+      SX1278_LoRaRxPacket(&Lora_dev[0]);
+    }
+    __HAL_GPIO_EXTI_CLEAR_IT(LORA2_DIO0_Pin);
+  }
+}
 /* USER CODE END 1 */
 

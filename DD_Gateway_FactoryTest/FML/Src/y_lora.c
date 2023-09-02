@@ -2000,29 +2000,29 @@ void y_lora_2_reset() {
     HAL_Delay(6);  // Wait 6 ms
 }
 
-/**
- * @brief 
- * 
- * @param fd 
- * @param tx_buff 
- * @param expect_reply 
- * @param timeout 
- */
-void LORA_Send(char *tx_buff)
-{
-    uint8_t *tx_data,len=0;
-    len = strlen(tx_buff);
+// /**
+//  * @brief 
+//  * 
+//  * @param fd 
+//  * @param tx_buff 
+//  * @param expect_reply 
+//  * @param timeout 
+//  */
+// void LORA_Send(char *tx_buff)
+// {
+//     uint8_t *tx_data,len=0;
+//     len = strlen(tx_buff);
 
-    tx_data = (char *)malloc((len)*sizeof(uint8_t));
-    memcpy(tx_data,tx_buff,len);
+//     tx_data = (char *)malloc((len)*sizeof(uint8_t));
+//     memcpy(tx_data,tx_buff,len);
 
-    y_lora_send(lora_dev,tx_data,len);
+//     y_lora_send(lora_dev,tx_data,len);
    
-    free(tx_data);
-    tx_data = NULL;
-    y_lora_set_rx_time(lora_dev, 0);
-}
+//     free(tx_data);
+//     tx_data = NULL;
+//     y_lora_set_rx_time(lora_dev, 0);
+// }
 
-SHELL_EXPORT_CMD(
-SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-lora_send, LORA_Send, ec2x test);
+// SHELL_EXPORT_CMD(
+// SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+// lora_send, LORA_Send, ec2x test);
