@@ -284,6 +284,13 @@ void EXTI9_5_IRQHandler(void){
     }
     __HAL_GPIO_EXTI_CLEAR_IT(LORA2_DIO0_Pin);
   }
+  else if(__HAL_GPIO_EXTI_GET_IT(LORA1_DIO0_Pin) != RESET){
+    if(HAL_GPIO_ReadPin(LORA1_DIO0_GPIO_Port,LORA1_DIO0_Pin) == SET)
+    {
+      SX1278_LoRaRxPacket(&Lora_dev[1]);
+    }
+    __HAL_GPIO_EXTI_CLEAR_IT(LORA1_DIO0_Pin);
+  }
 }
 /* USER CODE END 1 */
 

@@ -21,12 +21,21 @@ SX1278_hw_t lora_dev_hw[] = {
 		.nss.pin = LORA2_SPI_NSS_Pin,
 		.nss.port = LORA2_SPI_NSS_GPIO_Port,
 		.spi = &hspi2,
+	},
+	{
+		.reset.pin = LORA1_RST_Pin,
+		.reset.port = LORA1_RST_GPIO_Port,
+		.dio0.pin = LORA1_DIO0_Pin,
+		.dio0.port = LORA1_DIO0_GPIO_Port,
+		.nss.pin = LORA1_SPI_NSS_Pin,
+		.nss.port = LORA1_SPI_NSS_GPIO_Port,
+		.spi = &hspi3,
 	}
 };
 
 __weak void SX1278_hw_init(SX1278_hw_t *hw) {
 	SX1278_hw_SetNSS(hw, 1);
-	HAL_GPIO_WritePin(hw->reset.port, hw->reset.pin, GPIO_PIN_SET);
+	SX1278_hw_Reset(hw);
 }
 
 __weak void SX1278_hw_SetNSS(SX1278_hw_t *hw, int value) {

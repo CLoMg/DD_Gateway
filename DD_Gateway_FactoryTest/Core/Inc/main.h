@@ -85,6 +85,11 @@ void Error_Handler(void);
 #define _4G_WAKE_IN_GPIO_Port GPIOA
 #define _4G_POWER_EN_Pin GPIO_PIN_12
 #define _4G_POWER_EN_GPIO_Port GPIOA
+
+#define LORA1_RST_Pin GPIO_PIN_6
+#define LORA1_RST_GPIO_Port GPIOB
+#define LORA1_DIO0_Pin GPIO_PIN_9
+#define LORA1_DIO0_GPIO_Port GPIOB
 #define LORA1_SPI_NSS_Pin GPIO_PIN_15
 #define LORA1_SPI_NSS_GPIO_Port GPIOA
 #define LORA1_SPI_SCK_Pin GPIO_PIN_3

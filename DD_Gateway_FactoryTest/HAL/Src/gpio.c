@@ -63,14 +63,14 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PA4 PA8 PA11 PA12 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  GPIO_InitStruct.Pin = GPIO_PIN_4 | LORA1_SPI_NSS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
    /*Configure GPIO pins : PA4 PA8 PA11 PA12 */
-  GPIO_InitStruct.Pin = LORA2_SPI_NSS_Pin;
+  GPIO_InitStruct.Pin = LORA2_SPI_NSS_Pin | LORA2_RST_Pin | LORA1_RST_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -84,11 +84,19 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 
-  /*Configure GPIO pins : PAPin PAPin */
+  /*Configure GPIO pins : LORA2_DIO0_Pin PA6 */
   GPIO_InitStruct.Pin = LORA2_DIO0_Pin;//GPIO_PIN
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;//推挽输出模式
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;//下拉
   HAL_GPIO_Init(LORA2_DIO0_GPIO_Port, &GPIO_InitStruct);
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 1, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  /*Configure GPIO pins : PAPin PAPin */
+  GPIO_InitStruct.Pin = LORA1_DIO0_Pin;//GPIO_PIN
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;//推挽输出模式
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;//下拉
+  HAL_GPIO_Init(LORA1_DIO0_GPIO_Port, &GPIO_InitStruct);
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 1, 0);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 }

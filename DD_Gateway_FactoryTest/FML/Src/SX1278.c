@@ -23,6 +23,17 @@ SX1278_t Lora_dev[]={
 	 .LoRa_CRC_sum = 0,
 	 .packetLength = 0, 
 	 .readBytes = 0,
+	},
+	{
+	 .hw = &lora_dev_hw[1],
+	 .frequency = 437000000,
+	 .power = 20,
+	 .LoRa_SF = 5,
+	 .LoRa_BW = 2,
+	 .LoRa_CR = 1,
+	 .LoRa_CRC_sum = 0,
+	 .packetLength = 0, 
+	 .readBytes = 0,
 	}
 };
 
@@ -206,7 +217,8 @@ uint8_t SX1278_LoRaRxPacket(SX1278_t *module) {
 		module->readBytes = packet_size;
 		SX1278_clearLoRaIrq(module);
 	}
-	shellPrint(&shell,"lora%d has received %dbytes\r\n",(module - &Lora_dev[0])/sizeof(SX1278_t),module->readBytes);
+
+	shellPrint(&shell,"lora%d has received %dbytes\r\n",((uint32_t)module - (uint32_t)&Lora_dev[0])/((uint32_t)sizeof(Lora_dev[0])),module->readBytes);
 	shellPrint(&shell,module->rxBuffer);
 	return module->readBytes;
 }
@@ -246,6 +258,7 @@ int SX1278_LoRaTxPacket(SX1278_t *module, uint8_t *txBuffer, uint8_t length,
 		uint32_t timeout) {
 	SX1278_SPIBurstWrite(module, 0x00, txBuffer, length);
 	SX1278_SPIWrite(module, LR_RegOpMode, 0x8b);	//Tx Mode
+	// SX1278_hw_DelayMs(1000);
 	while (1) {
 		if (SX1278_hw_GetDIO0(module->hw)) { //if(Get_NIRQ()) //Packet send over
 			SX1278_SPIRead(module, LR_RegIrqFlags);

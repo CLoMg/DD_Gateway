@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,15 +19,15 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.file 1 "Core/Src/stm32l4xx_it.c"
-  20              		.section	.text.NMI_Handler,"ax",%progbits
-  21              		.align	1
-  22              		.global	NMI_Handler
-  23              		.syntax unified
-  24              		.thumb
-  25              		.thumb_func
-  27              	NMI_Handler:
-  28              	.LFB288:
+  19              		.section	.text.NMI_Handler,"ax",%progbits
+  20              		.align	1
+  21              		.global	NMI_Handler
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	NMI_Handler:
+  27              	.LFB288:
+  28              		.file 1 "Core/Src/stm32l4xx_it.c"
    1:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN Header */
    2:Core/Src/stm32l4xx_it.c **** /**
    3:Core/Src/stm32l4xx_it.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
   28:Core/Src/stm32l4xx_it.c **** /* Private typedef -----------------------------------------------------------*/
   29:Core/Src/stm32l4xx_it.c **** /* USER CODE BEGIN TD */
   30:Core/Src/stm32l4xx_it.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 2
 
 
   31:Core/Src/stm32l4xx_it.c **** /* USER CODE END TD */
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
   78:Core/Src/stm32l4xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
   79:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
   80:Core/Src/stm32l4xx_it.c ****   while (1)
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 3
 
 
   36              		.loc 1 80 3 discriminator 1 view .LVU1
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
   74              	.LFB290:
   99:Core/Src/stm32l4xx_it.c **** }
  100:Core/Src/stm32l4xx_it.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 4
 
 
  101:Core/Src/stm32l4xx_it.c **** /**
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
  125:Core/Src/stm32l4xx_it.c ****   {
  126:Core/Src/stm32l4xx_it.c ****     /* USER CODE BEGIN W1_BusFault_IRQn 0 */
  127:Core/Src/stm32l4xx_it.c ****     /* USER CODE END W1_BusFault_IRQn 0 */
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 5
 
 
  128:Core/Src/stm32l4xx_it.c ****   }
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
  146:Core/Src/stm32l4xx_it.c **** /**
  147:Core/Src/stm32l4xx_it.c ****   * @brief This function handles System service call via SWI instruction.
  148:Core/Src/stm32l4xx_it.c ****   */
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 6
 
 
  149:Core/Src/stm32l4xx_it.c **** void SVC_Handler(void)
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
  180              	PendSV_Handler:
  181              	.LFB295:
  171:Core/Src/stm32l4xx_it.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 7
 
 
  172:Core/Src/stm32l4xx_it.c **** /**
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
  194:Core/Src/stm32l4xx_it.c ****  
  195:Core/Src/stm32l4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
  196:Core/Src/stm32l4xx_it.c **** 
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 8
 
 
  197:Core/Src/stm32l4xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
  249              		.cfi_endproc
  250              	.LFE297:
  252              		.section	.text.USART1_IRQHandler,"ax",%progbits
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 9
 
 
  253              		.align	1
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
  238:Core/Src/stm32l4xx_it.c **** void USART2_IRQHandler(void)
  239:Core/Src/stm32l4xx_it.c **** {
  292              		.loc 1 239 1 is_stmt 1 view -0
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 10
 
 
  293              		.cfi_startproc
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
  257:Core/Src/stm32l4xx_it.c ****   HAL_UART_IRQHandler(&huart3);
  332              		.loc 1 257 3 view .LVU40
  333 0002 0248     		ldr	r0, .L30
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 11
 
 
  334 0004 FFF7FEFF 		bl	HAL_UART_IRQHandler
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
  372 000c 00000000 		.word	hspi3
  373              		.cfi_endproc
  374              	.LFE301:
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 12
 
 
  376              		.section	.text.EXTI9_5_IRQHandler,"ax",%progbits
@@ -685,114 +685,160 @@ ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 1
  280:Core/Src/stm32l4xx_it.c ****   if(__HAL_GPIO_EXTI_GET_IT(LORA2_DIO0_Pin) != RESET){
  394              		.loc 1 280 3 view .LVU46
  395              		.loc 1 280 6 is_stmt 0 view .LVU47
- 396 0002 0A4B     		ldr	r3, .L42
+ 396 0002 154B     		ldr	r3, .L46
  397 0004 5B69     		ldr	r3, [r3, #20]
  398              		.loc 1 280 5 view .LVU48
  399 0006 13F0400F 		tst	r3, #64
- 400 000a 00D1     		bne	.L40
- 401              	.L36:
+ 400 000a 05D1     		bne	.L42
  281:Core/Src/stm32l4xx_it.c ****     if(HAL_GPIO_ReadPin(LORA2_DIO0_GPIO_Port,LORA2_DIO0_Pin) == SET)
  282:Core/Src/stm32l4xx_it.c ****     {
  283:Core/Src/stm32l4xx_it.c ****       SX1278_LoRaRxPacket(&Lora_dev[0]);
  284:Core/Src/stm32l4xx_it.c ****     }
  285:Core/Src/stm32l4xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(LORA2_DIO0_Pin);
  286:Core/Src/stm32l4xx_it.c ****   }
- 287:Core/Src/stm32l4xx_it.c **** }
- 402              		.loc 1 287 1 view .LVU49
- 403 000c 08BD     		pop	{r3, pc}
- 404              	.L40:
+ 287:Core/Src/stm32l4xx_it.c ****   else if(__HAL_GPIO_EXTI_GET_IT(LORA1_DIO0_Pin) != RESET){
+ 401              		.loc 1 287 8 is_stmt 1 view .LVU49
+ 402              		.loc 1 287 11 is_stmt 0 view .LVU50
+ 403 000c 124B     		ldr	r3, .L46
+ 404 000e 5B69     		ldr	r3, [r3, #20]
+ 405              		.loc 1 287 10 view .LVU51
+ 406 0010 13F4007F 		tst	r3, #512
+ 407 0014 0FD1     		bne	.L43
+ 408              	.L36:
+ 288:Core/Src/stm32l4xx_it.c ****     if(HAL_GPIO_ReadPin(LORA1_DIO0_GPIO_Port,LORA1_DIO0_Pin) == SET)
+ 289:Core/Src/stm32l4xx_it.c ****     {
+ 290:Core/Src/stm32l4xx_it.c ****       SX1278_LoRaRxPacket(&Lora_dev[1]);
+ 291:Core/Src/stm32l4xx_it.c ****     }
+ 292:Core/Src/stm32l4xx_it.c ****     __HAL_GPIO_EXTI_CLEAR_IT(LORA1_DIO0_Pin);
+ 293:Core/Src/stm32l4xx_it.c ****   }
+ 294:Core/Src/stm32l4xx_it.c **** }
+ 409              		.loc 1 294 1 view .LVU52
+ 410 0016 08BD     		pop	{r3, pc}
+ 411              	.L42:
  281:Core/Src/stm32l4xx_it.c ****     if(HAL_GPIO_ReadPin(LORA2_DIO0_GPIO_Port,LORA2_DIO0_Pin) == SET)
- 405              		.loc 1 281 5 is_stmt 1 view .LVU50
+ 412              		.loc 1 281 5 is_stmt 1 view .LVU53
  281:Core/Src/stm32l4xx_it.c ****     if(HAL_GPIO_ReadPin(LORA2_DIO0_GPIO_Port,LORA2_DIO0_Pin) == SET)
- 406              		.loc 1 281 8 is_stmt 0 view .LVU51
- 407 000e 4021     		movs	r1, #64
- 408 0010 4FF09040 		mov	r0, #1207959552
- 409 0014 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 410              	.LVL7:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 13
+
+
+ 413              		.loc 1 281 8 is_stmt 0 view .LVU54
+ 414 0018 4021     		movs	r1, #64
+ 415 001a 4FF09040 		mov	r0, #1207959552
+ 416 001e FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 417              	.LVL7:
  281:Core/Src/stm32l4xx_it.c ****     if(HAL_GPIO_ReadPin(LORA2_DIO0_GPIO_Port,LORA2_DIO0_Pin) == SET)
- 411              		.loc 1 281 7 view .LVU52
- 412 0018 0128     		cmp	r0, #1
- 413 001a 03D0     		beq	.L41
- 414              	.L38:
+ 418              		.loc 1 281 7 view .LVU55
+ 419 0022 0128     		cmp	r0, #1
+ 420 0024 03D0     		beq	.L44
+ 421              	.L38:
  285:Core/Src/stm32l4xx_it.c ****   }
- 415              		.loc 1 285 5 is_stmt 1 view .LVU53
- 416 001c 034B     		ldr	r3, .L42
- 417 001e 4022     		movs	r2, #64
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 13
-
-
- 418 0020 5A61     		str	r2, [r3, #20]
- 419              		.loc 1 287 1 is_stmt 0 view .LVU54
- 420 0022 F3E7     		b	.L36
- 421              	.L41:
+ 422              		.loc 1 285 5 is_stmt 1 view .LVU56
+ 423 0026 0C4B     		ldr	r3, .L46
+ 424 0028 4022     		movs	r2, #64
+ 425 002a 5A61     		str	r2, [r3, #20]
+ 426 002c F3E7     		b	.L36
+ 427              	.L44:
  283:Core/Src/stm32l4xx_it.c ****     }
- 422              		.loc 1 283 7 is_stmt 1 view .LVU55
- 423 0024 0248     		ldr	r0, .L42+4
- 424 0026 FFF7FEFF 		bl	SX1278_LoRaRxPacket
- 425              	.LVL8:
- 426 002a F7E7     		b	.L38
- 427              	.L43:
- 428              		.align	2
- 429              	.L42:
- 430 002c 00040140 		.word	1073808384
- 431 0030 00000000 		.word	Lora_dev
- 432              		.cfi_endproc
- 433              	.LFE302:
- 435              		.text
- 436              	.Letext0:
- 437              		.file 2 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
- 438              		.file 3 "/Applications/ArmGNUToolchain/12.3.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
- 439              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 440              		.file 5 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h"
- 441              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 442              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 443              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 444              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
- 445              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
- 446              		.file 11 "HAL/Inc/SX1278_hw.h"
- 447              		.file 12 "FML/Inc/SX1278.h"
- 448              		.file 13 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
-ARM GAS  /var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s 			page 14
+ 428              		.loc 1 283 7 view .LVU57
+ 429 002e 0B48     		ldr	r0, .L46+4
+ 430 0030 FFF7FEFF 		bl	SX1278_LoRaRxPacket
+ 431              	.LVL8:
+ 432 0034 F7E7     		b	.L38
+ 433              	.L43:
+ 288:Core/Src/stm32l4xx_it.c ****     if(HAL_GPIO_ReadPin(LORA1_DIO0_GPIO_Port,LORA1_DIO0_Pin) == SET)
+ 434              		.loc 1 288 5 view .LVU58
+ 288:Core/Src/stm32l4xx_it.c ****     if(HAL_GPIO_ReadPin(LORA1_DIO0_GPIO_Port,LORA1_DIO0_Pin) == SET)
+ 435              		.loc 1 288 8 is_stmt 0 view .LVU59
+ 436 0036 4FF40071 		mov	r1, #512
+ 437 003a 0948     		ldr	r0, .L46+8
+ 438 003c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 439              	.LVL9:
+ 288:Core/Src/stm32l4xx_it.c ****     if(HAL_GPIO_ReadPin(LORA1_DIO0_GPIO_Port,LORA1_DIO0_Pin) == SET)
+ 440              		.loc 1 288 7 view .LVU60
+ 441 0040 0128     		cmp	r0, #1
+ 442 0042 04D0     		beq	.L45
+ 443              	.L40:
+ 292:Core/Src/stm32l4xx_it.c ****   }
+ 444              		.loc 1 292 5 is_stmt 1 view .LVU61
+ 445 0044 044B     		ldr	r3, .L46
+ 446 0046 4FF40072 		mov	r2, #512
+ 447 004a 5A61     		str	r2, [r3, #20]
+ 448              		.loc 1 294 1 is_stmt 0 view .LVU62
+ 449 004c E3E7     		b	.L36
+ 450              	.L45:
+ 290:Core/Src/stm32l4xx_it.c ****     }
+ 451              		.loc 1 290 7 is_stmt 1 view .LVU63
+ 452 004e 0548     		ldr	r0, .L46+12
+ 453 0050 FFF7FEFF 		bl	SX1278_LoRaRxPacket
+ 454              	.LVL10:
+ 455 0054 F6E7     		b	.L40
+ 456              	.L47:
+ 457 0056 00BF     		.align	2
+ 458              	.L46:
+ 459 0058 00040140 		.word	1073808384
+ 460 005c 00000000 		.word	Lora_dev
+ 461 0060 00040048 		.word	1207960576
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 14
+
+
+ 462 0064 18010000 		.word	Lora_dev+280
+ 463              		.cfi_endproc
+ 464              	.LFE302:
+ 466              		.text
+ 467              	.Letext0:
+ 468              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 469              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 470              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 471              		.file 5 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h"
+ 472              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 473              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 474              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
+ 475              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 476              		.file 10 "HAL/Inc/SX1278_hw.h"
+ 477              		.file 11 "FML/Inc/SX1278.h"
+ 478              		.file 12 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 479              		.file 13 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32l4xx_it.c
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:21     .text.NMI_Handler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:27     .text.NMI_Handler:00000000 NMI_Handler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:44     .text.HardFault_Handler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:50     .text.HardFault_Handler:00000000 HardFault_Handler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:67     .text.MemManage_Handler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:73     .text.MemManage_Handler:00000000 MemManage_Handler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:90     .text.BusFault_Handler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:96     .text.BusFault_Handler:00000000 BusFault_Handler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:113    .text.UsageFault_Handler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:119    .text.UsageFault_Handler:00000000 UsageFault_Handler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:136    .text.SVC_Handler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:142    .text.SVC_Handler:00000000 SVC_Handler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:155    .text.DebugMon_Handler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:161    .text.DebugMon_Handler:00000000 DebugMon_Handler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:174    .text.PendSV_Handler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:180    .text.PendSV_Handler:00000000 PendSV_Handler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:193    .text.SysTick_Handler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:199    .text.SysTick_Handler:00000000 SysTick_Handler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:222    .text.SPI2_IRQHandler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:228    .text.SPI2_IRQHandler:00000000 SPI2_IRQHandler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:248    .text.SPI2_IRQHandler:0000000c $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:253    .text.USART1_IRQHandler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:259    .text.USART1_IRQHandler:00000000 USART1_IRQHandler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:279    .text.USART1_IRQHandler:0000000c $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:284    .text.USART2_IRQHandler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:290    .text.USART2_IRQHandler:00000000 USART2_IRQHandler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:310    .text.USART2_IRQHandler:0000000c $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:315    .text.USART3_IRQHandler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:321    .text.USART3_IRQHandler:00000000 USART3_IRQHandler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:341    .text.USART3_IRQHandler:0000000c $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:346    .text.SPI3_IRQHandler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:352    .text.SPI3_IRQHandler:00000000 SPI3_IRQHandler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:372    .text.SPI3_IRQHandler:0000000c $d
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:377    .text.EXTI9_5_IRQHandler:00000000 $t
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:383    .text.EXTI9_5_IRQHandler:00000000 EXTI9_5_IRQHandler
-/var/folders/h7/llxr0vxd5sd9z74__7r6nx9r0000gn/T//ccxYRqvF.s:430    .text.EXTI9_5_IRQHandler:0000002c $d
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:20     .text.NMI_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:26     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:44     .text.HardFault_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:50     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:67     .text.MemManage_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:73     .text.MemManage_Handler:00000000 MemManage_Handler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:90     .text.BusFault_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:96     .text.BusFault_Handler:00000000 BusFault_Handler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:113    .text.UsageFault_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:119    .text.UsageFault_Handler:00000000 UsageFault_Handler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:136    .text.SVC_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:142    .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:155    .text.DebugMon_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:161    .text.DebugMon_Handler:00000000 DebugMon_Handler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:174    .text.PendSV_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:180    .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:193    .text.SysTick_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:199    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:222    .text.SPI2_IRQHandler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:228    .text.SPI2_IRQHandler:00000000 SPI2_IRQHandler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:248    .text.SPI2_IRQHandler:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:253    .text.USART1_IRQHandler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:259    .text.USART1_IRQHandler:00000000 USART1_IRQHandler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:279    .text.USART1_IRQHandler:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:284    .text.USART2_IRQHandler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:290    .text.USART2_IRQHandler:00000000 USART2_IRQHandler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:310    .text.USART2_IRQHandler:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:315    .text.USART3_IRQHandler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:321    .text.USART3_IRQHandler:00000000 USART3_IRQHandler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:341    .text.USART3_IRQHandler:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:346    .text.SPI3_IRQHandler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:352    .text.SPI3_IRQHandler:00000000 SPI3_IRQHandler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:372    .text.SPI3_IRQHandler:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:377    .text.EXTI9_5_IRQHandler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:383    .text.EXTI9_5_IRQHandler:00000000 EXTI9_5_IRQHandler
+C:\Users\CL\AppData\Local\Temp\ccZxXgnp.s:459    .text.EXTI9_5_IRQHandler:00000058 $d
 
 UNDEFINED SYMBOLS
 timer_update

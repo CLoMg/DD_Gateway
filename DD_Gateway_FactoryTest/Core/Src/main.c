@@ -38,6 +38,7 @@
 #include "ATGM332D.h"
 #include "EC2x.h"
 #include "SX1278.h"
+// #include "y_lora.h"
 
 
 /* USER CODE END Includes */
@@ -118,10 +119,15 @@ int main(void)
   timer_insert(1000,-1,LED_Toggle,&dev_led[0]);
   timer_insert(1000,10,LED_Toggle,&dev_led[1]);
 
+  //Lora_Init();
   SX1278_init(&Lora_dev[0], Lora_dev[0].frequency, Lora_dev[0].power,
 		Lora_dev[0].LoRa_SF, Lora_dev[0].LoRa_BW, Lora_dev[0].LoRa_CR,
 		Lora_dev[0].LoRa_CRC_sum, Lora_dev[0].packetLength);
-  SX1278_receive(&Lora_dev[0], 100, 500);
+   SX1278_receive(&Lora_dev[0], 100, 500);
+  SX1278_init(&Lora_dev[1], Lora_dev[1].frequency, Lora_dev[0].power,
+		Lora_dev[0].LoRa_SF, Lora_dev[0].LoRa_BW, Lora_dev[0].LoRa_CR,
+		Lora_dev[0].LoRa_CRC_sum, Lora_dev[0].packetLength);
+   SX1278_receive(&Lora_dev[1], 100, 500);
   /* USER CODE END 2 */
 
   /* Infinite loop */
