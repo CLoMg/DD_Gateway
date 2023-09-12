@@ -29,7 +29,7 @@ void queue_init(Queue_HandleTypeDef *self,void *buff,uint16_t capacity){
  * @param  item             My Param doc
  * @return int 
  */
-int queue_insert(Queue_HandleTypeDef *self,uint8_t item){
+int queue_insert(Queue_HandleTypeDef *self,int item){
     if(self->block  == 0){
         self->block = 1;
 
@@ -40,7 +40,7 @@ int queue_insert(Queue_HandleTypeDef *self,uint8_t item){
             self->head = (self->head + 1) % self->capacity;
         }
 
-        self->buff[self->tail] = item;
+        *(self->buff + self->tail) = item;
         self->tail = (self->tail +1) % self->capacity;
         self->block = 0;
         return 1;
@@ -55,7 +55,7 @@ int queue_insert(Queue_HandleTypeDef *self,uint8_t item){
  * @param  len              My Param doc
  * @return int 
  */
-int queue_pull(Queue_HandleTypeDef *self,int *temp,uint16_t len){
+int queue_pull(Queue_HandleTypeDef *self,void *temp,uint16_t len){
     uint16_t j = 0 ;
     //如果队列被上锁了，则等待100ms
     if(self->block == 1)
@@ -87,7 +87,7 @@ int queue_pull(Queue_HandleTypeDef *self,int *temp,uint16_t len){
  *          -1: 队列无法访问
  *          len： 弹出元素数量
  */
-int queue_pop(Queue_HandleTypeDef *self,uint8_t *temp,uint16_t len){
+int queue_pop(Queue_HandleTypeDef *self,void *temp,uint16_t len){
     uint16_t j = 0 ;
     //如果队列被上锁了，则等待100ms
     if(self->block == 1)

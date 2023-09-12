@@ -25,7 +25,9 @@
 /*-----------------------------------macro------------------------------------*/
 #define BUFF_LEN 300
 /*----------------------------------typedef-----------------------------------*/
-
+void ec2x_queue_send(void);
+void ec2x_reply_handler(void);
+void ex2x_timeout_handler(void);
 /*----------------------------------variable----------------------------------*/
 uint8_t ec2x_buff[BUFF_LEN]={0xff,};
 
@@ -35,16 +37,35 @@ StateTransform_T ec2x_transtable[] =
 {
 	{UINIT,Timeout_Event,UINIT,ec2x_reset},
 	{UINIT,ReplyScs_Event,AT_MODE,NULL},
-	{AT_MODE,CMDSend_Event,WAIT_REPLY,NULL},
-	{WAIT_REPLY,ReplyScs_Event,AT_MODE,NULL},
-	{WAIT_REPLY,Timeout_Event,AT_MODE,NULL},
+	{AT_MODE,CMDSend_Event,WAIT_REPLY,ec2x_queue_send},
+	{WAIT_REPLY,ReplyScs_Event,AT_MODE,ec2x_reply_handler},
+	{WAIT_REPLY,Timeout_Event,AT_MODE,ex2x_timeout_handler},
 	{TRANS_MODE,MsgSend_Event,TRANS_MODE,NULL},
 };
 
+//定义事件队列
 uint8_t event_buff[10];
 Queue_HandleTypeDef ec2x_event_queue;
-
+//定义tcp连接字符串
 uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2";
+
+//定义tcp连接指令队列
+uint8_t tcpconnct_step = 0;
+ATMsg_TypeDef connectmsg_queue[] = {
+    {"AT\r\n","OK",500,5},
+    {"AT+CPIN?\r\n","+CPIN: READY",500,2},
+    {"AT+CREG?\r\n","+CREG: 0,1", 500, 2},
+    {"AT+CGREG?\r\n","+CGREG: 0,1", 500, 2},
+    {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 500, 3},
+    {"AT+QIDEACT=1\r\n", "OK", 40, 1},
+    {"AT+QIACT=1\r\n", "OK", 150, 1},
+    {tcp_connect, "+QIOPEN:", 150, 5},
+};
+
+//定义发送消息队列
+ATMsg_TypeDef ec2x_txmsg_buff[10];
+Queue_HandleTypeDef ec2x_txmsg_queue;
+
 
 /*----------------------------------typedef-----------------------------------*/
 
@@ -149,6 +170,7 @@ int ec2x_open(char *dev_name)
             ec2x_io_init(&ec2x_dev[i]);
 
             queue_init(&ec2x_event_queue,event_buff,10);
+            queue_init(&ec2x_txmsg_queue,ec2x_txmsg_buff,10);
         
            // ec2x_fsm = (FSM_T*)malloc(sizeof(FSM_T));
             uint8_t num = sizeof(ec2x_transtable)/sizeof(ec2x_transtable[0]);
@@ -291,10 +313,36 @@ int ec2x_replymatch(char* expect){
     return 0;
 }
 
+//扫描发送消息队列是否有消息，有则发送队首消息
+void ec2x_queue_send(void){
+    
+    if(!queue_is_empty(&ec2x_txmsg_queue)){
+        if(queue_pull(&ec2x_txmsg_queue,&cur_msg,1))
+        ec2x_cmd_send(0,cur_msg->txmsg,sizeof(cur_msg->txmsg),cur_msg->expect_reply,cur_msg->timeout);
+    }      
+}
+
+void ec2x_reply_handler(void){
+    
+    if(!queue_is_empty(&ec2x_txmsg_queue)){
+        queue_pop(&ec2x_txmsg_queue,&cur_msg,1);
+    }
+    if(!queue_is_empty(&ec2x_txmsg_queue)){
+        queue_insert(&ec2x_event_queue,(uint8_t)CMDSend_Event);
+    }        
+}
+void ex2x_timeout_handler(void){
+    cur_msg->retry_times--;
+    if(cur_msg->retry_times == 0){
+        if(!queue_is_empty(&ec2x_txmsg_queue))
+            queue_pop(&ec2x_txmsg_queue,&cur_msg,1);       
+    }
+    else
+        queue_insert(&ec2x_event_queue,(uint8_t)CMDSend_Event); 
+}
 void ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uint16_t timeout)
 {
     ec2x_write(fd,tx_buff,len);
-    queue_insert(&ec2x_event_queue,(uint8_t)CMDSend_Event);
     ec2x_waitreply(expect_reply,timeout);
 }
 
@@ -314,6 +362,16 @@ void ec2x_fms_proccess(void){
         shellPrint(&shell,"Next->State:%d\r\n",(&ec2x_fsm)->state);
     }
 }
+
+uint8_t ec2x_tcp_connect(int fd){
+    uint8_t err_code = 0;
+    uint8_t i = 0;
+    for(i = 0; i < sizeof(connectmsg_queue)/sizeof(ATMsg_TypeDef); ++i)
+    {
+        queue_insert(&ec2x_txmsg_queue,(int *)&connectmsg_queue[i]);
+    }
+    queue_insert(&ec2x_event_queue,(uint8_t)CMDSend_Event);
+}
 /*------------------------------------test------------------------------------*/
 
 /**
@@ -329,22 +387,22 @@ void EC2x_Test(int fd,char *tx_buff,char *expect_reply,uint16_t timeout)
     uint8_t *tx_data,len=0;
     len = strlen(tx_buff);
     if(strcmp(tx_buff,"tcp_connect")==0){
-        len = strlen(tcp_connect);
-        tx_data = (char *)malloc(len*sizeof(uint8_t));
-        memcpy(tx_data,tcp_connect,len);
+        ec2x_tcp_connect(fd);
     }
     else{
         tx_data = (char *)malloc((len+2)*sizeof(uint8_t));
         memcpy(tx_data,tx_buff,len);
+    
+        tx_data[len] = 0x0D;
+        tx_data[len+1] = 0x0A;
+        ec2x_cmd_send(fd, tx_data,len+2, expect_reply,timeout);
+        queue_insert(&ec2x_event_queue,(uint8_t)CMDSend_Event);
+        free(tx_data);
+        tx_data = NULL;
     }
-    tx_data[len] = 0x0D;
-    tx_data[len+1] = 0x0A;
-    ec2x_cmd_send(fd, tx_data,len+2, expect_reply,timeout);
-    free(tx_data);
-    tx_data = NULL;
 }
 
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-ec2x_cmd_send, EC2x_Test, ec2x test);
+ec2x_send, EC2x_Test, ec2x test);
 

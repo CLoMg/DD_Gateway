@@ -210,7 +210,7 @@ uint8_t SX1278_LoRaRxPacket(SX1278_t *module) {
 		if (module->LoRa_SF == SX1278_LORA_SF_6) { //When SpreadFactor is six,will used Implicit Header mode(Excluding internal packet length)
 			packet_size = module->packetLength;
 		} else {
-			packet_size = SX1278_SPIRead(module, LR_RegRRxNbBytes); //Number for received bytes
+			packet_size = SX1278_SPIRead(module, LR_RegRxNbBytes); //Number for received bytes
 		}
 
 		SX1278_SPIBurstRead(module, 0x00, module->rxBuffer, packet_size);

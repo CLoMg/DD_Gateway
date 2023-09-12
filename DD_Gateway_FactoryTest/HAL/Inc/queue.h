@@ -26,7 +26,13 @@ typedef struct queue
     uint8_t block;
     uint16_t head;
     uint16_t tail;
-    uint8_t *buff;
+    union 
+    {
+        /* data */
+        uint8_t *u8_buff;
+        uint32_t *u32_buff;
+    };
+    
     uint16_t capacity;
 }Queue_HandleTypeDef;
 
@@ -42,16 +48,16 @@ void queue_init(Queue_HandleTypeDef *self,void *buff,uint16_t capacity);
 /**
  * @brief 插入元素到队列
  */
-int queue_insert(Queue_HandleTypeDef *self,uint8_t item);
+int queue_insert(Queue_HandleTypeDef *self,int item);
 /**
  * @brief 拉取队列len个元素（不从队列中删除）
  */
-int queue_pull(Queue_HandleTypeDef *self,int *temp,uint16_t len);
+int queue_pull(Queue_HandleTypeDef *self,void *temp,uint16_t len);
 
 /**
  * @brief  弹出队列len个元素（要从队列中删除）
  */
-int queue_pop(Queue_HandleTypeDef *self,uint8_t *temp,uint16_t len);
+int queue_pop(Queue_HandleTypeDef *self,void *temp,uint16_t len);
 /**
  * @brief 判断队列是否满
  */

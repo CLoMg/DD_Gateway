@@ -13,6 +13,14 @@ extern "C"{
 /*----------------------------------typedef-----------------------------------*/
 typedef struct 
 {
+    uint8_t *txmsg;
+    uint8_t *expect_reply;
+    uint16_t timeout;
+    uint8_t retry_times;
+}ATMsg_TypeDef;
+
+typedef struct 
+{
     /* data */
     _Bool block;
     uint8_t *data;
@@ -46,6 +54,7 @@ typedef enum{
     Init_Event = 0x00, Timeout_Event ,ReplyScs_Event, CMDSend_Event,
     MsgSend_Event,
 }EC2x_Event_T;
+
 /*----------------------------------variable----------------------------------*/
 
 /*-------------------------------------os-------------------------------------*/
