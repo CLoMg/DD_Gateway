@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
   36              		.loc 1 20 17 is_stmt 0 view .LVU2
   37 0000 0023     		movs	r3, #0
   38 0002 0370     		strb	r3, [r0]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 2
 
 
   21:HAL/Src/queue.c ****     self->head = 0;
@@ -97,8 +97,8 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
   29:HAL/Src/queue.c ****  * @param  item             My Param doc
   30:HAL/Src/queue.c ****  * @return int 
   31:HAL/Src/queue.c ****  */
-  32:HAL/Src/queue.c **** int queue_insert(Queue_HandleTypeDef *self,int *item){
-  66              		.loc 1 32 54 is_stmt 1 view -0
+  32:HAL/Src/queue.c **** int queue_insert(Queue_HandleTypeDef *self,int item){
+  66              		.loc 1 32 53 is_stmt 1 view -0
   67              		.cfi_startproc
   68              		@ args = 0, pretend = 0, frame = 0
   69              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -117,8 +117,8 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
   40:HAL/Src/queue.c ****             self->head = (self->head + 1) % self->capacity;
   41:HAL/Src/queue.c ****         }
   42:HAL/Src/queue.c **** 
-  43:HAL/Src/queue.c ****         self->buff[self->tail] = item;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 3
+  43:HAL/Src/queue.c ****         *(self->buff + self->tail) = item;
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 3
 
 
   44:HAL/Src/queue.c ****         self->tail = (self->tail +1) % self->capacity;
@@ -136,7 +136,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
   80              	.LVL3:
   81              	.L10:
   32:HAL/Src/queue.c ****     if(self->block  == 0){
-  82              		.loc 1 32 54 view .LVU18
+  82              		.loc 1 32 53 view .LVU18
   83 000a 00B5     		push	{lr}
   84              	.LCFI0:
   85              		.cfi_def_cfa_offset 4
@@ -173,12 +173,12 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
   43:HAL/Src/queue.c ****         self->tail = (self->tail +1) % self->capacity;
  107              		.loc 1 43 9 is_stmt 1 view .LVU28
   43:HAL/Src/queue.c ****         self->tail = (self->tail +1) % self->capacity;
- 108              		.loc 1 43 13 is_stmt 0 view .LVU29
+ 108              		.loc 1 43 15 is_stmt 0 view .LVU29
  109 0028 8368     		ldr	r3, [r0, #8]
   43:HAL/Src/queue.c ****         self->tail = (self->tail +1) % self->capacity;
- 110              		.loc 1 43 32 view .LVU30
+ 110              		.loc 1 43 36 view .LVU30
  111 002a 43F82E10 		str	r1, [r3, lr, lsl #2]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 4
 
 
   44:HAL/Src/queue.c ****         self->block = 0;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  152              		.global	queue_pull
  153              		.syntax unified
  154              		.thumb
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 5
 
 
  155              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  190              		.loc 1 70 20 is_stmt 0 view .LVU57
  191 0010 8088     		ldrh	r0, [r0, #4]
  192              	.LVL10:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 6
 
 
  193              		.loc 1 70 34 view .LVU58
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  238 0036 A289     		ldrh	r2, [r4, #12]
  239              	.LVL17:
   70:HAL/Src/queue.c ****         if(len > size)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 7
 
 
  240              		.loc 1 70 81 discriminator 2 view .LVU74
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
   77:HAL/Src/queue.c ****     }
   78:HAL/Src/queue.c ****     return len;
  285              		.loc 1 78 5 is_stmt 1 view .LVU93
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 8
 
 
  286              	.LVL22:
@@ -453,12 +453,12 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
   87:HAL/Src/queue.c ****  *          -1: 队列无法访问
   88:HAL/Src/queue.c ****  *          len： 弹出元素数量
   89:HAL/Src/queue.c ****  */
-  90:HAL/Src/queue.c **** int queue_pop(Queue_HandleTypeDef *self,uint8_t *temp,uint16_t len){
- 308              		.loc 1 90 68 is_stmt 1 view -0
+  90:HAL/Src/queue.c **** int queue_pop(Queue_HandleTypeDef *self,int *temp,uint16_t len){
+ 308              		.loc 1 90 64 is_stmt 1 view -0
  309              		.cfi_startproc
  310              		@ args = 0, pretend = 0, frame = 0
  311              		@ frame_needed = 0, uses_anonymous_args = 0
- 312              		.loc 1 90 68 is_stmt 0 view .LVU97
+ 312              		.loc 1 90 64 is_stmt 0 view .LVU97
  313 0000 38B5     		push	{r3, r4, r5, lr}
  314              	.LCFI2:
  315              		.cfi_def_cfa_offset 16
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  326 0006 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
  327              		.loc 1 93 7 view .LVU101
  328 0008 012B     		cmp	r3, #1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 9
 
 
  329 000a 0CD0     		beq	.L35
@@ -524,7 +524,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  358              		.loc 1 104 15 is_stmt 0 view .LVU113
  359 0022 0022     		movs	r2, #0
  360              		.loc 1 104 9 view .LVU114
- 361 0024 1EE0     		b	.L31
+ 361 0024 1FE0     		b	.L31
  362              	.LVL29:
  363              	.L35:
  364              		.loc 1 104 9 view .LVU115
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  370 0028 FFF7FEFF 		bl	HAL_Delay
  371              	.LVL31:
   96:HAL/Src/queue.c ****             return -1;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 10
 
 
  372              		.loc 1 96 9 is_stmt 1 view .LVU118
@@ -548,9 +548,9 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
   96:HAL/Src/queue.c ****             return -1;
  375              		.loc 1 96 11 view .LVU120
  376 002e 012B     		cmp	r3, #1
- 377 0030 1DD0     		beq	.L33
+ 377 0030 1ED0     		beq	.L33
  378 0032 2846     		mov	r0, r5
- 379 0034 1AE0     		b	.L24
+ 379 0034 1BE0     		b	.L24
  380              	.LVL32:
  381              	.L28:
  382              	.LBB5:
@@ -578,46 +578,46 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  400              		.loc 1 105 33 discriminator 3 view .LVU127
  401 0048 53F82C30 		ldr	r3, [r3, ip, lsl #2]
  402              		.loc 1 105 21 discriminator 3 view .LVU128
- 403 004c 8B54     		strb	r3, [r1, r2]
+ 403 004c 41F82230 		str	r3, [r1, r2, lsl #2]
  106:HAL/Src/queue.c ****             self->head = (self->head + 1) % self->capacity;
  404              		.loc 1 106 13 is_stmt 1 discriminator 3 view .LVU129
  405              		.loc 1 106 31 is_stmt 0 discriminator 3 view .LVU130
- 406 004e 6388     		ldrh	r3, [r4, #2]
+ 406 0050 6388     		ldrh	r3, [r4, #2]
  407              		.loc 1 106 38 discriminator 3 view .LVU131
- 408 0050 0133     		adds	r3, r3, #1
+ 408 0052 0133     		adds	r3, r3, #1
  409              		.loc 1 106 49 discriminator 3 view .LVU132
- 410 0052 B4F80CC0 		ldrh	ip, [r4, #12]
+ 410 0054 B4F80CC0 		ldrh	ip, [r4, #12]
  411              		.loc 1 106 43 discriminator 3 view .LVU133
- 412 0056 93FBFCFE 		sdiv	lr, r3, ip
- 413 005a 0CFB1E33 		mls	r3, ip, lr, r3
+ 412 0058 93FBFCFE 		sdiv	lr, r3, ip
+ 413 005c 0CFB1E33 		mls	r3, ip, lr, r3
  414              		.loc 1 106 24 discriminator 3 view .LVU134
- 415 005e 6380     		strh	r3, [r4, #2]	@ movhi
+ 415 0060 6380     		strh	r3, [r4, #2]	@ movhi
  104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
  416              		.loc 1 104 30 is_stmt 1 discriminator 3 view .LVU135
  104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
  417              		.loc 1 104 31 is_stmt 0 discriminator 3 view .LVU136
- 418 0060 0132     		adds	r2, r2, #1
+ 418 0062 0132     		adds	r2, r2, #1
  419              	.LVL35:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 11
 
 
  104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
  420              		.loc 1 104 31 discriminator 3 view .LVU137
- 421 0062 92B2     		uxth	r2, r2
+ 421 0064 92B2     		uxth	r2, r2
  422              	.LVL36:
  423              	.L31:
  104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
  424              		.loc 1 104 21 is_stmt 1 discriminator 1 view .LVU138
  104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
  425              		.loc 1 104 9 is_stmt 0 discriminator 1 view .LVU139
- 426 0064 9042     		cmp	r0, r2
- 427 0066 ECD8     		bhi	.L32
+ 426 0066 9042     		cmp	r0, r2
+ 427 0068 EBD8     		bhi	.L32
  107:HAL/Src/queue.c ****         }
  108:HAL/Src/queue.c ****         self->block = 0;
  428              		.loc 1 108 9 is_stmt 1 view .LVU140
  429              		.loc 1 108 21 is_stmt 0 view .LVU141
- 430 0068 0023     		movs	r3, #0
- 431 006a 2370     		strb	r3, [r4]
+ 430 006a 0023     		movs	r3, #0
+ 431 006c 2370     		strb	r3, [r4]
  432              		.loc 1 108 21 view .LVU142
  433              	.LBE5:
  109:HAL/Src/queue.c ****     }
@@ -627,13 +627,13 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  436              	.L24:
  111:HAL/Src/queue.c **** }
  437              		.loc 1 111 1 is_stmt 0 view .LVU144
- 438 006c 38BD     		pop	{r3, r4, r5, pc}
+ 438 006e 38BD     		pop	{r3, r4, r5, pc}
  439              	.LVL38:
  440              	.L33:
   97:HAL/Src/queue.c ****     }
  441              		.loc 1 97 20 view .LVU145
- 442 006e 4FF0FF30 		mov	r0, #-1
- 443 0072 FBE7     		b	.L24
+ 442 0070 4FF0FF30 		mov	r0, #-1
+ 443 0074 FBE7     		b	.L24
  444              		.cfi_endproc
  445              	.LFE291:
  447              		.section	.text.queue_is_full,"ax",%progbits
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  122:HAL/Src/queue.c **** int queue_is_full(Queue_HandleTypeDef *self){
  457              		.loc 1 122 45 is_stmt 1 view -0
  458              		.cfi_startproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 12
 
 
  459              		@ args = 0, pretend = 0, frame = 0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  136:HAL/Src/queue.c ****         self->block = 0;
  500              		.loc 1 136 9 is_stmt 1 view .LVU162
  501              		.loc 1 136 21 is_stmt 0 view .LVU163
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 13
 
 
  502 0024 0022     		movs	r2, #0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  539              		.loc 1 150 46 is_stmt 1 view -0
  540              		.cfi_startproc
  541              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 14
 
 
  542              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  580              	.L44:
  167:HAL/Src/queue.c **** }...
  581              		.loc 1 167 1 is_stmt 0 view .LVU187
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 15
 
 
  582 001c 08BD     		pop	{r3, pc}
@@ -875,23 +875,23 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 1
  608              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
  609              		.file 4 "HAL/Inc/queue.h"
  610              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnrqj30.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 queue.c
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:20     .text.queue_init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:26     .text.queue_init:00000000 queue_init
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:57     .text.queue_insert:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:63     .text.queue_insert:00000000 queue_insert
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:151    .text.queue_pull:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:157    .text.queue_pull:00000000 queue_pull
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:299    .text.queue_pop:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:305    .text.queue_pop:00000000 queue_pop
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:448    .text.queue_is_full:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:454    .text.queue_is_full:00000000 queue_is_full
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:530    .text.queue_is_empty:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccg1ZluS.s:536    .text.queue_is_empty:00000000 queue_is_empty
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:20     .text.queue_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:26     .text.queue_init:00000000 queue_init
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:57     .text.queue_insert:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:63     .text.queue_insert:00000000 queue_insert
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:151    .text.queue_pull:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:157    .text.queue_pull:00000000 queue_pull
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:299    .text.queue_pop:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:305    .text.queue_pop:00000000 queue_pop
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:448    .text.queue_is_full:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:454    .text.queue_is_full:00000000 queue_is_full
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:530    .text.queue_is_empty:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnrqj30.s:536    .text.queue_is_empty:00000000 queue_is_empty
 
 UNDEFINED SYMBOLS
 HAL_Delay

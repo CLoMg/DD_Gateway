@@ -57,7 +57,7 @@ void timer_update(void){
                     q = p->next;  
                     p->next = q->next;
                     q->func = NULL;
-                    q->param = NULL;
+                    //q->param = NULL;
                     q->next = NULL;
                     free(q);
                     q = NULL;

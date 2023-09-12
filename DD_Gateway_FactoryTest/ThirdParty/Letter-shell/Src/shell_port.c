@@ -12,7 +12,7 @@
 
 /* 1. 创建shell对象，开辟shell缓冲区 */
 Shell shell;
-char shell_buffer[512];
+char shell_buffer[200];
 
 
 /* 2. 自己实现shell写函数 */
@@ -35,5 +35,5 @@ void User_Shell_Init(void)
     shell.write = User_Shell_Write;
  
  //调用shell初始化函数
-    shellInit(&shell, shell_buffer, 512);
+    shellInit(&shell, shell_buffer, 200);
 }

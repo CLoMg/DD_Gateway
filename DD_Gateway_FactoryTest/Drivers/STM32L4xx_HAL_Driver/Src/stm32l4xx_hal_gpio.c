@@ -104,7 +104,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l4xx_hal.h"
-#include "y_lora.h"
 
 /** @addtogroup STM32L4xx_HAL_Driver
   * @{
@@ -526,7 +525,7 @@ __weak void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   /* Prevent unused argument(s) compilation warning */
   if(GPIO_Pin == GPIO_PIN_6){
-    y_lora_io0_irq(lora_dev);
+    
   }
 
   /* NOTE: This function should not be modified, when the callback is needed,

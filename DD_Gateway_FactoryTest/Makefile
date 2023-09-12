@@ -75,7 +75,6 @@ HAL/Src/spi.c \
 HAL/Src/usart.c \
 HAL/Src/timer.c \
 HAL/Src/queue.c \
-HAL/Src/y_lora.c \
 HAL/Src/SX1278_hw.c \
 FML/Src/W25QXX.c \
 FML/Src/led.c \

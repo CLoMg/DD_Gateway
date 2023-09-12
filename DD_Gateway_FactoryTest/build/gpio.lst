@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWBTScn.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 1
   28:HAL/Src/gpio.c **** /*----------------------------------------------------------------------------*/
   29:HAL/Src/gpio.c **** /* Configure GPIO                                                             */
   30:HAL/Src/gpio.c **** /*----------------------------------------------------------------------------*/
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWBTScn.s 			page 2
 
 
   31:HAL/Src/gpio.c **** /* USER CODE BEGIN 1 */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 1
   65              		.loc 1 48 3 view .LVU7
   66 0024 019A     		ldr	r2, [sp, #4]
   67              	.LBE2:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWBTScn.s 			page 3
 
 
   68              		.loc 1 48 3 view .LVU8
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 1
  116 005e 1021     		movs	r1, #16
  117 0060 4FF09040 		mov	r0, #1207959552
  118 0064 FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWBTScn.s 			page 4
 
 
  119              	.LVL0:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 1
  157 0094 05A9     		add	r1, sp, #20
  158 0096 4FF09040 		mov	r0, #1207959552
  159 009a FFF7FEFF 		bl	HAL_GPIO_Init
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWBTScn.s 			page 5
 
 
  160              	.LVL3:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 1
   88:HAL/Src/gpio.c ****   GPIO_InitStruct.Pin = LORA2_DIO0_Pin;//GPIO_PIN
  197              		.loc 1 88 3 view .LVU63
  198              		.loc 1 88 23 is_stmt 0 view .LVU64
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWBTScn.s 			page 6
 
 
  199 00c4 4023     		movs	r3, #64
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 1
  241 0104 2946     		mov	r1, r5
  242 0106 1720     		movs	r0, #23
  243 0108 FFF7FEFF 		bl	HAL_NVIC_SetPriority
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWBTScn.s 			page 7
 
 
  244              	.LVL10:
@@ -389,14 +389,14 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 1
  268              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
  269              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
  270              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclLLy38.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccWBTScn.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-C:\Users\CL\AppData\Local\Temp\cclLLy38.s:20     .text.MX_GPIO_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclLLy38.s:26     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\CL\AppData\Local\Temp\cclLLy38.s:258    .text.MX_GPIO_Init:00000118 $d
+C:\Users\CL\AppData\Local\Temp\ccWBTScn.s:20     .text.MX_GPIO_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccWBTScn.s:26     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\CL\AppData\Local\Temp\ccWBTScn.s:258    .text.MX_GPIO_Init:00000118 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
