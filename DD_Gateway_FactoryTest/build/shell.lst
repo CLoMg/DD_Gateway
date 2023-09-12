@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
   28:ThirdParty/Letter-shell/Src/shell.c ****     .data.user.name = shellCmdDefaultUser,
   29:ThirdParty/Letter-shell/Src/shell.c ****     .data.user.password = shellPasswordDefaultUser,
   30:ThirdParty/Letter-shell/Src/shell.c ****     .data.user.desc = shellDesDefaultUser
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 2
 
 
   31:ThirdParty/Letter-shell/Src/shell.c **** };
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
   85:ThirdParty/Letter-shell/Src/shell.c **** {
   86:ThirdParty/Letter-shell/Src/shell.c **** #if SHELL_SHOW_INFO == 1
   87:ThirdParty/Letter-shell/Src/shell.c ****     [SHELL_TEXT_INFO] =
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 3
 
 
   88:ThirdParty/Letter-shell/Src/shell.c ****         "\r\n"
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  142:ThirdParty/Letter-shell/Src/shell.c **** #endif
  143:ThirdParty/Letter-shell/Src/shell.c **** };
  144:ThirdParty/Letter-shell/Src/shell.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 4
 
 
  145:ThirdParty/Letter-shell/Src/shell.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  199:ThirdParty/Letter-shell/Src/shell.c ****                                 / sizeof(ShellCommand);
  200:ThirdParty/Letter-shell/Src/shell.c ****     #elif defined(__GNUC__)
  201:ThirdParty/Letter-shell/Src/shell.c ****         shell->commandList.base = (ShellCommand *)(&_shell_command_start);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 5
 
 
  202:ThirdParty/Letter-shell/Src/shell.c ****         shell->commandList.count = ((unsigned int)(&_shell_command_end)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  230:ThirdParty/Letter-shell/Src/shell.c ****     for (short i = 0; i < SHELL_MAX_NUMBER; i++)
   52              		.loc 1 230 45 is_stmt 1 discriminator 2 view .LVU9
  230:ThirdParty/Letter-shell/Src/shell.c ****     for (short i = 0; i < SHELL_MAX_NUMBER; i++)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 6
 
 
   53              		.loc 1 230 46 is_stmt 0 discriminator 2 view .LVU10
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  248:ThirdParty/Letter-shell/Src/shell.c ****     for (short i = 0; i < SHELL_MAX_NUMBER; i++)
  249:ThirdParty/Letter-shell/Src/shell.c ****     {
  250:ThirdParty/Letter-shell/Src/shell.c ****         if (shellList[i] == shell)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 7
 
 
  251:ThirdParty/Letter-shell/Src/shell.c ****         {
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  112 000c 0DF10700 		add	r0, sp, #7
  113              	.LVL8:
  114              		.loc 1 284 5 view .LVU25
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 8
 
 
  115 0010 9847     		blx	r3
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  317:ThirdParty/Letter-shell/Src/shell.c **** static unsigned short shellWriteCommandDesc(Shell *shell, const char *string)
  318:ThirdParty/Letter-shell/Src/shell.c **** {
  139              		.loc 1 318 1 is_stmt 1 view -0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 9
 
 
  140              		.cfi_startproc
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  185              		.loc 1 325 14 view .LVU43
  186 001e A4B2     		uxth	r4, r4
  187              	.LVL16:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 10
 
 
  188              		.loc 1 325 14 view .LVU44
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  321:ThirdParty/Letter-shell/Src/shell.c ****     while (*p && *p != '\r' && *p != '\n')
  227              		.loc 1 321 5 view .LVU56
  228 0040 0020     		movs	r0, #0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 11
 
 
  229              	.LVL23:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  369:ThirdParty/Letter-shell/Src/shell.c **** /**
  370:ThirdParty/Letter-shell/Src/shell.c ****  * @brief shell格式化输出
  371:ThirdParty/Letter-shell/Src/shell.c ****  * 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 12
 
 
  372:ThirdParty/Letter-shell/Src/shell.c ****  * @param shell shell对象
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  426:ThirdParty/Letter-shell/Src/shell.c ****     vsscanf(buffer, fmt, vargs);
  427:ThirdParty/Letter-shell/Src/shell.c ****     va_end(vargs);
  428:ThirdParty/Letter-shell/Src/shell.c **** }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 13
 
 
  429:ThirdParty/Letter-shell/Src/shell.c **** #endif
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  483:ThirdParty/Letter-shell/Src/shell.c ****  * @return signed char 转换后有效数据长度
  484:ThirdParty/Letter-shell/Src/shell.c ****  */
  485:ThirdParty/Letter-shell/Src/shell.c **** signed char shellToDec(int value, char *buffer)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 14
 
 
  486:ThirdParty/Letter-shell/Src/shell.c **** {
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  522:ThirdParty/Letter-shell/Src/shell.c ****         *(dest + count) = *(src + count);
  270              		.loc 1 522 9 is_stmt 1 view .LVU65
  271              		.loc 1 522 25 is_stmt 0 view .LVU66
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 15
 
 
  272 0006 1354     		strb	r3, [r2, r0]
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  309              		@ link register save eliminated.
  310              		.loc 1 538 1 is_stmt 0 view .LVU78
  311 0000 8446     		mov	ip, r0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 16
 
 
  539:ThirdParty/Letter-shell/Src/shell.c ****     unsigned short match = 0;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  352              	.LVL37:
  542:ThirdParty/Letter-shell/Src/shell.c ****     {
  353              		.loc 1 542 11 is_stmt 1 view .LVU97
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 17
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 17
 
 
  542:ThirdParty/Letter-shell/Src/shell.c ****     {
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  572:ThirdParty/Letter-shell/Src/shell.c ****     else if (command->attr.attrs.type <= SHELL_TYPE_VAR_NODE)
  573:ThirdParty/Letter-shell/Src/shell.c ****     {
  574:ThirdParty/Letter-shell/Src/shell.c ****         return command->data.var.name;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 18
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 18
 
 
  575:ThirdParty/Letter-shell/Src/shell.c ****     }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  403 000e 082B     		cmp	r3, #8
  404 0010 05D8     		bhi	.L41
  611:ThirdParty/Letter-shell/Src/shell.c ****     {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 19
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 19
 
 
  612:ThirdParty/Letter-shell/Src/shell.c ****         return command->data.user.desc;
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  620:ThirdParty/Letter-shell/Src/shell.c **** /**
  621:ThirdParty/Letter-shell/Src/shell.c ****  * @brief shell 列出命令条目
  622:ThirdParty/Letter-shell/Src/shell.c ****  * 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 20
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 20
 
 
  623:ThirdParty/Letter-shell/Src/shell.c ****  * @param shell shell对象
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  677:ThirdParty/Letter-shell/Src/shell.c ****     for (short i = 0; i < shell->commandList.count; i++)
  678:ThirdParty/Letter-shell/Src/shell.c ****     {
  679:ThirdParty/Letter-shell/Src/shell.c ****         if (base[i].attr.attrs.type <= SHELL_TYPE_CMD_FUNC
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 21
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 21
 
 
  680:ThirdParty/Letter-shell/Src/shell.c ****             && shellCheckPermission(shell, &base[i]) == 0)
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  734:ThirdParty/Letter-shell/Src/shell.c ****  */
  735:ThirdParty/Letter-shell/Src/shell.c **** void shellListKey(Shell *shell)
  736:ThirdParty/Letter-shell/Src/shell.c **** {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 22
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 22
 
 
  737:ThirdParty/Letter-shell/Src/shell.c ****     ShellCommand *base = (ShellCommand *)shell->commandList.base;
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  791:ThirdParty/Letter-shell/Src/shell.c **** void shellClearCommandLine(Shell *shell)
  792:ThirdParty/Letter-shell/Src/shell.c **** {
  793:ThirdParty/Letter-shell/Src/shell.c ****     for (short i = shell->parser.length - shell->parser.cursor; i > 0; i--)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 23
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 23
 
 
  794:ThirdParty/Letter-shell/Src/shell.c ****     {
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  848:ThirdParty/Letter-shell/Src/shell.c ****  * @brief shell 删除字节
  849:ThirdParty/Letter-shell/Src/shell.c ****  * 
  850:ThirdParty/Letter-shell/Src/shell.c ****  * @param shell shell对象
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 24
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 24
 
 
  851:ThirdParty/Letter-shell/Src/shell.c ****  * @param direction 删除方向 {@code 1}删除光标前字符 {@code -1}删除光标处字符
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  449              		@ args = 0, pretend = 0, frame = 0
  450              		@ frame_needed = 0, uses_anonymous_args = 0
  451              		.loc 1 902 1 is_stmt 0 view .LVU125
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 25
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 25
 
 
  452 0000 30B5     		push	{r4, r5, lr}
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  492 001a C186     		strh	r1, [r0, #54]	@ movhi
  912:ThirdParty/Letter-shell/Src/shell.c ****     for (unsigned short i = 0; i < shell->parser.length; i++)
  493              		.loc 1 912 5 is_stmt 1 view .LVU141
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 26
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 26
 
 
  494              	.LBB4:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  528              		.loc 1 931 16 view .LVU155
  529 0036 5C2C     		cmp	r4, #92
  530 0038 23D0     		beq	.L58
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 27
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 27
 
 
  531              	.LVL57:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  565 0056 0022     		movs	r2, #0
  566 0058 2270     		strb	r2, [r4]
  940:ThirdParty/Letter-shell/Src/shell.c ****             record = 1;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 28
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 28
 
 
  567              		.loc 1 940 13 is_stmt 1 view .LVU170
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  609 0088 D7D0     		beq	.L52
  934:ThirdParty/Letter-shell/Src/shell.c ****             }
  610              		.loc 1 934 17 is_stmt 1 view .LVU184
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 29
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 29
 
 
  934:ThirdParty/Letter-shell/Src/shell.c ****             }
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  966:ThirdParty/Letter-shell/Src/shell.c ****     }
  967:ThirdParty/Letter-shell/Src/shell.c **** }
  968:ThirdParty/Letter-shell/Src/shell.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 30
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 30
 
 
  969:ThirdParty/Letter-shell/Src/shell.c **** 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1023:ThirdParty/Letter-shell/Src/shell.c ****     int value = 0;
 1024:ThirdParty/Letter-shell/Src/shell.c ****     switch (command->attr.attrs.type)
 1025:ThirdParty/Letter-shell/Src/shell.c ****     {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 31
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 31
 
 
 1026:ThirdParty/Letter-shell/Src/shell.c ****     case SHELL_TYPE_VAR_INT:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1080:ThirdParty/Letter-shell/Src/shell.c ****             break;
 1081:ThirdParty/Letter-shell/Src/shell.c ****         case SHELL_TYPE_VAR_POINT:
 1082:ThirdParty/Letter-shell/Src/shell.c ****             shellWriteString(shell, shellText[SHELL_TEXT_POINT_CANNOT_MODIFY]);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 32
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 32
 
 
 1083:ThirdParty/Letter-shell/Src/shell.c ****             break;
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1137:ThirdParty/Letter-shell/Src/shell.c ****             buffer[i] = '0';
 1138:ThirdParty/Letter-shell/Src/shell.c ****         }
 1139:ThirdParty/Letter-shell/Src/shell.c ****         shellToHex(value, buffer);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 33
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 33
 
 
 1140:ThirdParty/Letter-shell/Src/shell.c ****         shellWriteString(shell, buffer);
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1194:ThirdParty/Letter-shell/Src/shell.c **** unsigned int shellRunCommand(Shell *shell, ShellCommand *command)
 1195:ThirdParty/Letter-shell/Src/shell.c **** {
 1196:ThirdParty/Letter-shell/Src/shell.c ****     int returnValue = 0;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 34
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 34
 
 
 1197:ThirdParty/Letter-shell/Src/shell.c ****     shell->status.isActive = 1;
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1251:ThirdParty/Letter-shell/Src/shell.c ****     }
 1252:ThirdParty/Letter-shell/Src/shell.c ****     shell->parser.length = 0;
 1253:ThirdParty/Letter-shell/Src/shell.c ****     shell->parser.cursor = 0;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 35
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 35
 
 
 1254:ThirdParty/Letter-shell/Src/shell.c **** }
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1308:ThirdParty/Letter-shell/Src/shell.c **** 
 1309:ThirdParty/Letter-shell/Src/shell.c **** #if SHELL_HISTORY_MAX_NUMBER > 0
 1310:ThirdParty/Letter-shell/Src/shell.c **** /**
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 36
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 36
 
 
 1311:ThirdParty/Letter-shell/Src/shell.c ****  * @brief shell历史记录添加
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1365:ThirdParty/Letter-shell/Src/shell.c ****         }
 1366:ThirdParty/Letter-shell/Src/shell.c ****     }
 1367:ThirdParty/Letter-shell/Src/shell.c ****     else
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 37
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 37
 
 
 1368:ThirdParty/Letter-shell/Src/shell.c ****     {
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1422:ThirdParty/Letter-shell/Src/shell.c ****     #if SHELL_HISTORY_MAX_NUMBER > 0
 1423:ThirdParty/Letter-shell/Src/shell.c ****         shellHistoryAdd(shell);
 1424:ThirdParty/Letter-shell/Src/shell.c ****     #endif /** SHELL_HISTORY_MAX_NUMBER > 0 */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 38
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 38
 
 
 1425:ThirdParty/Letter-shell/Src/shell.c ****         shellParserParam(shell);
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1479:ThirdParty/Letter-shell/Src/shell.c **** /**
 1480:ThirdParty/Letter-shell/Src/shell.c ****  * @brief shell右方向键输入
 1481:ThirdParty/Letter-shell/Src/shell.c ****  * 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 39
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 39
 
 
 1482:ThirdParty/Letter-shell/Src/shell.c ****  * @param shell shell对象
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  680              		.syntax unified
  681              		.thumb
  682              		.thumb_func
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 40
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 40
 
 
  684              	shellLeft:
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  721              		.section	.text.shellHistoryAdd,"ax",%progbits
  722              		.align	1
  723              		.syntax unified
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 41
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 41
 
 
  724              		.thumb
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  766              	.LVL75:
 1319:ThirdParty/Letter-shell/Src/shell.c ****                 SHELL_HISTORY_MAX_NUMBER : shell->history.record) - 1],
  767              		.loc 1 1319 9 view .LVU227
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 42
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 42
 
 
  768 0026 00B3     		cbz	r0, .L71
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1334:ThirdParty/Letter-shell/Src/shell.c ****     {
  807              		.loc 1 1334 8 view .LVU243
  808 0060 042B     		cmp	r3, #4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 43
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 43
 
 
  809 0062 02D9     		bls	.L71
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  854              		.loc 1 954 5 view .LVU254
  855 0006 0AE0     		b	.L80
  856              	.LVL80:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 44
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 44
 
 
  857              	.L86:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  956:ThirdParty/Letter-shell/Src/shell.c ****         {
  896              		.loc 1 956 12 view .LVU270
  897 0030 2229     		cmp	r1, #34
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 45
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 45
 
 
  898 0032 E9D0     		beq	.L86
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  942              		.loc 1 247 1 is_stmt 1 view -0
  943              		.cfi_startproc
  944              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 46
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 46
 
 
  945              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  983              		.loc 1 253 13 is_stmt 1 view .LVU298
  984 0020 7047     		bx	lr
  985              	.LVL91:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 47
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 47
 
 
  986              	.L92:
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  265:ThirdParty/Letter-shell/Src/shell.c ****     {
  1031              		.loc 1 265 5 is_stmt 0 discriminator 1 view .LVU310
  1032 0008 042B     		cmp	r3, #4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 48
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 48
 
 
  1033 000a 0ADC     		bgt	.L101
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1080              		.loc 1 298 5 is_stmt 1 view .LVU319
  1081              	.LVL97:
  299:ThirdParty/Letter-shell/Src/shell.c ****     SHELL_ASSERT(shell->write, return 0);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 49
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 49
 
 
  1082              		.loc 1 299 5 view .LVU320
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1121              		.loc 1 306 1 view .LVU335
  1122 0020 10BD     		pop	{r4, pc}
  1123              	.LVL105:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 50
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 50
 
 
  1124              	.L108:
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1170              		.loc 1 350 9 is_stmt 0 view .LVU341
  1171 0004 90F86030 		ldrb	r3, [r0, #96]	@ zero_extendqisi2
  350:ThirdParty/Letter-shell/Src/shell.c ****     {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 51
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 51
 
 
  1172              		.loc 1 350 8 view .LVU342
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1213              		.loc 1 354 13 is_stmt 1 view .LVU355
  1214 0036 0749     		ldr	r1, .L118+8
  1215              	.LVL114:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 52
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 52
 
 
  354:ThirdParty/Letter-shell/Src/shell.c ****         }
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1252      7C20275F 
  1252      205C202F 
  1252      205F205C 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 53
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 53
 
 
  1252      207C207C 
@@ -3132,7 +3132,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1254      5F5F7C5F 
  1254      7C202020 
  1254      207C5F5F 
- 1255 0102 0A427569 		.ascii	"\012Build:       Sep 12 2023 11:29:21\015\012Versio"
+ 1255 0102 0A427569 		.ascii	"\012Build:       Sep 12 2023 16:06:01\015\012Versio"
  1255      6C643A20 
  1255      20202020 
  1255      20205365 
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1283 0004 0368     		ldr	r3, [r0]
 1241:ThirdParty/Letter-shell/Src/shell.c ****     {
  1284              		.loc 1 1241 9 view .LVU366
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 54
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 54
 
 
  1285 0006 9968     		ldr	r1, [r3, #8]
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1329              		.section	.rodata.shellClear.str1.4,"aMS",%progbits,1
  1330              		.align	2
  1331              	.LC8:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 55
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 55
 
 
  1332 0000 1B5B324A 		.ascii	"\033[2J\033[1H\000"
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1551:ThirdParty/Letter-shell/Src/shell.c ****                 }
 1552:ThirdParty/Letter-shell/Src/shell.c ****                 lastMatchIndex = i;
 1553:ThirdParty/Letter-shell/Src/shell.c ****                 matchNum++;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 56
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 56
 
 
 1554:ThirdParty/Letter-shell/Src/shell.c ****             }
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1608:ThirdParty/Letter-shell/Src/shell.c ****         }
 1609:ThirdParty/Letter-shell/Src/shell.c ****     }
 1610:ThirdParty/Letter-shell/Src/shell.c **** }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 57
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 57
 
 
 1611:ThirdParty/Letter-shell/Src/shell.c **** SHELL_EXPORT_KEY(SHELL_CMD_PERMISSION(0), 0x09000000, shellTab, tab);
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1665:ThirdParty/Letter-shell/Src/shell.c **** /**
 1666:ThirdParty/Letter-shell/Src/shell.c ****  * @brief shell 写命令帮助信息
 1667:ThirdParty/Letter-shell/Src/shell.c ****  * 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 58
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 58
 
 
 1668:ThirdParty/Letter-shell/Src/shell.c ****  * @param shell shell对象
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1722:ThirdParty/Letter-shell/Src/shell.c ****     SHELL_ASSERT(data, return);
 1723:ThirdParty/Letter-shell/Src/shell.c ****     SHELL_LOCK(shell);
 1724:ThirdParty/Letter-shell/Src/shell.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 59
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 59
 
 
 1725:ThirdParty/Letter-shell/Src/shell.c **** #if SHELL_LOCK_TIMEOUT > 0
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1779:ThirdParty/Letter-shell/Src/shell.c ****                     shell->parser.keyValue = 0x00000000;
 1780:ThirdParty/Letter-shell/Src/shell.c ****                     break;
 1781:ThirdParty/Letter-shell/Src/shell.c ****                 }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 60
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 60
 
 
 1782:ThirdParty/Letter-shell/Src/shell.c ****             }
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1836:ThirdParty/Letter-shell/Src/shell.c ****     char data;
 1837:ThirdParty/Letter-shell/Src/shell.c **** #if SHELL_TASK_WHILE == 1
 1838:ThirdParty/Letter-shell/Src/shell.c ****     while(1)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 61
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 61
 
 
 1839:ThirdParty/Letter-shell/Src/shell.c ****     {
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1893:ThirdParty/Letter-shell/Src/shell.c **** }
 1894:ThirdParty/Letter-shell/Src/shell.c **** SHELL_EXPORT_CMD(
 1895:ThirdParty/Letter-shell/Src/shell.c **** SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 62
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 62
 
 
 1896:ThirdParty/Letter-shell/Src/shell.c **** vars, shellVars, list all var);
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1366              		.align	2
  1367              	.L129:
  1368 0010 00000000 		.word	.LC8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 63
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 63
 
 
  1369              		.cfi_endproc
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1415 0014 01A8     		add	r0, sp, #4
  1416 0016 FFF7FEFF 		bl	vsnprintf
  1417              	.LVL128:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 64
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 64
 
 
  386:ThirdParty/Letter-shell/Src/shell.c ****     if (len > SHELL_PRINT_BUFFER)
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1463              		.global	shellCheckPermission
  1464              		.syntax unified
  1465              		.thumb
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 65
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 65
 
 
  1466              		.thumb_func
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1507 002a 0020     		movs	r0, #0
  1508              	.LVL134:
  451:ThirdParty/Letter-shell/Src/shell.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 66
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 66
 
 
  1509              		.loc 1 451 1 view .LVU419
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1556              		@ link register save eliminated.
  464:ThirdParty/Letter-shell/Src/shell.c ****     unsigned char i = 8;
  1557              		.loc 1 464 5 view .LVU429
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 67
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 67
 
 
  465:ThirdParty/Letter-shell/Src/shell.c ****     buffer[8] = 0;
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1595 0018 092A     		cmp	r2, #9
  1596 001a F5D9     		bls	.L150
  470:ThirdParty/Letter-shell/Src/shell.c ****         value >>= 4;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 68
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 68
 
 
  1597              		.loc 1 470 21 discriminator 1 view .LVU447
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1641 0008 D154     		strb	r1, [r2, r3]
  564:ThirdParty/Letter-shell/Src/shell.c ****     {
  1642              		.loc 1 564 38 is_stmt 1 discriminator 3 view .LVU460
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 69
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 69
 
 
  564:ThirdParty/Letter-shell/Src/shell.c ****     {
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  570:ThirdParty/Letter-shell/Src/shell.c ****     }
  1681              		.loc 1 570 33 is_stmt 0 view .LVU477
  1682 0028 4068     		ldr	r0, [r0, #4]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 70
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 70
 
 
  1683              	.LVL160:
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1729              	shellToDec:
  1730              	.LVL166:
  1731              	.LFB14:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 71
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 71
 
 
  486:ThirdParty/Letter-shell/Src/shell.c ****     unsigned char i = 11;
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1771              	.LVL172:
  1772              	.L171:
  496:ThirdParty/Letter-shell/Src/shell.c ****         v /= 10;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 72
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 72
 
 
  1773              		.loc 1 496 9 is_stmt 1 view .LVU503
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1812              		.loc 1 504 21 view .LVU518
  1813 0040 C0B2     		uxtb	r0, r0
  1814              	.LVL177:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 73
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 73
 
 
  504:ThirdParty/Letter-shell/Src/shell.c ****     }
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1859 0009 000000   		.align	2
  1860              	.LC11:
  1861 000c 2C203078 		.ascii	", 0x\000"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 74
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 74
 
 
  1861      00
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1906 001c 2946     		mov	r1, r5
  1907 001e 3046     		mov	r0, r6
  1908 0020 FFF7FEFF 		bl	shellToDec
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 75
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 75
 
 
  1909              	.LVL186:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1949              	.LBE10:
 1300:ThirdParty/Letter-shell/Src/shell.c ****     shellWriteString(shell, buffer);
  1950              		.loc 1 1300 5 is_stmt 1 view .LVU550
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 76
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 76
 
 
  1951 0052 01A9     		add	r1, sp, #4
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  1998 0020 4E4F4E45 		.ascii	"NONE\000"
  1998      00
  1999 0025 000000   		.align	2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 77
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 77
 
 
  2000              	.LC17:
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  631:ThirdParty/Letter-shell/Src/shell.c ****     do {
  2045              		.loc 1 631 17 is_stmt 0 view .LVU565
  2046 001a 002C     		cmp	r4, #0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 78
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 78
 
 
  2047 001c 17DD     		ble	.L200
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2085              		.loc 1 649 9 is_stmt 1 view .LVU581
  2086 0044 1F49     		ldr	r1, .L205
  2087 0046 2846     		mov	r0, r5
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 79
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 79
 
 
  2088 0048 FFF7FEFF 		bl	shellWriteString
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2131 0072 2846     		mov	r0, r5
  2132 0074 FFF7FEFF 		bl	shellWriteString
  2133              	.LVL213:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 80
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 80
 
 
  2134 0078 EFE7     		b	.L190
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2175              		.loc 1 659 9 view .LVU605
  2176              	.LBE12:
  662:ThirdParty/Letter-shell/Src/shell.c ****     shellWriteCommandDesc(shell, shellGetCommandDesc(item));
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 81
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 81
 
 
  2177              		.loc 1 662 5 is_stmt 1 view .LVU606
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2225              	.LFB20:
  674:ThirdParty/Letter-shell/Src/shell.c ****     ShellCommand *base = (ShellCommand *)shell->commandList.base;
  2226              		.loc 1 674 1 is_stmt 1 view -0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 82
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 82
 
 
  2227              		.cfi_startproc
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2268 0014 B6F85C30 		ldrh	r3, [r6, #92]
  677:ThirdParty/Letter-shell/Src/shell.c ****     {
  2269              		.loc 1 677 5 discriminator 1 view .LVU625
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 83
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 83
 
 
  2270 0018 9C42     		cmp	r4, r3
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2316              	shellCmds:
  2317              	.LFB57:
 1871:ThirdParty/Letter-shell/Src/shell.c ****     Shell *shell = shellGetCurrent();
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 84
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 84
 
 
  2318              		.loc 1 1871 1 is_stmt 1 view -0
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2363              	.LCFI31:
  2364              		.cfi_def_cfa_offset 24
  2365              		.cfi_offset 3, -24
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 85
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 85
 
 
  2366              		.cfi_offset 4, -20
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2405 001c 07EB0415 		add	r5, r7, r4, lsl #4
  699:ThirdParty/Letter-shell/Src/shell.c ****             && base[i].attr.attrs.type <= SHELL_TYPE_VAR_NODE
  2406              		.loc 1 699 31 view .LVU660
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 86
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 86
 
 
  2407 0020 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2454              		@ args = 0, pretend = 0, frame = 0
  2455              		@ frame_needed = 0, uses_anonymous_args = 0
  2456 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 87
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 87
 
 
  2457              	.LCFI32:
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2502              		.cfi_offset 6, -12
  2503              		.cfi_offset 7, -8
  2504              		.cfi_offset 14, -4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 88
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 88
 
 
  2505 0002 0646     		mov	r6, r0
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  720:ThirdParty/Letter-shell/Src/shell.c ****             && base[i].attr.attrs.type <= SHELL_TYPE_USER
  2543              		.loc 1 720 12 view .LVU694
  2544 0026 082B     		cmp	r3, #8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 89
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 89
 
 
  2545 0028 F2D1     		bne	.L231
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1856:ThirdParty/Letter-shell/Src/shell.c ****     if (shell)
  2593              		.loc 1 1856 20 is_stmt 0 view .LVU703
  2594 0002 FFF7FEFF 		bl	shellGetCurrent
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 90
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 90
 
 
  2595              	.LVL255:
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2640              	.LVL258:
  738:ThirdParty/Letter-shell/Src/shell.c ****     for (short i = 0; i < shell->commandList.count; i++)
  2641              		.loc 1 738 5 is_stmt 1 view .LVU712
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 91
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 91
 
 
  2642 0006 0F49     		ldr	r1, .L246
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2681              	.LVL263:
  743:ThirdParty/Letter-shell/Src/shell.c ****         {
  2682              		.loc 1 743 13 view .LVU728
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 92
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 92
 
 
  2683 0032 0028     		cmp	r0, #0
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1907:ThirdParty/Letter-shell/Src/shell.c ****     }
  2730              		.loc 1 1907 9 is_stmt 1 view .LVU738
  2731 0008 FFF7FEFF 		bl	shellListKey
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 93
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 93
 
 
  2732              	.LVL267:
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2784              		@ frame_needed = 0, uses_anonymous_args = 0
  778:ThirdParty/Letter-shell/Src/shell.c ****     while (length--)
  2785              		.loc 1 778 1 is_stmt 0 view .LVU745
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 94
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 94
 
 
  2786 0000 38B5     		push	{r3, r4, r5, lr}
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2832              		.thumb_func
  2834              	shellClearCommandLine:
  2835              	.LVL276:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 95
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 95
 
 
  2836              	.LFB26:
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2877              	.LVL281:
  2878              	.L260:
  793:ThirdParty/Letter-shell/Src/shell.c ****     {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 96
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 96
 
 
  2879              		.loc 1 793 65 is_stmt 1 discriminator 1 view .LVU768
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2923              		.loc 1 1351 27 is_stmt 0 view .LVU780
  2924 0008 B0F95420 		ldrsh	r2, [r0, #84]
 1351:ThirdParty/Letter-shell/Src/shell.c ****             -((shell->history.number > shell->history.record) ?
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 97
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 97
 
 
  2925              		.loc 1 1351 34 view .LVU781
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  2963 003a 10BD     		pop	{r4, pc}
  2964              	.LVL287:
  2965              	.L264:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 98
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 98
 
 
 1359:ThirdParty/Letter-shell/Src/shell.c ****     {
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3005 0078 5968     		ldr	r1, [r3, #4]
  3006 007a 2069     		ldr	r0, [r4, #16]
  3007 007c FFF7FEFF 		bl	shellStringCopy
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 99
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 99
 
 
  3008              	.LVL289:
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3055 0008 08BD     		pop	{r3, pc}
  3056              		.cfi_endproc
  3057              	.LFE44:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 100
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 100
 
 
  3059              		.section	.text.shellDown,"ax",%progbits
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3110              		.cfi_offset 7, -24
  3111              		.cfi_offset 8, -20
  3112              		.cfi_offset 9, -16
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 101
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 101
 
 
  3113              		.cfi_offset 10, -12
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3149 001c C146     		mov	r9, r8
  3150              	.LBB22:
  3151              	.LBB20:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 102
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 102
 
 
 1533:ThirdParty/Letter-shell/Src/shell.c ****         {
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3195              		.loc 1 1550 21 is_stmt 1 view .LVU856
 1550:ThirdParty/Letter-shell/Src/shell.c ****                 }
  3196              		.loc 1 1550 30 is_stmt 0 view .LVU857
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 103
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 103
 
 
  3197 0050 8245     		cmp	r10, r0
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3237              	.LVL314:
 1535:ThirdParty/Letter-shell/Src/shell.c ****                 && shellStringCompare(shell->parser.buffer,
  3238              		.loc 1 1535 16 view .LVU872
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 104
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 104
 
 
  3239 007e 0028     		cmp	r0, #0
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1560:ThirdParty/Letter-shell/Src/shell.c ****         {
  3279              		.loc 1 1560 12 is_stmt 0 view .LVU887
  3280 00b6 B9F1010F 		cmp	r9, #1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 105
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 105
 
 
  3281 00ba 19D0     		beq	.L288
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3319 00e2 EB81     		strh	r3, [r5, #14]	@ movhi
 1578:ThirdParty/Letter-shell/Src/shell.c ****     }
  3320              		.loc 1 1578 9 is_stmt 1 view .LVU904
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 106
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 106
 
 
  3321 00e4 2969     		ldr	r1, [r5, #16]
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3365      6E642069 
  3366              		.section	.text.shellInsertByte,"ax",%progbits
  3367              		.align	1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 107
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 107
 
 
  3368              		.global	shellInsertByte
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3410              	.LBB25:
  828:ThirdParty/Letter-shell/Src/shell.c ****         {
  3411              		.loc 1 828 14 view .LVU925
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 108
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 108
 
 
  828:ThirdParty/Letter-shell/Src/shell.c ****         {
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3452 003c D154     		strb	r1, [r2, r3]
  822:ThirdParty/Letter-shell/Src/shell.c ****         shell->parser.cursor++;
  3453              		.loc 1 822 9 is_stmt 1 view .LVU940
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 109
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 109
 
 
  822:ThirdParty/Letter-shell/Src/shell.c ****         shell->parser.cursor++;
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3491 0062 013B     		subs	r3, r3, #1
  3492              	.LVL339:
  828:ThirdParty/Letter-shell/Src/shell.c ****         {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 110
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 110
 
 
  3493              		.loc 1 828 77 discriminator 3 view .LVU958
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  835:ThirdParty/Letter-shell/Src/shell.c ****         {
  3531              		.loc 1 835 37 is_stmt 0 view .LVU975
  3532 0082 E689     		ldrh	r6, [r4, #14]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 111
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 111
 
 
  835:ThirdParty/Letter-shell/Src/shell.c ****         {
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3570              		.loc 1 839 45 view .LVU992
  3571 00a0 ED1A     		subs	r5, r5, r3
  839:ThirdParty/Letter-shell/Src/shell.c ****         {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 112
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 112
 
 
  3572              		.loc 1 839 20 view .LVU993
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3618              	.LVL353:
  3619              	.LFB28:
  854:ThirdParty/Letter-shell/Src/shell.c ****     char offset = (direction == -1) ? 1 : 0;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 113
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 113
 
 
  3620              		.loc 1 854 1 is_stmt 1 view -0
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3662              	.LBB29:
  871:ThirdParty/Letter-shell/Src/shell.c ****         {
  3663              		.loc 1 871 14 view .LVU1017
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 114
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 114
 
 
  871:ThirdParty/Letter-shell/Src/shell.c ****         {
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3703 0044 FFF7FEFF 		bl	shellDeleteCommandLine
  3704              	.LVL360:
  3705 0048 3BE0     		b	.L307
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 115
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 115
 
 
  3706              	.LVL361:
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3743 0064 A081     		strh	r0, [r4, #12]	@ movhi
  877:ThirdParty/Letter-shell/Src/shell.c ****         {
  3744              		.loc 1 877 9 is_stmt 1 view .LVU1050
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 116
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 116
 
 
  877:ThirdParty/Letter-shell/Src/shell.c ****         {
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3784              	.L316:
  3785              	.LBB32:
  885:ThirdParty/Letter-shell/Src/shell.c ****         }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 117
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 117
 
 
  3786              		.loc 1 885 13 is_stmt 1 discriminator 3 view .LVU1066
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3825 00aa ADB2     		uxth	r5, r5
  888:ThirdParty/Letter-shell/Src/shell.c ****         {
  3826              		.loc 1 888 68 view .LVU1082
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 118
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 118
 
 
  3827 00ac 0135     		adds	r5, r5, #1
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3871              		.loc 1 1620 1 is_stmt 1 view -0
  3872              		.cfi_startproc
  3873              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 119
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 119
 
 
  3874              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3924              		.thumb_func
  3926              	shellSeekCommand:
  3927              	.LVL384:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 120
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 120
 
 
  3928              	.LFB31:
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  3969              		.loc 1 987 5 view .LVU1114
  3970 001e 06E0     		b	.L328
  3971              	.LVL387:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 121
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 121
 
 
  3972              	.L330:
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4011 004c 0028     		cmp	r0, #0
  4012 004e ECD1     		bne	.L329
  994:ThirdParty/Letter-shell/Src/shell.c ****         if (!compareLength)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 122
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 122
 
 
  4013              		.loc 1 994 9 is_stmt 1 view .LVU1130
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4053              	.LC25:
  4054 0014 436F6D6D 		.ascii	"Command not Found\015\012\000"
  4054      616E6420 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 123
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 123
 
 
  4054      6E6F7420 
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4098 001e 0146     		mov	r1, r0
  4099 0020 2046     		mov	r0, r4
  4100 0022 FFF7FEFF 		bl	shellWriteString
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 124
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 124
 
 
  4101              	.LVL402:
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4149              		.thumb_func
  4151              	shellHelp:
  4152              	.LVL410:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 125
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 125
 
 
  4153              	.LFB53:
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4194              	.LVL415:
  4195              	.L346:
 1707:ThirdParty/Letter-shell/Src/shell.c ****     }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 126
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 126
 
 
  4196              		.loc 1 1707 9 is_stmt 1 view .LVU1171
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1027:ThirdParty/Letter-shell/Src/shell.c ****         break;
  4245              		.loc 1 1027 9 is_stmt 1 view .LVU1179
 1027:ThirdParty/Letter-shell/Src/shell.c ****         break;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 127
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 127
 
 
  4246              		.loc 1 1027 44 is_stmt 0 view .LVU1180
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4285              		.loc 1 1040 9 view .LVU1195
 1040:ThirdParty/Letter-shell/Src/shell.c ****                     ((ShellNodeVarAttr *)command->data.var.value)
  4286              		.loc 1 1040 55 is_stmt 0 view .LVU1196
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 128
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 128
 
 
  4287 0030 8A68     		ldr	r2, [r1, #8]
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4333              	.LFB34:
 1114:ThirdParty/Letter-shell/Src/shell.c ****     char buffer[12] = "00000000000";
  4334              		.loc 1 1114 1 is_stmt 1 view -0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 129
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 129
 
 
  4335              		.cfi_startproc
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4379              		.loc 1 1121 5 view .LVU1217
 1121:ThirdParty/Letter-shell/Src/shell.c ****     {
  4380              		.loc 1 1121 32 is_stmt 0 view .LVU1218
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 130
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 130
 
 
  4381 002e 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4422 0060 FFF7FEFF 		bl	shellWriteString
  4423              	.LVL445:
 1125:ThirdParty/Letter-shell/Src/shell.c ****         shellWriteString(shell, "\"");
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 131
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 131
 
 
  4424              		.loc 1 1125 9 is_stmt 1 view .LVU1232
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4467              	.LVL452:
 1141:ThirdParty/Letter-shell/Src/shell.c ****     }
  4468              		.loc 1 1141 9 view .LVU1244
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 132
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 132
 
 
  4469              	.L360:
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1060:ThirdParty/Letter-shell/Src/shell.c ****     if (command->attr.attrs.readOnly)
  4513              		.loc 1 1060 1 is_stmt 1 view -0
  4514              		.cfi_startproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 133
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 133
 
 
  4515              		@ args = 0, pretend = 0, frame = 0
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4559              		.loc 1 1102 5 is_stmt 1 view .LVU1259
 1102:ThirdParty/Letter-shell/Src/shell.c **** }
  4560              		.loc 1 1102 12 is_stmt 0 view .LVU1260
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 134
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 134
 
 
  4561 002a 2146     		mov	r1, r4
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1080:ThirdParty/Letter-shell/Src/shell.c ****         case SHELL_TYPE_VAR_POINT:
  4600              		.loc 1 1080 13 is_stmt 1 view .LVU1276
  4601 004e ECE7     		b	.L369
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 135
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 135
 
 
  4602              	.LVL463:
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4641 006e DCE7     		b	.L369
  4642              	.L381:
  4643              		.align	2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 136
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 136
 
 
  4644              	.L380:
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4688 000c 0646     		mov	r6, r0
 1163:ThirdParty/Letter-shell/Src/shell.c ****                                              name,
  4689              		.loc 1 1163 5 is_stmt 1 view .LVU1298
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 137
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 137
 
 
 1163:ThirdParty/Letter-shell/Src/shell.c ****                                              name,
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4730              		.loc 1 1170 9 is_stmt 1 view .LVU1312
 1170:ThirdParty/Letter-shell/Src/shell.c ****     }
  4731              		.loc 1 1170 16 is_stmt 0 view .LVU1313
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 138
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 138
 
 
  4732 003e 0020     		movs	r0, #0
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4780              		@ frame_needed = 0, uses_anonymous_args = 0
 1264:ThirdParty/Letter-shell/Src/shell.c ****     shell->info.user = user;
  4781              		.loc 1 1264 1 is_stmt 0 view .LVU1322
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 139
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 139
 
 
  4782 0000 10B5     		push	{r4, lr}
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4822              	.L396:
  4823 0024 0122     		movs	r2, #1
  4824              	.LVL489:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 140
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 140
 
 
  4825              	.L393:
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4870              		.section	.rodata.shellInit.str1.4,"aMS",%progbits,1
  4871              		.align	2
  4872              	.LC32:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 141
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 141
 
 
  4873 0000 6C657474 		.ascii	"letter\000"
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4914 0018 2161     		str	r1, [r4, #16]
  176:ThirdParty/Letter-shell/Src/shell.c ****     
  4915              		.loc 1 176 5 is_stmt 1 view .LVU1360
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 142
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 142
 
 
  176:ThirdParty/Letter-shell/Src/shell.c ****     
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  182:ThirdParty/Letter-shell/Src/shell.c ****     {
  4953              		.loc 1 182 54 discriminator 3 view .LVU1378
  4954 0048 1BB2     		sxth	r3, r3
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 143
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 143
 
 
  4955              	.LVL500:
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  4995 0078 2046     		mov	r0, r4
  4996 007a FFF7FEFF 		bl	shellWritePrompt
  4997              	.LVL505:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 144
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 144
 
 
  220:ThirdParty/Letter-shell/Src/shell.c **** 
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5045 0012 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
 1198:ThirdParty/Letter-shell/Src/shell.c ****     {
  5046              		.loc 1 1198 8 view .LVU1402
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 145
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 145
 
 
  5047 0014 13F00F03 		ands	r3, r3, #15
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
 1201:ThirdParty/Letter-shell/Src/shell.c ****                                                  shell->parser.param);
  5086              		.loc 1 1201 40 is_stmt 0 view .LVU1418
  5087 0048 AB68     		ldr	r3, [r5, #8]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 146
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 146
 
 
 1201:ThirdParty/Letter-shell/Src/shell.c ****                                                  shell->parser.param);
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5128 007a 0146     		mov	r1, r0
  5129 007c 2046     		mov	r0, r4
  5130              	.LVL519:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 147
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 147
 
 
 1216:ThirdParty/Letter-shell/Src/shell.c ****         }
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5177 0002 90F86020 		ldrb	r2, [r0, #96]	@ zero_extendqisi2
  5178 0006 6FF38202 		bfc	r2, #2, #1
  5179 000a 80F86020 		strb	r2, [r0, #96]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 148
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 148
 
 
 1401:ThirdParty/Letter-shell/Src/shell.c **** }
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5223              		.loc 1 1420 8 view .LVU1455
  5224 0012 13F0010F 		tst	r3, #1
  5225 0016 1ED0     		beq	.L424
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 149
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 149
 
 
  5226              	.LBB38:
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5265              		.loc 1 1439 13 is_stmt 0 view .LVU1470
  5266 0046 FFF7FEFF 		bl	shellRunCommand
  5267              	.LVL533:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 150
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 150
 
 
 1439:ThirdParty/Letter-shell/Src/shell.c ****         }
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5316              		.loc 1 1648 1 is_stmt 1 view -0
  5317              		.cfi_startproc
  5318              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 151
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 151
 
 
  5319              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5367              		.cfi_offset 9, -12
  5368              		.cfi_offset 10, -8
  5369              		.cfi_offset 14, -4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 152
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 152
 
 
  5370 0008 0646     		mov	r6, r0
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5407              		.loc 1 1757 5 is_stmt 1 view .LVU1503
 1757:ThirdParty/Letter-shell/Src/shell.c ****     for (short i = 0; i < shell->commandList.count; i++)
  5408              		.loc 1 1757 19 is_stmt 0 view .LVU1504
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 153
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 153
 
 
  5409 0038 B76D     		ldr	r7, [r6, #88]
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5447              		.loc 1 1786 5 is_stmt 1 view .LVU1520
  5448 0054 33E0     		b	.L434
  5449              	.LVL550:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 154
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 154
 
 
  5450              	.L438:
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5488              		.loc 1 1765 70 view .LVU1536
  5489 0082 B26B     		ldr	r2, [r6, #56]
 1765:ThirdParty/Letter-shell/Src/shell.c ****                 && (base[i].data.key.value & (0xFF << keyByteOffset))
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 155
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 155
 
 
  5490              		.loc 1 1765 16 view .LVU1537
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5529              	.LBE41:
 1786:ThirdParty/Letter-shell/Src/shell.c ****     {
  5530              		.loc 1 1786 5 is_stmt 1 view .LVU1553
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 156
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 156
 
 
 1786:ThirdParty/Letter-shell/Src/shell.c ****     {
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5580              	.LVL560:
  5581              	.LFB55:
 1834:ThirdParty/Letter-shell/Src/shell.c ****     Shell *shell = (Shell *)param;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 157
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 157
 
 
  5582              		.loc 1 1834 1 is_stmt 1 view -0
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5627              		.syntax unified
  5628              		.thumb
  5629              		.thumb_func
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 158
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 158
 
 
  5631              	shellRun:
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5667              		.loc 1 1942 48 discriminator 4 view .LVU1583
  5668 001a 013B     		subs	r3, r3, #1
  5669              		.loc 1 1942 8 discriminator 4 view .LVU1584
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 159
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 159
 
 
  5670 001c 9842     		cmp	r0, r3
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5709              		.cfi_def_cfa_offset 0
  5710              		.cfi_restore 4
  5711              		.cfi_restore 5
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 160
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 160
 
 
  5712              		.cfi_restore 6
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5764              		.global	shellDesc0x7F000000
  5765              		.global	shellKey0x08000000
  5766              		.global	shellDesc0x08000000
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 161
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 161
 
 
  5767              		.global	shellKey0x09000000
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5823              		.align	2
  5826              	shellCmdkeys:
  5827 0000 6B657973 		.ascii	"keys\000"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 162
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 162
 
 
  5827      00
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5892              	shellDesc0x1B5B4200:
  5893 0000 646F776E 		.ascii	"down\000"
  5893      00
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 163
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 163
 
 
  5894              		.section	.rodata.shellDesc0x1B5B4300,"a"
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  5947      20616C6C 
  5947      20757365 
  5947      7200
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 164
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 164
 
 
  5948              		.section	.rodata.shellDescvars,"a"
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  6021 0084 7E335B1B 		.4byte	458961790
  6022 0088 00000000 		.4byte	shellDelete
  6023 008c 00000000 		.4byte	shellDesc0x1B5B337E
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 165
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 165
 
 
  6026              	shellKey0x7F000000:
@@ -9894,266 +9894,266 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 1
  6092              		.file 5 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
  6093              		.file 6 "ThirdParty/Letter-shell/Inc/shell_ext.h"
  6094              		.file 7 "<built-in>"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 166
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 166
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 shell.c
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:20     .text.shellAdd:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:25     .text.shellAdd:00000000 shellAdd
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:79     .text.shellAdd:00000020 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:84     .text.shellWriteByte:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:89     .text.shellWriteByte:00000000 shellWriteByte
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:127    .rodata.shellWriteCommandDesc.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:131    .text.shellWriteCommandDesc:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:136    .text.shellWriteCommandDesc:00000000 shellWriteCommandDesc
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:240    .text.shellWriteCommandDesc:00000048 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:245    .text.shellStringCopy:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:250    .text.shellStringCopy:00000000 shellStringCopy
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:297    .text.shellStringCompare:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:302    .text.shellStringCompare:00000000 shellStringCompare
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:377    .text.shellGetCommandDesc:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:382    .text.shellGetCommandDesc:00000000 shellGetCommandDesc
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:439    .text.shellParserParam:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:444    .text.shellParserParam:00000000 shellParserParam
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:629    .text.shellRight:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:635    .text.shellRight:00000000 shellRight
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:678    .text.shellLeft:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:684    .text.shellLeft:00000000 shellLeft
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:722    .text.shellHistoryAdd:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:727    .text.shellHistoryAdd:00000000 shellHistoryAdd
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:826    .text.shellRemoveParamQuotes:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:831    .text.shellRemoveParamQuotes:00000000 shellRemoveParamQuotes
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:933    .text.shellRemove:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:939    .text.shellRemove:00000000 shellRemove
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:994    .text.shellRemove:00000024 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:999    .text.shellGetCurrent:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1005   .text.shellGetCurrent:00000000 shellGetCurrent
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1056   .text.shellGetCurrent:00000028 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1061   .text.shellWriteString:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1067   .text.shellWriteString:00000000 shellWriteString
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1134   .rodata.shellWritePrompt.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1150   .text.shellWritePrompt:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1155   .text.shellWritePrompt:00000000 shellWritePrompt
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1238   .text.shellWritePrompt:0000004c $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1247   .rodata.shellCheckPassword.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1262   .text.shellCheckPassword:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1267   .text.shellCheckPassword:00000000 shellCheckPassword
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1324   .text.shellCheckPassword:00000038 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1330   .rodata.shellClear.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1334   .text.shellClear:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1340   .text.shellClear:00000000 shellClear
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1368   .text.shellClear:00000010 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1373   .text.shellPrint:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1379   .text.shellPrint:00000000 shellPrint
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1462   .text.shellCheckPermission:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1468   .text.shellCheckPermission:00000000 shellCheckPermission
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1543   .text.shellToHex:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1549   .text.shellToHex:00000000 shellToHex
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1615   .text.shellGetCommandName:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1620   .text.shellGetCommandName:00000000 shellGetCommandName
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1718   .text.shellGetCommandName:00000040 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1723   .text.shellToDec:00000000 $t
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 167
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:20     .text.shellAdd:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:25     .text.shellAdd:00000000 shellAdd
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:79     .text.shellAdd:00000020 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:84     .text.shellWriteByte:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:89     .text.shellWriteByte:00000000 shellWriteByte
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:127    .rodata.shellWriteCommandDesc.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:131    .text.shellWriteCommandDesc:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:136    .text.shellWriteCommandDesc:00000000 shellWriteCommandDesc
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:240    .text.shellWriteCommandDesc:00000048 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:245    .text.shellStringCopy:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:250    .text.shellStringCopy:00000000 shellStringCopy
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:297    .text.shellStringCompare:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:302    .text.shellStringCompare:00000000 shellStringCompare
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:377    .text.shellGetCommandDesc:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:382    .text.shellGetCommandDesc:00000000 shellGetCommandDesc
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:439    .text.shellParserParam:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:444    .text.shellParserParam:00000000 shellParserParam
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:629    .text.shellRight:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:635    .text.shellRight:00000000 shellRight
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:678    .text.shellLeft:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:684    .text.shellLeft:00000000 shellLeft
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:722    .text.shellHistoryAdd:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:727    .text.shellHistoryAdd:00000000 shellHistoryAdd
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:826    .text.shellRemoveParamQuotes:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:831    .text.shellRemoveParamQuotes:00000000 shellRemoveParamQuotes
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:933    .text.shellRemove:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:939    .text.shellRemove:00000000 shellRemove
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:994    .text.shellRemove:00000024 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:999    .text.shellGetCurrent:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1005   .text.shellGetCurrent:00000000 shellGetCurrent
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1056   .text.shellGetCurrent:00000028 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1061   .text.shellWriteString:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1067   .text.shellWriteString:00000000 shellWriteString
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1134   .rodata.shellWritePrompt.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1150   .text.shellWritePrompt:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1155   .text.shellWritePrompt:00000000 shellWritePrompt
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1238   .text.shellWritePrompt:0000004c $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1247   .rodata.shellCheckPassword.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1262   .text.shellCheckPassword:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1267   .text.shellCheckPassword:00000000 shellCheckPassword
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1324   .text.shellCheckPassword:00000038 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1330   .rodata.shellClear.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1334   .text.shellClear:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1340   .text.shellClear:00000000 shellClear
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1368   .text.shellClear:00000010 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1373   .text.shellPrint:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1379   .text.shellPrint:00000000 shellPrint
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1462   .text.shellCheckPermission:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1468   .text.shellCheckPermission:00000000 shellCheckPermission
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1543   .text.shellToHex:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1549   .text.shellToHex:00000000 shellToHex
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1615   .text.shellGetCommandName:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1620   .text.shellGetCommandName:00000000 shellGetCommandName
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1718   .text.shellGetCommandName:00000040 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1723   .text.shellToDec:00000000 $t
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 167
 
 
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1729   .text.shellToDec:00000000 shellToDec
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1851   .text.shellToDec:0000005c $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1856   .rodata.shellWriteReturnValue.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1866   .text.shellWriteReturnValue:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1871   .text.shellWriteReturnValue:00000000 shellWriteReturnValue
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1976   .text.shellWriteReturnValue:00000070 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:1984   .rodata.shellListItem.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2003   .text.shellListItem:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2009   .text.shellListItem:00000000 shellListItem
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2202   .text.shellListItem:000000c4 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2213   .rodata.shellListCommand.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2217   .text.shellListCommand:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2223   .text.shellListCommand:00000000 shellListCommand
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2305   .text.shellListCommand:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2310   .text.shellCmds:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2316   .text.shellCmds:00000000 shellCmds
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2344   .rodata.shellListVar.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2348   .text.shellListVar:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2354   .text.shellListVar:00000000 shellListVar
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2439   .text.shellListVar:00000048 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2444   .text.shellVars:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2450   .text.shellVars:00000000 shellVars
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2478   .rodata.shellListUser.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2482   .text.shellListUser:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2488   .text.shellListUser:00000000 shellListUser
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2570   .text.shellListUser:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2575   .text.shellUsers:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2581   .text.shellUsers:00000000 shellUsers
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2609   .rodata.shellListKey.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2613   .text.shellListKey:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2619   .text.shellListKey:00000000 shellListKey
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2701   .text.shellListKey:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2706   .text.shellKeys:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2712   .text.shellKeys:00000000 shellKeys
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2740   .text.shellListAll:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2746   .text.shellListAll:00000000 shellListAll
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2768   .rodata.shellDeleteCommandLine.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2772   .text.shellDeleteCommandLine:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2778   .text.shellDeleteCommandLine:00000000 shellDeleteCommandLine
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2823   .text.shellDeleteCommandLine:0000001c $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2828   .text.shellClearCommandLine:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2834   .text.shellClearCommandLine:00000000 shellClearCommandLine
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2897   .text.shellHistory:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:2902   .text.shellHistory:00000000 shellHistory
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3026   .text.shellHistory:00000094 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3031   .text.shellUp:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3037   .text.shellUp:00000000 shellUp
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3060   .text.shellDown:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3066   .text.shellDown:00000000 shellDown
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3089   .text.shellTab:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3095   .text.shellTab:00000000 shellTab
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3357   .text.shellTab:00000110 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3363   .rodata.shellInsertByte.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3367   .text.shellInsertByte:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3373   .text.shellInsertByte:00000000 shellInsertByte
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3606   .text.shellInsertByte:000000b8 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3611   .text.shellDeleteByte:00000000 $t
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 168
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1729   .text.shellToDec:00000000 shellToDec
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1851   .text.shellToDec:0000005c $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1856   .rodata.shellWriteReturnValue.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1866   .text.shellWriteReturnValue:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1871   .text.shellWriteReturnValue:00000000 shellWriteReturnValue
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1976   .text.shellWriteReturnValue:00000070 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:1984   .rodata.shellListItem.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2003   .text.shellListItem:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2009   .text.shellListItem:00000000 shellListItem
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2202   .text.shellListItem:000000c4 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2213   .rodata.shellListCommand.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2217   .text.shellListCommand:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2223   .text.shellListCommand:00000000 shellListCommand
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2305   .text.shellListCommand:00000044 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2310   .text.shellCmds:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2316   .text.shellCmds:00000000 shellCmds
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2344   .rodata.shellListVar.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2348   .text.shellListVar:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2354   .text.shellListVar:00000000 shellListVar
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2439   .text.shellListVar:00000048 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2444   .text.shellVars:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2450   .text.shellVars:00000000 shellVars
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2478   .rodata.shellListUser.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2482   .text.shellListUser:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2488   .text.shellListUser:00000000 shellListUser
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2570   .text.shellListUser:00000044 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2575   .text.shellUsers:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2581   .text.shellUsers:00000000 shellUsers
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2609   .rodata.shellListKey.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2613   .text.shellListKey:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2619   .text.shellListKey:00000000 shellListKey
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2701   .text.shellListKey:00000044 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2706   .text.shellKeys:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2712   .text.shellKeys:00000000 shellKeys
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2740   .text.shellListAll:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2746   .text.shellListAll:00000000 shellListAll
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2768   .rodata.shellDeleteCommandLine.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2772   .text.shellDeleteCommandLine:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2778   .text.shellDeleteCommandLine:00000000 shellDeleteCommandLine
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2823   .text.shellDeleteCommandLine:0000001c $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2828   .text.shellClearCommandLine:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2834   .text.shellClearCommandLine:00000000 shellClearCommandLine
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2897   .text.shellHistory:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:2902   .text.shellHistory:00000000 shellHistory
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3026   .text.shellHistory:00000094 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3031   .text.shellUp:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3037   .text.shellUp:00000000 shellUp
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3060   .text.shellDown:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3066   .text.shellDown:00000000 shellDown
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3089   .text.shellTab:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3095   .text.shellTab:00000000 shellTab
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3357   .text.shellTab:00000110 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3363   .rodata.shellInsertByte.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3367   .text.shellInsertByte:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3373   .text.shellInsertByte:00000000 shellInsertByte
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3606   .text.shellInsertByte:000000b8 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3611   .text.shellDeleteByte:00000000 $t
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 168
 
 
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3617   .text.shellDeleteByte:00000000 shellDeleteByte
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3862   .text.shellBackspace:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3868   .text.shellBackspace:00000000 shellBackspace
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3891   .text.shellDelete:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3897   .text.shellDelete:00000000 shellDelete
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3920   .text.shellSeekCommand:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:3926   .text.shellSeekCommand:00000000 shellSeekCommand
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4049   .rodata.shellWriteCommandHelp.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4056   .text.shellWriteCommandHelp:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4061   .text.shellWriteCommandHelp:00000000 shellWriteCommandHelp
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4138   .text.shellWriteCommandHelp:00000054 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4145   .text.shellHelp:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4151   .text.shellHelp:00000000 shellHelp
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4206   .text.shellGetVarValue:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4212   .text.shellGetVarValue:00000000 shellGetVarValue
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4237   .text.shellGetVarValue:00000012 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4243   .text.shellGetVarValue:00000018 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4319   .rodata.shellShowVar.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4326   .text.shellShowVar:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4331   .text.shellShowVar:00000000 shellShowVar
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4488   .text.shellShowVar:000000ac $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4497   .rodata.shellSetVarValue.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4504   .text.shellSetVarValue:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4510   .text.shellSetVarValue:00000000 shellSetVarValue
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4544   .text.shellSetVarValue:0000001e $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4550   .text.shellSetVarValue:00000024 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4645   .text.shellSetVarValue:00000070 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4651   .rodata.shellSetVar.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4658   .text.shellSetVar:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4664   .text.shellSetVar:00000000 shellSetVar
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4762   .text.shellSetVar:0000005c $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4768   .text.shellSetUser:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4774   .text.shellSetUser:00000000 shellSetUser
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4865   .text.shellSetUser:00000058 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4871   .rodata.shellInit.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4875   .text.shellInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:4881   .text.shellInit:00000000 shellInit
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5005   .text.shellInit:00000080 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5013   .text.shellRunCommand:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5019   .text.shellRunCommand:00000000 shellRunCommand
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5156   .text.shellNormalInput:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5162   .text.shellNormalInput:00000000 shellNormalInput
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5189   .text.shellExec:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5195   .text.shellExec:00000000 shellExec
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5301   .text.shellExec:00000060 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5307   .text.shellEnter:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5313   .text.shellEnter:00000000 shellEnter
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5342   .text.shellHandler:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5348   .text.shellHandler:00000000 shellHandler
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5568   .text.shellHandler:000000d4 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5573   .text.shellTask:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5579   .text.shellTask:00000000 shellTask
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5625   .text.shellRun:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5631   .text.shellRun:00000000 shellRun
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5735   .text.shellRun:0000005c $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5963   shellCommand:00000000 shellCommandclear
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5916   .rodata.shellDescclear:00000000 shellDescclear
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 169
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3617   .text.shellDeleteByte:00000000 shellDeleteByte
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3862   .text.shellBackspace:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3868   .text.shellBackspace:00000000 shellBackspace
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3891   .text.shellDelete:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3897   .text.shellDelete:00000000 shellDelete
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3920   .text.shellSeekCommand:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:3926   .text.shellSeekCommand:00000000 shellSeekCommand
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4049   .rodata.shellWriteCommandHelp.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4056   .text.shellWriteCommandHelp:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4061   .text.shellWriteCommandHelp:00000000 shellWriteCommandHelp
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4138   .text.shellWriteCommandHelp:00000054 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4145   .text.shellHelp:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4151   .text.shellHelp:00000000 shellHelp
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4206   .text.shellGetVarValue:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4212   .text.shellGetVarValue:00000000 shellGetVarValue
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4237   .text.shellGetVarValue:00000012 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4243   .text.shellGetVarValue:00000018 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4319   .rodata.shellShowVar.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4326   .text.shellShowVar:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4331   .text.shellShowVar:00000000 shellShowVar
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4488   .text.shellShowVar:000000ac $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4497   .rodata.shellSetVarValue.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4504   .text.shellSetVarValue:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4510   .text.shellSetVarValue:00000000 shellSetVarValue
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4544   .text.shellSetVarValue:0000001e $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4550   .text.shellSetVarValue:00000024 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4645   .text.shellSetVarValue:00000070 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4651   .rodata.shellSetVar.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4658   .text.shellSetVar:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4664   .text.shellSetVar:00000000 shellSetVar
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4762   .text.shellSetVar:0000005c $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4768   .text.shellSetUser:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4774   .text.shellSetUser:00000000 shellSetUser
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4865   .text.shellSetUser:00000058 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4871   .rodata.shellInit.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4875   .text.shellInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:4881   .text.shellInit:00000000 shellInit
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5005   .text.shellInit:00000080 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5013   .text.shellRunCommand:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5019   .text.shellRunCommand:00000000 shellRunCommand
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5156   .text.shellNormalInput:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5162   .text.shellNormalInput:00000000 shellNormalInput
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5189   .text.shellExec:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5195   .text.shellExec:00000000 shellExec
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5301   .text.shellExec:00000060 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5307   .text.shellEnter:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5313   .text.shellEnter:00000000 shellEnter
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5342   .text.shellHandler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5348   .text.shellHandler:00000000 shellHandler
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5568   .text.shellHandler:000000d4 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5573   .text.shellTask:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5579   .text.shellTask:00000000 shellTask
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5625   .text.shellRun:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5631   .text.shellRun:00000000 shellRun
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5735   .text.shellRun:0000005c $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5963   shellCommand:00000000 shellCommandclear
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5916   .rodata.shellDescclear:00000000 shellDescclear
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 169
 
 
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5808   .rodata.shellCmdclear:00000000 shellCmdclear
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5970   shellCommand:00000010 shellCommandkeys
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5934   .rodata.shellDesckeys:00000000 shellDesckeys
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5826   .rodata.shellCmdkeys:00000000 shellCmdkeys
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5977   shellCommand:00000020 shellCommandvars
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5952   .rodata.shellDescvars:00000000 shellDescvars
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5844   .rodata.shellCmdvars:00000000 shellCmdvars
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5984   shellCommand:00000030 shellCommandcmds
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5922   .rodata.shellDesccmds:00000000 shellDesccmds
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5814   .rodata.shellCmdcmds:00000000 shellCmdcmds
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5991   shellCommand:00000040 shellCommandusers
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5946   .rodata.shellDescusers:00000000 shellDescusers
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5838   .rodata.shellCmdusers:00000000 shellCmdusers
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5998   shellCommand:00000050 shellCommandhelp
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5928   .rodata.shellDeschelp:00000000 shellDeschelp
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5820   .rodata.shellCmdhelp:00000000 shellCmdhelp
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6005   shellCommand:00000060 shellKey0x0D000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5874   .rodata.shellDesc0x0D000000:00000000 shellDesc0x0D000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6012   shellCommand:00000070 shellKey0x0A000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5868   .rodata.shellDesc0x0A000000:00000000 shellDesc0x0A000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6019   shellCommand:00000080 shellKey0x1B5B337E
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5880   .rodata.shellDesc0x1B5B337E:00000000 shellDesc0x1B5B337E
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6026   shellCommand:00000090 shellKey0x7F000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5910   .rodata.shellDesc0x7F000000:00000000 shellDesc0x7F000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6033   shellCommand:000000a0 shellKey0x08000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5856   .rodata.shellDesc0x08000000:00000000 shellDesc0x08000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6040   shellCommand:000000b0 shellKey0x09000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5862   .rodata.shellDesc0x09000000:00000000 shellDesc0x09000000
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6047   shellCommand:000000c0 shellKey0x1B5B4400
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5904   .rodata.shellDesc0x1B5B4400:00000000 shellDesc0x1B5B4400
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6054   shellCommand:000000d0 shellKey0x1B5B4300
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5898   .rodata.shellDesc0x1B5B4300:00000000 shellDesc0x1B5B4300
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6061   shellCommand:000000e0 shellKey0x1B5B4200
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5892   .rodata.shellDesc0x1B5B4200:00000000 shellDesc0x1B5B4200
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6068   shellCommand:000000f0 shellKey0x1B5B4100
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5886   .rodata.shellDesc0x1B5B4100:00000000 shellDesc0x1B5B4100
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6075   shellCommand:00000100 shellCommandsetVar
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5940   .rodata.shellDescsetVar:00000000 shellDescsetVar
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5832   .rodata.shellCmdsetVar:00000000 shellCmdsetVar
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:6082   shellCommand:00000110 shellUserDefault
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5850   .rodata.shellDesDefaultUser:00000000 shellDesDefaultUser
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5958   .rodata.shellPasswordDefaultUser:00000000 shellPasswordDefaultUser
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5802   .rodata.shellCmdDefaultUser:00000000 shellCmdDefaultUser
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5785   .bss.buffer.0:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5789   .bss.buffer.0:00000000 buffer.0
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5792   .bss.shellList:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5796   .bss.shellList:00000000 shellList
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5799   .rodata.shellCmdDefaultUser:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5805   .rodata.shellCmdclear:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5811   .rodata.shellCmdcmds:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5817   .rodata.shellCmdhelp:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5823   .rodata.shellCmdkeys:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5829   .rodata.shellCmdsetVar:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5835   .rodata.shellCmdusers:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5841   .rodata.shellCmdvars:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5847   .rodata.shellDesDefaultUser:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5853   .rodata.shellDesc0x08000000:00000000 $d
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s 			page 170
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5808   .rodata.shellCmdclear:00000000 shellCmdclear
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5970   shellCommand:00000010 shellCommandkeys
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5934   .rodata.shellDesckeys:00000000 shellDesckeys
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5826   .rodata.shellCmdkeys:00000000 shellCmdkeys
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5977   shellCommand:00000020 shellCommandvars
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5952   .rodata.shellDescvars:00000000 shellDescvars
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5844   .rodata.shellCmdvars:00000000 shellCmdvars
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5984   shellCommand:00000030 shellCommandcmds
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5922   .rodata.shellDesccmds:00000000 shellDesccmds
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5814   .rodata.shellCmdcmds:00000000 shellCmdcmds
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5991   shellCommand:00000040 shellCommandusers
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5946   .rodata.shellDescusers:00000000 shellDescusers
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5838   .rodata.shellCmdusers:00000000 shellCmdusers
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5998   shellCommand:00000050 shellCommandhelp
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5928   .rodata.shellDeschelp:00000000 shellDeschelp
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5820   .rodata.shellCmdhelp:00000000 shellCmdhelp
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6005   shellCommand:00000060 shellKey0x0D000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5874   .rodata.shellDesc0x0D000000:00000000 shellDesc0x0D000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6012   shellCommand:00000070 shellKey0x0A000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5868   .rodata.shellDesc0x0A000000:00000000 shellDesc0x0A000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6019   shellCommand:00000080 shellKey0x1B5B337E
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5880   .rodata.shellDesc0x1B5B337E:00000000 shellDesc0x1B5B337E
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6026   shellCommand:00000090 shellKey0x7F000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5910   .rodata.shellDesc0x7F000000:00000000 shellDesc0x7F000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6033   shellCommand:000000a0 shellKey0x08000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5856   .rodata.shellDesc0x08000000:00000000 shellDesc0x08000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6040   shellCommand:000000b0 shellKey0x09000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5862   .rodata.shellDesc0x09000000:00000000 shellDesc0x09000000
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6047   shellCommand:000000c0 shellKey0x1B5B4400
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5904   .rodata.shellDesc0x1B5B4400:00000000 shellDesc0x1B5B4400
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6054   shellCommand:000000d0 shellKey0x1B5B4300
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5898   .rodata.shellDesc0x1B5B4300:00000000 shellDesc0x1B5B4300
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6061   shellCommand:000000e0 shellKey0x1B5B4200
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5892   .rodata.shellDesc0x1B5B4200:00000000 shellDesc0x1B5B4200
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6068   shellCommand:000000f0 shellKey0x1B5B4100
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5886   .rodata.shellDesc0x1B5B4100:00000000 shellDesc0x1B5B4100
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6075   shellCommand:00000100 shellCommandsetVar
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5940   .rodata.shellDescsetVar:00000000 shellDescsetVar
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5832   .rodata.shellCmdsetVar:00000000 shellCmdsetVar
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:6082   shellCommand:00000110 shellUserDefault
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5850   .rodata.shellDesDefaultUser:00000000 shellDesDefaultUser
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5958   .rodata.shellPasswordDefaultUser:00000000 shellPasswordDefaultUser
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5802   .rodata.shellCmdDefaultUser:00000000 shellCmdDefaultUser
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5785   .bss.buffer.0:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5789   .bss.buffer.0:00000000 buffer.0
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5792   .bss.shellList:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5796   .bss.shellList:00000000 shellList
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5799   .rodata.shellCmdDefaultUser:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5805   .rodata.shellCmdclear:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5811   .rodata.shellCmdcmds:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5817   .rodata.shellCmdhelp:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5823   .rodata.shellCmdkeys:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5829   .rodata.shellCmdsetVar:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5835   .rodata.shellCmdusers:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5841   .rodata.shellCmdvars:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5847   .rodata.shellDesDefaultUser:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5853   .rodata.shellDesc0x08000000:00000000 $d
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s 			page 170
 
 
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5859   .rodata.shellDesc0x09000000:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5865   .rodata.shellDesc0x0A000000:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5871   .rodata.shellDesc0x0D000000:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5877   .rodata.shellDesc0x1B5B337E:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5883   .rodata.shellDesc0x1B5B4100:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5889   .rodata.shellDesc0x1B5B4200:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5895   .rodata.shellDesc0x1B5B4300:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5901   .rodata.shellDesc0x1B5B4400:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5907   .rodata.shellDesc0x7F000000:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5913   .rodata.shellDescclear:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5919   .rodata.shellDesccmds:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5925   .rodata.shellDeschelp:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5931   .rodata.shellDesckeys:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5937   .rodata.shellDescsetVar:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5943   .rodata.shellDescusers:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5949   .rodata.shellDescvars:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccmEjjmc.s:5955   .rodata.shellPasswordDefaultUser:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5859   .rodata.shellDesc0x09000000:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5865   .rodata.shellDesc0x0A000000:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5871   .rodata.shellDesc0x0D000000:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5877   .rodata.shellDesc0x1B5B337E:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5883   .rodata.shellDesc0x1B5B4100:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5889   .rodata.shellDesc0x1B5B4200:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5895   .rodata.shellDesc0x1B5B4300:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5901   .rodata.shellDesc0x1B5B4400:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5907   .rodata.shellDesc0x7F000000:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5913   .rodata.shellDescclear:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5919   .rodata.shellDesccmds:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5925   .rodata.shellDeschelp:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5931   .rodata.shellDesckeys:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5937   .rodata.shellDescsetVar:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5943   .rodata.shellDescusers:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5949   .rodata.shellDescvars:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccTwUo5n.s:5955   .rodata.shellPasswordDefaultUser:00000000 $d
 
 UNDEFINED SYMBOLS
 strcmp

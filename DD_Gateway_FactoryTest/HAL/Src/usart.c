@@ -58,7 +58,7 @@ void MX_USART1_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART1_Init 2 */
-   HAL_UARTEx_ReceiveToIdle_IT(&huart1,u1_cache,300);
+   HAL_UARTEx_ReceiveToIdle_IT(&huart1,u1_cache,200);
   /* USER CODE END USART1_Init 2 */
 
 }
@@ -89,7 +89,7 @@ void MX_USART2_UART_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN USART2_Init 2 */
-  HAL_UARTEx_ReceiveToIdle_IT(&huart2,u2_cache,400);
+  HAL_UARTEx_ReceiveToIdle_IT(&huart2,u2_cache,200);
   /* USER CODE END USART2_Init 2 */
 
 }
@@ -234,7 +234,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
     /* USART3 interrupt Init */
-    HAL_NVIC_SetPriority(USART3_IRQn, 1, 1);
+    HAL_NVIC_SetPriority(USART3_IRQn, 3, 1);
     HAL_NVIC_EnableIRQ(USART3_IRQn);
   /* USER CODE BEGIN USART3_MspInit 1 */
 
@@ -315,6 +315,17 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
   if(UartHandle->Instance == USART3){
      shellHandler(&shell,u3_cache);
      HAL_UART_Receive_IT(&huart3,(uint8_t *)&u3_cache,1);
+  }
+
+}
+
+/* USER CODE BEGIN 1 */
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
+{
+
+  if(UartHandle->Instance == USART1){
+    
+     shellPrint(&shell,"u1 tx completed\r\n"); 
   }
 
 }
