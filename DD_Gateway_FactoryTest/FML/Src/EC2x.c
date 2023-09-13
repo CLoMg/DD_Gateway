@@ -33,19 +33,19 @@
 uint8_t ec2x_buff[BUFF_LEN]={0xff,};
 
 //定义tcp连接字符串
-uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2";
+uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2\r\n";
 
 //定义tcp连接指令队列
 uint8_t tcpconnct_step = 0;
 ATMsg_TypeDef connectmsg_queue[] = {
-    {"AT\r\n","OK",500,5},
-    {"AT+CPIN?\r\n","READY",500,5},
-    {"AT+CREG?\r\n","+CREG: 0,1", 500, 2},
-    {"AT+CGREG?\r\n","+CGREG: 0,1", 500, 2},
-    {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 500, 3},
-    {"AT+QIDEACT=1\r\n", "OK", 40, 1},
-    {"AT+QIACT=1\r\n", "OK", 150, 1},
-    {tcp_connect, "+QIOPEN:", 150, 5},
+    {"AT\r\n","OK",100,5},
+    {"AT+CPIN?\r\n","READY",100,5},
+    {"AT+CREG?\r\n","+CREG: 0,1", 100, 5},
+    {"AT+CGREG?\r\n","+CGREG: 0,1", 100, 5},
+    {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 100, 5},
+    {"AT+QIDEACT=1\r\n", "OK", 100, 5},
+    {"AT+QIACT=1\r\n", "OK", 100, 5},
+    {tcp_connect, "CONNECT", 100, 5},
 };
 
 
@@ -326,109 +326,167 @@ int ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uin
  * @return uint8_t 
  */
 uint8_t ec2x_tcp_connect(int fd){
-    static uint8_t step = 0;
+    static uint8_t step = 0,retry =0;
     while(step < 9){
         switch (step)
         {
             case 0: 
             {
                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
+                {    
                     step++;
+                    retry = 0;
+                }
                 else
                 {
-                    ec2x_reset(fd); 
-                    step = 0;
+                    if(connectmsg_queue[step].retry_times < retry)
+                    {
+                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+                        ec2x_reset(fd); 
+                        step = 0;
+                    }
+                    else
+                        retry++;
                 }
             }
             break;
             case 1:
             {
                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
+                {    
                     step++;
+                    retry = 0;
+                }
                 else
                 {
-                    ec2x_reset(fd); 
-                    step = 0;
+                    if(connectmsg_queue[step].retry_times < retry){
+                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+                        ec2x_reset(fd); 
+                        step = 0;
+                    }
+                    else
+                        retry++;;
                 }
             }
             break;
             case 2:
             {
                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
+                {    
                     step++;
+                    retry = 0;
+                }
                 else
                 {
-                    ec2x_reset(fd); 
-                    step = 0;
+                    if(connectmsg_queue[step].retry_times < retry){
+                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+                        ec2x_reset(fd); 
+                        step = 0;
+                    }
+                    else
+                        retry++;;
                 }
             }
             break;
             case 3:
             {
                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
+                {    
                     step++;
+                    retry = 0;
+                }
                 else
                 {
-                    ec2x_reset(fd); 
-                    step = 0;
+                    if(connectmsg_queue[step].retry_times < retry){
+                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+                        ec2x_reset(fd); 
+                        step = 0;
+                    }
+                    else
+                        retry++;;
                 }
             }
             break;
             case 4:
             {
                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
+                {    
                     step++;
+                    retry = 0;
+                }
                 else
                 {
-                    ec2x_reset(fd); 
-                    step = 0;
+                    if(connectmsg_queue[step].retry_times < retry){
+                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+                        ec2x_reset(fd); 
+                        step = 0;
+                    }
+                    else
+                        retry++;;
                 }
             }
             break;
             case 5:
             {
                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
+                {    
                     step++;
+                    retry = 0;
+                }
                 else
                 {
-                    ec2x_reset(fd); 
-                    step = 0;
+                    if(connectmsg_queue[step].retry_times < retry){
+                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+                        ec2x_reset(fd); 
+                        step = 0;
+                    }
+                    else
+                        retry++;;
                 }
             }
             break; 
             case 6:
             {
                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
+                {    
                     step++;
+                    retry = 0;
+                }
                 else
                 {
-                    ec2x_reset(fd); 
-                    step = 0;
+                    if(connectmsg_queue[step].retry_times < retry){
+                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+                        ec2x_reset(fd); 
+                        step = 0;
+                    }
+                    else
+                        retry++;
                 }
             }
             break; 
             case 7:
             {
                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
+                {    
                     step++;
+                    retry = 0;
+                }
                 else
                 {
-                    ec2x_reset(fd); 
-                    step = 0;
+                    if(connectmsg_queue[step].retry_times < retry){
+                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+                        ec2x_reset(fd); 
+                        step = 0;
+                    }
+                    else
+                        retry++;
                 }
             }
             break;  
             case 8:
             {
-                if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout)){
-                    step++;
-                    shellPrint(&shell,"tcp_connect success\r\n");
-                }
-                else
-                {
-                    ec2x_reset(fd); 
-                    step = 0;
-                }
+                shellPrint(&shell,"tcp is connected\r\n");
+                return 0;
             }
             break; 
             default:
