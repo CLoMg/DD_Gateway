@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
   28:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param index 参数遍历在签名中的起始索引
   29:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param type 获取到的参数类型
   30:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 2
 
 
   31:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return int 下一个参数在签名中的索引
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
   85:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return ShellNumType 进制
   86:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
   87:ThirdParty/Letter-shell/Src/shell_ext.c **** static ShellNumType shellExtNumType(char *string)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 3
 
 
   88:ThirdParty/Letter-shell/Src/shell_ext.c **** {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
   66 0018 0AD0     		beq	.L9
   92:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
   67              		.loc 1 92 43 discriminator 2 view .LVU15
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 4
 
 
   68 001a 5829     		cmp	r1, #88
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  109              		.loc 1 102 14 view .LVU28
  110 003a 00E0     		b	.L7
  111              	.LVL13:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 5
 
 
  112              	.L5:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  153              		.thumb_func
  155              	shellExtToNum:
  156              	.LVL18:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 6
 
 
  157              	.LFB1:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  190 001e 373B     		subs	r3, r3, #55
  191 0020 D8B2     		uxtb	r0, r3
  192 0022 7047     		bx	lr
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 7
 
 
  193              	.L22:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  230              	.L24:
  231              	.LVL21:
  154:ThirdParty/Letter-shell/Src/shell_ext.c ****     char value = 0;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 8
 
 
  232              		.loc 1 154 5 is_stmt 1 discriminator 4 view .LVU66
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  158:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
  253              		.loc 1 158 17 is_stmt 0 view .LVU74
  254 0014 5878     		ldrb	r0, [r3, #1]	@ zero_extendqisi2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 9
 
 
  158:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  303              	.LVL28:
  304              	.L27:
  170:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 10
 
 
  305              		.loc 1 170 13 is_stmt 1 view .LVU81
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  196:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = string;
  346              		.loc 1 196 5 is_stmt 1 view .LVU89
  347              	.LVL32:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 11
 
 
  197:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned short index = 0;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  215:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
  216:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
  217:ThirdParty/Letter-shell/Src/shell_ext.c ****             *(string + index) = *p;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 12
 
 
  218:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  421 003a 3355     		strb	r3, [r6, r4]
  223:ThirdParty/Letter-shell/Src/shell_ext.c ****     return string;
  422              		.loc 1 223 5 is_stmt 1 view .LVU121
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 13
 
 
  224:ThirdParty/Letter-shell/Src/shell_ext.c **** }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  462              		.loc 1 240 5 view .LVU131
  241:ThirdParty/Letter-shell/Src/shell_ext.c ****     float valueFloat = 0.0;
  463              		.loc 1 241 5 view .LVU132
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 14
 
 
  242:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned int devide = 0;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  264:ThirdParty/Letter-shell/Src/shell_ext.c ****         radix = 2;
  265:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 2;
  266:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 15
 
 
  267:ThirdParty/Letter-shell/Src/shell_ext.c ****     
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  259:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 1;
  533              		.loc 1 259 15 view .LVU156
  534 004c 0827     		movs	r7, #8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 16
 
 
  535 004e ECE7     		b	.L49
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  572 006a FFF7FEFF 		bl	shellExtToNum
  573              	.LVL57:
  574              		.loc 1 282 18 view .LVU173
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 17
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 17
 
 
  575 006e 2B18     		adds	r3, r5, r0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  618              		.loc 1 293 9 is_stmt 1 view .LVU190
  619              		.loc 1 293 25 is_stmt 0 view .LVU191
  620 00a8 03FB09F0 		mul	r0, r3, r9
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 18
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 18
 
 
  621              	.LVL65:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  659              		.loc 1 311 8 is_stmt 0 view .LVU200
  660 000e 20B1     		cbz	r0, .L69
  661 0010 0146     		mov	r1, r0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 19
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 19
 
 
  312:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  695              		@ frame_needed = 0, uses_anonymous_args = 0
  696              		.loc 1 332 1 is_stmt 0 view .LVU208
  697 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 20
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 20
 
 
  698              	.LCFI3:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  344:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
  345:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (*string == '$' && *(string + 1))
  741              		.loc 1 345 14 is_stmt 1 view .LVU224
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 21
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 21
 
 
  742              		.loc 1 345 17 is_stmt 0 view .LVU225
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  383:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
  384:ThirdParty/Letter-shell/Src/shell_ext.c ****                 void *param;
  385:ThirdParty/Letter-shell/Src/shell_ext.c ****                 if (command->data.paramParser.parser(shellExtParseString(string), &param) == 0)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 22
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 22
 
 
  386:ThirdParty/Letter-shell/Src/shell_ext.c ****                 {
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  342:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
  781              		.loc 1 342 23 is_stmt 0 view .LVU242
  782 0048 FFF7FEFF 		bl	shellExtParseNumber
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 23
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 23
 
 
  783              	.LVL82:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  408:ThirdParty/Letter-shell/Src/shell_ext.c **** }
  823              		.loc 1 408 12 view .LVU257
  824 0070 E1E7     		b	.L71
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 24
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 24
 
 
  825              	.LVL90:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  444:ThirdParty/Letter-shell/Src/shell_ext.c **** 
  445:ThirdParty/Letter-shell/Src/shell_ext.c **** 
  446:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 25
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 25
 
 
  447:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 执行命令
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  460:ThirdParty/Letter-shell/Src/shell_ext.c ****         command->attr.attrs.paramNum : (argc - 1);
  886              		.loc 1 460 38 view .LVU270
  887 0020 A845     		cmp	r8, r5
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 26
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 26
 
 
  888 0022 01DA     		bge	.L85
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  914              		.loc 1 488 46 is_stmt 0 view .LVU282
  915 0034 04F1010C 		add	ip, r4, #1
  916              		.loc 1 488 17 view .LVU283
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 27
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 27
 
 
  917 0038 04AB     		add	r3, sp, #16
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  527:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
  528:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int) = command->data.cmd.function;
  529:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3]);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 28
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 28
 
 
  530:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  584:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 11:
  585:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
  586:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int) = command->data.cmd.func
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 29
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 29
 
 
  587:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  641:ThirdParty/Letter-shell/Src/shell_ext.c ****             shellExtCleanerPara(shell, type, params[i]);
  642:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
  643:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 30
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 30
 
 
  644:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_USING_FUNC_SIGNATURE == 1 */
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  505:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
  975              		.loc 1 505 15 is_stmt 0 view .LVU296
  976 0076 0498     		ldr	r0, [sp, #16]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 31
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 31
 
 
  977 0078 9847     		blx	r3
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  522:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
  1018              		.loc 1 522 9 is_stmt 0 view .LVU310
  1019              	.LBE5:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 32
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 32
 
 
  1020              	.LBB6:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  1061              	.LBB8:
  544:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5]);
  1062              		.loc 1 544 9 is_stmt 1 view .LVU324
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 33
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 33
 
 
  544:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5]);
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  1105              		.loc 1 554 9 is_stmt 1 view .LVU336
  1106 00ec B1E7     		b	.L84
  1107              	.LVL126:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 34
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 34
 
 
  1108              	.L99:
@@ -1999,31 +1999,31 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 1
  1121              		.file 2 "ThirdParty/Letter-shell/Inc/shell.h"
  1122              		.file 3 "ThirdParty/Letter-shell/Inc/shell_ext.h"
  1123              		.file 4 "<built-in>"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s 			page 35
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s 			page 35
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 shell_ext.c
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:20     .text.shellExtNumType:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:25     .text.shellExtNumType:00000000 shellExtNumType
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:150    .text.shellExtToNum:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:155    .text.shellExtToNum:00000000 shellExtToNum
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:209    .text.shellExtParseChar:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:214    .text.shellExtParseChar:00000000 shellExtParseChar
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:272    .text.shellExtParseChar:00000034 $d
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:291    .text.shellExtParseChar:00000080 $t
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:325    .text.shellExtParseString:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:330    .text.shellExtParseString:00000000 shellExtParseString
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:431    .text.shellExtParseNumber:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:436    .text.shellExtParseNumber:00000000 shellExtParseNumber
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:630    .text.shellExtParseVar:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:635    .text.shellExtParseVar:00000000 shellExtParseVar
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:683    .text.shellExtParsePara:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:689    .text.shellExtParsePara:00000000 shellExtParsePara
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:836    .text.shellExtRun:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:842    .text.shellExtRun:00000000 shellExtRun
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:949    .text.shellExtRun:00000062 $d
-C:\Users\CL\AppData\Local\Temp\ccU9FOjW.s:957    .text.shellExtRun:0000006a $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:20     .text.shellExtNumType:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:25     .text.shellExtNumType:00000000 shellExtNumType
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:150    .text.shellExtToNum:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:155    .text.shellExtToNum:00000000 shellExtToNum
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:209    .text.shellExtParseChar:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:214    .text.shellExtParseChar:00000000 shellExtParseChar
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:272    .text.shellExtParseChar:00000034 $d
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:291    .text.shellExtParseChar:00000080 $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:325    .text.shellExtParseString:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:330    .text.shellExtParseString:00000000 shellExtParseString
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:431    .text.shellExtParseNumber:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:436    .text.shellExtParseNumber:00000000 shellExtParseNumber
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:630    .text.shellExtParseVar:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:635    .text.shellExtParseVar:00000000 shellExtParseVar
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:683    .text.shellExtParsePara:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:689    .text.shellExtParsePara:00000000 shellExtParsePara
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:836    .text.shellExtRun:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:842    .text.shellExtRun:00000000 shellExtRun
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:949    .text.shellExtRun:00000062 $d
+C:\Users\CL\AppData\Local\Temp\ccuGsRYC.s:957    .text.shellExtRun:0000006a $t
 
 UNDEFINED SYMBOLS
 shellSeekCommand

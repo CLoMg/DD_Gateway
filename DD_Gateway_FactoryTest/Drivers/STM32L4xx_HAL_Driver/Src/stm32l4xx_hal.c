@@ -399,22 +399,25 @@ HAL_TickFreqTypeDef HAL_GetTickFreq(void)
   * @param Delay  specifies the delay time length, in milliseconds.
   * @retval None
   */
-__weak void HAL_Delay(uint32_t Delay)
-{
-  // uint32_t tickstart = HAL_GetTick();
-  // uint32_t wait = Delay;
+// __weak void HAL_Delay(uint32_t Delay)
+// {
+//   uint32_t tickstart = HAL_GetTick();
+//   uint32_t wait = Delay;
 
-  // /* Add a period to guaranty minimum wait */
-  // if (wait < HAL_MAX_DELAY)
-  // {
-  //   wait += (uint32_t)uwTickFreq;
-  // }
+//   /* Add a period to guaranty minimum wait */
+//   if (wait < HAL_MAX_DELAY)
+//   {
+//     wait += (uint32_t)uwTickFreq;
+//   }
 
-  // while ((HAL_GetTick() - tickstart) < wait)
-  // {
-  // }
+//   while ((HAL_GetTick() - tickstart) < wait)
+//   {
+//   }
+// }
+
+void HAL_Delay(uint32_t Delay){
+  Delay_ms(Delay);
 }
-
 void Delay_us( uint32_t cnt)
 {
   uint32_t temp;

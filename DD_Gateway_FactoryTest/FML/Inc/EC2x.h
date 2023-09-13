@@ -63,7 +63,7 @@ typedef enum{
 int ec2x_open(char *dev_name);
 void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len);
 void ec2x_fms_proccess(void);
-
+uint8_t ec2x_tcp_connect(int fd);
 static int ec2x_reset(int fd);
 static int ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uint16_t timeout);
 

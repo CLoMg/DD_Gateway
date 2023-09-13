@@ -37,6 +37,7 @@ void LED1_Toggle(void);
 // 闪烁LED
 void LED_Blink(LED_HandleTypeDef *led,uint32_t gap,uint8_t cycle);
 /*------------------------------------test------------------------------------*/
+void LED_Test(char *name, char *type, ...);
 
 #ifdef __cplusplus
 }

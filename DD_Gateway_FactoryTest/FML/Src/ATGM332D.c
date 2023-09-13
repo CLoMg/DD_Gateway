@@ -23,6 +23,7 @@
 /*-----------------------------------macro------------------------------------*/
 
 /*----------------------------------variable----------------------------------*/
+int bds_dev = -1;
 uint8_t dev0_buff[200]={0xff,};
 
 /*----------------------------------typedef-----------------------------------*/
@@ -113,3 +114,32 @@ void atgm_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
     }
 }
 /*------------------------------------test------------------------------------*/
+/**
+ * @brief BDS测试函数
+ *        打印BDS信息
+ * 
+ * @param cmd 
+ * @param ... 
+ */
+void BDS_Test(char *cmd,...)
+{
+  int param_1 = -1;
+  uint16_t len;
+  uint8_t buff[300];
+
+  if(strcmp(cmd,"read") == 0)
+  {
+    va_list p_args;
+    va_start(p_args,cmd);
+    param_1 = va_arg(p_args,int);
+    va_end(p_args);
+    len  = atgm_read(bds_dev,buff,param_1);
+
+    if(len > 0)
+      shellPrint(&shell,buff,len);
+    memset(buff,0,300);
+  }
+}
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+bds_test, BDS_Test, bde_dev test);

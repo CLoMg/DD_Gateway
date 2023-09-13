@@ -73,7 +73,7 @@ __weak uint8_t SX1278_hw_SPIReadByte(SX1278_hw_t *hw) {
 }
 
 __weak void SX1278_hw_DelayMs(uint32_t msec) {
-	HAL_Delay(msec);
+	Delay_ms(msec);
 }
 
 __weak int SX1278_hw_GetDIO0(SX1278_hw_t *hw) {

@@ -1,6 +1,7 @@
 /*----------------------------------include-----------------------------------*/
 #include "rs485.h"
 #include "usart.h"
+#include "shell_port.h"
 /*-----------------------------------macro------------------------------------*/
 
 /*----------------------------------typedef-----------------------------------*/
@@ -67,3 +68,17 @@ void RS485_ReceiveData(RS485_HandleTypeDef *rs485, uint8_t *data, uint16_t size)
     HAL_UART_Receive(rs485->huart, data, size, HAL_MAX_DELAY);
 }
 /*------------------------------------test------------------------------------*/
+/**
+ * @brief RS485测试函数
+ *        使用RS485发送数据，通过接收器查看是否成功接收
+ * 
+ * @param str 
+ */
+void RS485_Test(char *str)
+{
+  RS485_SendData(&dev_rs485[0], (uint8_t *)str, strlen(str));
+}
+
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+rs485_send, RS485_Test, rs485 send test);

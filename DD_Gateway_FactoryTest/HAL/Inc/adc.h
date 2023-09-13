@@ -42,6 +42,8 @@ void MX_ADC1_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 uint32_t ADC_Average_Get(uint8_t ch,uint8_t times);
+void LDR_Value_Get(void);
+void Battery_Test(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

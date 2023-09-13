@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -54,34 +54,35 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
   23:FML/Src/ATGM332D.c **** /*-----------------------------------macro------------------------------------*/
   24:FML/Src/ATGM332D.c **** 
   25:FML/Src/ATGM332D.c **** /*----------------------------------variable----------------------------------*/
-  26:FML/Src/ATGM332D.c **** uint8_t dev0_buff[200]={0xff,};
-  27:FML/Src/ATGM332D.c **** 
-  28:FML/Src/ATGM332D.c **** /*----------------------------------typedef-----------------------------------*/
-  29:FML/Src/ATGM332D.c **** ATGM332D_HandleTypeDef atgm_dev[]=
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 2
+  26:FML/Src/ATGM332D.c **** int bds_dev = -1;
+  27:FML/Src/ATGM332D.c **** uint8_t dev0_buff[200]={0xff,};
+  28:FML/Src/ATGM332D.c **** 
+  29:FML/Src/ATGM332D.c **** /*----------------------------------typedef-----------------------------------*/
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 2
 
 
-  30:FML/Src/ATGM332D.c **** {
-  31:FML/Src/ATGM332D.c ****     {
-  32:FML/Src/ATGM332D.c ****         "uart2/bds_0",
-  33:FML/Src/ATGM332D.c ****         &huart2,
-  34:FML/Src/ATGM332D.c ****         GPIOA,
-  35:FML/Src/ATGM332D.c ****         GPIO_PIN_2,
-  36:FML/Src/ATGM332D.c ****         dev0_buff,
-  37:FML/Src/ATGM332D.c ****         0,
-  38:FML/Src/ATGM332D.c ****         sizeof(dev0_buff)/sizeof(uint8_t)
-  39:FML/Src/ATGM332D.c ****     }
-  40:FML/Src/ATGM332D.c **** };
-  41:FML/Src/ATGM332D.c **** /*-------------------------------------os-------------------------------------*/
-  42:FML/Src/ATGM332D.c **** 
-  43:FML/Src/ATGM332D.c **** /*----------------------------------function----------------------------------*/
-  44:FML/Src/ATGM332D.c **** void atgm_io_init(ATGM332D_HandleTypeDef *device)
-  45:FML/Src/ATGM332D.c **** {
-  30              		.loc 1 45 1 view -0
+  30:FML/Src/ATGM332D.c **** ATGM332D_HandleTypeDef atgm_dev[]=
+  31:FML/Src/ATGM332D.c **** {
+  32:FML/Src/ATGM332D.c ****     {
+  33:FML/Src/ATGM332D.c ****         "uart2/bds_0",
+  34:FML/Src/ATGM332D.c ****         &huart2,
+  35:FML/Src/ATGM332D.c ****         GPIOA,
+  36:FML/Src/ATGM332D.c ****         GPIO_PIN_2,
+  37:FML/Src/ATGM332D.c ****         dev0_buff,
+  38:FML/Src/ATGM332D.c ****         0,
+  39:FML/Src/ATGM332D.c ****         sizeof(dev0_buff)/sizeof(uint8_t)
+  40:FML/Src/ATGM332D.c ****     }
+  41:FML/Src/ATGM332D.c **** };
+  42:FML/Src/ATGM332D.c **** /*-------------------------------------os-------------------------------------*/
+  43:FML/Src/ATGM332D.c **** 
+  44:FML/Src/ATGM332D.c **** /*----------------------------------function----------------------------------*/
+  45:FML/Src/ATGM332D.c **** void atgm_io_init(ATGM332D_HandleTypeDef *device)
+  46:FML/Src/ATGM332D.c **** {
+  30              		.loc 1 46 1 view -0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 24
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		.loc 1 45 1 is_stmt 0 view .LVU1
+  34              		.loc 1 46 1 is_stmt 0 view .LVU1
   35 0000 30B5     		push	{r4, r5, lr}
   36              	.LCFI0:
   37              		.cfi_def_cfa_offset 12
@@ -92,75 +93,75 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
   42              	.LCFI1:
   43              		.cfi_def_cfa_offset 40
   44 0004 0446     		mov	r4, r0
-  46:FML/Src/ATGM332D.c ****      GPIO_InitTypeDef GPIO_InitStruct = {0};
-  45              		.loc 1 46 6 is_stmt 1 view .LVU2
-  46              		.loc 1 46 23 is_stmt 0 view .LVU3
+  47:FML/Src/ATGM332D.c ****      GPIO_InitTypeDef GPIO_InitStruct = {0};
+  45              		.loc 1 47 6 is_stmt 1 view .LVU2
+  46              		.loc 1 47 23 is_stmt 0 view .LVU3
   47 0006 0025     		movs	r5, #0
   48 0008 0195     		str	r5, [sp, #4]
   49 000a 0295     		str	r5, [sp, #8]
   50 000c 0395     		str	r5, [sp, #12]
   51 000e 0495     		str	r5, [sp, #16]
   52 0010 0595     		str	r5, [sp, #20]
-  47:FML/Src/ATGM332D.c ****     
-  48:FML/Src/ATGM332D.c ****     // 使能UART和GPIO时钟
-  49:FML/Src/ATGM332D.c ****     //__HAL_RCC_UARTX_CLK_ENABLE(); // 替换为实际的UART时钟
-  50:FML/Src/ATGM332D.c ****     __HAL_RCC_GPIOA_CLK_ENABLE(); // 替换为实际的GPIO时钟
-  53              		.loc 1 50 5 is_stmt 1 view .LVU4
+  48:FML/Src/ATGM332D.c ****     
+  49:FML/Src/ATGM332D.c ****     // 使能UART和GPIO时钟
+  50:FML/Src/ATGM332D.c ****     //__HAL_RCC_UARTX_CLK_ENABLE(); // 替换为实际的UART时钟
+  51:FML/Src/ATGM332D.c ****     __HAL_RCC_GPIOA_CLK_ENABLE(); // 替换为实际的GPIO时钟
+  53              		.loc 1 51 5 is_stmt 1 view .LVU4
   54              	.LBB2:
-  55              		.loc 1 50 5 view .LVU5
-  56              		.loc 1 50 5 view .LVU6
+  55              		.loc 1 51 5 view .LVU5
+  56              		.loc 1 51 5 view .LVU6
   57 0012 0C4B     		ldr	r3, .L3
   58 0014 DA6C     		ldr	r2, [r3, #76]
   59 0016 42F00102 		orr	r2, r2, #1
   60 001a DA64     		str	r2, [r3, #76]
-  61              		.loc 1 50 5 view .LVU7
+  61              		.loc 1 51 5 view .LVU7
   62 001c DB6C     		ldr	r3, [r3, #76]
   63 001e 03F00103 		and	r3, r3, #1
   64 0022 0093     		str	r3, [sp]
-  65              		.loc 1 50 5 view .LVU8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 3
 
 
+  65              		.loc 1 51 5 view .LVU8
   66 0024 009B     		ldr	r3, [sp]
   67              	.LBE2:
-  68              		.loc 1 50 5 view .LVU9
-  51:FML/Src/ATGM332D.c ****     
-  52:FML/Src/ATGM332D.c ****     // 配置GPIO引脚
-  53:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Pin = device->en_pin;
-  69              		.loc 1 53 5 view .LVU10
-  70              		.loc 1 53 33 is_stmt 0 view .LVU11
+  68              		.loc 1 51 5 view .LVU9
+  52:FML/Src/ATGM332D.c ****     
+  53:FML/Src/ATGM332D.c ****     // 配置GPIO引脚
+  54:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Pin = device->en_pin;
+  69              		.loc 1 54 5 view .LVU10
+  70              		.loc 1 54 33 is_stmt 0 view .LVU11
   71 0026 038B     		ldrh	r3, [r0, #24]
-  72              		.loc 1 53 25 view .LVU12
+  72              		.loc 1 54 25 view .LVU12
   73 0028 0193     		str	r3, [sp, #4]
-  54:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  74              		.loc 1 54 5 is_stmt 1 view .LVU13
-  75              		.loc 1 54 26 is_stmt 0 view .LVU14
+  55:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  74              		.loc 1 55 5 is_stmt 1 view .LVU13
+  75              		.loc 1 55 26 is_stmt 0 view .LVU14
   76 002a 0123     		movs	r3, #1
   77 002c 0293     		str	r3, [sp, #8]
-  55:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
-  78              		.loc 1 55 5 is_stmt 1 view .LVU15
-  56:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  79              		.loc 1 56 5 view .LVU16
-  57:FML/Src/ATGM332D.c ****     HAL_GPIO_Init(device->en_port, &GPIO_InitStruct);
-  80              		.loc 1 57 5 view .LVU17
+  56:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  78              		.loc 1 56 5 is_stmt 1 view .LVU15
+  57:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  79              		.loc 1 57 5 view .LVU16
+  58:FML/Src/ATGM332D.c ****     HAL_GPIO_Init(device->en_port, &GPIO_InitStruct);
+  80              		.loc 1 58 5 view .LVU17
   81 002e 01A9     		add	r1, sp, #4
   82 0030 4069     		ldr	r0, [r0, #20]
   83              	.LVL1:
-  84              		.loc 1 57 5 is_stmt 0 view .LVU18
+  84              		.loc 1 58 5 is_stmt 0 view .LVU18
   85 0032 FFF7FEFF 		bl	HAL_GPIO_Init
   86              	.LVL2:
-  58:FML/Src/ATGM332D.c ****     
   59:FML/Src/ATGM332D.c ****     
-  60:FML/Src/ATGM332D.c ****     // 初始化DE引脚为发送模式
-  61:FML/Src/ATGM332D.c ****     HAL_GPIO_WritePin(device->en_port, device->en_pin, GPIO_PIN_RESET);
-  87              		.loc 1 61 5 is_stmt 1 view .LVU19
+  60:FML/Src/ATGM332D.c ****     
+  61:FML/Src/ATGM332D.c ****     // 初始化DE引脚为发送模式
+  62:FML/Src/ATGM332D.c ****     HAL_GPIO_WritePin(device->en_port, device->en_pin, GPIO_PIN_RESET);
+  87              		.loc 1 62 5 is_stmt 1 view .LVU19
   88 0036 2A46     		mov	r2, r5
   89 0038 218B     		ldrh	r1, [r4, #24]
   90 003a 6069     		ldr	r0, [r4, #20]
   91 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
   92              	.LVL3:
-  62:FML/Src/ATGM332D.c **** }
-  93              		.loc 1 62 1 is_stmt 0 view .LVU20
+  63:FML/Src/ATGM332D.c **** }
+  93              		.loc 1 63 1 is_stmt 0 view .LVU20
   94 0040 07B0     		add	sp, sp, #28
   95              	.LCFI2:
   96              		.cfi_def_cfa_offset 12
@@ -168,7 +169,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
   98 0042 30BD     		pop	{r4, r5, pc}
   99              	.LVL4:
  100              	.L4:
- 101              		.loc 1 62 1 view .LVU21
+ 101              		.loc 1 63 1 view .LVU21
  102              		.align	2
  103              	.L3:
  104 0044 00100240 		.word	1073876992
@@ -177,22 +178,22 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
  108              		.section	.text.atgm_open,"ax",%progbits
  109              		.align	1
  110              		.global	atgm_open
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 4
+
+
  111              		.syntax unified
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 4
-
-
  112              		.thumb
  113              		.thumb_func
  115              	atgm_open:
  116              	.LVL5:
  117              	.LFB289:
-  63:FML/Src/ATGM332D.c **** int atgm_open(char *dev_name)
-  64:FML/Src/ATGM332D.c **** {
- 118              		.loc 1 64 1 is_stmt 1 view -0
+  64:FML/Src/ATGM332D.c **** int atgm_open(char *dev_name)
+  65:FML/Src/ATGM332D.c **** {
+ 118              		.loc 1 65 1 is_stmt 1 view -0
  119              		.cfi_startproc
  120              		@ args = 0, pretend = 0, frame = 0
  121              		@ frame_needed = 0, uses_anonymous_args = 0
- 122              		.loc 1 64 1 is_stmt 0 view .LVU23
+ 122              		.loc 1 65 1 is_stmt 0 view .LVU23
  123 0000 70B5     		push	{r4, r5, r6, lr}
  124              	.LCFI3:
  125              		.cfi_def_cfa_offset 16
@@ -201,79 +202,79 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
  128              		.cfi_offset 6, -8
  129              		.cfi_offset 14, -4
  130 0002 0546     		mov	r5, r0
-  65:FML/Src/ATGM332D.c ****     uint8_t i = 0;
- 131              		.loc 1 65 5 is_stmt 1 view .LVU24
+  66:FML/Src/ATGM332D.c ****     uint8_t i = 0;
+ 131              		.loc 1 66 5 is_stmt 1 view .LVU24
  132              	.LVL6:
-  66:FML/Src/ATGM332D.c ****     for(i = 0;i < sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef);i++)
- 133              		.loc 1 66 5 view .LVU25
- 134              		.loc 1 66 11 is_stmt 0 view .LVU26
+  67:FML/Src/ATGM332D.c ****     for(i = 0;i < sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef);i++)
+ 133              		.loc 1 67 5 view .LVU25
+ 134              		.loc 1 67 11 is_stmt 0 view .LVU26
  135 0004 0024     		movs	r4, #0
  136              	.LVL7:
  137              	.L6:
- 138              		.loc 1 66 15 is_stmt 1 discriminator 1 view .LVU27
- 139              		.loc 1 66 5 is_stmt 0 discriminator 1 view .LVU28
+ 138              		.loc 1 67 15 is_stmt 1 discriminator 1 view .LVU27
+ 139              		.loc 1 67 5 is_stmt 0 discriminator 1 view .LVU28
  140 0006 1CB1     		cbz	r4, .L9
-  67:FML/Src/ATGM332D.c ****     {
-  68:FML/Src/ATGM332D.c ****         if(strcmp(dev_name,atgm_dev[i].dev_name) == 0)
-  69:FML/Src/ATGM332D.c ****         {
-  70:FML/Src/ATGM332D.c ****             atgm_io_init(&atgm_dev[i]);
-  71:FML/Src/ATGM332D.c ****             return i;
-  72:FML/Src/ATGM332D.c ****         }
-  73:FML/Src/ATGM332D.c ****     }
-  74:FML/Src/ATGM332D.c ****     return -1;
- 141              		.loc 1 74 12 view .LVU29
+  68:FML/Src/ATGM332D.c ****     {
+  69:FML/Src/ATGM332D.c ****         if(strcmp(dev_name,atgm_dev[i].dev_name) == 0)
+  70:FML/Src/ATGM332D.c ****         {
+  71:FML/Src/ATGM332D.c ****             atgm_io_init(&atgm_dev[i]);
+  72:FML/Src/ATGM332D.c ****             return i;
+  73:FML/Src/ATGM332D.c ****         }
+  74:FML/Src/ATGM332D.c ****     }
+  75:FML/Src/ATGM332D.c ****     return -1;
+ 141              		.loc 1 75 12 view .LVU29
  142 0008 4FF0FF36 		mov	r6, #-1
  143              	.L5:
-  75:FML/Src/ATGM332D.c **** };
- 144              		.loc 1 75 1 view .LVU30
+  76:FML/Src/ATGM332D.c **** };
+ 144              		.loc 1 76 1 view .LVU30
  145 000c 3046     		mov	r0, r6
  146 000e 70BD     		pop	{r4, r5, r6, pc}
  147              	.LVL8:
  148              	.L9:
-  68:FML/Src/ATGM332D.c ****         {
- 149              		.loc 1 68 9 is_stmt 1 view .LVU31
-  68:FML/Src/ATGM332D.c ****         {
- 150              		.loc 1 68 39 is_stmt 0 view .LVU32
+  69:FML/Src/ATGM332D.c ****         {
+ 149              		.loc 1 69 9 is_stmt 1 view .LVU31
+  69:FML/Src/ATGM332D.c ****         {
+ 150              		.loc 1 69 39 is_stmt 0 view .LVU32
  151 0010 2646     		mov	r6, r4
  152 0012 04EBC403 		add	r3, r4, r4, lsl #3
-  68:FML/Src/ATGM332D.c ****         {
- 153              		.loc 1 68 12 view .LVU33
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 5
+  69:FML/Src/ATGM332D.c ****         {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 5
 
 
+ 153              		.loc 1 69 12 view .LVU33
  154 0016 0949     		ldr	r1, .L12
  155 0018 01EB8301 		add	r1, r1, r3, lsl #2
  156 001c 2846     		mov	r0, r5
  157 001e FFF7FEFF 		bl	strcmp
  158              	.LVL9:
-  68:FML/Src/ATGM332D.c ****         {
- 159              		.loc 1 68 11 view .LVU34
+  69:FML/Src/ATGM332D.c ****         {
+ 159              		.loc 1 69 11 view .LVU34
  160 0022 10B1     		cbz	r0, .L11
-  66:FML/Src/ATGM332D.c ****     {
- 161              		.loc 1 66 68 is_stmt 1 discriminator 2 view .LVU35
-  66:FML/Src/ATGM332D.c ****     {
- 162              		.loc 1 66 69 is_stmt 0 discriminator 2 view .LVU36
+  67:FML/Src/ATGM332D.c ****     {
+ 161              		.loc 1 67 68 is_stmt 1 discriminator 2 view .LVU35
+  67:FML/Src/ATGM332D.c ****     {
+ 162              		.loc 1 67 69 is_stmt 0 discriminator 2 view .LVU36
  163 0024 0134     		adds	r4, r4, #1
  164              	.LVL10:
-  66:FML/Src/ATGM332D.c ****     {
- 165              		.loc 1 66 69 discriminator 2 view .LVU37
+  67:FML/Src/ATGM332D.c ****     {
+ 165              		.loc 1 67 69 discriminator 2 view .LVU37
  166 0026 E4B2     		uxtb	r4, r4
  167              	.LVL11:
-  66:FML/Src/ATGM332D.c ****     {
- 168              		.loc 1 66 69 discriminator 2 view .LVU38
+  67:FML/Src/ATGM332D.c ****     {
+ 168              		.loc 1 67 69 discriminator 2 view .LVU38
  169 0028 EDE7     		b	.L6
  170              	.L11:
-  70:FML/Src/ATGM332D.c ****             return i;
- 171              		.loc 1 70 13 is_stmt 1 view .LVU39
+  71:FML/Src/ATGM332D.c ****             return i;
+ 171              		.loc 1 71 13 is_stmt 1 view .LVU39
  172 002a 04EBC403 		add	r3, r4, r4, lsl #3
  173 002e 0348     		ldr	r0, .L12
  174 0030 00EB8300 		add	r0, r0, r3, lsl #2
  175 0034 FFF7FEFF 		bl	atgm_io_init
  176              	.LVL12:
-  71:FML/Src/ATGM332D.c ****         }
- 177              		.loc 1 71 13 view .LVU40
-  71:FML/Src/ATGM332D.c ****         }
- 178              		.loc 1 71 20 is_stmt 0 view .LVU41
+  72:FML/Src/ATGM332D.c ****         }
+ 177              		.loc 1 72 13 view .LVU40
+  72:FML/Src/ATGM332D.c ****         }
+ 178              		.loc 1 72 20 is_stmt 0 view .LVU41
  179 0038 E8E7     		b	.L5
  180              	.L13:
  181 003a 00BF     		.align	2
@@ -290,42 +291,42 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
  194              	atgm_read:
  195              	.LVL13:
  196              	.LFB290:
-  76:FML/Src/ATGM332D.c **** int atgm_close(int fd);
-  77:FML/Src/ATGM332D.c **** int atgm_write(int fd);
-  78:FML/Src/ATGM332D.c **** int atgm_read(int fd,uint8_t *buff,...){
- 197              		.loc 1 78 40 is_stmt 1 view -0
+  77:FML/Src/ATGM332D.c **** int atgm_close(int fd);
+  78:FML/Src/ATGM332D.c **** int atgm_write(int fd);
+  79:FML/Src/ATGM332D.c **** int atgm_read(int fd,uint8_t *buff,...){
+ 197              		.loc 1 79 40 is_stmt 1 view -0
  198              		.cfi_startproc
  199              		@ args = 4, pretend = 12, frame = 8
  200              		@ frame_needed = 0, uses_anonymous_args = 1
-  79:FML/Src/ATGM332D.c ****     if(fd >= sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef))
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 6
 
 
- 201              		.loc 1 79 5 view .LVU43
- 202              		.loc 1 79 7 is_stmt 0 view .LVU44
+  80:FML/Src/ATGM332D.c ****     if(fd >= sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef))
+ 201              		.loc 1 80 5 view .LVU43
+ 202              		.loc 1 80 7 is_stmt 0 view .LVU44
  203 0000 10B1     		cbz	r0, .L22
-  80:FML/Src/ATGM332D.c ****         return -1;
- 204              		.loc 1 80 16 view .LVU45
+  81:FML/Src/ATGM332D.c ****         return -1;
+ 204              		.loc 1 81 16 view .LVU45
  205 0002 4FF0FF30 		mov	r0, #-1
  206              	.LVL14:
-  81:FML/Src/ATGM332D.c ****     else{
-  82:FML/Src/ATGM332D.c ****         int cmd;
-  83:FML/Src/ATGM332D.c ****         va_list p_args;
-  84:FML/Src/ATGM332D.c ****         va_start(p_args,buff);
-  85:FML/Src/ATGM332D.c ****         cmd = va_arg(p_args,int);
-  86:FML/Src/ATGM332D.c ****         va_end(p_args);
-  87:FML/Src/ATGM332D.c ****         if(cmd == 0){
-  88:FML/Src/ATGM332D.c ****             memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,atgm_dev[fd].data_index);
-  89:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
-  90:FML/Src/ATGM332D.c ****         }
-  91:FML/Src/ATGM332D.c ****     }
-  92:FML/Src/ATGM332D.c **** };
- 207              		.loc 1 92 1 view .LVU46
+  82:FML/Src/ATGM332D.c ****     else{
+  83:FML/Src/ATGM332D.c ****         int cmd;
+  84:FML/Src/ATGM332D.c ****         va_list p_args;
+  85:FML/Src/ATGM332D.c ****         va_start(p_args,buff);
+  86:FML/Src/ATGM332D.c ****         cmd = va_arg(p_args,int);
+  87:FML/Src/ATGM332D.c ****         va_end(p_args);
+  88:FML/Src/ATGM332D.c ****         if(cmd == 0){
+  89:FML/Src/ATGM332D.c ****             memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,atgm_dev[fd].data_index);
+  90:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
+  91:FML/Src/ATGM332D.c ****         }
+  92:FML/Src/ATGM332D.c ****     }
+  93:FML/Src/ATGM332D.c **** };
+ 207              		.loc 1 93 1 view .LVU46
  208 0006 7047     		bx	lr
  209              	.LVL15:
  210              	.L22:
-  78:FML/Src/ATGM332D.c ****     if(fd >= sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef))
- 211              		.loc 1 78 40 view .LVU47
+  79:FML/Src/ATGM332D.c ****     if(fd >= sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef))
+ 211              		.loc 1 79 40 view .LVU47
  212 0008 0EB4     		push	{r1, r2, r3}
  213              	.LCFI4:
  214              		.cfi_def_cfa_offset 12
@@ -344,37 +345,37 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
  227              		.cfi_def_cfa_offset 40
  228 000e 0446     		mov	r4, r0
  229              	.LBB3:
-  82:FML/Src/ATGM332D.c ****         va_list p_args;
- 230              		.loc 1 82 9 is_stmt 1 view .LVU48
-  83:FML/Src/ATGM332D.c ****         va_start(p_args,buff);
- 231              		.loc 1 83 9 view .LVU49
-  84:FML/Src/ATGM332D.c ****         cmd = va_arg(p_args,int);
- 232              		.loc 1 84 9 view .LVU50
+  83:FML/Src/ATGM332D.c ****         va_list p_args;
+ 230              		.loc 1 83 9 is_stmt 1 view .LVU48
+  84:FML/Src/ATGM332D.c ****         va_start(p_args,buff);
+ 231              		.loc 1 84 9 view .LVU49
+  85:FML/Src/ATGM332D.c ****         cmd = va_arg(p_args,int);
+ 232              		.loc 1 85 9 view .LVU50
  233 0010 08AB     		add	r3, sp, #32
  234 0012 0193     		str	r3, [sp, #4]
-  85:FML/Src/ATGM332D.c ****         va_end(p_args);
- 235              		.loc 1 85 9 view .LVU51
-  85:FML/Src/ATGM332D.c ****         va_end(p_args);
- 236              		.loc 1 85 13 is_stmt 0 view .LVU52
+  86:FML/Src/ATGM332D.c ****         va_end(p_args);
+ 235              		.loc 1 86 9 view .LVU51
+  86:FML/Src/ATGM332D.c ****         va_end(p_args);
+ 236              		.loc 1 86 13 is_stmt 0 view .LVU52
  237 0014 09AB     		add	r3, sp, #36
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 7
+
+
  238 0016 0193     		str	r3, [sp, #4]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 7
-
-
  239 0018 089B     		ldr	r3, [sp, #32]
-  86:FML/Src/ATGM332D.c ****         if(cmd == 0){
- 240              		.loc 1 86 9 is_stmt 1 view .LVU53
-  87:FML/Src/ATGM332D.c ****             memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,atgm_dev[fd].data_index);
- 241              		.loc 1 87 9 view .LVU54
-  87:FML/Src/ATGM332D.c ****             memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,atgm_dev[fd].data_index);
- 242              		.loc 1 87 11 is_stmt 0 view .LVU55
+  87:FML/Src/ATGM332D.c ****         if(cmd == 0){
+ 240              		.loc 1 87 9 is_stmt 1 view .LVU53
+  88:FML/Src/ATGM332D.c ****             memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,atgm_dev[fd].data_index);
+ 241              		.loc 1 88 9 view .LVU54
+  88:FML/Src/ATGM332D.c ****             memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,atgm_dev[fd].data_index);
+ 242              		.loc 1 88 11 is_stmt 0 view .LVU55
  243 001a 23B1     		cbz	r3, .L23
  244              	.LVL16:
  245              	.L14:
-  87:FML/Src/ATGM332D.c ****             memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,atgm_dev[fd].data_index);
- 246              		.loc 1 87 11 view .LVU56
+  88:FML/Src/ATGM332D.c ****             memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,atgm_dev[fd].data_index);
+ 246              		.loc 1 88 11 view .LVU56
  247              	.LBE3:
- 248              		.loc 1 92 1 view .LVU57
+ 248              		.loc 1 93 1 view .LVU57
  249 001c 03B0     		add	sp, sp, #12
  250              	.LCFI7:
  251              		.cfi_remember_state
@@ -399,35 +400,35 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
  270              	.LCFI10:
  271              		.cfi_restore_state
  272              	.LBB4:
-  88:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
- 273              		.loc 1 88 13 is_stmt 1 view .LVU58
-  88:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
- 274              		.loc 1 88 25 is_stmt 0 view .LVU59
+  89:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
+ 273              		.loc 1 89 13 is_stmt 1 view .LVU58
+  89:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
+ 274              		.loc 1 89 25 is_stmt 0 view .LVU59
  275 0026 084D     		ldr	r5, .L24
  276 0028 C600     		lsls	r6, r0, #3
  277 002a 00EBC003 		add	r3, r0, r0, lsl #3
  278 002e 05EB8303 		add	r3, r5, r3, lsl #2
-  88:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
- 279              		.loc 1 88 13 view .LVU60
+  89:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
+ 279              		.loc 1 89 13 view .LVU60
  280 0032 1A8C     		ldrh	r2, [r3, #32]
  281 0034 D969     		ldr	r1, [r3, #28]
  282 0036 0798     		ldr	r0, [sp, #28]
  283              	.LVL18:
-  88:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
- 284              		.loc 1 88 13 view .LVU61
+  89:FML/Src/ATGM332D.c ****             return atgm_dev[fd].data_index;
+ 284              		.loc 1 89 13 view .LVU61
  285 0038 FFF7FEFF 		bl	memcpy
  286              	.LVL19:
-  89:FML/Src/ATGM332D.c ****         }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 8
 
 
- 287              		.loc 1 89 13 is_stmt 1 view .LVU62
-  89:FML/Src/ATGM332D.c ****         }
- 288              		.loc 1 89 32 is_stmt 0 view .LVU63
+  90:FML/Src/ATGM332D.c ****         }
+ 287              		.loc 1 90 13 is_stmt 1 view .LVU62
+  90:FML/Src/ATGM332D.c ****         }
+ 288              		.loc 1 90 32 is_stmt 0 view .LVU63
  289 003c 3444     		add	r4, r4, r6
  290              	.LVL20:
-  89:FML/Src/ATGM332D.c ****         }
- 291              		.loc 1 89 32 view .LVU64
+  90:FML/Src/ATGM332D.c ****         }
+ 291              		.loc 1 90 32 view .LVU64
  292 003e 05EB8405 		add	r5, r5, r4, lsl #2
  293 0042 288C     		ldrh	r0, [r5, #32]
  294 0044 EAE7     		b	.L14
@@ -438,213 +439,439 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 1
  299              	.LBE4:
  300              		.cfi_endproc
  301              	.LFE290:
- 303              		.section	.text.atgm_handler,"ax",%progbits
- 304              		.align	1
- 305              		.global	atgm_handler
- 306              		.syntax unified
- 307              		.thumb
- 308              		.thumb_func
- 310              	atgm_handler:
- 311              	.LVL21:
- 312              	.LFB291:
-  93:FML/Src/ATGM332D.c **** int atgm_ioctl(int fd);
-  94:FML/Src/ATGM332D.c **** void atgm_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
-  95:FML/Src/ATGM332D.c **** {
- 313              		.loc 1 95 1 is_stmt 1 view -0
- 314              		.cfi_startproc
- 315              		@ args = 0, pretend = 0, frame = 0
- 316              		@ frame_needed = 0, uses_anonymous_args = 0
- 317              		.loc 1 95 1 is_stmt 0 view .LVU66
- 318 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
- 319              	.LCFI11:
- 320              		.cfi_def_cfa_offset 32
- 321              		.cfi_offset 4, -32
- 322              		.cfi_offset 5, -28
- 323              		.cfi_offset 6, -24
- 324              		.cfi_offset 7, -20
- 325              		.cfi_offset 8, -16
- 326              		.cfi_offset 9, -12
- 327              		.cfi_offset 10, -8
- 328              		.cfi_offset 14, -4
- 329 0004 0646     		mov	r6, r0
- 330 0006 0F46     		mov	r7, r1
- 331 0008 1546     		mov	r5, r2
+ 303              		.section	.rodata.BDS_Test.str1.4,"aMS",%progbits,1
+ 304              		.align	2
+ 305              	.LC0:
+ 306 0000 72656164 		.ascii	"read\000"
+ 306      00
+ 307              		.section	.text.BDS_Test,"ax",%progbits
+ 308              		.align	1
+ 309              		.global	BDS_Test
+ 310              		.syntax unified
+ 311              		.thumb
+ 312              		.thumb_func
+ 314              	BDS_Test:
+ 315              	.LVL21:
+ 316              	.LFB292:
+  94:FML/Src/ATGM332D.c **** int atgm_ioctl(int fd);
+  95:FML/Src/ATGM332D.c **** void atgm_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
+  96:FML/Src/ATGM332D.c **** {
+  97:FML/Src/ATGM332D.c ****     uint8_t i = 0;
+  98:FML/Src/ATGM332D.c ****     //shellPrint(&shell,"%s",data);
+  99:FML/Src/ATGM332D.c ****     for(i = 0;i < sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef);i++)
+ 100:FML/Src/ATGM332D.c ****     {
+ 101:FML/Src/ATGM332D.c ****         if(huart == atgm_dev[i].huart)
+ 102:FML/Src/ATGM332D.c ****         {
+ 103:FML/Src/ATGM332D.c ****             // if(len > atgm_dev[i].capacity)
+ 104:FML/Src/ATGM332D.c ****             // {
+ 105:FML/Src/ATGM332D.c ****             //     atgm_dev[i].capacity = sizeof(atgm_dev->data_buff)/sizeof(uint8_t);
+ 106:FML/Src/ATGM332D.c ****             //     atgm_dev[i].data_index = 0;
+ 107:FML/Src/ATGM332D.c ****             // }
+ 108:FML/Src/ATGM332D.c ****             if(len >300)
+ 109:FML/Src/ATGM332D.c ****                 len =300;
+ 110:FML/Src/ATGM332D.c ****             memcpy(atgm_dev[i].data_buff,data,len);
+ 111:FML/Src/ATGM332D.c ****             // atgm_dev[i].capacity -= len;
+ 112:FML/Src/ATGM332D.c ****             atgm_dev[i].data_index = len;
+ 113:FML/Src/ATGM332D.c ****         }
+ 114:FML/Src/ATGM332D.c ****     }
+ 115:FML/Src/ATGM332D.c **** }
+ 116:FML/Src/ATGM332D.c **** /*------------------------------------test------------------------------------*/
+ 117:FML/Src/ATGM332D.c **** /**
+ 118:FML/Src/ATGM332D.c ****  * @brief BDS测试函数
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 9
+
+
+ 119:FML/Src/ATGM332D.c ****  *        打印BDS信息
+ 120:FML/Src/ATGM332D.c ****  * 
+ 121:FML/Src/ATGM332D.c ****  * @param cmd 
+ 122:FML/Src/ATGM332D.c ****  * @param ... 
+ 123:FML/Src/ATGM332D.c ****  */
+ 124:FML/Src/ATGM332D.c **** void BDS_Test(char *cmd,...)
+ 125:FML/Src/ATGM332D.c **** {
+ 317              		.loc 1 125 1 is_stmt 1 view -0
+ 318              		.cfi_startproc
+ 319              		@ args = 4, pretend = 16, frame = 304
+ 320              		@ frame_needed = 0, uses_anonymous_args = 1
+ 321              		.loc 1 125 1 is_stmt 0 view .LVU66
+ 322 0000 0FB4     		push	{r0, r1, r2, r3}
+ 323              	.LCFI11:
+ 324              		.cfi_def_cfa_offset 16
+ 325              		.cfi_offset 0, -16
+ 326              		.cfi_offset 1, -12
+ 327              		.cfi_offset 2, -8
+ 328              		.cfi_offset 3, -4
+ 329 0002 00B5     		push	{lr}
+ 330              	.LCFI12:
+ 331              		.cfi_def_cfa_offset 20
+ 332              		.cfi_offset 14, -20
+ 333 0004 CDB0     		sub	sp, sp, #308
+ 334              	.LCFI13:
+ 335              		.cfi_def_cfa_offset 328
+ 126:FML/Src/ATGM332D.c ****   int param_1 = -1;
+ 336              		.loc 1 126 3 is_stmt 1 view .LVU67
+ 337              	.LVL22:
+ 127:FML/Src/ATGM332D.c ****   uint16_t len;
+ 338              		.loc 1 127 3 view .LVU68
+ 128:FML/Src/ATGM332D.c ****   uint8_t buff[300];
+ 339              		.loc 1 128 3 view .LVU69
+ 129:FML/Src/ATGM332D.c **** 
+ 130:FML/Src/ATGM332D.c ****   if(strcmp(cmd,"read") == 0)
+ 340              		.loc 1 130 3 view .LVU70
+ 341              		.loc 1 130 6 is_stmt 0 view .LVU71
+ 342 0006 1149     		ldr	r1, .L32
+ 343 0008 4E98     		ldr	r0, [sp, #312]
+ 344 000a FFF7FEFF 		bl	strcmp
+ 345              	.LVL23:
+ 346              		.loc 1 130 5 view .LVU72
+ 347 000e 20B1     		cbz	r0, .L30
+ 348              	.LVL24:
+ 349              	.L26:
+ 131:FML/Src/ATGM332D.c ****   {
+ 132:FML/Src/ATGM332D.c ****     va_list p_args;
+ 133:FML/Src/ATGM332D.c ****     va_start(p_args,cmd);
+ 134:FML/Src/ATGM332D.c ****     param_1 = va_arg(p_args,int);
+ 135:FML/Src/ATGM332D.c ****     va_end(p_args);
+ 136:FML/Src/ATGM332D.c ****     len  = atgm_read(bds_dev,buff,param_1);
+ 137:FML/Src/ATGM332D.c **** 
+ 138:FML/Src/ATGM332D.c ****     if(len > 0)
+ 139:FML/Src/ATGM332D.c ****       shellPrint(&shell,buff,len);
+ 140:FML/Src/ATGM332D.c ****     memset(buff,0,300);
+ 141:FML/Src/ATGM332D.c ****   }
+ 142:FML/Src/ATGM332D.c **** }
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 10
+
+
+ 350              		.loc 1 142 1 view .LVU73
+ 351 0010 4DB0     		add	sp, sp, #308
+ 352              	.LCFI14:
+ 353              		.cfi_remember_state
+ 354              		.cfi_def_cfa_offset 20
+ 355              		@ sp needed
+ 356 0012 5DF804EB 		ldr	lr, [sp], #4
+ 357              	.LCFI15:
+ 358              		.cfi_restore 14
+ 359              		.cfi_def_cfa_offset 16
+ 360 0016 04B0     		add	sp, sp, #16
+ 361              	.LCFI16:
+ 362              		.cfi_restore 3
+ 363              		.cfi_restore 2
+ 364              		.cfi_restore 1
+ 365              		.cfi_restore 0
+ 366              		.cfi_def_cfa_offset 0
+ 367 0018 7047     		bx	lr
+ 368              	.LVL25:
+ 369              	.L30:
+ 370              	.LCFI17:
+ 371              		.cfi_restore_state
+ 372              	.LBB5:
+ 132:FML/Src/ATGM332D.c ****     va_start(p_args,cmd);
+ 373              		.loc 1 132 5 is_stmt 1 view .LVU74
+ 133:FML/Src/ATGM332D.c ****     param_1 = va_arg(p_args,int);
+ 374              		.loc 1 133 5 view .LVU75
+ 375 001a 4FAB     		add	r3, sp, #316
+ 376 001c 0093     		str	r3, [sp]
+ 134:FML/Src/ATGM332D.c ****     va_end(p_args);
+ 377              		.loc 1 134 5 view .LVU76
+ 134:FML/Src/ATGM332D.c ****     va_end(p_args);
+ 378              		.loc 1 134 13 is_stmt 0 view .LVU77
+ 379 001e 50AB     		add	r3, sp, #320
+ 380 0020 0093     		str	r3, [sp]
+ 381              	.LVL26:
+ 135:FML/Src/ATGM332D.c ****     len  = atgm_read(bds_dev,buff,param_1);
+ 382              		.loc 1 135 5 is_stmt 1 view .LVU78
+ 136:FML/Src/ATGM332D.c **** 
+ 383              		.loc 1 136 5 view .LVU79
+ 136:FML/Src/ATGM332D.c **** 
+ 384              		.loc 1 136 12 is_stmt 0 view .LVU80
+ 385 0022 4F9A     		ldr	r2, [sp, #316]
+ 386 0024 01A9     		add	r1, sp, #4
+ 387 0026 0A4B     		ldr	r3, .L32+4
+ 388 0028 1868     		ldr	r0, [r3]
+ 389 002a FFF7FEFF 		bl	atgm_read
+ 390              	.LVL27:
+ 136:FML/Src/ATGM332D.c **** 
+ 391              		.loc 1 136 10 view .LVU81
+ 392 002e 83B2     		uxth	r3, r0
+ 393              	.LVL28:
+ 138:FML/Src/ATGM332D.c ****       shellPrint(&shell,buff,len);
+ 394              		.loc 1 138 5 is_stmt 1 view .LVU82
+ 138:FML/Src/ATGM332D.c ****       shellPrint(&shell,buff,len);
+ 395              		.loc 1 138 7 is_stmt 0 view .LVU83
+ 396 0030 33B9     		cbnz	r3, .L31
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 11
+
+
+ 397              	.LVL29:
+ 398              	.L28:
+ 140:FML/Src/ATGM332D.c ****   }
+ 399              		.loc 1 140 5 is_stmt 1 view .LVU84
+ 400 0032 4FF49672 		mov	r2, #300
+ 401 0036 0021     		movs	r1, #0
+ 402 0038 01A8     		add	r0, sp, #4
+ 403 003a FFF7FEFF 		bl	memset
+ 404              	.LVL30:
+ 405              	.LBE5:
+ 406              		.loc 1 142 1 is_stmt 0 view .LVU85
+ 407 003e E7E7     		b	.L26
+ 408              	.LVL31:
+ 409              	.L31:
+ 410              	.LBB6:
+ 139:FML/Src/ATGM332D.c ****     memset(buff,0,300);
+ 411              		.loc 1 139 7 is_stmt 1 view .LVU86
+ 412 0040 1A46     		mov	r2, r3
+ 413 0042 01A9     		add	r1, sp, #4
+ 414 0044 0348     		ldr	r0, .L32+8
+ 415 0046 FFF7FEFF 		bl	shellPrint
+ 416              	.LVL32:
+ 139:FML/Src/ATGM332D.c ****     memset(buff,0,300);
+ 417              		.loc 1 139 7 is_stmt 0 view .LVU87
+ 418 004a F2E7     		b	.L28
+ 419              	.L33:
+ 420              		.align	2
+ 421              	.L32:
+ 422 004c 00000000 		.word	.LC0
+ 423 0050 00000000 		.word	.LANCHOR1
+ 424 0054 00000000 		.word	shell
+ 425              	.LBE6:
+ 426              		.cfi_endproc
+ 427              	.LFE292:
+ 429              		.section	.text.atgm_handler,"ax",%progbits
+ 430              		.align	1
+ 431              		.global	atgm_handler
+ 432              		.syntax unified
+ 433              		.thumb
+ 434              		.thumb_func
+ 436              	atgm_handler:
+ 437              	.LVL33:
+ 438              	.LFB291:
   96:FML/Src/ATGM332D.c ****     uint8_t i = 0;
- 332              		.loc 1 96 5 is_stmt 1 view .LVU67
- 333              	.LVL22:
+ 439              		.loc 1 96 1 is_stmt 1 view -0
+ 440              		.cfi_startproc
+ 441              		@ args = 0, pretend = 0, frame = 0
+ 442              		@ frame_needed = 0, uses_anonymous_args = 0
+  96:FML/Src/ATGM332D.c ****     uint8_t i = 0;
+ 443              		.loc 1 96 1 is_stmt 0 view .LVU89
+ 444 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 445              	.LCFI18:
+ 446              		.cfi_def_cfa_offset 32
+ 447              		.cfi_offset 4, -32
+ 448              		.cfi_offset 5, -28
+ 449              		.cfi_offset 6, -24
+ 450              		.cfi_offset 7, -20
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 12
+
+
+ 451              		.cfi_offset 8, -16
+ 452              		.cfi_offset 9, -12
+ 453              		.cfi_offset 10, -8
+ 454              		.cfi_offset 14, -4
+ 455 0004 0646     		mov	r6, r0
+ 456 0006 0F46     		mov	r7, r1
+ 457 0008 1546     		mov	r5, r2
   97:FML/Src/ATGM332D.c ****     //shellPrint(&shell,"%s",data);
-  98:FML/Src/ATGM332D.c ****     for(i = 0;i < sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef);i++)
- 334              		.loc 1 98 5 view .LVU68
- 335              		.loc 1 98 11 is_stmt 0 view .LVU69
- 336 000a 0024     		movs	r4, #0
- 337              	.LVL23:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 9
-
-
- 338              	.L27:
- 339              		.loc 1 98 15 is_stmt 1 discriminator 1 view .LVU70
- 340              		.loc 1 98 5 is_stmt 0 discriminator 1 view .LVU71
- 341 000c 0CB1     		cbz	r4, .L30
+ 458              		.loc 1 97 5 is_stmt 1 view .LVU90
+ 459              	.LVL34:
   99:FML/Src/ATGM332D.c ****     {
- 100:FML/Src/ATGM332D.c ****         if(huart == atgm_dev[i].huart)
+ 460              		.loc 1 99 5 view .LVU91
+  99:FML/Src/ATGM332D.c ****     {
+ 461              		.loc 1 99 11 is_stmt 0 view .LVU92
+ 462 000a 0024     		movs	r4, #0
+ 463              	.LVL35:
+ 464              	.L35:
+  99:FML/Src/ATGM332D.c ****     {
+ 465              		.loc 1 99 15 is_stmt 1 discriminator 1 view .LVU93
+  99:FML/Src/ATGM332D.c ****     {
+ 466              		.loc 1 99 5 is_stmt 0 discriminator 1 view .LVU94
+ 467 000c 0CB1     		cbz	r4, .L38
+ 115:FML/Src/ATGM332D.c **** /*------------------------------------test------------------------------------*/
+ 468              		.loc 1 115 1 view .LVU95
+ 469 000e BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 470              	.LVL36:
+ 471              	.L38:
  101:FML/Src/ATGM332D.c ****         {
- 102:FML/Src/ATGM332D.c ****             // if(len > atgm_dev[i].capacity)
- 103:FML/Src/ATGM332D.c ****             // {
- 104:FML/Src/ATGM332D.c ****             //     atgm_dev[i].capacity = sizeof(atgm_dev->data_buff)/sizeof(uint8_t);
- 105:FML/Src/ATGM332D.c ****             //     atgm_dev[i].data_index = 0;
- 106:FML/Src/ATGM332D.c ****             // }
- 107:FML/Src/ATGM332D.c ****             if(len >300)
+ 472              		.loc 1 101 9 is_stmt 1 view .LVU96
+ 101:FML/Src/ATGM332D.c ****         {
+ 473              		.loc 1 101 32 is_stmt 0 view .LVU97
+ 474 0012 A046     		mov	r8, r4
+ 475 0014 04EBC403 		add	r3, r4, r4, lsl #3
+ 476 0018 104A     		ldr	r2, .L42
+ 477 001a 02EB8303 		add	r3, r2, r3, lsl #2
+ 478 001e 1B69     		ldr	r3, [r3, #16]
+ 101:FML/Src/ATGM332D.c ****         {
+ 479              		.loc 1 101 11 view .LVU98
+ 480 0020 B342     		cmp	r3, r6
+ 481 0022 02D0     		beq	.L41
+ 482              	.L36:
+  99:FML/Src/ATGM332D.c ****     {
+ 483              		.loc 1 99 68 is_stmt 1 discriminator 2 view .LVU99
+  99:FML/Src/ATGM332D.c ****     {
+ 484              		.loc 1 99 69 is_stmt 0 discriminator 2 view .LVU100
+ 485 0024 0134     		adds	r4, r4, #1
+ 486              	.LVL37:
+  99:FML/Src/ATGM332D.c ****     {
+ 487              		.loc 1 99 69 discriminator 2 view .LVU101
+ 488 0026 E4B2     		uxtb	r4, r4
+ 489              	.LVL38:
+  99:FML/Src/ATGM332D.c ****     {
+ 490              		.loc 1 99 69 discriminator 2 view .LVU102
+ 491 0028 F0E7     		b	.L35
+ 492              	.L41:
  108:FML/Src/ATGM332D.c ****                 len =300;
+ 493              		.loc 1 108 13 is_stmt 1 view .LVU103
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 13
+
+
+ 108:FML/Src/ATGM332D.c ****                 len =300;
+ 494              		.loc 1 108 15 is_stmt 0 view .LVU104
+ 495 002a B5F5967F 		cmp	r5, #300
+ 496 002e 01D9     		bls	.L37
  109:FML/Src/ATGM332D.c ****             memcpy(atgm_dev[i].data_buff,data,len);
+ 497              		.loc 1 109 21 view .LVU105
+ 498 0030 4FF49675 		mov	r5, #300
+ 499              	.LVL39:
+ 500              	.L37:
  110:FML/Src/ATGM332D.c ****             // atgm_dev[i].capacity -= len;
- 111:FML/Src/ATGM332D.c ****             atgm_dev[i].data_index = len;
+ 501              		.loc 1 110 13 is_stmt 1 view .LVU106
+ 110:FML/Src/ATGM332D.c ****             // atgm_dev[i].capacity -= len;
+ 502              		.loc 1 110 31 is_stmt 0 view .LVU107
+ 503 0034 DFF82490 		ldr	r9, .L42
+ 504 0038 4FEAC80A 		lsl	r10, r8, #3
+ 505 003c 08EBC803 		add	r3, r8, r8, lsl #3
+ 506 0040 09EB8303 		add	r3, r9, r3, lsl #2
+ 110:FML/Src/ATGM332D.c ****             // atgm_dev[i].capacity -= len;
+ 507              		.loc 1 110 13 view .LVU108
+ 508 0044 2A46     		mov	r2, r5
+ 509 0046 3946     		mov	r1, r7
+ 510 0048 D869     		ldr	r0, [r3, #28]
+ 511 004a FFF7FEFF 		bl	memcpy
+ 512              	.LVL40:
  112:FML/Src/ATGM332D.c ****         }
- 113:FML/Src/ATGM332D.c ****     }
- 114:FML/Src/ATGM332D.c **** }
- 342              		.loc 1 114 1 view .LVU72
- 343 000e BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
- 344              	.LVL24:
- 345              	.L30:
- 100:FML/Src/ATGM332D.c ****         {
- 346              		.loc 1 100 9 is_stmt 1 view .LVU73
- 100:FML/Src/ATGM332D.c ****         {
- 347              		.loc 1 100 32 is_stmt 0 view .LVU74
- 348 0012 A046     		mov	r8, r4
- 349 0014 04EBC403 		add	r3, r4, r4, lsl #3
- 350 0018 104A     		ldr	r2, .L34
- 351 001a 02EB8303 		add	r3, r2, r3, lsl #2
- 352 001e 1B69     		ldr	r3, [r3, #16]
- 100:FML/Src/ATGM332D.c ****         {
- 353              		.loc 1 100 11 view .LVU75
- 354 0020 B342     		cmp	r3, r6
- 355 0022 02D0     		beq	.L33
- 356              	.L28:
-  98:FML/Src/ATGM332D.c ****     {
- 357              		.loc 1 98 68 is_stmt 1 discriminator 2 view .LVU76
-  98:FML/Src/ATGM332D.c ****     {
- 358              		.loc 1 98 69 is_stmt 0 discriminator 2 view .LVU77
- 359 0024 0134     		adds	r4, r4, #1
- 360              	.LVL25:
-  98:FML/Src/ATGM332D.c ****     {
- 361              		.loc 1 98 69 discriminator 2 view .LVU78
- 362 0026 E4B2     		uxtb	r4, r4
- 363              	.LVL26:
-  98:FML/Src/ATGM332D.c ****     {
- 364              		.loc 1 98 69 discriminator 2 view .LVU79
- 365 0028 F0E7     		b	.L27
- 366              	.L33:
- 107:FML/Src/ATGM332D.c ****                 len =300;
- 367              		.loc 1 107 13 is_stmt 1 view .LVU80
- 107:FML/Src/ATGM332D.c ****                 len =300;
- 368              		.loc 1 107 15 is_stmt 0 view .LVU81
- 369 002a B5F5967F 		cmp	r5, #300
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 10
+ 513              		.loc 1 112 13 is_stmt 1 view .LVU109
+ 112:FML/Src/ATGM332D.c ****         }
+ 514              		.loc 1 112 36 is_stmt 0 view .LVU110
+ 515 004e D044     		add	r8, r8, r10
+ 516 0050 09EB8809 		add	r9, r9, r8, lsl #2
+ 517 0054 A9F82050 		strh	r5, [r9, #32]	@ movhi
+ 518 0058 E4E7     		b	.L36
+ 519              	.L43:
+ 520 005a 00BF     		.align	2
+ 521              	.L42:
+ 522 005c 00000000 		.word	.LANCHOR0
+ 523              		.cfi_endproc
+ 524              	.LFE291:
+ 526              		.global	shellCommandbds_test
+ 527              		.global	shellDescbds_test
+ 528              		.global	shellCmdbds_test
+ 529              		.global	atgm_dev
+ 530              		.global	dev0_buff
+ 531              		.global	bds_dev
+ 532              		.section	.data.atgm_dev,"aw"
+ 533              		.align	2
+ 534              		.set	.LANCHOR0,. + 0
+ 537              	atgm_dev:
+ 538 0000 75617274 		.ascii	"uart2/bds_0\000"
+ 538      322F6264 
+ 538      735F3000 
+ 539 000c 000000   		.space	3
+ 540 000f 00       		.space	1
+ 541 0010 00000000 		.word	huart2
+ 542 0014 00000048 		.word	1207959552
+ 543 0018 0400     		.short	4
+ 544 001a 0000     		.space	2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 14
 
 
- 370 002e 01D9     		bls	.L29
- 108:FML/Src/ATGM332D.c ****             memcpy(atgm_dev[i].data_buff,data,len);
- 371              		.loc 1 108 21 view .LVU82
- 372 0030 4FF49675 		mov	r5, #300
- 373              	.LVL27:
- 374              	.L29:
- 109:FML/Src/ATGM332D.c ****             // atgm_dev[i].capacity -= len;
- 375              		.loc 1 109 13 is_stmt 1 view .LVU83
- 109:FML/Src/ATGM332D.c ****             // atgm_dev[i].capacity -= len;
- 376              		.loc 1 109 31 is_stmt 0 view .LVU84
- 377 0034 DFF82490 		ldr	r9, .L34
- 378 0038 4FEAC80A 		lsl	r10, r8, #3
- 379 003c 08EBC803 		add	r3, r8, r8, lsl #3
- 380 0040 09EB8303 		add	r3, r9, r3, lsl #2
- 109:FML/Src/ATGM332D.c ****             // atgm_dev[i].capacity -= len;
- 381              		.loc 1 109 13 view .LVU85
- 382 0044 2A46     		mov	r2, r5
- 383 0046 3946     		mov	r1, r7
- 384 0048 D869     		ldr	r0, [r3, #28]
- 385 004a FFF7FEFF 		bl	memcpy
- 386              	.LVL28:
- 111:FML/Src/ATGM332D.c ****         }
- 387              		.loc 1 111 13 is_stmt 1 view .LVU86
- 111:FML/Src/ATGM332D.c ****         }
- 388              		.loc 1 111 36 is_stmt 0 view .LVU87
- 389 004e D044     		add	r8, r8, r10
- 390 0050 09EB8809 		add	r9, r9, r8, lsl #2
- 391 0054 A9F82050 		strh	r5, [r9, #32]	@ movhi
- 392 0058 E4E7     		b	.L28
- 393              	.L35:
- 394 005a 00BF     		.align	2
- 395              	.L34:
- 396 005c 00000000 		.word	.LANCHOR0
- 397              		.cfi_endproc
- 398              	.LFE291:
- 400              		.global	atgm_dev
- 401              		.global	dev0_buff
- 402              		.section	.data.atgm_dev,"aw"
- 403              		.align	2
- 404              		.set	.LANCHOR0,. + 0
- 407              	atgm_dev:
- 408 0000 75617274 		.ascii	"uart2/bds_0\000"
- 408      322F6264 
- 408      735F3000 
- 409 000c 000000   		.space	3
- 410 000f 00       		.space	1
- 411 0010 00000000 		.word	huart2
- 412 0014 00000048 		.word	1207959552
- 413 0018 0400     		.short	4
- 414 001a 0000     		.space	2
- 415 001c 00000000 		.word	dev0_buff
- 416 0020 0000     		.short	0
- 417 0022 C800     		.short	200
- 418              		.section	.data.dev0_buff,"aw"
- 419              		.align	2
- 422              	dev0_buff:
- 423 0000 FF00     		.ascii	"\377\000"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 11
-
-
- 424 0002 00000000 		.space	198
- 424      00000000 
- 424      00000000 
- 424      00000000 
- 424      00000000 
- 425              		.text
- 426              	.Letext0:
- 427              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 428              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 429              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 430              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 431              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 432              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 433              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
- 434              		.file 9 "FML/Inc/ATGM332D.h"
- 435              		.file 10 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\lib\\gcc\\arm-
- 436              		.file 11 "HAL/Inc/usart.h"
- 437              		.file 12 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
- 438              		.file 13 "<built-in>"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s 			page 12
+ 545 001c 00000000 		.word	dev0_buff
+ 546 0020 0000     		.short	0
+ 547 0022 C800     		.short	200
+ 548              		.section	.data.bds_dev,"aw"
+ 549              		.align	2
+ 550              		.set	.LANCHOR1,. + 0
+ 553              	bds_dev:
+ 554 0000 FFFFFFFF 		.word	-1
+ 555              		.section	.data.dev0_buff,"aw"
+ 556              		.align	2
+ 559              	dev0_buff:
+ 560 0000 FF00     		.ascii	"\377\000"
+ 561 0002 00000000 		.space	198
+ 561      00000000 
+ 561      00000000 
+ 561      00000000 
+ 561      00000000 
+ 562              		.section	.rodata.shellCmdbds_test,"a"
+ 563              		.align	2
+ 566              	shellCmdbds_test:
+ 567 0000 6264735F 		.ascii	"bds_test\000"
+ 567      74657374 
+ 567      00
+ 568              		.section	.rodata.shellDescbds_test,"a"
+ 569              		.align	2
+ 572              	shellDescbds_test:
+ 573 0000 6264655F 		.ascii	"bde_dev test\000"
+ 573      64657620 
+ 573      74657374 
+ 573      00
+ 574              		.section	shellCommand,"a"
+ 577              	shellCommandbds_test:
+ 578 0000 00210000 		.4byte	8448
+ 579 0004 00000000 		.4byte	shellCmdbds_test
+ 580 0008 00000000 		.4byte	BDS_Test
+ 581 000c 00000000 		.4byte	shellDescbds_test
+ 582              		.text
+ 583              	.Letext0:
+ 584              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 585              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 586              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 587              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 588              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 589              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 590              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 591              		.file 9 "FML/Inc/ATGM332D.h"
+ 592              		.file 10 "HAL/Inc/usart.h"
+ 593              		.file 11 "ThirdParty/Letter-shell/Inc/shell.h"
+ 594              		.file 12 "ThirdParty/Letter-shell/Inc/shell_port.h"
+ 595              		.file 13 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\lib\\gcc\\arm-
+ 596              		.file 14 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
+ 597              		.file 15 "<built-in>"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 ATGM332D.c
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:20     .text.atgm_io_init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:26     .text.atgm_io_init:00000000 atgm_io_init
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:104    .text.atgm_io_init:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:109    .text.atgm_open:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:115    .text.atgm_open:00000000 atgm_open
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:183    .text.atgm_open:0000003c $d
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:188    .text.atgm_read:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:194    .text.atgm_read:00000000 atgm_read
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:298    .text.atgm_read:00000048 $d
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:304    .text.atgm_handler:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:310    .text.atgm_handler:00000000 atgm_handler
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:396    .text.atgm_handler:0000005c $d
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:407    .data.atgm_dev:00000000 atgm_dev
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:422    .data.dev0_buff:00000000 dev0_buff
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:403    .data.atgm_dev:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccVXP6Aj.s:419    .data.dev0_buff:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:20     .text.atgm_io_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:26     .text.atgm_io_init:00000000 atgm_io_init
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:104    .text.atgm_io_init:00000044 $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:109    .text.atgm_open:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:115    .text.atgm_open:00000000 atgm_open
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:183    .text.atgm_open:0000003c $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:188    .text.atgm_read:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:194    .text.atgm_read:00000000 atgm_read
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:298    .text.atgm_read:00000048 $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:304    .rodata.BDS_Test.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:308    .text.BDS_Test:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:314    .text.BDS_Test:00000000 BDS_Test
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:422    .text.BDS_Test:0000004c $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:430    .text.atgm_handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:436    .text.atgm_handler:00000000 atgm_handler
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:522    .text.atgm_handler:0000005c $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:577    shellCommand:00000000 shellCommandbds_test
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:572    .rodata.shellDescbds_test:00000000 shellDescbds_test
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:566    .rodata.shellCmdbds_test:00000000 shellCmdbds_test
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:537    .data.atgm_dev:00000000 atgm_dev
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:559    .data.dev0_buff:00000000 dev0_buff
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:553    .data.bds_dev:00000000 bds_dev
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:533    .data.atgm_dev:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:549    .data.bds_dev:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:556    .data.dev0_buff:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:563    .rodata.shellCmdbds_test:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc5xt3ym.s:569    .rodata.shellDescbds_test:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_Init
 HAL_GPIO_WritePin
 strcmp
 memcpy
+memset
+shellPrint
+shell
 huart2

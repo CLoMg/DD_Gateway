@@ -13,7 +13,7 @@
 *********************************************************************************************************/
 
 #include "W25QXX.h"
-
+#include "shell_port.h"
 /**
   * @brief  Initializes the W25Q128FV interface.
   * @retval None
@@ -340,5 +340,33 @@ uint8_t BSP_W25Qx_Erase_Chip(void)
 	}
 	return W25Qx_OK;
 }
+
+/**
+ * @brief Flash测试函数
+ * 		  1）读取并打印Flash芯片ID 参数 容量等信息
+ *        2）朝flash指定位置写入0x55
+ * 		  3）读取指定位置，判断是否是0x55,以此判断是否能正常读写
+ * 
+ * @param str 
+ */
+void Flash_Test(void)
+{
+  uint8_t flash_id[2] = {0x00,};
+  uint8_t JEDEC_id[3] = {0x00,};
+  uint32_t cap_kb = 0;
+  float cap_mb = 0.0f;
+
+  BSP_W25Qx_Read_ID(flash_id);
+  BSP_W25Qx_Read_JEDEC_ID(JEDEC_id);
+  cap_kb = pow(2 , (JEDEC_id[2] - 10)) *8 ;
+  cap_mb = (float)cap_kb / 1024.0;
+
+  shellPrint(&shell,"Manu_ID:0x%02x,Dev_ID:0x%02x\r\nManu_Identi:0x%02x,Memory_Type:0x%02x\r\n\
+  Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_id[2],cap_kb,cap_mb);
+}
+
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+flash_test, Flash_Test, rs485 send test);
 
 

@@ -20,4 +20,6 @@ void RS485_SendData(RS485_HandleTypeDef *rs485, uint8_t *data, uint16_t size);
 // 接收数据
 void RS485_ReceiveData(RS485_HandleTypeDef *rs485, uint8_t *data, uint16_t size);
 
+//测试函数
+void RS485_Test(char *str);
 #endif /* RS485_DRIVER_H */

@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "adc.h"
+#include "shell_port.h"
 
 /* USER CODE BEGIN 0 */
 
@@ -197,4 +198,53 @@ uint32_t ADC_Average_Get(uint8_t ch,uint8_t times){
   }
   return value_sum/times;
 }
+
+
+/* USER CODE BEGIN 4 */
+/**
+ * @brief 光照度传感器测试函数
+ *        打印光照度传感器读取数据
+ * 
+ * @param a 
+ * @param b 
+ * @param str 
+ * @param val 
+ */
+void LDR_Value_Get(void)
+{   
+    uint32_t ldr_adc_value = 0;
+    ldr_adc_value = ADC_Average_Get(10,50);
+    shellPrint(&shell,"LDR:%d\r\n",ldr_adc_value);
+}
+
+/**
+ * @brief 
+ * 
+ */
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+LDR_Get, LDR_Value_Get, get ldr value);
+
+
+
+/**
+ * @brief 电池接口测试
+ *        输出电池电压
+ * 
+ */
+void Battery_Test(void)
+{   
+    float voltage = 0;      
+    voltage = (float)ADC_Average_Get(5,50)/4096 * 3.3 * 2;
+    
+    shellPrint(&shell,"voltage:%.2fv\r\n",voltage);
+}
+
+/**
+ * @brief 
+ * 
+ */
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+battery, Battery_Test, get battery voltage value);
 /* USER CODE END 1 */

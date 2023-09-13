@@ -258,7 +258,7 @@ int SX1278_LoRaTxPacket(SX1278_t *module, uint8_t *txBuffer, uint8_t length,
 		uint32_t timeout) {
 	SX1278_SPIBurstWrite(module, 0x00, txBuffer, length);
 	SX1278_SPIWrite(module, LR_RegOpMode, 0x8b);	//Tx Mode
-	// SX1278_hw_DelayMs(1000);
+	//SX1278_hw_DelayMs(1000);
 	while (1) {
 		if (SX1278_hw_GetDIO0(module->hw)) { //if(Get_NIRQ()) //Packet send over
 			SX1278_SPIRead(module, LR_RegIrqFlags);
@@ -344,6 +344,7 @@ void LORA_Send(char fd,char *tx_buff,uint32_t timeout)
 
     tx_data = (char *)malloc((len)*sizeof(uint8_t));
     memcpy(tx_data,tx_buff,len);
+	
 
     if(SX1278_transmit(&Lora_dev[fd],tx_data,len,timeout))
 		shellPrint(&shell,"lora %d transmit success\r\n",fd);

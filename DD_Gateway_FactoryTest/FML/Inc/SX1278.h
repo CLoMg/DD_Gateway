@@ -483,4 +483,13 @@ void SX1278_standby(SX1278_t *module);
  */
 void SX1278_sleep(SX1278_t *module);
 
+/**
+ * @brief LORA发送测试函数
+ * 
+ * @param fd 
+ * @param tx_buff 
+ * @param timeout 
+ */
+void LORA_Send(char fd,char *tx_buff,uint32_t timeout);
+
 #endif

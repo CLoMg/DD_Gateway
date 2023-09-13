@@ -42,7 +42,7 @@ ATMsg_TypeDef connectmsg_queue[] = {
     {"AT+CPIN?\r\n","READY",100,5},
     {"AT+CREG?\r\n","+CREG: 0,1", 100, 5},
     {"AT+CGREG?\r\n","+CGREG: 0,1", 100, 5},
-    {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 100, 5},
+    {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 200, 5},
     {"AT+QIDEACT=1\r\n", "OK", 100, 5},
     {"AT+QIACT=1\r\n", "OK", 100, 5},
     {tcp_connect, "CONNECT", 100, 5},
@@ -132,7 +132,7 @@ int ec2x_reset(int fd){
         Delay_ms(500);
         HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
     }
-    return(ec2x_cmd_send(fd,NULL,0,"RDY/r/n",10000));
+    return(ec2x_cmd_send(fd,NULL,0,"RDY/r/n",20000));
 }
 
 /**
@@ -327,6 +327,7 @@ int ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uin
  */
 uint8_t ec2x_tcp_connect(int fd){
     static uint8_t step = 0,retry =0;
+    ec2x_reset(fd);
     while(step < 9){
         switch (step)
         {
@@ -348,6 +349,7 @@ uint8_t ec2x_tcp_connect(int fd){
                     else
                         retry++;
                 }
+                Delay_ms(100);
             }
             break;
             case 1:
@@ -365,8 +367,9 @@ uint8_t ec2x_tcp_connect(int fd){
                         step = 0;
                     }
                     else
-                        retry++;;
+                        retry++;
                 }
+                Delay_ms(100);
             }
             break;
             case 2:
@@ -384,15 +387,16 @@ uint8_t ec2x_tcp_connect(int fd){
                         step = 0;
                     }
                     else
-                        retry++;;
+                        retry++;
                 }
+                Delay_ms(100);
             }
             break;
             case 3:
             {
                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
                 {    
-                    step++;
+                    step += 2;
                     retry = 0;
                 }
                 else
@@ -403,8 +407,9 @@ uint8_t ec2x_tcp_connect(int fd){
                         step = 0;
                     }
                     else
-                        retry++;;
+                        retry++;
                 }
+                Delay_ms(100);                
             }
             break;
             case 4:
@@ -422,8 +427,9 @@ uint8_t ec2x_tcp_connect(int fd){
                         step = 0;
                     }
                     else
-                        retry++;;
+                        retry++;
                 }
+                Delay_ms(100);               
             }
             break;
             case 5:
@@ -441,8 +447,9 @@ uint8_t ec2x_tcp_connect(int fd){
                         step = 0;
                     }
                     else
-                        retry++;;
+                        retry++;
                 }
+                Delay_ms(100);                
             }
             break; 
             case 6:
@@ -462,6 +469,7 @@ uint8_t ec2x_tcp_connect(int fd){
                     else
                         retry++;
                 }
+                Delay_ms(100);
             }
             break; 
             case 7:
@@ -481,6 +489,7 @@ uint8_t ec2x_tcp_connect(int fd){
                     else
                         retry++;
                 }
+                Delay_ms(200);
             }
             break;  
             case 8:

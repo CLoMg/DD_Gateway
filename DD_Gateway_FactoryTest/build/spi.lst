@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
   28:HAL/Src/spi.c **** SPI_HandleTypeDef hspi3;
   29:HAL/Src/spi.c **** 
   30:HAL/Src/spi.c **** /* SPI2 init function */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 2
 
 
   31:HAL/Src/spi.c **** void MX_SPI2_Init(void)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
   65              		.loc 1 48 3 is_stmt 1 view .LVU15
   66              		.loc 1 48 32 is_stmt 0 view .LVU16
   67 0022 1822     		movs	r2, #24
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 3
 
 
   68 0024 C261     		str	r2, [r0, #28]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  106              	.L5:
  107 0044 00000000 		.word	.LANCHOR0
  108 0048 00380040 		.word	1073756160
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 4
 
 
  109              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  149 0018 0361     		str	r3, [r0, #16]
   80:HAL/Src/spi.c ****   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
  150              		.loc 1 80 3 is_stmt 1 view .LVU46
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 5
 
 
  151              		.loc 1 80 23 is_stmt 0 view .LVU47
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  188 003a 08BD     		pop	{r3, pc}
  189              	.L10:
   91:HAL/Src/spi.c ****   }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 6
 
 
  190              		.loc 1 91 5 is_stmt 1 view .LVU68
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  104:HAL/Src/spi.c ****   {
  105:HAL/Src/spi.c ****   /* USER CODE BEGIN SPI2_MspInit 0 */
  106:HAL/Src/spi.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 7
 
 
  107:HAL/Src/spi.c ****   /* USER CODE END SPI2_MspInit 0 */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  154:HAL/Src/spi.c **** 
  155:HAL/Src/spi.c ****     /* SPI3 interrupt Init */
  156:HAL/Src/spi.c ****     // HAL_NVIC_SetPriority(SPI3_IRQn, 2, 0);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 8
 
 
  157:HAL/Src/spi.c ****     // HAL_NVIC_EnableIRQ(SPI3_IRQn);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  111:HAL/Src/spi.c ****     /**SPI2 GPIO Configuration
  285              		.loc 1 111 5 view .LVU90
  286 0048 029B     		ldr	r3, [sp, #8]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 9
 
 
  287              	.LBE3:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  325 0070 9A6D     		ldr	r2, [r3, #88]
  326 0072 02F40042 		and	r2, r2, #32768
  327 0076 0392     		str	r2, [sp, #12]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 10
 
 
  138:HAL/Src/spi.c **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  364              		.loc 1 153 5 is_stmt 1 view .LVU124
  365 009c 05A9     		add	r1, sp, #20
  366 009e 0548     		ldr	r0, .L19+12
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 11
 
 
  367              	.LVL10:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  175:HAL/Src/spi.c ****     /**SPI2 GPIO Configuration
  176:HAL/Src/spi.c ****     PB12     ------> SPI2_NSS
  177:HAL/Src/spi.c ****     PB13     ------> SPI2_SCK
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 12
 
 
  178:HAL/Src/spi.c ****     PB14     ------> SPI2_MISO
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  426              		.loc 1 181 5 view .LVU136
  427 001e 4FF47041 		mov	r1, #61440
  428 0022 0F48     		ldr	r0, .L27+8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 13
 
 
  429              	.LVL15:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  479              	hspi1:
  480 0000 00000000 		.space	100
  480      00000000 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 14
 
 
  480      00000000 
@@ -814,29 +814,29 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 1
  504              		.file 9 "HAL/Inc/spi.h"
  505              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_cortex.h"
  506              		.file 11 "Core/Inc/main.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:20     .text.MX_SPI2_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:26     .text.MX_SPI2_Init:00000000 MX_SPI2_Init
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:107    .text.MX_SPI2_Init:00000044 $d
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:113    .text.MX_SPI3_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:119    .text.MX_SPI3_Init:00000000 MX_SPI3_Init
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:198    .text.MX_SPI3_Init:00000044 $d
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:204    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:210    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:376    .text.HAL_SPI_MspInit:000000a8 $d
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:384    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:390    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:466    .text.HAL_SPI_MspDeInit:00000058 $d
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:493    .bss.hspi3:00000000 hspi3
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:486    .bss.hspi2:00000000 hspi2
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:479    .bss.hspi1:00000000 hspi1
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:476    .bss.hspi1:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:482    .bss.hspi2:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc4fs2f5.s:489    .bss.hspi3:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:20     .text.MX_SPI2_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:26     .text.MX_SPI2_Init:00000000 MX_SPI2_Init
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:107    .text.MX_SPI2_Init:00000044 $d
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:113    .text.MX_SPI3_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:119    .text.MX_SPI3_Init:00000000 MX_SPI3_Init
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:198    .text.MX_SPI3_Init:00000044 $d
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:204    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:210    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:376    .text.HAL_SPI_MspInit:000000a8 $d
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:384    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:390    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:466    .text.HAL_SPI_MspDeInit:00000058 $d
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:493    .bss.hspi3:00000000 hspi3
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:486    .bss.hspi2:00000000 hspi2
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:479    .bss.hspi1:00000000 hspi1
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:476    .bss.hspi1:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:482    .bss.hspi2:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccGiCVqr.s:489    .bss.hspi3:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

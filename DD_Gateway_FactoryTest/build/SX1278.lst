@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
   27:FML/Src/SX1278.c **** 	{
   28:FML/Src/SX1278.c **** 	 .hw = &lora_dev_hw[1],
   29:FML/Src/SX1278.c **** 	 .frequency = 437000000,
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 2
 
 
   30:FML/Src/SX1278.c **** 	 .power = 20,
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
   67              		.cfi_endproc
   68              	.LFE288:
   70              		.section	.text.SX1278_SPIWrite,"ax",%progbits
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 3
 
 
   71              		.align	1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  119              		.loc 1 53 1 is_stmt 0 view .LVU19
  120 002a 70BD     		pop	{r4, r5, r6, pc}
  121              		.loc 1 53 1 view .LVU20
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 4
 
 
  122              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  168 0016 2146     		mov	r1, r4
  169 0018 2868     		ldr	r0, [r5]
  170 001a FFF7FEFF 		bl	SX1278_hw_SPICommand
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 5
 
 
  171              	.LVL17:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  214              		.cfi_restore 14
  215              		.loc 1 68 1 view .LVU43
  216 003c 7047     		bx	lr
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 6
 
 
  217              		.cfi_endproc
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  263 0016 44F08001 		orr	r1, r4, #128
  264 001a 2868     		ldr	r0, [r5]
  265 001c FFF7FEFF 		bl	SX1278_hw_SPICommand
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 7
 
 
  266              	.LVL28:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  309 003e 7047     		bx	lr
  310              		.cfi_endproc
  311              	.LFE291:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 8
 
 
  313              		.section	.text.SX1278_standby,"ax",%progbits
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  129:FML/Src/SX1278.c **** 		SX1278_SPIWrite(module,
  130:FML/Src/SX1278.c **** 		LR_RegModemConfig2,
  131:FML/Src/SX1278.c **** 				((SX1278_SpreadFactor[module->LoRa_SF] << 4)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 9
 
 
  132:FML/Src/SX1278.c **** 						+ (SX1278_CRC_Sum[module->LoRa_CRC_sum] << 2) + 0x00)); //SFactor &  LNA gain set by the inte
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  361              		@ args = 0, pretend = 0, frame = 0
  362              		@ frame_needed = 0, uses_anonymous_args = 0
  363              		.loc 1 149 37 is_stmt 0 view .LVU73
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 10
 
 
  364 0000 10B5     		push	{r4, lr}
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  413              	.LFE295:
  415              		.global	__aeabi_uldivmod
  416              		.section	.text.SX1278_config,"ax",%progbits
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 11
 
 
  417              		.align	1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  463 0026 FFF7FEFF 		bl	__aeabi_uldivmod
  464              	.LVL45:
   93:FML/Src/SX1278.c **** 	freq_reg[0] = (uint8_t) (freq >> 16);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 12
 
 
  465              		.loc 1 93 2 is_stmt 1 view .LVU92
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  504              	.LVL49:
  104:FML/Src/SX1278.c **** 	SX1278_SPIWrite(module, LR_RegLna, 0x23);		//RegLNA,High & LNA Enable
  505              		.loc 1 104 2 is_stmt 1 view .LVU108
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 13
 
 
  506 0062 0B22     		movs	r2, #11
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  547 009c 2046     		mov	r0, r4
  548 009e FFF7FEFF 		bl	SX1278_SPIWrite
  549              	.LVL52:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 14
 
 
  129:FML/Src/SX1278.c **** 		LR_RegModemConfig2,
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  138:FML/Src/SX1278.c **** 	SX1278_SPIWrite(module, REG_LR_DIOMAPPING2, 0x01); //RegDioMapping2 DIO5=00, DIO4=01
  593              		.loc 1 138 2 view .LVU133
  594 00e2 0822     		movs	r2, #8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 15
 
 
  595 00e4 2121     		movs	r1, #33
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  637              		.loc 1 111 27 view .LVU145
  638 0112 1C49     		ldr	r1, .L32+16
  639 0114 CB5C     		ldrb	r3, [r1, r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 16
 
 
  111:FML/Src/SX1278.c **** 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  118:FML/Src/SX1278.c **** 		tmp &= 0xF8;
  681              		.loc 1 118 9 is_stmt 0 view .LVU159
  682 014e 3121     		movs	r1, #49
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 17
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 17
 
 
  683 0150 2046     		mov	r0, r4
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  158:FML/Src/SX1278.c **** void SX1278_clearLoRaIrq(SX1278_t *module) {
  731              		.loc 1 158 44 view -0
  732              		.cfi_startproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 18
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 18
 
 
  733              		@ args = 0, pretend = 0, frame = 0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  780              		.loc 1 167 2 is_stmt 1 view .LVU176
  781 000a FFF7FEFF 		bl	SX1278_config
  782              	.LVL72:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 19
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 19
 
 
  168:FML/Src/SX1278.c **** 	SX1278_SPIWrite(module, REG_LR_PADAC, 0x84);	//Normal and RX
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  829              	.LVL81:
  176:FML/Src/SX1278.c **** 	SX1278_SPIWrite(module, LR_RegOpMode, 0x8d);	//Mode//Low Frequency Mode
  830              		.loc 1 176 2 view .LVU186
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 20
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 20
 
 
  831 0058 8D22     		movs	r2, #141
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  864 007a 2846     		mov	r0, r5
  865 007c FFF7FEFF 		bl	SX1278_SPIRead
  866              	.LVL85:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 21
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 21
 
 
  181:FML/Src/SX1278.c **** 			module->status = RX;
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  198:FML/Src/SX1278.c ****  * @return uint8_t 
  199:FML/Src/SX1278.c ****  */
  200:FML/Src/SX1278.c **** uint8_t SX1278_LoRaRxPacket(SX1278_t *module) {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 22
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 22
 
 
  906              		.loc 1 200 47 is_stmt 1 view -0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  939 0014 A3FB0232 		umull	r3, r2, r3, r2
  940 0018 1C4D     		ldr	r5, .L49+8
  941 001a 94F81731 		ldrb	r3, [r4, #279]	@ zero_extendqisi2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 23
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 23
 
 
  942 001e 5208     		lsrs	r2, r2, #1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  984 005c 63B9     		cbnz	r3, .L45
  211:FML/Src/SX1278.c **** 		} else {
  985              		.loc 1 211 4 is_stmt 1 view .LVU231
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 24
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 24
 
 
  211:FML/Src/SX1278.c **** 		} else {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  1034              	SX1278_LoRaEntryTx:
  1035              	.LVL106:
  1036              	.LFB299:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 25
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 25
 
 
  225:FML/Src/SX1278.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  1079 002c 2846     		mov	r0, r5
  1080 002e FFF7FEFF 		bl	SX1278_clearLoRaIrq
  1081              	.LVL111:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 26
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 26
 
 
  237:FML/Src/SX1278.c **** 	SX1278_SPIWrite(module, LR_RegIrqFlagsMask, 0xF7); //Open TxDone interrupt
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  1123              	.LVL119:
  1124              		.loc 1 249 6 view .LVU263
  1125 0066 F7D1     		bne	.L54
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 27
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 27
 
 
  250:FML/Src/SX1278.c **** 			SX1278_hw_Reset(module->hw);
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  1169              		@ args = 0, pretend = 0, frame = 0
  1170              		@ frame_needed = 0, uses_anonymous_args = 0
  1171              		.loc 1 258 21 is_stmt 0 view .LVU276
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 28
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 28
 
 
  1172 0000 70B5     		push	{r4, r5, r6, lr}
@@ -1650,837 +1650,851 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 1
  1196 0014 2846     		mov	r0, r5
  1197 0016 FFF7FEFF 		bl	SX1278_SPIWrite
  1198              	.LVL130:
- 1199 001a 0FE0     		b	.L61
- 1200              	.L63:
- 261:FML/Src/SX1278.c **** 	// SX1278_hw_DelayMs(1000);
+ 261:FML/Src/SX1278.c **** 	SX1278_hw_DelayMs(1000);
+ 1199              		.loc 1 261 2 view .LVU282
+ 1200 001a 4FF47A70 		mov	r0, #1000
+ 1201 001e FFF7FEFF 		bl	SX1278_hw_DelayMs
+ 1202              	.LVL131:
+ 1203 0022 0FE0     		b	.L61
+ 1204              	.L63:
  262:FML/Src/SX1278.c **** 	while (1) {
  263:FML/Src/SX1278.c **** 		if (SX1278_hw_GetDIO0(module->hw)) { //if(Get_NIRQ()) //Packet send over
  264:FML/Src/SX1278.c **** 			SX1278_SPIRead(module, LR_RegIrqFlags);
- 1201              		.loc 1 264 4 view .LVU282
- 1202 001c 1221     		movs	r1, #18
- 1203 001e 2846     		mov	r0, r5
- 1204 0020 FFF7FEFF 		bl	SX1278_SPIRead
- 1205              	.LVL131:
- 265:FML/Src/SX1278.c **** 			SX1278_clearLoRaIrq(module); //Clear irq
- 1206              		.loc 1 265 4 view .LVU283
- 1207 0024 2846     		mov	r0, r5
- 1208 0026 FFF7FEFF 		bl	SX1278_clearLoRaIrq
+ 1205              		.loc 1 264 4 view .LVU283
+ 1206 0024 1221     		movs	r1, #18
+ 1207 0026 2846     		mov	r0, r5
+ 1208 0028 FFF7FEFF 		bl	SX1278_SPIRead
  1209              	.LVL132:
- 266:FML/Src/SX1278.c **** 			SX1278_standby(module); //Entry Standby mode
- 1210              		.loc 1 266 4 view .LVU284
- 1211 002a 2846     		mov	r0, r5
- 1212 002c FFF7FEFF 		bl	SX1278_standby
+ 265:FML/Src/SX1278.c **** 			SX1278_clearLoRaIrq(module); //Clear irq
+ 1210              		.loc 1 265 4 view .LVU284
+ 1211 002c 2846     		mov	r0, r5
+ 1212 002e FFF7FEFF 		bl	SX1278_clearLoRaIrq
  1213              	.LVL133:
+ 266:FML/Src/SX1278.c **** 			SX1278_standby(module); //Entry Standby mode
+ 1214              		.loc 1 266 4 view .LVU285
+ 1215 0032 2846     		mov	r0, r5
+ 1216 0034 FFF7FEFF 		bl	SX1278_standby
+ 1217              	.LVL134:
  267:FML/Src/SX1278.c **** 			return 1;
- 1214              		.loc 1 267 4 view .LVU285
- 1215              		.loc 1 267 11 is_stmt 0 view .LVU286
- 1216 0030 0126     		movs	r6, #1
- 1217              	.L57:
+ 1218              		.loc 1 267 4 view .LVU286
+ 1219              		.loc 1 267 11 is_stmt 0 view .LVU287
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 29
+
+
+ 1220 0038 0126     		movs	r6, #1
+ 1221              	.L57:
  268:FML/Src/SX1278.c **** 		}
  269:FML/Src/SX1278.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 29
-
-
  270:FML/Src/SX1278.c **** 		if (--timeout == 0) {
- 271:FML/Src/SX1278.c **** 			SX1278_hw_Reset(module->hw);
- 272:FML/Src/SX1278.c **** 			SX1278_config(module);
- 273:FML/Src/SX1278.c **** 			return 0;
- 274:FML/Src/SX1278.c **** 		}
- 275:FML/Src/SX1278.c **** 		SX1278_hw_DelayMs(1);
- 276:FML/Src/SX1278.c **** 	}
- 277:FML/Src/SX1278.c **** }
- 1218              		.loc 1 277 1 view .LVU287
- 1219 0032 3046     		mov	r0, r6
- 1220 0034 70BD     		pop	{r4, r5, r6, pc}
- 1221              	.LVL134:
- 1222              	.L60:
- 275:FML/Src/SX1278.c **** 	}
- 1223              		.loc 1 275 3 is_stmt 1 view .LVU288
- 1224 0036 0120     		movs	r0, #1
- 1225 0038 FFF7FEFF 		bl	SX1278_hw_DelayMs
- 1226              	.LVL135:
+ 271:FML/Src/SX1278.c **** 			// SX1278_hw_Reset(module->hw);
+ 272:FML/Src/SX1278.c **** 			// SX1278_config(module);
+ 273:FML/Src/SX1278.c **** 			SX1278_SPIRead(module, LR_RegIrqFlags);
+ 274:FML/Src/SX1278.c **** 			SX1278_clearLoRaIrq(module); //Clear irq
+ 275:FML/Src/SX1278.c **** 			SX1278_standby(module); //Entry Standby mode
+ 276:FML/Src/SX1278.c **** 			return 0;
+ 277:FML/Src/SX1278.c **** 		}
+ 278:FML/Src/SX1278.c **** 		SX1278_hw_DelayMs(1);
+ 279:FML/Src/SX1278.c **** 	}
+ 280:FML/Src/SX1278.c **** }
+ 1222              		.loc 1 280 1 view .LVU288
+ 1223 003a 3046     		mov	r0, r6
+ 1224 003c 70BD     		pop	{r4, r5, r6, pc}
+ 1225              	.LVL135:
+ 1226              	.L60:
+ 278:FML/Src/SX1278.c **** 	}
+ 1227              		.loc 1 278 3 is_stmt 1 view .LVU289
+ 1228 003e 0120     		movs	r0, #1
+ 1229 0040 FFF7FEFF 		bl	SX1278_hw_DelayMs
+ 1230              	.LVL136:
  262:FML/Src/SX1278.c **** 		if (SX1278_hw_GetDIO0(module->hw)) { //if(Get_NIRQ()) //Packet send over
- 1227              		.loc 1 262 8 view .LVU289
- 1228              	.L61:
+ 1231              		.loc 1 262 8 view .LVU290
+ 1232              	.L61:
  262:FML/Src/SX1278.c **** 		if (SX1278_hw_GetDIO0(module->hw)) { //if(Get_NIRQ()) //Packet send over
- 1229              		.loc 1 262 2 view .LVU290
+ 1233              		.loc 1 262 2 view .LVU291
  263:FML/Src/SX1278.c **** 			SX1278_SPIRead(module, LR_RegIrqFlags);
- 1230              		.loc 1 263 3 view .LVU291
+ 1234              		.loc 1 263 3 view .LVU292
  263:FML/Src/SX1278.c **** 			SX1278_SPIRead(module, LR_RegIrqFlags);
- 1231              		.loc 1 263 7 is_stmt 0 view .LVU292
- 1232 003c 2868     		ldr	r0, [r5]
- 1233 003e FFF7FEFF 		bl	SX1278_hw_GetDIO0
- 1234              	.LVL136:
+ 1235              		.loc 1 263 7 is_stmt 0 view .LVU293
+ 1236 0044 2868     		ldr	r0, [r5]
+ 1237 0046 FFF7FEFF 		bl	SX1278_hw_GetDIO0
+ 1238              	.LVL137:
  263:FML/Src/SX1278.c **** 			SX1278_SPIRead(module, LR_RegIrqFlags);
- 1235              		.loc 1 263 6 view .LVU293
- 1236 0042 0646     		mov	r6, r0
- 1237 0044 0028     		cmp	r0, #0
- 1238 0046 E9D1     		bne	.L63
- 270:FML/Src/SX1278.c **** 			SX1278_hw_Reset(module->hw);
- 1239              		.loc 1 270 3 is_stmt 1 view .LVU294
- 1240              	.LVL137:
- 270:FML/Src/SX1278.c **** 			SX1278_hw_Reset(module->hw);
- 1241              		.loc 1 270 6 is_stmt 0 view .LVU295
- 1242 0048 013C     		subs	r4, r4, #1
- 1243              	.LVL138:
- 270:FML/Src/SX1278.c **** 			SX1278_hw_Reset(module->hw);
- 1244              		.loc 1 270 6 view .LVU296
- 1245 004a F4D1     		bne	.L60
- 271:FML/Src/SX1278.c **** 			SX1278_config(module);
- 1246              		.loc 1 271 4 is_stmt 1 view .LVU297
- 1247 004c 2868     		ldr	r0, [r5]
- 1248 004e FFF7FEFF 		bl	SX1278_hw_Reset
- 1249              	.LVL139:
- 272:FML/Src/SX1278.c **** 			return 0;
- 1250              		.loc 1 272 4 view .LVU298
- 1251 0052 2846     		mov	r0, r5
- 1252 0054 FFF7FEFF 		bl	SX1278_config
- 1253              	.LVL140:
- 273:FML/Src/SX1278.c **** 		}
- 1254              		.loc 1 273 4 view .LVU299
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 30
+ 1239              		.loc 1 263 6 view .LVU294
+ 1240 004a 0646     		mov	r6, r0
+ 1241 004c 0028     		cmp	r0, #0
+ 1242 004e E9D1     		bne	.L63
+ 270:FML/Src/SX1278.c **** 			// SX1278_hw_Reset(module->hw);
+ 1243              		.loc 1 270 3 is_stmt 1 view .LVU295
+ 1244              	.LVL138:
+ 270:FML/Src/SX1278.c **** 			// SX1278_hw_Reset(module->hw);
+ 1245              		.loc 1 270 6 is_stmt 0 view .LVU296
+ 1246 0050 013C     		subs	r4, r4, #1
+ 1247              	.LVL139:
+ 270:FML/Src/SX1278.c **** 			// SX1278_hw_Reset(module->hw);
+ 1248              		.loc 1 270 6 view .LVU297
+ 1249 0052 F4D1     		bne	.L60
+ 273:FML/Src/SX1278.c **** 			SX1278_clearLoRaIrq(module); //Clear irq
+ 1250              		.loc 1 273 4 is_stmt 1 view .LVU298
+ 1251 0054 1221     		movs	r1, #18
+ 1252 0056 2846     		mov	r0, r5
+ 1253 0058 FFF7FEFF 		bl	SX1278_SPIRead
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 30
 
 
- 273:FML/Src/SX1278.c **** 		}
- 1255              		.loc 1 273 11 is_stmt 0 view .LVU300
- 1256 0058 EBE7     		b	.L57
- 1257              		.cfi_endproc
- 1258              	.LFE300:
- 1260              		.section	.text.SX1278_init,"ax",%progbits
- 1261              		.align	1
- 1262              		.global	SX1278_init
- 1263              		.syntax unified
- 1264              		.thumb
- 1265              		.thumb_func
- 1267              	SX1278_init:
- 1268              	.LVL141:
- 1269              	.LFB301:
- 278:FML/Src/SX1278.c **** 
- 279:FML/Src/SX1278.c **** void SX1278_init(SX1278_t *module, uint64_t frequency, uint8_t power,
- 280:FML/Src/SX1278.c **** 		uint8_t LoRa_SF, uint8_t LoRa_BW, uint8_t LoRa_CR,
- 281:FML/Src/SX1278.c **** 		uint8_t LoRa_CRC_sum, uint8_t packetLength) {
- 1270              		.loc 1 281 47 is_stmt 1 view -0
- 1271              		.cfi_startproc
- 1272              		@ args = 24, pretend = 0, frame = 0
- 1273              		@ frame_needed = 0, uses_anonymous_args = 0
- 1274              		.loc 1 281 47 is_stmt 0 view .LVU302
- 1275 0000 70B5     		push	{r4, r5, r6, lr}
- 1276              	.LCFI18:
- 1277              		.cfi_def_cfa_offset 16
- 1278              		.cfi_offset 4, -16
- 1279              		.cfi_offset 5, -12
- 1280              		.cfi_offset 6, -8
- 1281              		.cfi_offset 14, -4
- 1282 0002 0446     		mov	r4, r0
- 1283 0004 1646     		mov	r6, r2
- 1284 0006 1D46     		mov	r5, r3
- 282:FML/Src/SX1278.c **** 	SX1278_hw_init(module->hw);
- 1285              		.loc 1 282 2 is_stmt 1 view .LVU303
- 1286 0008 0068     		ldr	r0, [r0]
- 1287              	.LVL142:
- 1288              		.loc 1 282 2 is_stmt 0 view .LVU304
- 1289 000a FFF7FEFF 		bl	SX1278_hw_init
- 1290              	.LVL143:
- 283:FML/Src/SX1278.c **** 	module->frequency = frequency;
- 1291              		.loc 1 283 2 is_stmt 1 view .LVU305
- 1292              		.loc 1 283 20 is_stmt 0 view .LVU306
- 1293 000e A660     		str	r6, [r4, #8]
- 1294 0010 E560     		str	r5, [r4, #12]
- 284:FML/Src/SX1278.c **** 	module->power = power;
- 1295              		.loc 1 284 2 is_stmt 1 view .LVU307
- 1296              		.loc 1 284 16 is_stmt 0 view .LVU308
- 1297 0012 9DF81030 		ldrb	r3, [sp, #16]	@ zero_extendqisi2
- 1298 0016 2374     		strb	r3, [r4, #16]
- 285:FML/Src/SX1278.c **** 	module->LoRa_SF = LoRa_SF;
- 1299              		.loc 1 285 2 is_stmt 1 view .LVU309
- 1300              		.loc 1 285 18 is_stmt 0 view .LVU310
- 1301 0018 9DF81430 		ldrb	r3, [sp, #20]	@ zero_extendqisi2
- 1302 001c 6374     		strb	r3, [r4, #17]
- 286:FML/Src/SX1278.c **** 	module->LoRa_BW = LoRa_BW;
- 1303              		.loc 1 286 2 is_stmt 1 view .LVU311
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 31
+ 1254              	.LVL140:
+ 274:FML/Src/SX1278.c **** 			SX1278_standby(module); //Entry Standby mode
+ 1255              		.loc 1 274 4 view .LVU299
+ 1256 005c 2846     		mov	r0, r5
+ 1257 005e FFF7FEFF 		bl	SX1278_clearLoRaIrq
+ 1258              	.LVL141:
+ 275:FML/Src/SX1278.c **** 			return 0;
+ 1259              		.loc 1 275 4 view .LVU300
+ 1260 0062 2846     		mov	r0, r5
+ 1261 0064 FFF7FEFF 		bl	SX1278_standby
+ 1262              	.LVL142:
+ 276:FML/Src/SX1278.c **** 		}
+ 1263              		.loc 1 276 4 view .LVU301
+ 276:FML/Src/SX1278.c **** 		}
+ 1264              		.loc 1 276 11 is_stmt 0 view .LVU302
+ 1265 0068 E7E7     		b	.L57
+ 1266              		.cfi_endproc
+ 1267              	.LFE300:
+ 1269              		.section	.text.SX1278_init,"ax",%progbits
+ 1270              		.align	1
+ 1271              		.global	SX1278_init
+ 1272              		.syntax unified
+ 1273              		.thumb
+ 1274              		.thumb_func
+ 1276              	SX1278_init:
+ 1277              	.LVL143:
+ 1278              	.LFB301:
+ 281:FML/Src/SX1278.c **** 
+ 282:FML/Src/SX1278.c **** void SX1278_init(SX1278_t *module, uint64_t frequency, uint8_t power,
+ 283:FML/Src/SX1278.c **** 		uint8_t LoRa_SF, uint8_t LoRa_BW, uint8_t LoRa_CR,
+ 284:FML/Src/SX1278.c **** 		uint8_t LoRa_CRC_sum, uint8_t packetLength) {
+ 1279              		.loc 1 284 47 is_stmt 1 view -0
+ 1280              		.cfi_startproc
+ 1281              		@ args = 24, pretend = 0, frame = 0
+ 1282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1283              		.loc 1 284 47 is_stmt 0 view .LVU304
+ 1284 0000 70B5     		push	{r4, r5, r6, lr}
+ 1285              	.LCFI18:
+ 1286              		.cfi_def_cfa_offset 16
+ 1287              		.cfi_offset 4, -16
+ 1288              		.cfi_offset 5, -12
+ 1289              		.cfi_offset 6, -8
+ 1290              		.cfi_offset 14, -4
+ 1291 0002 0446     		mov	r4, r0
+ 1292 0004 1646     		mov	r6, r2
+ 1293 0006 1D46     		mov	r5, r3
+ 285:FML/Src/SX1278.c **** 	SX1278_hw_init(module->hw);
+ 1294              		.loc 1 285 2 is_stmt 1 view .LVU305
+ 1295 0008 0068     		ldr	r0, [r0]
+ 1296              	.LVL144:
+ 1297              		.loc 1 285 2 is_stmt 0 view .LVU306
+ 1298 000a FFF7FEFF 		bl	SX1278_hw_init
+ 1299              	.LVL145:
+ 286:FML/Src/SX1278.c **** 	module->frequency = frequency;
+ 1300              		.loc 1 286 2 is_stmt 1 view .LVU307
+ 1301              		.loc 1 286 20 is_stmt 0 view .LVU308
+ 1302 000e A660     		str	r6, [r4, #8]
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 31
 
 
- 1304              		.loc 1 286 18 is_stmt 0 view .LVU312
- 1305 001e 9DF81830 		ldrb	r3, [sp, #24]	@ zero_extendqisi2
- 1306 0022 A374     		strb	r3, [r4, #18]
- 287:FML/Src/SX1278.c **** 	module->LoRa_CR = LoRa_CR;
- 1307              		.loc 1 287 2 is_stmt 1 view .LVU313
- 1308              		.loc 1 287 18 is_stmt 0 view .LVU314
- 1309 0024 9DF81C30 		ldrb	r3, [sp, #28]	@ zero_extendqisi2
- 1310 0028 E374     		strb	r3, [r4, #19]
- 288:FML/Src/SX1278.c **** 	module->LoRa_CRC_sum = LoRa_CRC_sum;
- 1311              		.loc 1 288 2 is_stmt 1 view .LVU315
- 1312              		.loc 1 288 23 is_stmt 0 view .LVU316
- 1313 002a 9DF82030 		ldrb	r3, [sp, #32]	@ zero_extendqisi2
- 1314 002e 2375     		strb	r3, [r4, #20]
- 289:FML/Src/SX1278.c **** 	module->packetLength = packetLength;
- 1315              		.loc 1 289 2 is_stmt 1 view .LVU317
- 1316              		.loc 1 289 23 is_stmt 0 view .LVU318
- 1317 0030 9DF82430 		ldrb	r3, [sp, #36]	@ zero_extendqisi2
- 1318 0034 6375     		strb	r3, [r4, #21]
- 290:FML/Src/SX1278.c **** 	SX1278_config(module);
- 1319              		.loc 1 290 2 is_stmt 1 view .LVU319
- 1320 0036 2046     		mov	r0, r4
- 1321 0038 FFF7FEFF 		bl	SX1278_config
- 1322              	.LVL144:
- 291:FML/Src/SX1278.c **** }
- 1323              		.loc 1 291 1 is_stmt 0 view .LVU320
- 1324 003c 70BD     		pop	{r4, r5, r6, pc}
- 1325              		.loc 1 291 1 view .LVU321
- 1326              		.cfi_endproc
- 1327              	.LFE301:
- 1329              		.section	.text.SX1278_transmit,"ax",%progbits
- 1330              		.align	1
- 1331              		.global	SX1278_transmit
- 1332              		.syntax unified
- 1333              		.thumb
- 1334              		.thumb_func
- 1336              	SX1278_transmit:
- 1337              	.LVL145:
- 1338              	.LFB302:
- 292:FML/Src/SX1278.c **** 
- 293:FML/Src/SX1278.c **** int SX1278_transmit(SX1278_t *module, uint8_t *txBuf, uint8_t length,
- 294:FML/Src/SX1278.c **** 		uint32_t timeout) {
- 1339              		.loc 1 294 21 is_stmt 1 view -0
- 1340              		.cfi_startproc
- 1341              		@ args = 0, pretend = 0, frame = 0
- 1342              		@ frame_needed = 0, uses_anonymous_args = 0
- 1343              		.loc 1 294 21 is_stmt 0 view .LVU323
- 1344 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 1345              	.LCFI19:
- 1346              		.cfi_def_cfa_offset 24
- 1347              		.cfi_offset 3, -24
- 1348              		.cfi_offset 4, -20
- 1349              		.cfi_offset 5, -16
- 1350              		.cfi_offset 6, -12
- 1351              		.cfi_offset 7, -8
- 1352              		.cfi_offset 14, -4
- 1353 0002 0646     		mov	r6, r0
- 1354 0004 0F46     		mov	r7, r1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 32
+ 1303 0010 E560     		str	r5, [r4, #12]
+ 287:FML/Src/SX1278.c **** 	module->power = power;
+ 1304              		.loc 1 287 2 is_stmt 1 view .LVU309
+ 1305              		.loc 1 287 16 is_stmt 0 view .LVU310
+ 1306 0012 9DF81030 		ldrb	r3, [sp, #16]	@ zero_extendqisi2
+ 1307 0016 2374     		strb	r3, [r4, #16]
+ 288:FML/Src/SX1278.c **** 	module->LoRa_SF = LoRa_SF;
+ 1308              		.loc 1 288 2 is_stmt 1 view .LVU311
+ 1309              		.loc 1 288 18 is_stmt 0 view .LVU312
+ 1310 0018 9DF81430 		ldrb	r3, [sp, #20]	@ zero_extendqisi2
+ 1311 001c 6374     		strb	r3, [r4, #17]
+ 289:FML/Src/SX1278.c **** 	module->LoRa_BW = LoRa_BW;
+ 1312              		.loc 1 289 2 is_stmt 1 view .LVU313
+ 1313              		.loc 1 289 18 is_stmt 0 view .LVU314
+ 1314 001e 9DF81830 		ldrb	r3, [sp, #24]	@ zero_extendqisi2
+ 1315 0022 A374     		strb	r3, [r4, #18]
+ 290:FML/Src/SX1278.c **** 	module->LoRa_CR = LoRa_CR;
+ 1316              		.loc 1 290 2 is_stmt 1 view .LVU315
+ 1317              		.loc 1 290 18 is_stmt 0 view .LVU316
+ 1318 0024 9DF81C30 		ldrb	r3, [sp, #28]	@ zero_extendqisi2
+ 1319 0028 E374     		strb	r3, [r4, #19]
+ 291:FML/Src/SX1278.c **** 	module->LoRa_CRC_sum = LoRa_CRC_sum;
+ 1320              		.loc 1 291 2 is_stmt 1 view .LVU317
+ 1321              		.loc 1 291 23 is_stmt 0 view .LVU318
+ 1322 002a 9DF82030 		ldrb	r3, [sp, #32]	@ zero_extendqisi2
+ 1323 002e 2375     		strb	r3, [r4, #20]
+ 292:FML/Src/SX1278.c **** 	module->packetLength = packetLength;
+ 1324              		.loc 1 292 2 is_stmt 1 view .LVU319
+ 1325              		.loc 1 292 23 is_stmt 0 view .LVU320
+ 1326 0030 9DF82430 		ldrb	r3, [sp, #36]	@ zero_extendqisi2
+ 1327 0034 6375     		strb	r3, [r4, #21]
+ 293:FML/Src/SX1278.c **** 	SX1278_config(module);
+ 1328              		.loc 1 293 2 is_stmt 1 view .LVU321
+ 1329 0036 2046     		mov	r0, r4
+ 1330 0038 FFF7FEFF 		bl	SX1278_config
+ 1331              	.LVL146:
+ 294:FML/Src/SX1278.c **** }
+ 1332              		.loc 1 294 1 is_stmt 0 view .LVU322
+ 1333 003c 70BD     		pop	{r4, r5, r6, pc}
+ 1334              		.loc 1 294 1 view .LVU323
+ 1335              		.cfi_endproc
+ 1336              	.LFE301:
+ 1338              		.section	.text.SX1278_transmit,"ax",%progbits
+ 1339              		.align	1
+ 1340              		.global	SX1278_transmit
+ 1341              		.syntax unified
+ 1342              		.thumb
+ 1343              		.thumb_func
+ 1345              	SX1278_transmit:
+ 1346              	.LVL147:
+ 1347              	.LFB302:
+ 295:FML/Src/SX1278.c **** 
+ 296:FML/Src/SX1278.c **** int SX1278_transmit(SX1278_t *module, uint8_t *txBuf, uint8_t length,
+ 297:FML/Src/SX1278.c **** 		uint32_t timeout) {
+ 1348              		.loc 1 297 21 is_stmt 1 view -0
+ 1349              		.cfi_startproc
+ 1350              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 32
 
 
- 1355 0006 1446     		mov	r4, r2
- 1356 0008 1D46     		mov	r5, r3
- 295:FML/Src/SX1278.c **** 	if (SX1278_LoRaEntryTx(module, length, timeout)) {
- 1357              		.loc 1 295 2 is_stmt 1 view .LVU324
- 1358              		.loc 1 295 6 is_stmt 0 view .LVU325
- 1359 000a 1A46     		mov	r2, r3
- 1360              	.LVL146:
- 1361              		.loc 1 295 6 view .LVU326
- 1362 000c 2146     		mov	r1, r4
- 1363              	.LVL147:
- 1364              		.loc 1 295 6 view .LVU327
- 1365 000e FFF7FEFF 		bl	SX1278_LoRaEntryTx
- 1366              	.LVL148:
- 1367              		.loc 1 295 5 view .LVU328
- 1368 0012 00B9     		cbnz	r0, .L69
- 1369              	.L66:
- 296:FML/Src/SX1278.c **** 		return SX1278_LoRaTxPacket(module, txBuf, length, timeout);
- 297:FML/Src/SX1278.c **** 	}
- 298:FML/Src/SX1278.c **** 	return 0;
- 299:FML/Src/SX1278.c **** }
- 1370              		.loc 1 299 1 view .LVU329
- 1371 0014 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1352              		.loc 1 297 21 is_stmt 0 view .LVU325
+ 1353 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1354              	.LCFI19:
+ 1355              		.cfi_def_cfa_offset 24
+ 1356              		.cfi_offset 3, -24
+ 1357              		.cfi_offset 4, -20
+ 1358              		.cfi_offset 5, -16
+ 1359              		.cfi_offset 6, -12
+ 1360              		.cfi_offset 7, -8
+ 1361              		.cfi_offset 14, -4
+ 1362 0002 0646     		mov	r6, r0
+ 1363 0004 0F46     		mov	r7, r1
+ 1364 0006 1446     		mov	r4, r2
+ 1365 0008 1D46     		mov	r5, r3
+ 298:FML/Src/SX1278.c **** 	if (SX1278_LoRaEntryTx(module, length, timeout)) {
+ 1366              		.loc 1 298 2 is_stmt 1 view .LVU326
+ 1367              		.loc 1 298 6 is_stmt 0 view .LVU327
+ 1368 000a 1A46     		mov	r2, r3
+ 1369              	.LVL148:
+ 1370              		.loc 1 298 6 view .LVU328
+ 1371 000c 2146     		mov	r1, r4
  1372              	.LVL149:
- 1373              	.L69:
- 296:FML/Src/SX1278.c **** 		return SX1278_LoRaTxPacket(module, txBuf, length, timeout);
- 1374              		.loc 1 296 3 is_stmt 1 view .LVU330
- 296:FML/Src/SX1278.c **** 		return SX1278_LoRaTxPacket(module, txBuf, length, timeout);
- 1375              		.loc 1 296 10 is_stmt 0 view .LVU331
- 1376 0016 2B46     		mov	r3, r5
- 1377 0018 2246     		mov	r2, r4
- 1378 001a 3946     		mov	r1, r7
- 1379 001c 3046     		mov	r0, r6
- 1380 001e FFF7FEFF 		bl	SX1278_LoRaTxPacket
- 1381              	.LVL150:
- 1382 0022 F7E7     		b	.L66
- 1383              		.cfi_endproc
- 1384              	.LFE302:
- 1386              		.section	.text.SX1278_receive,"ax",%progbits
- 1387              		.align	1
- 1388              		.global	SX1278_receive
- 1389              		.syntax unified
- 1390              		.thumb
- 1391              		.thumb_func
- 1393              	SX1278_receive:
- 1394              	.LVL151:
- 1395              	.LFB303:
- 300:FML/Src/SX1278.c **** 
- 301:FML/Src/SX1278.c **** int SX1278_receive(SX1278_t *module, uint8_t length, uint32_t timeout) {
- 1396              		.loc 1 301 72 is_stmt 1 view -0
- 1397              		.cfi_startproc
- 1398              		@ args = 0, pretend = 0, frame = 0
- 1399              		@ frame_needed = 0, uses_anonymous_args = 0
- 1400              		.loc 1 301 72 is_stmt 0 view .LVU333
- 1401 0000 08B5     		push	{r3, lr}
- 1402              	.LCFI20:
- 1403              		.cfi_def_cfa_offset 8
- 1404              		.cfi_offset 3, -8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 33
+ 1373              		.loc 1 298 6 view .LVU329
+ 1374 000e FFF7FEFF 		bl	SX1278_LoRaEntryTx
+ 1375              	.LVL150:
+ 1376              		.loc 1 298 5 view .LVU330
+ 1377 0012 00B9     		cbnz	r0, .L69
+ 1378              	.L66:
+ 299:FML/Src/SX1278.c **** 		return SX1278_LoRaTxPacket(module, txBuf, length, timeout);
+ 300:FML/Src/SX1278.c **** 	}
+ 301:FML/Src/SX1278.c **** 	return 0;
+ 302:FML/Src/SX1278.c **** }
+ 1379              		.loc 1 302 1 view .LVU331
+ 1380 0014 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1381              	.LVL151:
+ 1382              	.L69:
+ 299:FML/Src/SX1278.c **** 		return SX1278_LoRaTxPacket(module, txBuf, length, timeout);
+ 1383              		.loc 1 299 3 is_stmt 1 view .LVU332
+ 299:FML/Src/SX1278.c **** 		return SX1278_LoRaTxPacket(module, txBuf, length, timeout);
+ 1384              		.loc 1 299 10 is_stmt 0 view .LVU333
+ 1385 0016 2B46     		mov	r3, r5
+ 1386 0018 2246     		mov	r2, r4
+ 1387 001a 3946     		mov	r1, r7
+ 1388 001c 3046     		mov	r0, r6
+ 1389 001e FFF7FEFF 		bl	SX1278_LoRaTxPacket
+ 1390              	.LVL152:
+ 1391 0022 F7E7     		b	.L66
+ 1392              		.cfi_endproc
+ 1393              	.LFE302:
+ 1395              		.section	.text.SX1278_receive,"ax",%progbits
+ 1396              		.align	1
+ 1397              		.global	SX1278_receive
+ 1398              		.syntax unified
+ 1399              		.thumb
+ 1400              		.thumb_func
+ 1402              	SX1278_receive:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 33
 
 
- 1405              		.cfi_offset 14, -4
- 302:FML/Src/SX1278.c **** 	return SX1278_LoRaEntryRx(module, length, timeout);
- 1406              		.loc 1 302 2 is_stmt 1 view .LVU334
- 1407              		.loc 1 302 9 is_stmt 0 view .LVU335
- 1408 0002 FFF7FEFF 		bl	SX1278_LoRaEntryRx
- 1409              	.LVL152:
- 303:FML/Src/SX1278.c **** }
- 1410              		.loc 1 303 1 view .LVU336
- 1411 0006 08BD     		pop	{r3, pc}
- 1412              		.cfi_endproc
- 1413              	.LFE303:
- 1415              		.section	.rodata.LORA_Send.str1.4,"aMS",%progbits,1
- 1416              		.align	2
- 1417              	.LC1:
- 1418 0000 6C6F7261 		.ascii	"lora %d transmit success\015\012\000"
- 1418      20256420 
- 1418      7472616E 
- 1418      736D6974 
- 1418      20737563 
- 1419              		.section	.text.LORA_Send,"ax",%progbits
- 1420              		.align	1
- 1421              		.global	LORA_Send
- 1422              		.syntax unified
- 1423              		.thumb
- 1424              		.thumb_func
- 1426              	LORA_Send:
- 1427              	.LVL153:
- 1428              	.LFB308:
- 304:FML/Src/SX1278.c **** 
- 305:FML/Src/SX1278.c **** uint8_t SX1278_available(SX1278_t *module) {
- 306:FML/Src/SX1278.c **** 	return SX1278_LoRaRxPacket(module);
- 307:FML/Src/SX1278.c **** }
- 308:FML/Src/SX1278.c **** 
- 309:FML/Src/SX1278.c **** uint8_t SX1278_read(SX1278_t *module, uint8_t *rxBuf, uint8_t length) {
- 310:FML/Src/SX1278.c **** 	if (length != module->readBytes)
- 311:FML/Src/SX1278.c **** 		length = module->readBytes;
- 312:FML/Src/SX1278.c **** 	memcpy(rxBuf, module->rxBuffer, length);
- 313:FML/Src/SX1278.c **** 	rxBuf[length] = '\0';
- 314:FML/Src/SX1278.c **** 	module->readBytes = 0;
- 315:FML/Src/SX1278.c **** 	return length;
- 316:FML/Src/SX1278.c **** }
- 317:FML/Src/SX1278.c **** 
- 318:FML/Src/SX1278.c **** uint8_t SX1278_RSSI_LoRa(SX1278_t *module) {
- 319:FML/Src/SX1278.c **** 	uint32_t temp = 10;
- 320:FML/Src/SX1278.c **** 	temp = SX1278_SPIRead(module, LR_RegRssiValue); //Read RegRssiValue, Rssi value
- 321:FML/Src/SX1278.c **** 	temp = temp + 127 - 137; //127:Max RSSI, 137:RSSI offset
- 322:FML/Src/SX1278.c **** 	return (uint8_t) temp;
- 323:FML/Src/SX1278.c **** }
- 324:FML/Src/SX1278.c **** 
- 325:FML/Src/SX1278.c **** uint8_t SX1278_RSSI(SX1278_t *module) {
- 326:FML/Src/SX1278.c **** 	uint8_t temp = 0xff;
- 327:FML/Src/SX1278.c **** 	temp = SX1278_SPIRead(module, RegRssiValue);
- 328:FML/Src/SX1278.c **** 	temp = 127 - (temp >> 1);	//127:Max RSSI
- 329:FML/Src/SX1278.c **** 	return temp;
- 330:FML/Src/SX1278.c **** }
- 331:FML/Src/SX1278.c **** 
- 332:FML/Src/SX1278.c **** /**
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 34
-
-
- 333:FML/Src/SX1278.c ****  * @brief 
- 334:FML/Src/SX1278.c ****  * 
- 335:FML/Src/SX1278.c ****  * @param fd 
- 336:FML/Src/SX1278.c ****  * @param tx_buff 
- 337:FML/Src/SX1278.c ****  * @param expect_reply 
- 338:FML/Src/SX1278.c ****  * @param timeout 
- 339:FML/Src/SX1278.c ****  */
- 340:FML/Src/SX1278.c **** void LORA_Send(char fd,char *tx_buff,uint32_t timeout)
- 341:FML/Src/SX1278.c **** {
- 1429              		.loc 1 341 1 is_stmt 1 view -0
- 1430              		.cfi_startproc
- 1431              		@ args = 0, pretend = 0, frame = 0
- 1432              		@ frame_needed = 0, uses_anonymous_args = 0
- 1433              		.loc 1 341 1 is_stmt 0 view .LVU338
- 1434 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 1435              	.LCFI21:
- 1436              		.cfi_def_cfa_offset 24
- 1437              		.cfi_offset 4, -24
- 1438              		.cfi_offset 5, -20
- 1439              		.cfi_offset 6, -16
- 1440              		.cfi_offset 7, -12
- 1441              		.cfi_offset 8, -8
- 1442              		.cfi_offset 14, -4
- 1443 0004 0746     		mov	r7, r0
- 1444 0006 0D46     		mov	r5, r1
- 1445 0008 9046     		mov	r8, r2
- 342:FML/Src/SX1278.c ****     uint8_t *tx_data,len=0;
- 1446              		.loc 1 342 5 is_stmt 1 view .LVU339
- 1447              	.LVL154:
- 343:FML/Src/SX1278.c ****     len = strlen(tx_buff);
- 1448              		.loc 1 343 5 view .LVU340
- 1449              		.loc 1 343 11 is_stmt 0 view .LVU341
- 1450 000a 0846     		mov	r0, r1
- 1451              	.LVL155:
- 1452              		.loc 1 343 11 view .LVU342
- 1453 000c FFF7FEFF 		bl	strlen
- 1454              	.LVL156:
- 1455              		.loc 1 343 9 view .LVU343
- 1456 0010 C4B2     		uxtb	r4, r0
- 1457              	.LVL157:
- 344:FML/Src/SX1278.c **** 
- 345:FML/Src/SX1278.c ****     tx_data = (char *)malloc((len)*sizeof(uint8_t));
- 1458              		.loc 1 345 5 is_stmt 1 view .LVU344
- 1459              		.loc 1 345 23 is_stmt 0 view .LVU345
- 1460 0012 2046     		mov	r0, r4
- 1461 0014 FFF7FEFF 		bl	malloc
- 1462              	.LVL158:
- 1463 0018 0646     		mov	r6, r0
- 1464              	.LVL159:
- 346:FML/Src/SX1278.c ****     memcpy(tx_data,tx_buff,len);
- 1465              		.loc 1 346 5 is_stmt 1 view .LVU346
- 1466 001a 2246     		mov	r2, r4
- 1467 001c 2946     		mov	r1, r5
- 1468 001e FFF7FEFF 		bl	memcpy
- 1469              	.LVL160:
- 347:FML/Src/SX1278.c **** 
- 348:FML/Src/SX1278.c ****     if(SX1278_transmit(&Lora_dev[fd],tx_data,len,timeout))
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 35
-
-
- 1470              		.loc 1 348 5 view .LVU347
- 1471              		.loc 1 348 8 is_stmt 0 view .LVU348
- 1472 0022 0E4D     		ldr	r5, .L76
- 1473              	.LVL161:
- 1474              		.loc 1 348 8 view .LVU349
- 1475 0024 4FF48C73 		mov	r3, #280
- 1476 0028 03FB0755 		mla	r5, r3, r7, r5
- 1477 002c 4346     		mov	r3, r8
- 1478 002e 2246     		mov	r2, r4
- 1479 0030 3146     		mov	r1, r6
- 1480 0032 2846     		mov	r0, r5
- 1481 0034 FFF7FEFF 		bl	SX1278_transmit
- 1482              	.LVL162:
- 1483              		.loc 1 348 7 view .LVU350
- 1484 0038 48B9     		cbnz	r0, .L75
- 1485              	.L73:
- 349:FML/Src/SX1278.c **** 		shellPrint(&shell,"lora %d transmit success\r\n",fd);
- 350:FML/Src/SX1278.c ****     free(tx_data);
- 1486              		.loc 1 350 5 is_stmt 1 view .LVU351
- 1487 003a 3046     		mov	r0, r6
- 1488 003c FFF7FEFF 		bl	free
- 1489              	.LVL163:
- 351:FML/Src/SX1278.c ****     tx_data = NULL;
- 1490              		.loc 1 351 5 view .LVU352
- 352:FML/Src/SX1278.c ****     SX1278_receive(&Lora_dev[fd],100,100);
- 1491              		.loc 1 352 5 view .LVU353
- 1492 0040 6422     		movs	r2, #100
- 1493 0042 1146     		mov	r1, r2
- 1494 0044 2846     		mov	r0, r5
- 1495 0046 FFF7FEFF 		bl	SX1278_receive
- 1496              	.LVL164:
- 353:FML/Src/SX1278.c **** }
- 1497              		.loc 1 353 1 is_stmt 0 view .LVU354
- 1498 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 1499              	.LVL165:
- 1500              	.L75:
- 349:FML/Src/SX1278.c ****     free(tx_data);
- 1501              		.loc 1 349 3 is_stmt 1 view .LVU355
- 1502 004e 3A46     		mov	r2, r7
- 1503 0050 0349     		ldr	r1, .L76+4
- 1504 0052 0448     		ldr	r0, .L76+8
- 1505 0054 FFF7FEFF 		bl	shellPrint
- 1506              	.LVL166:
- 1507 0058 EFE7     		b	.L73
- 1508              	.L77:
- 1509 005a 00BF     		.align	2
- 1510              	.L76:
- 1511 005c 00000000 		.word	.LANCHOR5
- 1512 0060 00000000 		.word	.LC1
- 1513 0064 00000000 		.word	shell
- 1514              		.cfi_endproc
- 1515              	.LFE308:
- 1517              		.section	.text.SX1278_available,"ax",%progbits
- 1518              		.align	1
- 1519              		.global	SX1278_available
- 1520              		.syntax unified
- 1521              		.thumb
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 36
-
-
- 1522              		.thumb_func
- 1524              	SX1278_available:
- 1525              	.LVL167:
- 1526              	.LFB304:
- 305:FML/Src/SX1278.c **** 	return SX1278_LoRaRxPacket(module);
- 1527              		.loc 1 305 44 view -0
- 1528              		.cfi_startproc
- 1529              		@ args = 0, pretend = 0, frame = 0
- 1530              		@ frame_needed = 0, uses_anonymous_args = 0
- 305:FML/Src/SX1278.c **** 	return SX1278_LoRaRxPacket(module);
- 1531              		.loc 1 305 44 is_stmt 0 view .LVU357
- 1532 0000 08B5     		push	{r3, lr}
- 1533              	.LCFI22:
- 1534              		.cfi_def_cfa_offset 8
- 1535              		.cfi_offset 3, -8
- 1536              		.cfi_offset 14, -4
+ 1403              	.LVL153:
+ 1404              	.LFB303:
+ 303:FML/Src/SX1278.c **** 
+ 304:FML/Src/SX1278.c **** int SX1278_receive(SX1278_t *module, uint8_t length, uint32_t timeout) {
+ 1405              		.loc 1 304 72 is_stmt 1 view -0
+ 1406              		.cfi_startproc
+ 1407              		@ args = 0, pretend = 0, frame = 0
+ 1408              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1409              		.loc 1 304 72 is_stmt 0 view .LVU335
+ 1410 0000 08B5     		push	{r3, lr}
+ 1411              	.LCFI20:
+ 1412              		.cfi_def_cfa_offset 8
+ 1413              		.cfi_offset 3, -8
+ 1414              		.cfi_offset 14, -4
+ 305:FML/Src/SX1278.c **** 	return SX1278_LoRaEntryRx(module, length, timeout);
+ 1415              		.loc 1 305 2 is_stmt 1 view .LVU336
+ 1416              		.loc 1 305 9 is_stmt 0 view .LVU337
+ 1417 0002 FFF7FEFF 		bl	SX1278_LoRaEntryRx
+ 1418              	.LVL154:
  306:FML/Src/SX1278.c **** }
- 1537              		.loc 1 306 2 is_stmt 1 view .LVU358
- 306:FML/Src/SX1278.c **** }
- 1538              		.loc 1 306 9 is_stmt 0 view .LVU359
- 1539 0002 FFF7FEFF 		bl	SX1278_LoRaRxPacket
- 1540              	.LVL168:
+ 1419              		.loc 1 306 1 view .LVU338
+ 1420 0006 08BD     		pop	{r3, pc}
+ 1421              		.cfi_endproc
+ 1422              	.LFE303:
+ 1424              		.section	.rodata.LORA_Send.str1.4,"aMS",%progbits,1
+ 1425              		.align	2
+ 1426              	.LC1:
+ 1427 0000 6C6F7261 		.ascii	"lora %d transmit success\015\012\000"
+ 1427      20256420 
+ 1427      7472616E 
+ 1427      736D6974 
+ 1427      20737563 
+ 1428              		.section	.text.LORA_Send,"ax",%progbits
+ 1429              		.align	1
+ 1430              		.global	LORA_Send
+ 1431              		.syntax unified
+ 1432              		.thumb
+ 1433              		.thumb_func
+ 1435              	LORA_Send:
+ 1436              	.LVL155:
+ 1437              	.LFB308:
  307:FML/Src/SX1278.c **** 
- 1541              		.loc 1 307 1 view .LVU360
- 1542 0006 08BD     		pop	{r3, pc}
- 1543              		.cfi_endproc
- 1544              	.LFE304:
- 1546              		.section	.text.SX1278_read,"ax",%progbits
- 1547              		.align	1
- 1548              		.global	SX1278_read
- 1549              		.syntax unified
- 1550              		.thumb
- 1551              		.thumb_func
- 1553              	SX1278_read:
- 1554              	.LVL169:
- 1555              	.LFB305:
- 309:FML/Src/SX1278.c **** 	if (length != module->readBytes)
- 1556              		.loc 1 309 71 is_stmt 1 view -0
- 1557              		.cfi_startproc
- 1558              		@ args = 0, pretend = 0, frame = 0
- 1559              		@ frame_needed = 0, uses_anonymous_args = 0
- 309:FML/Src/SX1278.c **** 	if (length != module->readBytes)
- 1560              		.loc 1 309 71 is_stmt 0 view .LVU362
- 1561 0000 70B5     		push	{r4, r5, r6, lr}
- 1562              	.LCFI23:
- 1563              		.cfi_def_cfa_offset 16
- 1564              		.cfi_offset 4, -16
- 1565              		.cfi_offset 5, -12
- 1566              		.cfi_offset 6, -8
- 1567              		.cfi_offset 14, -4
- 1568 0002 0446     		mov	r4, r0
- 1569 0004 0E46     		mov	r6, r1
- 310:FML/Src/SX1278.c **** 		length = module->readBytes;
- 1570              		.loc 1 310 2 is_stmt 1 view .LVU363
- 310:FML/Src/SX1278.c **** 		length = module->readBytes;
- 1571              		.loc 1 310 22 is_stmt 0 view .LVU364
- 1572 0006 90F81751 		ldrb	r5, [r0, #279]	@ zero_extendqisi2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 37
+ 308:FML/Src/SX1278.c **** uint8_t SX1278_available(SX1278_t *module) {
+ 309:FML/Src/SX1278.c **** 	return SX1278_LoRaRxPacket(module);
+ 310:FML/Src/SX1278.c **** }
+ 311:FML/Src/SX1278.c **** 
+ 312:FML/Src/SX1278.c **** uint8_t SX1278_read(SX1278_t *module, uint8_t *rxBuf, uint8_t length) {
+ 313:FML/Src/SX1278.c **** 	if (length != module->readBytes)
+ 314:FML/Src/SX1278.c **** 		length = module->readBytes;
+ 315:FML/Src/SX1278.c **** 	memcpy(rxBuf, module->rxBuffer, length);
+ 316:FML/Src/SX1278.c **** 	rxBuf[length] = '\0';
+ 317:FML/Src/SX1278.c **** 	module->readBytes = 0;
+ 318:FML/Src/SX1278.c **** 	return length;
+ 319:FML/Src/SX1278.c **** }
+ 320:FML/Src/SX1278.c **** 
+ 321:FML/Src/SX1278.c **** uint8_t SX1278_RSSI_LoRa(SX1278_t *module) {
+ 322:FML/Src/SX1278.c **** 	uint32_t temp = 10;
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 34
 
 
- 310:FML/Src/SX1278.c **** 		length = module->readBytes;
- 1573              		.loc 1 310 5 view .LVU365
- 1574 000a 9542     		cmp	r5, r2
- 1575 000c 0BD0     		beq	.L83
- 1576              	.L81:
- 1577              	.LVL170:
- 312:FML/Src/SX1278.c **** 	rxBuf[length] = '\0';
- 1578              		.loc 1 312 2 is_stmt 1 view .LVU366
- 1579 000e 2A46     		mov	r2, r5
- 1580 0010 04F11701 		add	r1, r4, #23
- 1581              	.LVL171:
- 312:FML/Src/SX1278.c **** 	rxBuf[length] = '\0';
- 1582              		.loc 1 312 2 is_stmt 0 view .LVU367
- 1583 0014 3046     		mov	r0, r6
- 1584              	.LVL172:
- 312:FML/Src/SX1278.c **** 	rxBuf[length] = '\0';
- 1585              		.loc 1 312 2 view .LVU368
- 1586 0016 FFF7FEFF 		bl	memcpy
- 1587              	.LVL173:
- 313:FML/Src/SX1278.c **** 	module->readBytes = 0;
- 1588              		.loc 1 313 2 is_stmt 1 view .LVU369
- 313:FML/Src/SX1278.c **** 	module->readBytes = 0;
- 1589              		.loc 1 313 16 is_stmt 0 view .LVU370
- 1590 001a 0023     		movs	r3, #0
- 1591 001c 7355     		strb	r3, [r6, r5]
- 314:FML/Src/SX1278.c **** 	return length;
- 1592              		.loc 1 314 2 is_stmt 1 view .LVU371
- 314:FML/Src/SX1278.c **** 	return length;
- 1593              		.loc 1 314 20 is_stmt 0 view .LVU372
- 1594 001e 84F81731 		strb	r3, [r4, #279]
- 315:FML/Src/SX1278.c **** }
- 1595              		.loc 1 315 2 is_stmt 1 view .LVU373
- 316:FML/Src/SX1278.c **** 
- 1596              		.loc 1 316 1 is_stmt 0 view .LVU374
- 1597 0022 2846     		mov	r0, r5
- 1598 0024 70BD     		pop	{r4, r5, r6, pc}
- 1599              	.LVL174:
- 1600              	.L83:
- 310:FML/Src/SX1278.c **** 		length = module->readBytes;
- 1601              		.loc 1 310 5 view .LVU375
- 1602 0026 1546     		mov	r5, r2
- 1603 0028 F1E7     		b	.L81
- 1604              		.cfi_endproc
- 1605              	.LFE305:
- 1607              		.section	.text.SX1278_RSSI_LoRa,"ax",%progbits
- 1608              		.align	1
- 1609              		.global	SX1278_RSSI_LoRa
- 1610              		.syntax unified
- 1611              		.thumb
- 1612              		.thumb_func
- 1614              	SX1278_RSSI_LoRa:
- 1615              	.LVL175:
- 1616              	.LFB306:
- 318:FML/Src/SX1278.c **** 	uint32_t temp = 10;
- 1617              		.loc 1 318 44 is_stmt 1 view -0
- 1618              		.cfi_startproc
- 1619              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 38
+ 323:FML/Src/SX1278.c **** 	temp = SX1278_SPIRead(module, LR_RegRssiValue); //Read RegRssiValue, Rssi value
+ 324:FML/Src/SX1278.c **** 	temp = temp + 127 - 137; //127:Max RSSI, 137:RSSI offset
+ 325:FML/Src/SX1278.c **** 	return (uint8_t) temp;
+ 326:FML/Src/SX1278.c **** }
+ 327:FML/Src/SX1278.c **** 
+ 328:FML/Src/SX1278.c **** uint8_t SX1278_RSSI(SX1278_t *module) {
+ 329:FML/Src/SX1278.c **** 	uint8_t temp = 0xff;
+ 330:FML/Src/SX1278.c **** 	temp = SX1278_SPIRead(module, RegRssiValue);
+ 331:FML/Src/SX1278.c **** 	temp = 127 - (temp >> 1);	//127:Max RSSI
+ 332:FML/Src/SX1278.c **** 	return temp;
+ 333:FML/Src/SX1278.c **** }
+ 334:FML/Src/SX1278.c **** 
+ 335:FML/Src/SX1278.c **** /**
+ 336:FML/Src/SX1278.c ****  * @brief 
+ 337:FML/Src/SX1278.c ****  * 
+ 338:FML/Src/SX1278.c ****  * @param fd 
+ 339:FML/Src/SX1278.c ****  * @param tx_buff 
+ 340:FML/Src/SX1278.c ****  * @param expect_reply 
+ 341:FML/Src/SX1278.c ****  * @param timeout 
+ 342:FML/Src/SX1278.c ****  */
+ 343:FML/Src/SX1278.c **** void LORA_Send(char fd,char *tx_buff,uint32_t timeout)
+ 344:FML/Src/SX1278.c **** {
+ 1438              		.loc 1 344 1 is_stmt 1 view -0
+ 1439              		.cfi_startproc
+ 1440              		@ args = 0, pretend = 0, frame = 0
+ 1441              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1442              		.loc 1 344 1 is_stmt 0 view .LVU340
+ 1443 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1444              	.LCFI21:
+ 1445              		.cfi_def_cfa_offset 24
+ 1446              		.cfi_offset 4, -24
+ 1447              		.cfi_offset 5, -20
+ 1448              		.cfi_offset 6, -16
+ 1449              		.cfi_offset 7, -12
+ 1450              		.cfi_offset 8, -8
+ 1451              		.cfi_offset 14, -4
+ 1452 0004 0746     		mov	r7, r0
+ 1453 0006 0D46     		mov	r5, r1
+ 1454 0008 9046     		mov	r8, r2
+ 345:FML/Src/SX1278.c ****     uint8_t *tx_data,len=0;
+ 1455              		.loc 1 345 5 is_stmt 1 view .LVU341
+ 1456              	.LVL156:
+ 346:FML/Src/SX1278.c ****     len = strlen(tx_buff);
+ 1457              		.loc 1 346 5 view .LVU342
+ 1458              		.loc 1 346 11 is_stmt 0 view .LVU343
+ 1459 000a 0846     		mov	r0, r1
+ 1460              	.LVL157:
+ 1461              		.loc 1 346 11 view .LVU344
+ 1462 000c FFF7FEFF 		bl	strlen
+ 1463              	.LVL158:
+ 1464              		.loc 1 346 9 view .LVU345
+ 1465 0010 C4B2     		uxtb	r4, r0
+ 1466              	.LVL159:
+ 347:FML/Src/SX1278.c **** 
+ 348:FML/Src/SX1278.c ****     tx_data = (char *)malloc((len)*sizeof(uint8_t));
+ 1467              		.loc 1 348 5 is_stmt 1 view .LVU346
+ 1468              		.loc 1 348 23 is_stmt 0 view .LVU347
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 35
 
 
- 1620              		@ frame_needed = 0, uses_anonymous_args = 0
- 318:FML/Src/SX1278.c **** 	uint32_t temp = 10;
- 1621              		.loc 1 318 44 is_stmt 0 view .LVU377
- 1622 0000 08B5     		push	{r3, lr}
- 1623              	.LCFI24:
- 1624              		.cfi_def_cfa_offset 8
- 1625              		.cfi_offset 3, -8
- 1626              		.cfi_offset 14, -4
- 319:FML/Src/SX1278.c **** 	temp = SX1278_SPIRead(module, LR_RegRssiValue); //Read RegRssiValue, Rssi value
- 1627              		.loc 1 319 2 is_stmt 1 view .LVU378
- 1628              	.LVL176:
- 320:FML/Src/SX1278.c **** 	temp = temp + 127 - 137; //127:Max RSSI, 137:RSSI offset
- 1629              		.loc 1 320 2 view .LVU379
- 320:FML/Src/SX1278.c **** 	temp = temp + 127 - 137; //127:Max RSSI, 137:RSSI offset
- 1630              		.loc 1 320 9 is_stmt 0 view .LVU380
- 1631 0002 1B21     		movs	r1, #27
- 1632 0004 FFF7FEFF 		bl	SX1278_SPIRead
- 1633              	.LVL177:
- 321:FML/Src/SX1278.c **** 	return (uint8_t) temp;
- 1634              		.loc 1 321 2 is_stmt 1 view .LVU381
- 322:FML/Src/SX1278.c **** }
- 1635              		.loc 1 322 2 view .LVU382
- 322:FML/Src/SX1278.c **** }
- 1636              		.loc 1 322 9 is_stmt 0 view .LVU383
- 1637 0008 0A38     		subs	r0, r0, #10
- 1638              	.LVL178:
- 323:FML/Src/SX1278.c **** 
- 1639              		.loc 1 323 1 view .LVU384
- 1640 000a C0B2     		uxtb	r0, r0
- 1641 000c 08BD     		pop	{r3, pc}
- 1642              		.cfi_endproc
- 1643              	.LFE306:
- 1645              		.section	.text.SX1278_RSSI,"ax",%progbits
- 1646              		.align	1
- 1647              		.global	SX1278_RSSI
- 1648              		.syntax unified
- 1649              		.thumb
- 1650              		.thumb_func
- 1652              	SX1278_RSSI:
- 1653              	.LVL179:
- 1654              	.LFB307:
- 325:FML/Src/SX1278.c **** 	uint8_t temp = 0xff;
- 1655              		.loc 1 325 39 is_stmt 1 view -0
- 1656              		.cfi_startproc
- 1657              		@ args = 0, pretend = 0, frame = 0
- 1658              		@ frame_needed = 0, uses_anonymous_args = 0
- 325:FML/Src/SX1278.c **** 	uint8_t temp = 0xff;
- 1659              		.loc 1 325 39 is_stmt 0 view .LVU386
- 1660 0000 08B5     		push	{r3, lr}
- 1661              	.LCFI25:
- 1662              		.cfi_def_cfa_offset 8
- 1663              		.cfi_offset 3, -8
- 1664              		.cfi_offset 14, -4
- 326:FML/Src/SX1278.c **** 	temp = SX1278_SPIRead(module, RegRssiValue);
- 1665              		.loc 1 326 2 is_stmt 1 view .LVU387
- 1666              	.LVL180:
- 327:FML/Src/SX1278.c **** 	temp = 127 - (temp >> 1);	//127:Max RSSI
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 39
+ 1469 0012 2046     		mov	r0, r4
+ 1470 0014 FFF7FEFF 		bl	malloc
+ 1471              	.LVL160:
+ 1472 0018 0646     		mov	r6, r0
+ 1473              	.LVL161:
+ 349:FML/Src/SX1278.c ****     memcpy(tx_data,tx_buff,len);
+ 1474              		.loc 1 349 5 is_stmt 1 view .LVU348
+ 1475 001a 2246     		mov	r2, r4
+ 1476 001c 2946     		mov	r1, r5
+ 1477 001e FFF7FEFF 		bl	memcpy
+ 1478              	.LVL162:
+ 350:FML/Src/SX1278.c **** 	
+ 351:FML/Src/SX1278.c **** 
+ 352:FML/Src/SX1278.c ****     if(SX1278_transmit(&Lora_dev[fd],tx_data,len,timeout))
+ 1479              		.loc 1 352 5 view .LVU349
+ 1480              		.loc 1 352 8 is_stmt 0 view .LVU350
+ 1481 0022 0E4D     		ldr	r5, .L76
+ 1482              	.LVL163:
+ 1483              		.loc 1 352 8 view .LVU351
+ 1484 0024 4FF48C73 		mov	r3, #280
+ 1485 0028 03FB0755 		mla	r5, r3, r7, r5
+ 1486 002c 4346     		mov	r3, r8
+ 1487 002e 2246     		mov	r2, r4
+ 1488 0030 3146     		mov	r1, r6
+ 1489 0032 2846     		mov	r0, r5
+ 1490 0034 FFF7FEFF 		bl	SX1278_transmit
+ 1491              	.LVL164:
+ 1492              		.loc 1 352 7 view .LVU352
+ 1493 0038 48B9     		cbnz	r0, .L75
+ 1494              	.L73:
+ 353:FML/Src/SX1278.c **** 		shellPrint(&shell,"lora %d transmit success\r\n",fd);
+ 354:FML/Src/SX1278.c ****     free(tx_data);
+ 1495              		.loc 1 354 5 is_stmt 1 view .LVU353
+ 1496 003a 3046     		mov	r0, r6
+ 1497 003c FFF7FEFF 		bl	free
+ 1498              	.LVL165:
+ 355:FML/Src/SX1278.c ****     tx_data = NULL;
+ 1499              		.loc 1 355 5 view .LVU354
+ 356:FML/Src/SX1278.c ****     SX1278_receive(&Lora_dev[fd],100,100);
+ 1500              		.loc 1 356 5 view .LVU355
+ 1501 0040 6422     		movs	r2, #100
+ 1502 0042 1146     		mov	r1, r2
+ 1503 0044 2846     		mov	r0, r5
+ 1504 0046 FFF7FEFF 		bl	SX1278_receive
+ 1505              	.LVL166:
+ 357:FML/Src/SX1278.c **** }
+ 1506              		.loc 1 357 1 is_stmt 0 view .LVU356
+ 1507 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1508              	.LVL167:
+ 1509              	.L75:
+ 353:FML/Src/SX1278.c ****     free(tx_data);
+ 1510              		.loc 1 353 3 is_stmt 1 view .LVU357
+ 1511 004e 3A46     		mov	r2, r7
+ 1512 0050 0349     		ldr	r1, .L76+4
+ 1513 0052 0448     		ldr	r0, .L76+8
+ 1514 0054 FFF7FEFF 		bl	shellPrint
+ 1515              	.LVL168:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 36
 
 
- 1667              		.loc 1 327 2 view .LVU388
- 327:FML/Src/SX1278.c **** 	temp = 127 - (temp >> 1);	//127:Max RSSI
- 1668              		.loc 1 327 9 is_stmt 0 view .LVU389
- 1669 0002 1121     		movs	r1, #17
- 1670 0004 FFF7FEFF 		bl	SX1278_SPIRead
- 1671              	.LVL181:
- 328:FML/Src/SX1278.c **** 	return temp;
- 1672              		.loc 1 328 2 is_stmt 1 view .LVU390
- 328:FML/Src/SX1278.c **** 	return temp;
- 1673              		.loc 1 328 13 is_stmt 0 view .LVU391
- 1674 0008 C0F34700 		ubfx	r0, r0, #1, #8
+ 1516 0058 EFE7     		b	.L73
+ 1517              	.L77:
+ 1518 005a 00BF     		.align	2
+ 1519              	.L76:
+ 1520 005c 00000000 		.word	.LANCHOR5
+ 1521 0060 00000000 		.word	.LC1
+ 1522 0064 00000000 		.word	shell
+ 1523              		.cfi_endproc
+ 1524              	.LFE308:
+ 1526              		.section	.text.SX1278_available,"ax",%progbits
+ 1527              		.align	1
+ 1528              		.global	SX1278_available
+ 1529              		.syntax unified
+ 1530              		.thumb
+ 1531              		.thumb_func
+ 1533              	SX1278_available:
+ 1534              	.LVL169:
+ 1535              	.LFB304:
+ 308:FML/Src/SX1278.c **** 	return SX1278_LoRaRxPacket(module);
+ 1536              		.loc 1 308 44 view -0
+ 1537              		.cfi_startproc
+ 1538              		@ args = 0, pretend = 0, frame = 0
+ 1539              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308:FML/Src/SX1278.c **** 	return SX1278_LoRaRxPacket(module);
+ 1540              		.loc 1 308 44 is_stmt 0 view .LVU359
+ 1541 0000 08B5     		push	{r3, lr}
+ 1542              	.LCFI22:
+ 1543              		.cfi_def_cfa_offset 8
+ 1544              		.cfi_offset 3, -8
+ 1545              		.cfi_offset 14, -4
+ 309:FML/Src/SX1278.c **** }
+ 1546              		.loc 1 309 2 is_stmt 1 view .LVU360
+ 309:FML/Src/SX1278.c **** }
+ 1547              		.loc 1 309 9 is_stmt 0 view .LVU361
+ 1548 0002 FFF7FEFF 		bl	SX1278_LoRaRxPacket
+ 1549              	.LVL170:
+ 310:FML/Src/SX1278.c **** 
+ 1550              		.loc 1 310 1 view .LVU362
+ 1551 0006 08BD     		pop	{r3, pc}
+ 1552              		.cfi_endproc
+ 1553              	.LFE304:
+ 1555              		.section	.text.SX1278_read,"ax",%progbits
+ 1556              		.align	1
+ 1557              		.global	SX1278_read
+ 1558              		.syntax unified
+ 1559              		.thumb
+ 1560              		.thumb_func
+ 1562              	SX1278_read:
+ 1563              	.LVL171:
+ 1564              	.LFB305:
+ 312:FML/Src/SX1278.c **** 	if (length != module->readBytes)
+ 1565              		.loc 1 312 71 is_stmt 1 view -0
+ 1566              		.cfi_startproc
+ 1567              		@ args = 0, pretend = 0, frame = 0
+ 1568              		@ frame_needed = 0, uses_anonymous_args = 0
+ 312:FML/Src/SX1278.c **** 	if (length != module->readBytes)
+ 1569              		.loc 1 312 71 is_stmt 0 view .LVU364
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 37
+
+
+ 1570 0000 70B5     		push	{r4, r5, r6, lr}
+ 1571              	.LCFI23:
+ 1572              		.cfi_def_cfa_offset 16
+ 1573              		.cfi_offset 4, -16
+ 1574              		.cfi_offset 5, -12
+ 1575              		.cfi_offset 6, -8
+ 1576              		.cfi_offset 14, -4
+ 1577 0002 0446     		mov	r4, r0
+ 1578 0004 0E46     		mov	r6, r1
+ 313:FML/Src/SX1278.c **** 		length = module->readBytes;
+ 1579              		.loc 1 313 2 is_stmt 1 view .LVU365
+ 313:FML/Src/SX1278.c **** 		length = module->readBytes;
+ 1580              		.loc 1 313 22 is_stmt 0 view .LVU366
+ 1581 0006 90F81751 		ldrb	r5, [r0, #279]	@ zero_extendqisi2
+ 313:FML/Src/SX1278.c **** 		length = module->readBytes;
+ 1582              		.loc 1 313 5 view .LVU367
+ 1583 000a 9542     		cmp	r5, r2
+ 1584 000c 0BD0     		beq	.L83
+ 1585              	.L81:
+ 1586              	.LVL172:
+ 315:FML/Src/SX1278.c **** 	rxBuf[length] = '\0';
+ 1587              		.loc 1 315 2 is_stmt 1 view .LVU368
+ 1588 000e 2A46     		mov	r2, r5
+ 1589 0010 04F11701 		add	r1, r4, #23
+ 1590              	.LVL173:
+ 315:FML/Src/SX1278.c **** 	rxBuf[length] = '\0';
+ 1591              		.loc 1 315 2 is_stmt 0 view .LVU369
+ 1592 0014 3046     		mov	r0, r6
+ 1593              	.LVL174:
+ 315:FML/Src/SX1278.c **** 	rxBuf[length] = '\0';
+ 1594              		.loc 1 315 2 view .LVU370
+ 1595 0016 FFF7FEFF 		bl	memcpy
+ 1596              	.LVL175:
+ 316:FML/Src/SX1278.c **** 	module->readBytes = 0;
+ 1597              		.loc 1 316 2 is_stmt 1 view .LVU371
+ 316:FML/Src/SX1278.c **** 	module->readBytes = 0;
+ 1598              		.loc 1 316 16 is_stmt 0 view .LVU372
+ 1599 001a 0023     		movs	r3, #0
+ 1600 001c 7355     		strb	r3, [r6, r5]
+ 317:FML/Src/SX1278.c **** 	return length;
+ 1601              		.loc 1 317 2 is_stmt 1 view .LVU373
+ 317:FML/Src/SX1278.c **** 	return length;
+ 1602              		.loc 1 317 20 is_stmt 0 view .LVU374
+ 1603 001e 84F81731 		strb	r3, [r4, #279]
+ 318:FML/Src/SX1278.c **** }
+ 1604              		.loc 1 318 2 is_stmt 1 view .LVU375
+ 319:FML/Src/SX1278.c **** 
+ 1605              		.loc 1 319 1 is_stmt 0 view .LVU376
+ 1606 0022 2846     		mov	r0, r5
+ 1607 0024 70BD     		pop	{r4, r5, r6, pc}
+ 1608              	.LVL176:
+ 1609              	.L83:
+ 313:FML/Src/SX1278.c **** 		length = module->readBytes;
+ 1610              		.loc 1 313 5 view .LVU377
+ 1611 0026 1546     		mov	r5, r2
+ 1612 0028 F1E7     		b	.L81
+ 1613              		.cfi_endproc
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 38
+
+
+ 1614              	.LFE305:
+ 1616              		.section	.text.SX1278_RSSI_LoRa,"ax",%progbits
+ 1617              		.align	1
+ 1618              		.global	SX1278_RSSI_LoRa
+ 1619              		.syntax unified
+ 1620              		.thumb
+ 1621              		.thumb_func
+ 1623              	SX1278_RSSI_LoRa:
+ 1624              	.LVL177:
+ 1625              	.LFB306:
+ 321:FML/Src/SX1278.c **** 	uint32_t temp = 10;
+ 1626              		.loc 1 321 44 is_stmt 1 view -0
+ 1627              		.cfi_startproc
+ 1628              		@ args = 0, pretend = 0, frame = 0
+ 1629              		@ frame_needed = 0, uses_anonymous_args = 0
+ 321:FML/Src/SX1278.c **** 	uint32_t temp = 10;
+ 1630              		.loc 1 321 44 is_stmt 0 view .LVU379
+ 1631 0000 08B5     		push	{r3, lr}
+ 1632              	.LCFI24:
+ 1633              		.cfi_def_cfa_offset 8
+ 1634              		.cfi_offset 3, -8
+ 1635              		.cfi_offset 14, -4
+ 322:FML/Src/SX1278.c **** 	temp = SX1278_SPIRead(module, LR_RegRssiValue); //Read RegRssiValue, Rssi value
+ 1636              		.loc 1 322 2 is_stmt 1 view .LVU380
+ 1637              	.LVL178:
+ 323:FML/Src/SX1278.c **** 	temp = temp + 127 - 137; //127:Max RSSI, 137:RSSI offset
+ 1638              		.loc 1 323 2 view .LVU381
+ 323:FML/Src/SX1278.c **** 	temp = temp + 127 - 137; //127:Max RSSI, 137:RSSI offset
+ 1639              		.loc 1 323 9 is_stmt 0 view .LVU382
+ 1640 0002 1B21     		movs	r1, #27
+ 1641 0004 FFF7FEFF 		bl	SX1278_SPIRead
+ 1642              	.LVL179:
+ 324:FML/Src/SX1278.c **** 	return (uint8_t) temp;
+ 1643              		.loc 1 324 2 is_stmt 1 view .LVU383
+ 325:FML/Src/SX1278.c **** }
+ 1644              		.loc 1 325 2 view .LVU384
+ 325:FML/Src/SX1278.c **** }
+ 1645              		.loc 1 325 9 is_stmt 0 view .LVU385
+ 1646 0008 0A38     		subs	r0, r0, #10
+ 1647              	.LVL180:
+ 326:FML/Src/SX1278.c **** 
+ 1648              		.loc 1 326 1 view .LVU386
+ 1649 000a C0B2     		uxtb	r0, r0
+ 1650 000c 08BD     		pop	{r3, pc}
+ 1651              		.cfi_endproc
+ 1652              	.LFE306:
+ 1654              		.section	.text.SX1278_RSSI,"ax",%progbits
+ 1655              		.align	1
+ 1656              		.global	SX1278_RSSI
+ 1657              		.syntax unified
+ 1658              		.thumb
+ 1659              		.thumb_func
+ 1661              	SX1278_RSSI:
+ 1662              	.LVL181:
+ 1663              	.LFB307:
+ 328:FML/Src/SX1278.c **** 	uint8_t temp = 0xff;
+ 1664              		.loc 1 328 39 is_stmt 1 view -0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 39
+
+
+ 1665              		.cfi_startproc
+ 1666              		@ args = 0, pretend = 0, frame = 0
+ 1667              		@ frame_needed = 0, uses_anonymous_args = 0
+ 328:FML/Src/SX1278.c **** 	uint8_t temp = 0xff;
+ 1668              		.loc 1 328 39 is_stmt 0 view .LVU388
+ 1669 0000 08B5     		push	{r3, lr}
+ 1670              	.LCFI25:
+ 1671              		.cfi_def_cfa_offset 8
+ 1672              		.cfi_offset 3, -8
+ 1673              		.cfi_offset 14, -4
+ 329:FML/Src/SX1278.c **** 	temp = SX1278_SPIRead(module, RegRssiValue);
+ 1674              		.loc 1 329 2 is_stmt 1 view .LVU389
  1675              	.LVL182:
- 328:FML/Src/SX1278.c **** 	return temp;
- 1676              		.loc 1 328 7 view .LVU392
- 1677 000c C0F17F00 		rsb	r0, r0, #127
- 1678              	.LVL183:
- 329:FML/Src/SX1278.c **** }
- 1679              		.loc 1 329 2 is_stmt 1 view .LVU393
- 330:FML/Src/SX1278.c **** 
- 1680              		.loc 1 330 1 is_stmt 0 view .LVU394
- 1681 0010 C0B2     		uxtb	r0, r0
- 330:FML/Src/SX1278.c **** 
- 1682              		.loc 1 330 1 view .LVU395
- 1683 0012 08BD     		pop	{r3, pc}
- 1684              		.cfi_endproc
- 1685              	.LFE307:
- 1687              		.global	shellCommandlora_send
- 1688              		.global	shellDesclora_send
- 1689              		.global	shellCmdlora_send
- 1690              		.global	Lora_dev
- 1691              		.section	.data.Lora_dev,"aw"
- 1692              		.align	3
- 1693              		.set	.LANCHOR5,. + 0
- 1696              	Lora_dev:
- 1697 0000 00000000 		.word	lora_dev_hw
- 1698 0004 00000000 		.space	4
- 1699 0008 40170C1A 		.word	437000000
- 1700 000c 00000000 		.word	0
- 1701 0010 14       		.byte	20
- 1702 0011 05       		.byte	5
- 1703 0012 02       		.byte	2
- 1704 0013 01       		.byte	1
- 1705 0014 00       		.byte	0
- 1706 0015 00       		.byte	0
- 1707 0016 00000000 		.space	257
- 1707      00000000 
- 1707      00000000 
- 1707      00000000 
- 1707      00000000 
- 1708 0117 00       		.byte	0
- 1709 0118 24000000 		.word	lora_dev_hw+36
- 1710 011c 00000000 		.space	4
- 1711 0120 40170C1A 		.word	437000000
- 1712 0124 00000000 		.word	0
- 1713 0128 14       		.byte	20
- 1714 0129 05       		.byte	5
- 1715 012a 02       		.byte	2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 40
+ 330:FML/Src/SX1278.c **** 	temp = 127 - (temp >> 1);	//127:Max RSSI
+ 1676              		.loc 1 330 2 view .LVU390
+ 330:FML/Src/SX1278.c **** 	temp = 127 - (temp >> 1);	//127:Max RSSI
+ 1677              		.loc 1 330 9 is_stmt 0 view .LVU391
+ 1678 0002 1121     		movs	r1, #17
+ 1679 0004 FFF7FEFF 		bl	SX1278_SPIRead
+ 1680              	.LVL183:
+ 331:FML/Src/SX1278.c **** 	return temp;
+ 1681              		.loc 1 331 2 is_stmt 1 view .LVU392
+ 331:FML/Src/SX1278.c **** 	return temp;
+ 1682              		.loc 1 331 13 is_stmt 0 view .LVU393
+ 1683 0008 C0F34700 		ubfx	r0, r0, #1, #8
+ 1684              	.LVL184:
+ 331:FML/Src/SX1278.c **** 	return temp;
+ 1685              		.loc 1 331 7 view .LVU394
+ 1686 000c C0F17F00 		rsb	r0, r0, #127
+ 1687              	.LVL185:
+ 332:FML/Src/SX1278.c **** }
+ 1688              		.loc 1 332 2 is_stmt 1 view .LVU395
+ 333:FML/Src/SX1278.c **** 
+ 1689              		.loc 1 333 1 is_stmt 0 view .LVU396
+ 1690 0010 C0B2     		uxtb	r0, r0
+ 333:FML/Src/SX1278.c **** 
+ 1691              		.loc 1 333 1 view .LVU397
+ 1692 0012 08BD     		pop	{r3, pc}
+ 1693              		.cfi_endproc
+ 1694              	.LFE307:
+ 1696              		.global	shellCommandlora_send
+ 1697              		.global	shellDesclora_send
+ 1698              		.global	shellCmdlora_send
+ 1699              		.global	Lora_dev
+ 1700              		.section	.data.Lora_dev,"aw"
+ 1701              		.align	3
+ 1702              		.set	.LANCHOR5,. + 0
+ 1705              	Lora_dev:
+ 1706 0000 00000000 		.word	lora_dev_hw
+ 1707 0004 00000000 		.space	4
+ 1708 0008 40170C1A 		.word	437000000
+ 1709 000c 00000000 		.word	0
+ 1710 0010 14       		.byte	20
+ 1711 0011 05       		.byte	5
+ 1712 0012 02       		.byte	2
+ 1713 0013 01       		.byte	1
+ 1714 0014 00       		.byte	0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 40
 
 
- 1716 012b 01       		.byte	1
- 1717 012c 00       		.byte	0
- 1718 012d 00       		.byte	0
- 1719 012e 00000000 		.space	257
- 1719      00000000 
- 1719      00000000 
- 1719      00000000 
- 1719      00000000 
- 1720 022f 00       		.byte	0
- 1721              		.section	.rodata.SX1278_CRC_Sum,"a"
- 1722              		.align	2
- 1723              		.set	.LANCHOR4,. + 0
- 1726              	SX1278_CRC_Sum:
- 1727 0000 0100     		.ascii	"\001\000"
- 1728              		.section	.rodata.SX1278_CodingRate,"a"
- 1729              		.align	2
- 1730              		.set	.LANCHOR3,. + 0
- 1733              	SX1278_CodingRate:
- 1734 0000 01020304 		.ascii	"\001\002\003\004"
- 1735              		.section	.rodata.SX1278_LoRaBandwidth,"a"
- 1736              		.align	2
- 1737              		.set	.LANCHOR2,. + 0
- 1740              	SX1278_LoRaBandwidth:
- 1741 0000 00010203 		.ascii	"\000\001\002\003\004\005\006\007\010\011"
- 1741      04050607 
- 1741      0809
- 1742              		.section	.rodata.SX1278_Power,"a"
- 1743              		.align	2
- 1744              		.set	.LANCHOR0,. + 0
- 1747              	SX1278_Power:
- 1748 0000 FFFCF9F6 		.ascii	"\377\374\371\366"
- 1749              		.section	.rodata.SX1278_SpreadFactor,"a"
- 1750              		.align	2
- 1751              		.set	.LANCHOR1,. + 0
- 1754              	SX1278_SpreadFactor:
- 1755 0000 06070809 		.ascii	"\006\007\010\011\012\013\014"
- 1755      0A0B0C
- 1756              		.section	.rodata.shellCmdlora_send,"a"
- 1757              		.align	2
- 1760              	shellCmdlora_send:
- 1761 0000 6C6F7261 		.ascii	"lora_send\000"
- 1761      5F73656E 
- 1761      6400
- 1762              		.section	.rodata.shellDesclora_send,"a"
- 1763              		.align	2
- 1766              	shellDesclora_send:
- 1767 0000 65633278 		.ascii	"ec2x test\000"
- 1767      20746573 
- 1767      7400
- 1768              		.section	shellCommand,"a"
- 1771              	shellCommandlora_send:
- 1772 0000 00210000 		.4byte	8448
- 1773 0004 00000000 		.4byte	shellCmdlora_send
- 1774 0008 00000000 		.4byte	LORA_Send
- 1775 000c 00000000 		.4byte	shellDesclora_send
- 1776              		.text
- 1777              	.Letext0:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 41
+ 1715 0015 00       		.byte	0
+ 1716 0016 00000000 		.space	257
+ 1716      00000000 
+ 1716      00000000 
+ 1716      00000000 
+ 1716      00000000 
+ 1717 0117 00       		.byte	0
+ 1718 0118 24000000 		.word	lora_dev_hw+36
+ 1719 011c 00000000 		.space	4
+ 1720 0120 40170C1A 		.word	437000000
+ 1721 0124 00000000 		.word	0
+ 1722 0128 14       		.byte	20
+ 1723 0129 05       		.byte	5
+ 1724 012a 02       		.byte	2
+ 1725 012b 01       		.byte	1
+ 1726 012c 00       		.byte	0
+ 1727 012d 00       		.byte	0
+ 1728 012e 00000000 		.space	257
+ 1728      00000000 
+ 1728      00000000 
+ 1728      00000000 
+ 1728      00000000 
+ 1729 022f 00       		.byte	0
+ 1730              		.section	.rodata.SX1278_CRC_Sum,"a"
+ 1731              		.align	2
+ 1732              		.set	.LANCHOR4,. + 0
+ 1735              	SX1278_CRC_Sum:
+ 1736 0000 0100     		.ascii	"\001\000"
+ 1737              		.section	.rodata.SX1278_CodingRate,"a"
+ 1738              		.align	2
+ 1739              		.set	.LANCHOR3,. + 0
+ 1742              	SX1278_CodingRate:
+ 1743 0000 01020304 		.ascii	"\001\002\003\004"
+ 1744              		.section	.rodata.SX1278_LoRaBandwidth,"a"
+ 1745              		.align	2
+ 1746              		.set	.LANCHOR2,. + 0
+ 1749              	SX1278_LoRaBandwidth:
+ 1750 0000 00010203 		.ascii	"\000\001\002\003\004\005\006\007\010\011"
+ 1750      04050607 
+ 1750      0809
+ 1751              		.section	.rodata.SX1278_Power,"a"
+ 1752              		.align	2
+ 1753              		.set	.LANCHOR0,. + 0
+ 1756              	SX1278_Power:
+ 1757 0000 FFFCF9F6 		.ascii	"\377\374\371\366"
+ 1758              		.section	.rodata.SX1278_SpreadFactor,"a"
+ 1759              		.align	2
+ 1760              		.set	.LANCHOR1,. + 0
+ 1763              	SX1278_SpreadFactor:
+ 1764 0000 06070809 		.ascii	"\006\007\010\011\012\013\014"
+ 1764      0A0B0C
+ 1765              		.section	.rodata.shellCmdlora_send,"a"
+ 1766              		.align	2
+ 1769              	shellCmdlora_send:
+ 1770 0000 6C6F7261 		.ascii	"lora_send\000"
+ 1770      5F73656E 
+ 1770      6400
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 41
 
 
- 1778              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 1779              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 1780              		.file 4 "HAL/Inc/SX1278_hw.h"
- 1781              		.file 5 "FML/Inc/SX1278.h"
- 1782              		.file 6 "ThirdParty/Letter-shell/Inc/shell.h"
- 1783              		.file 7 "ThirdParty/Letter-shell/Inc/shell_port.h"
- 1784              		.file 8 "<built-in>"
- 1785              		.file 9 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 42
+ 1771              		.section	.rodata.shellDesclora_send,"a"
+ 1772              		.align	2
+ 1775              	shellDesclora_send:
+ 1776 0000 65633278 		.ascii	"ec2x test\000"
+ 1776      20746573 
+ 1776      7400
+ 1777              		.section	shellCommand,"a"
+ 1780              	shellCommandlora_send:
+ 1781 0000 00210000 		.4byte	8448
+ 1782 0004 00000000 		.4byte	shellCmdlora_send
+ 1783 0008 00000000 		.4byte	LORA_Send
+ 1784 000c 00000000 		.4byte	shellDesclora_send
+ 1785              		.text
+ 1786              	.Letext0:
+ 1787              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 1788              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 1789              		.file 4 "HAL/Inc/SX1278_hw.h"
+ 1790              		.file 5 "FML/Inc/SX1278.h"
+ 1791              		.file 6 "ThirdParty/Letter-shell/Inc/shell.h"
+ 1792              		.file 7 "ThirdParty/Letter-shell/Inc/shell_port.h"
+ 1793              		.file 8 "<built-in>"
+ 1794              		.file 9 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 42
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 SX1278.c
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:20     .text.SX1278_SPIRead:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:26     .text.SX1278_SPIRead:00000000 SX1278_SPIRead
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:71     .text.SX1278_SPIWrite:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:77     .text.SX1278_SPIWrite:00000000 SX1278_SPIWrite
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:126    .text.SX1278_SPIBurstRead:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:132    .text.SX1278_SPIBurstRead:00000000 SX1278_SPIBurstRead
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:221    .text.SX1278_SPIBurstWrite:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:227    .text.SX1278_SPIBurstWrite:00000000 SX1278_SPIBurstWrite
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:314    .text.SX1278_standby:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:320    .text.SX1278_standby:00000000 SX1278_standby
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:350    .text.SX1278_sleep:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:356    .text.SX1278_sleep:00000000 SX1278_sleep
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:386    .text.SX1278_entryLoRa:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:392    .text.SX1278_entryLoRa:00000000 SX1278_entryLoRa
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:417    .text.SX1278_config:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:423    .text.SX1278_config:00000000 SX1278_config
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:712    .text.SX1278_config:00000174 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:722    .text.SX1278_clearLoRaIrq:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:728    .text.SX1278_clearLoRaIrq:00000000 SX1278_clearLoRaIrq
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:752    .text.SX1278_LoRaEntryRx:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:758    .text.SX1278_LoRaEntryRx:00000000 SX1278_LoRaEntryRx
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:893    .rodata.SX1278_LoRaRxPacket.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:897    .text.SX1278_LoRaRxPacket:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:903    .text.SX1278_LoRaRxPacket:00000000 SX1278_LoRaRxPacket
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1020   .text.SX1278_LoRaRxPacket:00000084 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1028   .text.SX1278_LoRaEntryTx:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1034   .text.SX1278_LoRaEntryTx:00000000 SX1278_LoRaEntryTx
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1158   .text.SX1278_LoRaTxPacket:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1164   .text.SX1278_LoRaTxPacket:00000000 SX1278_LoRaTxPacket
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1261   .text.SX1278_init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1267   .text.SX1278_init:00000000 SX1278_init
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1330   .text.SX1278_transmit:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1336   .text.SX1278_transmit:00000000 SX1278_transmit
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1387   .text.SX1278_receive:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1393   .text.SX1278_receive:00000000 SX1278_receive
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1416   .rodata.LORA_Send.str1.4:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1420   .text.LORA_Send:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1426   .text.LORA_Send:00000000 LORA_Send
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1511   .text.LORA_Send:0000005c $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1518   .text.SX1278_available:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1524   .text.SX1278_available:00000000 SX1278_available
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1547   .text.SX1278_read:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1553   .text.SX1278_read:00000000 SX1278_read
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1608   .text.SX1278_RSSI_LoRa:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1614   .text.SX1278_RSSI_LoRa:00000000 SX1278_RSSI_LoRa
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1646   .text.SX1278_RSSI:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1652   .text.SX1278_RSSI:00000000 SX1278_RSSI
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1771   shellCommand:00000000 shellCommandlora_send
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1766   .rodata.shellDesclora_send:00000000 shellDesclora_send
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1760   .rodata.shellCmdlora_send:00000000 shellCmdlora_send
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1696   .data.Lora_dev:00000000 Lora_dev
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1692   .data.Lora_dev:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1722   .rodata.SX1278_CRC_Sum:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1726   .rodata.SX1278_CRC_Sum:00000000 SX1278_CRC_Sum
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1729   .rodata.SX1278_CodingRate:00000000 $d
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc24b8mc.s 			page 43
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:20     .text.SX1278_SPIRead:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:26     .text.SX1278_SPIRead:00000000 SX1278_SPIRead
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:71     .text.SX1278_SPIWrite:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:77     .text.SX1278_SPIWrite:00000000 SX1278_SPIWrite
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:126    .text.SX1278_SPIBurstRead:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:132    .text.SX1278_SPIBurstRead:00000000 SX1278_SPIBurstRead
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:221    .text.SX1278_SPIBurstWrite:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:227    .text.SX1278_SPIBurstWrite:00000000 SX1278_SPIBurstWrite
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:314    .text.SX1278_standby:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:320    .text.SX1278_standby:00000000 SX1278_standby
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:350    .text.SX1278_sleep:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:356    .text.SX1278_sleep:00000000 SX1278_sleep
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:386    .text.SX1278_entryLoRa:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:392    .text.SX1278_entryLoRa:00000000 SX1278_entryLoRa
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:417    .text.SX1278_config:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:423    .text.SX1278_config:00000000 SX1278_config
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:712    .text.SX1278_config:00000174 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:722    .text.SX1278_clearLoRaIrq:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:728    .text.SX1278_clearLoRaIrq:00000000 SX1278_clearLoRaIrq
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:752    .text.SX1278_LoRaEntryRx:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:758    .text.SX1278_LoRaEntryRx:00000000 SX1278_LoRaEntryRx
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:893    .rodata.SX1278_LoRaRxPacket.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:897    .text.SX1278_LoRaRxPacket:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:903    .text.SX1278_LoRaRxPacket:00000000 SX1278_LoRaRxPacket
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1020   .text.SX1278_LoRaRxPacket:00000084 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1028   .text.SX1278_LoRaEntryTx:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1034   .text.SX1278_LoRaEntryTx:00000000 SX1278_LoRaEntryTx
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1158   .text.SX1278_LoRaTxPacket:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1164   .text.SX1278_LoRaTxPacket:00000000 SX1278_LoRaTxPacket
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1270   .text.SX1278_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1276   .text.SX1278_init:00000000 SX1278_init
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1339   .text.SX1278_transmit:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1345   .text.SX1278_transmit:00000000 SX1278_transmit
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1396   .text.SX1278_receive:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1402   .text.SX1278_receive:00000000 SX1278_receive
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1425   .rodata.LORA_Send.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1429   .text.LORA_Send:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1435   .text.LORA_Send:00000000 LORA_Send
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1520   .text.LORA_Send:0000005c $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1527   .text.SX1278_available:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1533   .text.SX1278_available:00000000 SX1278_available
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1556   .text.SX1278_read:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1562   .text.SX1278_read:00000000 SX1278_read
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1617   .text.SX1278_RSSI_LoRa:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1623   .text.SX1278_RSSI_LoRa:00000000 SX1278_RSSI_LoRa
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1655   .text.SX1278_RSSI:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1661   .text.SX1278_RSSI:00000000 SX1278_RSSI
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1780   shellCommand:00000000 shellCommandlora_send
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1775   .rodata.shellDesclora_send:00000000 shellDesclora_send
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1769   .rodata.shellCmdlora_send:00000000 shellCmdlora_send
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1705   .data.Lora_dev:00000000 Lora_dev
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1701   .data.Lora_dev:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1731   .rodata.SX1278_CRC_Sum:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1735   .rodata.SX1278_CRC_Sum:00000000 SX1278_CRC_Sum
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1738   .rodata.SX1278_CodingRate:00000000 $d
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnDssxr.s 			page 43
 
 
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1733   .rodata.SX1278_CodingRate:00000000 SX1278_CodingRate
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1736   .rodata.SX1278_LoRaBandwidth:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1740   .rodata.SX1278_LoRaBandwidth:00000000 SX1278_LoRaBandwidth
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1743   .rodata.SX1278_Power:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1747   .rodata.SX1278_Power:00000000 SX1278_Power
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1750   .rodata.SX1278_SpreadFactor:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1754   .rodata.SX1278_SpreadFactor:00000000 SX1278_SpreadFactor
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1757   .rodata.shellCmdlora_send:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc24b8mc.s:1763   .rodata.shellDesclora_send:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1742   .rodata.SX1278_CodingRate:00000000 SX1278_CodingRate
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1745   .rodata.SX1278_LoRaBandwidth:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1749   .rodata.SX1278_LoRaBandwidth:00000000 SX1278_LoRaBandwidth
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1752   .rodata.SX1278_Power:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1756   .rodata.SX1278_Power:00000000 SX1278_Power
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1759   .rodata.SX1278_SpreadFactor:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1763   .rodata.SX1278_SpreadFactor:00000000 SX1278_SpreadFactor
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1766   .rodata.shellCmdlora_send:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccnDssxr.s:1772   .rodata.shellDesclora_send:00000000 $d
 
 UNDEFINED SYMBOLS
 SX1278_hw_SPICommand

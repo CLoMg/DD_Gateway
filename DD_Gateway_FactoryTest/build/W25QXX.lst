@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -42,7 +42,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
   13:FML/Src/W25QXX.c **** ***************************************************************************************************
   14:FML/Src/W25QXX.c **** 
   15:FML/Src/W25QXX.c **** #include "W25QXX.h"
-  16:FML/Src/W25QXX.c **** 
+  16:FML/Src/W25QXX.c **** #include "shell_port.h"
   17:FML/Src/W25QXX.c **** /**
   18:FML/Src/W25QXX.c ****   * @brief  Initializes the W25Q128FV interface.
   19:FML/Src/W25QXX.c ****   * @retval None
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
   29:FML/Src/W25QXX.c **** /**
   30:FML/Src/W25QXX.c ****   * @brief  This function reset the W25Qx.
   31:FML/Src/W25QXX.c ****   * @retval None
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 2
 
 
   32:FML/Src/W25QXX.c ****   */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
   71 0038 00000000 		.word	hspi3
   72              		.cfi_endproc
   73              	.LFE289:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 3
 
 
   75              		.section	.text.BSP_W25Qx_GetStatus,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  115 0026 4FF47A73 		mov	r3, #1000
  116 002a 0122     		movs	r2, #1
  117 002c 0DF10301 		add	r1, sp, #3
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 4
 
 
  118 0030 2046     		mov	r0, r4
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  161              	BSP_W25Qx_Init:
  162              	.LFB288:
   22:FML/Src/W25QXX.c **** 	/* Reset W25Qxxx */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 5
 
 
  163              		.loc 1 22 1 is_stmt 1 view -0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  207 0004 0623     		movs	r3, #6
  208 0006 8DF80430 		strb	r3, [sp, #4]
   78:FML/Src/W25QXX.c **** 	uint32_t tickstart = HAL_GetTick();
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 6
 
 
  209              		.loc 1 78 2 is_stmt 1 view .LVU28
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  250              		.loc 1 91 23 view .LVU41
  251 0042 001B     		subs	r0, r0, r4
  252              		.loc 1 91 7 view .LVU42
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 7
 
 
  253 0044 B0F57A7F 		cmp	r0, #1000
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  293              		.loc 1 106 1 is_stmt 0 view .LVU47
  294 0000 30B5     		push	{r4, r5, lr}
  295              	.LCFI12:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 8
 
 
  296              		.cfi_def_cfa_offset 12
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  340              		.cfi_def_cfa_offset 12
  341              		@ sp needed
  342 0044 30BD     		pop	{r4, r5, pc}
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 9
 
 
  343              	.LVL24:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  388              	.LVL27:
  128:FML/Src/W25QXX.c **** 	/* Send the read ID command */
  129:FML/Src/W25QXX.c **** 	HAL_SPI_Transmit(&hspi3, cmd, 1, W25Qx_TIMEOUT_VALUE);	
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 10
 
 
  389              		.loc 1 129 2 is_stmt 1 view .LVU63
@@ -581,15 +581,39 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  421 0044 00000000 		.word	hspi3
  422              		.cfi_endproc
  423              	.LFE293:
- 425              		.section	.text.BSP_W25Qx_Read,"ax",%progbits
- 426              		.align	1
- 427              		.global	BSP_W25Qx_Read
- 428              		.syntax unified
- 429              		.thumb
- 430              		.thumb_func
- 432              	BSP_W25Qx_Read:
- 433              	.LVL32:
- 434              	.LFB294:
+ 425              		.global	__aeabi_i2d
+ 426              		.global	__aeabi_dmul
+ 427              		.global	__aeabi_d2uiz
+ 428              		.section	.rodata.Flash_Test.str1.4,"aMS",%progbits,1
+ 429              		.align	2
+ 430              	.LC1:
+ 431 0000 4D616E75 		.ascii	"Manu_ID:0x%02x,Dev_ID:0x%02x\015\012Manu_Identi:0x%"
+ 431      5F49443A 
+ 431      30782530 
+ 431      32782C44 
+ 431      65765F49 
+ 432 002d 3032782C 		.ascii	"02x,Memory_Type:0x%02x\015\012  Capacity:0x%02x = %"
+ 432      4D656D6F 
+ 432      72795F54 
+ 432      7970653A 
+ 432      30782530 
+ 433 005a 644B2D42 		.ascii	"dK-Bit = %.2fM-Bit\015\012\000"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 11
+
+
+ 433      6974203D 
+ 433      20252E32 
+ 433      664D2D42 
+ 433      69740D0A 
+ 434              		.global	__aeabi_f2d
+ 435              		.section	.text.Flash_Test,"ax",%progbits
+ 436              		.align	1
+ 437              		.global	Flash_Test
+ 438              		.syntax unified
+ 439              		.thumb
+ 440              		.thumb_func
+ 442              	Flash_Test:
+ 443              	.LFB299:
  135:FML/Src/W25QXX.c **** 
  136:FML/Src/W25QXX.c **** /**
  137:FML/Src/W25QXX.c ****   * @brief  Reads an amount of data from the QSPI memory.
@@ -598,147 +622,27 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  140:FML/Src/W25QXX.c ****   * @param  Size: Size of data to read    
  141:FML/Src/W25QXX.c ****   * @retval QSPI memory status
  142:FML/Src/W25QXX.c ****   */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 11
-
-
  143:FML/Src/W25QXX.c **** uint8_t BSP_W25Qx_Read(uint8_t* pData, uint32_t ReadAddr, uint32_t Size)
  144:FML/Src/W25QXX.c **** {
- 435              		.loc 1 144 1 is_stmt 1 view -0
- 436              		.cfi_startproc
- 437              		@ args = 0, pretend = 0, frame = 8
- 438              		@ frame_needed = 0, uses_anonymous_args = 0
- 439              		.loc 1 144 1 is_stmt 0 view .LVU69
- 440 0000 70B5     		push	{r4, r5, r6, lr}
- 441              	.LCFI18:
- 442              		.cfi_def_cfa_offset 16
- 443              		.cfi_offset 4, -16
- 444              		.cfi_offset 5, -12
- 445              		.cfi_offset 6, -8
- 446              		.cfi_offset 14, -4
- 447 0002 82B0     		sub	sp, sp, #8
- 448              	.LCFI19:
- 449              		.cfi_def_cfa_offset 24
- 450 0004 0446     		mov	r4, r0
- 451 0006 1546     		mov	r5, r2
  145:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
- 452              		.loc 1 145 2 is_stmt 1 view .LVU70
  146:FML/Src/W25QXX.c **** 
  147:FML/Src/W25QXX.c **** 	/* Configure the command */
  148:FML/Src/W25QXX.c **** 	cmd[0] = READ_CMD;
- 453              		.loc 1 148 2 view .LVU71
- 454              		.loc 1 148 9 is_stmt 0 view .LVU72
- 455 0008 0323     		movs	r3, #3
- 456 000a 8DF80430 		strb	r3, [sp, #4]
  149:FML/Src/W25QXX.c **** 	cmd[1] = (uint8_t)(ReadAddr >> 16);
- 457              		.loc 1 149 2 is_stmt 1 view .LVU73
- 458              		.loc 1 149 11 is_stmt 0 view .LVU74
- 459 000e C1F30743 		ubfx	r3, r1, #16, #8
- 460              		.loc 1 149 9 view .LVU75
- 461 0012 8DF80530 		strb	r3, [sp, #5]
  150:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(ReadAddr >> 8);
- 462              		.loc 1 150 2 is_stmt 1 view .LVU76
- 463              		.loc 1 150 11 is_stmt 0 view .LVU77
- 464 0016 C1F30723 		ubfx	r3, r1, #8, #8
- 465              		.loc 1 150 9 view .LVU78
- 466 001a 8DF80630 		strb	r3, [sp, #6]
  151:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(ReadAddr);
- 467              		.loc 1 151 2 is_stmt 1 view .LVU79
- 468              		.loc 1 151 9 is_stmt 0 view .LVU80
- 469 001e 8DF80710 		strb	r1, [sp, #7]
  152:FML/Src/W25QXX.c **** 	
  153:FML/Src/W25QXX.c **** 	W25Qx_Enable();
- 470              		.loc 1 153 2 is_stmt 1 view .LVU81
- 471 0022 0022     		movs	r2, #0
- 472              	.LVL33:
- 473              		.loc 1 153 2 is_stmt 0 view .LVU82
- 474 0024 1021     		movs	r1, #16
- 475              	.LVL34:
- 476              		.loc 1 153 2 view .LVU83
- 477 0026 4FF09040 		mov	r0, #1207959552
- 478              	.LVL35:
- 479              		.loc 1 153 2 view .LVU84
- 480 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 12
-
-
- 481              	.LVL36:
  154:FML/Src/W25QXX.c **** 	/* Send the read ID command */
  155:FML/Src/W25QXX.c **** 	HAL_SPI_Transmit(&hspi3, cmd, 4, W25Qx_TIMEOUT_VALUE);	
- 482              		.loc 1 155 2 is_stmt 1 view .LVU85
- 483 002e 0E4E     		ldr	r6, .L33
- 484 0030 4FF47A73 		mov	r3, #1000
- 485 0034 0422     		movs	r2, #4
- 486 0036 0DEB0201 		add	r1, sp, r2
- 487 003a 3046     		mov	r0, r6
- 488 003c FFF7FEFF 		bl	HAL_SPI_Transmit
- 489              	.LVL37:
  156:FML/Src/W25QXX.c **** 	/* Reception of the data */
  157:FML/Src/W25QXX.c **** 	if (HAL_SPI_Receive(&hspi3, pData,Size,W25Qx_TIMEOUT_VALUE) != HAL_OK)
- 490              		.loc 1 157 2 view .LVU86
- 491              		.loc 1 157 6 is_stmt 0 view .LVU87
- 492 0040 4FF47A73 		mov	r3, #1000
- 493 0044 AAB2     		uxth	r2, r5
- 494 0046 2146     		mov	r1, r4
- 495 0048 3046     		mov	r0, r6
- 496 004a FFF7FEFF 		bl	HAL_SPI_Receive
- 497              	.LVL38:
- 498              		.loc 1 157 5 view .LVU88
- 499 004e 18B1     		cbz	r0, .L32
  158:FML/Src/W25QXX.c ****   {
  159:FML/Src/W25QXX.c ****     return W25Qx_ERROR;
- 500              		.loc 1 159 12 view .LVU89
- 501 0050 0124     		movs	r4, #1
- 502              	.LVL39:
- 503              	.L29:
  160:FML/Src/W25QXX.c ****   }
  161:FML/Src/W25QXX.c **** 	W25Qx_Disable();
  162:FML/Src/W25QXX.c **** 	return W25Qx_OK;
  163:FML/Src/W25QXX.c **** }
- 504              		.loc 1 163 1 view .LVU90
- 505 0052 2046     		mov	r0, r4
- 506 0054 02B0     		add	sp, sp, #8
- 507              	.LCFI20:
- 508              		.cfi_remember_state
- 509              		.cfi_def_cfa_offset 16
- 510              		@ sp needed
- 511 0056 70BD     		pop	{r4, r5, r6, pc}
- 512              	.LVL40:
- 513              	.L32:
- 514              	.LCFI21:
- 515              		.cfi_restore_state
- 516              		.loc 1 163 1 view .LVU91
- 517 0058 0446     		mov	r4, r0
- 518              	.LVL41:
- 161:FML/Src/W25QXX.c **** 	return W25Qx_OK;
- 519              		.loc 1 161 2 is_stmt 1 view .LVU92
- 520 005a 0122     		movs	r2, #1
- 521 005c 1021     		movs	r1, #16
- 522 005e 4FF09040 		mov	r0, #1207959552
- 523 0062 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 524              	.LVL42:
- 162:FML/Src/W25QXX.c **** }
- 525              		.loc 1 162 2 view .LVU93
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 13
-
-
- 162:FML/Src/W25QXX.c **** }
- 526              		.loc 1 162 9 is_stmt 0 view .LVU94
- 527 0066 F4E7     		b	.L29
- 528              	.L34:
- 529              		.align	2
- 530              	.L33:
- 531 0068 00000000 		.word	hspi3
- 532              		.cfi_endproc
- 533              	.LFE294:
- 535              		.section	.text.BSP_W25Qx_Write,"ax",%progbits
- 536              		.align	1
- 537              		.global	BSP_W25Qx_Write
- 538              		.syntax unified
- 539              		.thumb
- 540              		.thumb_func
- 542              	BSP_W25Qx_Write:
- 543              	.LVL43:
- 544              	.LFB295:
  164:FML/Src/W25QXX.c **** 
  165:FML/Src/W25QXX.c **** /**
  166:FML/Src/W25QXX.c ****   * @brief  Writes an amount of data to the QSPI memory.
@@ -749,103 +653,31 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  171:FML/Src/W25QXX.c ****   */
  172:FML/Src/W25QXX.c **** uint8_t BSP_W25Qx_Write(uint8_t* pData, uint32_t WriteAddr, uint32_t Size)
  173:FML/Src/W25QXX.c **** {
- 545              		.loc 1 173 1 is_stmt 1 view -0
- 546              		.cfi_startproc
- 547              		@ args = 0, pretend = 0, frame = 8
- 548              		@ frame_needed = 0, uses_anonymous_args = 0
- 549              		.loc 1 173 1 is_stmt 0 view .LVU96
- 550 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 551              	.LCFI22:
- 552              		.cfi_def_cfa_offset 28
- 553              		.cfi_offset 4, -28
- 554              		.cfi_offset 5, -24
- 555              		.cfi_offset 6, -20
- 556              		.cfi_offset 7, -16
- 557              		.cfi_offset 8, -12
- 558              		.cfi_offset 9, -8
- 559              		.cfi_offset 14, -4
- 560 0004 83B0     		sub	sp, sp, #12
- 561              	.LCFI23:
- 562              		.cfi_def_cfa_offset 40
- 563 0006 0646     		mov	r6, r0
- 564 0008 0C46     		mov	r4, r1
- 565 000a 1746     		mov	r7, r2
  174:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
- 566              		.loc 1 174 2 is_stmt 1 view .LVU97
  175:FML/Src/W25QXX.c **** 	uint32_t end_addr, current_size, current_addr;
- 567              		.loc 1 175 2 view .LVU98
  176:FML/Src/W25QXX.c **** 	uint32_t tickstart = HAL_GetTick();
- 568              		.loc 1 176 2 view .LVU99
- 569              		.loc 1 176 23 is_stmt 0 view .LVU100
- 570 000c FFF7FEFF 		bl	HAL_GetTick
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 14
-
-
- 571              	.LVL44:
- 572              		.loc 1 176 23 view .LVU101
- 573 0010 8046     		mov	r8, r0
- 574              	.LVL45:
  177:FML/Src/W25QXX.c **** 	
  178:FML/Src/W25QXX.c **** 	/* Calculation of the size between the write address and the end of the page */
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 12
+
+
  179:FML/Src/W25QXX.c ****   current_addr = 0;
- 575              		.loc 1 179 3 is_stmt 1 view .LVU102
  180:FML/Src/W25QXX.c **** 
  181:FML/Src/W25QXX.c ****   while (current_addr <= WriteAddr)
- 576              		.loc 1 181 3 view .LVU103
- 179:FML/Src/W25QXX.c **** 
- 577              		.loc 1 179 16 is_stmt 0 view .LVU104
- 578 0012 0025     		movs	r5, #0
- 579              		.loc 1 181 9 view .LVU105
- 580 0014 01E0     		b	.L36
- 581              	.LVL46:
- 582              	.L37:
  182:FML/Src/W25QXX.c ****   {
  183:FML/Src/W25QXX.c ****     current_addr += W25Q128FV_PAGE_SIZE;
- 583              		.loc 1 183 5 is_stmt 1 view .LVU106
- 584              		.loc 1 183 18 is_stmt 0 view .LVU107
- 585 0016 05F58075 		add	r5, r5, #256
- 586              	.LVL47:
- 587              	.L36:
- 181:FML/Src/W25QXX.c ****   {
- 588              		.loc 1 181 9 is_stmt 1 view .LVU108
- 589 001a A542     		cmp	r5, r4
- 590 001c FBD9     		bls	.L37
  184:FML/Src/W25QXX.c ****   }
  185:FML/Src/W25QXX.c ****   current_size = current_addr - WriteAddr;
- 591              		.loc 1 185 3 view .LVU109
- 592              		.loc 1 185 16 is_stmt 0 view .LVU110
- 593 001e 2D1B     		subs	r5, r5, r4
- 594              	.LVL48:
  186:FML/Src/W25QXX.c **** 
  187:FML/Src/W25QXX.c ****   /* Check if the size of the data is less than the remaining place in the page */
  188:FML/Src/W25QXX.c ****   if (current_size > Size)
- 595              		.loc 1 188 3 is_stmt 1 view .LVU111
- 596              		.loc 1 188 6 is_stmt 0 view .LVU112
- 597 0020 BD42     		cmp	r5, r7
- 598 0022 00D9     		bls	.L38
  189:FML/Src/W25QXX.c ****   {
  190:FML/Src/W25QXX.c ****     current_size = Size;
- 599              		.loc 1 190 18 view .LVU113
- 600 0024 3D46     		mov	r5, r7
- 601              	.LVL49:
- 602              	.L38:
  191:FML/Src/W25QXX.c ****   }
  192:FML/Src/W25QXX.c **** 
  193:FML/Src/W25QXX.c ****   /* Initialize the adress variables */
  194:FML/Src/W25QXX.c ****   current_addr = WriteAddr;
- 603              		.loc 1 194 3 is_stmt 1 view .LVU114
  195:FML/Src/W25QXX.c ****   end_addr = WriteAddr + Size;
- 604              		.loc 1 195 3 view .LVU115
- 605              		.loc 1 195 12 is_stmt 0 view .LVU116
- 606 0026 2744     		add	r7, r7, r4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 15
-
-
- 607              	.LVL50:
- 608              		.loc 1 195 12 view .LVU117
- 609 0028 03E0     		b	.L42
- 610              	.LVL51:
- 611              	.L47:
  196:FML/Src/W25QXX.c **** 	
  197:FML/Src/W25QXX.c ****   /* Perform the write page by page */
  198:FML/Src/W25QXX.c ****   do
@@ -886,204 +718,14 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  233:FML/Src/W25QXX.c ****     current_addr += current_size;
  234:FML/Src/W25QXX.c ****     pData += current_size;
  235:FML/Src/W25QXX.c ****     current_size = ((current_addr + W25Q128FV_PAGE_SIZE) > end_addr) ? (end_addr - current_addr) : 
- 612              		.loc 1 235 98 view .LVU118
- 613 002a 4FF48075 		mov	r5, #256
- 614              	.LVL52:
- 615              	.L41:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 13
+
+
  236:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
- 616              		.loc 1 236 11 is_stmt 1 discriminator 4 view .LVU119
- 617              		.loc 1 236 3 is_stmt 0 discriminator 4 view .LVU120
- 618 002e A742     		cmp	r7, r4
- 619 0030 41D9     		bls	.L39
- 620              	.L42:
- 198:FML/Src/W25QXX.c ****   {
- 621              		.loc 1 198 3 is_stmt 1 view .LVU121
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 16
-
-
- 201:FML/Src/W25QXX.c **** 		cmd[1] = (uint8_t)(current_addr >> 16);
- 622              		.loc 1 201 3 view .LVU122
- 201:FML/Src/W25QXX.c **** 		cmd[1] = (uint8_t)(current_addr >> 16);
- 623              		.loc 1 201 10 is_stmt 0 view .LVU123
- 624 0032 0223     		movs	r3, #2
- 625 0034 8DF80430 		strb	r3, [sp, #4]
- 202:FML/Src/W25QXX.c **** 		cmd[2] = (uint8_t)(current_addr >> 8);
- 626              		.loc 1 202 3 is_stmt 1 view .LVU124
- 202:FML/Src/W25QXX.c **** 		cmd[2] = (uint8_t)(current_addr >> 8);
- 627              		.loc 1 202 12 is_stmt 0 view .LVU125
- 628 0038 C4F30743 		ubfx	r3, r4, #16, #8
- 202:FML/Src/W25QXX.c **** 		cmd[2] = (uint8_t)(current_addr >> 8);
- 629              		.loc 1 202 10 view .LVU126
- 630 003c 8DF80530 		strb	r3, [sp, #5]
- 203:FML/Src/W25QXX.c **** 		cmd[3] = (uint8_t)(current_addr);
- 631              		.loc 1 203 3 is_stmt 1 view .LVU127
- 203:FML/Src/W25QXX.c **** 		cmd[3] = (uint8_t)(current_addr);
- 632              		.loc 1 203 12 is_stmt 0 view .LVU128
- 633 0040 C4F30723 		ubfx	r3, r4, #8, #8
- 203:FML/Src/W25QXX.c **** 		cmd[3] = (uint8_t)(current_addr);
- 634              		.loc 1 203 10 view .LVU129
- 635 0044 8DF80630 		strb	r3, [sp, #6]
- 204:FML/Src/W25QXX.c **** 
- 636              		.loc 1 204 3 is_stmt 1 view .LVU130
- 204:FML/Src/W25QXX.c **** 
- 637              		.loc 1 204 10 is_stmt 0 view .LVU131
- 638 0048 8DF80740 		strb	r4, [sp, #7]
- 207:FML/Src/W25QXX.c **** 	
- 639              		.loc 1 207 3 is_stmt 1 view .LVU132
- 640 004c FFF7FEFF 		bl	BSP_W25Qx_WriteEnable
- 641              	.LVL53:
- 209:FML/Src/W25QXX.c ****     /* Send the command */
- 642              		.loc 1 209 3 view .LVU133
- 643 0050 0022     		movs	r2, #0
- 644 0052 1021     		movs	r1, #16
- 645 0054 4FF09040 		mov	r0, #1207959552
- 646 0058 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 647              	.LVL54:
- 211:FML/Src/W25QXX.c ****     {
- 648              		.loc 1 211 5 view .LVU134
- 211:FML/Src/W25QXX.c ****     {
- 649              		.loc 1 211 9 is_stmt 0 view .LVU135
- 650 005c 4FF47A73 		mov	r3, #1000
- 651 0060 0422     		movs	r2, #4
- 652 0062 0DEB0201 		add	r1, sp, r2
- 653 0066 1948     		ldr	r0, .L49
- 654 0068 FFF7FEFF 		bl	HAL_SPI_Transmit
- 655              	.LVL55:
- 211:FML/Src/W25QXX.c ****     {
- 656              		.loc 1 211 8 view .LVU136
- 657 006c 08BB     		cbnz	r0, .L44
- 217:FML/Src/W25QXX.c ****     {
- 658              		.loc 1 217 5 is_stmt 1 view .LVU137
- 217:FML/Src/W25QXX.c ****     {
- 659              		.loc 1 217 9 is_stmt 0 view .LVU138
- 660 006e 4FF47A73 		mov	r3, #1000
- 661 0072 AAB2     		uxth	r2, r5
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 17
-
-
- 662 0074 3146     		mov	r1, r6
- 663 0076 1548     		ldr	r0, .L49
- 664 0078 FFF7FEFF 		bl	HAL_SPI_Transmit
- 665              	.LVL56:
- 217:FML/Src/W25QXX.c ****     {
- 666              		.loc 1 217 8 view .LVU139
- 667 007c 8146     		mov	r9, r0
- 668 007e F0B9     		cbnz	r0, .L45
- 221:FML/Src/W25QXX.c ****     	/* Wait the end of Flash writing */
- 669              		.loc 1 221 4 is_stmt 1 view .LVU140
- 670 0080 0122     		movs	r2, #1
- 671 0082 1021     		movs	r1, #16
- 672 0084 4FF09040 		mov	r0, #1207959552
- 673 0088 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 674              	.LVL57:
- 223:FML/Src/W25QXX.c **** 		{
- 675              		.loc 1 223 3 view .LVU141
- 676              	.L40:
- 223:FML/Src/W25QXX.c **** 		{
- 677              		.loc 1 223 45 discriminator 1 view .LVU142
- 223:FML/Src/W25QXX.c **** 		{
- 678              		.loc 1 223 8 discriminator 1 view .LVU143
- 223:FML/Src/W25QXX.c **** 		{
- 679              		.loc 1 223 9 is_stmt 0 discriminator 1 view .LVU144
- 680 008c FFF7FEFF 		bl	BSP_W25Qx_GetStatus
- 681              	.LVL58:
- 223:FML/Src/W25QXX.c **** 		{
- 682              		.loc 1 223 8 discriminator 1 view .LVU145
- 683 0090 0228     		cmp	r0, #2
- 684 0092 FBD0     		beq	.L40
- 226:FML/Src/W25QXX.c **** 			{        
- 685              		.loc 1 226 4 is_stmt 1 view .LVU146
- 226:FML/Src/W25QXX.c **** 			{        
- 686              		.loc 1 226 8 is_stmt 0 view .LVU147
- 687 0094 FFF7FEFF 		bl	HAL_GetTick
- 688              	.LVL59:
- 226:FML/Src/W25QXX.c **** 			{        
- 689              		.loc 1 226 22 view .LVU148
- 690 0098 A0EB0803 		sub	r3, r0, r8
- 226:FML/Src/W25QXX.c **** 			{        
- 691              		.loc 1 226 6 view .LVU149
- 692 009c B3F57A7F 		cmp	r3, #1000
- 693 00a0 10D8     		bhi	.L46
- 233:FML/Src/W25QXX.c ****     pData += current_size;
- 694              		.loc 1 233 5 is_stmt 1 view .LVU150
- 233:FML/Src/W25QXX.c ****     pData += current_size;
- 695              		.loc 1 233 18 is_stmt 0 view .LVU151
- 696 00a2 2C44     		add	r4, r4, r5
- 697              	.LVL60:
- 234:FML/Src/W25QXX.c ****     current_size = ((current_addr + W25Q128FV_PAGE_SIZE) > end_addr) ? (end_addr - current_addr) : 
- 698              		.loc 1 234 5 is_stmt 1 view .LVU152
- 234:FML/Src/W25QXX.c ****     current_size = ((current_addr + W25Q128FV_PAGE_SIZE) > end_addr) ? (end_addr - current_addr) : 
- 699              		.loc 1 234 11 is_stmt 0 view .LVU153
- 700 00a4 2E44     		add	r6, r6, r5
- 701              	.LVL61:
- 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
- 702              		.loc 1 235 5 is_stmt 1 view .LVU154
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 18
-
-
- 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
- 703              		.loc 1 235 35 is_stmt 0 view .LVU155
- 704 00a6 04F58073 		add	r3, r4, #256
- 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
- 705              		.loc 1 235 98 view .LVU156
- 706 00aa BB42     		cmp	r3, r7
- 707 00ac BDD9     		bls	.L47
- 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
- 708              		.loc 1 235 98 discriminator 1 view .LVU157
- 709 00ae 3D1B     		subs	r5, r7, r4
- 710              	.LVL62:
- 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
- 711              		.loc 1 235 98 discriminator 1 view .LVU158
- 712 00b0 BDE7     		b	.L41
- 713              	.LVL63:
- 714              	.L44:
- 213:FML/Src/W25QXX.c ****     }
- 715              		.loc 1 213 14 view .LVU159
- 716 00b2 4FF00109 		mov	r9, #1
- 717              	.L39:
  237:FML/Src/W25QXX.c **** 
  238:FML/Src/W25QXX.c **** 	
  239:FML/Src/W25QXX.c **** 	return W25Qx_OK;
  240:FML/Src/W25QXX.c **** }
- 718              		.loc 1 240 1 view .LVU160
- 719 00b6 4846     		mov	r0, r9
- 720 00b8 03B0     		add	sp, sp, #12
- 721              	.LCFI24:
- 722              		.cfi_remember_state
- 723              		.cfi_def_cfa_offset 28
- 724              		@ sp needed
- 725 00ba BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 726              	.LVL64:
- 727              	.L45:
- 728              	.LCFI25:
- 729              		.cfi_restore_state
- 219:FML/Src/W25QXX.c ****     }
- 730              		.loc 1 219 14 view .LVU161
- 731 00be 4FF00109 		mov	r9, #1
- 732 00c2 F8E7     		b	.L39
- 733              	.L46:
- 228:FML/Src/W25QXX.c **** 			}
- 734              		.loc 1 228 12 view .LVU162
- 735 00c4 4FF00309 		mov	r9, #3
- 736 00c8 F5E7     		b	.L39
- 737              	.L50:
- 738 00ca 00BF     		.align	2
- 739              	.L49:
- 740 00cc 00000000 		.word	hspi3
- 741              		.cfi_endproc
- 742              	.LFE295:
- 744              		.section	.text.BSP_W25Qx_Erase_Page,"ax",%progbits
- 745              		.align	1
- 746              		.global	BSP_W25Qx_Erase_Page
- 747              		.syntax unified
- 748              		.thumb
- 749              		.thumb_func
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 19
-
-
- 751              	BSP_W25Qx_Erase_Page:
- 752              	.LVL65:
- 753              	.LFB296:
  241:FML/Src/W25QXX.c **** /**
  242:FML/Src/W25QXX.c ****   * @brief  Erases the specified Page of the QSPI memory. 
  243:FML/Src/W25QXX.c ****   * @param  BlockAddress: Page address to erase  
@@ -1091,155 +733,34 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  245:FML/Src/W25QXX.c ****   */
  246:FML/Src/W25QXX.c **** uint8_t BSP_W25Qx_Erase_Page(uint32_t Address)
  247:FML/Src/W25QXX.c **** {
- 754              		.loc 1 247 1 is_stmt 1 view -0
- 755              		.cfi_startproc
- 756              		@ args = 0, pretend = 0, frame = 8
- 757              		@ frame_needed = 0, uses_anonymous_args = 0
- 758              		.loc 1 247 1 is_stmt 0 view .LVU164
- 759 0000 30B5     		push	{r4, r5, lr}
- 760              	.LCFI26:
- 761              		.cfi_def_cfa_offset 12
- 762              		.cfi_offset 4, -12
- 763              		.cfi_offset 5, -8
- 764              		.cfi_offset 14, -4
- 765 0002 83B0     		sub	sp, sp, #12
- 766              	.LCFI27:
- 767              		.cfi_def_cfa_offset 24
- 768 0004 0446     		mov	r4, r0
  248:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
- 769              		.loc 1 248 2 is_stmt 1 view .LVU165
  249:FML/Src/W25QXX.c **** 	uint32_t tickstart = HAL_GetTick();
- 770              		.loc 1 249 2 view .LVU166
- 771              		.loc 1 249 23 is_stmt 0 view .LVU167
- 772 0006 FFF7FEFF 		bl	HAL_GetTick
- 773              	.LVL66:
- 774              		.loc 1 249 23 view .LVU168
- 775 000a 0546     		mov	r5, r0
- 776              	.LVL67:
  250:FML/Src/W25QXX.c **** 	cmd[0] = PAGE_ERASE_CMD;
- 777              		.loc 1 250 2 is_stmt 1 view .LVU169
- 778              		.loc 1 250 9 is_stmt 0 view .LVU170
- 779 000c 8123     		movs	r3, #129
- 780 000e 8DF80430 		strb	r3, [sp, #4]
  251:FML/Src/W25QXX.c **** 	cmd[1] = (uint8_t)(Address >> 16);
- 781              		.loc 1 251 2 is_stmt 1 view .LVU171
- 782              		.loc 1 251 11 is_stmt 0 view .LVU172
- 783 0012 C4F30743 		ubfx	r3, r4, #16, #8
- 784              		.loc 1 251 9 view .LVU173
- 785 0016 8DF80530 		strb	r3, [sp, #5]
  252:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(Address >> 8);
- 786              		.loc 1 252 2 is_stmt 1 view .LVU174
- 787              		.loc 1 252 11 is_stmt 0 view .LVU175
- 788 001a C4F30723 		ubfx	r3, r4, #8, #8
- 789              		.loc 1 252 9 view .LVU176
- 790 001e 8DF80630 		strb	r3, [sp, #6]
  253:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(Address);
- 791              		.loc 1 253 2 is_stmt 1 view .LVU177
- 792              		.loc 1 253 9 is_stmt 0 view .LVU178
- 793 0022 8DF80740 		strb	r4, [sp, #7]
  254:FML/Src/W25QXX.c **** 	
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 20
-
-
  255:FML/Src/W25QXX.c **** 	/* Enable write operations */
  256:FML/Src/W25QXX.c **** 	BSP_W25Qx_WriteEnable();
- 794              		.loc 1 256 2 is_stmt 1 view .LVU179
- 795 0026 FFF7FEFF 		bl	BSP_W25Qx_WriteEnable
- 796              	.LVL68:
  257:FML/Src/W25QXX.c **** 	
  258:FML/Src/W25QXX.c **** 	/*Select the FLASH: Chip Select low */
  259:FML/Src/W25QXX.c **** 	W25Qx_Enable();
- 797              		.loc 1 259 2 view .LVU180
- 798 002a 0022     		movs	r2, #0
- 799 002c 1021     		movs	r1, #16
- 800 002e 4FF09040 		mov	r0, #1207959552
- 801 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 802              	.LVL69:
  260:FML/Src/W25QXX.c **** 	/* Send the read ID command */
  261:FML/Src/W25QXX.c **** 	HAL_SPI_Transmit(&hspi3, cmd, 4, W25Qx_TIMEOUT_VALUE);	
- 803              		.loc 1 261 2 view .LVU181
- 804 0036 4FF47A73 		mov	r3, #1000
- 805 003a 0422     		movs	r2, #4
- 806 003c 0DEB0201 		add	r1, sp, r2
- 807 0040 0C48     		ldr	r0, .L56
- 808 0042 FFF7FEFF 		bl	HAL_SPI_Transmit
- 809              	.LVL70:
  262:FML/Src/W25QXX.c **** 	/*Deselect the FLASH: Chip Select high */
  263:FML/Src/W25QXX.c **** 	W25Qx_Disable();
- 810              		.loc 1 263 2 view .LVU182
- 811 0046 0122     		movs	r2, #1
- 812 0048 1021     		movs	r1, #16
- 813 004a 4FF09040 		mov	r0, #1207959552
- 814 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 815              	.LVL71:
  264:FML/Src/W25QXX.c **** 	
  265:FML/Src/W25QXX.c **** 	/* Wait the end of Flash writing */
  266:FML/Src/W25QXX.c **** 	while(BSP_W25Qx_GetStatus() == W25Qx_BUSY);
- 816              		.loc 1 266 2 view .LVU183
- 817              	.L52:
- 818              		.loc 1 266 44 discriminator 1 view .LVU184
- 819              		.loc 1 266 7 discriminator 1 view .LVU185
- 820              		.loc 1 266 8 is_stmt 0 discriminator 1 view .LVU186
- 821 0052 FFF7FEFF 		bl	BSP_W25Qx_GetStatus
- 822              	.LVL72:
- 823              		.loc 1 266 7 discriminator 1 view .LVU187
- 824 0056 0228     		cmp	r0, #2
- 825 0058 FBD0     		beq	.L52
  267:FML/Src/W25QXX.c **** 	{
  268:FML/Src/W25QXX.c **** 		/* Check for the Timeout */
  269:FML/Src/W25QXX.c ****     if((HAL_GetTick() - tickstart) > W25Q128FV_SECTOR_ERASE_MAX_TIME)
- 826              		.loc 1 269 5 is_stmt 1 view .LVU188
- 827              		.loc 1 269 9 is_stmt 0 view .LVU189
- 828 005a FFF7FEFF 		bl	HAL_GetTick
- 829              	.LVL73:
- 830              		.loc 1 269 23 view .LVU190
- 831 005e 401B     		subs	r0, r0, r5
- 832              		.loc 1 269 7 view .LVU191
- 833 0060 40F6B833 		movw	r3, #3000
- 834 0064 9842     		cmp	r0, r3
- 835 0066 02D8     		bhi	.L54
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 21
-
-
  270:FML/Src/W25QXX.c ****     {        
  271:FML/Src/W25QXX.c **** 			return W25Qx_TIMEOUT;
  272:FML/Src/W25QXX.c ****     }
  273:FML/Src/W25QXX.c **** 	}
  274:FML/Src/W25QXX.c **** 	return W25Qx_OK;
- 836              		.loc 1 274 9 view .LVU192
- 837 0068 0020     		movs	r0, #0
- 838              	.L53:
  275:FML/Src/W25QXX.c **** }
- 839              		.loc 1 275 1 view .LVU193
- 840 006a 03B0     		add	sp, sp, #12
- 841              	.LCFI28:
- 842              		.cfi_remember_state
- 843              		.cfi_def_cfa_offset 12
- 844              		@ sp needed
- 845 006c 30BD     		pop	{r4, r5, pc}
- 846              	.LVL74:
- 847              	.L54:
- 848              	.LCFI29:
- 849              		.cfi_restore_state
- 271:FML/Src/W25QXX.c ****     }
- 850              		.loc 1 271 11 view .LVU194
- 851 006e 0320     		movs	r0, #3
- 852 0070 FBE7     		b	.L53
- 853              	.L57:
- 854 0072 00BF     		.align	2
- 855              	.L56:
- 856 0074 00000000 		.word	hspi3
- 857              		.cfi_endproc
- 858              	.LFE296:
- 860              		.section	.text.BSP_W25Qx_Erase_Block,"ax",%progbits
- 861              		.align	1
- 862              		.global	BSP_W25Qx_Erase_Block
- 863              		.syntax unified
- 864              		.thumb
- 865              		.thumb_func
- 867              	BSP_W25Qx_Erase_Block:
- 868              	.LVL75:
- 869              	.LFB297:
  276:FML/Src/W25QXX.c **** /**
  277:FML/Src/W25QXX.c ****   * @brief  Erases the specified block of the QSPI memory. 
  278:FML/Src/W25QXX.c ****   * @param  BlockAddress: Block address to erase  
@@ -1247,157 +768,37 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  280:FML/Src/W25QXX.c ****   */
  281:FML/Src/W25QXX.c **** uint8_t BSP_W25Qx_Erase_Block(uint32_t Address)
  282:FML/Src/W25QXX.c **** {
- 870              		.loc 1 282 1 is_stmt 1 view -0
- 871              		.cfi_startproc
- 872              		@ args = 0, pretend = 0, frame = 8
- 873              		@ frame_needed = 0, uses_anonymous_args = 0
- 874              		.loc 1 282 1 is_stmt 0 view .LVU196
- 875 0000 30B5     		push	{r4, r5, lr}
- 876              	.LCFI30:
- 877              		.cfi_def_cfa_offset 12
- 878              		.cfi_offset 4, -12
- 879              		.cfi_offset 5, -8
- 880              		.cfi_offset 14, -4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 22
-
-
- 881 0002 83B0     		sub	sp, sp, #12
- 882              	.LCFI31:
- 883              		.cfi_def_cfa_offset 24
- 884 0004 0446     		mov	r4, r0
  283:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
- 885              		.loc 1 283 2 is_stmt 1 view .LVU197
  284:FML/Src/W25QXX.c **** 	uint32_t tickstart = HAL_GetTick();
- 886              		.loc 1 284 2 view .LVU198
- 887              		.loc 1 284 23 is_stmt 0 view .LVU199
- 888 0006 FFF7FEFF 		bl	HAL_GetTick
- 889              	.LVL76:
- 890              		.loc 1 284 23 view .LVU200
- 891 000a 0546     		mov	r5, r0
- 892              	.LVL77:
  285:FML/Src/W25QXX.c **** 	cmd[0] = SECTOR_ERASE_CMD;
- 893              		.loc 1 285 2 is_stmt 1 view .LVU201
- 894              		.loc 1 285 9 is_stmt 0 view .LVU202
- 895 000c 2023     		movs	r3, #32
- 896 000e 8DF80430 		strb	r3, [sp, #4]
  286:FML/Src/W25QXX.c **** 	cmd[1] = (uint8_t)(Address >> 16);
- 897              		.loc 1 286 2 is_stmt 1 view .LVU203
- 898              		.loc 1 286 11 is_stmt 0 view .LVU204
- 899 0012 C4F30743 		ubfx	r3, r4, #16, #8
- 900              		.loc 1 286 9 view .LVU205
- 901 0016 8DF80530 		strb	r3, [sp, #5]
  287:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(Address >> 8);
- 902              		.loc 1 287 2 is_stmt 1 view .LVU206
- 903              		.loc 1 287 11 is_stmt 0 view .LVU207
- 904 001a C4F30723 		ubfx	r3, r4, #8, #8
- 905              		.loc 1 287 9 view .LVU208
- 906 001e 8DF80630 		strb	r3, [sp, #6]
  288:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(Address);
- 907              		.loc 1 288 2 is_stmt 1 view .LVU209
- 908              		.loc 1 288 9 is_stmt 0 view .LVU210
- 909 0022 8DF80740 		strb	r4, [sp, #7]
  289:FML/Src/W25QXX.c **** 	
  290:FML/Src/W25QXX.c **** 	/* Enable write operations */
  291:FML/Src/W25QXX.c **** 	BSP_W25Qx_WriteEnable();
- 910              		.loc 1 291 2 is_stmt 1 view .LVU211
- 911 0026 FFF7FEFF 		bl	BSP_W25Qx_WriteEnable
- 912              	.LVL78:
  292:FML/Src/W25QXX.c **** 	
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 14
+
+
  293:FML/Src/W25QXX.c **** 	/*Select the FLASH: Chip Select low */
  294:FML/Src/W25QXX.c **** 	W25Qx_Enable();
- 913              		.loc 1 294 2 view .LVU212
- 914 002a 0022     		movs	r2, #0
- 915 002c 1021     		movs	r1, #16
- 916 002e 4FF09040 		mov	r0, #1207959552
- 917 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 918              	.LVL79:
  295:FML/Src/W25QXX.c **** 	/* Send the read ID command */
  296:FML/Src/W25QXX.c **** 	HAL_SPI_Transmit(&hspi3, cmd, 4, W25Qx_TIMEOUT_VALUE);	
- 919              		.loc 1 296 2 view .LVU213
- 920 0036 4FF47A73 		mov	r3, #1000
- 921 003a 0422     		movs	r2, #4
- 922 003c 0DEB0201 		add	r1, sp, r2
- 923 0040 0C48     		ldr	r0, .L63
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 23
-
-
- 924 0042 FFF7FEFF 		bl	HAL_SPI_Transmit
- 925              	.LVL80:
  297:FML/Src/W25QXX.c **** 	/*Deselect the FLASH: Chip Select high */
  298:FML/Src/W25QXX.c **** 	W25Qx_Disable();
- 926              		.loc 1 298 2 view .LVU214
- 927 0046 0122     		movs	r2, #1
- 928 0048 1021     		movs	r1, #16
- 929 004a 4FF09040 		mov	r0, #1207959552
- 930 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 931              	.LVL81:
  299:FML/Src/W25QXX.c **** 	
  300:FML/Src/W25QXX.c **** 	/* Wait the end of Flash writing */
  301:FML/Src/W25QXX.c **** 	while(BSP_W25Qx_GetStatus() == W25Qx_BUSY);
- 932              		.loc 1 301 2 view .LVU215
- 933              	.L59:
- 934              		.loc 1 301 44 discriminator 1 view .LVU216
- 935              		.loc 1 301 7 discriminator 1 view .LVU217
- 936              		.loc 1 301 8 is_stmt 0 discriminator 1 view .LVU218
- 937 0052 FFF7FEFF 		bl	BSP_W25Qx_GetStatus
- 938              	.LVL82:
- 939              		.loc 1 301 7 discriminator 1 view .LVU219
- 940 0056 0228     		cmp	r0, #2
- 941 0058 FBD0     		beq	.L59
  302:FML/Src/W25QXX.c **** 	{
  303:FML/Src/W25QXX.c **** 		/* Check for the Timeout */
  304:FML/Src/W25QXX.c ****     if((HAL_GetTick() - tickstart) > W25Q128FV_SECTOR_ERASE_MAX_TIME)
- 942              		.loc 1 304 5 is_stmt 1 view .LVU220
- 943              		.loc 1 304 9 is_stmt 0 view .LVU221
- 944 005a FFF7FEFF 		bl	HAL_GetTick
- 945              	.LVL83:
- 946              		.loc 1 304 23 view .LVU222
- 947 005e 401B     		subs	r0, r0, r5
- 948              		.loc 1 304 7 view .LVU223
- 949 0060 40F6B833 		movw	r3, #3000
- 950 0064 9842     		cmp	r0, r3
- 951 0066 02D8     		bhi	.L61
  305:FML/Src/W25QXX.c ****     {        
  306:FML/Src/W25QXX.c **** 			return W25Qx_TIMEOUT;
  307:FML/Src/W25QXX.c ****     }
  308:FML/Src/W25QXX.c **** 	}
  309:FML/Src/W25QXX.c **** 	return W25Qx_OK;
- 952              		.loc 1 309 9 view .LVU224
- 953 0068 0020     		movs	r0, #0
- 954              	.L60:
  310:FML/Src/W25QXX.c **** }
- 955              		.loc 1 310 1 view .LVU225
- 956 006a 03B0     		add	sp, sp, #12
- 957              	.LCFI32:
- 958              		.cfi_remember_state
- 959              		.cfi_def_cfa_offset 12
- 960              		@ sp needed
- 961 006c 30BD     		pop	{r4, r5, pc}
- 962              	.LVL84:
- 963              	.L61:
- 964              	.LCFI33:
- 965              		.cfi_restore_state
- 306:FML/Src/W25QXX.c ****     }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 24
-
-
- 966              		.loc 1 306 11 view .LVU226
- 967 006e 0320     		movs	r0, #3
- 968 0070 FBE7     		b	.L60
- 969              	.L64:
- 970 0072 00BF     		.align	2
- 971              	.L63:
- 972 0074 00000000 		.word	hspi3
- 973              		.cfi_endproc
- 974              	.LFE297:
- 976              		.section	.text.BSP_W25Qx_Erase_Chip,"ax",%progbits
- 977              		.align	1
- 978              		.global	BSP_W25Qx_Erase_Chip
- 979              		.syntax unified
- 980              		.thumb
- 981              		.thumb_func
- 983              	BSP_W25Qx_Erase_Chip:
- 984              	.LFB298:
  311:FML/Src/W25QXX.c **** 
  312:FML/Src/W25QXX.c **** /**
  313:FML/Src/W25QXX.c ****   * @brief  Erases the entire QSPI memory.This function will take a very long time.
@@ -1405,175 +806,1142 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 1
  315:FML/Src/W25QXX.c ****   */
  316:FML/Src/W25QXX.c **** uint8_t BSP_W25Qx_Erase_Chip(void)
  317:FML/Src/W25QXX.c **** {
- 985              		.loc 1 317 1 is_stmt 1 view -0
- 986              		.cfi_startproc
- 987              		@ args = 0, pretend = 0, frame = 8
- 988              		@ frame_needed = 0, uses_anonymous_args = 0
- 989 0000 10B5     		push	{r4, lr}
- 990              	.LCFI34:
- 991              		.cfi_def_cfa_offset 8
- 992              		.cfi_offset 4, -8
- 993              		.cfi_offset 14, -4
- 994 0002 82B0     		sub	sp, sp, #8
- 995              	.LCFI35:
- 996              		.cfi_def_cfa_offset 16
  318:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
- 997              		.loc 1 318 2 view .LVU228
  319:FML/Src/W25QXX.c **** 	uint32_t tickstart = HAL_GetTick();
- 998              		.loc 1 319 2 view .LVU229
- 999              		.loc 1 319 23 is_stmt 0 view .LVU230
- 1000 0004 FFF7FEFF 		bl	HAL_GetTick
- 1001              	.LVL85:
- 1002 0008 0446     		mov	r4, r0
- 1003              	.LVL86:
  320:FML/Src/W25QXX.c **** 	cmd[0] = SECTOR_ERASE_CMD;
- 1004              		.loc 1 320 2 is_stmt 1 view .LVU231
- 1005              		.loc 1 320 9 is_stmt 0 view .LVU232
- 1006 000a 2023     		movs	r3, #32
- 1007 000c 8DF80430 		strb	r3, [sp, #4]
  321:FML/Src/W25QXX.c **** 	
  322:FML/Src/W25QXX.c **** 	/* Enable write operations */
  323:FML/Src/W25QXX.c **** 	BSP_W25Qx_WriteEnable();
- 1008              		.loc 1 323 2 is_stmt 1 view .LVU233
- 1009 0010 FFF7FEFF 		bl	BSP_W25Qx_WriteEnable
- 1010              	.LVL87:
  324:FML/Src/W25QXX.c **** 	
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 25
-
-
  325:FML/Src/W25QXX.c **** 	/*Select the FLASH: Chip Select low */
  326:FML/Src/W25QXX.c **** 	W25Qx_Enable();
- 1011              		.loc 1 326 2 view .LVU234
- 1012 0014 0022     		movs	r2, #0
- 1013 0016 1021     		movs	r1, #16
- 1014 0018 4FF09040 		mov	r0, #1207959552
- 1015 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1016              	.LVL88:
  327:FML/Src/W25QXX.c **** 	/* Send the read ID command */
  328:FML/Src/W25QXX.c **** 	HAL_SPI_Transmit(&hspi3, cmd, 1, W25Qx_TIMEOUT_VALUE);	
- 1017              		.loc 1 328 2 view .LVU235
- 1018 0020 4FF47A73 		mov	r3, #1000
- 1019 0024 0122     		movs	r2, #1
- 1020 0026 01A9     		add	r1, sp, #4
- 1021 0028 0B48     		ldr	r0, .L70
- 1022 002a FFF7FEFF 		bl	HAL_SPI_Transmit
- 1023              	.LVL89:
  329:FML/Src/W25QXX.c **** 	/*Deselect the FLASH: Chip Select high */
  330:FML/Src/W25QXX.c **** 	W25Qx_Disable();
- 1024              		.loc 1 330 2 view .LVU236
- 1025 002e 0122     		movs	r2, #1
- 1026 0030 1021     		movs	r1, #16
- 1027 0032 4FF09040 		mov	r0, #1207959552
- 1028 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1029              	.LVL90:
  331:FML/Src/W25QXX.c **** 	
  332:FML/Src/W25QXX.c **** 	/* Wait the end of Flash writing */
  333:FML/Src/W25QXX.c **** 	while(BSP_W25Qx_GetStatus() != W25Qx_BUSY);
- 1030              		.loc 1 333 2 view .LVU237
- 1031              	.L66:
- 1032              		.loc 1 333 44 discriminator 1 view .LVU238
- 1033              		.loc 1 333 7 discriminator 1 view .LVU239
- 1034              		.loc 1 333 8 is_stmt 0 discriminator 1 view .LVU240
- 1035 003a FFF7FEFF 		bl	BSP_W25Qx_GetStatus
- 1036              	.LVL91:
- 1037              		.loc 1 333 7 discriminator 1 view .LVU241
- 1038 003e 0228     		cmp	r0, #2
- 1039 0040 FBD1     		bne	.L66
  334:FML/Src/W25QXX.c **** 	{
  335:FML/Src/W25QXX.c **** 		/* Check for the Timeout */
  336:FML/Src/W25QXX.c ****     if((HAL_GetTick() - tickstart) > W25Q128FV_BULK_ERASE_MAX_TIME)
- 1040              		.loc 1 336 5 is_stmt 1 view .LVU242
- 1041              		.loc 1 336 9 is_stmt 0 view .LVU243
- 1042 0042 FFF7FEFF 		bl	HAL_GetTick
- 1043              	.LVL92:
- 1044              		.loc 1 336 23 view .LVU244
- 1045 0046 001B     		subs	r0, r0, r4
- 1046              		.loc 1 336 7 view .LVU245
- 1047 0048 044B     		ldr	r3, .L70+4
- 1048 004a 9842     		cmp	r0, r3
- 1049 004c 02D8     		bhi	.L68
  337:FML/Src/W25QXX.c ****     {        
  338:FML/Src/W25QXX.c **** 			return W25Qx_TIMEOUT;
  339:FML/Src/W25QXX.c ****     }
  340:FML/Src/W25QXX.c **** 	}
  341:FML/Src/W25QXX.c **** 	return W25Qx_OK;
- 1050              		.loc 1 341 9 view .LVU246
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 26
-
-
- 1051 004e 0020     		movs	r0, #0
- 1052              	.L67:
  342:FML/Src/W25QXX.c **** }
- 1053              		.loc 1 342 1 view .LVU247
- 1054 0050 02B0     		add	sp, sp, #8
- 1055              	.LCFI36:
- 1056              		.cfi_remember_state
- 1057              		.cfi_def_cfa_offset 8
- 1058              		@ sp needed
- 1059 0052 10BD     		pop	{r4, pc}
- 1060              	.LVL93:
- 1061              	.L68:
- 1062              	.LCFI37:
- 1063              		.cfi_restore_state
+ 343:FML/Src/W25QXX.c **** 
+ 344:FML/Src/W25QXX.c **** /**
+ 345:FML/Src/W25QXX.c ****  * @brief Flash测试函数
+ 346:FML/Src/W25QXX.c ****  * 		  1）读取并打印Flash芯片ID 参数 容量等信息
+ 347:FML/Src/W25QXX.c ****  *        2）朝flash指定位置写入0x55
+ 348:FML/Src/W25QXX.c ****  * 		  3）读取指定位置，判断是否是0x55,以此判断是否能正常读写
+ 349:FML/Src/W25QXX.c ****  * 
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 15
+
+
+ 350:FML/Src/W25QXX.c ****  * @param str 
+ 351:FML/Src/W25QXX.c ****  */
+ 352:FML/Src/W25QXX.c **** void Flash_Test(void)
+ 353:FML/Src/W25QXX.c **** {
+ 444              		.loc 1 353 1 is_stmt 1 view -0
+ 445              		.cfi_startproc
+ 446              		@ args = 0, pretend = 0, frame = 8
+ 447              		@ frame_needed = 0, uses_anonymous_args = 0
+ 448 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 449              	.LCFI18:
+ 450              		.cfi_def_cfa_offset 28
+ 451              		.cfi_offset 4, -28
+ 452              		.cfi_offset 5, -24
+ 453              		.cfi_offset 6, -20
+ 454              		.cfi_offset 7, -16
+ 455              		.cfi_offset 8, -12
+ 456              		.cfi_offset 9, -8
+ 457              		.cfi_offset 14, -4
+ 458 0004 89B0     		sub	sp, sp, #36
+ 459              	.LCFI19:
+ 460              		.cfi_def_cfa_offset 64
+ 354:FML/Src/W25QXX.c ****   uint8_t flash_id[2] = {0x00,};
+ 461              		.loc 1 354 3 view .LVU69
+ 462              		.loc 1 354 11 is_stmt 0 view .LVU70
+ 463 0006 0023     		movs	r3, #0
+ 464 0008 ADF81C30 		strh	r3, [sp, #28]	@ movhi
+ 355:FML/Src/W25QXX.c ****   uint8_t JEDEC_id[3] = {0x00,};
+ 465              		.loc 1 355 3 is_stmt 1 view .LVU71
+ 466              		.loc 1 355 11 is_stmt 0 view .LVU72
+ 467 000c 264A     		ldr	r2, .L30+8
+ 468 000e 1288     		ldrh	r2, [r2]
+ 469 0010 ADF81820 		strh	r2, [sp, #24]	@ movhi
+ 470 0014 8DF81A30 		strb	r3, [sp, #26]
+ 356:FML/Src/W25QXX.c ****   uint32_t cap_kb = 0;
+ 471              		.loc 1 356 3 is_stmt 1 view .LVU73
+ 472              	.LVL32:
+ 357:FML/Src/W25QXX.c ****   float cap_mb = 0.0f;
+ 473              		.loc 1 357 3 view .LVU74
+ 358:FML/Src/W25QXX.c **** 
+ 359:FML/Src/W25QXX.c ****   BSP_W25Qx_Read_ID(flash_id);
+ 474              		.loc 1 359 3 view .LVU75
+ 475 0018 07A8     		add	r0, sp, #28
+ 476 001a FFF7FEFF 		bl	BSP_W25Qx_Read_ID
+ 477              	.LVL33:
+ 360:FML/Src/W25QXX.c ****   BSP_W25Qx_Read_JEDEC_ID(JEDEC_id);
+ 478              		.loc 1 360 3 view .LVU76
+ 479 001e 06A8     		add	r0, sp, #24
+ 480 0020 FFF7FEFF 		bl	BSP_W25Qx_Read_JEDEC_ID
+ 481              	.LVL34:
+ 361:FML/Src/W25QXX.c ****   cap_kb = pow(2 , (JEDEC_id[2] - 10)) *8 ;
+ 482              		.loc 1 361 3 view .LVU77
+ 483              		.loc 1 361 29 is_stmt 0 view .LVU78
+ 484 0024 9DF81A00 		ldrb	r0, [sp, #26]	@ zero_extendqisi2
+ 485              		.loc 1 361 12 view .LVU79
+ 486 0028 0A38     		subs	r0, r0, #10
+ 487 002a FFF7FEFF 		bl	__aeabi_i2d
+ 488              	.LVL35:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 16
+
+
+ 489 002e 41EC110B 		vmov	d1, r0, r1
+ 490 0032 9FED1B0B 		vldr.64	d0, .L30
+ 491 0036 FFF7FEFF 		bl	pow
+ 492              	.LVL36:
+ 493 003a 51EC100B 		vmov	r0, r1, d0
+ 494              		.loc 1 361 40 view .LVU80
+ 495 003e 0022     		movs	r2, #0
+ 496 0040 1A4B     		ldr	r3, .L30+12
+ 497 0042 FFF7FEFF 		bl	__aeabi_dmul
+ 498              	.LVL37:
+ 499              		.loc 1 361 10 view .LVU81
+ 500 0046 FFF7FEFF 		bl	__aeabi_d2uiz
+ 501              	.LVL38:
+ 502 004a 0446     		mov	r4, r0
+ 503              	.LVL39:
+ 362:FML/Src/W25QXX.c ****   cap_mb = (float)cap_kb / 1024.0;
+ 504              		.loc 1 362 3 is_stmt 1 view .LVU82
+ 505              		.loc 1 362 12 is_stmt 0 view .LVU83
+ 506 004c 07EE900A 		vmov	s15, r0	@ int
+ 507 0050 B8EE677A 		vcvt.f32.u32	s14, s15
+ 508              	.LVL40:
+ 363:FML/Src/W25QXX.c **** 
+ 364:FML/Src/W25QXX.c ****   shellPrint(&shell,"Manu_ID:0x%02x,Dev_ID:0x%02x\r\nManu_Identi:0x%02x,Memory_Type:0x%02x\r\n\
+ 509              		.loc 1 364 3 is_stmt 1 view .LVU84
+ 365:FML/Src/W25QXX.c ****   Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_
+ 510              		.loc 1 365 54 is_stmt 0 view .LVU85
+ 511 0054 9DF81C50 		ldrb	r5, [sp, #28]	@ zero_extendqisi2
+ 512              		.loc 1 365 66 view .LVU86
+ 513 0058 9DF81D60 		ldrb	r6, [sp, #29]	@ zero_extendqisi2
+ 514              		.loc 1 365 78 view .LVU87
+ 515 005c 9DF81870 		ldrb	r7, [sp, #24]	@ zero_extendqisi2
+ 516              		.loc 1 365 90 view .LVU88
+ 517 0060 9DF81980 		ldrb	r8, [sp, #25]	@ zero_extendqisi2
+ 518              		.loc 1 365 102 view .LVU89
+ 519 0064 9DF81A90 		ldrb	r9, [sp, #26]	@ zero_extendqisi2
+ 364:FML/Src/W25QXX.c ****   Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_
+ 520              		.loc 1 364 3 view .LVU90
+ 521 0068 DFED117A 		vldr.32	s15, .L30+16
+ 522 006c 67EE277A 		vmul.f32	s15, s14, s15
+ 523              	.LVL41:
+ 364:FML/Src/W25QXX.c ****   Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_
+ 524              		.loc 1 364 3 view .LVU91
+ 525 0070 17EE900A 		vmov	r0, s15
+ 526              	.LVL42:
+ 364:FML/Src/W25QXX.c ****   Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_
+ 527              		.loc 1 364 3 view .LVU92
+ 528 0074 FFF7FEFF 		bl	__aeabi_f2d
+ 529              	.LVL43:
+ 364:FML/Src/W25QXX.c ****   Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_
+ 530              		.loc 1 364 3 view .LVU93
+ 531 0078 CDE90401 		strd	r0, [sp, #16]
+ 532 007c 0394     		str	r4, [sp, #12]
+ 533 007e CDF80890 		str	r9, [sp, #8]
+ 534 0082 CDF80480 		str	r8, [sp, #4]
+ 535 0086 0097     		str	r7, [sp]
+ 536 0088 3346     		mov	r3, r6
+ 537 008a 2A46     		mov	r2, r5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 17
+
+
+ 538 008c 0949     		ldr	r1, .L30+20
+ 539 008e 0A48     		ldr	r0, .L30+24
+ 540 0090 FFF7FEFF 		bl	shellPrint
+ 541              	.LVL44:
+ 366:FML/Src/W25QXX.c **** }
+ 542              		.loc 1 366 1 view .LVU94
+ 543 0094 09B0     		add	sp, sp, #36
+ 544              	.LCFI20:
+ 545              		.cfi_def_cfa_offset 28
+ 546              		@ sp needed
+ 547 0096 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 548              	.LVL45:
+ 549              	.L31:
+ 550              		.loc 1 366 1 view .LVU95
+ 551 009a 00BFAFF3 		.align	3
+ 551      0080
+ 552              	.L30:
+ 553 00a0 00000000 		.word	0
+ 554 00a4 00000040 		.word	1073741824
+ 555 00a8 00000000 		.word	.LANCHOR0
+ 556 00ac 00002040 		.word	1075838976
+ 557 00b0 0000803A 		.word	981467136
+ 558 00b4 00000000 		.word	.LC1
+ 559 00b8 00000000 		.word	shell
+ 560              		.cfi_endproc
+ 561              	.LFE299:
+ 563              		.section	.text.BSP_W25Qx_Read,"ax",%progbits
+ 564              		.align	1
+ 565              		.global	BSP_W25Qx_Read
+ 566              		.syntax unified
+ 567              		.thumb
+ 568              		.thumb_func
+ 570              	BSP_W25Qx_Read:
+ 571              	.LVL46:
+ 572              	.LFB294:
+ 144:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
+ 573              		.loc 1 144 1 is_stmt 1 view -0
+ 574              		.cfi_startproc
+ 575              		@ args = 0, pretend = 0, frame = 8
+ 576              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
+ 577              		.loc 1 144 1 is_stmt 0 view .LVU97
+ 578 0000 70B5     		push	{r4, r5, r6, lr}
+ 579              	.LCFI21:
+ 580              		.cfi_def_cfa_offset 16
+ 581              		.cfi_offset 4, -16
+ 582              		.cfi_offset 5, -12
+ 583              		.cfi_offset 6, -8
+ 584              		.cfi_offset 14, -4
+ 585 0002 82B0     		sub	sp, sp, #8
+ 586              	.LCFI22:
+ 587              		.cfi_def_cfa_offset 24
+ 588 0004 0446     		mov	r4, r0
+ 589 0006 1546     		mov	r5, r2
+ 145:FML/Src/W25QXX.c **** 
+ 590              		.loc 1 145 2 is_stmt 1 view .LVU98
+ 148:FML/Src/W25QXX.c **** 	cmd[1] = (uint8_t)(ReadAddr >> 16);
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 18
+
+
+ 591              		.loc 1 148 2 view .LVU99
+ 148:FML/Src/W25QXX.c **** 	cmd[1] = (uint8_t)(ReadAddr >> 16);
+ 592              		.loc 1 148 9 is_stmt 0 view .LVU100
+ 593 0008 0323     		movs	r3, #3
+ 594 000a 8DF80430 		strb	r3, [sp, #4]
+ 149:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(ReadAddr >> 8);
+ 595              		.loc 1 149 2 is_stmt 1 view .LVU101
+ 149:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(ReadAddr >> 8);
+ 596              		.loc 1 149 11 is_stmt 0 view .LVU102
+ 597 000e C1F30743 		ubfx	r3, r1, #16, #8
+ 149:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(ReadAddr >> 8);
+ 598              		.loc 1 149 9 view .LVU103
+ 599 0012 8DF80530 		strb	r3, [sp, #5]
+ 150:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(ReadAddr);
+ 600              		.loc 1 150 2 is_stmt 1 view .LVU104
+ 150:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(ReadAddr);
+ 601              		.loc 1 150 11 is_stmt 0 view .LVU105
+ 602 0016 C1F30723 		ubfx	r3, r1, #8, #8
+ 150:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(ReadAddr);
+ 603              		.loc 1 150 9 view .LVU106
+ 604 001a 8DF80630 		strb	r3, [sp, #6]
+ 151:FML/Src/W25QXX.c **** 	
+ 605              		.loc 1 151 2 is_stmt 1 view .LVU107
+ 151:FML/Src/W25QXX.c **** 	
+ 606              		.loc 1 151 9 is_stmt 0 view .LVU108
+ 607 001e 8DF80710 		strb	r1, [sp, #7]
+ 153:FML/Src/W25QXX.c **** 	/* Send the read ID command */
+ 608              		.loc 1 153 2 is_stmt 1 view .LVU109
+ 609 0022 0022     		movs	r2, #0
+ 610              	.LVL47:
+ 153:FML/Src/W25QXX.c **** 	/* Send the read ID command */
+ 611              		.loc 1 153 2 is_stmt 0 view .LVU110
+ 612 0024 1021     		movs	r1, #16
+ 613              	.LVL48:
+ 153:FML/Src/W25QXX.c **** 	/* Send the read ID command */
+ 614              		.loc 1 153 2 view .LVU111
+ 615 0026 4FF09040 		mov	r0, #1207959552
+ 616              	.LVL49:
+ 153:FML/Src/W25QXX.c **** 	/* Send the read ID command */
+ 617              		.loc 1 153 2 view .LVU112
+ 618 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 619              	.LVL50:
+ 155:FML/Src/W25QXX.c **** 	/* Reception of the data */
+ 620              		.loc 1 155 2 is_stmt 1 view .LVU113
+ 621 002e 0E4E     		ldr	r6, .L37
+ 622 0030 4FF47A73 		mov	r3, #1000
+ 623 0034 0422     		movs	r2, #4
+ 624 0036 0DEB0201 		add	r1, sp, r2
+ 625 003a 3046     		mov	r0, r6
+ 626 003c FFF7FEFF 		bl	HAL_SPI_Transmit
+ 627              	.LVL51:
+ 157:FML/Src/W25QXX.c ****   {
+ 628              		.loc 1 157 2 view .LVU114
+ 157:FML/Src/W25QXX.c ****   {
+ 629              		.loc 1 157 6 is_stmt 0 view .LVU115
+ 630 0040 4FF47A73 		mov	r3, #1000
+ 631 0044 AAB2     		uxth	r2, r5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 19
+
+
+ 632 0046 2146     		mov	r1, r4
+ 633 0048 3046     		mov	r0, r6
+ 634 004a FFF7FEFF 		bl	HAL_SPI_Receive
+ 635              	.LVL52:
+ 157:FML/Src/W25QXX.c ****   {
+ 636              		.loc 1 157 5 view .LVU116
+ 637 004e 18B1     		cbz	r0, .L36
+ 159:FML/Src/W25QXX.c ****   }
+ 638              		.loc 1 159 12 view .LVU117
+ 639 0050 0124     		movs	r4, #1
+ 640              	.LVL53:
+ 641              	.L33:
+ 163:FML/Src/W25QXX.c **** 
+ 642              		.loc 1 163 1 view .LVU118
+ 643 0052 2046     		mov	r0, r4
+ 644 0054 02B0     		add	sp, sp, #8
+ 645              	.LCFI23:
+ 646              		.cfi_remember_state
+ 647              		.cfi_def_cfa_offset 16
+ 648              		@ sp needed
+ 649 0056 70BD     		pop	{r4, r5, r6, pc}
+ 650              	.LVL54:
+ 651              	.L36:
+ 652              	.LCFI24:
+ 653              		.cfi_restore_state
+ 163:FML/Src/W25QXX.c **** 
+ 654              		.loc 1 163 1 view .LVU119
+ 655 0058 0446     		mov	r4, r0
+ 656              	.LVL55:
+ 161:FML/Src/W25QXX.c **** 	return W25Qx_OK;
+ 657              		.loc 1 161 2 is_stmt 1 view .LVU120
+ 658 005a 0122     		movs	r2, #1
+ 659 005c 1021     		movs	r1, #16
+ 660 005e 4FF09040 		mov	r0, #1207959552
+ 661 0062 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 662              	.LVL56:
+ 162:FML/Src/W25QXX.c **** }
+ 663              		.loc 1 162 2 view .LVU121
+ 162:FML/Src/W25QXX.c **** }
+ 664              		.loc 1 162 9 is_stmt 0 view .LVU122
+ 665 0066 F4E7     		b	.L33
+ 666              	.L38:
+ 667              		.align	2
+ 668              	.L37:
+ 669 0068 00000000 		.word	hspi3
+ 670              		.cfi_endproc
+ 671              	.LFE294:
+ 673              		.section	.text.BSP_W25Qx_Write,"ax",%progbits
+ 674              		.align	1
+ 675              		.global	BSP_W25Qx_Write
+ 676              		.syntax unified
+ 677              		.thumb
+ 678              		.thumb_func
+ 680              	BSP_W25Qx_Write:
+ 681              	.LVL57:
+ 682              	.LFB295:
+ 173:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 20
+
+
+ 683              		.loc 1 173 1 is_stmt 1 view -0
+ 684              		.cfi_startproc
+ 685              		@ args = 0, pretend = 0, frame = 8
+ 686              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
+ 687              		.loc 1 173 1 is_stmt 0 view .LVU124
+ 688 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 689              	.LCFI25:
+ 690              		.cfi_def_cfa_offset 28
+ 691              		.cfi_offset 4, -28
+ 692              		.cfi_offset 5, -24
+ 693              		.cfi_offset 6, -20
+ 694              		.cfi_offset 7, -16
+ 695              		.cfi_offset 8, -12
+ 696              		.cfi_offset 9, -8
+ 697              		.cfi_offset 14, -4
+ 698 0004 83B0     		sub	sp, sp, #12
+ 699              	.LCFI26:
+ 700              		.cfi_def_cfa_offset 40
+ 701 0006 0646     		mov	r6, r0
+ 702 0008 0C46     		mov	r4, r1
+ 703 000a 1746     		mov	r7, r2
+ 174:FML/Src/W25QXX.c **** 	uint32_t end_addr, current_size, current_addr;
+ 704              		.loc 1 174 2 is_stmt 1 view .LVU125
+ 175:FML/Src/W25QXX.c **** 	uint32_t tickstart = HAL_GetTick();
+ 705              		.loc 1 175 2 view .LVU126
+ 176:FML/Src/W25QXX.c **** 	
+ 706              		.loc 1 176 2 view .LVU127
+ 176:FML/Src/W25QXX.c **** 	
+ 707              		.loc 1 176 23 is_stmt 0 view .LVU128
+ 708 000c FFF7FEFF 		bl	HAL_GetTick
+ 709              	.LVL58:
+ 176:FML/Src/W25QXX.c **** 	
+ 710              		.loc 1 176 23 view .LVU129
+ 711 0010 8046     		mov	r8, r0
+ 712              	.LVL59:
+ 179:FML/Src/W25QXX.c **** 
+ 713              		.loc 1 179 3 is_stmt 1 view .LVU130
+ 181:FML/Src/W25QXX.c ****   {
+ 714              		.loc 1 181 3 view .LVU131
+ 179:FML/Src/W25QXX.c **** 
+ 715              		.loc 1 179 16 is_stmt 0 view .LVU132
+ 716 0012 0025     		movs	r5, #0
+ 181:FML/Src/W25QXX.c ****   {
+ 717              		.loc 1 181 9 view .LVU133
+ 718 0014 01E0     		b	.L40
+ 719              	.LVL60:
+ 720              	.L41:
+ 183:FML/Src/W25QXX.c ****   }
+ 721              		.loc 1 183 5 is_stmt 1 view .LVU134
+ 183:FML/Src/W25QXX.c ****   }
+ 722              		.loc 1 183 18 is_stmt 0 view .LVU135
+ 723 0016 05F58075 		add	r5, r5, #256
+ 724              	.LVL61:
+ 725              	.L40:
+ 181:FML/Src/W25QXX.c ****   {
+ 726              		.loc 1 181 9 is_stmt 1 view .LVU136
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 21
+
+
+ 727 001a A542     		cmp	r5, r4
+ 728 001c FBD9     		bls	.L41
+ 185:FML/Src/W25QXX.c **** 
+ 729              		.loc 1 185 3 view .LVU137
+ 185:FML/Src/W25QXX.c **** 
+ 730              		.loc 1 185 16 is_stmt 0 view .LVU138
+ 731 001e 2D1B     		subs	r5, r5, r4
+ 732              	.LVL62:
+ 188:FML/Src/W25QXX.c ****   {
+ 733              		.loc 1 188 3 is_stmt 1 view .LVU139
+ 188:FML/Src/W25QXX.c ****   {
+ 734              		.loc 1 188 6 is_stmt 0 view .LVU140
+ 735 0020 BD42     		cmp	r5, r7
+ 736 0022 00D9     		bls	.L42
+ 190:FML/Src/W25QXX.c ****   }
+ 737              		.loc 1 190 18 view .LVU141
+ 738 0024 3D46     		mov	r5, r7
+ 739              	.LVL63:
+ 740              	.L42:
+ 194:FML/Src/W25QXX.c ****   end_addr = WriteAddr + Size;
+ 741              		.loc 1 194 3 is_stmt 1 view .LVU142
+ 195:FML/Src/W25QXX.c **** 	
+ 742              		.loc 1 195 3 view .LVU143
+ 195:FML/Src/W25QXX.c **** 	
+ 743              		.loc 1 195 12 is_stmt 0 view .LVU144
+ 744 0026 2744     		add	r7, r7, r4
+ 745              	.LVL64:
+ 195:FML/Src/W25QXX.c **** 	
+ 746              		.loc 1 195 12 view .LVU145
+ 747 0028 03E0     		b	.L46
+ 748              	.LVL65:
+ 749              	.L51:
+ 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
+ 750              		.loc 1 235 98 view .LVU146
+ 751 002a 4FF48075 		mov	r5, #256
+ 752              	.LVL66:
+ 753              	.L45:
+ 236:FML/Src/W25QXX.c **** 
+ 754              		.loc 1 236 11 is_stmt 1 discriminator 4 view .LVU147
+ 236:FML/Src/W25QXX.c **** 
+ 755              		.loc 1 236 3 is_stmt 0 discriminator 4 view .LVU148
+ 756 002e A742     		cmp	r7, r4
+ 757 0030 41D9     		bls	.L43
+ 758              	.L46:
+ 198:FML/Src/W25QXX.c ****   {
+ 759              		.loc 1 198 3 is_stmt 1 view .LVU149
+ 201:FML/Src/W25QXX.c **** 		cmd[1] = (uint8_t)(current_addr >> 16);
+ 760              		.loc 1 201 3 view .LVU150
+ 201:FML/Src/W25QXX.c **** 		cmd[1] = (uint8_t)(current_addr >> 16);
+ 761              		.loc 1 201 10 is_stmt 0 view .LVU151
+ 762 0032 0223     		movs	r3, #2
+ 763 0034 8DF80430 		strb	r3, [sp, #4]
+ 202:FML/Src/W25QXX.c **** 		cmd[2] = (uint8_t)(current_addr >> 8);
+ 764              		.loc 1 202 3 is_stmt 1 view .LVU152
+ 202:FML/Src/W25QXX.c **** 		cmd[2] = (uint8_t)(current_addr >> 8);
+ 765              		.loc 1 202 12 is_stmt 0 view .LVU153
+ 766 0038 C4F30743 		ubfx	r3, r4, #16, #8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 22
+
+
+ 202:FML/Src/W25QXX.c **** 		cmd[2] = (uint8_t)(current_addr >> 8);
+ 767              		.loc 1 202 10 view .LVU154
+ 768 003c 8DF80530 		strb	r3, [sp, #5]
+ 203:FML/Src/W25QXX.c **** 		cmd[3] = (uint8_t)(current_addr);
+ 769              		.loc 1 203 3 is_stmt 1 view .LVU155
+ 203:FML/Src/W25QXX.c **** 		cmd[3] = (uint8_t)(current_addr);
+ 770              		.loc 1 203 12 is_stmt 0 view .LVU156
+ 771 0040 C4F30723 		ubfx	r3, r4, #8, #8
+ 203:FML/Src/W25QXX.c **** 		cmd[3] = (uint8_t)(current_addr);
+ 772              		.loc 1 203 10 view .LVU157
+ 773 0044 8DF80630 		strb	r3, [sp, #6]
+ 204:FML/Src/W25QXX.c **** 
+ 774              		.loc 1 204 3 is_stmt 1 view .LVU158
+ 204:FML/Src/W25QXX.c **** 
+ 775              		.loc 1 204 10 is_stmt 0 view .LVU159
+ 776 0048 8DF80740 		strb	r4, [sp, #7]
+ 207:FML/Src/W25QXX.c **** 	
+ 777              		.loc 1 207 3 is_stmt 1 view .LVU160
+ 778 004c FFF7FEFF 		bl	BSP_W25Qx_WriteEnable
+ 779              	.LVL67:
+ 209:FML/Src/W25QXX.c ****     /* Send the command */
+ 780              		.loc 1 209 3 view .LVU161
+ 781 0050 0022     		movs	r2, #0
+ 782 0052 1021     		movs	r1, #16
+ 783 0054 4FF09040 		mov	r0, #1207959552
+ 784 0058 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 785              	.LVL68:
+ 211:FML/Src/W25QXX.c ****     {
+ 786              		.loc 1 211 5 view .LVU162
+ 211:FML/Src/W25QXX.c ****     {
+ 787              		.loc 1 211 9 is_stmt 0 view .LVU163
+ 788 005c 4FF47A73 		mov	r3, #1000
+ 789 0060 0422     		movs	r2, #4
+ 790 0062 0DEB0201 		add	r1, sp, r2
+ 791 0066 1948     		ldr	r0, .L53
+ 792 0068 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 793              	.LVL69:
+ 211:FML/Src/W25QXX.c ****     {
+ 794              		.loc 1 211 8 view .LVU164
+ 795 006c 08BB     		cbnz	r0, .L48
+ 217:FML/Src/W25QXX.c ****     {
+ 796              		.loc 1 217 5 is_stmt 1 view .LVU165
+ 217:FML/Src/W25QXX.c ****     {
+ 797              		.loc 1 217 9 is_stmt 0 view .LVU166
+ 798 006e 4FF47A73 		mov	r3, #1000
+ 799 0072 AAB2     		uxth	r2, r5
+ 800 0074 3146     		mov	r1, r6
+ 801 0076 1548     		ldr	r0, .L53
+ 802 0078 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 803              	.LVL70:
+ 217:FML/Src/W25QXX.c ****     {
+ 804              		.loc 1 217 8 view .LVU167
+ 805 007c 8146     		mov	r9, r0
+ 806 007e F0B9     		cbnz	r0, .L49
+ 221:FML/Src/W25QXX.c ****     	/* Wait the end of Flash writing */
+ 807              		.loc 1 221 4 is_stmt 1 view .LVU168
+ 808 0080 0122     		movs	r2, #1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 23
+
+
+ 809 0082 1021     		movs	r1, #16
+ 810 0084 4FF09040 		mov	r0, #1207959552
+ 811 0088 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 812              	.LVL71:
+ 223:FML/Src/W25QXX.c **** 		{
+ 813              		.loc 1 223 3 view .LVU169
+ 814              	.L44:
+ 223:FML/Src/W25QXX.c **** 		{
+ 815              		.loc 1 223 45 discriminator 1 view .LVU170
+ 223:FML/Src/W25QXX.c **** 		{
+ 816              		.loc 1 223 8 discriminator 1 view .LVU171
+ 223:FML/Src/W25QXX.c **** 		{
+ 817              		.loc 1 223 9 is_stmt 0 discriminator 1 view .LVU172
+ 818 008c FFF7FEFF 		bl	BSP_W25Qx_GetStatus
+ 819              	.LVL72:
+ 223:FML/Src/W25QXX.c **** 		{
+ 820              		.loc 1 223 8 discriminator 1 view .LVU173
+ 821 0090 0228     		cmp	r0, #2
+ 822 0092 FBD0     		beq	.L44
+ 226:FML/Src/W25QXX.c **** 			{        
+ 823              		.loc 1 226 4 is_stmt 1 view .LVU174
+ 226:FML/Src/W25QXX.c **** 			{        
+ 824              		.loc 1 226 8 is_stmt 0 view .LVU175
+ 825 0094 FFF7FEFF 		bl	HAL_GetTick
+ 826              	.LVL73:
+ 226:FML/Src/W25QXX.c **** 			{        
+ 827              		.loc 1 226 22 view .LVU176
+ 828 0098 A0EB0803 		sub	r3, r0, r8
+ 226:FML/Src/W25QXX.c **** 			{        
+ 829              		.loc 1 226 6 view .LVU177
+ 830 009c B3F57A7F 		cmp	r3, #1000
+ 831 00a0 10D8     		bhi	.L50
+ 233:FML/Src/W25QXX.c ****     pData += current_size;
+ 832              		.loc 1 233 5 is_stmt 1 view .LVU178
+ 233:FML/Src/W25QXX.c ****     pData += current_size;
+ 833              		.loc 1 233 18 is_stmt 0 view .LVU179
+ 834 00a2 2C44     		add	r4, r4, r5
+ 835              	.LVL74:
+ 234:FML/Src/W25QXX.c ****     current_size = ((current_addr + W25Q128FV_PAGE_SIZE) > end_addr) ? (end_addr - current_addr) : 
+ 836              		.loc 1 234 5 is_stmt 1 view .LVU180
+ 234:FML/Src/W25QXX.c ****     current_size = ((current_addr + W25Q128FV_PAGE_SIZE) > end_addr) ? (end_addr - current_addr) : 
+ 837              		.loc 1 234 11 is_stmt 0 view .LVU181
+ 838 00a4 2E44     		add	r6, r6, r5
+ 839              	.LVL75:
+ 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
+ 840              		.loc 1 235 5 is_stmt 1 view .LVU182
+ 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
+ 841              		.loc 1 235 35 is_stmt 0 view .LVU183
+ 842 00a6 04F58073 		add	r3, r4, #256
+ 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
+ 843              		.loc 1 235 98 view .LVU184
+ 844 00aa BB42     		cmp	r3, r7
+ 845 00ac BDD9     		bls	.L51
+ 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
+ 846              		.loc 1 235 98 discriminator 1 view .LVU185
+ 847 00ae 3D1B     		subs	r5, r7, r4
+ 848              	.LVL76:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 24
+
+
+ 235:FML/Src/W25QXX.c ****   } while (current_addr < end_addr);
+ 849              		.loc 1 235 98 discriminator 1 view .LVU186
+ 850 00b0 BDE7     		b	.L45
+ 851              	.LVL77:
+ 852              	.L48:
+ 213:FML/Src/W25QXX.c ****     }
+ 853              		.loc 1 213 14 view .LVU187
+ 854 00b2 4FF00109 		mov	r9, #1
+ 855              	.L43:
+ 240:FML/Src/W25QXX.c **** /**
+ 856              		.loc 1 240 1 view .LVU188
+ 857 00b6 4846     		mov	r0, r9
+ 858 00b8 03B0     		add	sp, sp, #12
+ 859              	.LCFI27:
+ 860              		.cfi_remember_state
+ 861              		.cfi_def_cfa_offset 28
+ 862              		@ sp needed
+ 863 00ba BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 864              	.LVL78:
+ 865              	.L49:
+ 866              	.LCFI28:
+ 867              		.cfi_restore_state
+ 219:FML/Src/W25QXX.c ****     }
+ 868              		.loc 1 219 14 view .LVU189
+ 869 00be 4FF00109 		mov	r9, #1
+ 870 00c2 F8E7     		b	.L43
+ 871              	.L50:
+ 228:FML/Src/W25QXX.c **** 			}
+ 872              		.loc 1 228 12 view .LVU190
+ 873 00c4 4FF00309 		mov	r9, #3
+ 874 00c8 F5E7     		b	.L43
+ 875              	.L54:
+ 876 00ca 00BF     		.align	2
+ 877              	.L53:
+ 878 00cc 00000000 		.word	hspi3
+ 879              		.cfi_endproc
+ 880              	.LFE295:
+ 882              		.section	.text.BSP_W25Qx_Erase_Page,"ax",%progbits
+ 883              		.align	1
+ 884              		.global	BSP_W25Qx_Erase_Page
+ 885              		.syntax unified
+ 886              		.thumb
+ 887              		.thumb_func
+ 889              	BSP_W25Qx_Erase_Page:
+ 890              	.LVL79:
+ 891              	.LFB296:
+ 247:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
+ 892              		.loc 1 247 1 is_stmt 1 view -0
+ 893              		.cfi_startproc
+ 894              		@ args = 0, pretend = 0, frame = 8
+ 895              		@ frame_needed = 0, uses_anonymous_args = 0
+ 247:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
+ 896              		.loc 1 247 1 is_stmt 0 view .LVU192
+ 897 0000 30B5     		push	{r4, r5, lr}
+ 898              	.LCFI29:
+ 899              		.cfi_def_cfa_offset 12
+ 900              		.cfi_offset 4, -12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 25
+
+
+ 901              		.cfi_offset 5, -8
+ 902              		.cfi_offset 14, -4
+ 903 0002 83B0     		sub	sp, sp, #12
+ 904              	.LCFI30:
+ 905              		.cfi_def_cfa_offset 24
+ 906 0004 0446     		mov	r4, r0
+ 248:FML/Src/W25QXX.c **** 	uint32_t tickstart = HAL_GetTick();
+ 907              		.loc 1 248 2 is_stmt 1 view .LVU193
+ 249:FML/Src/W25QXX.c **** 	cmd[0] = PAGE_ERASE_CMD;
+ 908              		.loc 1 249 2 view .LVU194
+ 249:FML/Src/W25QXX.c **** 	cmd[0] = PAGE_ERASE_CMD;
+ 909              		.loc 1 249 23 is_stmt 0 view .LVU195
+ 910 0006 FFF7FEFF 		bl	HAL_GetTick
+ 911              	.LVL80:
+ 249:FML/Src/W25QXX.c **** 	cmd[0] = PAGE_ERASE_CMD;
+ 912              		.loc 1 249 23 view .LVU196
+ 913 000a 0546     		mov	r5, r0
+ 914              	.LVL81:
+ 250:FML/Src/W25QXX.c **** 	cmd[1] = (uint8_t)(Address >> 16);
+ 915              		.loc 1 250 2 is_stmt 1 view .LVU197
+ 250:FML/Src/W25QXX.c **** 	cmd[1] = (uint8_t)(Address >> 16);
+ 916              		.loc 1 250 9 is_stmt 0 view .LVU198
+ 917 000c 8123     		movs	r3, #129
+ 918 000e 8DF80430 		strb	r3, [sp, #4]
+ 251:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(Address >> 8);
+ 919              		.loc 1 251 2 is_stmt 1 view .LVU199
+ 251:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(Address >> 8);
+ 920              		.loc 1 251 11 is_stmt 0 view .LVU200
+ 921 0012 C4F30743 		ubfx	r3, r4, #16, #8
+ 251:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(Address >> 8);
+ 922              		.loc 1 251 9 view .LVU201
+ 923 0016 8DF80530 		strb	r3, [sp, #5]
+ 252:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(Address);
+ 924              		.loc 1 252 2 is_stmt 1 view .LVU202
+ 252:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(Address);
+ 925              		.loc 1 252 11 is_stmt 0 view .LVU203
+ 926 001a C4F30723 		ubfx	r3, r4, #8, #8
+ 252:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(Address);
+ 927              		.loc 1 252 9 view .LVU204
+ 928 001e 8DF80630 		strb	r3, [sp, #6]
+ 253:FML/Src/W25QXX.c **** 	
+ 929              		.loc 1 253 2 is_stmt 1 view .LVU205
+ 253:FML/Src/W25QXX.c **** 	
+ 930              		.loc 1 253 9 is_stmt 0 view .LVU206
+ 931 0022 8DF80740 		strb	r4, [sp, #7]
+ 256:FML/Src/W25QXX.c **** 	
+ 932              		.loc 1 256 2 is_stmt 1 view .LVU207
+ 933 0026 FFF7FEFF 		bl	BSP_W25Qx_WriteEnable
+ 934              	.LVL82:
+ 259:FML/Src/W25QXX.c **** 	/* Send the read ID command */
+ 935              		.loc 1 259 2 view .LVU208
+ 936 002a 0022     		movs	r2, #0
+ 937 002c 1021     		movs	r1, #16
+ 938 002e 4FF09040 		mov	r0, #1207959552
+ 939 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 940              	.LVL83:
+ 261:FML/Src/W25QXX.c **** 	/*Deselect the FLASH: Chip Select high */
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 26
+
+
+ 941              		.loc 1 261 2 view .LVU209
+ 942 0036 4FF47A73 		mov	r3, #1000
+ 943 003a 0422     		movs	r2, #4
+ 944 003c 0DEB0201 		add	r1, sp, r2
+ 945 0040 0C48     		ldr	r0, .L60
+ 946 0042 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 947              	.LVL84:
+ 263:FML/Src/W25QXX.c **** 	
+ 948              		.loc 1 263 2 view .LVU210
+ 949 0046 0122     		movs	r2, #1
+ 950 0048 1021     		movs	r1, #16
+ 951 004a 4FF09040 		mov	r0, #1207959552
+ 952 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 953              	.LVL85:
+ 266:FML/Src/W25QXX.c **** 	{
+ 954              		.loc 1 266 2 view .LVU211
+ 955              	.L56:
+ 266:FML/Src/W25QXX.c **** 	{
+ 956              		.loc 1 266 44 discriminator 1 view .LVU212
+ 266:FML/Src/W25QXX.c **** 	{
+ 957              		.loc 1 266 7 discriminator 1 view .LVU213
+ 266:FML/Src/W25QXX.c **** 	{
+ 958              		.loc 1 266 8 is_stmt 0 discriminator 1 view .LVU214
+ 959 0052 FFF7FEFF 		bl	BSP_W25Qx_GetStatus
+ 960              	.LVL86:
+ 266:FML/Src/W25QXX.c **** 	{
+ 961              		.loc 1 266 7 discriminator 1 view .LVU215
+ 962 0056 0228     		cmp	r0, #2
+ 963 0058 FBD0     		beq	.L56
+ 269:FML/Src/W25QXX.c ****     {        
+ 964              		.loc 1 269 5 is_stmt 1 view .LVU216
+ 269:FML/Src/W25QXX.c ****     {        
+ 965              		.loc 1 269 9 is_stmt 0 view .LVU217
+ 966 005a FFF7FEFF 		bl	HAL_GetTick
+ 967              	.LVL87:
+ 269:FML/Src/W25QXX.c ****     {        
+ 968              		.loc 1 269 23 view .LVU218
+ 969 005e 401B     		subs	r0, r0, r5
+ 269:FML/Src/W25QXX.c ****     {        
+ 970              		.loc 1 269 7 view .LVU219
+ 971 0060 40F6B833 		movw	r3, #3000
+ 972 0064 9842     		cmp	r0, r3
+ 973 0066 02D8     		bhi	.L58
+ 274:FML/Src/W25QXX.c **** }
+ 974              		.loc 1 274 9 view .LVU220
+ 975 0068 0020     		movs	r0, #0
+ 976              	.L57:
+ 275:FML/Src/W25QXX.c **** /**
+ 977              		.loc 1 275 1 view .LVU221
+ 978 006a 03B0     		add	sp, sp, #12
+ 979              	.LCFI31:
+ 980              		.cfi_remember_state
+ 981              		.cfi_def_cfa_offset 12
+ 982              		@ sp needed
+ 983 006c 30BD     		pop	{r4, r5, pc}
+ 984              	.LVL88:
+ 985              	.L58:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 27
+
+
+ 986              	.LCFI32:
+ 987              		.cfi_restore_state
+ 271:FML/Src/W25QXX.c ****     }
+ 988              		.loc 1 271 11 view .LVU222
+ 989 006e 0320     		movs	r0, #3
+ 990 0070 FBE7     		b	.L57
+ 991              	.L61:
+ 992 0072 00BF     		.align	2
+ 993              	.L60:
+ 994 0074 00000000 		.word	hspi3
+ 995              		.cfi_endproc
+ 996              	.LFE296:
+ 998              		.section	.text.BSP_W25Qx_Erase_Block,"ax",%progbits
+ 999              		.align	1
+ 1000              		.global	BSP_W25Qx_Erase_Block
+ 1001              		.syntax unified
+ 1002              		.thumb
+ 1003              		.thumb_func
+ 1005              	BSP_W25Qx_Erase_Block:
+ 1006              	.LVL89:
+ 1007              	.LFB297:
+ 282:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
+ 1008              		.loc 1 282 1 is_stmt 1 view -0
+ 1009              		.cfi_startproc
+ 1010              		@ args = 0, pretend = 0, frame = 8
+ 1011              		@ frame_needed = 0, uses_anonymous_args = 0
+ 282:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
+ 1012              		.loc 1 282 1 is_stmt 0 view .LVU224
+ 1013 0000 30B5     		push	{r4, r5, lr}
+ 1014              	.LCFI33:
+ 1015              		.cfi_def_cfa_offset 12
+ 1016              		.cfi_offset 4, -12
+ 1017              		.cfi_offset 5, -8
+ 1018              		.cfi_offset 14, -4
+ 1019 0002 83B0     		sub	sp, sp, #12
+ 1020              	.LCFI34:
+ 1021              		.cfi_def_cfa_offset 24
+ 1022 0004 0446     		mov	r4, r0
+ 283:FML/Src/W25QXX.c **** 	uint32_t tickstart = HAL_GetTick();
+ 1023              		.loc 1 283 2 is_stmt 1 view .LVU225
+ 284:FML/Src/W25QXX.c **** 	cmd[0] = SECTOR_ERASE_CMD;
+ 1024              		.loc 1 284 2 view .LVU226
+ 284:FML/Src/W25QXX.c **** 	cmd[0] = SECTOR_ERASE_CMD;
+ 1025              		.loc 1 284 23 is_stmt 0 view .LVU227
+ 1026 0006 FFF7FEFF 		bl	HAL_GetTick
+ 1027              	.LVL90:
+ 284:FML/Src/W25QXX.c **** 	cmd[0] = SECTOR_ERASE_CMD;
+ 1028              		.loc 1 284 23 view .LVU228
+ 1029 000a 0546     		mov	r5, r0
+ 1030              	.LVL91:
+ 285:FML/Src/W25QXX.c **** 	cmd[1] = (uint8_t)(Address >> 16);
+ 1031              		.loc 1 285 2 is_stmt 1 view .LVU229
+ 285:FML/Src/W25QXX.c **** 	cmd[1] = (uint8_t)(Address >> 16);
+ 1032              		.loc 1 285 9 is_stmt 0 view .LVU230
+ 1033 000c 2023     		movs	r3, #32
+ 1034 000e 8DF80430 		strb	r3, [sp, #4]
+ 286:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(Address >> 8);
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 28
+
+
+ 1035              		.loc 1 286 2 is_stmt 1 view .LVU231
+ 286:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(Address >> 8);
+ 1036              		.loc 1 286 11 is_stmt 0 view .LVU232
+ 1037 0012 C4F30743 		ubfx	r3, r4, #16, #8
+ 286:FML/Src/W25QXX.c **** 	cmd[2] = (uint8_t)(Address >> 8);
+ 1038              		.loc 1 286 9 view .LVU233
+ 1039 0016 8DF80530 		strb	r3, [sp, #5]
+ 287:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(Address);
+ 1040              		.loc 1 287 2 is_stmt 1 view .LVU234
+ 287:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(Address);
+ 1041              		.loc 1 287 11 is_stmt 0 view .LVU235
+ 1042 001a C4F30723 		ubfx	r3, r4, #8, #8
+ 287:FML/Src/W25QXX.c **** 	cmd[3] = (uint8_t)(Address);
+ 1043              		.loc 1 287 9 view .LVU236
+ 1044 001e 8DF80630 		strb	r3, [sp, #6]
+ 288:FML/Src/W25QXX.c **** 	
+ 1045              		.loc 1 288 2 is_stmt 1 view .LVU237
+ 288:FML/Src/W25QXX.c **** 	
+ 1046              		.loc 1 288 9 is_stmt 0 view .LVU238
+ 1047 0022 8DF80740 		strb	r4, [sp, #7]
+ 291:FML/Src/W25QXX.c **** 	
+ 1048              		.loc 1 291 2 is_stmt 1 view .LVU239
+ 1049 0026 FFF7FEFF 		bl	BSP_W25Qx_WriteEnable
+ 1050              	.LVL92:
+ 294:FML/Src/W25QXX.c **** 	/* Send the read ID command */
+ 1051              		.loc 1 294 2 view .LVU240
+ 1052 002a 0022     		movs	r2, #0
+ 1053 002c 1021     		movs	r1, #16
+ 1054 002e 4FF09040 		mov	r0, #1207959552
+ 1055 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1056              	.LVL93:
+ 296:FML/Src/W25QXX.c **** 	/*Deselect the FLASH: Chip Select high */
+ 1057              		.loc 1 296 2 view .LVU241
+ 1058 0036 4FF47A73 		mov	r3, #1000
+ 1059 003a 0422     		movs	r2, #4
+ 1060 003c 0DEB0201 		add	r1, sp, r2
+ 1061 0040 0C48     		ldr	r0, .L67
+ 1062 0042 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 1063              	.LVL94:
+ 298:FML/Src/W25QXX.c **** 	
+ 1064              		.loc 1 298 2 view .LVU242
+ 1065 0046 0122     		movs	r2, #1
+ 1066 0048 1021     		movs	r1, #16
+ 1067 004a 4FF09040 		mov	r0, #1207959552
+ 1068 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1069              	.LVL95:
+ 301:FML/Src/W25QXX.c **** 	{
+ 1070              		.loc 1 301 2 view .LVU243
+ 1071              	.L63:
+ 301:FML/Src/W25QXX.c **** 	{
+ 1072              		.loc 1 301 44 discriminator 1 view .LVU244
+ 301:FML/Src/W25QXX.c **** 	{
+ 1073              		.loc 1 301 7 discriminator 1 view .LVU245
+ 301:FML/Src/W25QXX.c **** 	{
+ 1074              		.loc 1 301 8 is_stmt 0 discriminator 1 view .LVU246
+ 1075 0052 FFF7FEFF 		bl	BSP_W25Qx_GetStatus
+ 1076              	.LVL96:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 29
+
+
+ 301:FML/Src/W25QXX.c **** 	{
+ 1077              		.loc 1 301 7 discriminator 1 view .LVU247
+ 1078 0056 0228     		cmp	r0, #2
+ 1079 0058 FBD0     		beq	.L63
+ 304:FML/Src/W25QXX.c ****     {        
+ 1080              		.loc 1 304 5 is_stmt 1 view .LVU248
+ 304:FML/Src/W25QXX.c ****     {        
+ 1081              		.loc 1 304 9 is_stmt 0 view .LVU249
+ 1082 005a FFF7FEFF 		bl	HAL_GetTick
+ 1083              	.LVL97:
+ 304:FML/Src/W25QXX.c ****     {        
+ 1084              		.loc 1 304 23 view .LVU250
+ 1085 005e 401B     		subs	r0, r0, r5
+ 304:FML/Src/W25QXX.c ****     {        
+ 1086              		.loc 1 304 7 view .LVU251
+ 1087 0060 40F6B833 		movw	r3, #3000
+ 1088 0064 9842     		cmp	r0, r3
+ 1089 0066 02D8     		bhi	.L65
+ 309:FML/Src/W25QXX.c **** }
+ 1090              		.loc 1 309 9 view .LVU252
+ 1091 0068 0020     		movs	r0, #0
+ 1092              	.L64:
+ 310:FML/Src/W25QXX.c **** 
+ 1093              		.loc 1 310 1 view .LVU253
+ 1094 006a 03B0     		add	sp, sp, #12
+ 1095              	.LCFI35:
+ 1096              		.cfi_remember_state
+ 1097              		.cfi_def_cfa_offset 12
+ 1098              		@ sp needed
+ 1099 006c 30BD     		pop	{r4, r5, pc}
+ 1100              	.LVL98:
+ 1101              	.L65:
+ 1102              	.LCFI36:
+ 1103              		.cfi_restore_state
+ 306:FML/Src/W25QXX.c ****     }
+ 1104              		.loc 1 306 11 view .LVU254
+ 1105 006e 0320     		movs	r0, #3
+ 1106 0070 FBE7     		b	.L64
+ 1107              	.L68:
+ 1108 0072 00BF     		.align	2
+ 1109              	.L67:
+ 1110 0074 00000000 		.word	hspi3
+ 1111              		.cfi_endproc
+ 1112              	.LFE297:
+ 1114              		.section	.text.BSP_W25Qx_Erase_Chip,"ax",%progbits
+ 1115              		.align	1
+ 1116              		.global	BSP_W25Qx_Erase_Chip
+ 1117              		.syntax unified
+ 1118              		.thumb
+ 1119              		.thumb_func
+ 1121              	BSP_W25Qx_Erase_Chip:
+ 1122              	.LFB298:
+ 317:FML/Src/W25QXX.c **** 	uint8_t cmd[4];
+ 1123              		.loc 1 317 1 is_stmt 1 view -0
+ 1124              		.cfi_startproc
+ 1125              		@ args = 0, pretend = 0, frame = 8
+ 1126              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 30
+
+
+ 1127 0000 10B5     		push	{r4, lr}
+ 1128              	.LCFI37:
+ 1129              		.cfi_def_cfa_offset 8
+ 1130              		.cfi_offset 4, -8
+ 1131              		.cfi_offset 14, -4
+ 1132 0002 82B0     		sub	sp, sp, #8
+ 1133              	.LCFI38:
+ 1134              		.cfi_def_cfa_offset 16
+ 318:FML/Src/W25QXX.c **** 	uint32_t tickstart = HAL_GetTick();
+ 1135              		.loc 1 318 2 view .LVU256
+ 319:FML/Src/W25QXX.c **** 	cmd[0] = SECTOR_ERASE_CMD;
+ 1136              		.loc 1 319 2 view .LVU257
+ 319:FML/Src/W25QXX.c **** 	cmd[0] = SECTOR_ERASE_CMD;
+ 1137              		.loc 1 319 23 is_stmt 0 view .LVU258
+ 1138 0004 FFF7FEFF 		bl	HAL_GetTick
+ 1139              	.LVL99:
+ 1140 0008 0446     		mov	r4, r0
+ 1141              	.LVL100:
+ 320:FML/Src/W25QXX.c **** 	
+ 1142              		.loc 1 320 2 is_stmt 1 view .LVU259
+ 320:FML/Src/W25QXX.c **** 	
+ 1143              		.loc 1 320 9 is_stmt 0 view .LVU260
+ 1144 000a 2023     		movs	r3, #32
+ 1145 000c 8DF80430 		strb	r3, [sp, #4]
+ 323:FML/Src/W25QXX.c **** 	
+ 1146              		.loc 1 323 2 is_stmt 1 view .LVU261
+ 1147 0010 FFF7FEFF 		bl	BSP_W25Qx_WriteEnable
+ 1148              	.LVL101:
+ 326:FML/Src/W25QXX.c **** 	/* Send the read ID command */
+ 1149              		.loc 1 326 2 view .LVU262
+ 1150 0014 0022     		movs	r2, #0
+ 1151 0016 1021     		movs	r1, #16
+ 1152 0018 4FF09040 		mov	r0, #1207959552
+ 1153 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1154              	.LVL102:
+ 328:FML/Src/W25QXX.c **** 	/*Deselect the FLASH: Chip Select high */
+ 1155              		.loc 1 328 2 view .LVU263
+ 1156 0020 4FF47A73 		mov	r3, #1000
+ 1157 0024 0122     		movs	r2, #1
+ 1158 0026 01A9     		add	r1, sp, #4
+ 1159 0028 0B48     		ldr	r0, .L74
+ 1160 002a FFF7FEFF 		bl	HAL_SPI_Transmit
+ 1161              	.LVL103:
+ 330:FML/Src/W25QXX.c **** 	
+ 1162              		.loc 1 330 2 view .LVU264
+ 1163 002e 0122     		movs	r2, #1
+ 1164 0030 1021     		movs	r1, #16
+ 1165 0032 4FF09040 		mov	r0, #1207959552
+ 1166 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1167              	.LVL104:
+ 333:FML/Src/W25QXX.c **** 	{
+ 1168              		.loc 1 333 2 view .LVU265
+ 1169              	.L70:
+ 333:FML/Src/W25QXX.c **** 	{
+ 1170              		.loc 1 333 44 discriminator 1 view .LVU266
+ 333:FML/Src/W25QXX.c **** 	{
+ 1171              		.loc 1 333 7 discriminator 1 view .LVU267
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 31
+
+
+ 333:FML/Src/W25QXX.c **** 	{
+ 1172              		.loc 1 333 8 is_stmt 0 discriminator 1 view .LVU268
+ 1173 003a FFF7FEFF 		bl	BSP_W25Qx_GetStatus
+ 1174              	.LVL105:
+ 333:FML/Src/W25QXX.c **** 	{
+ 1175              		.loc 1 333 7 discriminator 1 view .LVU269
+ 1176 003e 0228     		cmp	r0, #2
+ 1177 0040 FBD1     		bne	.L70
+ 336:FML/Src/W25QXX.c ****     {        
+ 1178              		.loc 1 336 5 is_stmt 1 view .LVU270
+ 336:FML/Src/W25QXX.c ****     {        
+ 1179              		.loc 1 336 9 is_stmt 0 view .LVU271
+ 1180 0042 FFF7FEFF 		bl	HAL_GetTick
+ 1181              	.LVL106:
+ 336:FML/Src/W25QXX.c ****     {        
+ 1182              		.loc 1 336 23 view .LVU272
+ 1183 0046 001B     		subs	r0, r0, r4
+ 336:FML/Src/W25QXX.c ****     {        
+ 1184              		.loc 1 336 7 view .LVU273
+ 1185 0048 044B     		ldr	r3, .L74+4
+ 1186 004a 9842     		cmp	r0, r3
+ 1187 004c 02D8     		bhi	.L72
+ 341:FML/Src/W25QXX.c **** }
+ 1188              		.loc 1 341 9 view .LVU274
+ 1189 004e 0020     		movs	r0, #0
+ 1190              	.L71:
+ 342:FML/Src/W25QXX.c **** 
+ 1191              		.loc 1 342 1 view .LVU275
+ 1192 0050 02B0     		add	sp, sp, #8
+ 1193              	.LCFI39:
+ 1194              		.cfi_remember_state
+ 1195              		.cfi_def_cfa_offset 8
+ 1196              		@ sp needed
+ 1197 0052 10BD     		pop	{r4, pc}
+ 1198              	.LVL107:
+ 1199              	.L72:
+ 1200              	.LCFI40:
+ 1201              		.cfi_restore_state
  338:FML/Src/W25QXX.c ****     }
- 1064              		.loc 1 338 11 view .LVU248
- 1065 0054 0320     		movs	r0, #3
- 1066 0056 FBE7     		b	.L67
- 1067              	.L71:
- 1068              		.align	2
- 1069              	.L70:
- 1070 0058 00000000 		.word	hspi3
- 1071 005c 90D00300 		.word	250000
- 1072              		.cfi_endproc
- 1073              	.LFE298:
- 1075              		.text
- 1076              	.Letext0:
- 1077              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 1078              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 1079              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 1080              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 1081              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 1082              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 1083              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
- 1084              		.file 9 "HAL/Inc/spi.h"
- 1085              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s 			page 27
+ 1202              		.loc 1 338 11 view .LVU276
+ 1203 0054 0320     		movs	r0, #3
+ 1204 0056 FBE7     		b	.L71
+ 1205              	.L75:
+ 1206              		.align	2
+ 1207              	.L74:
+ 1208 0058 00000000 		.word	hspi3
+ 1209 005c 90D00300 		.word	250000
+ 1210              		.cfi_endproc
+ 1211              	.LFE298:
+ 1213              		.global	shellCommandflash_test
+ 1214              		.global	shellDescflash_test
+ 1215              		.global	shellCmdflash_test
+ 1216              		.section	.rodata
+ 1217              		.align	2
+ 1218              		.set	.LANCHOR0,. + 0
+ 1219              	.LC0:
+ 1220 0000 0000     		.ascii	"\000\000"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 32
+
+
+ 1221 0002 00       		.space	1
+ 1222              		.section	.rodata.shellCmdflash_test,"a"
+ 1223              		.align	2
+ 1226              	shellCmdflash_test:
+ 1227 0000 666C6173 		.ascii	"flash_test\000"
+ 1227      685F7465 
+ 1227      737400
+ 1228              		.section	.rodata.shellDescflash_test,"a"
+ 1229              		.align	2
+ 1232              	shellDescflash_test:
+ 1233 0000 72733438 		.ascii	"rs485 send test\000"
+ 1233      35207365 
+ 1233      6E642074 
+ 1233      65737400 
+ 1234              		.section	shellCommand,"a"
+ 1237              	shellCommandflash_test:
+ 1238 0000 00210000 		.4byte	8448
+ 1239 0004 00000000 		.4byte	shellCmdflash_test
+ 1240 0008 00000000 		.4byte	Flash_Test
+ 1241 000c 00000000 		.4byte	shellDescflash_test
+ 1242              		.text
+ 1243              	.Letext0:
+ 1244              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 1245              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 1246              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 1247              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 1248              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 1249              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 1250              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
+ 1251              		.file 9 "ThirdParty/Letter-shell/Inc/shell.h"
+ 1252              		.file 10 "HAL/Inc/spi.h"
+ 1253              		.file 11 "ThirdParty/Letter-shell/Inc/shell_port.h"
+ 1254              		.file 12 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 1255              		.file 13 "<built-in>"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 33
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 W25QXX.c
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:20     .text.BSP_W25Qx_Reset:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:25     .text.BSP_W25Qx_Reset:00000000 BSP_W25Qx_Reset
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:71     .text.BSP_W25Qx_Reset:00000038 $d
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:76     .text.BSP_W25Qx_GetStatus:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:81     .text.BSP_W25Qx_GetStatus:00000000 BSP_W25Qx_GetStatus
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:150    .text.BSP_W25Qx_GetStatus:00000054 $d
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:155    .text.BSP_W25Qx_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:161    .text.BSP_W25Qx_Init:00000000 BSP_W25Qx_Init
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:185    .text.BSP_W25Qx_WriteEnable:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:191    .text.BSP_W25Qx_WriteEnable:00000000 BSP_W25Qx_WriteEnable
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:275    .text.BSP_W25Qx_WriteEnable:00000054 $d
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:280    .text.BSP_W25Qx_Read_ID:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:286    .text.BSP_W25Qx_Read_ID:00000000 BSP_W25Qx_Read_ID
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:348    .text.BSP_W25Qx_Read_ID:00000048 $d
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:353    .text.BSP_W25Qx_Read_JEDEC_ID:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:359    .text.BSP_W25Qx_Read_JEDEC_ID:00000000 BSP_W25Qx_Read_JEDEC_ID
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:421    .text.BSP_W25Qx_Read_JEDEC_ID:00000044 $d
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:426    .text.BSP_W25Qx_Read:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:432    .text.BSP_W25Qx_Read:00000000 BSP_W25Qx_Read
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:531    .text.BSP_W25Qx_Read:00000068 $d
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:536    .text.BSP_W25Qx_Write:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:542    .text.BSP_W25Qx_Write:00000000 BSP_W25Qx_Write
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:740    .text.BSP_W25Qx_Write:000000cc $d
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:745    .text.BSP_W25Qx_Erase_Page:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:751    .text.BSP_W25Qx_Erase_Page:00000000 BSP_W25Qx_Erase_Page
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:856    .text.BSP_W25Qx_Erase_Page:00000074 $d
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:861    .text.BSP_W25Qx_Erase_Block:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:867    .text.BSP_W25Qx_Erase_Block:00000000 BSP_W25Qx_Erase_Block
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:972    .text.BSP_W25Qx_Erase_Block:00000074 $d
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:977    .text.BSP_W25Qx_Erase_Chip:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:983    .text.BSP_W25Qx_Erase_Chip:00000000 BSP_W25Qx_Erase_Chip
-C:\Users\CL\AppData\Local\Temp\ccKA7CHr.s:1070   .text.BSP_W25Qx_Erase_Chip:00000058 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:20     .text.BSP_W25Qx_Reset:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:25     .text.BSP_W25Qx_Reset:00000000 BSP_W25Qx_Reset
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:71     .text.BSP_W25Qx_Reset:00000038 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:76     .text.BSP_W25Qx_GetStatus:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:81     .text.BSP_W25Qx_GetStatus:00000000 BSP_W25Qx_GetStatus
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:150    .text.BSP_W25Qx_GetStatus:00000054 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:155    .text.BSP_W25Qx_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:161    .text.BSP_W25Qx_Init:00000000 BSP_W25Qx_Init
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:185    .text.BSP_W25Qx_WriteEnable:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:191    .text.BSP_W25Qx_WriteEnable:00000000 BSP_W25Qx_WriteEnable
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:275    .text.BSP_W25Qx_WriteEnable:00000054 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:280    .text.BSP_W25Qx_Read_ID:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:286    .text.BSP_W25Qx_Read_ID:00000000 BSP_W25Qx_Read_ID
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:348    .text.BSP_W25Qx_Read_ID:00000048 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:353    .text.BSP_W25Qx_Read_JEDEC_ID:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:359    .text.BSP_W25Qx_Read_JEDEC_ID:00000000 BSP_W25Qx_Read_JEDEC_ID
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:421    .text.BSP_W25Qx_Read_JEDEC_ID:00000044 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:429    .rodata.Flash_Test.str1.4:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:436    .text.Flash_Test:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:442    .text.Flash_Test:00000000 Flash_Test
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:553    .text.Flash_Test:000000a0 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:564    .text.BSP_W25Qx_Read:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:570    .text.BSP_W25Qx_Read:00000000 BSP_W25Qx_Read
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:669    .text.BSP_W25Qx_Read:00000068 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:674    .text.BSP_W25Qx_Write:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:680    .text.BSP_W25Qx_Write:00000000 BSP_W25Qx_Write
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:878    .text.BSP_W25Qx_Write:000000cc $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:883    .text.BSP_W25Qx_Erase_Page:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:889    .text.BSP_W25Qx_Erase_Page:00000000 BSP_W25Qx_Erase_Page
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:994    .text.BSP_W25Qx_Erase_Page:00000074 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:999    .text.BSP_W25Qx_Erase_Block:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1005   .text.BSP_W25Qx_Erase_Block:00000000 BSP_W25Qx_Erase_Block
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1110   .text.BSP_W25Qx_Erase_Block:00000074 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1115   .text.BSP_W25Qx_Erase_Chip:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1121   .text.BSP_W25Qx_Erase_Chip:00000000 BSP_W25Qx_Erase_Chip
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1208   .text.BSP_W25Qx_Erase_Chip:00000058 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1237   shellCommand:00000000 shellCommandflash_test
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1232   .rodata.shellDescflash_test:00000000 shellDescflash_test
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1226   .rodata.shellCmdflash_test:00000000 shellCmdflash_test
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1217   .rodata:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1223   .rodata.shellCmdflash_test:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s:1229   .rodata.shellDescflash_test:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
@@ -1581,3 +1949,13 @@ HAL_SPI_Transmit
 hspi3
 HAL_SPI_Receive
 HAL_GetTick
+__aeabi_i2d
+__aeabi_dmul
+__aeabi_d2uiz
+__aeabi_f2d
+pow
+shellPrint
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6zMZDk.s 			page 34
+
+
+shell
