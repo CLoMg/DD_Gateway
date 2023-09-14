@@ -309,6 +309,12 @@ void SX1278_entryLoRa(SX1278_t *module);
 void SX1278_clearLoRaIrq(SX1278_t *module);
 
 /**
+ * @brief 
+ * 
+ * @param module 
+ */
+void SX1278_DIO0IRQ_Handler(SX1278_t *module);
+/**
  * \brief Entry reception mode
  *
  * Entry reception mode

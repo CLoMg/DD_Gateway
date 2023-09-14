@@ -87,6 +87,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+
   HAL_Init();
 
   /* USER CODE BEGIN Init */
@@ -144,17 +145,18 @@ int main(void)
     /* 亮度监测接口测试 */
     LDR_Value_Get();
     /* RS485接口测试 */
-    RS485_Test("RS485 TRANSMIT TEST\r\n");
+    RS485_Test("RS485 TRANSMIT OK\r\n");
      /* Flash 接口测试 */
     Flash_Test();
+    /* ATGM223D接口测试 */
+    BDS_Test("read",100);
      /* LORA 1发送 LORA2 接收测试*/
-    LORA_Send(0,"lora_dev 0 tx test\r\n",4000);
+    LORA_Send(0,"Lora0 tx test\r\n",200);
      /* LORA2发送 LORA1 接收测试*/
-    LORA_Send(1,"lora_dev 1 tx test\r\n",4000);
-     /* ATGM223D接口测试 */
-    BDS_Test("read",0);
+    LORA_Send(1,"Lora1 tx test\r\n",200);
+
      /* Cat-1 测试 */
-    ec2x_tcp_connect(0);
+    EC2x_Test(0,"AT","OK",100);
     while(1)
       Delay_ms(100);
     /* USER CODE BEGIN 3 */

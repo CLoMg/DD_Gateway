@@ -29,8 +29,9 @@ extern int bds_dev;
 /*-------------------------------------os-------------------------------------*/
 
 /*----------------------------------function----------------------------------*/
-int atgm_read(int fd,uint8_t *buff,...);
+int atgm_read(int fd,uint8_t *buff,uint16_t len);
 int atgm_open(char *dev_name);
+void BDS_Test(char *cmd,...);
 /*------------------------------------test------------------------------------*/
 
 #ifdef __cplusplus

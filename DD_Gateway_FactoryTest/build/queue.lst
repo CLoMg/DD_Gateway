@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -12,7 +12,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 1
    9              		.eabi_attribute 24, 1
   10              		.eabi_attribute 25, 1
   11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 30, 6
   13              		.eabi_attribute 34, 1
   14              		.eabi_attribute 18, 4
   15              		.file	"queue.c"
@@ -26,9 +26,8 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 1
   23              		.thumb
   24              		.thumb_func
   26              	queue_init:
-  27              	.LVL0:
-  28              	.LFB288:
-  29              		.file 1 "HAL/Src/queue.c"
+  27              	.LFB288:
+  28              		.file 1 "HAL/Src/queue.c"
    1:HAL/Src/queue.c **** /**
    2:HAL/Src/queue.c ****  * @file queue.c
    3:HAL/Src/queue.c ****  * @brief 
@@ -48,49 +47,81 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 1
   17:HAL/Src/queue.c ****  * @param  size             My Param doc
   18:HAL/Src/queue.c ****  */
   19:HAL/Src/queue.c **** void queue_init(Queue_HandleTypeDef *self,void *buff,uint16_t capacity){
-  30              		.loc 1 19 72 view -0
-  31              		.cfi_startproc
-  32              		@ args = 0, pretend = 0, frame = 0
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		@ link register save eliminated.
+  29              		.loc 1 19 72
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 16
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34 0000 80B4     		push	{r7}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 7, -4
+  38 0002 85B0     		sub	sp, sp, #20
+  39              	.LCFI1:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 2
+
+
+  40              		.cfi_def_cfa_offset 24
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 F860     		str	r0, [r7, #12]
+  45 0008 B960     		str	r1, [r7, #8]
+  46 000a 1346     		mov	r3, r2
+  47 000c FB80     		strh	r3, [r7, #6]	@ movhi
   20:HAL/Src/queue.c ****     self->block = 0;
-  35              		.loc 1 20 5 view .LVU1
-  36              		.loc 1 20 17 is_stmt 0 view .LVU2
-  37 0000 0023     		movs	r3, #0
-  38 0002 0370     		strb	r3, [r0]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 2
-
-
+  48              		.loc 1 20 17
+  49 000e FB68     		ldr	r3, [r7, #12]
+  50 0010 0022     		movs	r2, #0
+  51 0012 1A70     		strb	r2, [r3]
   21:HAL/Src/queue.c ****     self->head = 0;
-  39              		.loc 1 21 5 is_stmt 1 view .LVU3
-  40              		.loc 1 21 16 is_stmt 0 view .LVU4
-  41 0004 4380     		strh	r3, [r0, #2]	@ movhi
+  52              		.loc 1 21 16
+  53 0014 FB68     		ldr	r3, [r7, #12]
+  54 0016 0022     		movs	r2, #0
+  55 0018 5A80     		strh	r2, [r3, #2]	@ movhi
   22:HAL/Src/queue.c ****     self->tail = 0;
-  42              		.loc 1 22 5 is_stmt 1 view .LVU5
-  43              		.loc 1 22 16 is_stmt 0 view .LVU6
-  44 0006 8380     		strh	r3, [r0, #4]	@ movhi
+  56              		.loc 1 22 16
+  57 001a FB68     		ldr	r3, [r7, #12]
+  58 001c 0022     		movs	r2, #0
+  59 001e 9A80     		strh	r2, [r3, #4]	@ movhi
   23:HAL/Src/queue.c ****     self->capacity = capacity; 
-  45              		.loc 1 23 5 is_stmt 1 view .LVU7
-  46              		.loc 1 23 20 is_stmt 0 view .LVU8
-  47 0008 8281     		strh	r2, [r0, #12]	@ movhi
+  60              		.loc 1 23 20
+  61 0020 FB68     		ldr	r3, [r7, #12]
+  62 0022 FA88     		ldrh	r2, [r7, #6]	@ movhi
+  63 0024 9A81     		strh	r2, [r3, #12]	@ movhi
   24:HAL/Src/queue.c ****     self->buff = buff;
-  48              		.loc 1 24 5 is_stmt 1 view .LVU9
-  49              		.loc 1 24 16 is_stmt 0 view .LVU10
-  50 000a 8160     		str	r1, [r0, #8]
+  64              		.loc 1 24 16
+  65 0026 FB68     		ldr	r3, [r7, #12]
+  66 0028 BA68     		ldr	r2, [r7, #8]
+  67 002a 9A60     		str	r2, [r3, #8]
   25:HAL/Src/queue.c **** }
-  51              		.loc 1 25 1 view .LVU11
-  52 000c 7047     		bx	lr
-  53              		.cfi_endproc
-  54              	.LFE288:
-  56              		.section	.text.queue_insert,"ax",%progbits
-  57              		.align	1
-  58              		.global	queue_insert
-  59              		.syntax unified
-  60              		.thumb
-  61              		.thumb_func
-  63              	queue_insert:
-  64              	.LVL1:
-  65              	.LFB289:
+  68              		.loc 1 25 1
+  69 002c 00BF     		nop
+  70 002e 1437     		adds	r7, r7, #20
+  71              	.LCFI3:
+  72              		.cfi_def_cfa_offset 4
+  73 0030 BD46     		mov	sp, r7
+  74              	.LCFI4:
+  75              		.cfi_def_cfa_register 13
+  76              		@ sp needed
+  77 0032 5DF8047B 		ldr	r7, [sp], #4
+  78              	.LCFI5:
+  79              		.cfi_restore 7
+  80              		.cfi_def_cfa_offset 0
+  81 0036 7047     		bx	lr
+  82              		.cfi_endproc
+  83              	.LFE288:
+  85              		.section	.text.queue_insert,"ax",%progbits
+  86              		.align	1
+  87              		.global	queue_insert
+  88              		.syntax unified
+  89              		.thumb
+  90              		.thumb_func
+  92              	queue_insert:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 3
+
+
+  93              	.LFB289:
   26:HAL/Src/queue.c **** /**
   27:HAL/Src/queue.c ****  * @brief 
   28:HAL/Src/queue.c ****  * @param  self             My Param doc
@@ -98,153 +129,155 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 1
   30:HAL/Src/queue.c ****  * @return int 
   31:HAL/Src/queue.c ****  */
   32:HAL/Src/queue.c **** int queue_insert(Queue_HandleTypeDef *self,int item){
-  66              		.loc 1 32 53 is_stmt 1 view -0
-  67              		.cfi_startproc
-  68              		@ args = 0, pretend = 0, frame = 0
-  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  94              		.loc 1 32 53
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 8
+  97              		@ frame_needed = 1, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+  99 0000 80B4     		push	{r7}
+ 100              	.LCFI6:
+ 101              		.cfi_def_cfa_offset 4
+ 102              		.cfi_offset 7, -4
+ 103 0002 83B0     		sub	sp, sp, #12
+ 104              	.LCFI7:
+ 105              		.cfi_def_cfa_offset 16
+ 106 0004 00AF     		add	r7, sp, #0
+ 107              	.LCFI8:
+ 108              		.cfi_def_cfa_register 7
+ 109 0006 7860     		str	r0, [r7, #4]
+ 110 0008 3960     		str	r1, [r7]
   33:HAL/Src/queue.c ****     if(self->block  == 0){
-  70              		.loc 1 33 5 view .LVU13
-  71              		.loc 1 33 12 is_stmt 0 view .LVU14
-  72 0000 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
-  73              		.loc 1 33 7 view .LVU15
-  74 0002 13B1     		cbz	r3, .L10
+ 111              		.loc 1 33 12
+ 112 000a 7B68     		ldr	r3, [r7, #4]
+ 113 000c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 114              		.loc 1 33 7
+ 115 000e 002B     		cmp	r3, #0
+ 116 0010 37D1     		bne	.L3
   34:HAL/Src/queue.c ****         self->block = 1;
+ 117              		.loc 1 34 21
+ 118 0012 7B68     		ldr	r3, [r7, #4]
+ 119 0014 0122     		movs	r2, #1
+ 120 0016 1A70     		strb	r2, [r3]
   35:HAL/Src/queue.c **** 
   36:HAL/Src/queue.c ****         //先判断队列是否满了
   37:HAL/Src/queue.c ****         if((self->tail + 1) % self->capacity == self->head){
+ 121              		.loc 1 37 17
+ 122 0018 7B68     		ldr	r3, [r7, #4]
+ 123 001a 9B88     		ldrh	r3, [r3, #4]
+ 124              		.loc 1 37 24
+ 125 001c 0133     		adds	r3, r3, #1
+ 126              		.loc 1 37 35
+ 127 001e 7A68     		ldr	r2, [r7, #4]
+ 128 0020 9289     		ldrh	r2, [r2, #12]
+ 129              		.loc 1 37 29
+ 130 0022 93FBF2F1 		sdiv	r1, r3, r2
+ 131 0026 01FB02F2 		mul	r2, r1, r2
+ 132 002a 9B1A     		subs	r3, r3, r2
+ 133              		.loc 1 37 53
+ 134 002c 7A68     		ldr	r2, [r7, #4]
+ 135 002e 5288     		ldrh	r2, [r2, #2]
+ 136              		.loc 1 37 11
+ 137 0030 9342     		cmp	r3, r2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 4
+
+
+ 138 0032 0CD1     		bne	.L4
   38:HAL/Src/queue.c ****             //如果满了，需要把现在的队列头删了，然后再进行插入,
   39:HAL/Src/queue.c ****             //这里会牺牲一个单元的空间，用于区分队列空和队列满
   40:HAL/Src/queue.c ****             self->head = (self->head + 1) % self->capacity;
+ 139              		.loc 1 40 31
+ 140 0034 7B68     		ldr	r3, [r7, #4]
+ 141 0036 5B88     		ldrh	r3, [r3, #2]
+ 142              		.loc 1 40 38
+ 143 0038 0133     		adds	r3, r3, #1
+ 144              		.loc 1 40 49
+ 145 003a 7A68     		ldr	r2, [r7, #4]
+ 146 003c 9289     		ldrh	r2, [r2, #12]
+ 147              		.loc 1 40 43
+ 148 003e 93FBF2F1 		sdiv	r1, r3, r2
+ 149 0042 01FB02F2 		mul	r2, r1, r2
+ 150 0046 9B1A     		subs	r3, r3, r2
+ 151              		.loc 1 40 24
+ 152 0048 9AB2     		uxth	r2, r3
+ 153 004a 7B68     		ldr	r3, [r7, #4]
+ 154 004c 5A80     		strh	r2, [r3, #2]	@ movhi
+ 155              	.L4:
   41:HAL/Src/queue.c ****         }
   42:HAL/Src/queue.c **** 
   43:HAL/Src/queue.c ****         *(self->buff + self->tail) = item;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 3
-
-
+ 156              		.loc 1 43 15
+ 157 004e 7B68     		ldr	r3, [r7, #4]
+ 158 0050 9A68     		ldr	r2, [r3, #8]
+ 159              		.loc 1 43 28
+ 160 0052 7B68     		ldr	r3, [r7, #4]
+ 161 0054 9B88     		ldrh	r3, [r3, #4]
+ 162              		.loc 1 43 22
+ 163 0056 9B00     		lsls	r3, r3, #2
+ 164 0058 1344     		add	r3, r3, r2
+ 165              		.loc 1 43 36
+ 166 005a 3A68     		ldr	r2, [r7]
+ 167 005c 1A60     		str	r2, [r3]
   44:HAL/Src/queue.c ****         self->tail = (self->tail +1) % self->capacity;
+ 168              		.loc 1 44 27
+ 169 005e 7B68     		ldr	r3, [r7, #4]
+ 170 0060 9B88     		ldrh	r3, [r3, #4]
+ 171              		.loc 1 44 34
+ 172 0062 0133     		adds	r3, r3, #1
+ 173              		.loc 1 44 44
+ 174 0064 7A68     		ldr	r2, [r7, #4]
+ 175 0066 9289     		ldrh	r2, [r2, #12]
+ 176              		.loc 1 44 38
+ 177 0068 93FBF2F1 		sdiv	r1, r3, r2
+ 178 006c 01FB02F2 		mul	r2, r1, r2
+ 179 0070 9B1A     		subs	r3, r3, r2
+ 180              		.loc 1 44 20
+ 181 0072 9AB2     		uxth	r2, r3
+ 182 0074 7B68     		ldr	r3, [r7, #4]
+ 183 0076 9A80     		strh	r2, [r3, #4]	@ movhi
   45:HAL/Src/queue.c ****         self->block = 0;
+ 184              		.loc 1 45 21
+ 185 0078 7B68     		ldr	r3, [r7, #4]
+ 186 007a 0022     		movs	r2, #0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 5
+
+
+ 187 007c 1A70     		strb	r2, [r3]
   46:HAL/Src/queue.c ****         return 1;
+ 188              		.loc 1 46 16
+ 189 007e 0123     		movs	r3, #1
+ 190 0080 01E0     		b	.L5
+ 191              	.L3:
   47:HAL/Src/queue.c ****     }
   48:HAL/Src/queue.c **** 
   49:HAL/Src/queue.c ****     return -1;
-  75              		.loc 1 49 12 view .LVU16
-  76 0004 4FF0FF30 		mov	r0, #-1
-  77              	.LVL2:
+ 192              		.loc 1 49 12
+ 193 0082 4FF0FF33 		mov	r3, #-1
+ 194              	.L5:
   50:HAL/Src/queue.c **** }
-  78              		.loc 1 50 1 view .LVU17
-  79 0008 7047     		bx	lr
-  80              	.LVL3:
-  81              	.L10:
-  32:HAL/Src/queue.c ****     if(self->block  == 0){
-  82              		.loc 1 32 53 view .LVU18
-  83 000a 00B5     		push	{lr}
-  84              	.LCFI0:
-  85              		.cfi_def_cfa_offset 4
-  86              		.cfi_offset 14, -4
-  34:HAL/Src/queue.c ****         self->block = 1;
-  87              		.loc 1 34 9 is_stmt 1 view .LVU19
-  34:HAL/Src/queue.c ****         self->block = 1;
-  88              		.loc 1 34 21 is_stmt 0 view .LVU20
-  89 000c 0123     		movs	r3, #1
-  90 000e 0370     		strb	r3, [r0]
-  37:HAL/Src/queue.c ****             //如果满了，需要把现在的队列头删了，然后再进行插入,
-  91              		.loc 1 37 9 is_stmt 1 view .LVU21
-  37:HAL/Src/queue.c ****             //如果满了，需要把现在的队列头删了，然后再进行插入,
-  92              		.loc 1 37 17 is_stmt 0 view .LVU22
-  93 0010 B0F804E0 		ldrh	lr, [r0, #4]
-  37:HAL/Src/queue.c ****             //如果满了，需要把现在的队列头删了，然后再进行插入,
-  94              		.loc 1 37 24 view .LVU23
-  95 0014 7344     		add	r3, lr, r3
-  37:HAL/Src/queue.c ****             //如果满了，需要把现在的队列头删了，然后再进行插入,
-  96              		.loc 1 37 35 view .LVU24
-  97 0016 B0F80CC0 		ldrh	ip, [r0, #12]
-  37:HAL/Src/queue.c ****             //如果满了，需要把现在的队列头删了，然后再进行插入,
-  98              		.loc 1 37 29 view .LVU25
-  99 001a 93FBFCF2 		sdiv	r2, r3, ip
- 100 001e 0CFB1233 		mls	r3, ip, r2, r3
-  37:HAL/Src/queue.c ****             //如果满了，需要把现在的队列头删了，然后再进行插入,
- 101              		.loc 1 37 53 view .LVU26
- 102 0022 4288     		ldrh	r2, [r0, #2]
-  37:HAL/Src/queue.c ****             //如果满了，需要把现在的队列头删了，然后再进行插入,
- 103              		.loc 1 37 11 view .LVU27
- 104 0024 9342     		cmp	r3, r2
- 105 0026 0FD0     		beq	.L11
- 106              	.L4:
-  43:HAL/Src/queue.c ****         self->tail = (self->tail +1) % self->capacity;
- 107              		.loc 1 43 9 is_stmt 1 view .LVU28
-  43:HAL/Src/queue.c ****         self->tail = (self->tail +1) % self->capacity;
- 108              		.loc 1 43 15 is_stmt 0 view .LVU29
- 109 0028 8368     		ldr	r3, [r0, #8]
-  43:HAL/Src/queue.c ****         self->tail = (self->tail +1) % self->capacity;
- 110              		.loc 1 43 36 view .LVU30
- 111 002a 43F82E10 		str	r1, [r3, lr, lsl #2]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 4
-
-
-  44:HAL/Src/queue.c ****         self->block = 0;
- 112              		.loc 1 44 9 is_stmt 1 view .LVU31
-  44:HAL/Src/queue.c ****         self->block = 0;
- 113              		.loc 1 44 27 is_stmt 0 view .LVU32
- 114 002e 8388     		ldrh	r3, [r0, #4]
-  44:HAL/Src/queue.c ****         self->block = 0;
- 115              		.loc 1 44 34 view .LVU33
- 116 0030 0133     		adds	r3, r3, #1
-  44:HAL/Src/queue.c ****         self->block = 0;
- 117              		.loc 1 44 44 view .LVU34
- 118 0032 8289     		ldrh	r2, [r0, #12]
-  44:HAL/Src/queue.c ****         self->block = 0;
- 119              		.loc 1 44 38 view .LVU35
- 120 0034 93FBF2F1 		sdiv	r1, r3, r2
- 121              	.LVL4:
-  44:HAL/Src/queue.c ****         self->block = 0;
- 122              		.loc 1 44 38 view .LVU36
- 123 0038 02FB1133 		mls	r3, r2, r1, r3
-  44:HAL/Src/queue.c ****         self->block = 0;
- 124              		.loc 1 44 20 view .LVU37
- 125 003c 8380     		strh	r3, [r0, #4]	@ movhi
-  45:HAL/Src/queue.c ****         return 1;
- 126              		.loc 1 45 9 is_stmt 1 view .LVU38
-  45:HAL/Src/queue.c ****         return 1;
- 127              		.loc 1 45 21 is_stmt 0 view .LVU39
- 128 003e 0023     		movs	r3, #0
- 129 0040 0370     		strb	r3, [r0]
-  46:HAL/Src/queue.c ****     }
- 130              		.loc 1 46 9 is_stmt 1 view .LVU40
-  46:HAL/Src/queue.c ****     }
- 131              		.loc 1 46 16 is_stmt 0 view .LVU41
- 132 0042 0120     		movs	r0, #1
- 133              	.LVL5:
- 134              		.loc 1 50 1 view .LVU42
- 135 0044 5DF804FB 		ldr	pc, [sp], #4
- 136              	.LVL6:
- 137              	.L11:
-  40:HAL/Src/queue.c ****         }
- 138              		.loc 1 40 13 is_stmt 1 view .LVU43
-  40:HAL/Src/queue.c ****         }
- 139              		.loc 1 40 38 is_stmt 0 view .LVU44
- 140 0048 0132     		adds	r2, r2, #1
-  40:HAL/Src/queue.c ****         }
- 141              		.loc 1 40 43 view .LVU45
- 142 004a 92FBFCF3 		sdiv	r3, r2, ip
- 143 004e 0CFB1322 		mls	r2, ip, r3, r2
-  40:HAL/Src/queue.c ****         }
- 144              		.loc 1 40 24 view .LVU46
- 145 0052 4280     		strh	r2, [r0, #2]	@ movhi
- 146 0054 E8E7     		b	.L4
- 147              		.cfi_endproc
- 148              	.LFE289:
- 150              		.section	.text.queue_pull,"ax",%progbits
- 151              		.align	1
- 152              		.global	queue_pull
- 153              		.syntax unified
- 154              		.thumb
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 5
-
-
- 155              		.thumb_func
- 157              	queue_pull:
- 158              	.LVL7:
- 159              	.LFB290:
+ 195              		.loc 1 50 1
+ 196 0086 1846     		mov	r0, r3
+ 197 0088 0C37     		adds	r7, r7, #12
+ 198              	.LCFI9:
+ 199              		.cfi_def_cfa_offset 4
+ 200 008a BD46     		mov	sp, r7
+ 201              	.LCFI10:
+ 202              		.cfi_def_cfa_register 13
+ 203              		@ sp needed
+ 204 008c 5DF8047B 		ldr	r7, [sp], #4
+ 205              	.LCFI11:
+ 206              		.cfi_restore 7
+ 207              		.cfi_def_cfa_offset 0
+ 208 0090 7047     		bx	lr
+ 209              		.cfi_endproc
+ 210              	.LFE289:
+ 212              		.section	.text.queue_pull,"ax",%progbits
+ 213              		.align	1
+ 214              		.global	queue_pull
+ 215              		.syntax unified
+ 216              		.thumb
+ 217              		.thumb_func
+ 219              	queue_pull:
+ 220              	.LFB290:
   51:HAL/Src/queue.c **** /**
   52:HAL/Src/queue.c ****  * @brief 拉取队列len个元素（不从队列中删除）
   53:HAL/Src/queue.c ****  * @param  self             My Param doc
@@ -253,196 +286,211 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 1
   56:HAL/Src/queue.c ****  * @return int 
   57:HAL/Src/queue.c ****  */
   58:HAL/Src/queue.c **** int queue_pull(Queue_HandleTypeDef *self,int *temp,uint16_t len){
- 160              		.loc 1 58 65 is_stmt 1 view -0
- 161              		.cfi_startproc
- 162              		@ args = 0, pretend = 0, frame = 0
- 163              		@ frame_needed = 0, uses_anonymous_args = 0
- 164              		.loc 1 58 65 is_stmt 0 view .LVU48
- 165 0000 38B5     		push	{r3, r4, r5, lr}
- 166              	.LCFI1:
- 167              		.cfi_def_cfa_offset 16
- 168              		.cfi_offset 3, -16
- 169              		.cfi_offset 4, -12
- 170              		.cfi_offset 5, -8
- 171              		.cfi_offset 14, -4
- 172 0002 0446     		mov	r4, r0
- 173 0004 1546     		mov	r5, r2
+ 221              		.loc 1 58 65
+ 222              		.cfi_startproc
+ 223              		@ args = 0, pretend = 0, frame = 24
+ 224              		@ frame_needed = 1, uses_anonymous_args = 0
+ 225 0000 80B5     		push	{r7, lr}
+ 226              	.LCFI12:
+ 227              		.cfi_def_cfa_offset 8
+ 228              		.cfi_offset 7, -8
+ 229              		.cfi_offset 14, -4
+ 230 0002 86B0     		sub	sp, sp, #24
+ 231              	.LCFI13:
+ 232              		.cfi_def_cfa_offset 32
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 6
+
+
+ 233 0004 00AF     		add	r7, sp, #0
+ 234              	.LCFI14:
+ 235              		.cfi_def_cfa_register 7
+ 236 0006 F860     		str	r0, [r7, #12]
+ 237 0008 B960     		str	r1, [r7, #8]
+ 238 000a 1346     		mov	r3, r2
+ 239 000c FB80     		strh	r3, [r7, #6]	@ movhi
   59:HAL/Src/queue.c ****     uint16_t j = 0 ;
- 174              		.loc 1 59 5 is_stmt 1 view .LVU49
- 175              	.LVL8:
+ 240              		.loc 1 59 14
+ 241 000e 0023     		movs	r3, #0
+ 242 0010 FB82     		strh	r3, [r7, #22]	@ movhi
   60:HAL/Src/queue.c ****     //如果队列被上锁了，则等待100ms
   61:HAL/Src/queue.c ****     if(self->block == 1)
- 176              		.loc 1 61 5 view .LVU50
- 177              		.loc 1 61 12 is_stmt 0 view .LVU51
- 178 0006 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 179              		.loc 1 61 7 view .LVU52
- 180 0008 012B     		cmp	r3, #1
- 181 000a 0CD0     		beq	.L23
- 182              	.LBB2:
+ 243              		.loc 1 61 12
+ 244 0012 FB68     		ldr	r3, [r7, #12]
+ 245 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 246              		.loc 1 61 7
+ 247 0016 012B     		cmp	r3, #1
+ 248 0018 09D1     		bne	.L7
   62:HAL/Src/queue.c ****     {
   63:HAL/Src/queue.c ****         HAL_Delay(100);
+ 249              		.loc 1 63 9
+ 250 001a 6420     		movs	r0, #100
+ 251 001c FFF7FEFF 		bl	HAL_Delay
   64:HAL/Src/queue.c ****         if(self->block == 1)
+ 252              		.loc 1 64 16
+ 253 0020 FB68     		ldr	r3, [r7, #12]
+ 254 0022 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 255              		.loc 1 64 11
+ 256 0024 012B     		cmp	r3, #1
+ 257 0026 48D1     		bne	.L8
   65:HAL/Src/queue.c ****             return -1;
+ 258              		.loc 1 65 20
+ 259 0028 4FF0FF33 		mov	r3, #-1
+ 260 002c 46E0     		b	.L9
+ 261              	.L7:
+ 262              	.LBB2:
   66:HAL/Src/queue.c ****     }
   67:HAL/Src/queue.c ****     else{
   68:HAL/Src/queue.c ****         self->block = 1;
- 183              		.loc 1 68 9 is_stmt 1 view .LVU53
- 184              		.loc 1 68 21 is_stmt 0 view .LVU54
- 185 000c 0123     		movs	r3, #1
- 186 000e 0370     		strb	r3, [r0]
+ 263              		.loc 1 68 21
+ 264 002e FB68     		ldr	r3, [r7, #12]
+ 265 0030 0122     		movs	r2, #1
+ 266 0032 1A70     		strb	r2, [r3]
   69:HAL/Src/queue.c ****         uint16_t size  = 0;
- 187              		.loc 1 69 9 is_stmt 1 view .LVU55
- 188              	.LVL9:
+ 267              		.loc 1 69 18
+ 268 0034 0023     		movs	r3, #0
+ 269 0036 BB82     		strh	r3, [r7, #20]	@ movhi
   70:HAL/Src/queue.c ****         size = self->tail >= self->head ? (self->tail - self->head):(self->tail + self->capacity - 
- 189              		.loc 1 70 9 view .LVU56
- 190              		.loc 1 70 20 is_stmt 0 view .LVU57
- 191 0010 8088     		ldrh	r0, [r0, #4]
- 192              	.LVL10:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 6
+ 270              		.loc 1 70 20
+ 271 0038 FB68     		ldr	r3, [r7, #12]
+ 272 003a 9A88     		ldrh	r2, [r3, #4]
+ 273              		.loc 1 70 34
+ 274 003c FB68     		ldr	r3, [r7, #12]
+ 275 003e 5B88     		ldrh	r3, [r3, #2]
+ 276              		.loc 1 70 14
+ 277 0040 9A42     		cmp	r2, r3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 7
 
 
- 193              		.loc 1 70 34 view .LVU58
- 194 0012 6388     		ldrh	r3, [r4, #2]
- 195              		.loc 1 70 14 view .LVU59
- 196 0014 9842     		cmp	r0, r3
- 197 0016 0ED3     		bcc	.L16
- 198              		.loc 1 70 14 discriminator 1 view .LVU60
- 199 0018 C01A     		subs	r0, r0, r3
- 200 001a 80B2     		uxth	r0, r0
- 201              	.LVL11:
- 202              	.L17:
+ 278 0042 06D3     		bcc	.L10
+ 279              		.loc 1 70 48 discriminator 1
+ 280 0044 FB68     		ldr	r3, [r7, #12]
+ 281 0046 9A88     		ldrh	r2, [r3, #4]
+ 282              		.loc 1 70 61 discriminator 1
+ 283 0048 FB68     		ldr	r3, [r7, #12]
+ 284 004a 5B88     		ldrh	r3, [r3, #2]
+ 285              		.loc 1 70 14 discriminator 1
+ 286 004c D31A     		subs	r3, r2, r3
+ 287 004e 9BB2     		uxth	r3, r3
+ 288 0050 09E0     		b	.L11
+ 289              	.L10:
+ 290              		.loc 1 70 74 discriminator 2
+ 291 0052 FB68     		ldr	r3, [r7, #12]
+ 292 0054 9A88     		ldrh	r2, [r3, #4]
+ 293              		.loc 1 70 87 discriminator 2
+ 294 0056 FB68     		ldr	r3, [r7, #12]
+ 295 0058 9B89     		ldrh	r3, [r3, #12]
+ 296              		.loc 1 70 81 discriminator 2
+ 297 005a 1344     		add	r3, r3, r2
+ 298 005c 9AB2     		uxth	r2, r3
+ 299              		.loc 1 70 104 discriminator 2
+ 300 005e FB68     		ldr	r3, [r7, #12]
+ 301 0060 5B88     		ldrh	r3, [r3, #2]
+ 302              		.loc 1 70 14 discriminator 2
+ 303 0062 D31A     		subs	r3, r2, r3
+ 304 0064 9BB2     		uxth	r3, r3
+ 305              	.L11:
+ 306              		.loc 1 70 14 is_stmt 0 discriminator 4
+ 307 0066 BB82     		strh	r3, [r7, #20]	@ movhi
   71:HAL/Src/queue.c ****         if(len > size)
- 203              		.loc 1 71 9 is_stmt 1 discriminator 4 view .LVU61
- 204              		.loc 1 71 11 is_stmt 0 discriminator 4 view .LVU62
- 205 001c A842     		cmp	r0, r5
- 206 001e 00D3     		bcc	.L18
- 207              		.loc 1 71 11 view .LVU63
- 208 0020 2846     		mov	r0, r5
- 209              	.LVL12:
- 210              	.L18:
+ 308              		.loc 1 71 11 is_stmt 1 discriminator 4
+ 309 0068 FA88     		ldrh	r2, [r7, #6]
+ 310 006a BB8A     		ldrh	r3, [r7, #20]
+ 311 006c 9A42     		cmp	r2, r3
+ 312 006e 01D9     		bls	.L12
   72:HAL/Src/queue.c ****             len = size;
+ 313              		.loc 1 72 17
+ 314 0070 BB8A     		ldrh	r3, [r7, #20]	@ movhi
+ 315 0072 FB80     		strh	r3, [r7, #6]	@ movhi
+ 316              	.L12:
   73:HAL/Src/queue.c ****         for(j = 0 ; j < len; j++){
- 211              		.loc 1 73 9 is_stmt 1 view .LVU64
- 212              		.loc 1 73 15 is_stmt 0 view .LVU65
- 213 0022 0023     		movs	r3, #0
- 214              		.loc 1 73 9 view .LVU66
- 215 0024 1CE0     		b	.L19
- 216              	.LVL13:
- 217              	.L23:
- 218              		.loc 1 73 9 view .LVU67
- 219              	.LBE2:
-  63:HAL/Src/queue.c ****         if(self->block == 1)
- 220              		.loc 1 63 9 is_stmt 1 view .LVU68
- 221 0026 6420     		movs	r0, #100
- 222              	.LVL14:
-  63:HAL/Src/queue.c ****         if(self->block == 1)
- 223              		.loc 1 63 9 is_stmt 0 view .LVU69
- 224 0028 FFF7FEFF 		bl	HAL_Delay
- 225              	.LVL15:
-  64:HAL/Src/queue.c ****             return -1;
- 226              		.loc 1 64 9 is_stmt 1 view .LVU70
-  64:HAL/Src/queue.c ****             return -1;
- 227              		.loc 1 64 16 is_stmt 0 view .LVU71
- 228 002c 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
-  64:HAL/Src/queue.c ****             return -1;
- 229              		.loc 1 64 11 view .LVU72
- 230 002e 012B     		cmp	r3, #1
- 231 0030 1BD0     		beq	.L21
- 232 0032 2846     		mov	r0, r5
- 233 0034 18E0     		b	.L12
- 234              	.LVL16:
- 235              	.L16:
- 236              	.LBB3:
-  70:HAL/Src/queue.c ****         if(len > size)
- 237              		.loc 1 70 87 discriminator 2 view .LVU73
- 238 0036 A289     		ldrh	r2, [r4, #12]
- 239              	.LVL17:
-  70:HAL/Src/queue.c ****         if(len > size)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 7
-
-
- 240              		.loc 1 70 81 discriminator 2 view .LVU74
- 241 0038 1044     		add	r0, r0, r2
- 242 003a 80B2     		uxth	r0, r0
-  70:HAL/Src/queue.c ****         if(len > size)
- 243              		.loc 1 70 14 discriminator 2 view .LVU75
- 244 003c C01A     		subs	r0, r0, r3
- 245 003e 80B2     		uxth	r0, r0
- 246 0040 ECE7     		b	.L17
- 247              	.LVL18:
- 248              	.L20:
+ 317              		.loc 1 73 15
+ 318 0074 0023     		movs	r3, #0
+ 319 0076 FB82     		strh	r3, [r7, #22]	@ movhi
+ 320              		.loc 1 73 9
+ 321 0078 18E0     		b	.L13
+ 322              	.L14:
   74:HAL/Src/queue.c ****             temp[j] = self->buff[(self->head+j)% self->capacity];
- 249              		.loc 1 74 13 is_stmt 1 discriminator 3 view .LVU76
- 250              		.loc 1 74 27 is_stmt 0 discriminator 3 view .LVU77
- 251 0042 A568     		ldr	r5, [r4, #8]
- 252              		.loc 1 74 39 discriminator 3 view .LVU78
- 253 0044 6288     		ldrh	r2, [r4, #2]
- 254              		.loc 1 74 45 discriminator 3 view .LVU79
- 255 0046 1A44     		add	r2, r2, r3
- 256              		.loc 1 74 54 discriminator 3 view .LVU80
- 257 0048 B4F80CC0 		ldrh	ip, [r4, #12]
- 258              		.loc 1 74 48 discriminator 3 view .LVU81
- 259 004c 92FBFCFE 		sdiv	lr, r2, ip
- 260 0050 0CFB1E22 		mls	r2, ip, lr, r2
- 261              		.loc 1 74 33 discriminator 3 view .LVU82
- 262 0054 55F82220 		ldr	r2, [r5, r2, lsl #2]
- 263              		.loc 1 74 21 discriminator 3 view .LVU83
- 264 0058 41F82320 		str	r2, [r1, r3, lsl #2]
-  73:HAL/Src/queue.c ****             temp[j] = self->buff[(self->head+j)% self->capacity];
- 265              		.loc 1 73 30 is_stmt 1 discriminator 3 view .LVU84
-  73:HAL/Src/queue.c ****             temp[j] = self->buff[(self->head+j)% self->capacity];
- 266              		.loc 1 73 31 is_stmt 0 discriminator 3 view .LVU85
- 267 005c 0133     		adds	r3, r3, #1
- 268              	.LVL19:
-  73:HAL/Src/queue.c ****             temp[j] = self->buff[(self->head+j)% self->capacity];
- 269              		.loc 1 73 31 discriminator 3 view .LVU86
- 270 005e 9BB2     		uxth	r3, r3
- 271              	.LVL20:
- 272              	.L19:
-  73:HAL/Src/queue.c ****             temp[j] = self->buff[(self->head+j)% self->capacity];
- 273              		.loc 1 73 21 is_stmt 1 discriminator 1 view .LVU87
-  73:HAL/Src/queue.c ****             temp[j] = self->buff[(self->head+j)% self->capacity];
- 274              		.loc 1 73 9 is_stmt 0 discriminator 1 view .LVU88
- 275 0060 9842     		cmp	r0, r3
- 276 0062 EED8     		bhi	.L20
+ 323              		.loc 1 74 27 discriminator 3
+ 324 007a FB68     		ldr	r3, [r7, #12]
+ 325 007c 9968     		ldr	r1, [r3, #8]
+ 326              		.loc 1 74 39 discriminator 3
+ 327 007e FB68     		ldr	r3, [r7, #12]
+ 328 0080 5B88     		ldrh	r3, [r3, #2]
+ 329 0082 1A46     		mov	r2, r3
+ 330              		.loc 1 74 45 discriminator 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 8
+
+
+ 331 0084 FB8A     		ldrh	r3, [r7, #22]
+ 332 0086 1344     		add	r3, r3, r2
+ 333              		.loc 1 74 54 discriminator 3
+ 334 0088 FA68     		ldr	r2, [r7, #12]
+ 335 008a 9289     		ldrh	r2, [r2, #12]
+ 336              		.loc 1 74 48 discriminator 3
+ 337 008c 93FBF2F0 		sdiv	r0, r3, r2
+ 338 0090 00FB02F2 		mul	r2, r0, r2
+ 339 0094 9B1A     		subs	r3, r3, r2
+ 340              		.loc 1 74 33 discriminator 3
+ 341 0096 9B00     		lsls	r3, r3, #2
+ 342 0098 CA18     		adds	r2, r1, r3
+ 343              		.loc 1 74 17 discriminator 3
+ 344 009a FB8A     		ldrh	r3, [r7, #22]
+ 345 009c 9B00     		lsls	r3, r3, #2
+ 346 009e B968     		ldr	r1, [r7, #8]
+ 347 00a0 0B44     		add	r3, r3, r1
+ 348              		.loc 1 74 33 discriminator 3
+ 349 00a2 1268     		ldr	r2, [r2]
+ 350              		.loc 1 74 21 discriminator 3
+ 351 00a4 1A60     		str	r2, [r3]
+  73:HAL/Src/queue.c ****         for(j = 0 ; j < len; j++){
+ 352              		.loc 1 73 31 discriminator 3
+ 353 00a6 FB8A     		ldrh	r3, [r7, #22]
+ 354 00a8 0133     		adds	r3, r3, #1
+ 355 00aa FB82     		strh	r3, [r7, #22]	@ movhi
+ 356              	.L13:
+  73:HAL/Src/queue.c ****         for(j = 0 ; j < len; j++){
+ 357              		.loc 1 73 9 discriminator 1
+ 358 00ac FA8A     		ldrh	r2, [r7, #22]
+ 359 00ae FB88     		ldrh	r3, [r7, #6]
+ 360 00b0 9A42     		cmp	r2, r3
+ 361 00b2 E2D3     		bcc	.L14
   75:HAL/Src/queue.c ****         }
   76:HAL/Src/queue.c ****         self->block = 0;
- 277              		.loc 1 76 9 is_stmt 1 view .LVU89
- 278              		.loc 1 76 21 is_stmt 0 view .LVU90
- 279 0064 0023     		movs	r3, #0
- 280              	.LVL21:
- 281              		.loc 1 76 21 view .LVU91
- 282 0066 2370     		strb	r3, [r4]
- 283              		.loc 1 76 21 view .LVU92
- 284              	.LBE3:
+ 362              		.loc 1 76 21
+ 363 00b4 FB68     		ldr	r3, [r7, #12]
+ 364 00b6 0022     		movs	r2, #0
+ 365 00b8 1A70     		strb	r2, [r3]
+ 366              	.L8:
+ 367              	.LBE2:
   77:HAL/Src/queue.c ****     }
   78:HAL/Src/queue.c ****     return len;
- 285              		.loc 1 78 5 is_stmt 1 view .LVU93
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 8
-
-
- 286              	.LVL22:
- 287              	.L12:
+ 368              		.loc 1 78 12
+ 369 00ba FB88     		ldrh	r3, [r7, #6]
+ 370              	.L9:
   79:HAL/Src/queue.c **** }
- 288              		.loc 1 79 1 is_stmt 0 view .LVU94
- 289 0068 38BD     		pop	{r3, r4, r5, pc}
- 290              	.LVL23:
- 291              	.L21:
-  65:HAL/Src/queue.c ****     }
- 292              		.loc 1 65 20 view .LVU95
- 293 006a 4FF0FF30 		mov	r0, #-1
- 294 006e FBE7     		b	.L12
- 295              		.cfi_endproc
- 296              	.LFE290:
- 298              		.section	.text.queue_pop,"ax",%progbits
- 299              		.align	1
- 300              		.global	queue_pop
- 301              		.syntax unified
- 302              		.thumb
- 303              		.thumb_func
- 305              	queue_pop:
- 306              	.LVL24:
- 307              	.LFB291:
+ 371              		.loc 1 79 1
+ 372 00bc 1846     		mov	r0, r3
+ 373 00be 1837     		adds	r7, r7, #24
+ 374              	.LCFI15:
+ 375              		.cfi_def_cfa_offset 8
+ 376 00c0 BD46     		mov	sp, r7
+ 377              	.LCFI16:
+ 378              		.cfi_def_cfa_register 13
+ 379              		@ sp needed
+ 380 00c2 80BD     		pop	{r7, pc}
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 9
+
+
+ 381              		.cfi_endproc
+ 382              	.LFE290:
+ 384              		.section	.text.queue_pop,"ax",%progbits
+ 385              		.align	1
+ 386              		.global	queue_pop
+ 387              		.syntax unified
+ 388              		.thumb
+ 389              		.thumb_func
+ 391              	queue_pop:
+ 392              	.LFB291:
   80:HAL/Src/queue.c **** 
   81:HAL/Src/queue.c **** /**
   82:HAL/Src/queue.c ****  * @brief  弹出队列len个元素（要从队列中删除）
@@ -454,197 +502,210 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 1
   88:HAL/Src/queue.c ****  *          len： 弹出元素数量
   89:HAL/Src/queue.c ****  */
   90:HAL/Src/queue.c **** int queue_pop(Queue_HandleTypeDef *self,int *temp,uint16_t len){
- 308              		.loc 1 90 64 is_stmt 1 view -0
- 309              		.cfi_startproc
- 310              		@ args = 0, pretend = 0, frame = 0
- 311              		@ frame_needed = 0, uses_anonymous_args = 0
- 312              		.loc 1 90 64 is_stmt 0 view .LVU97
- 313 0000 38B5     		push	{r3, r4, r5, lr}
- 314              	.LCFI2:
- 315              		.cfi_def_cfa_offset 16
- 316              		.cfi_offset 3, -16
- 317              		.cfi_offset 4, -12
- 318              		.cfi_offset 5, -8
- 319              		.cfi_offset 14, -4
- 320 0002 0446     		mov	r4, r0
- 321 0004 1546     		mov	r5, r2
+ 393              		.loc 1 90 64
+ 394              		.cfi_startproc
+ 395              		@ args = 0, pretend = 0, frame = 24
+ 396              		@ frame_needed = 1, uses_anonymous_args = 0
+ 397 0000 80B5     		push	{r7, lr}
+ 398              	.LCFI17:
+ 399              		.cfi_def_cfa_offset 8
+ 400              		.cfi_offset 7, -8
+ 401              		.cfi_offset 14, -4
+ 402 0002 86B0     		sub	sp, sp, #24
+ 403              	.LCFI18:
+ 404              		.cfi_def_cfa_offset 32
+ 405 0004 00AF     		add	r7, sp, #0
+ 406              	.LCFI19:
+ 407              		.cfi_def_cfa_register 7
+ 408 0006 F860     		str	r0, [r7, #12]
+ 409 0008 B960     		str	r1, [r7, #8]
+ 410 000a 1346     		mov	r3, r2
+ 411 000c FB80     		strh	r3, [r7, #6]	@ movhi
   91:HAL/Src/queue.c ****     uint16_t j = 0 ;
- 322              		.loc 1 91 5 is_stmt 1 view .LVU98
- 323              	.LVL25:
+ 412              		.loc 1 91 14
+ 413 000e 0023     		movs	r3, #0
+ 414 0010 FB82     		strh	r3, [r7, #22]	@ movhi
   92:HAL/Src/queue.c ****     //如果队列被上锁了，则等待100ms
   93:HAL/Src/queue.c ****     if(self->block == 1)
- 324              		.loc 1 93 5 view .LVU99
- 325              		.loc 1 93 12 is_stmt 0 view .LVU100
- 326 0006 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 327              		.loc 1 93 7 view .LVU101
- 328 0008 012B     		cmp	r3, #1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 9
-
-
- 329 000a 0CD0     		beq	.L35
- 330              	.LBB4:
+ 415              		.loc 1 93 12
+ 416 0012 FB68     		ldr	r3, [r7, #12]
+ 417 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 418              		.loc 1 93 7
+ 419 0016 012B     		cmp	r3, #1
+ 420 0018 09D1     		bne	.L16
   94:HAL/Src/queue.c ****     {
   95:HAL/Src/queue.c ****         HAL_Delay(100);
+ 421              		.loc 1 95 9
+ 422 001a 6420     		movs	r0, #100
+ 423 001c FFF7FEFF 		bl	HAL_Delay
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 10
+
+
   96:HAL/Src/queue.c ****         if(self->block == 1)
+ 424              		.loc 1 96 16
+ 425 0020 FB68     		ldr	r3, [r7, #12]
+ 426 0022 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 427              		.loc 1 96 11
+ 428 0024 012B     		cmp	r3, #1
+ 429 0026 49D1     		bne	.L17
   97:HAL/Src/queue.c ****             return -1;
+ 430              		.loc 1 97 20
+ 431 0028 4FF0FF33 		mov	r3, #-1
+ 432 002c 47E0     		b	.L18
+ 433              	.L16:
+ 434              	.LBB3:
   98:HAL/Src/queue.c ****     }
   99:HAL/Src/queue.c ****     else{
  100:HAL/Src/queue.c ****         self->block = 1;
- 331              		.loc 1 100 9 is_stmt 1 view .LVU102
- 332              		.loc 1 100 21 is_stmt 0 view .LVU103
- 333 000c 0123     		movs	r3, #1
- 334 000e 0370     		strb	r3, [r0]
+ 435              		.loc 1 100 21
+ 436 002e FB68     		ldr	r3, [r7, #12]
+ 437 0030 0122     		movs	r2, #1
+ 438 0032 1A70     		strb	r2, [r3]
  101:HAL/Src/queue.c ****         uint16_t size  = self->tail >= self->head ? (self->tail - self->head):(self->tail + self->c
- 335              		.loc 1 101 9 is_stmt 1 view .LVU104
- 336              		.loc 1 101 30 is_stmt 0 view .LVU105
- 337 0010 8088     		ldrh	r0, [r0, #4]
- 338              	.LVL26:
- 339              		.loc 1 101 44 view .LVU106
- 340 0012 6388     		ldrh	r3, [r4, #2]
- 341              		.loc 1 101 18 view .LVU107
- 342 0014 9842     		cmp	r0, r3
- 343 0016 0ED3     		bcc	.L28
- 344              		.loc 1 101 18 discriminator 1 view .LVU108
- 345 0018 C01A     		subs	r0, r0, r3
- 346 001a 80B2     		uxth	r0, r0
- 347              	.LVL27:
- 348              	.L29:
+ 439              		.loc 1 101 30
+ 440 0034 FB68     		ldr	r3, [r7, #12]
+ 441 0036 9A88     		ldrh	r2, [r3, #4]
+ 442              		.loc 1 101 44
+ 443 0038 FB68     		ldr	r3, [r7, #12]
+ 444 003a 5B88     		ldrh	r3, [r3, #2]
+ 445              		.loc 1 101 18
+ 446 003c 9A42     		cmp	r2, r3
+ 447 003e 06D3     		bcc	.L19
+ 448              		.loc 1 101 58 discriminator 1
+ 449 0040 FB68     		ldr	r3, [r7, #12]
+ 450 0042 9A88     		ldrh	r2, [r3, #4]
+ 451              		.loc 1 101 71 discriminator 1
+ 452 0044 FB68     		ldr	r3, [r7, #12]
+ 453 0046 5B88     		ldrh	r3, [r3, #2]
+ 454              		.loc 1 101 18 discriminator 1
+ 455 0048 D31A     		subs	r3, r2, r3
+ 456 004a 9BB2     		uxth	r3, r3
+ 457 004c 09E0     		b	.L20
+ 458              	.L19:
+ 459              		.loc 1 101 84 discriminator 2
+ 460 004e FB68     		ldr	r3, [r7, #12]
+ 461 0050 9A88     		ldrh	r2, [r3, #4]
+ 462              		.loc 1 101 97 discriminator 2
+ 463 0052 FB68     		ldr	r3, [r7, #12]
+ 464 0054 9B89     		ldrh	r3, [r3, #12]
+ 465              		.loc 1 101 91 discriminator 2
+ 466 0056 1344     		add	r3, r3, r2
+ 467 0058 9AB2     		uxth	r2, r3
+ 468              		.loc 1 101 114 discriminator 2
+ 469 005a FB68     		ldr	r3, [r7, #12]
+ 470 005c 5B88     		ldrh	r3, [r3, #2]
+ 471              		.loc 1 101 18 discriminator 2
+ 472 005e D31A     		subs	r3, r2, r3
+ 473 0060 9BB2     		uxth	r3, r3
+ 474              	.L20:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 11
+
+
+ 475              		.loc 1 101 18 is_stmt 0 discriminator 4
+ 476 0062 BB82     		strh	r3, [r7, #20]	@ movhi
  102:HAL/Src/queue.c ****         if(len > size)
- 349              		.loc 1 102 9 is_stmt 1 discriminator 4 view .LVU109
- 350              		.loc 1 102 11 is_stmt 0 discriminator 4 view .LVU110
- 351 001c A842     		cmp	r0, r5
- 352 001e 00D3     		bcc	.L30
- 353              		.loc 1 102 11 view .LVU111
- 354 0020 2846     		mov	r0, r5
- 355              	.LVL28:
- 356              	.L30:
+ 477              		.loc 1 102 11 is_stmt 1 discriminator 4
+ 478 0064 FA88     		ldrh	r2, [r7, #6]
+ 479 0066 BB8A     		ldrh	r3, [r7, #20]
+ 480 0068 9A42     		cmp	r2, r3
+ 481 006a 01D9     		bls	.L21
  103:HAL/Src/queue.c ****             len = size;
+ 482              		.loc 1 103 17
+ 483 006c BB8A     		ldrh	r3, [r7, #20]	@ movhi
+ 484 006e FB80     		strh	r3, [r7, #6]	@ movhi
+ 485              	.L21:
  104:HAL/Src/queue.c ****         for(j = 0 ; j < len; j++){
- 357              		.loc 1 104 9 is_stmt 1 view .LVU112
- 358              		.loc 1 104 15 is_stmt 0 view .LVU113
- 359 0022 0022     		movs	r2, #0
- 360              		.loc 1 104 9 view .LVU114
- 361 0024 1FE0     		b	.L31
- 362              	.LVL29:
- 363              	.L35:
- 364              		.loc 1 104 9 view .LVU115
- 365              	.LBE4:
-  95:HAL/Src/queue.c ****         if(self->block == 1)
- 366              		.loc 1 95 9 is_stmt 1 view .LVU116
- 367 0026 6420     		movs	r0, #100
- 368              	.LVL30:
-  95:HAL/Src/queue.c ****         if(self->block == 1)
- 369              		.loc 1 95 9 is_stmt 0 view .LVU117
- 370 0028 FFF7FEFF 		bl	HAL_Delay
- 371              	.LVL31:
-  96:HAL/Src/queue.c ****             return -1;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 10
-
-
- 372              		.loc 1 96 9 is_stmt 1 view .LVU118
-  96:HAL/Src/queue.c ****             return -1;
- 373              		.loc 1 96 16 is_stmt 0 view .LVU119
- 374 002c 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
-  96:HAL/Src/queue.c ****             return -1;
- 375              		.loc 1 96 11 view .LVU120
- 376 002e 012B     		cmp	r3, #1
- 377 0030 1ED0     		beq	.L33
- 378 0032 2846     		mov	r0, r5
- 379 0034 1BE0     		b	.L24
- 380              	.LVL32:
- 381              	.L28:
- 382              	.LBB5:
- 101:HAL/Src/queue.c ****         if(len > size)
- 383              		.loc 1 101 97 discriminator 2 view .LVU121
- 384 0036 A289     		ldrh	r2, [r4, #12]
- 385              	.LVL33:
- 101:HAL/Src/queue.c ****         if(len > size)
- 386              		.loc 1 101 91 discriminator 2 view .LVU122
- 387 0038 1044     		add	r0, r0, r2
- 388 003a 80B2     		uxth	r0, r0
- 101:HAL/Src/queue.c ****         if(len > size)
- 389              		.loc 1 101 18 discriminator 2 view .LVU123
- 390 003c C01A     		subs	r0, r0, r3
- 391 003e 80B2     		uxth	r0, r0
- 392 0040 ECE7     		b	.L29
- 393              	.LVL34:
- 394              	.L32:
+ 486              		.loc 1 104 15
+ 487 0070 0023     		movs	r3, #0
+ 488 0072 FB82     		strh	r3, [r7, #22]	@ movhi
+ 489              		.loc 1 104 9
+ 490 0074 1BE0     		b	.L22
+ 491              	.L23:
  105:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
- 395              		.loc 1 105 13 is_stmt 1 discriminator 3 view .LVU124
- 396              		.loc 1 105 27 is_stmt 0 discriminator 3 view .LVU125
- 397 0042 A368     		ldr	r3, [r4, #8]
- 398              		.loc 1 105 38 discriminator 3 view .LVU126
- 399 0044 B4F802C0 		ldrh	ip, [r4, #2]
- 400              		.loc 1 105 33 discriminator 3 view .LVU127
- 401 0048 53F82C30 		ldr	r3, [r3, ip, lsl #2]
- 402              		.loc 1 105 21 discriminator 3 view .LVU128
- 403 004c 41F82230 		str	r3, [r1, r2, lsl #2]
+ 492              		.loc 1 105 27 discriminator 3
+ 493 0076 FB68     		ldr	r3, [r7, #12]
+ 494 0078 9A68     		ldr	r2, [r3, #8]
+ 495              		.loc 1 105 38 discriminator 3
+ 496 007a FB68     		ldr	r3, [r7, #12]
+ 497 007c 5B88     		ldrh	r3, [r3, #2]
+ 498              		.loc 1 105 33 discriminator 3
+ 499 007e 9B00     		lsls	r3, r3, #2
+ 500 0080 1A44     		add	r2, r2, r3
+ 501              		.loc 1 105 17 discriminator 3
+ 502 0082 FB8A     		ldrh	r3, [r7, #22]
+ 503 0084 9B00     		lsls	r3, r3, #2
+ 504 0086 B968     		ldr	r1, [r7, #8]
+ 505 0088 0B44     		add	r3, r3, r1
+ 506              		.loc 1 105 33 discriminator 3
+ 507 008a 1268     		ldr	r2, [r2]
+ 508              		.loc 1 105 21 discriminator 3
+ 509 008c 1A60     		str	r2, [r3]
  106:HAL/Src/queue.c ****             self->head = (self->head + 1) % self->capacity;
- 404              		.loc 1 106 13 is_stmt 1 discriminator 3 view .LVU129
- 405              		.loc 1 106 31 is_stmt 0 discriminator 3 view .LVU130
- 406 0050 6388     		ldrh	r3, [r4, #2]
- 407              		.loc 1 106 38 discriminator 3 view .LVU131
- 408 0052 0133     		adds	r3, r3, #1
- 409              		.loc 1 106 49 discriminator 3 view .LVU132
- 410 0054 B4F80CC0 		ldrh	ip, [r4, #12]
- 411              		.loc 1 106 43 discriminator 3 view .LVU133
- 412 0058 93FBFCFE 		sdiv	lr, r3, ip
- 413 005c 0CFB1E33 		mls	r3, ip, lr, r3
- 414              		.loc 1 106 24 discriminator 3 view .LVU134
- 415 0060 6380     		strh	r3, [r4, #2]	@ movhi
- 104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
- 416              		.loc 1 104 30 is_stmt 1 discriminator 3 view .LVU135
- 104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
- 417              		.loc 1 104 31 is_stmt 0 discriminator 3 view .LVU136
- 418 0062 0132     		adds	r2, r2, #1
- 419              	.LVL35:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 11
+ 510              		.loc 1 106 31 discriminator 3
+ 511 008e FB68     		ldr	r3, [r7, #12]
+ 512 0090 5B88     		ldrh	r3, [r3, #2]
+ 513              		.loc 1 106 38 discriminator 3
+ 514 0092 0133     		adds	r3, r3, #1
+ 515              		.loc 1 106 49 discriminator 3
+ 516 0094 FA68     		ldr	r2, [r7, #12]
+ 517 0096 9289     		ldrh	r2, [r2, #12]
+ 518              		.loc 1 106 43 discriminator 3
+ 519 0098 93FBF2F1 		sdiv	r1, r3, r2
+ 520 009c 01FB02F2 		mul	r2, r1, r2
+ 521 00a0 9B1A     		subs	r3, r3, r2
+ 522              		.loc 1 106 24 discriminator 3
+ 523 00a2 9AB2     		uxth	r2, r3
+ 524 00a4 FB68     		ldr	r3, [r7, #12]
+ 525 00a6 5A80     		strh	r2, [r3, #2]	@ movhi
+ 104:HAL/Src/queue.c ****         for(j = 0 ; j < len; j++){
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 12
 
 
- 104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
- 420              		.loc 1 104 31 discriminator 3 view .LVU137
- 421 0064 92B2     		uxth	r2, r2
- 422              	.LVL36:
- 423              	.L31:
- 104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
- 424              		.loc 1 104 21 is_stmt 1 discriminator 1 view .LVU138
- 104:HAL/Src/queue.c ****             temp[j] = self->buff[self->head];
- 425              		.loc 1 104 9 is_stmt 0 discriminator 1 view .LVU139
- 426 0066 9042     		cmp	r0, r2
- 427 0068 EBD8     		bhi	.L32
+ 526              		.loc 1 104 31 discriminator 3
+ 527 00a8 FB8A     		ldrh	r3, [r7, #22]
+ 528 00aa 0133     		adds	r3, r3, #1
+ 529 00ac FB82     		strh	r3, [r7, #22]	@ movhi
+ 530              	.L22:
+ 104:HAL/Src/queue.c ****         for(j = 0 ; j < len; j++){
+ 531              		.loc 1 104 9 discriminator 1
+ 532 00ae FA8A     		ldrh	r2, [r7, #22]
+ 533 00b0 FB88     		ldrh	r3, [r7, #6]
+ 534 00b2 9A42     		cmp	r2, r3
+ 535 00b4 DFD3     		bcc	.L23
  107:HAL/Src/queue.c ****         }
  108:HAL/Src/queue.c ****         self->block = 0;
- 428              		.loc 1 108 9 is_stmt 1 view .LVU140
- 429              		.loc 1 108 21 is_stmt 0 view .LVU141
- 430 006a 0023     		movs	r3, #0
- 431 006c 2370     		strb	r3, [r4]
- 432              		.loc 1 108 21 view .LVU142
- 433              	.LBE5:
+ 536              		.loc 1 108 21
+ 537 00b6 FB68     		ldr	r3, [r7, #12]
+ 538 00b8 0022     		movs	r2, #0
+ 539 00ba 1A70     		strb	r2, [r3]
+ 540              	.L17:
+ 541              	.LBE3:
  109:HAL/Src/queue.c ****     }
  110:HAL/Src/queue.c ****     return len;
- 434              		.loc 1 110 5 is_stmt 1 view .LVU143
- 435              	.LVL37:
- 436              	.L24:
+ 542              		.loc 1 110 12
+ 543 00bc FB88     		ldrh	r3, [r7, #6]
+ 544              	.L18:
  111:HAL/Src/queue.c **** }
- 437              		.loc 1 111 1 is_stmt 0 view .LVU144
- 438 006e 38BD     		pop	{r3, r4, r5, pc}
- 439              	.LVL38:
- 440              	.L33:
-  97:HAL/Src/queue.c ****     }
- 441              		.loc 1 97 20 view .LVU145
- 442 0070 4FF0FF30 		mov	r0, #-1
- 443 0074 FBE7     		b	.L24
- 444              		.cfi_endproc
- 445              	.LFE291:
- 447              		.section	.text.queue_is_full,"ax",%progbits
- 448              		.align	1
- 449              		.global	queue_is_full
- 450              		.syntax unified
- 451              		.thumb
- 452              		.thumb_func
- 454              	queue_is_full:
- 455              	.LVL39:
- 456              	.LFB292:
+ 545              		.loc 1 111 1
+ 546 00be 1846     		mov	r0, r3
+ 547 00c0 1837     		adds	r7, r7, #24
+ 548              	.LCFI20:
+ 549              		.cfi_def_cfa_offset 8
+ 550 00c2 BD46     		mov	sp, r7
+ 551              	.LCFI21:
+ 552              		.cfi_def_cfa_register 13
+ 553              		@ sp needed
+ 554 00c4 80BD     		pop	{r7, pc}
+ 555              		.cfi_endproc
+ 556              	.LFE291:
+ 558              		.section	.text.queue_is_full,"ax",%progbits
+ 559              		.align	1
+ 560              		.global	queue_is_full
+ 561              		.syntax unified
+ 562              		.thumb
+ 563              		.thumb_func
+ 565              	queue_is_full:
+ 566              	.LFB292:
  112:HAL/Src/queue.c **** 
  113:HAL/Src/queue.c **** /**
  114:HAL/Src/queue.c ****  * @brief 判断队列是否满
@@ -656,114 +717,130 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 1
  120:HAL/Src/queue.c ****  */
  121:HAL/Src/queue.c **** 
  122:HAL/Src/queue.c **** int queue_is_full(Queue_HandleTypeDef *self){
- 457              		.loc 1 122 45 is_stmt 1 view -0
- 458              		.cfi_startproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 12
+ 567              		.loc 1 122 45
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 13
 
 
- 459              		@ args = 0, pretend = 0, frame = 0
- 460              		@ frame_needed = 0, uses_anonymous_args = 0
- 461              		.loc 1 122 45 is_stmt 0 view .LVU147
- 462 0000 08B5     		push	{r3, lr}
- 463              	.LCFI3:
- 464              		.cfi_def_cfa_offset 8
- 465              		.cfi_offset 3, -8
- 466              		.cfi_offset 14, -4
+ 568              		.cfi_startproc
+ 569              		@ args = 0, pretend = 0, frame = 16
+ 570              		@ frame_needed = 1, uses_anonymous_args = 0
+ 571 0000 80B5     		push	{r7, lr}
+ 572              	.LCFI22:
+ 573              		.cfi_def_cfa_offset 8
+ 574              		.cfi_offset 7, -8
+ 575              		.cfi_offset 14, -4
+ 576 0002 84B0     		sub	sp, sp, #16
+ 577              	.LCFI23:
+ 578              		.cfi_def_cfa_offset 24
+ 579 0004 00AF     		add	r7, sp, #0
+ 580              	.LCFI24:
+ 581              		.cfi_def_cfa_register 7
+ 582 0006 7860     		str	r0, [r7, #4]
  123:HAL/Src/queue.c ****     int re_code = -1;
- 467              		.loc 1 123 5 is_stmt 1 view .LVU148
- 468              	.LVL40:
+ 583              		.loc 1 123 9
+ 584 0008 4FF0FF33 		mov	r3, #-1
+ 585 000c FB60     		str	r3, [r7, #12]
  124:HAL/Src/queue.c ****     if(self->block == 1)
- 469              		.loc 1 124 5 view .LVU149
- 470              		.loc 1 124 12 is_stmt 0 view .LVU150
- 471 0002 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
- 472              		.loc 1 124 7 view .LVU151
- 473 0004 012A     		cmp	r2, #1
- 474 0006 10D0     		beq	.L42
- 475 0008 0346     		mov	r3, r0
+ 586              		.loc 1 124 12
+ 587 000e 7B68     		ldr	r3, [r7, #4]
+ 588 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 589              		.loc 1 124 7
+ 590 0012 012B     		cmp	r3, #1
+ 591 0014 0AD1     		bne	.L25
  125:HAL/Src/queue.c ****     {
  126:HAL/Src/queue.c ****         HAL_Delay(100);
+ 592              		.loc 1 126 9
+ 593 0016 6420     		movs	r0, #100
+ 594 0018 FFF7FEFF 		bl	HAL_Delay
  127:HAL/Src/queue.c ****         if(self->block == 1)
+ 595              		.loc 1 127 16
+ 596 001c 7B68     		ldr	r3, [r7, #4]
+ 597 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 598              		.loc 1 127 11
+ 599 0020 012B     		cmp	r3, #1
+ 600 0022 1DD1     		bne	.L26
  128:HAL/Src/queue.c ****             re_code = -1;
+ 601              		.loc 1 128 21
+ 602 0024 4FF0FF33 		mov	r3, #-1
+ 603 0028 FB60     		str	r3, [r7, #12]
+ 604 002a 19E0     		b	.L26
+ 605              	.L25:
  129:HAL/Src/queue.c ****     }
  130:HAL/Src/queue.c ****     else{
  131:HAL/Src/queue.c ****         self->block = 1;
- 476              		.loc 1 131 9 is_stmt 1 view .LVU152
- 477              		.loc 1 131 21 is_stmt 0 view .LVU153
- 478 000a 0122     		movs	r2, #1
- 479 000c 0270     		strb	r2, [r0]
+ 606              		.loc 1 131 21
+ 607 002c 7B68     		ldr	r3, [r7, #4]
+ 608 002e 0122     		movs	r2, #1
+ 609 0030 1A70     		strb	r2, [r3]
  132:HAL/Src/queue.c ****        if(self->head == ((self->tail + 1) % self->capacity))
- 480              		.loc 1 132 8 is_stmt 1 view .LVU154
- 481              		.loc 1 132 15 is_stmt 0 view .LVU155
- 482 000e 4088     		ldrh	r0, [r0, #2]
- 483              	.LVL41:
- 484              		.loc 1 132 31 view .LVU156
- 485 0010 9A88     		ldrh	r2, [r3, #4]
- 486              		.loc 1 132 38 view .LVU157
- 487 0012 0132     		adds	r2, r2, #1
- 488              		.loc 1 132 49 view .LVU158
- 489 0014 9989     		ldrh	r1, [r3, #12]
- 490              		.loc 1 132 43 view .LVU159
- 491 0016 92FBF1FC 		sdiv	ip, r2, r1
- 492 001a 01FB1C22 		mls	r2, r1, ip, r2
- 493              		.loc 1 132 10 view .LVU160
- 494 001e 9042     		cmp	r0, r2
- 495 0020 09D0     		beq	.L43
+ 610              		.loc 1 132 15
+ 611 0032 7B68     		ldr	r3, [r7, #4]
+ 612 0034 5B88     		ldrh	r3, [r3, #2]
+ 613 0036 1846     		mov	r0, r3
+ 614              		.loc 1 132 31
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 14
+
+
+ 615 0038 7B68     		ldr	r3, [r7, #4]
+ 616 003a 9B88     		ldrh	r3, [r3, #4]
+ 617              		.loc 1 132 38
+ 618 003c 0133     		adds	r3, r3, #1
+ 619              		.loc 1 132 49
+ 620 003e 7A68     		ldr	r2, [r7, #4]
+ 621 0040 9289     		ldrh	r2, [r2, #12]
+ 622              		.loc 1 132 43
+ 623 0042 93FBF2F1 		sdiv	r1, r3, r2
+ 624 0046 01FB02F2 		mul	r2, r1, r2
+ 625 004a 9B1A     		subs	r3, r3, r2
+ 626              		.loc 1 132 10
+ 627 004c 9842     		cmp	r0, r3
+ 628 004e 02D1     		bne	.L27
  133:HAL/Src/queue.c ****         re_code = 1;
+ 629              		.loc 1 133 17
+ 630 0050 0123     		movs	r3, #1
+ 631 0052 FB60     		str	r3, [r7, #12]
+ 632 0054 01E0     		b	.L28
+ 633              	.L27:
  134:HAL/Src/queue.c ****         else
  135:HAL/Src/queue.c ****         re_code = 0;
- 496              		.loc 1 135 17 view .LVU161
- 497 0022 0020     		movs	r0, #0
- 498              	.L39:
- 499              	.LVL42:
+ 634              		.loc 1 135 17
+ 635 0056 0023     		movs	r3, #0
+ 636 0058 FB60     		str	r3, [r7, #12]
+ 637              	.L28:
  136:HAL/Src/queue.c ****         self->block = 0;
- 500              		.loc 1 136 9 is_stmt 1 view .LVU162
- 501              		.loc 1 136 21 is_stmt 0 view .LVU163
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 13
-
-
- 502 0024 0022     		movs	r2, #0
- 503 0026 1A70     		strb	r2, [r3]
+ 638              		.loc 1 136 21
+ 639 005a 7B68     		ldr	r3, [r7, #4]
+ 640 005c 0022     		movs	r2, #0
+ 641 005e 1A70     		strb	r2, [r3]
+ 642              	.L26:
  137:HAL/Src/queue.c ****     }
  138:HAL/Src/queue.c ****     return re_code;
- 504              		.loc 1 138 5 is_stmt 1 view .LVU164
- 505              	.LVL43:
- 506              	.L36:
+ 643              		.loc 1 138 12
+ 644 0060 FB68     		ldr	r3, [r7, #12]
  139:HAL/Src/queue.c **** }
- 507              		.loc 1 139 1 is_stmt 0 view .LVU165
- 508 0028 08BD     		pop	{r3, pc}
- 509              	.LVL44:
- 510              	.L42:
- 126:HAL/Src/queue.c ****         if(self->block == 1)
- 511              		.loc 1 126 9 is_stmt 1 view .LVU166
- 512 002a 6420     		movs	r0, #100
- 513              	.LVL45:
- 126:HAL/Src/queue.c ****         if(self->block == 1)
- 514              		.loc 1 126 9 is_stmt 0 view .LVU167
- 515 002c FFF7FEFF 		bl	HAL_Delay
- 516              	.LVL46:
- 127:HAL/Src/queue.c ****             re_code = -1;
- 517              		.loc 1 127 9 is_stmt 1 view .LVU168
- 123:HAL/Src/queue.c ****     if(self->block == 1)
- 518              		.loc 1 123 9 is_stmt 0 view .LVU169
- 519 0030 4FF0FF30 		mov	r0, #-1
- 520 0034 F8E7     		b	.L36
- 521              	.LVL47:
- 522              	.L43:
- 133:HAL/Src/queue.c ****         else
- 523              		.loc 1 133 17 view .LVU170
- 524 0036 0120     		movs	r0, #1
- 525 0038 F4E7     		b	.L39
- 526              		.cfi_endproc
- 527              	.LFE292:
- 529              		.section	.text.queue_is_empty,"ax",%progbits
- 530              		.align	1
- 531              		.global	queue_is_empty
- 532              		.syntax unified
- 533              		.thumb
- 534              		.thumb_func
- 536              	queue_is_empty:
- 537              	.LVL48:
- 538              	.LFB293:
+ 645              		.loc 1 139 1
+ 646 0062 1846     		mov	r0, r3
+ 647 0064 1037     		adds	r7, r7, #16
+ 648              	.LCFI25:
+ 649              		.cfi_def_cfa_offset 8
+ 650 0066 BD46     		mov	sp, r7
+ 651              	.LCFI26:
+ 652              		.cfi_def_cfa_register 13
+ 653              		@ sp needed
+ 654 0068 80BD     		pop	{r7, pc}
+ 655              		.cfi_endproc
+ 656              	.LFE292:
+ 658              		.section	.text.queue_is_empty,"ax",%progbits
+ 659              		.align	1
+ 660              		.global	queue_is_empty
+ 661              		.syntax unified
+ 662              		.thumb
+ 663              		.thumb_func
+ 665              	queue_is_empty:
+ 666              	.LFB293:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 15
+
+
  140:HAL/Src/queue.c **** 
  141:HAL/Src/queue.c **** /**
  142:HAL/Src/queue.c ****  * @brief 判断队列是否为空
@@ -775,123 +852,128 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 1
  148:HAL/Src/queue.c ****  */
  149:HAL/Src/queue.c **** 
  150:HAL/Src/queue.c **** int queue_is_empty(Queue_HandleTypeDef *self){
- 539              		.loc 1 150 46 is_stmt 1 view -0
- 540              		.cfi_startproc
- 541              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 14
-
-
- 542              		@ frame_needed = 0, uses_anonymous_args = 0
- 543              		.loc 1 150 46 is_stmt 0 view .LVU172
- 544 0000 08B5     		push	{r3, lr}
- 545              	.LCFI4:
- 546              		.cfi_def_cfa_offset 8
- 547              		.cfi_offset 3, -8
- 548              		.cfi_offset 14, -4
+ 667              		.loc 1 150 46
+ 668              		.cfi_startproc
+ 669              		@ args = 0, pretend = 0, frame = 16
+ 670              		@ frame_needed = 1, uses_anonymous_args = 0
+ 671 0000 80B5     		push	{r7, lr}
+ 672              	.LCFI27:
+ 673              		.cfi_def_cfa_offset 8
+ 674              		.cfi_offset 7, -8
+ 675              		.cfi_offset 14, -4
+ 676 0002 84B0     		sub	sp, sp, #16
+ 677              	.LCFI28:
+ 678              		.cfi_def_cfa_offset 24
+ 679 0004 00AF     		add	r7, sp, #0
+ 680              	.LCFI29:
+ 681              		.cfi_def_cfa_register 7
+ 682 0006 7860     		str	r0, [r7, #4]
  151:HAL/Src/queue.c ****     int re_code = -1;
- 549              		.loc 1 151 5 is_stmt 1 view .LVU173
- 550              	.LVL49:
+ 683              		.loc 1 151 9
+ 684 0008 4FF0FF33 		mov	r3, #-1
+ 685 000c FB60     		str	r3, [r7, #12]
  152:HAL/Src/queue.c ****     if(self->block == 1)
- 551              		.loc 1 152 5 view .LVU174
- 552              		.loc 1 152 12 is_stmt 0 view .LVU175
- 553 0002 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
- 554              		.loc 1 152 7 view .LVU176
- 555 0004 012A     		cmp	r2, #1
- 556 0006 0AD0     		beq	.L50
- 557 0008 0346     		mov	r3, r0
+ 686              		.loc 1 152 12
+ 687 000e 7B68     		ldr	r3, [r7, #4]
+ 688 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 689              		.loc 1 152 7
+ 690 0012 012B     		cmp	r3, #1
+ 691 0014 0AD1     		bne	.L31
  153:HAL/Src/queue.c ****     {
  154:HAL/Src/queue.c ****         HAL_Delay(100);
+ 692              		.loc 1 154 9
+ 693 0016 6420     		movs	r0, #100
+ 694 0018 FFF7FEFF 		bl	HAL_Delay
  155:HAL/Src/queue.c ****         if(self->block == 1)
+ 695              		.loc 1 155 16
+ 696 001c 7B68     		ldr	r3, [r7, #4]
+ 697 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 698              		.loc 1 155 11
+ 699 0020 012B     		cmp	r3, #1
+ 700 0022 14D1     		bne	.L32
  156:HAL/Src/queue.c ****             re_code = -1;
+ 701              		.loc 1 156 21
+ 702 0024 4FF0FF33 		mov	r3, #-1
+ 703 0028 FB60     		str	r3, [r7, #12]
+ 704 002a 10E0     		b	.L32
+ 705              	.L31:
  157:HAL/Src/queue.c ****     }
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 16
+
+
  158:HAL/Src/queue.c ****     else{
  159:HAL/Src/queue.c ****         self->block = 1;
- 558              		.loc 1 159 9 is_stmt 1 view .LVU177
- 559              		.loc 1 159 21 is_stmt 0 view .LVU178
- 560 000a 0122     		movs	r2, #1
- 561 000c 0270     		strb	r2, [r0]
+ 706              		.loc 1 159 21
+ 707 002c 7B68     		ldr	r3, [r7, #4]
+ 708 002e 0122     		movs	r2, #1
+ 709 0030 1A70     		strb	r2, [r3]
  160:HAL/Src/queue.c ****        if(self->head == self->tail)
- 562              		.loc 1 160 8 is_stmt 1 view .LVU179
- 563              		.loc 1 160 15 is_stmt 0 view .LVU180
- 564 000e 4188     		ldrh	r1, [r0, #2]
- 565              		.loc 1 160 29 view .LVU181
- 566 0010 8288     		ldrh	r2, [r0, #4]
- 567              		.loc 1 160 10 view .LVU182
- 568 0012 9142     		cmp	r1, r2
- 569 0014 09D0     		beq	.L51
+ 710              		.loc 1 160 15
+ 711 0032 7B68     		ldr	r3, [r7, #4]
+ 712 0034 5A88     		ldrh	r2, [r3, #2]
+ 713              		.loc 1 160 29
+ 714 0036 7B68     		ldr	r3, [r7, #4]
+ 715 0038 9B88     		ldrh	r3, [r3, #4]
+ 716              		.loc 1 160 10
+ 717 003a 9A42     		cmp	r2, r3
+ 718 003c 02D1     		bne	.L33
  161:HAL/Src/queue.c ****         re_code = 1;
+ 719              		.loc 1 161 17
+ 720 003e 0123     		movs	r3, #1
+ 721 0040 FB60     		str	r3, [r7, #12]
+ 722 0042 01E0     		b	.L34
+ 723              	.L33:
  162:HAL/Src/queue.c ****         else
  163:HAL/Src/queue.c ****         re_code = 0;
- 570              		.loc 1 163 17 view .LVU183
- 571 0016 0020     		movs	r0, #0
- 572              	.LVL50:
- 573              	.L47:
+ 724              		.loc 1 163 17
+ 725 0044 0023     		movs	r3, #0
+ 726 0046 FB60     		str	r3, [r7, #12]
+ 727              	.L34:
  164:HAL/Src/queue.c ****         self->block = 0;
- 574              		.loc 1 164 9 is_stmt 1 view .LVU184
- 575              		.loc 1 164 21 is_stmt 0 view .LVU185
- 576 0018 0022     		movs	r2, #0
- 577 001a 1A70     		strb	r2, [r3]
+ 728              		.loc 1 164 21
+ 729 0048 7B68     		ldr	r3, [r7, #4]
+ 730 004a 0022     		movs	r2, #0
+ 731 004c 1A70     		strb	r2, [r3]
+ 732              	.L32:
  165:HAL/Src/queue.c ****     }
  166:HAL/Src/queue.c ****     return re_code;
- 578              		.loc 1 166 5 is_stmt 1 view .LVU186
- 579              	.LVL51:
- 580              	.L44:
+ 733              		.loc 1 166 12
+ 734 004e FB68     		ldr	r3, [r7, #12]
  167:HAL/Src/queue.c **** }...
- 581              		.loc 1 167 1 is_stmt 0 view .LVU187
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 15
-
-
- 582 001c 08BD     		pop	{r3, pc}
- 583              	.LVL52:
- 584              	.L50:
- 154:HAL/Src/queue.c ****         HAL_Delay(100);
- 585              		.loc 1 154 9 is_stmt 1 view .LVU188
- 586 001e 6420     		movs	r0, #100
- 587              	.LVL53:
- 154:HAL/Src/queue.c ****         HAL_Delay(100);
- 588              		.loc 1 154 9 is_stmt 0 view .LVU189
- 589 0020 FFF7FEFF 		bl	HAL_Delay
- 590              	.LVL54:
- 155:HAL/Src/queue.c ****         if(self->block == 1)
- 591              		.loc 1 155 9 is_stmt 1 view .LVU190
- 151:HAL/Src/queue.c ****     int re_code = -1;
- 592              		.loc 1 151 9 is_stmt 0 view .LVU191
- 593 0024 4FF0FF30 		mov	r0, #-1
- 594 0028 F8E7     		b	.L44
- 595              	.LVL55:
- 596              	.L51:
- 161:HAL/Src/queue.c ****         re_code = 1;
- 597              		.loc 1 161 17 view .LVU192
- 598 002a 0120     		movs	r0, #1
- 599              	.LVL56:
- 161:HAL/Src/queue.c ****         re_code = 1;
- 600              		.loc 1 161 17 view .LVU193
- 601 002c F4E7     		b	.L47
- 602              		.cfi_endproc
- 603              	.LFE293:
- 605              		.text
- 606              	.Letext0:
- 607              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 608              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 609              		.file 4 "HAL/Inc/queue.h"
- 610              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s 			page 16
+ 735              		.loc 1 167 1
+ 736 0050 1846     		mov	r0, r3
+ 737 0052 1037     		adds	r7, r7, #16
+ 738              	.LCFI30:
+ 739              		.cfi_def_cfa_offset 8
+ 740 0054 BD46     		mov	sp, r7
+ 741              	.LCFI31:
+ 742              		.cfi_def_cfa_register 13
+ 743              		@ sp needed
+ 744 0056 80BD     		pop	{r7, pc}
+ 745              		.cfi_endproc
+ 746              	.LFE293:
+ 748              		.text
+ 749              	.Letext0:
+ 750              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 751              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 752              		.file 4 "HAL/Inc/queue.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 queue.c
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:20     .text.queue_init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:26     .text.queue_init:00000000 queue_init
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:57     .text.queue_insert:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:63     .text.queue_insert:00000000 queue_insert
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:151    .text.queue_pull:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:157    .text.queue_pull:00000000 queue_pull
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:299    .text.queue_pop:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:305    .text.queue_pop:00000000 queue_pop
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:448    .text.queue_is_full:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:454    .text.queue_is_full:00000000 queue_is_full
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:530    .text.queue_is_empty:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc0LHTSq.s:536    .text.queue_is_empty:00000000 queue_is_empty
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:20     .text.queue_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:26     .text.queue_init:00000000 queue_init
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:86     .text.queue_insert:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:92     .text.queue_insert:00000000 queue_insert
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:213    .text.queue_pull:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:219    .text.queue_pull:00000000 queue_pull
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:385    .text.queue_pop:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:391    .text.queue_pop:00000000 queue_pop
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:559    .text.queue_is_full:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:565    .text.queue_is_full:00000000 queue_is_full
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:659    .text.queue_is_empty:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccU7cdDY.s:665    .text.queue_is_empty:00000000 queue_is_empty
 
 UNDEFINED SYMBOLS
 HAL_Delay

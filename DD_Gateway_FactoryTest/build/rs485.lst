@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccatUMke.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -12,23 +12,30 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 1
    9              		.eabi_attribute 24, 1
   10              		.eabi_attribute 25, 1
   11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 30, 6
   13              		.eabi_attribute 34, 1
   14              		.eabi_attribute 18, 4
   15              		.file	"rs485.c"
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.RS485_Init,"ax",%progbits
-  20              		.align	1
-  21              		.global	RS485_Init
-  22              		.syntax unified
-  23              		.thumb
-  24              		.thumb_func
-  26              	RS485_Init:
-  27              	.LVL0:
-  28              	.LFB288:
-  29              		.file 1 "FML/Src/rs485.c"
+  19              		.global	dev_rs485
+  20              		.section	.data.dev_rs485,"aw"
+  21              		.align	2
+  24              	dev_rs485:
+  25 0000 00000000 		.word	huart3
+  26 0004 00040048 		.word	1207960576
+  27 0008 0400     		.short	4
+  28 000a 0000     		.space	2
+  29              		.section	.text.RS485_Init,"ax",%progbits
+  30              		.align	1
+  31              		.global	RS485_Init
+  32              		.syntax unified
+  33              		.thumb
+  34              		.thumb_func
+  36              	RS485_Init:
+  37              	.LFB288:
+  38              		.file 1 "FML/Src/rs485.c"
    1:FML/Src/rs485.c **** /*----------------------------------include-----------------------------------*/
    2:FML/Src/rs485.c **** #include "rs485.h"
    3:FML/Src/rs485.c **** #include "usart.h"
@@ -50,81 +57,82 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 1
   19:FML/Src/rs485.c **** 
   20:FML/Src/rs485.c **** /*----------------------------------function----------------------------------*/
   21:FML/Src/rs485.c **** void RS485_Init(RS485_HandleTypeDef *rs485) {
-  30              		.loc 1 21 45 view -0
-  31              		.cfi_startproc
-  32              		@ args = 0, pretend = 0, frame = 24
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		.loc 1 21 45 is_stmt 0 view .LVU1
-  35 0000 30B5     		push	{r4, r5, lr}
-  36              	.LCFI0:
-  37              		.cfi_def_cfa_offset 12
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 2
+  39              		.loc 1 21 45
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccatUMke.s 			page 2
 
 
-  38              		.cfi_offset 4, -12
-  39              		.cfi_offset 5, -8
-  40              		.cfi_offset 14, -4
-  41 0002 87B0     		sub	sp, sp, #28
-  42              	.LCFI1:
-  43              		.cfi_def_cfa_offset 40
-  44 0004 0446     		mov	r4, r0
+  40              		.cfi_startproc
+  41              		@ args = 0, pretend = 0, frame = 32
+  42              		@ frame_needed = 1, uses_anonymous_args = 0
+  43 0000 80B5     		push	{r7, lr}
+  44              	.LCFI0:
+  45              		.cfi_def_cfa_offset 8
+  46              		.cfi_offset 7, -8
+  47              		.cfi_offset 14, -4
+  48 0002 88B0     		sub	sp, sp, #32
+  49              	.LCFI1:
+  50              		.cfi_def_cfa_offset 40
+  51 0004 00AF     		add	r7, sp, #0
+  52              	.LCFI2:
+  53              		.cfi_def_cfa_register 7
+  54 0006 7860     		str	r0, [r7, #4]
   22:FML/Src/rs485.c ****     GPIO_InitTypeDef GPIO_InitStruct = {0};
-  45              		.loc 1 22 5 is_stmt 1 view .LVU2
-  46              		.loc 1 22 22 is_stmt 0 view .LVU3
-  47 0006 0025     		movs	r5, #0
-  48 0008 0195     		str	r5, [sp, #4]
-  49 000a 0295     		str	r5, [sp, #8]
-  50 000c 0395     		str	r5, [sp, #12]
-  51 000e 0495     		str	r5, [sp, #16]
-  52 0010 0595     		str	r5, [sp, #20]
+  55              		.loc 1 22 22
+  56 0008 07F10C03 		add	r3, r7, #12
+  57 000c 0022     		movs	r2, #0
+  58 000e 1A60     		str	r2, [r3]
+  59 0010 5A60     		str	r2, [r3, #4]
+  60 0012 9A60     		str	r2, [r3, #8]
+  61 0014 DA60     		str	r2, [r3, #12]
+  62 0016 1A61     		str	r2, [r3, #16]
+  63              	.LBB2:
   23:FML/Src/rs485.c ****     
   24:FML/Src/rs485.c ****     // 使能UART和GPIO时钟
   25:FML/Src/rs485.c ****     //__HAL_RCC_UARTX_CLK_ENABLE(); // 替换为实际的UART时钟
   26:FML/Src/rs485.c ****     __HAL_RCC_GPIOB_CLK_ENABLE(); // 替换为实际的GPIO时钟
-  53              		.loc 1 26 5 is_stmt 1 view .LVU4
-  54              	.LBB2:
-  55              		.loc 1 26 5 view .LVU5
-  56              		.loc 1 26 5 view .LVU6
-  57 0012 0C4B     		ldr	r3, .L3
-  58 0014 DA6C     		ldr	r2, [r3, #76]
-  59 0016 42F00202 		orr	r2, r2, #2
-  60 001a DA64     		str	r2, [r3, #76]
-  61              		.loc 1 26 5 view .LVU7
-  62 001c DB6C     		ldr	r3, [r3, #76]
-  63 001e 03F00203 		and	r3, r3, #2
-  64 0022 0093     		str	r3, [sp]
-  65              		.loc 1 26 5 view .LVU8
-  66 0024 009B     		ldr	r3, [sp]
-  67              	.LBE2:
-  68              		.loc 1 26 5 view .LVU9
+  64              		.loc 1 26 5
+  65 0018 144B     		ldr	r3, .L2
+  66 001a DB6C     		ldr	r3, [r3, #76]
+  67 001c 134A     		ldr	r2, .L2
+  68 001e 43F00203 		orr	r3, r3, #2
+  69 0022 D364     		str	r3, [r2, #76]
+  70 0024 114B     		ldr	r3, .L2
+  71 0026 DB6C     		ldr	r3, [r3, #76]
+  72 0028 03F00203 		and	r3, r3, #2
+  73 002c BB60     		str	r3, [r7, #8]
+  74 002e BB68     		ldr	r3, [r7, #8]
+  75              	.LBE2:
   27:FML/Src/rs485.c ****     
   28:FML/Src/rs485.c ****     // 配置GPIO引脚
   29:FML/Src/rs485.c ****     GPIO_InitStruct.Pin = rs485->de_pin;
-  69              		.loc 1 29 5 view .LVU10
-  70              		.loc 1 29 32 is_stmt 0 view .LVU11
-  71 0026 0389     		ldrh	r3, [r0, #8]
-  72              		.loc 1 29 25 view .LVU12
-  73 0028 0193     		str	r3, [sp, #4]
+  76              		.loc 1 29 32
+  77 0030 7B68     		ldr	r3, [r7, #4]
+  78 0032 1B89     		ldrh	r3, [r3, #8]
+  79              		.loc 1 29 25
+  80 0034 FB60     		str	r3, [r7, #12]
   30:FML/Src/rs485.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  74              		.loc 1 30 5 is_stmt 1 view .LVU13
-  75              		.loc 1 30 26 is_stmt 0 view .LVU14
-  76 002a 0123     		movs	r3, #1
-  77 002c 0293     		str	r3, [sp, #8]
+  81              		.loc 1 30 26
+  82 0036 0123     		movs	r3, #1
+  83 0038 3B61     		str	r3, [r7, #16]
   31:FML/Src/rs485.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
-  78              		.loc 1 31 5 is_stmt 1 view .LVU15
+  84              		.loc 1 31 26
+  85 003a 0023     		movs	r3, #0
+  86 003c 7B61     		str	r3, [r7, #20]
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccatUMke.s 			page 3
+
+
   32:FML/Src/rs485.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  79              		.loc 1 32 5 view .LVU16
+  87              		.loc 1 32 27
+  88 003e 0023     		movs	r3, #0
+  89 0040 BB61     		str	r3, [r7, #24]
   33:FML/Src/rs485.c ****     HAL_GPIO_Init(rs485->de_port, &GPIO_InitStruct);
-  80              		.loc 1 33 5 view .LVU17
-  81 002e 01A9     		add	r1, sp, #4
-  82 0030 4068     		ldr	r0, [r0, #4]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 3
-
-
-  83              	.LVL1:
-  84              		.loc 1 33 5 is_stmt 0 view .LVU18
-  85 0032 FFF7FEFF 		bl	HAL_GPIO_Init
-  86              	.LVL2:
+  90              		.loc 1 33 5
+  91 0042 7B68     		ldr	r3, [r7, #4]
+  92 0044 5B68     		ldr	r3, [r3, #4]
+  93 0046 07F10C02 		add	r2, r7, #12
+  94 004a 1146     		mov	r1, r2
+  95 004c 1846     		mov	r0, r3
+  96 004e FFF7FEFF 		bl	HAL_GPIO_Init
   34:FML/Src/rs485.c ****     
   35:FML/Src/rs485.c ****     // 初始化UART
   36:FML/Src/rs485.c ****     // rs485->huart.Instance = USART3;
@@ -141,115 +149,183 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 1
   47:FML/Src/rs485.c ****     
   48:FML/Src/rs485.c ****     // 初始化DE引脚为发送模式
   49:FML/Src/rs485.c ****     HAL_GPIO_WritePin(rs485->de_port, rs485->de_pin, GPIO_PIN_RESET);
-  87              		.loc 1 49 5 is_stmt 1 view .LVU19
-  88 0036 2A46     		mov	r2, r5
-  89 0038 2189     		ldrh	r1, [r4, #8]
-  90 003a 6068     		ldr	r0, [r4, #4]
-  91 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
-  92              	.LVL3:
+  97              		.loc 1 49 5
+  98 0052 7B68     		ldr	r3, [r7, #4]
+  99 0054 5868     		ldr	r0, [r3, #4]
+ 100 0056 7B68     		ldr	r3, [r7, #4]
+ 101 0058 1B89     		ldrh	r3, [r3, #8]
+ 102 005a 0022     		movs	r2, #0
+ 103 005c 1946     		mov	r1, r3
+ 104 005e FFF7FEFF 		bl	HAL_GPIO_WritePin
   50:FML/Src/rs485.c **** }
-  93              		.loc 1 50 1 is_stmt 0 view .LVU20
-  94 0040 07B0     		add	sp, sp, #28
-  95              	.LCFI2:
-  96              		.cfi_def_cfa_offset 12
-  97              		@ sp needed
-  98 0042 30BD     		pop	{r4, r5, pc}
-  99              	.LVL4:
- 100              	.L4:
- 101              		.loc 1 50 1 view .LVU21
- 102              		.align	2
- 103              	.L3:
- 104 0044 00100240 		.word	1073876992
- 105              		.cfi_endproc
- 106              	.LFE288:
- 108              		.section	.text.RS485_SendData,"ax",%progbits
- 109              		.align	1
- 110              		.global	RS485_SendData
- 111              		.syntax unified
- 112              		.thumb
- 113              		.thumb_func
- 115              	RS485_SendData:
- 116              	.LVL5:
- 117              	.LFB289:
+ 105              		.loc 1 50 1
+ 106 0062 00BF     		nop
+ 107 0064 2037     		adds	r7, r7, #32
+ 108              	.LCFI3:
+ 109              		.cfi_def_cfa_offset 8
+ 110 0066 BD46     		mov	sp, r7
+ 111              	.LCFI4:
+ 112              		.cfi_def_cfa_register 13
+ 113              		@ sp needed
+ 114 0068 80BD     		pop	{r7, pc}
+ 115              	.L3:
+ 116 006a 00BF     		.align	2
+ 117              	.L2:
+ 118 006c 00100240 		.word	1073876992
+ 119              		.cfi_endproc
+ 120              	.LFE288:
+ 122              		.section	.text.RS485_SendData,"ax",%progbits
+ 123              		.align	1
+ 124              		.global	RS485_SendData
+ 125              		.syntax unified
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccatUMke.s 			page 4
+
+
+ 126              		.thumb
+ 127              		.thumb_func
+ 129              	RS485_SendData:
+ 130              	.LFB289:
   51:FML/Src/rs485.c **** 
   52:FML/Src/rs485.c **** void RS485_SendData(RS485_HandleTypeDef *rs485, uint8_t *data, uint16_t size) {
- 118              		.loc 1 52 79 is_stmt 1 view -0
- 119              		.cfi_startproc
- 120              		@ args = 0, pretend = 0, frame = 0
- 121              		@ frame_needed = 0, uses_anonymous_args = 0
- 122              		.loc 1 52 79 is_stmt 0 view .LVU23
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 4
-
-
- 123 0000 70B5     		push	{r4, r5, r6, lr}
- 124              	.LCFI3:
- 125              		.cfi_def_cfa_offset 16
- 126              		.cfi_offset 4, -16
- 127              		.cfi_offset 5, -12
- 128              		.cfi_offset 6, -8
- 129              		.cfi_offset 14, -4
- 130 0002 0446     		mov	r4, r0
- 131 0004 0D46     		mov	r5, r1
- 132 0006 1646     		mov	r6, r2
+ 131              		.loc 1 52 79
+ 132              		.cfi_startproc
+ 133              		@ args = 0, pretend = 0, frame = 16
+ 134              		@ frame_needed = 1, uses_anonymous_args = 0
+ 135 0000 80B5     		push	{r7, lr}
+ 136              	.LCFI5:
+ 137              		.cfi_def_cfa_offset 8
+ 138              		.cfi_offset 7, -8
+ 139              		.cfi_offset 14, -4
+ 140 0002 84B0     		sub	sp, sp, #16
+ 141              	.LCFI6:
+ 142              		.cfi_def_cfa_offset 24
+ 143 0004 00AF     		add	r7, sp, #0
+ 144              	.LCFI7:
+ 145              		.cfi_def_cfa_register 7
+ 146 0006 F860     		str	r0, [r7, #12]
+ 147 0008 B960     		str	r1, [r7, #8]
+ 148 000a 1346     		mov	r3, r2
+ 149 000c FB80     		strh	r3, [r7, #6]	@ movhi
   53:FML/Src/rs485.c ****     // 切换到发送模式
   54:FML/Src/rs485.c ****     HAL_GPIO_WritePin(rs485->de_port, rs485->de_pin, GPIO_PIN_SET);
- 133              		.loc 1 54 5 is_stmt 1 view .LVU24
- 134 0008 0122     		movs	r2, #1
- 135              	.LVL6:
- 136              		.loc 1 54 5 is_stmt 0 view .LVU25
- 137 000a 0189     		ldrh	r1, [r0, #8]
- 138              	.LVL7:
- 139              		.loc 1 54 5 view .LVU26
- 140 000c 4068     		ldr	r0, [r0, #4]
- 141              	.LVL8:
- 142              		.loc 1 54 5 view .LVU27
- 143 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 144              	.LVL9:
+ 150              		.loc 1 54 5
+ 151 000e FB68     		ldr	r3, [r7, #12]
+ 152 0010 5868     		ldr	r0, [r3, #4]
+ 153 0012 FB68     		ldr	r3, [r7, #12]
+ 154 0014 1B89     		ldrh	r3, [r3, #8]
+ 155 0016 0122     		movs	r2, #1
+ 156 0018 1946     		mov	r1, r3
+ 157 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
   55:FML/Src/rs485.c ****     
   56:FML/Src/rs485.c ****     // 发送数据
   57:FML/Src/rs485.c ****     HAL_UART_Transmit(rs485->huart, data, size, HAL_MAX_DELAY);
- 145              		.loc 1 57 5 is_stmt 1 view .LVU28
- 146 0012 4FF0FF33 		mov	r3, #-1
- 147 0016 3246     		mov	r2, r6
- 148 0018 2946     		mov	r1, r5
- 149 001a 2068     		ldr	r0, [r4]
- 150 001c FFF7FEFF 		bl	HAL_UART_Transmit
- 151              	.LVL10:
+ 158              		.loc 1 57 5
+ 159 001e FB68     		ldr	r3, [r7, #12]
+ 160 0020 1868     		ldr	r0, [r3]
+ 161 0022 FA88     		ldrh	r2, [r7, #6]
+ 162 0024 4FF0FF33 		mov	r3, #-1
+ 163 0028 B968     		ldr	r1, [r7, #8]
+ 164 002a FFF7FEFF 		bl	HAL_UART_Transmit
   58:FML/Src/rs485.c ****     
   59:FML/Src/rs485.c ****     // 切换到接收模式
   60:FML/Src/rs485.c ****     HAL_GPIO_WritePin(rs485->de_port, rs485->de_pin, GPIO_PIN_RESET);
- 152              		.loc 1 60 5 view .LVU29
- 153 0020 0022     		movs	r2, #0
- 154 0022 2189     		ldrh	r1, [r4, #8]
- 155 0024 6068     		ldr	r0, [r4, #4]
- 156 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 157              	.LVL11:
+ 165              		.loc 1 60 5
+ 166 002e FB68     		ldr	r3, [r7, #12]
+ 167 0030 5868     		ldr	r0, [r3, #4]
+ 168 0032 FB68     		ldr	r3, [r7, #12]
+ 169 0034 1B89     		ldrh	r3, [r3, #8]
+ 170 0036 0022     		movs	r2, #0
+ 171 0038 1946     		mov	r1, r3
+ 172 003a FFF7FEFF 		bl	HAL_GPIO_WritePin
   61:FML/Src/rs485.c **** }
- 158              		.loc 1 61 1 is_stmt 0 view .LVU30
- 159 002a 70BD     		pop	{r4, r5, r6, pc}
- 160              		.loc 1 61 1 view .LVU31
- 161              		.cfi_endproc
- 162              	.LFE289:
- 164              		.section	.text.RS485_Test,"ax",%progbits
- 165              		.align	1
- 166              		.global	RS485_Test
- 167              		.syntax unified
- 168              		.thumb
- 169              		.thumb_func
- 171              	RS485_Test:
- 172              	.LVL12:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccatUMke.s 			page 5
 
 
- 173              	.LFB291:
+ 173              		.loc 1 61 1
+ 174 003e 00BF     		nop
+ 175 0040 1037     		adds	r7, r7, #16
+ 176              	.LCFI8:
+ 177              		.cfi_def_cfa_offset 8
+ 178 0042 BD46     		mov	sp, r7
+ 179              	.LCFI9:
+ 180              		.cfi_def_cfa_register 13
+ 181              		@ sp needed
+ 182 0044 80BD     		pop	{r7, pc}
+ 183              		.cfi_endproc
+ 184              	.LFE289:
+ 186              		.section	.text.RS485_ReceiveData,"ax",%progbits
+ 187              		.align	1
+ 188              		.global	RS485_ReceiveData
+ 189              		.syntax unified
+ 190              		.thumb
+ 191              		.thumb_func
+ 193              	RS485_ReceiveData:
+ 194              	.LFB290:
   62:FML/Src/rs485.c **** 
   63:FML/Src/rs485.c **** void RS485_ReceiveData(RS485_HandleTypeDef *rs485, uint8_t *data, uint16_t size) {
+ 195              		.loc 1 63 82
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 16
+ 198              		@ frame_needed = 1, uses_anonymous_args = 0
+ 199 0000 80B5     		push	{r7, lr}
+ 200              	.LCFI10:
+ 201              		.cfi_def_cfa_offset 8
+ 202              		.cfi_offset 7, -8
+ 203              		.cfi_offset 14, -4
+ 204 0002 84B0     		sub	sp, sp, #16
+ 205              	.LCFI11:
+ 206              		.cfi_def_cfa_offset 24
+ 207 0004 00AF     		add	r7, sp, #0
+ 208              	.LCFI12:
+ 209              		.cfi_def_cfa_register 7
+ 210 0006 F860     		str	r0, [r7, #12]
+ 211 0008 B960     		str	r1, [r7, #8]
+ 212 000a 1346     		mov	r3, r2
+ 213 000c FB80     		strh	r3, [r7, #6]	@ movhi
   64:FML/Src/rs485.c ****     // 切换到接收模式
   65:FML/Src/rs485.c ****     HAL_GPIO_WritePin(rs485->de_port, rs485->de_pin, GPIO_PIN_RESET);
+ 214              		.loc 1 65 5
+ 215 000e FB68     		ldr	r3, [r7, #12]
+ 216 0010 5868     		ldr	r0, [r3, #4]
+ 217 0012 FB68     		ldr	r3, [r7, #12]
+ 218 0014 1B89     		ldrh	r3, [r3, #8]
+ 219 0016 0022     		movs	r2, #0
+ 220 0018 1946     		mov	r1, r3
+ 221 001a FFF7FEFF 		bl	HAL_GPIO_WritePin
   66:FML/Src/rs485.c ****     
   67:FML/Src/rs485.c ****     // 接收数据
   68:FML/Src/rs485.c ****     HAL_UART_Receive(rs485->huart, data, size, HAL_MAX_DELAY);
+ 222              		.loc 1 68 5
+ 223 001e FB68     		ldr	r3, [r7, #12]
+ 224 0020 1868     		ldr	r0, [r3]
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccatUMke.s 			page 6
+
+
+ 225 0022 FA88     		ldrh	r2, [r7, #6]
+ 226 0024 4FF0FF33 		mov	r3, #-1
+ 227 0028 B968     		ldr	r1, [r7, #8]
+ 228 002a FFF7FEFF 		bl	HAL_UART_Receive
   69:FML/Src/rs485.c **** }
+ 229              		.loc 1 69 1
+ 230 002e 00BF     		nop
+ 231 0030 1037     		adds	r7, r7, #16
+ 232              	.LCFI13:
+ 233              		.cfi_def_cfa_offset 8
+ 234 0032 BD46     		mov	sp, r7
+ 235              	.LCFI14:
+ 236              		.cfi_def_cfa_register 13
+ 237              		@ sp needed
+ 238 0034 80BD     		pop	{r7, pc}
+ 239              		.cfi_endproc
+ 240              	.LFE290:
+ 242              		.section	.text.RS485_Test,"ax",%progbits
+ 243              		.align	1
+ 244              		.global	RS485_Test
+ 245              		.syntax unified
+ 246              		.thumb
+ 247              		.thumb_func
+ 249              	RS485_Test:
+ 250              	.LFB291:
   70:FML/Src/rs485.c **** /*------------------------------------test------------------------------------*/
   71:FML/Src/rs485.c **** /**
   72:FML/Src/rs485.c ****  * @brief RS485测试函数
@@ -259,173 +335,115 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 1
   76:FML/Src/rs485.c ****  */
   77:FML/Src/rs485.c **** void RS485_Test(char *str)
   78:FML/Src/rs485.c **** {
- 174              		.loc 1 78 1 is_stmt 1 view -0
- 175              		.cfi_startproc
- 176              		@ args = 0, pretend = 0, frame = 0
- 177              		@ frame_needed = 0, uses_anonymous_args = 0
- 178              		.loc 1 78 1 is_stmt 0 view .LVU33
- 179 0000 10B5     		push	{r4, lr}
- 180              	.LCFI4:
- 181              		.cfi_def_cfa_offset 8
- 182              		.cfi_offset 4, -8
- 183              		.cfi_offset 14, -4
- 184 0002 0446     		mov	r4, r0
+ 251              		.loc 1 78 1
+ 252              		.cfi_startproc
+ 253              		@ args = 0, pretend = 0, frame = 8
+ 254              		@ frame_needed = 1, uses_anonymous_args = 0
+ 255 0000 80B5     		push	{r7, lr}
+ 256              	.LCFI15:
+ 257              		.cfi_def_cfa_offset 8
+ 258              		.cfi_offset 7, -8
+ 259              		.cfi_offset 14, -4
+ 260 0002 82B0     		sub	sp, sp, #8
+ 261              	.LCFI16:
+ 262              		.cfi_def_cfa_offset 16
+ 263 0004 00AF     		add	r7, sp, #0
+ 264              	.LCFI17:
+ 265              		.cfi_def_cfa_register 7
+ 266 0006 7860     		str	r0, [r7, #4]
   79:FML/Src/rs485.c ****   RS485_SendData(&dev_rs485[0], (uint8_t *)str, strlen(str));
- 185              		.loc 1 79 3 is_stmt 1 view .LVU34
- 186              		.loc 1 79 49 is_stmt 0 view .LVU35
- 187 0004 FFF7FEFF 		bl	strlen
- 188              	.LVL13:
- 189              		.loc 1 79 3 view .LVU36
- 190 0008 82B2     		uxth	r2, r0
- 191 000a 2146     		mov	r1, r4
- 192 000c 0148     		ldr	r0, .L9
- 193 000e FFF7FEFF 		bl	RS485_SendData
- 194              	.LVL14:
+ 267              		.loc 1 79 49
+ 268 0008 7868     		ldr	r0, [r7, #4]
+ 269 000a FFF7FEFF 		bl	strlen
+ 270 000e 0346     		mov	r3, r0
+ 271              		.loc 1 79 3
+ 272 0010 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccatUMke.s 			page 7
+
+
+ 273 0012 1A46     		mov	r2, r3
+ 274 0014 7968     		ldr	r1, [r7, #4]
+ 275 0016 0348     		ldr	r0, .L7
+ 276 0018 FFF7FEFF 		bl	RS485_SendData
   80:FML/Src/rs485.c **** }
- 195              		.loc 1 80 1 view .LVU37
- 196 0012 10BD     		pop	{r4, pc}
- 197              	.LVL15:
- 198              	.L10:
- 199              		.loc 1 80 1 view .LVU38
- 200              		.align	2
- 201              	.L9:
- 202 0014 00000000 		.word	.LANCHOR0
- 203              		.cfi_endproc
- 204              	.LFE291:
- 206              		.section	.text.RS485_ReceiveData,"ax",%progbits
- 207              		.align	1
- 208              		.global	RS485_ReceiveData
- 209              		.syntax unified
- 210              		.thumb
- 211              		.thumb_func
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 6
-
-
- 213              	RS485_ReceiveData:
- 214              	.LVL16:
- 215              	.LFB290:
-  63:FML/Src/rs485.c ****     // 切换到接收模式
- 216              		.loc 1 63 82 is_stmt 1 view -0
- 217              		.cfi_startproc
- 218              		@ args = 0, pretend = 0, frame = 0
- 219              		@ frame_needed = 0, uses_anonymous_args = 0
-  63:FML/Src/rs485.c ****     // 切换到接收模式
- 220              		.loc 1 63 82 is_stmt 0 view .LVU40
- 221 0000 70B5     		push	{r4, r5, r6, lr}
- 222              	.LCFI5:
- 223              		.cfi_def_cfa_offset 16
- 224              		.cfi_offset 4, -16
- 225              		.cfi_offset 5, -12
- 226              		.cfi_offset 6, -8
- 227              		.cfi_offset 14, -4
- 228 0002 0446     		mov	r4, r0
- 229 0004 0D46     		mov	r5, r1
- 230 0006 1646     		mov	r6, r2
-  65:FML/Src/rs485.c ****     
- 231              		.loc 1 65 5 is_stmt 1 view .LVU41
- 232 0008 0022     		movs	r2, #0
- 233              	.LVL17:
-  65:FML/Src/rs485.c ****     
- 234              		.loc 1 65 5 is_stmt 0 view .LVU42
- 235 000a 0189     		ldrh	r1, [r0, #8]
- 236              	.LVL18:
-  65:FML/Src/rs485.c ****     
- 237              		.loc 1 65 5 view .LVU43
- 238 000c 4068     		ldr	r0, [r0, #4]
- 239              	.LVL19:
-  65:FML/Src/rs485.c ****     
- 240              		.loc 1 65 5 view .LVU44
- 241 000e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 242              	.LVL20:
-  68:FML/Src/rs485.c **** }
- 243              		.loc 1 68 5 is_stmt 1 view .LVU45
- 244 0012 4FF0FF33 		mov	r3, #-1
- 245 0016 3246     		mov	r2, r6
- 246 0018 2946     		mov	r1, r5
- 247 001a 2068     		ldr	r0, [r4]
- 248 001c FFF7FEFF 		bl	HAL_UART_Receive
- 249              	.LVL21:
-  69:FML/Src/rs485.c **** /*------------------------------------test------------------------------------*/
- 250              		.loc 1 69 1 is_stmt 0 view .LVU46
- 251 0020 70BD     		pop	{r4, r5, r6, pc}
-  69:FML/Src/rs485.c **** /*------------------------------------test------------------------------------*/
- 252              		.loc 1 69 1 view .LVU47
- 253              		.cfi_endproc
- 254              	.LFE290:
- 256              		.global	shellCommandrs485_send
- 257              		.global	shellDescrs485_send
- 258              		.global	shellCmdrs485_send
- 259              		.global	dev_rs485
- 260              		.section	.data.dev_rs485,"aw"
- 261              		.align	2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 7
-
-
- 262              		.set	.LANCHOR0,. + 0
- 265              	dev_rs485:
- 266 0000 00000000 		.word	huart3
- 267 0004 00040048 		.word	1207960576
- 268 0008 0400     		.short	4
- 269 000a 0000     		.space	2
- 270              		.section	.rodata.shellCmdrs485_send,"a"
- 271              		.align	2
- 274              	shellCmdrs485_send:
- 275 0000 72733438 		.ascii	"rs485_send\000"
- 275      355F7365 
- 275      6E6400
- 276              		.section	.rodata.shellDescrs485_send,"a"
- 277              		.align	2
- 280              	shellDescrs485_send:
- 281 0000 72733438 		.ascii	"rs485 send test\000"
- 281      35207365 
- 281      6E642074 
- 281      65737400 
- 282              		.section	shellCommand,"a"
- 285              	shellCommandrs485_send:
- 286 0000 00210000 		.4byte	8448
- 287 0004 00000000 		.4byte	shellCmdrs485_send
- 288 0008 00000000 		.4byte	RS485_Test
- 289 000c 00000000 		.4byte	shellDescrs485_send
- 290              		.text
- 291              	.Letext0:
- 292              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 293              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 294              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 295              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 296              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 297              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 298              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
- 299              		.file 9 "FML/Inc/rs485.h"
- 300              		.file 10 "HAL/Inc/usart.h"
- 301              		.file 11 "ThirdParty/Letter-shell/Inc/shell.h"
- 302              		.file 12 "<built-in>"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s 			page 8
+ 277              		.loc 1 80 1
+ 278 001c 00BF     		nop
+ 279 001e 0837     		adds	r7, r7, #8
+ 280              	.LCFI18:
+ 281              		.cfi_def_cfa_offset 8
+ 282 0020 BD46     		mov	sp, r7
+ 283              	.LCFI19:
+ 284              		.cfi_def_cfa_register 13
+ 285              		@ sp needed
+ 286 0022 80BD     		pop	{r7, pc}
+ 287              	.L8:
+ 288              		.align	2
+ 289              	.L7:
+ 290 0024 00000000 		.word	dev_rs485
+ 291              		.cfi_endproc
+ 292              	.LFE291:
+ 294              		.global	shellCmdrs485_send
+ 295              		.section	.rodata.shellCmdrs485_send,"a"
+ 296              		.align	2
+ 299              	shellCmdrs485_send:
+ 300 0000 72733438 		.ascii	"rs485_send\000"
+ 300      355F7365 
+ 300      6E6400
+ 301              		.global	shellDescrs485_send
+ 302              		.section	.rodata.shellDescrs485_send,"a"
+ 303              		.align	2
+ 306              	shellDescrs485_send:
+ 307 0000 72733438 		.ascii	"rs485 send test\000"
+ 307      35207365 
+ 307      6E642074 
+ 307      65737400 
+ 308              		.global	shellCommandrs485_send
+ 309              		.section	shellCommand,"a"
+ 312              	shellCommandrs485_send:
+ 313 0000 00210000 		.4byte	8448
+ 314 0004 00000000 		.4byte	shellCmdrs485_send
+ 315 0008 00000000 		.4byte	RS485_Test
+ 316 000c 00000000 		.4byte	shellDescrs485_send
+ 317              		.text
+ 318              	.Letext0:
+ 319              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 320              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 321              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 322              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 323              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 324              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 325              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 326              		.file 9 "FML/Inc/rs485.h"
+ 327              		.file 10 "HAL/Inc/usart.h"
+ 328              		.file 11 "ThirdParty/Letter-shell/Inc/shell.h"
+ 329              		.file 12 "<built-in>"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccatUMke.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 rs485.c
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:20     .text.RS485_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:26     .text.RS485_Init:00000000 RS485_Init
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:104    .text.RS485_Init:00000044 $d
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:109    .text.RS485_SendData:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:115    .text.RS485_SendData:00000000 RS485_SendData
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:165    .text.RS485_Test:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:171    .text.RS485_Test:00000000 RS485_Test
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:202    .text.RS485_Test:00000014 $d
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:207    .text.RS485_ReceiveData:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:213    .text.RS485_ReceiveData:00000000 RS485_ReceiveData
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:285    shellCommand:00000000 shellCommandrs485_send
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:280    .rodata.shellDescrs485_send:00000000 shellDescrs485_send
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:274    .rodata.shellCmdrs485_send:00000000 shellCmdrs485_send
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:265    .data.dev_rs485:00000000 dev_rs485
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:261    .data.dev_rs485:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:271    .rodata.shellCmdrs485_send:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cc6c4ISh.s:277    .rodata.shellDescrs485_send:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:24     .data.dev_rs485:00000000 dev_rs485
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:21     .data.dev_rs485:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:30     .text.RS485_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:36     .text.RS485_Init:00000000 RS485_Init
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:118    .text.RS485_Init:0000006c $d
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:123    .text.RS485_SendData:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:129    .text.RS485_SendData:00000000 RS485_SendData
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:187    .text.RS485_ReceiveData:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:193    .text.RS485_ReceiveData:00000000 RS485_ReceiveData
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:243    .text.RS485_Test:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:249    .text.RS485_Test:00000000 RS485_Test
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:290    .text.RS485_Test:00000024 $d
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:299    .rodata.shellCmdrs485_send:00000000 shellCmdrs485_send
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:296    .rodata.shellCmdrs485_send:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:306    .rodata.shellDescrs485_send:00000000 shellDescrs485_send
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:303    .rodata.shellDescrs485_send:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccatUMke.s:312    shellCommand:00000000 shellCommandrs485_send
 
 UNDEFINED SYMBOLS
+huart3
 HAL_GPIO_Init
 HAL_GPIO_WritePin
 HAL_UART_Transmit
-strlen
 HAL_UART_Receive
-huart3
+strlen

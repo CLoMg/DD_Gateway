@@ -14,6 +14,7 @@
 
 #include "W25QXX.h"
 #include "shell_port.h"
+#include <string.h>
 /**
   * @brief  Initializes the W25Q128FV interface.
   * @retval None
@@ -353,16 +354,29 @@ void Flash_Test(void)
 {
   uint8_t flash_id[2] = {0x00,};
   uint8_t JEDEC_id[3] = {0x00,};
+  char test_buff[] = "helloflash";
+  char read_buff[10] = {0x00,};
   uint32_t cap_kb = 0;
   float cap_mb = 0.0f;
-
+  /*读取Flash 芯片信息 并打印*/
   BSP_W25Qx_Read_ID(flash_id);
   BSP_W25Qx_Read_JEDEC_ID(JEDEC_id);
   cap_kb = pow(2 , (JEDEC_id[2] - 10)) *8 ;
   cap_mb = (float)cap_kb / 1024.0;
 
   shellPrint(&shell,"Manu_ID:0x%02x,Dev_ID:0x%02x\r\nManu_Identi:0x%02x,Memory_Type:0x%02x\r\n\
-  Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_id[2],cap_kb,cap_mb);
+Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_id[2],cap_kb,cap_mb);
+  
+  /**/
+  BSP_W25Qx_Write(test_buff,cap_kb*1024-10,10);
+  Delay_ms(50);
+  BSP_W25Qx_Read(read_buff,cap_kb*1024-10,10);
+  if(strcmp(read_buff,test_buff) == 0)
+	shellPrint(&shell,"Flash Test OK\r\n");
+  else
+	shellPrint(&shell,"Flash Test Failed\r\n");
+  Delay_ms(10);
+
 }
 
 SHELL_EXPORT_CMD(

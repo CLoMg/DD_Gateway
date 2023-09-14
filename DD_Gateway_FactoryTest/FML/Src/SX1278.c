@@ -17,7 +17,7 @@ SX1278_t Lora_dev[]={
 	 .hw = &lora_dev_hw[0],
 	 .frequency = 437000000,
 	 .power = 20,
-	 .LoRa_SF = 5,
+	 .LoRa_SF = 1,
 	 .LoRa_BW = 2,
 	 .LoRa_CR = 1,
 	 .LoRa_CRC_sum = 0,
@@ -28,7 +28,7 @@ SX1278_t Lora_dev[]={
 	 .hw = &lora_dev_hw[1],
 	 .frequency = 437000000,
 	 .power = 20,
-	 .LoRa_SF = 5,
+	 .LoRa_SF = 1,
 	 .LoRa_BW = 2,
 	 .LoRa_CR = 1,
 	 .LoRa_CRC_sum = 0,
@@ -191,6 +191,30 @@ int SX1278_LoRaEntryRx(SX1278_t *module, uint8_t length, uint32_t timeout) {
 	}
 }
 
+//static _Bool tx_complete  = 0;
+/**
+ * @brief DIO0中断处理函数
+ * 
+ * @param module 
+ * @return uint8_t 
+ */
+void SX1278_DIO0IRQ_Handler(SX1278_t *module)
+{
+
+	switch (module->status)
+	{
+		case TX:
+			// if (SX1278_hw_GetDIO0(module->hw))
+			// 	tx_complete = 1;
+			break;
+		case RX:
+			SX1278_LoRaRxPacket(module);
+			/* code */
+			break;
+		default:
+			break;
+	}
+}
 /**
  * @brief 将DIO0设置为RxDone中断，此函数作为DIO0连接引脚的中断回调函数
  * 
@@ -200,6 +224,7 @@ int SX1278_LoRaEntryRx(SX1278_t *module, uint8_t length, uint32_t timeout) {
 uint8_t SX1278_LoRaRxPacket(SX1278_t *module) {
 	unsigned char addr;
 	unsigned char packet_size;
+	unsigned char modele_sn;
 
 	if (SX1278_hw_GetDIO0(module->hw)) {
 		memset(module->rxBuffer, 0x00, SX1278_MAX_PACKET);
@@ -218,8 +243,9 @@ uint8_t SX1278_LoRaRxPacket(SX1278_t *module) {
 		SX1278_clearLoRaIrq(module);
 	}
 
-	shellPrint(&shell,"lora%d has received %dbytes\r\n",((uint32_t)module - (uint32_t)&Lora_dev[0])/((uint32_t)sizeof(Lora_dev[0])),module->readBytes);
-	shellPrint(&shell,module->rxBuffer);
+	modele_sn = ((uint32_t)module - (uint32_t)&Lora_dev[0])/((uint32_t)sizeof(Lora_dev[0]));
+	shellPrint(&shell,"Lora%d has received %dbytes,\r\nRx_Str:%s\r\n\
+Lora%d RX Test OK\r\n",modele_sn,module->readBytes,module->rxBuffer,modele_sn);
 	return module->readBytes;
 }
 
@@ -230,6 +256,7 @@ int SX1278_LoRaEntryTx(SX1278_t *module, uint8_t length, uint32_t timeout) {
 	module->packetLength = length;
 
 	SX1278_config(module); //setting base parameter
+	//SX1278_standby(module);
 	SX1278_SPIWrite(module, REG_LR_PADAC, 0x87);	//Tx for 20dBm
 	SX1278_SPIWrite(module, LR_RegHopPeriod, 0x00); //RegHopPeriod NO FHSS
 	SX1278_SPIWrite(module, REG_LR_DIOMAPPING1, 0x41); //DIO0=01, DIO1=00,DIO2=00, DIO3=01
@@ -244,6 +271,7 @@ int SX1278_LoRaEntryTx(SX1278_t *module, uint8_t length, uint32_t timeout) {
 		if (temp == length) {
 			module->status = TX;
 			return 1;
+			
 		}
 
 		if (--timeout == 0) {
@@ -257,16 +285,17 @@ int SX1278_LoRaEntryTx(SX1278_t *module, uint8_t length, uint32_t timeout) {
 int SX1278_LoRaTxPacket(SX1278_t *module, uint8_t *txBuffer, uint8_t length,
 		uint32_t timeout) {
 	SX1278_SPIBurstWrite(module, 0x00, txBuffer, length);
+	//tx_complete = 0;
 	SX1278_SPIWrite(module, LR_RegOpMode, 0x8b);	//Tx Mode
-	//SX1278_hw_DelayMs(1000);
+	SX1278_hw_DelayMs(300);
 	while (1) {
 		if (SX1278_hw_GetDIO0(module->hw)) { //if(Get_NIRQ()) //Packet send over
+		//if (tx_complete) { //if(Get_NIRQ()) //Packet send over
 			SX1278_SPIRead(module, LR_RegIrqFlags);
 			SX1278_clearLoRaIrq(module); //Clear irq
 			SX1278_standby(module); //Entry Standby mode
 			return 1;
 		}
-
 		if (--timeout == 0) {
 			SX1278_hw_Reset(module->hw);
 			SX1278_config(module);
@@ -347,7 +376,9 @@ void LORA_Send(char fd,char *tx_buff,uint32_t timeout)
 	
 
     if(SX1278_transmit(&Lora_dev[fd],tx_data,len,timeout))
-		shellPrint(&shell,"lora %d transmit success\r\n",fd);
+		shellPrint(&shell,"Lora %d TX Test OK\r\n",fd);
+	else
+		shellPrint(&shell,"Lora %d TX Test Failed\r\n",fd);
     free(tx_data);
     tx_data = NULL;
     SX1278_receive(&Lora_dev[fd],100,100);

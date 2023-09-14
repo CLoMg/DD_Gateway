@@ -325,7 +325,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *UartHandle)
 
   if(UartHandle->Instance == USART1){
     
-     shellPrint(&shell,"u1 tx completed\r\n"); 
+     //shellPrint(&shell,"u1 tx completed\r\n"); 
   }
 
 }

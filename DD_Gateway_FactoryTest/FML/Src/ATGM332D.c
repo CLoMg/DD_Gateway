@@ -76,20 +76,17 @@ int atgm_open(char *dev_name)
 };
 int atgm_close(int fd);
 int atgm_write(int fd);
-int atgm_read(int fd,uint8_t *buff,...){
+int atgm_read(int fd,uint8_t *buff,uint16_t len){
     if(fd >= sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef))
         return -1;
     else{
-        int cmd;
-        va_list p_args;
-        va_start(p_args,buff);
-        cmd = va_arg(p_args,int);
-        va_end(p_args);
-        if(cmd == 0){
-            memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,atgm_dev[fd].data_index);
-            return atgm_dev[fd].data_index;
-        }
+        if((len == 0) || (len >atgm_dev[fd].data_index))
+            len = atgm_dev[fd].data_index;
+
+        memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,len);
+        return len;
     }
+        
 };
 int atgm_ioctl(int fd);
 void atgm_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
@@ -105,8 +102,8 @@ void atgm_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
             //     atgm_dev[i].capacity = sizeof(atgm_dev->data_buff)/sizeof(uint8_t);
             //     atgm_dev[i].data_index = 0;
             // }
-            if(len >300)
-                len =300;
+            if(len >200)
+                len =200;
             memcpy(atgm_dev[i].data_buff,data,len);
             // atgm_dev[i].capacity -= len;
             atgm_dev[i].data_index = len;
@@ -125,7 +122,7 @@ void BDS_Test(char *cmd,...)
 {
   int param_1 = -1;
   uint16_t len;
-  uint8_t buff[300];
+  uint8_t buff[200];
 
   if(strcmp(cmd,"read") == 0)
   {
@@ -135,11 +132,17 @@ void BDS_Test(char *cmd,...)
     va_end(p_args);
     len  = atgm_read(bds_dev,buff,param_1);
 
-    if(len > 0)
-      shellPrint(&shell,buff,len);
-    memset(buff,0,300);
+    if(len > 0){
+      shellPrint(&shell,buff);
+      Delay_ms(10);
+      shellPrint(&shell,"ATGM332D Test OK\r\n");
+    }
+    else
+      shellPrint(&shell,"ATGM332D Test Failed\r\n");
+    Delay_ms(10);
+    memset(buff,0,200);
   }
 }
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-bds_test, BDS_Test, bde_dev test);
+bds_test, BDS_Test, bds_dev test);

@@ -132,7 +132,7 @@ int ec2x_reset(int fd){
         Delay_ms(500);
         HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
     }
-    return(ec2x_cmd_send(fd,NULL,0,"RDY/r/n",20000));
+    return(ec2x_cmd_send(fd,NULL,0,"RDY\r\n",20000));
 }
 
 /**
@@ -150,6 +150,10 @@ int ec2x_open(char *dev_name)
         if(strcmp(dev_name,ec2x_dev[i].dev_name) == 0)
         {
             ec2x_io_init(&ec2x_dev[i]);
+            if(ec2x_reset(i))
+                shellPrint(&shell,"ec2x initial ok\r\n");
+            else
+                shellPrint(&shell,"ec2x initial not ok\r\n");
             return i;
         }
     }
@@ -531,9 +535,9 @@ void EC2x_Test(int fd,char *tx_buff,char *expect_reply,uint16_t timeout)
         memcpy(reply_data,expect_reply,reply_len);
 
         if(ec2x_cmd_send(fd,tx_data,tx_len,reply_data,timeout))
-            shellPrint(&shell,"success\r\n");
+            shellPrint(&shell,"EC2x CMD Test OK\r\n");
         else
-            shellPrint(&shell,"failed\r\n");
+            shellPrint(&shell,"EC2x CMD Test Failed\r\n");
     }
 }
 

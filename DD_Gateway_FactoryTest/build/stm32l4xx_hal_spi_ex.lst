@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnv6hjU.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -12,7 +12,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s 			page 1
    9              		.eabi_attribute 24, 1
   10              		.eabi_attribute 25, 1
   11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 1
+  12              		.eabi_attribute 30, 6
   13              		.eabi_attribute 34, 1
   14              		.eabi_attribute 18, 4
   15              		.file	"stm32l4xx_hal_spi_ex.c"
@@ -26,9 +26,8 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s 			page 1
   23              		.thumb
   24              		.thumb_func
   26              	HAL_SPIEx_FlushRxFifo:
-  27              	.LVL0:
-  28              	.LFB288:
-  29              		.file 1 "Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c"
+  27              	.LFB288:
+  28              		.file 1 "Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c"
    1:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c **** /**
    2:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   ******************************************************************************
    3:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   * @file    stm32l4xx_hal_spi_ex.c
@@ -58,10 +57,10 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s 			page 1
   27:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   * @{
   28:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   */
   29:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s 			page 2
-
-
   30:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c **** /** @defgroup SPIEx SPIEx
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnv6hjU.s 			page 2
+
+
   31:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   * @brief SPI Extended HAL module driver
   32:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   * @{
   33:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   */
@@ -112,128 +111,116 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s 			page 1
   78:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   */
   79:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c **** HAL_StatusTypeDef HAL_SPIEx_FlushRxFifo(SPI_HandleTypeDef *hspi)
   80:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c **** {
-  30              		.loc 1 80 1 view -0
-  31              		.cfi_startproc
-  32              		@ args = 0, pretend = 0, frame = 8
-  33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		@ link register save eliminated.
+  29              		.loc 1 80 1
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 16
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34 0000 80B4     		push	{r7}
+  35              	.LCFI0:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnv6hjU.s 			page 3
+
+
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 7, -4
+  38 0002 85B0     		sub	sp, sp, #20
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 24
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
   81:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   __IO uint32_t tmpreg;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s 			page 3
-
-
-  35              		.loc 1 81 3 view .LVU1
   82:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   uint8_t  count = 0U;
-  36              		.loc 1 82 3 view .LVU2
+  45              		.loc 1 82 12
+  46 0008 0023     		movs	r3, #0
+  47 000a FB73     		strb	r3, [r7, #15]
   83:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   while ((hspi->Instance->SR & SPI_FLAG_FRLVL) !=  SPI_FRLVL_EMPTY)
-  37              		.loc 1 83 3 view .LVU3
-  82:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   uint8_t  count = 0U;
-  38              		.loc 1 82 12 is_stmt 0 view .LVU4
-  39 0000 0023     		movs	r3, #0
-  40              	.LVL1:
-  41              		.loc 1 83 9 is_stmt 1 view .LVU5
-  42              		.loc 1 83 15 is_stmt 0 view .LVU6
-  43 0002 0268     		ldr	r2, [r0]
-  44              		.loc 1 83 25 view .LVU7
-  45 0004 9168     		ldr	r1, [r2, #8]
-  46              		.loc 1 83 9 view .LVU8
-  47 0006 11F4C06F 		tst	r1, #1536
-  48 000a 12D0     		beq	.L10
-  80:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   __IO uint32_t tmpreg;
-  49              		.loc 1 80 1 view .LVU9
-  50 000c 82B0     		sub	sp, sp, #8
-  51              	.LCFI0:
-  52              		.cfi_def_cfa_offset 8
-  53 000e 04E0     		b	.L4
-  54              	.L12:
-  55              		.loc 1 83 9 is_stmt 1 view .LVU10
-  56              		.loc 1 83 15 is_stmt 0 view .LVU11
-  57 0010 0268     		ldr	r2, [r0]
-  58              		.loc 1 83 25 view .LVU12
-  59 0012 9168     		ldr	r1, [r2, #8]
-  60              		.loc 1 83 9 view .LVU13
-  61 0014 11F4C06F 		tst	r1, #1536
-  62 0018 09D0     		beq	.L11
-  63              	.L4:
+  48              		.loc 1 83 9
+  49 000c 0CE0     		b	.L2
+  50              	.L4:
   84:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   {
   85:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****     count++;
-  64              		.loc 1 85 5 is_stmt 1 view .LVU14
-  65              		.loc 1 85 10 is_stmt 0 view .LVU15
-  66 001a 0133     		adds	r3, r3, #1
-  67              	.LVL2:
-  68              		.loc 1 85 10 view .LVU16
-  69 001c DBB2     		uxtb	r3, r3
-  70              	.LVL3:
+  51              		.loc 1 85 10
+  52 000e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  53 0010 0133     		adds	r3, r3, #1
+  54 0012 FB73     		strb	r3, [r7, #15]
   86:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****     tmpreg = hspi->Instance->DR;
-  71              		.loc 1 86 5 is_stmt 1 view .LVU17
-  72              		.loc 1 86 28 is_stmt 0 view .LVU18
-  73 001e D268     		ldr	r2, [r2, #12]
-  74              		.loc 1 86 12 view .LVU19
-  75 0020 0192     		str	r2, [sp, #4]
+  55              		.loc 1 86 18
+  56 0014 7B68     		ldr	r3, [r7, #4]
+  57 0016 1B68     		ldr	r3, [r3]
+  58              		.loc 1 86 28
+  59 0018 DB68     		ldr	r3, [r3, #12]
+  60              		.loc 1 86 12
+  61 001a BB60     		str	r3, [r7, #8]
   87:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****     UNUSED(tmpreg); /* To avoid GCC warning */
-  76              		.loc 1 87 5 is_stmt 1 view .LVU20
-  77 0022 019A     		ldr	r2, [sp, #4]
+  62              		.loc 1 87 5
+  63 001c BB68     		ldr	r3, [r7, #8]
   88:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****     if (count == SPI_FIFO_SIZE)
-  78              		.loc 1 88 5 view .LVU21
-  79              		.loc 1 88 8 is_stmt 0 view .LVU22
-  80 0024 042B     		cmp	r3, #4
-  81 0026 F3D1     		bne	.L12
+  64              		.loc 1 88 8
+  65 001e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+  66 0020 042B     		cmp	r3, #4
+  67 0022 01D1     		bne	.L2
   89:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****     {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s 			page 4
-
-
   90:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****       return HAL_TIMEOUT;
-  82              		.loc 1 90 14 view .LVU23
-  83 0028 0320     		movs	r0, #3
-  84              	.LVL4:
-  85              	.L3:
+  68              		.loc 1 90 14
+  69 0024 0323     		movs	r3, #3
+  70 0026 07E0     		b	.L3
+  71              	.L2:
+  83:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   {
+  72              		.loc 1 83 15
+  73 0028 7B68     		ldr	r3, [r7, #4]
+  74 002a 1B68     		ldr	r3, [r3]
+  83:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   {
+  75              		.loc 1 83 25
+  76 002c 9B68     		ldr	r3, [r3, #8]
+  83:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   {
+  77              		.loc 1 83 30
+  78 002e 03F4C063 		and	r3, r3, #1536
+  83:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnv6hjU.s 			page 4
+
+
+  79              		.loc 1 83 9
+  80 0032 002B     		cmp	r3, #0
+  81 0034 EBD1     		bne	.L4
   91:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****     }
   92:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   }
   93:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c ****   return HAL_OK;
+  82              		.loc 1 93 10
+  83 0036 0023     		movs	r3, #0
+  84              	.L3:
   94:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c **** }
-  86              		.loc 1 94 1 view .LVU24
-  87 002a 02B0     		add	sp, sp, #8
-  88              	.LCFI1:
-  89              		.cfi_remember_state
-  90              		.cfi_def_cfa_offset 0
-  91              		@ sp needed
-  92 002c 7047     		bx	lr
-  93              	.LVL5:
-  94              	.L11:
-  95              	.LCFI2:
-  96              		.cfi_restore_state
-  93:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c **** }
-  97              		.loc 1 93 10 view .LVU25
-  98 002e 0020     		movs	r0, #0
-  99              	.LVL6:
-  93:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c **** }
- 100              		.loc 1 93 10 view .LVU26
- 101 0030 FBE7     		b	.L3
- 102              	.LVL7:
- 103              	.L10:
- 104              	.LCFI3:
- 105              		.cfi_def_cfa_offset 0
-  93:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_spi_ex.c **** }
- 106              		.loc 1 93 10 view .LVU27
- 107 0032 0020     		movs	r0, #0
- 108              	.LVL8:
- 109              		.loc 1 94 1 view .LVU28
- 110 0034 7047     		bx	lr
- 111              		.cfi_endproc
- 112              	.LFE288:
- 114              		.text
- 115              	.Letext0:
- 116              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 117              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 118              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 119              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 120              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 121              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s 			page 5
+  85              		.loc 1 94 1
+  86 0038 1846     		mov	r0, r3
+  87 003a 1437     		adds	r7, r7, #20
+  88              	.LCFI3:
+  89              		.cfi_def_cfa_offset 4
+  90 003c BD46     		mov	sp, r7
+  91              	.LCFI4:
+  92              		.cfi_def_cfa_register 13
+  93              		@ sp needed
+  94 003e 5DF8047B 		ldr	r7, [sp], #4
+  95              	.LCFI5:
+  96              		.cfi_restore 7
+  97              		.cfi_def_cfa_offset 0
+  98 0042 7047     		bx	lr
+  99              		.cfi_endproc
+ 100              	.LFE288:
+ 102              		.text
+ 103              	.Letext0:
+ 104              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 105              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 106              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 107              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 108              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 109              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnv6hjU.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32l4xx_hal_spi_ex.c
-C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s:20     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc6rsRC7.s:26     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
+C:\Users\CL\AppData\Local\Temp\ccnv6hjU.s:20     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnv6hjU.s:26     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
 
 NO UNDEFINED SYMBOLS
