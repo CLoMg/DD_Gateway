@@ -133,4 +133,4 @@ void LED_Test(char *name, char *type, ...){
  */
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-led, LED_Test, test led func);
+led_test, LED_Test, test led func);

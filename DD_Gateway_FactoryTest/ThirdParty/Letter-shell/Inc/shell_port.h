@@ -5,6 +5,8 @@
 
 /* 将shell定义为外部变量，在串口中断回调函数中还要使用 */
 extern Shell shell;
+extern char test_ok_cnt;
+extern char test_error_cnt;
 
 /* 声明自己编写的初始化函数 */
 void User_Shell_Init(void);

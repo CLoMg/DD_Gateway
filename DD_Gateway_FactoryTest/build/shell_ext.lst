@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -12,2150 +12,425 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 1
    9              		.eabi_attribute 24, 1
   10              		.eabi_attribute 25, 1
   11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
+  12              		.eabi_attribute 30, 4
   13              		.eabi_attribute 34, 1
   14              		.eabi_attribute 18, 4
   15              		.file	"shell_ext.c"
   16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.section	.text.shellExtNumType,"ax",%progbits
-  20              		.align	1
-  21              		.syntax unified
-  22              		.thumb
-  23              		.thumb_func
-  25              	shellExtNumType:
-  26              	.LFB0:
-  27              		.file 1 "ThirdParty/Letter-shell/Src/shell_ext.c"
-   1:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
-   2:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @file shell_ext.c
-   3:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @author Letter (NevermindZZT@gmail.com)
-   4:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief shell extensions
-   5:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @version 3.0.0
-   6:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @date 2019-12-31
-   7:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
-   8:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @copyright (c) 2019 Letter
-   9:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
-  10:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
-  11:ThirdParty/Letter-shell/Src/shell_ext.c **** 
-  12:ThirdParty/Letter-shell/Src/shell_ext.c **** #include "shell_cfg.h"
-  13:ThirdParty/Letter-shell/Src/shell_ext.c **** #include "shell.h"
-  14:ThirdParty/Letter-shell/Src/shell_ext.c **** #include "shell_ext.h"
-  15:ThirdParty/Letter-shell/Src/shell_ext.c **** #include "string.h"
-  16:ThirdParty/Letter-shell/Src/shell_ext.c **** 
-  17:ThirdParty/Letter-shell/Src/shell_ext.c **** extern ShellCommand* shellSeekCommand(Shell *shell,
-  18:ThirdParty/Letter-shell/Src/shell_ext.c ****                                       const char *cmd,
-  19:ThirdParty/Letter-shell/Src/shell_ext.c ****                                       ShellCommand *base,
-  20:ThirdParty/Letter-shell/Src/shell_ext.c ****                                       unsigned short compareLength);
-  21:ThirdParty/Letter-shell/Src/shell_ext.c **** extern int shellGetVarValue(Shell *shell, ShellCommand *command);
-  22:ThirdParty/Letter-shell/Src/shell_ext.c **** 
-  23:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
-  24:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
-  25:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 获取下一个参数类型
-  26:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
-  27:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param signature 函数签名
-  28:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param index 参数遍历在签名中的起始索引
-  29:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param type 获取到的参数类型
-  30:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
-  31:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return int 下一个参数在签名中的索引
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 2
-
-
-  32:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
-  33:ThirdParty/Letter-shell/Src/shell_ext.c **** static int shellGetNextParamType(const char *signature, int index, char *type)
-  34:ThirdParty/Letter-shell/Src/shell_ext.c **** {
-  35:ThirdParty/Letter-shell/Src/shell_ext.c ****     const char *p = signature + index;
-  36:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (*p == 'L')
-  37:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
-  38:ThirdParty/Letter-shell/Src/shell_ext.c ****         while (*p != ';' && *p != 0)
-  39:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
-  40:ThirdParty/Letter-shell/Src/shell_ext.c ****             *type++ = *p++;
-  41:ThirdParty/Letter-shell/Src/shell_ext.c ****             index++;
-  42:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
-  43:ThirdParty/Letter-shell/Src/shell_ext.c ****         *type++ = *p++;
-  44:ThirdParty/Letter-shell/Src/shell_ext.c ****         index++;
-  45:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
-  46:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if (*p != 0)
-  47:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
-  48:ThirdParty/Letter-shell/Src/shell_ext.c ****         *type++ = *p;
-  49:ThirdParty/Letter-shell/Src/shell_ext.c ****         index++;
-  50:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
-  51:ThirdParty/Letter-shell/Src/shell_ext.c ****     *type = '\0';
-  52:ThirdParty/Letter-shell/Src/shell_ext.c ****     return index;
-  53:ThirdParty/Letter-shell/Src/shell_ext.c **** }
-  54:ThirdParty/Letter-shell/Src/shell_ext.c **** 
-  55:ThirdParty/Letter-shell/Src/shell_ext.c **** 
-  56:ThirdParty/Letter-shell/Src/shell_ext.c **** static int shellGetParamNumExcept(const char *signature)
-  57:ThirdParty/Letter-shell/Src/shell_ext.c **** {
-  58:ThirdParty/Letter-shell/Src/shell_ext.c ****     int num = 0;
-  59:ThirdParty/Letter-shell/Src/shell_ext.c ****     const char *p = signature;
-  60:ThirdParty/Letter-shell/Src/shell_ext.c ****     
-  61:ThirdParty/Letter-shell/Src/shell_ext.c ****     while (*p)
-  62:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
-  63:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*p == 'L')
-  64:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
-  65:ThirdParty/Letter-shell/Src/shell_ext.c ****             while (*p != ';' && *p != 0)
-  66:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
-  67:ThirdParty/Letter-shell/Src/shell_ext.c ****                 p++;
-  68:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
-  69:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
-  70:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
-  71:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
-  72:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
-  73:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
-  74:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
-  75:ThirdParty/Letter-shell/Src/shell_ext.c ****         num++;
-  76:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
-  77:ThirdParty/Letter-shell/Src/shell_ext.c ****     return num;
-  78:ThirdParty/Letter-shell/Src/shell_ext.c **** }
-  79:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif
-  80:ThirdParty/Letter-shell/Src/shell_ext.c **** 
-  81:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
-  82:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 判断数字进制
-  83:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
-  84:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 参数字符串
-  85:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return ShellNumType 进制
-  86:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
-  87:ThirdParty/Letter-shell/Src/shell_ext.c **** static ShellNumType shellExtNumType(char *string)
-  88:ThirdParty/Letter-shell/Src/shell_ext.c **** {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 3
-
-
-  28              		.loc 1 88 1
-  29              		.cfi_startproc
-  30              		@ args = 0, pretend = 0, frame = 16
-  31              		@ frame_needed = 1, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
-  33 0000 80B4     		push	{r7}
-  34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 4
-  36              		.cfi_offset 7, -4
-  37 0002 85B0     		sub	sp, sp, #20
-  38              	.LCFI1:
-  39              		.cfi_def_cfa_offset 24
-  40 0004 00AF     		add	r7, sp, #0
-  41              	.LCFI2:
-  42              		.cfi_def_cfa_register 7
-  43 0006 7860     		str	r0, [r7, #4]
-  89:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = string;
-  44              		.loc 1 89 11
-  45 0008 7B68     		ldr	r3, [r7, #4]
-  46 000a FB60     		str	r3, [r7, #12]
-  90:ThirdParty/Letter-shell/Src/shell_ext.c ****     ShellNumType type = NUM_TYPE_DEC;
-  47              		.loc 1 90 18
-  48 000c 0023     		movs	r3, #0
-  49 000e FB72     		strb	r3, [r7, #11]
-  91:ThirdParty/Letter-shell/Src/shell_ext.c **** 
-  92:ThirdParty/Letter-shell/Src/shell_ext.c ****     if ((*p == '0') && ((*(p + 1) == 'x') || (*(p + 1) == 'X')))
-  50              		.loc 1 92 10
-  51 0010 FB68     		ldr	r3, [r7, #12]
-  52 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  53              		.loc 1 92 8
-  54 0014 302B     		cmp	r3, #48
-  55 0016 0CD1     		bne	.L2
-  56              		.loc 1 92 30 discriminator 1
-  57 0018 FB68     		ldr	r3, [r7, #12]
-  58 001a 0133     		adds	r3, r3, #1
-  59              		.loc 1 92 26 discriminator 1
-  60 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  61              		.loc 1 92 21 discriminator 1
-  62 001e 782B     		cmp	r3, #120
-  63 0020 04D0     		beq	.L3
-  64              		.loc 1 92 51 discriminator 2
-  65 0022 FB68     		ldr	r3, [r7, #12]
-  66 0024 0133     		adds	r3, r3, #1
-  67              		.loc 1 92 47 discriminator 2
-  68 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  69              		.loc 1 92 43 discriminator 2
-  70 0028 582B     		cmp	r3, #88
-  71 002a 02D1     		bne	.L2
-  72              	.L3:
-  93:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
-  94:ThirdParty/Letter-shell/Src/shell_ext.c ****         type = NUM_TYPE_HEX;
-  73              		.loc 1 94 14
-  74 002c 0323     		movs	r3, #3
-  75 002e FB72     		strb	r3, [r7, #11]
-  76 0030 16E0     		b	.L4
-  77              	.L2:
-  95:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 4
-
-
-  96:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if ((*p == '0') && ((*(p + 1) == 'b') || (*(p + 1) == 'B')))
-  78              		.loc 1 96 15
-  79 0032 FB68     		ldr	r3, [r7, #12]
-  80 0034 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  81              		.loc 1 96 13
-  82 0036 302B     		cmp	r3, #48
-  83 0038 0CD1     		bne	.L5
-  84              		.loc 1 96 35 discriminator 1
-  85 003a FB68     		ldr	r3, [r7, #12]
-  86 003c 0133     		adds	r3, r3, #1
-  87              		.loc 1 96 31 discriminator 1
-  88 003e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  89              		.loc 1 96 26 discriminator 1
-  90 0040 622B     		cmp	r3, #98
-  91 0042 04D0     		beq	.L6
-  92              		.loc 1 96 56 discriminator 2
-  93 0044 FB68     		ldr	r3, [r7, #12]
-  94 0046 0133     		adds	r3, r3, #1
-  95              		.loc 1 96 52 discriminator 2
-  96 0048 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  97              		.loc 1 96 48 discriminator 2
-  98 004a 422B     		cmp	r3, #66
-  99 004c 02D1     		bne	.L5
- 100              	.L6:
-  97:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
-  98:ThirdParty/Letter-shell/Src/shell_ext.c ****         type = NUM_TYPE_BIN;
- 101              		.loc 1 98 14
- 102 004e 0123     		movs	r3, #1
- 103 0050 FB72     		strb	r3, [r7, #11]
- 104 0052 05E0     		b	.L4
- 105              	.L5:
-  99:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 100:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if (*p == '0')
- 106              		.loc 1 100 14
- 107 0054 FB68     		ldr	r3, [r7, #12]
- 108 0056 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 109              		.loc 1 100 13
- 110 0058 302B     		cmp	r3, #48
- 111 005a 0ED1     		bne	.L7
- 101:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 102:ThirdParty/Letter-shell/Src/shell_ext.c ****         type = NUM_TYPE_OCT;
- 112              		.loc 1 102 14
- 113 005c 0223     		movs	r3, #2
- 114 005e FB72     		strb	r3, [r7, #11]
- 115              	.L4:
- 103:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 104:ThirdParty/Letter-shell/Src/shell_ext.c ****     
- 105:ThirdParty/Letter-shell/Src/shell_ext.c ****     while (*p++)
- 116              		.loc 1 105 11
- 117 0060 0BE0     		b	.L7
- 118              	.L9:
- 106:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 107:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*p == '.' && *(p + 1) != 0)
- 119              		.loc 1 107 13
- 120 0062 FB68     		ldr	r3, [r7, #12]
- 121 0064 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 122              		.loc 1 107 12
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 5
-
-
- 123 0066 2E2B     		cmp	r3, #46
- 124 0068 07D1     		bne	.L7
- 125              		.loc 1 107 30 discriminator 1
- 126 006a FB68     		ldr	r3, [r7, #12]
- 127 006c 0133     		adds	r3, r3, #1
- 128              		.loc 1 107 26 discriminator 1
- 129 006e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 130              		.loc 1 107 23 discriminator 1
- 131 0070 002B     		cmp	r3, #0
- 132 0072 02D0     		beq	.L7
- 108:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 109:ThirdParty/Letter-shell/Src/shell_ext.c ****             type = NUM_TYPE_FLOAT;
- 133              		.loc 1 109 18
- 134 0074 0423     		movs	r3, #4
- 135 0076 FB72     		strb	r3, [r7, #11]
- 110:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
- 136              		.loc 1 110 13
- 137 0078 05E0     		b	.L8
- 138              	.L7:
- 105:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 139              		.loc 1 105 14
- 140 007a FB68     		ldr	r3, [r7, #12]
- 141 007c 5A1C     		adds	r2, r3, #1
- 142 007e FA60     		str	r2, [r7, #12]
- 105:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 143              		.loc 1 105 12
- 144 0080 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 105:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 145              		.loc 1 105 11
- 146 0082 002B     		cmp	r3, #0
- 147 0084 EDD1     		bne	.L9
- 148              	.L8:
- 111:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 112:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 113:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 114:ThirdParty/Letter-shell/Src/shell_ext.c ****     return type;
- 149              		.loc 1 114 12
- 150 0086 FB7A     		ldrb	r3, [r7, #11]	@ zero_extendqisi2
- 115:ThirdParty/Letter-shell/Src/shell_ext.c **** }
- 151              		.loc 1 115 1
- 152 0088 1846     		mov	r0, r3
- 153 008a 1437     		adds	r7, r7, #20
- 154              	.LCFI3:
- 155              		.cfi_def_cfa_offset 4
- 156 008c BD46     		mov	sp, r7
- 157              	.LCFI4:
- 158              		.cfi_def_cfa_register 13
- 159              		@ sp needed
- 160 008e 5DF8047B 		ldr	r7, [sp], #4
- 161              	.LCFI5:
- 162              		.cfi_restore 7
- 163              		.cfi_def_cfa_offset 0
- 164 0092 7047     		bx	lr
- 165              		.cfi_endproc
- 166              	.LFE0:
- 168              		.section	.text.shellExtToNum,"ax",%progbits
- 169              		.align	1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 6
-
-
- 170              		.syntax unified
- 171              		.thumb
- 172              		.thumb_func
- 174              	shellExtToNum:
- 175              	.LFB1:
- 116:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 117:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 118:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
- 119:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 字符转数字
- 120:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
- 121:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param code 字符
- 122:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return char 数字
- 123:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
- 124:ThirdParty/Letter-shell/Src/shell_ext.c **** static char shellExtToNum(char code)
- 125:ThirdParty/Letter-shell/Src/shell_ext.c **** {
- 176              		.loc 1 125 1
- 177              		.cfi_startproc
- 178              		@ args = 0, pretend = 0, frame = 8
- 179              		@ frame_needed = 1, uses_anonymous_args = 0
- 180              		@ link register save eliminated.
- 181 0000 80B4     		push	{r7}
- 182              	.LCFI6:
- 183              		.cfi_def_cfa_offset 4
- 184              		.cfi_offset 7, -4
- 185 0002 83B0     		sub	sp, sp, #12
- 186              	.LCFI7:
- 187              		.cfi_def_cfa_offset 16
- 188 0004 00AF     		add	r7, sp, #0
- 189              	.LCFI8:
- 190              		.cfi_def_cfa_register 7
- 191 0006 0346     		mov	r3, r0
- 192 0008 FB71     		strb	r3, [r7, #7]
- 126:ThirdParty/Letter-shell/Src/shell_ext.c ****     if ((code >= '0') && (code <= '9'))
- 193              		.loc 1 126 8
- 194 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 195 000c 2F2B     		cmp	r3, #47
- 196 000e 06D9     		bls	.L12
- 197              		.loc 1 126 23 discriminator 1
- 198 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 199 0012 392B     		cmp	r3, #57
- 200 0014 03D8     		bhi	.L12
- 127:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 128:ThirdParty/Letter-shell/Src/shell_ext.c ****         return code -'0';
- 201              		.loc 1 128 21
- 202 0016 FB79     		ldrb	r3, [r7, #7]
- 203 0018 303B     		subs	r3, r3, #48
- 204 001a DBB2     		uxtb	r3, r3
- 205 001c 14E0     		b	.L13
- 206              	.L12:
- 129:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 130:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if ((code >= 'a') && (code <= 'f'))
- 207              		.loc 1 130 13
- 208 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 209 0020 602B     		cmp	r3, #96
- 210 0022 06D9     		bls	.L14
- 211              		.loc 1 130 28 discriminator 1
- 212 0024 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 7
-
-
- 213 0026 662B     		cmp	r3, #102
- 214 0028 03D8     		bhi	.L14
- 131:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 132:ThirdParty/Letter-shell/Src/shell_ext.c ****         return code - 'a' + 10;
- 215              		.loc 1 132 27
- 216 002a FB79     		ldrb	r3, [r7, #7]
- 217 002c 573B     		subs	r3, r3, #87
- 218 002e DBB2     		uxtb	r3, r3
- 219 0030 0AE0     		b	.L13
- 220              	.L14:
- 133:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 134:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if ((code >= 'A') && (code <= 'F'))
- 221              		.loc 1 134 13
- 222 0032 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 223 0034 402B     		cmp	r3, #64
- 224 0036 06D9     		bls	.L15
- 225              		.loc 1 134 28 discriminator 1
- 226 0038 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 227 003a 462B     		cmp	r3, #70
- 228 003c 03D8     		bhi	.L15
- 135:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 136:ThirdParty/Letter-shell/Src/shell_ext.c ****         return code - 'A' + 10;
- 229              		.loc 1 136 27
- 230 003e FB79     		ldrb	r3, [r7, #7]
- 231 0040 373B     		subs	r3, r3, #55
- 232 0042 DBB2     		uxtb	r3, r3
- 233 0044 00E0     		b	.L13
- 234              	.L15:
- 137:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 138:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
- 139:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 140:ThirdParty/Letter-shell/Src/shell_ext.c ****         return 0;
- 235              		.loc 1 140 16
- 236 0046 0023     		movs	r3, #0
- 237              	.L13:
- 141:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 142:ThirdParty/Letter-shell/Src/shell_ext.c **** }
- 238              		.loc 1 142 1
- 239 0048 1846     		mov	r0, r3
- 240 004a 0C37     		adds	r7, r7, #12
- 241              	.LCFI9:
- 242              		.cfi_def_cfa_offset 4
- 243 004c BD46     		mov	sp, r7
- 244              	.LCFI10:
- 245              		.cfi_def_cfa_register 13
- 246              		@ sp needed
- 247 004e 5DF8047B 		ldr	r7, [sp], #4
- 248              	.LCFI11:
- 249              		.cfi_restore 7
- 250              		.cfi_def_cfa_offset 0
- 251 0052 7047     		bx	lr
- 252              		.cfi_endproc
- 253              	.LFE1:
- 255              		.section	.text.shellExtParseChar,"ax",%progbits
- 256              		.align	1
- 257              		.syntax unified
- 258              		.thumb
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 8
-
-
- 259              		.thumb_func
- 261              	shellExtParseChar:
- 262              	.LFB2:
- 143:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 144:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 145:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
- 146:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析字符参数
- 147:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
- 148:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 字符串参数
- 149:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return char 解析出的字符
- 150:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
- 151:ThirdParty/Letter-shell/Src/shell_ext.c **** static char shellExtParseChar(char *string)
- 152:ThirdParty/Letter-shell/Src/shell_ext.c **** {
- 263              		.loc 1 152 1
- 264              		.cfi_startproc
- 265              		@ args = 0, pretend = 0, frame = 16
- 266              		@ frame_needed = 1, uses_anonymous_args = 0
- 267              		@ link register save eliminated.
- 268 0000 80B4     		push	{r7}
- 269              	.LCFI12:
- 270              		.cfi_def_cfa_offset 4
- 271              		.cfi_offset 7, -4
- 272 0002 85B0     		sub	sp, sp, #20
- 273              	.LCFI13:
- 274              		.cfi_def_cfa_offset 24
- 275 0004 00AF     		add	r7, sp, #0
- 276              	.LCFI14:
- 277              		.cfi_def_cfa_register 7
- 278 0006 7860     		str	r0, [r7, #4]
- 153:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = (*string == '\'') ? (string + 1) : string;
- 279              		.loc 1 153 16
- 280 0008 7B68     		ldr	r3, [r7, #4]
- 281 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 282              		.loc 1 153 48
- 283 000c 272B     		cmp	r3, #39
- 284 000e 02D1     		bne	.L17
- 285              		.loc 1 153 48 is_stmt 0 discriminator 1
- 286 0010 7B68     		ldr	r3, [r7, #4]
- 287 0012 0133     		adds	r3, r3, #1
- 288 0014 00E0     		b	.L18
- 289              	.L17:
- 290              		.loc 1 153 48 discriminator 2
- 291 0016 7B68     		ldr	r3, [r7, #4]
- 292              	.L18:
- 293              		.loc 1 153 11 is_stmt 1 discriminator 4
- 294 0018 BB60     		str	r3, [r7, #8]
- 154:ThirdParty/Letter-shell/Src/shell_ext.c ****     char value = 0;
- 295              		.loc 1 154 10 discriminator 4
- 296 001a 0023     		movs	r3, #0
- 297 001c FB73     		strb	r3, [r7, #15]
- 155:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 156:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (*p == '\\')
- 298              		.loc 1 156 9 discriminator 4
- 299 001e BB68     		ldr	r3, [r7, #8]
- 300 0020 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 301              		.loc 1 156 8 discriminator 4
- 302 0022 5C2B     		cmp	r3, #92
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 9
-
-
- 303 0024 49D1     		bne	.L19
- 157:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 158:ThirdParty/Letter-shell/Src/shell_ext.c ****         switch (*(p + 1))
- 304              		.loc 1 158 21
- 305 0026 BB68     		ldr	r3, [r7, #8]
- 306 0028 0133     		adds	r3, r3, #1
- 307              		.loc 1 158 17
- 308 002a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 309              		.loc 1 158 9
- 310 002c 302B     		cmp	r3, #48
- 311 002e 3DD0     		beq	.L20
- 312 0030 302B     		cmp	r3, #48
- 313 0032 3EDB     		blt	.L21
- 314 0034 742B     		cmp	r3, #116
- 315 0036 3CDC     		bgt	.L21
- 316 0038 622B     		cmp	r3, #98
- 317 003a 3ADB     		blt	.L21
- 318 003c 623B     		subs	r3, r3, #98
- 319 003e 122B     		cmp	r3, #18
- 320 0040 37D8     		bhi	.L21
- 321 0042 01A2     		adr	r2, .L23
- 322 0044 52F823F0 		ldr	pc, [r2, r3, lsl #2]
- 323              		.p2align 2
- 324              	.L23:
- 325 0048 95000000 		.word	.L26+1
- 326 004c B3000000 		.word	.L21+1
- 327 0050 B3000000 		.word	.L21+1
- 328 0054 B3000000 		.word	.L21+1
- 329 0058 B3000000 		.word	.L21+1
- 330 005c B3000000 		.word	.L21+1
- 331 0060 B3000000 		.word	.L21+1
- 332 0064 B3000000 		.word	.L21+1
- 333 0068 B3000000 		.word	.L21+1
- 334 006c B3000000 		.word	.L21+1
- 335 0070 B3000000 		.word	.L21+1
- 336 0074 B3000000 		.word	.L21+1
- 337 0078 A1000000 		.word	.L25+1
- 338 007c B3000000 		.word	.L21+1
- 339 0080 B3000000 		.word	.L21+1
- 340 0084 B3000000 		.word	.L21+1
- 341 0088 9B000000 		.word	.L24+1
- 342 008c B3000000 		.word	.L21+1
- 343 0090 A7000000 		.word	.L22+1
- 344              		.p2align 1
- 345              	.L26:
- 159:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 160:ThirdParty/Letter-shell/Src/shell_ext.c ****         case 'b':
- 161:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = '\b';
- 346              		.loc 1 161 19
- 347 0094 0823     		movs	r3, #8
- 348 0096 FB73     		strb	r3, [r7, #15]
- 162:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
- 349              		.loc 1 162 13
- 350 0098 12E0     		b	.L28
- 351              	.L24:
- 163:ThirdParty/Letter-shell/Src/shell_ext.c ****         case 'r':
- 164:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = '\r';
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 10
-
-
- 352              		.loc 1 164 19
- 353 009a 0D23     		movs	r3, #13
- 354 009c FB73     		strb	r3, [r7, #15]
- 165:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
- 355              		.loc 1 165 13
- 356 009e 0FE0     		b	.L28
- 357              	.L25:
- 166:ThirdParty/Letter-shell/Src/shell_ext.c ****         case 'n':
- 167:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = '\n';
- 358              		.loc 1 167 19
- 359 00a0 0A23     		movs	r3, #10
- 360 00a2 FB73     		strb	r3, [r7, #15]
- 168:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
- 361              		.loc 1 168 13
- 362 00a4 0CE0     		b	.L28
- 363              	.L22:
- 169:ThirdParty/Letter-shell/Src/shell_ext.c ****         case 't':
- 170:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = '\t';
- 364              		.loc 1 170 19
- 365 00a6 0923     		movs	r3, #9
- 366 00a8 FB73     		strb	r3, [r7, #15]
- 171:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
- 367              		.loc 1 171 13
- 368 00aa 09E0     		b	.L28
- 369              	.L20:
- 172:ThirdParty/Letter-shell/Src/shell_ext.c ****         case '0':
- 173:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = 0;
- 370              		.loc 1 173 19
- 371 00ac 0023     		movs	r3, #0
- 372 00ae FB73     		strb	r3, [r7, #15]
- 174:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
- 373              		.loc 1 174 13
- 374 00b0 06E0     		b	.L28
- 375              	.L21:
- 175:ThirdParty/Letter-shell/Src/shell_ext.c ****         default:
- 176:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = *(p + 1);
- 376              		.loc 1 176 19
- 377 00b2 BB68     		ldr	r3, [r7, #8]
- 378 00b4 5B78     		ldrb	r3, [r3, #1]
- 379 00b6 FB73     		strb	r3, [r7, #15]
- 177:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
- 380              		.loc 1 177 13
- 381 00b8 02E0     		b	.L28
- 382              	.L19:
- 178:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 179:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 180:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
- 181:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 182:ThirdParty/Letter-shell/Src/shell_ext.c ****         value = *p;
- 383              		.loc 1 182 15
- 384 00ba BB68     		ldr	r3, [r7, #8]
- 385 00bc 1B78     		ldrb	r3, [r3]
- 386 00be FB73     		strb	r3, [r7, #15]
- 387              	.L28:
- 183:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 184:ThirdParty/Letter-shell/Src/shell_ext.c ****     return value;
- 388              		.loc 1 184 12
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 11
-
-
- 389 00c0 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 185:ThirdParty/Letter-shell/Src/shell_ext.c **** }
- 390              		.loc 1 185 1
- 391 00c2 1846     		mov	r0, r3
- 392 00c4 1437     		adds	r7, r7, #20
- 393              	.LCFI15:
- 394              		.cfi_def_cfa_offset 4
- 395 00c6 BD46     		mov	sp, r7
- 396              	.LCFI16:
- 397              		.cfi_def_cfa_register 13
- 398              		@ sp needed
- 399 00c8 5DF8047B 		ldr	r7, [sp], #4
- 400              	.LCFI17:
- 401              		.cfi_restore 7
- 402              		.cfi_def_cfa_offset 0
- 403 00cc 7047     		bx	lr
- 404              		.cfi_endproc
- 405              	.LFE2:
- 407 00ce 00BF     		.section	.text.shellExtParseString,"ax",%progbits
- 408              		.align	1
- 409              		.syntax unified
- 410              		.thumb
- 411              		.thumb_func
- 413              	shellExtParseString:
- 414              	.LFB3:
- 186:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 187:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 188:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
- 189:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析字符串参数
- 190:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
- 191:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 字符串参数
- 192:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return char* 解析出的字符串
- 193:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
- 194:ThirdParty/Letter-shell/Src/shell_ext.c **** static char* shellExtParseString(char *string)
- 195:ThirdParty/Letter-shell/Src/shell_ext.c **** {
- 415              		.loc 1 195 1
- 416              		.cfi_startproc
- 417              		@ args = 0, pretend = 0, frame = 16
- 418              		@ frame_needed = 1, uses_anonymous_args = 0
- 419 0000 90B5     		push	{r4, r7, lr}
- 420              	.LCFI18:
- 421              		.cfi_def_cfa_offset 12
- 422              		.cfi_offset 4, -12
- 423              		.cfi_offset 7, -8
- 424              		.cfi_offset 14, -4
- 425 0002 85B0     		sub	sp, sp, #20
- 426              	.LCFI19:
- 427              		.cfi_def_cfa_offset 32
- 428 0004 00AF     		add	r7, sp, #0
- 429              	.LCFI20:
- 430              		.cfi_def_cfa_register 7
- 431 0006 7860     		str	r0, [r7, #4]
- 196:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = string;
- 432              		.loc 1 196 11
- 433 0008 7B68     		ldr	r3, [r7, #4]
- 434 000a FB60     		str	r3, [r7, #12]
- 197:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned short index = 0;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 12
-
-
- 435              		.loc 1 197 20
- 436 000c 0023     		movs	r3, #0
- 437 000e 7B81     		strh	r3, [r7, #10]	@ movhi
- 198:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 199:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (*string == '\"')
- 438              		.loc 1 199 9
- 439 0010 7B68     		ldr	r3, [r7, #4]
- 440 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 441              		.loc 1 199 8
- 442 0014 222B     		cmp	r3, #34
- 443 0016 2DD1     		bne	.L32
- 200:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 201:ThirdParty/Letter-shell/Src/shell_ext.c ****         p = ++string;
- 444              		.loc 1 201 11
- 445 0018 7B68     		ldr	r3, [r7, #4]
- 446 001a 0133     		adds	r3, r3, #1
- 447 001c 7B60     		str	r3, [r7, #4]
- 448 001e 7B68     		ldr	r3, [r7, #4]
- 449 0020 FB60     		str	r3, [r7, #12]
- 202:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 203:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 204:ThirdParty/Letter-shell/Src/shell_ext.c ****     while (*p)
- 450              		.loc 1 204 11
- 451 0022 27E0     		b	.L32
- 452              	.L36:
- 205:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 206:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*p == '\\')
- 453              		.loc 1 206 13
- 454 0024 FB68     		ldr	r3, [r7, #12]
- 455 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 456              		.loc 1 206 12
- 457 0028 5C2B     		cmp	r3, #92
- 458 002a 0DD1     		bne	.L33
- 207:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 208:ThirdParty/Letter-shell/Src/shell_ext.c ****             *(string + index) = shellExtParseChar(p - 1);
- 459              		.loc 1 208 33
- 460 002c FB68     		ldr	r3, [r7, #12]
- 461 002e 591E     		subs	r1, r3, #1
- 462              		.loc 1 208 22
- 463 0030 7B89     		ldrh	r3, [r7, #10]
- 464 0032 7A68     		ldr	r2, [r7, #4]
- 465 0034 D418     		adds	r4, r2, r3
- 466              		.loc 1 208 33
- 467 0036 0846     		mov	r0, r1
- 468 0038 FFF7FEFF 		bl	shellExtParseChar
- 469 003c 0346     		mov	r3, r0
- 470              		.loc 1 208 31
- 471 003e 2370     		strb	r3, [r4]
- 209:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
- 472              		.loc 1 209 14
- 473 0040 FB68     		ldr	r3, [r7, #12]
- 474 0042 0133     		adds	r3, r3, #1
- 475 0044 FB60     		str	r3, [r7, #12]
- 476 0046 0FE0     		b	.L34
- 477              	.L33:
- 210:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 211:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (*p == '\"')
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 13
-
-
- 478              		.loc 1 211 18
- 479 0048 FB68     		ldr	r3, [r7, #12]
- 480 004a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 481              		.loc 1 211 17
- 482 004c 222B     		cmp	r3, #34
- 483 004e 05D1     		bne	.L35
- 212:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 213:ThirdParty/Letter-shell/Src/shell_ext.c ****             *(string + index) = 0;
- 484              		.loc 1 213 22
- 485 0050 7B89     		ldrh	r3, [r7, #10]
- 486 0052 7A68     		ldr	r2, [r7, #4]
- 487 0054 1344     		add	r3, r3, r2
- 488              		.loc 1 213 31
- 489 0056 0022     		movs	r2, #0
- 490 0058 1A70     		strb	r2, [r3]
- 491 005a 05E0     		b	.L34
- 492              	.L35:
- 214:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 215:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
- 216:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 217:ThirdParty/Letter-shell/Src/shell_ext.c ****             *(string + index) = *p;
- 493              		.loc 1 217 22
- 494 005c 7B89     		ldrh	r3, [r7, #10]
- 495 005e 7A68     		ldr	r2, [r7, #4]
- 496 0060 1344     		add	r3, r3, r2
- 497              		.loc 1 217 33
- 498 0062 FA68     		ldr	r2, [r7, #12]
- 499 0064 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 500              		.loc 1 217 31
- 501 0066 1A70     		strb	r2, [r3]
- 502              	.L34:
- 218:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 219:ThirdParty/Letter-shell/Src/shell_ext.c ****         p++;
- 503              		.loc 1 219 10
- 504 0068 FB68     		ldr	r3, [r7, #12]
- 505 006a 0133     		adds	r3, r3, #1
- 506 006c FB60     		str	r3, [r7, #12]
- 220:ThirdParty/Letter-shell/Src/shell_ext.c ****         index ++;
- 507              		.loc 1 220 15
- 508 006e 7B89     		ldrh	r3, [r7, #10]
- 509 0070 0133     		adds	r3, r3, #1
- 510 0072 7B81     		strh	r3, [r7, #10]	@ movhi
- 511              	.L32:
- 204:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 512              		.loc 1 204 12
- 513 0074 FB68     		ldr	r3, [r7, #12]
- 514 0076 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 204:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 515              		.loc 1 204 11
- 516 0078 002B     		cmp	r3, #0
- 517 007a D3D1     		bne	.L36
- 221:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 222:ThirdParty/Letter-shell/Src/shell_ext.c ****     *(string + index) = 0;
- 518              		.loc 1 222 14
- 519 007c 7B89     		ldrh	r3, [r7, #10]
- 520 007e 7A68     		ldr	r2, [r7, #4]
- 521 0080 1344     		add	r3, r3, r2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 14
-
-
- 522              		.loc 1 222 23
- 523 0082 0022     		movs	r2, #0
- 524 0084 1A70     		strb	r2, [r3]
- 223:ThirdParty/Letter-shell/Src/shell_ext.c ****     return string;
- 525              		.loc 1 223 12
- 526 0086 7B68     		ldr	r3, [r7, #4]
- 224:ThirdParty/Letter-shell/Src/shell_ext.c **** }
- 527              		.loc 1 224 1
- 528 0088 1846     		mov	r0, r3
- 529 008a 1437     		adds	r7, r7, #20
- 530              	.LCFI21:
- 531              		.cfi_def_cfa_offset 12
- 532 008c BD46     		mov	sp, r7
- 533              	.LCFI22:
- 534              		.cfi_def_cfa_register 13
- 535              		@ sp needed
- 536 008e 90BD     		pop	{r4, r7, pc}
- 537              		.cfi_endproc
- 538              	.LFE3:
- 540              		.section	.text.shellExtParseNumber,"ax",%progbits
- 541              		.align	1
- 542              		.syntax unified
- 543              		.thumb
- 544              		.thumb_func
- 546              	shellExtParseNumber:
- 547              	.LFB4:
- 225:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 226:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 227:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
- 228:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析数字参数
- 229:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
- 230:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 字符串参数
- 231:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return unsigned int 解析出的数字
- 232:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
- 233:ThirdParty/Letter-shell/Src/shell_ext.c **** static unsigned int shellExtParseNumber(char *string)
- 234:ThirdParty/Letter-shell/Src/shell_ext.c **** {
- 548              		.loc 1 234 1
- 549              		.cfi_startproc
- 550              		@ args = 0, pretend = 0, frame = 40
- 551              		@ frame_needed = 1, uses_anonymous_args = 0
- 552 0000 90B5     		push	{r4, r7, lr}
- 553              	.LCFI23:
- 554              		.cfi_def_cfa_offset 12
- 555              		.cfi_offset 4, -12
- 556              		.cfi_offset 7, -8
- 557              		.cfi_offset 14, -4
- 558 0002 8BB0     		sub	sp, sp, #44
- 559              	.LCFI24:
- 560              		.cfi_def_cfa_offset 56
- 561 0004 00AF     		add	r7, sp, #0
- 562              	.LCFI25:
- 563              		.cfi_def_cfa_register 7
- 564 0006 7860     		str	r0, [r7, #4]
- 235:ThirdParty/Letter-shell/Src/shell_ext.c ****     ShellNumType type = NUM_TYPE_DEC;
- 565              		.loc 1 235 18
- 566 0008 0023     		movs	r3, #0
- 567 000a FB74     		strb	r3, [r7, #19]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 15
-
-
- 236:ThirdParty/Letter-shell/Src/shell_ext.c ****     char radix = 10;
- 568              		.loc 1 236 10
- 569 000c 0A23     		movs	r3, #10
- 570 000e 87F82730 		strb	r3, [r7, #39]
- 237:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = string;
- 571              		.loc 1 237 11
- 572 0012 7B68     		ldr	r3, [r7, #4]
- 573 0014 3B62     		str	r3, [r7, #32]
- 238:ThirdParty/Letter-shell/Src/shell_ext.c ****     char offset = 0;
- 574              		.loc 1 238 10
- 575 0016 0023     		movs	r3, #0
- 576 0018 FB77     		strb	r3, [r7, #31]
- 239:ThirdParty/Letter-shell/Src/shell_ext.c ****     signed char sign = 1;
- 577              		.loc 1 239 17
- 578 001a 0123     		movs	r3, #1
- 579 001c BB77     		strb	r3, [r7, #30]
- 240:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned int valueInt = 0;
- 580              		.loc 1 240 18
- 581 001e 0023     		movs	r3, #0
- 582 0020 BB61     		str	r3, [r7, #24]
- 241:ThirdParty/Letter-shell/Src/shell_ext.c ****     float valueFloat = 0.0;
- 583              		.loc 1 241 11
- 584 0022 4FF00003 		mov	r3, #0
- 585 0026 FB60     		str	r3, [r7, #12]	@ float
- 242:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned int devide = 0;
- 586              		.loc 1 242 18
- 587 0028 0023     		movs	r3, #0
- 588 002a 7B61     		str	r3, [r7, #20]
- 243:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 244:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (*string == '-')
- 589              		.loc 1 244 9
- 590 002c 7B68     		ldr	r3, [r7, #4]
- 591 002e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 592              		.loc 1 244 8
- 593 0030 2D2B     		cmp	r3, #45
- 594 0032 01D1     		bne	.L39
- 245:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 246:ThirdParty/Letter-shell/Src/shell_ext.c ****         sign = -1;
- 595              		.loc 1 246 14
- 596 0034 FF23     		movs	r3, #255
- 597 0036 BB77     		strb	r3, [r7, #30]
- 598              	.L39:
- 247:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 248:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 249:ThirdParty/Letter-shell/Src/shell_ext.c ****     type = shellExtNumType(string + ((sign == -1) ? 1 : 0));
- 599              		.loc 1 249 55
- 600 0038 97F91E30 		ldrsb	r3, [r7, #30]
- 601 003c B3F1FF3F 		cmp	r3, #-1
- 602 0040 01D1     		bne	.L40
- 603              		.loc 1 249 55 is_stmt 0 discriminator 1
- 604 0042 0123     		movs	r3, #1
- 605 0044 00E0     		b	.L41
- 606              	.L40:
- 607              		.loc 1 249 55 discriminator 2
- 608 0046 0023     		movs	r3, #0
- 609              	.L41:
- 610              		.loc 1 249 12 is_stmt 1 discriminator 4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 16
-
-
- 611 0048 7A68     		ldr	r2, [r7, #4]
- 612 004a 1344     		add	r3, r3, r2
- 613 004c 1846     		mov	r0, r3
- 614 004e FFF7FEFF 		bl	shellExtNumType
- 615 0052 0346     		mov	r3, r0
- 616 0054 FB74     		strb	r3, [r7, #19]
- 250:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 251:ThirdParty/Letter-shell/Src/shell_ext.c ****     switch ((char)type)
- 617              		.loc 1 251 13 discriminator 4
- 618 0056 FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
- 619              		.loc 1 251 5 discriminator 4
- 620 0058 032B     		cmp	r3, #3
- 621 005a 06D0     		beq	.L42
- 622              		.loc 1 251 5 is_stmt 0
- 623 005c 032B     		cmp	r3, #3
- 624 005e 16DC     		bgt	.L55
- 625 0060 012B     		cmp	r3, #1
- 626 0062 0ED0     		beq	.L44
- 627 0064 022B     		cmp	r3, #2
- 628 0066 06D0     		beq	.L45
- 252:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 253:ThirdParty/Letter-shell/Src/shell_ext.c ****     case NUM_TYPE_HEX:
- 254:ThirdParty/Letter-shell/Src/shell_ext.c ****         radix = 16;
- 255:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 2;
- 256:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 257:ThirdParty/Letter-shell/Src/shell_ext.c ****     
- 258:ThirdParty/Letter-shell/Src/shell_ext.c ****     case NUM_TYPE_OCT:
- 259:ThirdParty/Letter-shell/Src/shell_ext.c ****         radix = 8;
- 260:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 1;
- 261:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 262:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 263:ThirdParty/Letter-shell/Src/shell_ext.c ****     case NUM_TYPE_BIN:
- 264:ThirdParty/Letter-shell/Src/shell_ext.c ****         radix = 2;
- 265:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 2;
- 266:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 267:ThirdParty/Letter-shell/Src/shell_ext.c ****     
- 268:ThirdParty/Letter-shell/Src/shell_ext.c ****     default:
- 269:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 629              		.loc 1 269 9 is_stmt 1
- 630 0068 11E0     		b	.L55
- 631              	.L42:
- 254:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 2;
- 632              		.loc 1 254 15
- 633 006a 1023     		movs	r3, #16
- 634 006c 87F82730 		strb	r3, [r7, #39]
- 255:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 635              		.loc 1 255 16
- 636 0070 0223     		movs	r3, #2
- 637 0072 FB77     		strb	r3, [r7, #31]
- 256:ThirdParty/Letter-shell/Src/shell_ext.c ****     
- 638              		.loc 1 256 9
- 639 0074 0CE0     		b	.L46
- 640              	.L45:
- 259:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 1;
- 641              		.loc 1 259 15
- 642 0076 0823     		movs	r3, #8
- 643 0078 87F82730 		strb	r3, [r7, #39]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 17
-
-
- 260:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 644              		.loc 1 260 16
- 645 007c 0123     		movs	r3, #1
- 646 007e FB77     		strb	r3, [r7, #31]
- 261:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 647              		.loc 1 261 9
- 648 0080 06E0     		b	.L46
- 649              	.L44:
- 264:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 2;
- 650              		.loc 1 264 15
- 651 0082 0223     		movs	r3, #2
- 652 0084 87F82730 		strb	r3, [r7, #39]
- 265:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 653              		.loc 1 265 16
- 654 0088 0223     		movs	r3, #2
- 655 008a FB77     		strb	r3, [r7, #31]
- 266:ThirdParty/Letter-shell/Src/shell_ext.c ****     
- 656              		.loc 1 266 9
- 657 008c 00E0     		b	.L46
- 658              	.L55:
- 659              		.loc 1 269 9
- 660 008e 00BF     		nop
- 661              	.L46:
- 270:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 271:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 272:ThirdParty/Letter-shell/Src/shell_ext.c ****     p = string + offset + ((sign == -1) ? 1 : 0);
- 662              		.loc 1 272 25
- 663 0090 FB7F     		ldrb	r3, [r7, #31]	@ zero_extendqisi2
- 664              		.loc 1 272 45
- 665 0092 97F91E20 		ldrsb	r2, [r7, #30]
- 666 0096 B2F1FF3F 		cmp	r2, #-1
- 667 009a 01D1     		bne	.L47
- 668              		.loc 1 272 45 is_stmt 0 discriminator 1
- 669 009c 0122     		movs	r2, #1
- 670 009e 00E0     		b	.L48
- 671              	.L47:
- 672              		.loc 1 272 45 discriminator 2
- 673 00a0 0022     		movs	r2, #0
- 674              	.L48:
- 675              		.loc 1 272 25 is_stmt 1 discriminator 4
- 676 00a2 1344     		add	r3, r3, r2
- 677              		.loc 1 272 7 discriminator 4
- 678 00a4 7A68     		ldr	r2, [r7, #4]
- 679 00a6 1344     		add	r3, r3, r2
- 680 00a8 3B62     		str	r3, [r7, #32]
- 273:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 274:ThirdParty/Letter-shell/Src/shell_ext.c ****     while (*p)
- 681              		.loc 1 274 11 discriminator 4
- 682 00aa 1FE0     		b	.L49
- 683              	.L51:
- 275:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 276:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*p == '.')
- 684              		.loc 1 276 13
- 685 00ac 3B6A     		ldr	r3, [r7, #32]
- 686 00ae 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 687              		.loc 1 276 12
- 688 00b0 2E2B     		cmp	r3, #46
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 18
-
-
- 689 00b2 05D1     		bne	.L50
- 277:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 278:ThirdParty/Letter-shell/Src/shell_ext.c ****             devide = 1;
- 690              		.loc 1 278 20
- 691 00b4 0123     		movs	r3, #1
- 692 00b6 7B61     		str	r3, [r7, #20]
- 279:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
- 693              		.loc 1 279 14
- 694 00b8 3B6A     		ldr	r3, [r7, #32]
- 695 00ba 0133     		adds	r3, r3, #1
- 696 00bc 3B62     		str	r3, [r7, #32]
- 280:ThirdParty/Letter-shell/Src/shell_ext.c ****             continue;
- 697              		.loc 1 280 13
- 698 00be 15E0     		b	.L49
- 699              	.L50:
- 281:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 282:ThirdParty/Letter-shell/Src/shell_ext.c ****         valueInt = valueInt * radix + shellExtToNum(*p);
- 700              		.loc 1 282 29
- 701 00c0 97F82730 		ldrb	r3, [r7, #39]	@ zero_extendqisi2
- 702 00c4 BA69     		ldr	r2, [r7, #24]
- 703 00c6 02FB03F4 		mul	r4, r2, r3
- 704              		.loc 1 282 39
- 705 00ca 3B6A     		ldr	r3, [r7, #32]
- 706 00cc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 707 00ce 1846     		mov	r0, r3
- 708 00d0 FFF7FEFF 		bl	shellExtToNum
- 709 00d4 0346     		mov	r3, r0
- 710              		.loc 1 282 18
- 711 00d6 2344     		add	r3, r3, r4
- 712 00d8 BB61     		str	r3, [r7, #24]
- 283:ThirdParty/Letter-shell/Src/shell_ext.c ****         devide *= 10;
- 713              		.loc 1 283 16
- 714 00da 7A69     		ldr	r2, [r7, #20]
- 715 00dc 1346     		mov	r3, r2
- 716 00de 9B00     		lsls	r3, r3, #2
- 717 00e0 1344     		add	r3, r3, r2
- 718 00e2 5B00     		lsls	r3, r3, #1
- 719 00e4 7B61     		str	r3, [r7, #20]
- 284:ThirdParty/Letter-shell/Src/shell_ext.c ****         p++;
- 720              		.loc 1 284 10
- 721 00e6 3B6A     		ldr	r3, [r7, #32]
- 722 00e8 0133     		adds	r3, r3, #1
- 723 00ea 3B62     		str	r3, [r7, #32]
- 724              	.L49:
- 274:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 725              		.loc 1 274 12
- 726 00ec 3B6A     		ldr	r3, [r7, #32]
- 727 00ee 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 274:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 728              		.loc 1 274 11
- 729 00f0 002B     		cmp	r3, #0
- 730 00f2 DBD1     		bne	.L51
- 285:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 286:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (type == NUM_TYPE_FLOAT && devide != 0)
- 731              		.loc 1 286 8
- 732 00f4 FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
- 733 00f6 042B     		cmp	r3, #4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 19
-
-
- 734 00f8 1CD1     		bne	.L52
- 735              		.loc 1 286 32 discriminator 1
- 736 00fa 7B69     		ldr	r3, [r7, #20]
- 737 00fc 002B     		cmp	r3, #0
- 738 00fe 19D0     		beq	.L52
- 287:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 288:ThirdParty/Letter-shell/Src/shell_ext.c ****         valueFloat = (float)valueInt / devide * sign;
- 739              		.loc 1 288 22
- 740 0100 BB69     		ldr	r3, [r7, #24]
- 741 0102 07EE903A 		vmov	s15, r3	@ int
- 742 0106 F8EE676A 		vcvt.f32.u32	s13, s15
- 743              		.loc 1 288 38
- 744 010a 7B69     		ldr	r3, [r7, #20]
- 745 010c 07EE903A 		vmov	s15, r3	@ int
- 746 0110 F8EE677A 		vcvt.f32.u32	s15, s15
- 747 0114 86EEA77A 		vdiv.f32	s14, s13, s15
- 748              		.loc 1 288 47
- 749 0118 97F91E30 		ldrsb	r3, [r7, #30]
- 750 011c 07EE903A 		vmov	s15, r3	@ int
- 751 0120 F8EEE77A 		vcvt.f32.s32	s15, s15
- 752 0124 67EE277A 		vmul.f32	s15, s14, s15
- 753              		.loc 1 288 20
- 754 0128 C7ED037A 		vstr.32	s15, [r7, #12]
- 289:ThirdParty/Letter-shell/Src/shell_ext.c ****         return *(unsigned int *)(&valueFloat);
- 755              		.loc 1 289 34
- 756 012c 07F10C03 		add	r3, r7, #12
- 757              		.loc 1 289 16
- 758 0130 1B68     		ldr	r3, [r3]
- 759 0132 04E0     		b	.L54
- 760              	.L52:
- 290:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 291:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
- 292:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 293:ThirdParty/Letter-shell/Src/shell_ext.c ****         return valueInt * sign;
- 761              		.loc 1 293 25
- 762 0134 97F91E30 		ldrsb	r3, [r7, #30]
- 763 0138 BA69     		ldr	r2, [r7, #24]
- 764 013a 02FB03F3 		mul	r3, r2, r3
- 765              	.L54:
- 294:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 295:ThirdParty/Letter-shell/Src/shell_ext.c **** }
- 766              		.loc 1 295 1 discriminator 1
- 767 013e 1846     		mov	r0, r3
- 768 0140 2C37     		adds	r7, r7, #44
- 769              	.LCFI26:
- 770              		.cfi_def_cfa_offset 12
- 771 0142 BD46     		mov	sp, r7
- 772              	.LCFI27:
- 773              		.cfi_def_cfa_register 13
- 774              		@ sp needed
- 775 0144 90BD     		pop	{r4, r7, pc}
- 776              		.cfi_endproc
- 777              	.LFE4:
- 779              		.section	.text.shellExtParseVar,"ax",%progbits
- 780              		.align	1
- 781              		.syntax unified
- 782              		.thumb
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 20
-
-
- 783              		.thumb_func
- 785              	shellExtParseVar:
- 786              	.LFB5:
- 296:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 297:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 298:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
- 299:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析变量参数
- 300:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
- 301:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param shell shell对象
- 302:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param var 变量
- 303:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return unsigned int 变量值
- 304:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
- 305:ThirdParty/Letter-shell/Src/shell_ext.c **** static unsigned int shellExtParseVar(Shell *shell, char *var)
- 306:ThirdParty/Letter-shell/Src/shell_ext.c **** {
- 787              		.loc 1 306 1
- 788              		.cfi_startproc
- 789              		@ args = 0, pretend = 0, frame = 16
- 790              		@ frame_needed = 1, uses_anonymous_args = 0
- 791 0000 80B5     		push	{r7, lr}
- 792              	.LCFI28:
- 793              		.cfi_def_cfa_offset 8
- 794              		.cfi_offset 7, -8
- 795              		.cfi_offset 14, -4
- 796 0002 84B0     		sub	sp, sp, #16
- 797              	.LCFI29:
- 798              		.cfi_def_cfa_offset 24
- 799 0004 00AF     		add	r7, sp, #0
- 800              	.LCFI30:
- 801              		.cfi_def_cfa_register 7
- 802 0006 7860     		str	r0, [r7, #4]
- 803 0008 3960     		str	r1, [r7]
- 307:ThirdParty/Letter-shell/Src/shell_ext.c ****     ShellCommand *command = shellSeekCommand(shell,
- 308:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              var + 1,
- 804              		.loc 1 308 50
- 805 000a 3B68     		ldr	r3, [r7]
- 806 000c 591C     		adds	r1, r3, #1
- 309:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              shell->commandList.base,
- 807              		.loc 1 309 64
- 808 000e 7B68     		ldr	r3, [r7, #4]
- 809 0010 9A6D     		ldr	r2, [r3, #88]
- 307:ThirdParty/Letter-shell/Src/shell_ext.c ****     ShellCommand *command = shellSeekCommand(shell,
- 810              		.loc 1 307 29
- 811 0012 0023     		movs	r3, #0
- 812 0014 7868     		ldr	r0, [r7, #4]
- 813 0016 FFF7FEFF 		bl	shellSeekCommand
- 814 001a F860     		str	r0, [r7, #12]
- 310:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              0);
- 311:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (command)
- 815              		.loc 1 311 8
- 816 001c FB68     		ldr	r3, [r7, #12]
- 817 001e 002B     		cmp	r3, #0
- 818 0020 05D0     		beq	.L57
- 312:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 313:ThirdParty/Letter-shell/Src/shell_ext.c ****         return shellGetVarValue(shell, command);
- 819              		.loc 1 313 16
- 820 0022 F968     		ldr	r1, [r7, #12]
- 821 0024 7868     		ldr	r0, [r7, #4]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 21
-
-
- 822 0026 FFF7FEFF 		bl	shellGetVarValue
- 823 002a 0346     		mov	r3, r0
- 824 002c 00E0     		b	.L58
- 825              	.L57:
- 314:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 315:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
- 316:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 317:ThirdParty/Letter-shell/Src/shell_ext.c ****         return 0;
- 826              		.loc 1 317 16
- 827 002e 0023     		movs	r3, #0
- 828              	.L58:
- 318:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 319:ThirdParty/Letter-shell/Src/shell_ext.c **** }
- 829              		.loc 1 319 1
- 830 0030 1846     		mov	r0, r3
- 831 0032 1037     		adds	r7, r7, #16
- 832              	.LCFI31:
- 833              		.cfi_def_cfa_offset 8
- 834 0034 BD46     		mov	sp, r7
- 835              	.LCFI32:
- 836              		.cfi_def_cfa_register 13
- 837              		@ sp needed
- 838 0036 80BD     		pop	{r7, pc}
- 839              		.cfi_endproc
- 840              	.LFE5:
- 842              		.section	.text.shellExtParsePara,"ax",%progbits
- 843              		.align	1
- 844              		.global	shellExtParsePara
- 845              		.syntax unified
- 846              		.thumb
- 847              		.thumb_func
- 849              	shellExtParsePara:
- 850              	.LFB6:
- 320:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 321:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 322:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
- 323:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析参数
- 324:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
- 325:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param shell shell对象
- 326:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 参数
- 327:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param result 解析结果
- 328:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
- 329:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return int 0 解析成功 --1 解析失败
- 330:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
- 331:ThirdParty/Letter-shell/Src/shell_ext.c **** int shellExtParsePara(Shell *shell, char *string, char *type, unsigned int *result)
- 332:ThirdParty/Letter-shell/Src/shell_ext.c **** {
- 851              		.loc 1 332 1
- 852              		.cfi_startproc
- 853              		@ args = 0, pretend = 0, frame = 16
- 854              		@ frame_needed = 1, uses_anonymous_args = 0
- 855 0000 80B5     		push	{r7, lr}
- 856              	.LCFI33:
- 857              		.cfi_def_cfa_offset 8
- 858              		.cfi_offset 7, -8
- 859              		.cfi_offset 14, -4
- 860 0002 84B0     		sub	sp, sp, #16
- 861              	.LCFI34:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 22
-
-
- 862              		.cfi_def_cfa_offset 24
- 863 0004 00AF     		add	r7, sp, #0
- 864              	.LCFI35:
- 865              		.cfi_def_cfa_register 7
- 866 0006 F860     		str	r0, [r7, #12]
- 867 0008 B960     		str	r1, [r7, #8]
- 868 000a 7A60     		str	r2, [r7, #4]
- 869 000c 3B60     		str	r3, [r7]
- 333:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (type == NULL || (*string == '$' && *(string + 1)))
- 870              		.loc 1 333 8
- 871 000e 7B68     		ldr	r3, [r7, #4]
- 872 0010 002B     		cmp	r3, #0
- 873 0012 08D0     		beq	.L60
- 874              		.loc 1 333 26 discriminator 1
- 875 0014 BB68     		ldr	r3, [r7, #8]
- 876 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 877              		.loc 1 333 22 discriminator 1
- 878 0018 242B     		cmp	r3, #36
- 879 001a 49D1     		bne	.L61
- 880              		.loc 1 333 53 discriminator 2
- 881 001c BB68     		ldr	r3, [r7, #8]
- 882 001e 0133     		adds	r3, r3, #1
- 883              		.loc 1 333 44 discriminator 2
- 884 0020 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 885              		.loc 1 333 41 discriminator 2
- 886 0022 002B     		cmp	r3, #0
- 887 0024 44D0     		beq	.L61
- 888              	.L60:
- 334:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 335:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*string == '\'' && *(string + 1))
- 889              		.loc 1 335 13
- 890 0026 BB68     		ldr	r3, [r7, #8]
- 891 0028 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 892              		.loc 1 335 12
- 893 002a 272B     		cmp	r3, #39
- 894 002c 0DD1     		bne	.L62
- 895              		.loc 1 335 41 discriminator 1
- 896 002e BB68     		ldr	r3, [r7, #8]
- 897 0030 0133     		adds	r3, r3, #1
- 898              		.loc 1 335 32 discriminator 1
- 899 0032 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 900              		.loc 1 335 29 discriminator 1
- 901 0034 002B     		cmp	r3, #0
- 902 0036 08D0     		beq	.L62
- 336:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 337:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseChar(string);
- 903              		.loc 1 337 37
- 904 0038 B868     		ldr	r0, [r7, #8]
- 905 003a FFF7FEFF 		bl	shellExtParseChar
- 906 003e 0346     		mov	r3, r0
- 907              		.loc 1 337 23
- 908 0040 1A46     		mov	r2, r3
- 909              		.loc 1 337 21
- 910 0042 3B68     		ldr	r3, [r7]
- 911 0044 1A60     		str	r2, [r3]
- 338:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
- 912              		.loc 1 338 20
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 23
-
-
- 913 0046 0023     		movs	r3, #0
- 914 0048 34E0     		b	.L63
- 915              	.L62:
- 339:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 340:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (*string == '-' || (*string >= '0' && *string <= '9'))
- 916              		.loc 1 340 18
- 917 004a BB68     		ldr	r3, [r7, #8]
- 918 004c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 919              		.loc 1 340 17
- 920 004e 2D2B     		cmp	r3, #45
- 921 0050 07D0     		beq	.L64
- 922              		.loc 1 340 37 discriminator 1
- 923 0052 BB68     		ldr	r3, [r7, #8]
- 924 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 925              		.loc 1 340 33 discriminator 1
- 926 0056 2F2B     		cmp	r3, #47
- 927 0058 0BD9     		bls	.L65
- 928              		.loc 1 340 55 discriminator 2
- 929 005a BB68     		ldr	r3, [r7, #8]
- 930 005c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 931              		.loc 1 340 52 discriminator 2
- 932 005e 392B     		cmp	r3, #57
- 933 0060 07D8     		bhi	.L65
- 934              	.L64:
- 341:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 342:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseNumber(string);
- 935              		.loc 1 342 23
- 936 0062 B868     		ldr	r0, [r7, #8]
- 937 0064 FFF7FEFF 		bl	shellExtParseNumber
- 938 0068 0246     		mov	r2, r0
- 939              		.loc 1 342 21
- 940 006a 3B68     		ldr	r3, [r7]
- 941 006c 1A60     		str	r2, [r3]
- 343:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
- 942              		.loc 1 343 20
- 943 006e 0023     		movs	r3, #0
- 944 0070 20E0     		b	.L63
- 945              	.L65:
- 344:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 345:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (*string == '$' && *(string + 1))
- 946              		.loc 1 345 18
- 947 0072 BB68     		ldr	r3, [r7, #8]
- 948 0074 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 949              		.loc 1 345 17
- 950 0076 242B     		cmp	r3, #36
- 951 0078 0DD1     		bne	.L66
- 952              		.loc 1 345 45 discriminator 1
- 953 007a BB68     		ldr	r3, [r7, #8]
- 954 007c 0133     		adds	r3, r3, #1
- 955              		.loc 1 345 36 discriminator 1
- 956 007e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 957              		.loc 1 345 33 discriminator 1
- 958 0080 002B     		cmp	r3, #0
- 959 0082 08D0     		beq	.L66
- 346:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 347:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = shellExtParseVar(shell, string);
- 960              		.loc 1 347 23
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 24
-
-
- 961 0084 B968     		ldr	r1, [r7, #8]
- 962 0086 F868     		ldr	r0, [r7, #12]
- 963 0088 FFF7FEFF 		bl	shellExtParseVar
- 964 008c 0246     		mov	r2, r0
- 965              		.loc 1 347 21
- 966 008e 3B68     		ldr	r3, [r7]
- 967 0090 1A60     		str	r2, [r3]
- 348:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
- 968              		.loc 1 348 20
- 969 0092 0023     		movs	r3, #0
- 970 0094 0EE0     		b	.L63
- 971              	.L66:
- 349:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 350:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (*string)
- 972              		.loc 1 350 18
- 973 0096 BB68     		ldr	r3, [r7, #8]
- 974 0098 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 975              		.loc 1 350 17
- 976 009a 002B     		cmp	r3, #0
- 977 009c 08D0     		beq	.L61
- 351:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 352:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseString(string);
- 978              		.loc 1 352 37
- 979 009e B868     		ldr	r0, [r7, #8]
- 980 00a0 FFF7FEFF 		bl	shellExtParseString
- 981 00a4 0346     		mov	r3, r0
- 982              		.loc 1 352 23
- 983 00a6 1A46     		mov	r2, r3
- 984              		.loc 1 352 21
- 985 00a8 3B68     		ldr	r3, [r7]
- 986 00aa 1A60     		str	r2, [r3]
- 353:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
- 987              		.loc 1 353 20
- 988 00ac 0023     		movs	r3, #0
- 989 00ae 01E0     		b	.L63
- 990              	.L61:
- 354:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 355:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 356:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
- 357:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
- 358:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 359:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (strcmp("c", type) == 0)
- 360:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 361:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseChar(string);
- 362:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
- 363:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 364:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (strcmp("i", type) == 0
- 365:ThirdParty/Letter-shell/Src/shell_ext.c ****                  || strcmp("f", type) == 0
- 366:ThirdParty/Letter-shell/Src/shell_ext.c ****                  || strcmp("p", type) == 0)
- 367:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 368:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseNumber(string);
- 369:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
- 370:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 371:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (strcmp("s", type) == 0)
- 372:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 373:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseString(string);
- 374:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 25
-
-
- 375:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 376:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
- 377:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 378:ThirdParty/Letter-shell/Src/shell_ext.c ****             ShellCommand *command = shellSeekCommand(shell,
- 379:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      type,
- 380:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      shell->commandList.base,
- 381:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      0);
- 382:ThirdParty/Letter-shell/Src/shell_ext.c ****             if (command != NULL)
- 383:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
- 384:ThirdParty/Letter-shell/Src/shell_ext.c ****                 void *param;
- 385:ThirdParty/Letter-shell/Src/shell_ext.c ****                 if (command->data.paramParser.parser(shellExtParseString(string), &param) == 0)
- 386:ThirdParty/Letter-shell/Src/shell_ext.c ****                 {
- 387:ThirdParty/Letter-shell/Src/shell_ext.c ****                     *result = (unsigned int)param;
- 388:ThirdParty/Letter-shell/Src/shell_ext.c ****                     return 0;
- 389:ThirdParty/Letter-shell/Src/shell_ext.c ****                 }
- 390:ThirdParty/Letter-shell/Src/shell_ext.c ****                 else
- 391:ThirdParty/Letter-shell/Src/shell_ext.c ****                 {
- 392:ThirdParty/Letter-shell/Src/shell_ext.c ****                     shellWriteString(shell, "Parse param for type: ");
- 393:ThirdParty/Letter-shell/Src/shell_ext.c ****                     shellWriteString(shell, type);
- 394:ThirdParty/Letter-shell/Src/shell_ext.c ****                     shellWriteString(shell, " failed\r\n");
- 395:ThirdParty/Letter-shell/Src/shell_ext.c ****                     return -1;
- 396:ThirdParty/Letter-shell/Src/shell_ext.c ****                 }
- 397:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
- 398:ThirdParty/Letter-shell/Src/shell_ext.c ****             else
- 399:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
- 400:ThirdParty/Letter-shell/Src/shell_ext.c ****                 shellWriteString(shell, "Can't find the param parser for type: ");
- 401:ThirdParty/Letter-shell/Src/shell_ext.c ****                 shellWriteString(shell, type);
- 402:ThirdParty/Letter-shell/Src/shell_ext.c ****                 shellWriteString(shell, "\r\n");
- 403:ThirdParty/Letter-shell/Src/shell_ext.c ****                 return -1;
- 404:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
- 405:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 406:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 407:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_USING_FUNC_SIGNATURE == 1 */
- 408:ThirdParty/Letter-shell/Src/shell_ext.c ****     return -1;
- 991              		.loc 1 408 12
- 992 00b0 4FF0FF33 		mov	r3, #-1
- 993              	.L63:
- 409:ThirdParty/Letter-shell/Src/shell_ext.c **** }
- 994              		.loc 1 409 1
- 995 00b4 1846     		mov	r0, r3
- 996 00b6 1037     		adds	r7, r7, #16
- 997              	.LCFI36:
- 998              		.cfi_def_cfa_offset 8
- 999 00b8 BD46     		mov	sp, r7
- 1000              	.LCFI37:
- 1001              		.cfi_def_cfa_register 13
- 1002              		@ sp needed
- 1003 00ba 80BD     		pop	{r7, pc}
- 1004              		.cfi_endproc
- 1005              	.LFE6:
- 1007              		.section	.text.shellExtRun,"ax",%progbits
- 1008              		.align	1
- 1009              		.global	shellExtRun
- 1010              		.syntax unified
- 1011              		.thumb
- 1012              		.thumb_func
- 1014              	shellExtRun:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 26
-
-
- 1015              	.LFB7:
- 410:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 411:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 412:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
- 413:ThirdParty/Letter-shell/Src/shell_ext.c **** int shellExtCleanerPara(Shell *shell, char *type, unsigned int param)
- 414:ThirdParty/Letter-shell/Src/shell_ext.c **** {
- 415:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (type == NULL)
- 416:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 417:ThirdParty/Letter-shell/Src/shell_ext.c ****         return 0;
- 418:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 419:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
- 420:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 421:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (strcmp("c", type) == 0
- 422:ThirdParty/Letter-shell/Src/shell_ext.c ****             || strcmp("i", type) == 0
- 423:ThirdParty/Letter-shell/Src/shell_ext.c ****             || strcmp("f", type) == 0
- 424:ThirdParty/Letter-shell/Src/shell_ext.c ****             || strcmp("p", type) == 0
- 425:ThirdParty/Letter-shell/Src/shell_ext.c ****             || strcmp("s", type) == 0)
- 426:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 427:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
- 428:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 429:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
- 430:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 431:ThirdParty/Letter-shell/Src/shell_ext.c ****             ShellCommand *command = shellSeekCommand(shell,
- 432:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      type,
- 433:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      shell->commandList.base,
- 434:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      0);
- 435:ThirdParty/Letter-shell/Src/shell_ext.c ****             if (command != NULL && command->data.paramParser.cleaner != NULL)
- 436:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
- 437:ThirdParty/Letter-shell/Src/shell_ext.c ****                 return command->data.paramParser.cleaner((void *)param);
- 438:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
- 439:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 440:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 441:ThirdParty/Letter-shell/Src/shell_ext.c ****     return -1;
- 442:ThirdParty/Letter-shell/Src/shell_ext.c **** }
- 443:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_USING_FUNC_SIGNATURE == 1 */
- 444:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 445:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 446:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
- 447:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 执行命令
- 448:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
- 449:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param shell shell对象
- 450:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param command 命令
- 451:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param argc 参数个数
- 452:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param argv 参数
- 453:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return int 返回值
- 454:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
- 455:ThirdParty/Letter-shell/Src/shell_ext.c **** int shellExtRun(Shell *shell, ShellCommand *command, int argc, char *argv[])
- 456:ThirdParty/Letter-shell/Src/shell_ext.c **** {
- 1016              		.loc 1 456 1
- 1017              		.cfi_startproc
- 1018              		@ args = 0, pretend = 0, frame = 88
- 1019              		@ frame_needed = 1, uses_anonymous_args = 0
- 1020 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 1021              	.LCFI38:
- 1022              		.cfi_def_cfa_offset 20
- 1023              		.cfi_offset 4, -20
- 1024              		.cfi_offset 5, -16
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 27
-
-
- 1025              		.cfi_offset 6, -12
- 1026              		.cfi_offset 7, -8
- 1027              		.cfi_offset 14, -4
- 1028 0002 9BB0     		sub	sp, sp, #108
- 1029              	.LCFI39:
- 1030              		.cfi_def_cfa_offset 128
- 1031 0004 04AF     		add	r7, sp, #16
- 1032              	.LCFI40:
- 1033              		.cfi_def_cfa 7, 112
- 1034 0006 F860     		str	r0, [r7, #12]
- 1035 0008 B960     		str	r1, [r7, #8]
- 1036 000a 7A60     		str	r2, [r7, #4]
- 1037 000c 3B60     		str	r3, [r7]
- 457:ThirdParty/Letter-shell/Src/shell_ext.c ****     int ret = 0;
- 1038              		.loc 1 457 9
- 1039 000e 0023     		movs	r3, #0
- 1040 0010 7B65     		str	r3, [r7, #84]
- 458:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned int params[SHELL_PARAMETER_MAX_NUMBER] = {0};
- 1041              		.loc 1 458 18
- 1042 0012 07F11003 		add	r3, r7, #16
- 1043 0016 2022     		movs	r2, #32
- 1044 0018 0021     		movs	r1, #0
- 1045 001a 1846     		mov	r0, r3
- 1046 001c FFF7FEFF 		bl	memset
- 459:ThirdParty/Letter-shell/Src/shell_ext.c ****     int paramNum = command->attr.attrs.paramNum > (argc - 1) ? 
- 1047              		.loc 1 459 39
- 1048 0020 BB68     		ldr	r3, [r7, #8]
- 1049 0022 9B78     		ldrb	r3, [r3, #2]
- 1050 0024 C3F30303 		ubfx	r3, r3, #0, #4
- 1051 0028 DBB2     		uxtb	r3, r3
- 1052 002a 1A46     		mov	r2, r3
- 460:ThirdParty/Letter-shell/Src/shell_ext.c ****         command->attr.attrs.paramNum : (argc - 1);
- 1053              		.loc 1 460 38
- 1054 002c 7B68     		ldr	r3, [r7, #4]
- 1055 002e 9342     		cmp	r3, r2
- 1056 0030 05DC     		bgt	.L68
- 1057              		.loc 1 460 28 discriminator 1
- 1058 0032 BB68     		ldr	r3, [r7, #8]
- 1059 0034 9B78     		ldrb	r3, [r3, #2]
- 1060 0036 C3F30303 		ubfx	r3, r3, #0, #4
- 1061 003a DBB2     		uxtb	r3, r3
- 1062 003c 01E0     		b	.L69
- 1063              	.L68:
- 1064              		.loc 1 460 38 discriminator 2
- 1065 003e 7B68     		ldr	r3, [r7, #4]
- 1066 0040 013B     		subs	r3, r3, #1
- 1067              	.L69:
- 459:ThirdParty/Letter-shell/Src/shell_ext.c ****     int paramNum = command->attr.attrs.paramNum > (argc - 1) ? 
- 1068              		.loc 1 459 9
- 1069 0042 FB64     		str	r3, [r7, #76]
- 1070              	.LBB2:
- 461:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
- 462:ThirdParty/Letter-shell/Src/shell_ext.c ****     char type[16];
- 463:ThirdParty/Letter-shell/Src/shell_ext.c ****     int index = 0;
- 464:ThirdParty/Letter-shell/Src/shell_ext.c ****     
- 465:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (command->data.cmd.signature != NULL)
- 466:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 28
-
-
- 467:ThirdParty/Letter-shell/Src/shell_ext.c ****         int except = shellGetParamNumExcept(command->data.cmd.signature);
- 468:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (except != argc - 1)
- 469:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 470:ThirdParty/Letter-shell/Src/shell_ext.c ****             shellWriteString(shell, "Parameters number incorrect\r\n");
- 471:ThirdParty/Letter-shell/Src/shell_ext.c ****             return -1;
- 472:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 473:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 474:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif
- 475:ThirdParty/Letter-shell/Src/shell_ext.c ****     for (int i = 0; i < argc - 1; i++)
- 1071              		.loc 1 475 14
- 1072 0044 0023     		movs	r3, #0
- 1073 0046 3B65     		str	r3, [r7, #80]
- 1074              		.loc 1 475 5
- 1075 0048 17E0     		b	.L70
- 1076              	.L73:
- 476:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 477:ThirdParty/Letter-shell/Src/shell_ext.c ****     #if SHELL_USING_FUNC_SIGNATURE == 1
- 478:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (command->data.cmd.signature != NULL) {
- 479:ThirdParty/Letter-shell/Src/shell_ext.c ****             index = shellGetNextParamType(command->data.cmd.signature, index, type);
- 480:ThirdParty/Letter-shell/Src/shell_ext.c ****             if (shellExtParsePara(shell, argv[i + 1], type, &params[i]) != 0)
- 481:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
- 482:ThirdParty/Letter-shell/Src/shell_ext.c ****                 return -1;
- 483:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
- 484:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 485:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
- 486:ThirdParty/Letter-shell/Src/shell_ext.c ****     #endif /** SHELL_USING_FUNC_SIGNATURE == 1 */
- 487:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 488:ThirdParty/Letter-shell/Src/shell_ext.c ****             if (shellExtParsePara(shell, argv[i + 1], NULL, &params[i]) != 0)
- 1077              		.loc 1 488 46
- 1078 004a 3B6D     		ldr	r3, [r7, #80]
- 1079 004c 0133     		adds	r3, r3, #1
- 1080 004e 9B00     		lsls	r3, r3, #2
- 1081 0050 3A68     		ldr	r2, [r7]
- 1082 0052 1344     		add	r3, r3, r2
- 1083              		.loc 1 488 17
- 1084 0054 1968     		ldr	r1, [r3]
- 1085 0056 07F11002 		add	r2, r7, #16
- 1086 005a 3B6D     		ldr	r3, [r7, #80]
- 1087 005c 9B00     		lsls	r3, r3, #2
- 1088 005e 1344     		add	r3, r3, r2
- 1089 0060 0022     		movs	r2, #0
- 1090 0062 F868     		ldr	r0, [r7, #12]
- 1091 0064 FFF7FEFF 		bl	shellExtParsePara
- 1092 0068 0346     		mov	r3, r0
- 1093              		.loc 1 488 16
- 1094 006a 002B     		cmp	r3, #0
- 1095 006c 02D0     		beq	.L71
- 489:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
- 490:ThirdParty/Letter-shell/Src/shell_ext.c ****                 return -1;
- 1096              		.loc 1 490 24
- 1097 006e 4FF0FF33 		mov	r3, #-1
- 1098 0072 99E0     		b	.L85
- 1099              	.L71:
- 475:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 1100              		.loc 1 475 36 discriminator 2
- 1101 0074 3B6D     		ldr	r3, [r7, #80]
- 1102 0076 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 29
-
-
- 1103 0078 3B65     		str	r3, [r7, #80]
- 1104              	.L70:
- 475:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 1105              		.loc 1 475 30 discriminator 1
- 1106 007a 7B68     		ldr	r3, [r7, #4]
- 1107 007c 013B     		subs	r3, r3, #1
- 475:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 1108              		.loc 1 475 5 discriminator 1
- 1109 007e 3A6D     		ldr	r2, [r7, #80]
- 1110 0080 9A42     		cmp	r2, r3
- 1111 0082 E2DB     		blt	.L73
- 1112              	.LBE2:
- 491:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
- 492:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 493:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 494:ThirdParty/Letter-shell/Src/shell_ext.c ****     switch (paramNum)
- 1113              		.loc 1 494 5
- 1114 0084 FB6C     		ldr	r3, [r7, #76]
- 1115 0086 072B     		cmp	r3, #7
- 1116 0088 00F28980 		bhi	.L74
- 1117 008c 01A2     		adr	r2, .L76
- 1118 008e 52F823F0 		ldr	pc, [r2, r3, lsl #2]
- 1119 0092 00BF     		.p2align 2
- 1120              	.L76:
- 1121 0094 B5000000 		.word	.L83+1
- 1122 0098 BF000000 		.word	.L82+1
- 1123 009c D3000000 		.word	.L81+1
- 1124 00a0 EB000000 		.word	.L80+1
- 1125 00a4 05010000 		.word	.L79+1
- 1126 00a8 21010000 		.word	.L78+1
- 1127 00ac 45010000 		.word	.L77+1
- 1128 00b0 6F010000 		.word	.L75+1
- 1129              		.p2align 1
- 1130              	.L83:
- 495:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 496:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 1
- 497:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 0:
- 498:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = command->data.cmd.function();
- 1131              		.loc 1 498 32
- 1132 00b4 BB68     		ldr	r3, [r7, #8]
- 1133 00b6 9B68     		ldr	r3, [r3, #8]
- 1134              		.loc 1 498 15
- 1135 00b8 9847     		blx	r3
- 1136              	.LVL0:
- 1137 00ba 7865     		str	r0, [r7, #84]
- 499:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 1138              		.loc 1 499 9
- 1139 00bc 73E0     		b	.L84
- 1140              	.L82:
- 1141              	.LBB3:
- 500:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 1 */
- 501:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 2
- 502:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 1:
- 503:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 504:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int) = command->data.cmd.function;
- 1142              		.loc 1 504 15
- 1143 00be BB68     		ldr	r3, [r7, #8]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 30
-
-
- 1144 00c0 9B68     		ldr	r3, [r3, #8]
- 1145 00c2 3B63     		str	r3, [r7, #48]
- 505:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0]);
- 1146              		.loc 1 505 26
- 1147 00c4 3B69     		ldr	r3, [r7, #16]
- 1148              		.loc 1 505 15
- 1149 00c6 1A46     		mov	r2, r3
- 1150 00c8 3B6B     		ldr	r3, [r7, #48]
- 1151 00ca 1046     		mov	r0, r2
- 1152 00cc 9847     		blx	r3
- 1153              	.LVL1:
- 1154 00ce 7865     		str	r0, [r7, #84]
- 506:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 1155              		.loc 1 506 9
- 1156 00d0 69E0     		b	.L84
- 1157              	.L81:
- 1158              	.LBE3:
- 1159              	.LBB4:
- 507:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 508:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 2 */
- 509:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 3
- 510:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 2:
- 511:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 512:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int) = command->data.cmd.function;
- 1160              		.loc 1 512 15
- 1161 00d2 BB68     		ldr	r3, [r7, #8]
- 1162 00d4 9B68     		ldr	r3, [r3, #8]
- 1163 00d6 7B63     		str	r3, [r7, #52]
- 513:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1]);
- 1164              		.loc 1 513 26
- 1165 00d8 3B69     		ldr	r3, [r7, #16]
- 1166              		.loc 1 513 15
- 1167 00da 1A46     		mov	r2, r3
- 1168              		.loc 1 513 37
- 1169 00dc 7B69     		ldr	r3, [r7, #20]
- 1170              		.loc 1 513 15
- 1171 00de 1946     		mov	r1, r3
- 1172 00e0 7B6B     		ldr	r3, [r7, #52]
- 1173 00e2 1046     		mov	r0, r2
- 1174 00e4 9847     		blx	r3
- 1175              	.LVL2:
- 1176 00e6 7865     		str	r0, [r7, #84]
- 514:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 1177              		.loc 1 514 9
- 1178 00e8 5DE0     		b	.L84
- 1179              	.L80:
- 1180              	.LBE4:
- 1181              	.LBB5:
- 515:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 516:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 3 */
- 517:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 4
- 518:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 3:
- 519:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 520:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int) = command->data.cmd.function;
- 1182              		.loc 1 520 15
- 1183 00ea BB68     		ldr	r3, [r7, #8]
- 1184 00ec 9B68     		ldr	r3, [r3, #8]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 31
-
-
- 1185 00ee BB63     		str	r3, [r7, #56]
- 521:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2]);
- 1186              		.loc 1 521 26
- 1187 00f0 3B69     		ldr	r3, [r7, #16]
- 1188              		.loc 1 521 15
- 1189 00f2 1846     		mov	r0, r3
- 1190              		.loc 1 521 37
- 1191 00f4 7B69     		ldr	r3, [r7, #20]
- 1192              		.loc 1 521 15
- 1193 00f6 1946     		mov	r1, r3
- 1194              		.loc 1 521 48
- 1195 00f8 BB69     		ldr	r3, [r7, #24]
- 1196              		.loc 1 521 15
- 1197 00fa 1A46     		mov	r2, r3
- 1198 00fc BB6B     		ldr	r3, [r7, #56]
- 1199 00fe 9847     		blx	r3
- 1200              	.LVL3:
- 1201 0100 7865     		str	r0, [r7, #84]
- 522:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 1202              		.loc 1 522 9
- 1203 0102 50E0     		b	.L84
- 1204              	.L79:
- 1205              	.LBE5:
- 1206              	.LBB6:
- 523:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 524:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 4 */
- 525:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 5
- 526:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 4:
- 527:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 528:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int) = command->data.cmd.function;
- 1207              		.loc 1 528 15
- 1208 0104 BB68     		ldr	r3, [r7, #8]
- 1209 0106 9B68     		ldr	r3, [r3, #8]
- 1210 0108 FB63     		str	r3, [r7, #60]
- 529:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3]);
- 1211              		.loc 1 529 26
- 1212 010a 3B69     		ldr	r3, [r7, #16]
- 1213              		.loc 1 529 15
- 1214 010c 1846     		mov	r0, r3
- 1215              		.loc 1 529 37
- 1216 010e 7B69     		ldr	r3, [r7, #20]
- 1217              		.loc 1 529 15
- 1218 0110 1946     		mov	r1, r3
- 1219              		.loc 1 529 48
- 1220 0112 BB69     		ldr	r3, [r7, #24]
- 1221              		.loc 1 529 15
- 1222 0114 1A46     		mov	r2, r3
- 1223              		.loc 1 529 59
- 1224 0116 FB69     		ldr	r3, [r7, #28]
- 1225              		.loc 1 529 15
- 1226 0118 FC6B     		ldr	r4, [r7, #60]
- 1227 011a A047     		blx	r4
- 1228              	.LVL4:
- 1229 011c 7865     		str	r0, [r7, #84]
- 530:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 1230              		.loc 1 530 9
- 1231 011e 42E0     		b	.L84
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 32
-
-
- 1232              	.L78:
- 1233              	.LBE6:
- 1234              	.LBB7:
- 531:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 532:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 5 */
- 533:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 6
- 534:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 5:
- 535:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 536:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int) = command->data.cmd.function;
- 1235              		.loc 1 536 15
- 1236 0120 BB68     		ldr	r3, [r7, #8]
- 1237 0122 9B68     		ldr	r3, [r3, #8]
- 1238 0124 3B64     		str	r3, [r7, #64]
- 537:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4]);
- 1239              		.loc 1 537 26
- 1240 0126 3B69     		ldr	r3, [r7, #16]
- 1241              		.loc 1 537 15
- 1242 0128 1846     		mov	r0, r3
- 1243              		.loc 1 537 37
- 1244 012a 7B69     		ldr	r3, [r7, #20]
- 1245              		.loc 1 537 15
- 1246 012c 1946     		mov	r1, r3
- 1247              		.loc 1 537 48
- 1248 012e BB69     		ldr	r3, [r7, #24]
- 1249              		.loc 1 537 15
- 1250 0130 1A46     		mov	r2, r3
- 1251              		.loc 1 537 59
- 1252 0132 FB69     		ldr	r3, [r7, #28]
- 1253              		.loc 1 537 15
- 1254 0134 1D46     		mov	r5, r3
- 1255              		.loc 1 537 70
- 1256 0136 3B6A     		ldr	r3, [r7, #32]
- 1257              		.loc 1 537 15
- 1258 0138 0093     		str	r3, [sp]
- 1259 013a 3C6C     		ldr	r4, [r7, #64]
- 1260 013c 2B46     		mov	r3, r5
- 1261 013e A047     		blx	r4
- 1262              	.LVL5:
- 1263 0140 7865     		str	r0, [r7, #84]
- 538:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 1264              		.loc 1 538 9
- 1265 0142 30E0     		b	.L84
- 1266              	.L77:
- 1267              	.LBE7:
- 1268              	.LBB8:
- 539:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 540:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 6 */
- 541:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 7
- 542:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 6:
- 543:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 544:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int) = command->data.cmd.function;
- 1269              		.loc 1 544 15
- 1270 0144 BB68     		ldr	r3, [r7, #8]
- 1271 0146 9B68     		ldr	r3, [r3, #8]
- 1272 0148 7B64     		str	r3, [r7, #68]
- 545:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5]);
- 1273              		.loc 1 545 26
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 33
-
-
- 1274 014a 3B69     		ldr	r3, [r7, #16]
- 1275              		.loc 1 545 15
- 1276 014c 1846     		mov	r0, r3
- 1277              		.loc 1 545 37
- 1278 014e 7B69     		ldr	r3, [r7, #20]
- 1279              		.loc 1 545 15
- 1280 0150 1946     		mov	r1, r3
- 1281              		.loc 1 545 48
- 1282 0152 BB69     		ldr	r3, [r7, #24]
- 1283              		.loc 1 545 15
- 1284 0154 1D46     		mov	r5, r3
- 1285              		.loc 1 545 59
- 1286 0156 FB69     		ldr	r3, [r7, #28]
- 1287              		.loc 1 545 15
- 1288 0158 1E46     		mov	r6, r3
- 1289              		.loc 1 545 70
- 1290 015a 3B6A     		ldr	r3, [r7, #32]
- 1291              		.loc 1 545 81
- 1292 015c 7A6A     		ldr	r2, [r7, #36]
- 1293              		.loc 1 545 15
- 1294 015e 0192     		str	r2, [sp, #4]
- 1295 0160 0093     		str	r3, [sp]
- 1296 0162 7C6C     		ldr	r4, [r7, #68]
- 1297 0164 3346     		mov	r3, r6
- 1298 0166 2A46     		mov	r2, r5
- 1299 0168 A047     		blx	r4
- 1300              	.LVL6:
- 1301 016a 7865     		str	r0, [r7, #84]
- 546:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 1302              		.loc 1 546 9
- 1303 016c 1BE0     		b	.L84
- 1304              	.L75:
- 1305              	.LBE8:
- 1306              	.LBB9:
- 547:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 548:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 7 */
- 549:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 8
- 550:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 7:
- 551:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 552:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int) = command->data.cmd.function;
- 1307              		.loc 1 552 15
- 1308 016e BB68     		ldr	r3, [r7, #8]
- 1309 0170 9B68     		ldr	r3, [r3, #8]
- 1310 0172 BB64     		str	r3, [r7, #72]
- 553:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6]);
- 1311              		.loc 1 553 26
- 1312 0174 3B69     		ldr	r3, [r7, #16]
- 1313              		.loc 1 553 15
- 1314 0176 1846     		mov	r0, r3
- 1315              		.loc 1 553 37
- 1316 0178 7B69     		ldr	r3, [r7, #20]
- 1317              		.loc 1 553 15
- 1318 017a 1D46     		mov	r5, r3
- 1319              		.loc 1 553 48
- 1320 017c BB69     		ldr	r3, [r7, #24]
- 1321              		.loc 1 553 15
- 1322 017e 1E46     		mov	r6, r3
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 34
-
-
- 1323              		.loc 1 553 59
- 1324 0180 FB69     		ldr	r3, [r7, #28]
- 1325              		.loc 1 553 15
- 1326 0182 9C46     		mov	ip, r3
- 1327              		.loc 1 553 70
- 1328 0184 3B6A     		ldr	r3, [r7, #32]
- 1329              		.loc 1 553 81
- 1330 0186 7A6A     		ldr	r2, [r7, #36]
- 1331              		.loc 1 553 92
- 1332 0188 B96A     		ldr	r1, [r7, #40]
- 1333              		.loc 1 553 15
- 1334 018a 0291     		str	r1, [sp, #8]
- 1335 018c 0192     		str	r2, [sp, #4]
- 1336 018e 0093     		str	r3, [sp]
- 1337 0190 BC6C     		ldr	r4, [r7, #72]
- 1338 0192 6346     		mov	r3, ip
- 1339 0194 3246     		mov	r2, r6
- 1340 0196 2946     		mov	r1, r5
- 1341 0198 A047     		blx	r4
- 1342              	.LVL7:
- 1343 019a 7865     		str	r0, [r7, #84]
- 554:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 1344              		.loc 1 554 9
- 1345 019c 03E0     		b	.L84
- 1346              	.L74:
- 1347              	.LBE9:
- 555:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 556:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 8 */
- 557:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 9
- 558:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 8:
- 559:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 560:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int) = command->data.cmd.function;
- 561:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
- 562:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 563:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 564:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 9 */
- 565:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 10
- 566:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 9:
- 567:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 568:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int) = command->data.cmd.function;
- 569:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
- 570:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8]);
- 571:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 572:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 573:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 10 */
- 574:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 11
- 575:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 10:
- 576:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 577:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int) = command->data.cmd.function;
- 578:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
- 579:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9]);
- 580:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 581:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 582:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 11 */
- 583:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 12
- 584:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 11:
- 585:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 35
-
-
- 586:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int) = command->data.cmd.func
- 587:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
- 588:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10]);
- 589:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 590:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 591:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 12 */
- 592:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 13
- 593:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 12:
- 594:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 595:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int, int) = command->data.cmd
- 596:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
- 597:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10], params[11]);
- 598:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 599:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 600:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 13 */
- 601:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 14
- 602:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 13:
- 603:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 604:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int, int, int) = command->dat
- 605:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
- 606:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10], params[11], params[12]);
- 607:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 608:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 609:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 14 */
- 610:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 15
- 611:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 14:
- 612:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 613:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int, int, int, int)
- 614:ThirdParty/Letter-shell/Src/shell_ext.c ****             = command->data.cmd.function;
- 615:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
- 616:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10], params[11], params[12], params[13]);
- 617:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 618:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 619:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 15 */
- 620:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 16
- 621:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 15:
- 622:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
- 623:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)
- 624:ThirdParty/Letter-shell/Src/shell_ext.c ****             = command->data.cmd.function;
- 625:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
- 626:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10], params[11], params[12], params[13], params[14]
- 627:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 628:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 629:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 16 */
- 630:ThirdParty/Letter-shell/Src/shell_ext.c ****     default:
- 631:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = -1;
- 1348              		.loc 1 631 13
- 1349 019e 4FF0FF33 		mov	r3, #-1
- 1350 01a2 7B65     		str	r3, [r7, #84]
- 632:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
- 1351              		.loc 1 632 9
- 1352 01a4 00BF     		nop
- 1353              	.L84:
- 633:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 634:ThirdParty/Letter-shell/Src/shell_ext.c ****     
- 635:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
- 636:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (command->data.cmd.signature != NULL) {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 36
-
-
- 637:ThirdParty/Letter-shell/Src/shell_ext.c ****         index = 0;
- 638:ThirdParty/Letter-shell/Src/shell_ext.c ****         for (int i = 0; i < argc - 1; i++)
- 639:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
- 640:ThirdParty/Letter-shell/Src/shell_ext.c ****             index = shellGetNextParamType(command->data.cmd.signature, index, type);
- 641:ThirdParty/Letter-shell/Src/shell_ext.c ****             shellExtCleanerPara(shell, type, params[i]);
- 642:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
- 643:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
- 644:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_USING_FUNC_SIGNATURE == 1 */
- 645:ThirdParty/Letter-shell/Src/shell_ext.c **** 
- 646:ThirdParty/Letter-shell/Src/shell_ext.c ****     return ret;
- 1354              		.loc 1 646 12
- 1355 01a6 7B6D     		ldr	r3, [r7, #84]
- 1356              	.L85:
- 647:ThirdParty/Letter-shell/Src/shell_ext.c **** }
- 1357              		.loc 1 647 1 discriminator 1
- 1358 01a8 1846     		mov	r0, r3
- 1359 01aa 5C37     		adds	r7, r7, #92
- 1360              	.LCFI41:
- 1361              		.cfi_def_cfa_offset 20
- 1362 01ac BD46     		mov	sp, r7
- 1363              	.LCFI42:
- 1364              		.cfi_def_cfa_register 13
- 1365              		@ sp needed
- 1366 01ae F0BD     		pop	{r4, r5, r6, r7, pc}
- 1367              		.cfi_endproc
- 1368              	.LFE7:
- 1370              		.text
- 1371              	.Letext0:
- 1372              		.file 2 "ThirdParty/Letter-shell/Inc/shell.h"
- 1373              		.file 3 "ThirdParty/Letter-shell/Inc/shell_ext.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccfejerb.s 			page 37
+  17              		.section	.text.shellExtParseChar,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  23              	shellExtParseChar:
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26              		@ link register save eliminated.
+  27 0000 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
+  28 0002 0346     		mov	r3, r0
+  29 0004 272A     		cmp	r2, #39
+  30 0006 08BF     		it	eq
+  31 0008 0133     		addeq	r3, r3, #1
+  32 000a 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  33 000c 5C28     		cmp	r0, #92
+  34 000e 14D1     		bne	.L3
+  35 0010 5878     		ldrb	r0, [r3, #1]	@ zero_extendqisi2
+  36 0012 6E28     		cmp	r0, #110
+  37 0014 0CD0     		beq	.L5
+  38 0016 05D8     		bhi	.L4
+  39 0018 3028     		cmp	r0, #48
+  40 001a 0BD0     		beq	.L6
+  41 001c 6228     		cmp	r0, #98
+  42 001e 08BF     		it	eq
+  43 0020 0820     		moveq	r0, #8
+  44 0022 7047     		bx	lr
+  45              	.L4:
+  46 0024 7228     		cmp	r0, #114
+  47 0026 07D0     		beq	.L8
+  48 0028 7428     		cmp	r0, #116
+  49 002a 08BF     		it	eq
+  50 002c 0920     		moveq	r0, #9
+  51 002e 7047     		bx	lr
+  52              	.L5:
+  53 0030 0A20     		movs	r0, #10
+  54 0032 7047     		bx	lr
+  55              	.L6:
+  56 0034 0020     		movs	r0, #0
+  57 0036 7047     		bx	lr
+  58              	.L8:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 2
+
+
+  59 0038 0D20     		movs	r0, #13
+  60              	.L3:
+  61 003a 7047     		bx	lr
+  63              		.section	.text.shellExtParsePara,"ax",%progbits
+  64              		.align	1
+  65              		.global	shellExtParsePara
+  66              		.syntax unified
+  67              		.thumb
+  68              		.thumb_func
+  70              	shellExtParsePara:
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  74 0004 1D46     		mov	r5, r3
+  75 0006 0646     		mov	r6, r0
+  76 0008 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+  77 000a 32B1     		cbz	r2, .L11
+  78 000c 242B     		cmp	r3, #36
+  79 000e 01D1     		bne	.L47
+  80 0010 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+  81 0012 7AB9     		cbnz	r2, .L13
+  82              	.L47:
+  83 0014 4FF0FF30 		mov	r0, #-1
+  84 0018 54E0     		b	.L10
+  85              	.L11:
+  86 001a 272B     		cmp	r3, #39
+  87 001c 08D1     		bne	.L14
+  88 001e 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+  89 0020 002B     		cmp	r3, #0
+  90 0022 00F09880 		beq	.L15
+  91 0026 0846     		mov	r0, r1
+  92 0028 FFF7FEFF 		bl	shellExtParseChar
+  93              	.L31:
+  94 002c 2860     		str	r0, [r5]
+  95 002e 48E0     		b	.L59
+  96              	.L14:
+  97 0030 2D2B     		cmp	r3, #45
+  98 0032 49D0     		beq	.L38
+  99              	.L13:
+ 100 0034 A3F13002 		sub	r2, r3, #48
+ 101 0038 092A     		cmp	r2, #9
+ 102 003a 74D8     		bhi	.L17
+ 103 003c 0123     		movs	r3, #1
+ 104 003e 0020     		movs	r0, #0
+ 105              	.L16:
+ 106 0040 0A18     		adds	r2, r1, r0
+ 107 0042 085C     		ldrb	r0, [r1, r0]	@ zero_extendqisi2
+ 108 0044 3028     		cmp	r0, #48
+ 109 0046 4BD1     		bne	.L39
+ 110 0048 5078     		ldrb	r0, [r2, #1]	@ zero_extendqisi2
+ 111 004a 00F0DF00 		and	r0, r0, #223
+ 112 004e 5828     		cmp	r0, #88
+ 113 0050 48D0     		beq	.L40
+ 114 0052 4228     		cmp	r0, #66
+ 115 0054 0CBF     		ite	eq
+ 116 0056 0127     		moveq	r7, #1
+ 117 0058 0227     		movne	r7, #2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 3
+
+
+ 118              	.L54:
+ 119 005a 12F8010B 		ldrb	r0, [r2], #1	@ zero_extendqisi2
+ 120 005e 0028     		cmp	r0, #0
+ 121 0060 36D1     		bne	.L21
+ 122              	.L20:
+ 123 0062 7A1E     		subs	r2, r7, #1
+ 124 0064 D2B2     		uxtb	r2, r2
+ 125 0066 022A     		cmp	r2, #2
+ 126 0068 9FBF     		itttt	ls
+ 127 006a 4948     		ldrls	r0, .L60
+ 128 006c 10F802C0 		ldrbls	ip, [r0, r2]	@ zero_extendqisi2
+ 129 0070 4848     		ldrls	r0, .L60+4
+ 130 0072 825C     		ldrbls	r2, [r0, r2]	@ zero_extendqisi2
+ 131 0074 84BF     		itt	hi
+ 132 0076 0022     		movhi	r2, #0
+ 133 0078 4FF00A0C 		movhi	ip, #10
+ 134 007c 0024     		movs	r4, #0
+ 135 007e B3F1FF3F 		cmp	r3, #-1
+ 136 0082 18BF     		it	ne
+ 137 0084 013A     		subne	r2, r2, #1
+ 138 0086 1144     		add	r1, r1, r2
+ 139 0088 2046     		mov	r0, r4
+ 140 008a 4FF00A0E 		mov	lr, #10
+ 141              	.L23:
+ 142 008e 11F8012F 		ldrb	r2, [r1, #1]!	@ zero_extendqisi2
+ 143 0092 4ABB     		cbnz	r2, .L27
+ 144 0094 042F     		cmp	r7, #4
+ 145 0096 44D1     		bne	.L28
+ 146 0098 002C     		cmp	r4, #0
+ 147 009a 42D0     		beq	.L28
+ 148 009c 07EE900A 		vmov	s15, r0	@ int
+ 149 00a0 07EE104A 		vmov	s14, r4	@ int
+ 150 00a4 F8EE677A 		vcvt.f32.u32	s15, s15
+ 151 00a8 B8EE477A 		vcvt.f32.u32	s14, s14
+ 152 00ac C7EE876A 		vdiv.f32	s13, s15, s14
+ 153 00b0 07EE903A 		vmov	s15, r3	@ int
+ 154 00b4 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 155 00b8 66EEA77A 		vmul.f32	s15, s13, s15
+ 156 00bc 17EE903A 		vmov	r3, s15
+ 157              	.L29:
+ 158 00c0 2B60     		str	r3, [r5]
+ 159              	.L59:
+ 160 00c2 0020     		movs	r0, #0
+ 161              	.L10:
+ 162 00c4 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 163              	.L38:
+ 164 00c8 4FF0FF33 		mov	r3, #-1
+ 165 00cc 0120     		movs	r0, #1
+ 166 00ce B7E7     		b	.L16
+ 167              	.L21:
+ 168 00d0 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 169 00d2 2E28     		cmp	r0, #46
+ 170 00d4 C1D1     		bne	.L54
+ 171 00d6 5078     		ldrb	r0, [r2, #1]	@ zero_extendqisi2
+ 172 00d8 0028     		cmp	r0, #0
+ 173 00da BED0     		beq	.L54
+ 174 00dc 0427     		movs	r7, #4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 4
+
+
+ 175 00de C0E7     		b	.L20
+ 176              	.L39:
+ 177 00e0 0027     		movs	r7, #0
+ 178 00e2 BAE7     		b	.L54
+ 179              	.L40:
+ 180 00e4 0327     		movs	r7, #3
+ 181 00e6 B8E7     		b	.L54
+ 182              	.L27:
+ 183 00e8 2E2A     		cmp	r2, #46
+ 184 00ea 18D0     		beq	.L44
+ 185 00ec A2F13006 		sub	r6, r2, #48
+ 186 00f0 F6B2     		uxtb	r6, r6
+ 187 00f2 092E     		cmp	r6, #9
+ 188 00f4 00FB0CF0 		mul	r0, r0, ip
+ 189 00f8 05D9     		bls	.L25
+ 190 00fa A2F16106 		sub	r6, r2, #97
+ 191 00fe 052E     		cmp	r6, #5
+ 192 0100 05D8     		bhi	.L26
+ 193 0102 573A     		subs	r2, r2, #87
+ 194              	.L58:
+ 195 0104 D6B2     		uxtb	r6, r2
+ 196              	.L25:
+ 197 0106 3044     		add	r0, r0, r6
+ 198 0108 0EFB04F4 		mul	r4, lr, r4
+ 199 010c BFE7     		b	.L23
+ 200              	.L26:
+ 201 010e A2F14106 		sub	r6, r2, #65
+ 202 0112 052E     		cmp	r6, #5
+ 203 0114 01D8     		bhi	.L45
+ 204 0116 373A     		subs	r2, r2, #55
+ 205 0118 F4E7     		b	.L58
+ 206              	.L45:
+ 207 011a 0026     		movs	r6, #0
+ 208 011c F3E7     		b	.L25
+ 209              	.L44:
+ 210 011e 0124     		movs	r4, #1
+ 211 0120 B5E7     		b	.L23
+ 212              	.L28:
+ 213 0122 4343     		muls	r3, r0, r3
+ 214 0124 CCE7     		b	.L29
+ 215              	.L17:
+ 216 0126 242B     		cmp	r3, #36
+ 217 0128 0FD1     		bne	.L30
+ 218 012a 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 219 012c 9BB1     		cbz	r3, .L15
+ 220 012e 0131     		adds	r1, r1, #1
+ 221 0130 B26D     		ldr	r2, [r6, #88]
+ 222 0132 0023     		movs	r3, #0
+ 223 0134 3046     		mov	r0, r6
+ 224 0136 FFF7FEFF 		bl	shellSeekCommand
+ 225 013a 0146     		mov	r1, r0
+ 226 013c 0028     		cmp	r0, #0
+ 227 013e 3FF475AF 		beq	.L31
+ 228 0142 3046     		mov	r0, r6
+ 229 0144 FFF7FEFF 		bl	shellGetVarValue
+ 230 0148 70E7     		b	.L31
+ 231              	.L30:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 5
+
+
+ 232 014a 002B     		cmp	r3, #0
+ 233 014c 3FF462AF 		beq	.L47
+ 234 0150 222B     		cmp	r3, #34
+ 235 0152 00D1     		bne	.L15
+ 236 0154 0131     		adds	r1, r1, #1
+ 237              	.L15:
+ 238 0156 0026     		movs	r6, #0
+ 239 0158 0B46     		mov	r3, r1
+ 240 015a 3746     		mov	r7, r6
+ 241 015c 0AE0     		b	.L35
+ 242              	.L36:
+ 243 015e 5C28     		cmp	r0, #92
+ 244 0160 10D1     		bne	.L32
+ 245 0162 581E     		subs	r0, r3, #1
+ 246 0164 03F10108 		add	r8, r3, #1
+ 247 0168 FFF7FEFF 		bl	shellExtParseChar
+ 248 016c 4346     		mov	r3, r8
+ 249 016e 2070     		strb	r0, [r4]
+ 250              	.L33:
+ 251 0170 0133     		adds	r3, r3, #1
+ 252 0172 0136     		adds	r6, r6, #1
+ 253              	.L35:
+ 254 0174 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 255 0176 11FA86F4 		uxtah	r4, r1, r6
+ 256 017a 0028     		cmp	r0, #0
+ 257 017c EFD1     		bne	.L36
+ 258 017e 2070     		strb	r0, [r4]
+ 259 0180 2960     		str	r1, [r5]
+ 260 0182 9FE7     		b	.L10
+ 261              	.L32:
+ 262 0184 2228     		cmp	r0, #34
+ 263 0186 0CBF     		ite	eq
+ 264 0188 2770     		strbeq	r7, [r4]
+ 265 018a 2070     		strbne	r0, [r4]
+ 266 018c F0E7     		b	.L33
+ 267              	.L61:
+ 268 018e 00BF     		.align	2
+ 269              	.L60:
+ 270 0190 00000000 		.word	.LANCHOR0
+ 271 0194 00000000 		.word	.LANCHOR1
+ 273              		.section	.text.shellExtRun,"ax",%progbits
+ 274              		.align	1
+ 275              		.global	shellExtRun
+ 276              		.syntax unified
+ 277              		.thumb
+ 278              		.thumb_func
+ 280              	shellExtRun:
+ 281              		@ args = 0, pretend = 0, frame = 32
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 284 0004 0C46     		mov	r4, r1
+ 285 0006 8DB0     		sub	sp, sp, #52
+ 286 0008 1746     		mov	r7, r2
+ 287 000a 8046     		mov	r8, r0
+ 288 000c 2022     		movs	r2, #32
+ 289 000e 0021     		movs	r1, #0
+ 290 0010 04A8     		add	r0, sp, #16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 6
+
+
+ 291 0012 1E46     		mov	r6, r3
+ 292 0014 FFF7FEFF 		bl	memset
+ 293 0018 A578     		ldrb	r5, [r4, #2]	@ zero_extendqisi2
+ 294 001a 07F1FF39 		add	r9, r7, #-1
+ 295 001e 05F00F05 		and	r5, r5, #15
+ 296 0022 BD42     		cmp	r5, r7
+ 297 0024 B8BF     		it	lt
+ 298 0026 4D46     		movlt	r5, r9
+ 299 0028 0027     		movs	r7, #0
+ 300              	.L64:
+ 301 002a 4F45     		cmp	r7, r9
+ 302 002c 07DB     		blt	.L66
+ 303 002e 072D     		cmp	r5, #7
+ 304 0030 4ED8     		bhi	.L78
+ 305 0032 DFE805F0 		tbb	[pc, r5]
+ 306              	.L68:
+ 307 0036 11       		.byte	(.L75-.L68)/2
+ 308 0037 16       		.byte	(.L74-.L68)/2
+ 309 0038 1A       		.byte	(.L73-.L68)/2
+ 310 0039 1F       		.byte	(.L72-.L68)/2
+ 311 003a 25       		.byte	(.L71-.L68)/2
+ 312 003b 2C       		.byte	(.L70-.L68)/2
+ 313 003c 35       		.byte	(.L69-.L68)/2
+ 314 003d 40       		.byte	(.L67-.L68)/2
+ 315              		.p2align 1
+ 316              	.L66:
+ 317 003e 04AB     		add	r3, sp, #16
+ 318 0040 56F8041F 		ldr	r1, [r6, #4]!
+ 319 0044 03EB8703 		add	r3, r3, r7, lsl #2
+ 320 0048 0022     		movs	r2, #0
+ 321 004a 4046     		mov	r0, r8
+ 322 004c FFF7FEFF 		bl	shellExtParsePara
+ 323 0050 0028     		cmp	r0, #0
+ 324 0052 3DD1     		bne	.L78
+ 325 0054 0137     		adds	r7, r7, #1
+ 326 0056 E8E7     		b	.L64
+ 327              	.L75:
+ 328 0058 A368     		ldr	r3, [r4, #8]
+ 329 005a 9847     		blx	r3
+ 330              	.L62:
+ 331 005c 0DB0     		add	sp, sp, #52
+ 332              		@ sp needed
+ 333 005e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 334              	.L74:
+ 335 0062 A368     		ldr	r3, [r4, #8]
+ 336 0064 0498     		ldr	r0, [sp, #16]
+ 337 0066 9847     		blx	r3
+ 338 0068 F8E7     		b	.L62
+ 339              	.L73:
+ 340 006a DDE90401 		ldrd	r0, r1, [sp, #16]
+ 341 006e A368     		ldr	r3, [r4, #8]
+ 342 0070 9847     		blx	r3
+ 343 0072 F3E7     		b	.L62
+ 344              	.L72:
+ 345 0074 DDE90512 		ldrd	r1, r2, [sp, #20]
+ 346 0078 A368     		ldr	r3, [r4, #8]
+ 347 007a 0498     		ldr	r0, [sp, #16]
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 7
+
+
+ 348 007c 9847     		blx	r3
+ 349 007e EDE7     		b	.L62
+ 350              	.L71:
+ 351 0080 DDE90623 		ldrd	r2, r3, [sp, #24]
+ 352 0084 DDE90401 		ldrd	r0, r1, [sp, #16]
+ 353 0088 A468     		ldr	r4, [r4, #8]
+ 354 008a A047     		blx	r4
+ 355 008c E6E7     		b	.L62
+ 356              	.L70:
+ 357 008e 089B     		ldr	r3, [sp, #32]
+ 358 0090 0093     		str	r3, [sp]
+ 359 0092 DDE90401 		ldrd	r0, r1, [sp, #16]
+ 360 0096 DDE90623 		ldrd	r2, r3, [sp, #24]
+ 361 009a A468     		ldr	r4, [r4, #8]
+ 362 009c A047     		blx	r4
+ 363 009e DDE7     		b	.L62
+ 364              	.L69:
+ 365 00a0 099B     		ldr	r3, [sp, #36]
+ 366 00a2 0193     		str	r3, [sp, #4]
+ 367 00a4 089B     		ldr	r3, [sp, #32]
+ 368 00a6 0093     		str	r3, [sp]
+ 369 00a8 DDE90401 		ldrd	r0, r1, [sp, #16]
+ 370 00ac DDE90623 		ldrd	r2, r3, [sp, #24]
+ 371 00b0 A468     		ldr	r4, [r4, #8]
+ 372 00b2 A047     		blx	r4
+ 373 00b4 D2E7     		b	.L62
+ 374              	.L67:
+ 375 00b6 0A9B     		ldr	r3, [sp, #40]
+ 376 00b8 0293     		str	r3, [sp, #8]
+ 377 00ba 099B     		ldr	r3, [sp, #36]
+ 378 00bc 0193     		str	r3, [sp, #4]
+ 379 00be 089B     		ldr	r3, [sp, #32]
+ 380 00c0 0093     		str	r3, [sp]
+ 381 00c2 DDE90401 		ldrd	r0, r1, [sp, #16]
+ 382 00c6 DDE90623 		ldrd	r2, r3, [sp, #24]
+ 383 00ca A468     		ldr	r4, [r4, #8]
+ 384 00cc A047     		blx	r4
+ 385 00ce C5E7     		b	.L62
+ 386              	.L78:
+ 387 00d0 4FF0FF30 		mov	r0, #-1
+ 388 00d4 C2E7     		b	.L62
+ 390              		.section	.rodata.CSWTCH.13,"a"
+ 391              		.set	.LANCHOR0,. + 0
+ 394              	CSWTCH.13:
+ 395 0000 02       		.byte	2
+ 396 0001 08       		.byte	8
+ 397 0002 10       		.byte	16
+ 398              		.section	.rodata.CSWTCH.14,"a"
+ 399              		.set	.LANCHOR1,. + 0
+ 402              	CSWTCH.14:
+ 403 0000 02       		.byte	2
+ 404 0001 01       		.byte	1
+ 405 0002 02       		.byte	2
+ 406              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 shell_ext.c
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:20     .text.shellExtNumType:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:25     .text.shellExtNumType:00000000 shellExtNumType
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:169    .text.shellExtToNum:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:174    .text.shellExtToNum:00000000 shellExtToNum
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:256    .text.shellExtParseChar:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:261    .text.shellExtParseChar:00000000 shellExtParseChar
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:325    .text.shellExtParseChar:00000048 $d
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:344    .text.shellExtParseChar:00000094 $t
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:408    .text.shellExtParseString:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:413    .text.shellExtParseString:00000000 shellExtParseString
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:541    .text.shellExtParseNumber:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:546    .text.shellExtParseNumber:00000000 shellExtParseNumber
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:780    .text.shellExtParseVar:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:785    .text.shellExtParseVar:00000000 shellExtParseVar
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:843    .text.shellExtParsePara:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:849    .text.shellExtParsePara:00000000 shellExtParsePara
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:1008   .text.shellExtRun:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:1014   .text.shellExtRun:00000000 shellExtRun
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:1121   .text.shellExtRun:00000094 $d
-C:\Users\CL\AppData\Local\Temp\ccfejerb.s:1129   .text.shellExtRun:000000b4 $t
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:18     .text.shellExtParseChar:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:23     .text.shellExtParseChar:00000000 shellExtParseChar
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:64     .text.shellExtParsePara:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:70     .text.shellExtParsePara:00000000 shellExtParsePara
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:270    .text.shellExtParsePara:00000190 $d
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:274    .text.shellExtRun:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:280    .text.shellExtRun:00000000 shellExtRun
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:307    .text.shellExtRun:00000036 $d
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:315    .text.shellExtRun:0000003e $t
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:394    .rodata.CSWTCH.13:00000000 CSWTCH.13
+C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:402    .rodata.CSWTCH.14:00000000 CSWTCH.14
 
 UNDEFINED SYMBOLS
 shellSeekCommand

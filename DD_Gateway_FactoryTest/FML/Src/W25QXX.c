@@ -365,22 +365,26 @@ void Flash_Test(void)
   cap_mb = (float)cap_kb / 1024.0;
 
   shellPrint(&shell,"Manu_ID:0x%02x,Dev_ID:0x%02x\r\nManu_Identi:0x%02x,Memory_Type:0x%02x\r\n\
-Capacity:0x%02x = %dK-Bit = %.2fM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_id[2],cap_kb,cap_mb);
+Capacity:0x%02x = %dK-Bit = %d.%02dM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_id[2],cap_kb,(uint32_t)cap_mb,((uint32_t)(cap_mb*100))%100);
   
   /**/
   BSP_W25Qx_Write(test_buff,cap_kb*1024-10,10);
   Delay_ms(50);
   BSP_W25Qx_Read(read_buff,cap_kb*1024-10,10);
-  if(strcmp(read_buff,test_buff) == 0)
+  if(strcmp(read_buff,test_buff) == 0){
 	shellPrint(&shell,"Flash Test OK\r\n");
-  else
+	test_ok_cnt++;
+  }
+  else{
 	shellPrint(&shell,"Flash Test Failed\r\n");
+	test_error_cnt++;
+  }
   Delay_ms(10);
 
 }
 
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-flash_test, Flash_Test, rs485 send test);
+flash_test, Flash_Test, read flash info and w/r test);
 
 

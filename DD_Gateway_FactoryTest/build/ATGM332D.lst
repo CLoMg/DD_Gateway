@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -12,852 +12,319 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 1
    9              		.eabi_attribute 24, 1
   10              		.eabi_attribute 25, 1
   11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
+  12              		.eabi_attribute 30, 4
   13              		.eabi_attribute 34, 1
   14              		.eabi_attribute 18, 4
   15              		.file	"ATGM332D.c"
   16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.global	bds_dev
-  20              		.section	.data.bds_dev,"aw"
-  21              		.align	2
-  24              	bds_dev:
-  25 0000 FFFFFFFF 		.word	-1
-  26              		.global	dev0_buff
-  27              		.section	.data.dev0_buff,"aw"
-  28              		.align	2
-  31              	dev0_buff:
-  32 0000 FF00     		.ascii	"\377\000"
-  33 0002 00000000 		.space	198
-  33      00000000 
-  33      00000000 
-  33      00000000 
-  33      00000000 
-  34              		.global	atgm_dev
-  35              		.section	.data.atgm_dev,"aw"
-  36              		.align	2
-  39              	atgm_dev:
-  40 0000 75617274 		.ascii	"uart2/bds_0\000"
-  40      322F6264 
-  40      735F3000 
-  41 000c 000000   		.space	3
-  42 000f 00       		.space	1
-  43 0010 00000000 		.word	huart2
-  44 0014 00000048 		.word	1207959552
-  45 0018 0400     		.short	4
-  46 001a 0000     		.space	2
-  47 001c 00000000 		.word	dev0_buff
-  48 0020 0000     		.short	0
-  49 0022 C800     		.short	200
-  50              		.section	.text.atgm_io_init,"ax",%progbits
-  51              		.align	1
-  52              		.global	atgm_io_init
-  53              		.syntax unified
-  54              		.thumb
-  55              		.thumb_func
-  57              	atgm_io_init:
-  58              	.LFB288:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 2
+  17              		.section	.text.atgm_io_init,"ax",%progbits
+  18              		.align	1
+  19              		.global	atgm_io_init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	atgm_io_init:
+  25              		@ args = 0, pretend = 0, frame = 24
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27 0000 30B5     		push	{r4, r5, lr}
+  28 0002 0025     		movs	r5, #0
+  29 0004 87B0     		sub	sp, sp, #28
+  30 0006 CDE90355 		strd	r5, r5, [sp, #12]
+  31 000a 0D4B     		ldr	r3, .L2
+  32 000c 0595     		str	r5, [sp, #20]
+  33 000e DA6C     		ldr	r2, [r3, #76]
+  34 0010 42F00102 		orr	r2, r2, #1
+  35 0014 DA64     		str	r2, [r3, #76]
+  36 0016 DB6C     		ldr	r3, [r3, #76]
+  37 0018 03F00103 		and	r3, r3, #1
+  38 001c 0093     		str	r3, [sp]
+  39 001e 0446     		mov	r4, r0
+  40 0020 009B     		ldr	r3, [sp]
+  41 0022 038B     		ldrh	r3, [r0, #24]
+  42 0024 0193     		str	r3, [sp, #4]
+  43 0026 01A9     		add	r1, sp, #4
+  44 0028 0123     		movs	r3, #1
+  45 002a 4069     		ldr	r0, [r0, #20]
+  46 002c 0293     		str	r3, [sp, #8]
+  47 002e FFF7FEFF 		bl	HAL_GPIO_Init
+  48 0032 218B     		ldrh	r1, [r4, #24]
+  49 0034 6069     		ldr	r0, [r4, #20]
+  50 0036 2A46     		mov	r2, r5
+  51 0038 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  52 003c 07B0     		add	sp, sp, #28
+  53              		@ sp needed
+  54 003e 30BD     		pop	{r4, r5, pc}
+  55              	.L3:
+  56              		.align	2
+  57              	.L2:
+  58 0040 00100240 		.word	1073876992
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s 			page 2
 
 
-  59              		.file 1 "FML/Src/ATGM332D.c"
-   1:FML/Src/ATGM332D.c **** /**
-   2:FML/Src/ATGM332D.c ****  ******************************************************************************
-   3:FML/Src/ATGM332D.c ****  *
-   4:FML/Src/ATGM332D.c ****  * @file   
-   5:FML/Src/ATGM332D.c ****  *
-   6:FML/Src/ATGM332D.c ****  * @brief   
-   7:FML/Src/ATGM332D.c ****  *
-   8:FML/Src/ATGM332D.c ****  * @attention
-   9:FML/Src/ATGM332D.c ****  *
-  10:FML/Src/ATGM332D.c ****  *Copyright (c) 2023 STMicroelectronics.
-  11:FML/Src/ATGM332D.c ****  *
-  12:FML/Src/ATGM332D.c ****  *All rights reserved.
-  13:FML/Src/ATGM332D.c ****  ******************************************************************************
-  14:FML/Src/ATGM332D.c ****  */
-  15:FML/Src/ATGM332D.c **** 
-  16:FML/Src/ATGM332D.c **** 
-  17:FML/Src/ATGM332D.c **** /*----------------------------------include-----------------------------------*/
-  18:FML/Src/ATGM332D.c **** #include "ATGM332D.h"
-  19:FML/Src/ATGM332D.c **** #include "usart.h"
-  20:FML/Src/ATGM332D.c **** #include "shell_port.h"
-  21:FML/Src/ATGM332D.c **** #include "stdarg.h"
-  22:FML/Src/ATGM332D.c **** #include "string.h"
-  23:FML/Src/ATGM332D.c **** /*-----------------------------------macro------------------------------------*/
-  24:FML/Src/ATGM332D.c **** 
-  25:FML/Src/ATGM332D.c **** /*----------------------------------variable----------------------------------*/
-  26:FML/Src/ATGM332D.c **** int bds_dev = -1;
-  27:FML/Src/ATGM332D.c **** uint8_t dev0_buff[200]={0xff,};
-  28:FML/Src/ATGM332D.c **** 
-  29:FML/Src/ATGM332D.c **** /*----------------------------------typedef-----------------------------------*/
-  30:FML/Src/ATGM332D.c **** ATGM332D_HandleTypeDef atgm_dev[]=
-  31:FML/Src/ATGM332D.c **** {
-  32:FML/Src/ATGM332D.c ****     {
-  33:FML/Src/ATGM332D.c ****         "uart2/bds_0",
-  34:FML/Src/ATGM332D.c ****         &huart2,
-  35:FML/Src/ATGM332D.c ****         GPIOA,
-  36:FML/Src/ATGM332D.c ****         GPIO_PIN_2,
-  37:FML/Src/ATGM332D.c ****         dev0_buff,
-  38:FML/Src/ATGM332D.c ****         0,
-  39:FML/Src/ATGM332D.c ****         sizeof(dev0_buff)/sizeof(uint8_t)
-  40:FML/Src/ATGM332D.c ****     }
-  41:FML/Src/ATGM332D.c **** };
-  42:FML/Src/ATGM332D.c **** /*-------------------------------------os-------------------------------------*/
-  43:FML/Src/ATGM332D.c **** 
-  44:FML/Src/ATGM332D.c **** /*----------------------------------function----------------------------------*/
-  45:FML/Src/ATGM332D.c **** void atgm_io_init(ATGM332D_HandleTypeDef *device)
-  46:FML/Src/ATGM332D.c **** {
-  60              		.loc 1 46 1
-  61              		.cfi_startproc
-  62              		@ args = 0, pretend = 0, frame = 32
-  63              		@ frame_needed = 1, uses_anonymous_args = 0
-  64 0000 80B5     		push	{r7, lr}
-  65              	.LCFI0:
-  66              		.cfi_def_cfa_offset 8
-  67              		.cfi_offset 7, -8
-  68              		.cfi_offset 14, -4
-  69 0002 88B0     		sub	sp, sp, #32
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 3
+  60              		.section	.text.atgm_open,"ax",%progbits
+  61              		.align	1
+  62              		.global	atgm_open
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  67              	atgm_open:
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70 0000 10B5     		push	{r4, lr}
+  71 0002 0649     		ldr	r1, .L7
+  72 0004 FFF7FEFF 		bl	strcmp
+  73 0008 0446     		mov	r4, r0
+  74 000a 20B9     		cbnz	r0, .L6
+  75 000c 0348     		ldr	r0, .L7
+  76 000e FFF7FEFF 		bl	atgm_io_init
+  77              	.L4:
+  78 0012 2046     		mov	r0, r4
+  79 0014 10BD     		pop	{r4, pc}
+  80              	.L6:
+  81 0016 4FF0FF34 		mov	r4, #-1
+  82 001a FAE7     		b	.L4
+  83              	.L8:
+  84              		.align	2
+  85              	.L7:
+  86 001c 00000000 		.word	.LANCHOR0
+  88              		.section	.text.atgm_read,"ax",%progbits
+  89              		.align	1
+  90              		.global	atgm_read
+  91              		.syntax unified
+  92              		.thumb
+  93              		.thumb_func
+  95              	atgm_read:
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98 0000 0346     		mov	r3, r0
+  99 0002 10B5     		push	{r4, lr}
+ 100 0004 0846     		mov	r0, r1
+ 101 0006 5BB9     		cbnz	r3, .L12
+ 102 0008 074B     		ldr	r3, .L16
+ 103 000a 1C8C     		ldrh	r4, [r3, #32]
+ 104 000c 12B1     		cbz	r2, .L11
+ 105 000e 9442     		cmp	r4, r2
+ 106 0010 28BF     		it	cs
+ 107 0012 1446     		movcs	r4, r2
+ 108              	.L11:
+ 109 0014 D969     		ldr	r1, [r3, #28]
+ 110 0016 2246     		mov	r2, r4
+ 111 0018 FFF7FEFF 		bl	memcpy
+ 112 001c 2046     		mov	r0, r4
+ 113              	.L9:
+ 114 001e 10BD     		pop	{r4, pc}
+ 115              	.L12:
+ 116 0020 4FF0FF30 		mov	r0, #-1
+ 117 0024 FBE7     		b	.L9
+ 118              	.L17:
+ 119 0026 00BF     		.align	2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s 			page 3
 
 
-  70              	.LCFI1:
-  71              		.cfi_def_cfa_offset 40
-  72 0004 00AF     		add	r7, sp, #0
-  73              	.LCFI2:
-  74              		.cfi_def_cfa_register 7
-  75 0006 7860     		str	r0, [r7, #4]
-  47:FML/Src/ATGM332D.c ****      GPIO_InitTypeDef GPIO_InitStruct = {0};
-  76              		.loc 1 47 23
-  77 0008 07F10C03 		add	r3, r7, #12
-  78 000c 0022     		movs	r2, #0
-  79 000e 1A60     		str	r2, [r3]
-  80 0010 5A60     		str	r2, [r3, #4]
-  81 0012 9A60     		str	r2, [r3, #8]
-  82 0014 DA60     		str	r2, [r3, #12]
-  83 0016 1A61     		str	r2, [r3, #16]
-  84              	.LBB2:
-  48:FML/Src/ATGM332D.c ****     
-  49:FML/Src/ATGM332D.c ****     // 使能UART和GPIO时钟
-  50:FML/Src/ATGM332D.c ****     //__HAL_RCC_UARTX_CLK_ENABLE(); // 替换为实际的UART时钟
-  51:FML/Src/ATGM332D.c ****     __HAL_RCC_GPIOA_CLK_ENABLE(); // 替换为实际的GPIO时钟
-  85              		.loc 1 51 5
-  86 0018 144B     		ldr	r3, .L2
-  87 001a DB6C     		ldr	r3, [r3, #76]
-  88 001c 134A     		ldr	r2, .L2
-  89 001e 43F00103 		orr	r3, r3, #1
-  90 0022 D364     		str	r3, [r2, #76]
-  91 0024 114B     		ldr	r3, .L2
-  92 0026 DB6C     		ldr	r3, [r3, #76]
-  93 0028 03F00103 		and	r3, r3, #1
-  94 002c BB60     		str	r3, [r7, #8]
-  95 002e BB68     		ldr	r3, [r7, #8]
-  96              	.LBE2:
-  52:FML/Src/ATGM332D.c ****     
-  53:FML/Src/ATGM332D.c ****     // 配置GPIO引脚
-  54:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Pin = device->en_pin;
-  97              		.loc 1 54 33
-  98 0030 7B68     		ldr	r3, [r7, #4]
-  99 0032 1B8B     		ldrh	r3, [r3, #24]
- 100              		.loc 1 54 25
- 101 0034 FB60     		str	r3, [r7, #12]
-  55:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
- 102              		.loc 1 55 26
- 103 0036 0123     		movs	r3, #1
- 104 0038 3B61     		str	r3, [r7, #16]
-  56:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
- 105              		.loc 1 56 26
- 106 003a 0023     		movs	r3, #0
- 107 003c 7B61     		str	r3, [r7, #20]
-  57:FML/Src/ATGM332D.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
- 108              		.loc 1 57 27
- 109 003e 0023     		movs	r3, #0
- 110 0040 BB61     		str	r3, [r7, #24]
-  58:FML/Src/ATGM332D.c ****     HAL_GPIO_Init(device->en_port, &GPIO_InitStruct);
- 111              		.loc 1 58 5
- 112 0042 7B68     		ldr	r3, [r7, #4]
- 113 0044 5B69     		ldr	r3, [r3, #20]
- 114 0046 07F10C02 		add	r2, r7, #12
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 4
+ 120              	.L16:
+ 121 0028 00000000 		.word	.LANCHOR0
+ 123              		.section	.rodata.BDS_Test.str1.1,"aMS",%progbits,1
+ 124              	.LC0:
+ 125 0000 72656164 		.ascii	"read\000"
+ 125      00
+ 126              	.LC1:
+ 127 0005 4154474D 		.ascii	"ATGM332D Test OK\015\012\000"
+ 127      33333244 
+ 127      20546573 
+ 127      74204F4B 
+ 127      0D0A00
+ 128              	.LC2:
+ 129 0018 4154474D 		.ascii	"ATGM332D Test Failed\015\012\000"
+ 129      33333244 
+ 129      20546573 
+ 129      74204661 
+ 129      696C6564 
+ 130              		.section	.text.BDS_Test,"ax",%progbits
+ 131              		.align	1
+ 132              		.global	BDS_Test
+ 133              		.syntax unified
+ 134              		.thumb
+ 135              		.thumb_func
+ 137              	BDS_Test:
+ 138              		@ args = 4, pretend = 16, frame = 208
+ 139              		@ frame_needed = 0, uses_anonymous_args = 1
+ 140 0000 0FB4     		push	{r0, r1, r2, r3}
+ 141 0002 00B5     		push	{lr}
+ 142 0004 B5B0     		sub	sp, sp, #212
+ 143 0006 1649     		ldr	r1, .L23
+ 144 0008 3698     		ldr	r0, [sp, #216]
+ 145 000a FFF7FEFF 		bl	strcmp
+ 146 000e E0B9     		cbnz	r0, .L18
+ 147 0010 37AB     		add	r3, sp, #220
+ 148 0012 0193     		str	r3, [sp, #4]
+ 149 0014 134B     		ldr	r3, .L23+4
+ 150 0016 BDF8DC20 		ldrh	r2, [sp, #220]
+ 151 001a 1868     		ldr	r0, [r3]
+ 152 001c 02A9     		add	r1, sp, #8
+ 153 001e FFF7FEFF 		bl	atgm_read
+ 154 0022 80B2     		uxth	r0, r0
+ 155 0024 B0B1     		cbz	r0, .L20
+ 156 0026 02A9     		add	r1, sp, #8
+ 157 0028 0F48     		ldr	r0, .L23+8
+ 158 002a FFF7FEFF 		bl	shellPrint
+ 159 002e 0A20     		movs	r0, #10
+ 160 0030 FFF7FEFF 		bl	Delay_ms
+ 161 0034 0D49     		ldr	r1, .L23+12
+ 162 0036 0C48     		ldr	r0, .L23+8
+ 163 0038 FFF7FEFF 		bl	shellPrint
+ 164 003c 0C4A     		ldr	r2, .L23+16
+ 165              	.L22:
+ 166 003e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 167 0040 0133     		adds	r3, r3, #1
+ 168 0042 1370     		strb	r3, [r2]
+ 169 0044 0A20     		movs	r0, #10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s 			page 4
 
 
- 115 004a 1146     		mov	r1, r2
- 116 004c 1846     		mov	r0, r3
- 117 004e FFF7FEFF 		bl	HAL_GPIO_Init
-  59:FML/Src/ATGM332D.c ****     
-  60:FML/Src/ATGM332D.c ****     
-  61:FML/Src/ATGM332D.c ****     // 初始化DE引脚为发送模式
-  62:FML/Src/ATGM332D.c ****     HAL_GPIO_WritePin(device->en_port, device->en_pin, GPIO_PIN_RESET);
- 118              		.loc 1 62 5
- 119 0052 7B68     		ldr	r3, [r7, #4]
- 120 0054 5869     		ldr	r0, [r3, #20]
- 121 0056 7B68     		ldr	r3, [r7, #4]
- 122 0058 1B8B     		ldrh	r3, [r3, #24]
- 123 005a 0022     		movs	r2, #0
- 124 005c 1946     		mov	r1, r3
- 125 005e FFF7FEFF 		bl	HAL_GPIO_WritePin
-  63:FML/Src/ATGM332D.c **** }
- 126              		.loc 1 63 1
- 127 0062 00BF     		nop
- 128 0064 2037     		adds	r7, r7, #32
- 129              	.LCFI3:
- 130              		.cfi_def_cfa_offset 8
- 131 0066 BD46     		mov	sp, r7
- 132              	.LCFI4:
- 133              		.cfi_def_cfa_register 13
- 134              		@ sp needed
- 135 0068 80BD     		pop	{r7, pc}
- 136              	.L3:
- 137 006a 00BF     		.align	2
- 138              	.L2:
- 139 006c 00100240 		.word	1073876992
- 140              		.cfi_endproc
- 141              	.LFE288:
- 143              		.section	.text.atgm_open,"ax",%progbits
- 144              		.align	1
- 145              		.global	atgm_open
- 146              		.syntax unified
- 147              		.thumb
- 148              		.thumb_func
- 150              	atgm_open:
- 151              	.LFB289:
-  64:FML/Src/ATGM332D.c **** int atgm_open(char *dev_name)
-  65:FML/Src/ATGM332D.c **** {
- 152              		.loc 1 65 1
- 153              		.cfi_startproc
- 154              		@ args = 0, pretend = 0, frame = 16
- 155              		@ frame_needed = 1, uses_anonymous_args = 0
- 156 0000 80B5     		push	{r7, lr}
- 157              	.LCFI5:
- 158              		.cfi_def_cfa_offset 8
- 159              		.cfi_offset 7, -8
- 160              		.cfi_offset 14, -4
- 161 0002 84B0     		sub	sp, sp, #16
- 162              	.LCFI6:
- 163              		.cfi_def_cfa_offset 24
- 164 0004 00AF     		add	r7, sp, #0
- 165              	.LCFI7:
- 166              		.cfi_def_cfa_register 7
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 5
+ 170 0046 FFF7FEFF 		bl	Delay_ms
+ 171              	.L18:
+ 172 004a 35B0     		add	sp, sp, #212
+ 173              		@ sp needed
+ 174 004c 5DF804EB 		ldr	lr, [sp], #4
+ 175 0050 04B0     		add	sp, sp, #16
+ 176 0052 7047     		bx	lr
+ 177              	.L20:
+ 178 0054 0749     		ldr	r1, .L23+20
+ 179 0056 0448     		ldr	r0, .L23+8
+ 180 0058 FFF7FEFF 		bl	shellPrint
+ 181 005c 064A     		ldr	r2, .L23+24
+ 182 005e EEE7     		b	.L22
+ 183              	.L24:
+ 184              		.align	2
+ 185              	.L23:
+ 186 0060 00000000 		.word	.LC0
+ 187 0064 00000000 		.word	.LANCHOR1
+ 188 0068 00000000 		.word	shell
+ 189 006c 05000000 		.word	.LC1
+ 190 0070 00000000 		.word	test_ok_cnt
+ 191 0074 18000000 		.word	.LC2
+ 192 0078 00000000 		.word	test_error_cnt
+ 194              		.section	.text.atgm_handler,"ax",%progbits
+ 195              		.align	1
+ 196              		.global	atgm_handler
+ 197              		.syntax unified
+ 198              		.thumb
+ 199              		.thumb_func
+ 201              	atgm_handler:
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204 0000 38B5     		push	{r3, r4, r5, lr}
+ 205 0002 064D     		ldr	r5, .L27
+ 206 0004 2B69     		ldr	r3, [r5, #16]
+ 207 0006 8342     		cmp	r3, r0
+ 208 0008 07D1     		bne	.L25
+ 209 000a C82A     		cmp	r2, #200
+ 210 000c 28BF     		it	cs
+ 211 000e C822     		movcs	r2, #200
+ 212 0010 1446     		mov	r4, r2
+ 213 0012 E869     		ldr	r0, [r5, #28]
+ 214 0014 FFF7FEFF 		bl	memcpy
+ 215 0018 2C84     		strh	r4, [r5, #32]	@ movhi
+ 216              	.L25:
+ 217 001a 38BD     		pop	{r3, r4, r5, pc}
+ 218              	.L28:
+ 219              		.align	2
+ 220              	.L27:
+ 221 001c 00000000 		.word	.LANCHOR0
+ 223              		.global	shellCommandbds_test
+ 224              		.global	shellDescbds_test
+ 225              		.global	shellCmdbds_test
+ 226              		.global	atgm_dev
+ 227              		.global	dev0_buff
+ 228              		.global	bds_dev
+ 229              		.section	.data.atgm_dev,"aw"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s 			page 5
 
 
- 167 0006 7860     		str	r0, [r7, #4]
-  66:FML/Src/ATGM332D.c ****     uint8_t i = 0;
- 168              		.loc 1 66 13
- 169 0008 0023     		movs	r3, #0
- 170 000a FB73     		strb	r3, [r7, #15]
-  67:FML/Src/ATGM332D.c ****     for(i = 0;i < sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef);i++)
- 171              		.loc 1 67 11
- 172 000c 0023     		movs	r3, #0
- 173 000e FB73     		strb	r3, [r7, #15]
- 174              		.loc 1 67 5
- 175 0010 1CE0     		b	.L5
- 176              	.L8:
-  68:FML/Src/ATGM332D.c ****     {
-  69:FML/Src/ATGM332D.c ****         if(strcmp(dev_name,atgm_dev[i].dev_name) == 0)
- 177              		.loc 1 69 39
- 178 0012 FA7B     		ldrb	r2, [r7, #15]	@ zero_extendqisi2
- 179 0014 1346     		mov	r3, r2
- 180 0016 DB00     		lsls	r3, r3, #3
- 181 0018 1344     		add	r3, r3, r2
- 182 001a 9B00     		lsls	r3, r3, #2
- 183 001c 104A     		ldr	r2, .L9
- 184 001e 1344     		add	r3, r3, r2
- 185              		.loc 1 69 12
- 186 0020 1946     		mov	r1, r3
- 187 0022 7868     		ldr	r0, [r7, #4]
- 188 0024 FFF7FEFF 		bl	strcmp
- 189 0028 0346     		mov	r3, r0
- 190              		.loc 1 69 11
- 191 002a 002B     		cmp	r3, #0
- 192 002c 0BD1     		bne	.L6
-  70:FML/Src/ATGM332D.c ****         {
-  71:FML/Src/ATGM332D.c ****             atgm_io_init(&atgm_dev[i]);
- 193              		.loc 1 71 35
- 194 002e FA7B     		ldrb	r2, [r7, #15]	@ zero_extendqisi2
- 195              		.loc 1 71 13
- 196 0030 1346     		mov	r3, r2
- 197 0032 DB00     		lsls	r3, r3, #3
- 198 0034 1344     		add	r3, r3, r2
- 199 0036 9B00     		lsls	r3, r3, #2
- 200 0038 094A     		ldr	r2, .L9
- 201 003a 1344     		add	r3, r3, r2
- 202 003c 1846     		mov	r0, r3
- 203 003e FFF7FEFF 		bl	atgm_io_init
-  72:FML/Src/ATGM332D.c ****             return i;
- 204              		.loc 1 72 20
- 205 0042 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 206 0044 07E0     		b	.L7
- 207              	.L6:
-  67:FML/Src/ATGM332D.c ****     {
- 208              		.loc 1 67 69 discriminator 2
- 209 0046 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
- 210 0048 0133     		adds	r3, r3, #1
- 211 004a FB73     		strb	r3, [r7, #15]
- 212              	.L5:
-  67:FML/Src/ATGM332D.c ****     {
- 213              		.loc 1 67 5 discriminator 1
- 214 004c FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 6
-
-
- 215 004e 002B     		cmp	r3, #0
- 216 0050 DFD0     		beq	.L8
-  73:FML/Src/ATGM332D.c ****         }
-  74:FML/Src/ATGM332D.c ****     }
-  75:FML/Src/ATGM332D.c ****     return -1;
- 217              		.loc 1 75 12
- 218 0052 4FF0FF33 		mov	r3, #-1
- 219              	.L7:
-  76:FML/Src/ATGM332D.c **** };
- 220              		.loc 1 76 1
- 221 0056 1846     		mov	r0, r3
- 222 0058 1037     		adds	r7, r7, #16
- 223              	.LCFI8:
- 224              		.cfi_def_cfa_offset 8
- 225 005a BD46     		mov	sp, r7
- 226              	.LCFI9:
- 227              		.cfi_def_cfa_register 13
- 228              		@ sp needed
- 229 005c 80BD     		pop	{r7, pc}
- 230              	.L10:
- 231 005e 00BF     		.align	2
- 232              	.L9:
- 233 0060 00000000 		.word	atgm_dev
- 234              		.cfi_endproc
- 235              	.LFE289:
- 237              		.section	.text.atgm_read,"ax",%progbits
- 238              		.align	1
- 239              		.global	atgm_read
- 240              		.syntax unified
- 241              		.thumb
- 242              		.thumb_func
- 244              	atgm_read:
- 245              	.LFB290:
-  77:FML/Src/ATGM332D.c **** int atgm_close(int fd);
-  78:FML/Src/ATGM332D.c **** int atgm_write(int fd);
-  79:FML/Src/ATGM332D.c **** int atgm_read(int fd,uint8_t *buff,uint16_t len){
- 246              		.loc 1 79 49
- 247              		.cfi_startproc
- 248              		@ args = 0, pretend = 0, frame = 16
- 249              		@ frame_needed = 1, uses_anonymous_args = 0
- 250 0000 80B5     		push	{r7, lr}
- 251              	.LCFI10:
- 252              		.cfi_def_cfa_offset 8
- 253              		.cfi_offset 7, -8
- 254              		.cfi_offset 14, -4
- 255 0002 84B0     		sub	sp, sp, #16
- 256              	.LCFI11:
- 257              		.cfi_def_cfa_offset 24
- 258 0004 00AF     		add	r7, sp, #0
- 259              	.LCFI12:
- 260              		.cfi_def_cfa_register 7
- 261 0006 F860     		str	r0, [r7, #12]
- 262 0008 B960     		str	r1, [r7, #8]
- 263 000a 1346     		mov	r3, r2
- 264 000c FB80     		strh	r3, [r7, #6]	@ movhi
-  80:FML/Src/ATGM332D.c ****     if(fd >= sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef))
- 265              		.loc 1 80 7
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 7
-
-
- 266 000e FB68     		ldr	r3, [r7, #12]
- 267 0010 002B     		cmp	r3, #0
- 268 0012 02D0     		beq	.L12
-  81:FML/Src/ATGM332D.c ****         return -1;
- 269              		.loc 1 81 16
- 270 0014 4FF0FF33 		mov	r3, #-1
- 271 0018 27E0     		b	.L13
- 272              	.L12:
-  82:FML/Src/ATGM332D.c ****     else{
-  83:FML/Src/ATGM332D.c ****         if((len == 0) || (len >atgm_dev[fd].data_index))
- 273              		.loc 1 83 11
- 274 001a FB88     		ldrh	r3, [r7, #6]
- 275 001c 002B     		cmp	r3, #0
- 276 001e 0BD0     		beq	.L14
- 277              		.loc 1 83 44 discriminator 1
- 278 0020 1449     		ldr	r1, .L16
- 279 0022 FA68     		ldr	r2, [r7, #12]
- 280 0024 1346     		mov	r3, r2
- 281 0026 DB00     		lsls	r3, r3, #3
- 282 0028 1344     		add	r3, r3, r2
- 283 002a 9B00     		lsls	r3, r3, #2
- 284 002c 0B44     		add	r3, r3, r1
- 285 002e 2033     		adds	r3, r3, #32
- 286 0030 1B88     		ldrh	r3, [r3]
- 287              		.loc 1 83 23 discriminator 1
- 288 0032 FA88     		ldrh	r2, [r7, #6]
- 289 0034 9A42     		cmp	r2, r3
- 290 0036 09D9     		bls	.L15
- 291              	.L14:
-  84:FML/Src/ATGM332D.c ****             len = atgm_dev[fd].data_index;
- 292              		.loc 1 84 17
- 293 0038 0E49     		ldr	r1, .L16
- 294 003a FA68     		ldr	r2, [r7, #12]
- 295 003c 1346     		mov	r3, r2
- 296 003e DB00     		lsls	r3, r3, #3
- 297 0040 1344     		add	r3, r3, r2
- 298 0042 9B00     		lsls	r3, r3, #2
- 299 0044 0B44     		add	r3, r3, r1
- 300 0046 2033     		adds	r3, r3, #32
- 301 0048 1B88     		ldrh	r3, [r3]	@ movhi
- 302 004a FB80     		strh	r3, [r7, #6]	@ movhi
- 303              	.L15:
-  85:FML/Src/ATGM332D.c **** 
-  86:FML/Src/ATGM332D.c ****         memcpy(buff,(uint8_t *)atgm_dev[fd].data_buff,len);
- 304              		.loc 1 86 21
- 305 004c 0949     		ldr	r1, .L16
- 306 004e FA68     		ldr	r2, [r7, #12]
- 307 0050 1346     		mov	r3, r2
- 308 0052 DB00     		lsls	r3, r3, #3
- 309 0054 1344     		add	r3, r3, r2
- 310 0056 9B00     		lsls	r3, r3, #2
- 311 0058 0B44     		add	r3, r3, r1
- 312 005a 1C33     		adds	r3, r3, #28
- 313 005c 1B68     		ldr	r3, [r3]
- 314              		.loc 1 86 9
- 315 005e FA88     		ldrh	r2, [r7, #6]
- 316 0060 1946     		mov	r1, r3
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 8
-
-
- 317 0062 B868     		ldr	r0, [r7, #8]
- 318 0064 FFF7FEFF 		bl	memcpy
-  87:FML/Src/ATGM332D.c ****         return len;
- 319              		.loc 1 87 16
- 320 0068 FB88     		ldrh	r3, [r7, #6]
- 321              	.L13:
-  88:FML/Src/ATGM332D.c ****     }
-  89:FML/Src/ATGM332D.c ****         
-  90:FML/Src/ATGM332D.c **** };
- 322              		.loc 1 90 1
- 323 006a 1846     		mov	r0, r3
- 324 006c 1037     		adds	r7, r7, #16
- 325              	.LCFI13:
- 326              		.cfi_def_cfa_offset 8
- 327 006e BD46     		mov	sp, r7
- 328              	.LCFI14:
- 329              		.cfi_def_cfa_register 13
- 330              		@ sp needed
- 331 0070 80BD     		pop	{r7, pc}
- 332              	.L17:
- 333 0072 00BF     		.align	2
- 334              	.L16:
- 335 0074 00000000 		.word	atgm_dev
- 336              		.cfi_endproc
- 337              	.LFE290:
- 339              		.section	.text.atgm_handler,"ax",%progbits
- 340              		.align	1
- 341              		.global	atgm_handler
- 342              		.syntax unified
- 343              		.thumb
- 344              		.thumb_func
- 346              	atgm_handler:
- 347              	.LFB291:
-  91:FML/Src/ATGM332D.c **** int atgm_ioctl(int fd);
-  92:FML/Src/ATGM332D.c **** void atgm_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
-  93:FML/Src/ATGM332D.c **** {
- 348              		.loc 1 93 1
- 349              		.cfi_startproc
- 350              		@ args = 0, pretend = 0, frame = 24
- 351              		@ frame_needed = 1, uses_anonymous_args = 0
- 352 0000 80B5     		push	{r7, lr}
- 353              	.LCFI15:
- 354              		.cfi_def_cfa_offset 8
- 355              		.cfi_offset 7, -8
- 356              		.cfi_offset 14, -4
- 357 0002 86B0     		sub	sp, sp, #24
- 358              	.LCFI16:
- 359              		.cfi_def_cfa_offset 32
- 360 0004 00AF     		add	r7, sp, #0
- 361              	.LCFI17:
- 362              		.cfi_def_cfa_register 7
- 363 0006 F860     		str	r0, [r7, #12]
- 364 0008 B960     		str	r1, [r7, #8]
- 365 000a 1346     		mov	r3, r2
- 366 000c FB80     		strh	r3, [r7, #6]	@ movhi
-  94:FML/Src/ATGM332D.c ****     uint8_t i = 0;
- 367              		.loc 1 94 13
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 9
-
-
- 368 000e 0023     		movs	r3, #0
- 369 0010 FB75     		strb	r3, [r7, #23]
-  95:FML/Src/ATGM332D.c ****     //shellPrint(&shell,"%s",data);
-  96:FML/Src/ATGM332D.c ****     for(i = 0;i < sizeof(atgm_dev)/ sizeof(ATGM332D_HandleTypeDef);i++)
- 370              		.loc 1 96 11
- 371 0012 0023     		movs	r3, #0
- 372 0014 FB75     		strb	r3, [r7, #23]
- 373              		.loc 1 96 5
- 374 0016 2BE0     		b	.L19
- 375              	.L22:
-  97:FML/Src/ATGM332D.c ****     {
-  98:FML/Src/ATGM332D.c ****         if(huart == atgm_dev[i].huart)
- 376              		.loc 1 98 32
- 377 0018 FA7D     		ldrb	r2, [r7, #23]	@ zero_extendqisi2
- 378 001a 1949     		ldr	r1, .L23
- 379 001c 1346     		mov	r3, r2
- 380 001e DB00     		lsls	r3, r3, #3
- 381 0020 1344     		add	r3, r3, r2
- 382 0022 9B00     		lsls	r3, r3, #2
- 383 0024 0B44     		add	r3, r3, r1
- 384 0026 1033     		adds	r3, r3, #16
- 385 0028 1B68     		ldr	r3, [r3]
- 386              		.loc 1 98 11
- 387 002a FA68     		ldr	r2, [r7, #12]
- 388 002c 9A42     		cmp	r2, r3
- 389 002e 1CD1     		bne	.L20
-  99:FML/Src/ATGM332D.c ****         {
- 100:FML/Src/ATGM332D.c ****             // if(len > atgm_dev[i].capacity)
- 101:FML/Src/ATGM332D.c ****             // {
- 102:FML/Src/ATGM332D.c ****             //     atgm_dev[i].capacity = sizeof(atgm_dev->data_buff)/sizeof(uint8_t);
- 103:FML/Src/ATGM332D.c ****             //     atgm_dev[i].data_index = 0;
- 104:FML/Src/ATGM332D.c ****             // }
- 105:FML/Src/ATGM332D.c ****             if(len >200)
- 390              		.loc 1 105 15
- 391 0030 FB88     		ldrh	r3, [r7, #6]
- 392 0032 C82B     		cmp	r3, #200
- 393 0034 01D9     		bls	.L21
- 106:FML/Src/ATGM332D.c ****                 len =200;
- 394              		.loc 1 106 21
- 395 0036 C823     		movs	r3, #200
- 396 0038 FB80     		strh	r3, [r7, #6]	@ movhi
- 397              	.L21:
- 107:FML/Src/ATGM332D.c ****             memcpy(atgm_dev[i].data_buff,data,len);
- 398              		.loc 1 107 13
- 399 003a FA7D     		ldrb	r2, [r7, #23]	@ zero_extendqisi2
- 400              		.loc 1 107 31
- 401 003c 1049     		ldr	r1, .L23
- 402 003e 1346     		mov	r3, r2
- 403 0040 DB00     		lsls	r3, r3, #3
- 404 0042 1344     		add	r3, r3, r2
- 405 0044 9B00     		lsls	r3, r3, #2
- 406 0046 0B44     		add	r3, r3, r1
- 407 0048 1C33     		adds	r3, r3, #28
- 408 004a 1B68     		ldr	r3, [r3]
- 409              		.loc 1 107 13
- 410 004c FA88     		ldrh	r2, [r7, #6]
- 411 004e B968     		ldr	r1, [r7, #8]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 10
-
-
- 412 0050 1846     		mov	r0, r3
- 413 0052 FFF7FEFF 		bl	memcpy
- 108:FML/Src/ATGM332D.c ****             // atgm_dev[i].capacity -= len;
- 109:FML/Src/ATGM332D.c ****             atgm_dev[i].data_index = len;
- 414              		.loc 1 109 24
- 415 0056 FA7D     		ldrb	r2, [r7, #23]	@ zero_extendqisi2
- 416              		.loc 1 109 36
- 417 0058 0949     		ldr	r1, .L23
- 418 005a 1346     		mov	r3, r2
- 419 005c DB00     		lsls	r3, r3, #3
- 420 005e 1344     		add	r3, r3, r2
- 421 0060 9B00     		lsls	r3, r3, #2
- 422 0062 0B44     		add	r3, r3, r1
- 423 0064 2033     		adds	r3, r3, #32
- 424 0066 FA88     		ldrh	r2, [r7, #6]	@ movhi
- 425 0068 1A80     		strh	r2, [r3]	@ movhi
- 426              	.L20:
-  96:FML/Src/ATGM332D.c ****     {
- 427              		.loc 1 96 69 discriminator 2
- 428 006a FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
- 429 006c 0133     		adds	r3, r3, #1
- 430 006e FB75     		strb	r3, [r7, #23]
- 431              	.L19:
-  96:FML/Src/ATGM332D.c ****     {
- 432              		.loc 1 96 5 discriminator 1
- 433 0070 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
- 434 0072 002B     		cmp	r3, #0
- 435 0074 D0D0     		beq	.L22
- 110:FML/Src/ATGM332D.c ****         }
- 111:FML/Src/ATGM332D.c ****     }
- 112:FML/Src/ATGM332D.c **** }
- 436              		.loc 1 112 1
- 437 0076 00BF     		nop
- 438 0078 00BF     		nop
- 439 007a 1837     		adds	r7, r7, #24
- 440              	.LCFI18:
- 441              		.cfi_def_cfa_offset 8
- 442 007c BD46     		mov	sp, r7
- 443              	.LCFI19:
- 444              		.cfi_def_cfa_register 13
- 445              		@ sp needed
- 446 007e 80BD     		pop	{r7, pc}
- 447              	.L24:
- 448              		.align	2
- 449              	.L23:
- 450 0080 00000000 		.word	atgm_dev
- 451              		.cfi_endproc
- 452              	.LFE291:
- 454              		.section	.rodata
- 455              		.align	2
- 456              	.LC0:
- 457 0000 72656164 		.ascii	"read\000"
- 457      00
- 458 0005 000000   		.align	2
- 459              	.LC1:
- 460 0008 4154474D 		.ascii	"ATGM332D Test OK\015\012\000"
- 460      33333244 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 11
-
-
- 460      20546573 
- 460      74204F4B 
- 460      0D0A00
- 461 001b 00       		.align	2
- 462              	.LC2:
- 463 001c 4154474D 		.ascii	"ATGM332D Test Failed\015\012\000"
- 463      33333244 
- 463      20546573 
- 463      74204661 
- 463      696C6564 
- 464              		.section	.text.BDS_Test,"ax",%progbits
- 465              		.align	1
- 466              		.global	BDS_Test
- 467              		.syntax unified
- 468              		.thumb
- 469              		.thumb_func
- 471              	BDS_Test:
- 472              	.LFB292:
- 113:FML/Src/ATGM332D.c **** /*------------------------------------test------------------------------------*/
- 114:FML/Src/ATGM332D.c **** /**
- 115:FML/Src/ATGM332D.c ****  * @brief BDS测试函数
- 116:FML/Src/ATGM332D.c ****  *        打印BDS信息
- 117:FML/Src/ATGM332D.c ****  * 
- 118:FML/Src/ATGM332D.c ****  * @param cmd 
- 119:FML/Src/ATGM332D.c ****  * @param ... 
- 120:FML/Src/ATGM332D.c ****  */
- 121:FML/Src/ATGM332D.c **** void BDS_Test(char *cmd,...)
- 122:FML/Src/ATGM332D.c **** {
- 473              		.loc 1 122 1
- 474              		.cfi_startproc
- 475              		@ args = 4, pretend = 16, frame = 216
- 476              		@ frame_needed = 1, uses_anonymous_args = 1
- 477 0000 0FB4     		push	{r0, r1, r2, r3}
- 478              	.LCFI20:
- 479              		.cfi_def_cfa_offset 16
- 480              		.cfi_offset 0, -16
- 481              		.cfi_offset 1, -12
- 482              		.cfi_offset 2, -8
- 483              		.cfi_offset 3, -4
- 484 0002 80B5     		push	{r7, lr}
- 485              	.LCFI21:
- 486              		.cfi_def_cfa_offset 24
- 487              		.cfi_offset 7, -24
- 488              		.cfi_offset 14, -20
- 489 0004 B6B0     		sub	sp, sp, #216
- 490              	.LCFI22:
- 491              		.cfi_def_cfa_offset 240
- 492 0006 00AF     		add	r7, sp, #0
- 493              	.LCFI23:
- 494              		.cfi_def_cfa_register 7
- 123:FML/Src/ATGM332D.c ****   int param_1 = -1;
- 495              		.loc 1 123 7
- 496 0008 4FF0FF33 		mov	r3, #-1
- 497 000c C7F8D430 		str	r3, [r7, #212]
- 124:FML/Src/ATGM332D.c ****   uint16_t len;
- 125:FML/Src/ATGM332D.c ****   uint8_t buff[200];
- 126:FML/Src/ATGM332D.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 12
-
-
- 127:FML/Src/ATGM332D.c ****   if(strcmp(cmd,"read") == 0)
- 498              		.loc 1 127 6
- 499 0010 2249     		ldr	r1, .L30
- 500 0012 D7F8E000 		ldr	r0, [r7, #224]
- 501 0016 FFF7FEFF 		bl	strcmp
- 502 001a 0346     		mov	r3, r0
- 503              		.loc 1 127 5
- 504 001c 002B     		cmp	r3, #0
- 505 001e 35D1     		bne	.L29
- 506              	.LBB3:
- 128:FML/Src/ATGM332D.c ****   {
- 129:FML/Src/ATGM332D.c ****     va_list p_args;
- 130:FML/Src/ATGM332D.c ****     va_start(p_args,cmd);
- 507              		.loc 1 130 5
- 508 0020 07F1E403 		add	r3, r7, #228
- 509 0024 7B60     		str	r3, [r7, #4]
- 131:FML/Src/ATGM332D.c ****     param_1 = va_arg(p_args,int);
- 510              		.loc 1 131 13
- 511 0026 7B68     		ldr	r3, [r7, #4]
- 512 0028 1A1D     		adds	r2, r3, #4
- 513 002a 7A60     		str	r2, [r7, #4]
- 514 002c 1B68     		ldr	r3, [r3]
- 515 002e C7F8D430 		str	r3, [r7, #212]
- 132:FML/Src/ATGM332D.c ****     va_end(p_args);
- 133:FML/Src/ATGM332D.c ****     len  = atgm_read(bds_dev,buff,param_1);
- 516              		.loc 1 133 12
- 517 0032 1B4B     		ldr	r3, .L30+4
- 518 0034 1B68     		ldr	r3, [r3]
- 519 0036 D7F8D420 		ldr	r2, [r7, #212]
- 520 003a 92B2     		uxth	r2, r2
- 521 003c 07F10801 		add	r1, r7, #8
- 522 0040 1846     		mov	r0, r3
- 523 0042 FFF7FEFF 		bl	atgm_read
- 524 0046 0346     		mov	r3, r0
- 525              		.loc 1 133 10
- 526 0048 A7F8D230 		strh	r3, [r7, #210]	@ movhi
- 134:FML/Src/ATGM332D.c **** 
- 135:FML/Src/ATGM332D.c ****     if(len > 0){
- 527              		.loc 1 135 7
- 528 004c B7F8D230 		ldrh	r3, [r7, #210]
- 529 0050 002B     		cmp	r3, #0
- 530 0052 0DD0     		beq	.L27
- 136:FML/Src/ATGM332D.c ****       shellPrint(&shell,buff);
- 531              		.loc 1 136 7
- 532 0054 07F10803 		add	r3, r7, #8
- 533 0058 1946     		mov	r1, r3
- 534 005a 1248     		ldr	r0, .L30+8
- 535 005c FFF7FEFF 		bl	shellPrint
- 137:FML/Src/ATGM332D.c ****       Delay_ms(10);
- 536              		.loc 1 137 7
- 537 0060 0A20     		movs	r0, #10
- 538 0062 FFF7FEFF 		bl	Delay_ms
- 138:FML/Src/ATGM332D.c ****       shellPrint(&shell,"ATGM332D Test OK\r\n");
- 539              		.loc 1 138 7
- 540 0066 1049     		ldr	r1, .L30+12
- 541 0068 0E48     		ldr	r0, .L30+8
- 542 006a FFF7FEFF 		bl	shellPrint
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 13
-
-
- 543 006e 03E0     		b	.L28
- 544              	.L27:
- 139:FML/Src/ATGM332D.c ****     }
- 140:FML/Src/ATGM332D.c ****     else
- 141:FML/Src/ATGM332D.c ****       shellPrint(&shell,"ATGM332D Test Failed\r\n");
- 545              		.loc 1 141 7
- 546 0070 0E49     		ldr	r1, .L30+16
- 547 0072 0C48     		ldr	r0, .L30+8
- 548 0074 FFF7FEFF 		bl	shellPrint
- 549              	.L28:
- 142:FML/Src/ATGM332D.c ****     Delay_ms(10);
- 550              		.loc 1 142 5
- 551 0078 0A20     		movs	r0, #10
- 552 007a FFF7FEFF 		bl	Delay_ms
- 143:FML/Src/ATGM332D.c ****     memset(buff,0,200);
- 553              		.loc 1 143 5
- 554 007e 07F10803 		add	r3, r7, #8
- 555 0082 C822     		movs	r2, #200
- 556 0084 0021     		movs	r1, #0
- 557 0086 1846     		mov	r0, r3
- 558 0088 FFF7FEFF 		bl	memset
- 559              	.L29:
- 560              	.LBE3:
- 144:FML/Src/ATGM332D.c ****   }
- 145:FML/Src/ATGM332D.c **** }
- 561              		.loc 1 145 1
- 562 008c 00BF     		nop
- 563 008e D837     		adds	r7, r7, #216
- 564              	.LCFI24:
- 565              		.cfi_def_cfa_offset 24
- 566 0090 BD46     		mov	sp, r7
- 567              	.LCFI25:
- 568              		.cfi_def_cfa_register 13
- 569              		@ sp needed
- 570 0092 BDE88040 		pop	{r7, lr}
- 571              	.LCFI26:
- 572              		.cfi_restore 14
- 573              		.cfi_restore 7
- 574              		.cfi_def_cfa_offset 16
- 575 0096 04B0     		add	sp, sp, #16
- 576              	.LCFI27:
- 577              		.cfi_restore 3
- 578              		.cfi_restore 2
- 579              		.cfi_restore 1
- 580              		.cfi_restore 0
- 581              		.cfi_def_cfa_offset 0
- 582 0098 7047     		bx	lr
- 583              	.L31:
- 584 009a 00BF     		.align	2
- 585              	.L30:
- 586 009c 00000000 		.word	.LC0
- 587 00a0 00000000 		.word	bds_dev
- 588 00a4 00000000 		.word	shell
- 589 00a8 08000000 		.word	.LC1
- 590 00ac 1C000000 		.word	.LC2
- 591              		.cfi_endproc
- 592              	.LFE292:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 14
-
-
- 594              		.global	shellCmdbds_test
- 595              		.section	.rodata.shellCmdbds_test,"a"
- 596              		.align	2
- 599              	shellCmdbds_test:
- 600 0000 6264735F 		.ascii	"bds_test\000"
- 600      74657374 
- 600      00
- 601              		.global	shellDescbds_test
- 602              		.section	.rodata.shellDescbds_test,"a"
- 603              		.align	2
- 606              	shellDescbds_test:
- 607 0000 6264735F 		.ascii	"bds_dev test\000"
- 607      64657620 
- 607      74657374 
- 607      00
- 608              		.global	shellCommandbds_test
- 609              		.section	shellCommand,"a"
- 612              	shellCommandbds_test:
- 613 0000 00210000 		.4byte	8448
- 614 0004 00000000 		.4byte	shellCmdbds_test
- 615 0008 00000000 		.4byte	BDS_Test
- 616 000c 00000000 		.4byte	shellDescbds_test
- 617              		.text
- 618              	.Letext0:
- 619              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 620              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 621              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 622              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 623              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 624              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 625              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
- 626              		.file 9 "FML/Inc/ATGM332D.h"
- 627              		.file 10 "HAL/Inc/usart.h"
- 628              		.file 11 "ThirdParty/Letter-shell/Inc/shell.h"
- 629              		.file 12 "ThirdParty/Letter-shell/Inc/shell_port.h"
- 630              		.file 13 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\lib\\gcc\\arm-
- 631              		.file 14 "<built-in>"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s 			page 15
+ 230              		.align	2
+ 231              		.set	.LANCHOR0,. + 0
+ 234              	atgm_dev:
+ 235 0000 75617274 		.ascii	"uart2/bds_0\000"
+ 235      322F6264 
+ 235      735F3000 
+ 236 000c 000000   		.space	3
+ 237 000f 00       		.space	1
+ 238 0010 00000000 		.word	huart2
+ 239 0014 00000048 		.word	1207959552
+ 240 0018 0400     		.short	4
+ 241 001a 0000     		.space	2
+ 242 001c 00000000 		.word	dev0_buff
+ 243 0020 0000     		.short	0
+ 244 0022 C800     		.short	200
+ 245              		.section	.data.bds_dev,"aw"
+ 246              		.align	2
+ 247              		.set	.LANCHOR1,. + 0
+ 250              	bds_dev:
+ 251 0000 FFFFFFFF 		.word	-1
+ 252              		.section	.data.dev0_buff,"aw"
+ 255              	dev0_buff:
+ 256 0000 FF00     		.ascii	"\377\000"
+ 257 0002 00000000 		.space	198
+ 257      00000000 
+ 257      00000000 
+ 257      00000000 
+ 257      00000000 
+ 258              		.section	.rodata.shellCmdbds_test,"a"
+ 261              	shellCmdbds_test:
+ 262 0000 6264735F 		.ascii	"bds_test\000"
+ 262      74657374 
+ 262      00
+ 263              		.section	.rodata.shellDescbds_test,"a"
+ 266              	shellDescbds_test:
+ 267 0000 6264735F 		.ascii	"bds_dev test\000"
+ 267      64657620 
+ 267      74657374 
+ 267      00
+ 268              		.section	shellCommand,"a"
+ 271              	shellCommandbds_test:
+ 272 0000 00210000 		.4byte	8448
+ 273 0004 00000000 		.4byte	shellCmdbds_test
+ 274 0008 00000000 		.4byte	BDS_Test
+ 275 000c 00000000 		.4byte	shellDescbds_test
+ 276              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 ATGM332D.c
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:24     .data.bds_dev:00000000 bds_dev
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:21     .data.bds_dev:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:31     .data.dev0_buff:00000000 dev0_buff
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:28     .data.dev0_buff:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:39     .data.atgm_dev:00000000 atgm_dev
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:36     .data.atgm_dev:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:51     .text.atgm_io_init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:57     .text.atgm_io_init:00000000 atgm_io_init
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:139    .text.atgm_io_init:0000006c $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:144    .text.atgm_open:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:150    .text.atgm_open:00000000 atgm_open
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:233    .text.atgm_open:00000060 $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:238    .text.atgm_read:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:244    .text.atgm_read:00000000 atgm_read
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:335    .text.atgm_read:00000074 $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:340    .text.atgm_handler:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:346    .text.atgm_handler:00000000 atgm_handler
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:450    .text.atgm_handler:00000080 $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:455    .rodata:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:465    .text.BDS_Test:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:471    .text.BDS_Test:00000000 BDS_Test
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:586    .text.BDS_Test:0000009c $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:599    .rodata.shellCmdbds_test:00000000 shellCmdbds_test
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:596    .rodata.shellCmdbds_test:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:606    .rodata.shellDescbds_test:00000000 shellDescbds_test
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:603    .rodata.shellDescbds_test:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccbOaV1Y.s:612    shellCommand:00000000 shellCommandbds_test
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:18     .text.atgm_io_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:24     .text.atgm_io_init:00000000 atgm_io_init
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:58     .text.atgm_io_init:00000040 $d
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:61     .text.atgm_open:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:67     .text.atgm_open:00000000 atgm_open
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:86     .text.atgm_open:0000001c $d
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:89     .text.atgm_read:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:95     .text.atgm_read:00000000 atgm_read
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:121    .text.atgm_read:00000028 $d
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:131    .text.BDS_Test:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:137    .text.BDS_Test:00000000 BDS_Test
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:186    .text.BDS_Test:00000060 $d
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:195    .text.atgm_handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:201    .text.atgm_handler:00000000 atgm_handler
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:221    .text.atgm_handler:0000001c $d
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:271    shellCommand:00000000 shellCommandbds_test
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:266    .rodata.shellDescbds_test:00000000 shellDescbds_test
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:261    .rodata.shellCmdbds_test:00000000 shellCmdbds_test
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:234    .data.atgm_dev:00000000 atgm_dev
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:255    .data.dev0_buff:00000000 dev0_buff
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:250    .data.bds_dev:00000000 bds_dev
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:230    .data.atgm_dev:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:246    .data.bds_dev:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccQKEo7Z.s:257    .data.dev0_buff:00000002 $d
 
 UNDEFINED SYMBOLS
-huart2
 HAL_GPIO_Init
 HAL_GPIO_WritePin
 strcmp
 memcpy
 shellPrint
 Delay_ms
-memset
 shell
+test_ok_cnt
+test_error_cnt
+huart2

@@ -214,7 +214,14 @@ void LDR_Value_Get(void)
 {   
     uint32_t ldr_adc_value = 0;
     ldr_adc_value = ADC_Average_Get(10,50);
-    shellPrint(&shell,"LDR:%d\r\n",ldr_adc_value);
+    if(ldr_adc_value > 200){
+      shellPrint(&shell,"LDR:%d,LDR Test OK\r\n",ldr_adc_value);
+      test_ok_cnt++;
+    }
+    else{
+      shellPrint(&shell,"LDR:%d,LDR Test Exception\r\n",ldr_adc_value);
+      test_error_cnt++;
+    }
 }
 
 /**
@@ -223,7 +230,7 @@ void LDR_Value_Get(void)
  */
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-LDR_Get, LDR_Value_Get, get ldr value);
+ldr_test, LDR_Value_Get, get ldr value);
 
 
 
@@ -236,8 +243,15 @@ void Battery_Test(void)
 {   
     float voltage = 0;      
     voltage = (float)ADC_Average_Get(5,50)/4096 * 3.3 * 2;
-    
-    shellPrint(&shell,"voltage:%.2fv\r\n",voltage);
+    if(voltage > 3.0){
+      shellPrint(&shell,"voltage:%d.%02dv\r\n",(uint32_t)voltage,(uint32_t)(voltage*100)%100);
+      shellPrint(&shell,"Battery Test OK\r\n");
+      test_ok_cnt++;
+    }
+    else{
+      shellPrint(&shell,"voltage:%.2fv,Battery Test Exception\r\n",voltage);
+      test_error_cnt++;
+    }  
 }
 
 /**
@@ -246,5 +260,5 @@ void Battery_Test(void)
  */
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-battery, Battery_Test, get battery voltage value);
+battery_test, Battery_Test, get battery voltage value);
 /* USER CODE END 1 */

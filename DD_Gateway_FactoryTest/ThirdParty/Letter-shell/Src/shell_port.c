@@ -13,6 +13,8 @@
 /* 1. 创建shell对象，开辟shell缓冲区 */
 Shell shell;
 char shell_buffer[200];
+char test_ok_cnt = 0;
+char test_error_cnt = 0;
 
 
 /* 2. 自己实现shell写函数 */

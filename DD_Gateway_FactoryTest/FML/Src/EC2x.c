@@ -38,16 +38,17 @@ uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2\r\n";
 //定义tcp连接指令队列
 uint8_t tcpconnct_step = 0;
 ATMsg_TypeDef connectmsg_queue[] = {
-    {"AT\r\n","OK",100,5},
-    {"AT+CPIN?\r\n","READY",100,5},
-    {"AT+CREG?\r\n","+CREG: 0,1", 100, 5},
-    {"AT+CGREG?\r\n","+CGREG: 0,1", 100, 5},
+    {"AT\r\n","OK",200,5},
+    {"AT+CPIN?\r\n","READY",200,5},
+    {"AT+CREG?\r\n","+CREG: 0,1", 200, 5},
+    {"AT+CGREG?\r\n","+CGREG: 0,1", 200, 5},
     {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 200, 5},
-    {"AT+QIDEACT=1\r\n", "OK", 100, 5},
-    {"AT+QIACT=1\r\n", "OK", 100, 5},
-    {tcp_connect, "CONNECT", 100, 5},
+    {"AT+QIDEACT=1\r\n", "OK", 200, 5},
+    {"AT+QIACT=1\r\n", "OK", 200, 5},
+    {tcp_connect, "CONNECT", 500, 5},
 };
 
+static uint8_t reset_times = 0;
 
 /*----------------------------------typedef-----------------------------------*/
 
@@ -132,6 +133,7 @@ int ec2x_reset(int fd){
         Delay_ms(500);
         HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
     }
+    reset_times++;
     return(ec2x_cmd_send(fd,NULL,0,"RDY\r\n",20000));
 }
 
@@ -331,8 +333,16 @@ int ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uin
  */
 uint8_t ec2x_tcp_connect(int fd){
     static uint8_t step = 0,retry =0;
-    ec2x_reset(fd);
+    reset_times = 0;
+    if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef)){
+        shellPrint(&shell,"no invalid ec2x device sn\r\n");
+        return -1;
+    }
     while(step < 9){
+        if(reset_times > 5){
+            shellPrint(&shell,"TCP Connect Failed\r\n");
+            return 0;
+        }
         switch (step)
         {
             case 0: 
@@ -350,8 +360,10 @@ uint8_t ec2x_tcp_connect(int fd){
                         ec2x_reset(fd); 
                         step = 0;
                     }
-                    else
+                    else{
                         retry++;
+                        Delay_ms(200);
+                    }
                 }
                 Delay_ms(100);
             }
@@ -370,8 +382,10 @@ uint8_t ec2x_tcp_connect(int fd){
                         ec2x_reset(fd); 
                         step = 0;
                     }
-                    else
+                    else{
                         retry++;
+                        Delay_ms(200);
+                    }
                 }
                 Delay_ms(100);
             }
@@ -390,8 +404,11 @@ uint8_t ec2x_tcp_connect(int fd){
                         ec2x_reset(fd); 
                         step = 0;
                     }
-                    else
+
+                    else{
                         retry++;
+                        Delay_ms(200);
+                    }
                 }
                 Delay_ms(100);
             }
@@ -410,8 +427,11 @@ uint8_t ec2x_tcp_connect(int fd){
                         ec2x_reset(fd); 
                         step = 0;
                     }
-                    else
+
+                    else{
                         retry++;
+                        Delay_ms(200);
+                    }
                 }
                 Delay_ms(100);                
             }
@@ -430,8 +450,10 @@ uint8_t ec2x_tcp_connect(int fd){
                         ec2x_reset(fd); 
                         step = 0;
                     }
-                    else
+                    else{
                         retry++;
+                        Delay_ms(200);
+                    }
                 }
                 Delay_ms(100);               
             }
@@ -450,8 +472,10 @@ uint8_t ec2x_tcp_connect(int fd){
                         ec2x_reset(fd); 
                         step = 0;
                     }
-                    else
+                    else{
                         retry++;
+                        Delay_ms(200);
+                    }
                 }
                 Delay_ms(100);                
             }
@@ -470,8 +494,10 @@ uint8_t ec2x_tcp_connect(int fd){
                         ec2x_reset(fd); 
                         step = 0;
                     }
-                    else
+                    else{
                         retry++;
+                        Delay_ms(200);
+                    }
                 }
                 Delay_ms(100);
             }
@@ -490,16 +516,18 @@ uint8_t ec2x_tcp_connect(int fd){
                         ec2x_reset(fd); 
                         step = 0;
                     }
-                    else
+                    else{
                         retry++;
+                        Delay_ms(200);
+                    }
                 }
-                Delay_ms(200);
+                Delay_ms(100);
             }
             break;  
             case 8:
             {
                 shellPrint(&shell,"tcp is connected\r\n");
-                return 0;
+                return 1;
             }
             break; 
             default:
@@ -534,8 +562,10 @@ void EC2x_Test(int fd,char *tx_buff,char *expect_reply,uint16_t timeout)
         tx_len += 2;
         memcpy(reply_data,expect_reply,reply_len);
 
-        if(ec2x_cmd_send(fd,tx_data,tx_len,reply_data,timeout))
+        if(ec2x_cmd_send(fd,tx_data,tx_len,reply_data,timeout)){
             shellPrint(&shell,"EC2x CMD Test OK\r\n");
+            test_ok_cnt++;
+        }
         else
             shellPrint(&shell,"EC2x CMD Test Failed\r\n");
     }
@@ -543,5 +573,8 @@ void EC2x_Test(int fd,char *tx_buff,char *expect_reply,uint16_t timeout)
 
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-ec2x_send, EC2x_Test, ec2x test);
+ec2x_test, EC2x_Test, send command and wait for reply);
 
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+ec2x_connect, ec2x_tcp_connect, ec2x tcp connect);

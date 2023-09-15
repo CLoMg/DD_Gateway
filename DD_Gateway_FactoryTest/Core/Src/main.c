@@ -135,7 +135,7 @@ int main(void)
  
   while (1)
   {
-   
+    // uint16_t shellidle_upper = 30;
     /* USER CODE END WHILE */
     /* ADC 电压监测接口测试*/
     Battery_Test();
@@ -157,13 +157,63 @@ int main(void)
 
      /* Cat-1 测试 */
     EC2x_Test(0,"AT","OK",100);
-    while(1)
+    shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
+    shellPrint(&shell,"Type [help] for the list of instructions\r\n");
+    while(1){
+      // shellidle_cnt++;
+      // if((shellidle_cnt > 10*10)&&(shellidle_cnt % 10 == 0)){
+      //   shellPrint(&shell,"If no instruction is entered within %ds, it will jump to the app program\r\n", shellidle_upper - shellidle_cnt/10);
+      // }
+      // if(shellidle_cnt > shellidle_upper*10)
+      // {
+      //    shellPrint(&shell,"It will jump to the app program now\r\n");
+      //    shellidle_cnt = 0;
+      // }
       Delay_ms(100);
+    }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
+/* USER CODE BEGIN 4 */
+/**
+ * @brief 
+ * 
+ * @param fd 
+ * @param tx_buff 
+ * @param expect_reply 
+ * @param timeout 
+ */
+void Test_All(void)
+{
+    test_ok_cnt = 0;
+        /* USER CODE END WHILE */
+    /* ADC 电压监测接口测试*/
+    Battery_Test();
+    /* LED 测试 */ 
+    // LED_Blink(&dev_led[0],500,10); //LED0每隔500ms翻转一次
+    // LED_Blink(&dev_led[1],1000,10);//LED1每个1000ms翻转一次
+    /* 亮度监测接口测试 */
+    LDR_Value_Get();
+    /* RS485接口测试 */
+    RS485_Test("RS485 TRANSMIT OK\r\n");
+     /* Flash 接口测试 */
+    Flash_Test();
+    /* ATGM223D接口测试 */
+    BDS_Test("read",100);
+     /* LORA 1发送 LORA2 接收测试*/
+    LORA_Send(0,"Lora0 tx test\r\n",200);
+     /* LORA2发送 LORA1 接收测试*/
+    LORA_Send(1,"Lora1 tx test\r\n",200);
 
+     /* Cat-1 测试 */
+    EC2x_Test(0,"AT","OK",100);
+    shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
+}
+
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+test_all, Test_All, test all device);
 /**
   * @brief System Clock Configuration
   * @retval None

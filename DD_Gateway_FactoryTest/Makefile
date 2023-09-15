@@ -20,9 +20,9 @@ TARGET = DD_Gateway_FactoryTest
 # building variables
 ######################################
 # debug build?
-DEBUG = 1
+DEBUG = 0
 # optimization
-OPT = -O0
+OPT = -Os
 
 
 #######################################
@@ -173,7 +173,8 @@ LDSCRIPT = STM32L431CBTx_FLASH.ld
 LIBS = -lc -lm -lnosys 
 LIBDIR = 
 LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections
-LDFLAGS += -Wl,-u_printf_float
+#LDFLAGS +=-Wl,--fno-exception
+#LDFLAGS += -Wl,-u_printf_float
 # default action: build all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
 

@@ -246,6 +246,7 @@ uint8_t SX1278_LoRaRxPacket(SX1278_t *module) {
 	modele_sn = ((uint32_t)module - (uint32_t)&Lora_dev[0])/((uint32_t)sizeof(Lora_dev[0]));
 	shellPrint(&shell,"Lora%d has received %dbytes,\r\nRx_Str:%s\r\n\
 Lora%d RX Test OK\r\n",modele_sn,module->readBytes,module->rxBuffer,modele_sn);
+    test_ok_cnt++;
 	return module->readBytes;
 }
 
@@ -386,4 +387,4 @@ void LORA_Send(char fd,char *tx_buff,uint32_t timeout)
 
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-lora_send, LORA_Send, ec2x test);
+lora_test, LORA_Send, lora device send test);

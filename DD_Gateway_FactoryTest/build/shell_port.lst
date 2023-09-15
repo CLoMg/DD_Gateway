@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -12,217 +12,115 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s 			page 1
    9              		.eabi_attribute 24, 1
   10              		.eabi_attribute 25, 1
   11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
+  12              		.eabi_attribute 30, 4
   13              		.eabi_attribute 34, 1
   14              		.eabi_attribute 18, 4
   15              		.file	"shell_port.c"
   16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.global	shell
-  20              		.section	.bss.shell,"aw",%nobits
-  21              		.align	2
-  24              	shell:
-  25 0000 00000000 		.space	108
-  25      00000000 
-  25      00000000 
-  25      00000000 
-  25      00000000 
-  26              		.global	shell_buffer
-  27              		.section	.bss.shell_buffer,"aw",%nobits
-  28              		.align	2
-  31              	shell_buffer:
-  32 0000 00000000 		.space	200
-  32      00000000 
-  32      00000000 
-  32      00000000 
-  32      00000000 
-  33              		.section	.text.User_Shell_Write,"ax",%progbits
-  34              		.align	1
-  35              		.global	User_Shell_Write
-  36              		.syntax unified
-  37              		.thumb
-  38              		.thumb_func
-  40              	User_Shell_Write:
-  41              	.LFB288:
-  42              		.file 1 "ThirdParty/Letter-shell/Src/shell_port.c"
-   1:ThirdParty/Letter-shell/Src/shell_port.c **** /**
-   2:ThirdParty/Letter-shell/Src/shell_port.c ****  * @brief shell移植到STM32L431时的接口实现
-   3:ThirdParty/Letter-shell/Src/shell_port.c ****  * @author mculover666
-   4:ThirdParty/Letter-shell/Src/shell_port.c ****  * @date 2020/03/27 
-   5:ThirdParty/Letter-shell/Src/shell_port.c **** */
-   6:ThirdParty/Letter-shell/Src/shell_port.c **** 
-   7:ThirdParty/Letter-shell/Src/shell_port.c **** #include "shell.h"
-   8:ThirdParty/Letter-shell/Src/shell_port.c **** #include <stm32l4xx_hal.h>
-   9:ThirdParty/Letter-shell/Src/shell_port.c **** #include "rs485.h"
-  10:ThirdParty/Letter-shell/Src/shell_port.c **** #include "usart.h"
-  11:ThirdParty/Letter-shell/Src/shell_port.c **** #include "shell_port.h"
-  12:ThirdParty/Letter-shell/Src/shell_port.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s 			page 2
+  17              		.section	.text.User_Shell_Write,"ax",%progbits
+  18              		.align	1
+  19              		.global	User_Shell_Write
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	User_Shell_Write:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  28 0002 094E     		ldr	r6, .L4
+  29 0004 0446     		mov	r4, r0
+  30 0006 4518     		adds	r5, r0, r1
+  31 0008 0020     		movs	r0, #0
+  32              	.L2:
+  33 000a AC42     		cmp	r4, r5
+  34 000c 00D1     		bne	.L3
+  35 000e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  36              	.L3:
+  37 0010 2146     		mov	r1, r4
+  38 0012 4FF6FF73 		movw	r3, #65535
+  39 0016 0122     		movs	r2, #1
+  40 0018 3046     		mov	r0, r6
+  41 001a FFF7FEFF 		bl	HAL_UART_Transmit
+  42 001e 671C     		adds	r7, r4, #1
+  43 0020 00B2     		sxth	r0, r0
+  44 0022 3C46     		mov	r4, r7
+  45 0024 F1E7     		b	.L2
+  46              	.L5:
+  47 0026 00BF     		.align	2
+  48              	.L4:
+  49 0028 00000000 		.word	huart3
+  51              		.section	.text.User_Shell_Init,"ax",%progbits
+  52              		.align	1
+  53              		.global	User_Shell_Init
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  58              	User_Shell_Init:
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s 			page 2
 
 
-  13:ThirdParty/Letter-shell/Src/shell_port.c **** /* 1. 创建shell对象，开辟shell缓冲区 */
-  14:ThirdParty/Letter-shell/Src/shell_port.c **** Shell shell;
-  15:ThirdParty/Letter-shell/Src/shell_port.c **** char shell_buffer[200];
-  16:ThirdParty/Letter-shell/Src/shell_port.c **** 
-  17:ThirdParty/Letter-shell/Src/shell_port.c **** 
-  18:ThirdParty/Letter-shell/Src/shell_port.c **** /* 2. 自己实现shell写函数 */
-  19:ThirdParty/Letter-shell/Src/shell_port.c **** 
-  20:ThirdParty/Letter-shell/Src/shell_port.c **** //shell写函数原型：typedef void (*shellWrite)(const char);
-  21:ThirdParty/Letter-shell/Src/shell_port.c ****  signed short User_Shell_Write(char *ch, unsigned short len)
-  22:ThirdParty/Letter-shell/Src/shell_port.c **** {   
-  43              		.loc 1 22 1
-  44              		.cfi_startproc
-  45              		@ args = 0, pretend = 0, frame = 16
-  46              		@ frame_needed = 1, uses_anonymous_args = 0
-  47 0000 80B5     		push	{r7, lr}
-  48              	.LCFI0:
-  49              		.cfi_def_cfa_offset 8
-  50              		.cfi_offset 7, -8
-  51              		.cfi_offset 14, -4
-  52 0002 84B0     		sub	sp, sp, #16
-  53              	.LCFI1:
-  54              		.cfi_def_cfa_offset 24
-  55 0004 00AF     		add	r7, sp, #0
-  56              	.LCFI2:
-  57              		.cfi_def_cfa_register 7
-  58 0006 7860     		str	r0, [r7, #4]
-  59 0008 0B46     		mov	r3, r1
-  60 000a 7B80     		strh	r3, [r7, #2]	@ movhi
-  23:ThirdParty/Letter-shell/Src/shell_port.c ****     signed short re_code = 0;
-  61              		.loc 1 23 18
-  62 000c 0023     		movs	r3, #0
-  63 000e FB81     		strh	r3, [r7, #14]	@ movhi
-  24:ThirdParty/Letter-shell/Src/shell_port.c ****     //调用STM32 HAL库 API 使用查询方式发送
-  25:ThirdParty/Letter-shell/Src/shell_port.c ****     while(len--)
-  64              		.loc 1 25 10
-  65 0010 0AE0     		b	.L2
-  66              	.L3:
-  26:ThirdParty/Letter-shell/Src/shell_port.c ****        re_code = HAL_UART_Transmit(&huart3, (uint8_t *)(ch++), 1, 0xFFFF);
-  67              		.loc 1 26 18
-  68 0012 7968     		ldr	r1, [r7, #4]
-  69 0014 4B1C     		adds	r3, r1, #1
-  70 0016 7B60     		str	r3, [r7, #4]
-  71 0018 4FF6FF73 		movw	r3, #65535
-  72 001c 0122     		movs	r2, #1
-  73 001e 0848     		ldr	r0, .L5
-  74 0020 FFF7FEFF 		bl	HAL_UART_Transmit
-  75 0024 0346     		mov	r3, r0
-  76              		.loc 1 26 16
-  77 0026 FB81     		strh	r3, [r7, #14]	@ movhi
-  78              	.L2:
-  25:ThirdParty/Letter-shell/Src/shell_port.c ****        re_code = HAL_UART_Transmit(&huart3, (uint8_t *)(ch++), 1, 0xFFFF);
-  79              		.loc 1 25 14
-  80 0028 7B88     		ldrh	r3, [r7, #2]
-  81 002a 5A1E     		subs	r2, r3, #1
-  82 002c 7A80     		strh	r2, [r7, #2]	@ movhi
-  25:ThirdParty/Letter-shell/Src/shell_port.c ****        re_code = HAL_UART_Transmit(&huart3, (uint8_t *)(ch++), 1, 0xFFFF);
-  83              		.loc 1 25 10
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s 			page 3
-
-
-  84 002e 002B     		cmp	r3, #0
-  85 0030 EFD1     		bne	.L3
-  27:ThirdParty/Letter-shell/Src/shell_port.c ****        //RS485_SendData(&dev_rs485[0], (uint8_t *)ch, len);
-  28:ThirdParty/Letter-shell/Src/shell_port.c ****     return re_code; 
-  86              		.loc 1 28 12
-  87 0032 B7F90E30 		ldrsh	r3, [r7, #14]
-  29:ThirdParty/Letter-shell/Src/shell_port.c **** }
-  88              		.loc 1 29 1
-  89 0036 1846     		mov	r0, r3
-  90 0038 1037     		adds	r7, r7, #16
-  91              	.LCFI3:
-  92              		.cfi_def_cfa_offset 8
-  93 003a BD46     		mov	sp, r7
-  94              	.LCFI4:
-  95              		.cfi_def_cfa_register 13
-  96              		@ sp needed
-  97 003c 80BD     		pop	{r7, pc}
-  98              	.L6:
-  99 003e 00BF     		.align	2
- 100              	.L5:
- 101 0040 00000000 		.word	huart3
- 102              		.cfi_endproc
- 103              	.LFE288:
- 105              		.section	.text.User_Shell_Init,"ax",%progbits
- 106              		.align	1
- 107              		.global	User_Shell_Init
- 108              		.syntax unified
- 109              		.thumb
- 110              		.thumb_func
- 112              	User_Shell_Init:
- 113              	.LFB289:
-  30:ThirdParty/Letter-shell/Src/shell_port.c **** 
-  31:ThirdParty/Letter-shell/Src/shell_port.c **** /* 3. 编写初始化函数 */
-  32:ThirdParty/Letter-shell/Src/shell_port.c **** void User_Shell_Init(void)
-  33:ThirdParty/Letter-shell/Src/shell_port.c **** {
- 114              		.loc 1 33 1
- 115              		.cfi_startproc
- 116              		@ args = 0, pretend = 0, frame = 0
- 117              		@ frame_needed = 1, uses_anonymous_args = 0
- 118 0000 80B5     		push	{r7, lr}
- 119              	.LCFI5:
- 120              		.cfi_def_cfa_offset 8
- 121              		.cfi_offset 7, -8
- 122              		.cfi_offset 14, -4
- 123 0002 00AF     		add	r7, sp, #0
- 124              	.LCFI6:
- 125              		.cfi_def_cfa_register 7
-  34:ThirdParty/Letter-shell/Src/shell_port.c ****  //注册自己实现的写函数
-  35:ThirdParty/Letter-shell/Src/shell_port.c ****     shell.write = User_Shell_Write;
- 126              		.loc 1 35 17
- 127 0004 044B     		ldr	r3, .L8
- 128 0006 054A     		ldr	r2, .L8+4
- 129 0008 9A66     		str	r2, [r3, #104]
-  36:ThirdParty/Letter-shell/Src/shell_port.c ****  
-  37:ThirdParty/Letter-shell/Src/shell_port.c ****  //调用shell初始化函数
-  38:ThirdParty/Letter-shell/Src/shell_port.c ****     shellInit(&shell, shell_buffer, 200);
- 130              		.loc 1 38 5
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s 			page 4
-
-
- 131 000a C822     		movs	r2, #200
- 132 000c 0449     		ldr	r1, .L8+8
- 133 000e 0248     		ldr	r0, .L8
- 134 0010 FFF7FEFF 		bl	shellInit
-  39:ThirdParty/Letter-shell/Src/shell_port.c **** }...
- 135              		.loc 1 39 1
- 136 0014 00BF     		nop
- 137 0016 80BD     		pop	{r7, pc}
- 138              	.L9:
- 139              		.align	2
- 140              	.L8:
- 141 0018 00000000 		.word	shell
- 142 001c 00000000 		.word	User_Shell_Write
- 143 0020 00000000 		.word	shell_buffer
- 144              		.cfi_endproc
- 145              	.LFE289:
- 147              		.text
- 148              	.Letext0:
- 149              		.file 2 "ThirdParty/Letter-shell/Inc/shell.h"
- 150              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 151              		.file 4 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 152              		.file 5 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 153              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 154              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 155              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
- 156              		.file 9 "HAL/Inc/usart.h"
- 157              		.file 10 "ThirdParty/Letter-shell/Inc/shell_port.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s 			page 5
+  61              		@ link register save eliminated.
+  62 0000 0348     		ldr	r0, .L7
+  63 0002 044B     		ldr	r3, .L7+4
+  64 0004 0449     		ldr	r1, .L7+8
+  65 0006 8366     		str	r3, [r0, #104]
+  66 0008 C822     		movs	r2, #200
+  67 000a FFF7FEBF 		b	shellInit
+  68              	.L8:
+  69 000e 00BF     		.align	2
+  70              	.L7:
+  71 0010 00000000 		.word	.LANCHOR0
+  72 0014 00000000 		.word	User_Shell_Write
+  73 0018 00000000 		.word	.LANCHOR1
+  75              		.global	test_error_cnt
+  76              		.global	test_ok_cnt
+  77              		.global	shell_buffer
+  78              		.global	shell
+  79              		.section	.bss.shell,"aw",%nobits
+  80              		.align	2
+  81              		.set	.LANCHOR0,. + 0
+  84              	shell:
+  85 0000 00000000 		.space	108
+  85      00000000 
+  85      00000000 
+  85      00000000 
+  85      00000000 
+  86              		.section	.bss.shell_buffer,"aw",%nobits
+  87              		.set	.LANCHOR1,. + 0
+  90              	shell_buffer:
+  91 0000 00000000 		.space	200
+  91      00000000 
+  91      00000000 
+  91      00000000 
+  91      00000000 
+  92              		.section	.bss.test_error_cnt,"aw",%nobits
+  95              	test_error_cnt:
+  96 0000 00       		.space	1
+  97              		.section	.bss.test_ok_cnt,"aw",%nobits
+ 100              	test_ok_cnt:
+ 101 0000 00       		.space	1
+ 102              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 shell_port.c
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:24     .bss.shell:00000000 shell
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:21     .bss.shell:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:31     .bss.shell_buffer:00000000 shell_buffer
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:28     .bss.shell_buffer:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:34     .text.User_Shell_Write:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:40     .text.User_Shell_Write:00000000 User_Shell_Write
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:101    .text.User_Shell_Write:00000040 $d
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:106    .text.User_Shell_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:112    .text.User_Shell_Init:00000000 User_Shell_Init
-C:\Users\CL\AppData\Local\Temp\ccyPs5Zj.s:141    .text.User_Shell_Init:00000018 $d
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:18     .text.User_Shell_Write:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:24     .text.User_Shell_Write:00000000 User_Shell_Write
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:49     .text.User_Shell_Write:00000028 $d
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:52     .text.User_Shell_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:58     .text.User_Shell_Init:00000000 User_Shell_Init
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:71     .text.User_Shell_Init:00000010 $d
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:95     .bss.test_error_cnt:00000000 test_error_cnt
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:100    .bss.test_ok_cnt:00000000 test_ok_cnt
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:90     .bss.shell_buffer:00000000 shell_buffer
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:84     .bss.shell:00000000 shell
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:80     .bss.shell:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:91     .bss.shell_buffer:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:96     .bss.test_error_cnt:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccm9iHZg.s:101    .bss.test_ok_cnt:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Transmit

@@ -14,8 +14,8 @@
 
 #include "shell_cfg.h"
 
-#define     SHELL_VERSION               "3.2.0"                 /**< 版本号 */
-
+#define     SHELL_VERSION               "V0.9"                 /**< 版本号 */
+extern unsigned short shellidle_cnt;
 
 /**
  * @brief shell 断言

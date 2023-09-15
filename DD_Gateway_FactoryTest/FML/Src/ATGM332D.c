@@ -136,9 +136,12 @@ void BDS_Test(char *cmd,...)
       shellPrint(&shell,buff);
       Delay_ms(10);
       shellPrint(&shell,"ATGM332D Test OK\r\n");
+      test_ok_cnt++;
     }
-    else
+    else{
       shellPrint(&shell,"ATGM332D Test Failed\r\n");
+      test_error_cnt++;
+    }
     Delay_ms(10);
     memset(buff,0,200);
   }

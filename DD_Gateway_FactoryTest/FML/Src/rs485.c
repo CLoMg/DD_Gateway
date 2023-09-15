@@ -77,8 +77,9 @@ void RS485_ReceiveData(RS485_HandleTypeDef *rs485, uint8_t *data, uint16_t size)
 void RS485_Test(char *str)
 {
   RS485_SendData(&dev_rs485[0], (uint8_t *)str, strlen(str));
+  test_ok_cnt++;
 }
 
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
-rs485_send, RS485_Test, rs485 send test);
+rs485_test, RS485_Test, rs485 send test);

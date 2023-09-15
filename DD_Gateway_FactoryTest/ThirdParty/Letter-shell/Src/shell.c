@@ -13,7 +13,7 @@
 #include "stdio.h"
 #include "stdarg.h"
 #include "shell_ext.h"
-
+uint16_t shellidle_cnt = 0;
 
 #if SHELL_USING_CMD_EXPORT == 1
 /**
@@ -1774,6 +1774,7 @@ void shellHandler(Shell *shell, char data)
                 {
                     if (base[i].data.key.function)
                     {
+                        shellidle_cnt = 0;
                         base[i].data.key.function(shell);
                     }
                     shell->parser.keyValue = 0x00000000;

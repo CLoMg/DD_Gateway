@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -12,575 +12,215 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 1
    9              		.eabi_attribute 24, 1
   10              		.eabi_attribute 25, 1
   11              		.eabi_attribute 26, 1
-  12              		.eabi_attribute 30, 6
+  12              		.eabi_attribute 30, 4
   13              		.eabi_attribute 34, 1
   14              		.eabi_attribute 18, 4
   15              		.file	"SX1278_hw.c"
   16              		.text
-  17              	.Ltext0:
-  18              		.cfi_sections	.debug_frame
-  19              		.global	lora_dev_hw
-  20              		.section	.data.lora_dev_hw,"aw"
-  21              		.align	2
-  24              	lora_dev_hw:
-  25 0000 00000000 		.space	8
-  25      00000000 
-  26 0008 02000000 		.word	2
-  27 000c 00040048 		.word	1207960576
-  28 0010 40000000 		.word	64
-  29 0014 00000048 		.word	1207959552
-  30 0018 00100000 		.word	4096
-  31 001c 00040048 		.word	1207960576
-  32 0020 00000000 		.word	hspi2
-  33 0024 00000000 		.space	8
-  33      00000000 
-  34 002c 40000000 		.word	64
-  35 0030 00040048 		.word	1207960576
-  36 0034 00020000 		.word	512
-  37 0038 00040048 		.word	1207960576
-  38 003c 00800000 		.word	32768
-  39 0040 00000048 		.word	1207959552
-  40 0044 00000000 		.word	hspi3
-  41              		.section	.text.SX1278_hw_init,"ax",%progbits
-  42              		.align	1
-  43              		.weak	SX1278_hw_init
-  44              		.syntax unified
-  45              		.thumb
-  46              		.thumb_func
-  48              	SX1278_hw_init:
-  49              	.LFB288:
-  50              		.file 1 "HAL/Src/SX1278_hw.c"
-   1:HAL/Src/SX1278_hw.c **** /**
-   2:HAL/Src/SX1278_hw.c ****  * Author Wojciech Domski <Wojciech.Domski@gmail.com>
-   3:HAL/Src/SX1278_hw.c ****  * www: www.Domski.pl
-   4:HAL/Src/SX1278_hw.c ****  *
-   5:HAL/Src/SX1278_hw.c ****  * Hardware layer for SX1278 LoRa module
-   6:HAL/Src/SX1278_hw.c ****  */
-   7:HAL/Src/SX1278_hw.c **** 
-   8:HAL/Src/SX1278_hw.c **** #include "SX1278_hw.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 2
+  17              		.section	.text.SX1278_hw_SetNSS,"ax",%progbits
+  18              		.align	1
+  19              		.weak	SX1278_hw_SetNSS
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	SX1278_hw_SetNSS:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 4B1E     		subs	r3, r1, #1
+  29 0002 5A42     		rsbs	r2, r3, #0
+  30 0004 018B     		ldrh	r1, [r0, #24]
+  31 0006 C069     		ldr	r0, [r0, #28]
+  32 0008 5A41     		adcs	r2, r2, r3
+  33 000a FFF7FEBF 		b	HAL_GPIO_WritePin
+  35              		.section	.text.SX1278_hw_SPICommand,"ax",%progbits
+  36              		.align	1
+  37              		.weak	SX1278_hw_SPICommand
+  38              		.syntax unified
+  39              		.thumb
+  40              		.thumb_func
+  42              	SX1278_hw_SPICommand:
+  43              		@ args = 0, pretend = 0, frame = 8
+  44              		@ frame_needed = 0, uses_anonymous_args = 0
+  45 0000 13B5     		push	{r0, r1, r4, lr}
+  46 0002 0446     		mov	r4, r0
+  47 0004 8DF80710 		strb	r1, [sp, #7]
+  48 0008 0021     		movs	r1, #0
+  49 000a FFF7FEFF 		bl	SX1278_hw_SetNSS
+  50 000e 206A     		ldr	r0, [r4, #32]
+  51 0010 4FF47A73 		mov	r3, #1000
+  52 0014 0122     		movs	r2, #1
+  53 0016 0DF10701 		add	r1, sp, #7
+  54 001a FFF7FEFF 		bl	HAL_SPI_Transmit
+  55              	.L3:
+  56 001e 206A     		ldr	r0, [r4, #32]
+  57 0020 FFF7FEFF 		bl	HAL_SPI_GetState
+  58 0024 0128     		cmp	r0, #1
+  59 0026 FAD1     		bne	.L3
+  60 0028 02B0     		add	sp, sp, #8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s 			page 2
 
 
-   9:HAL/Src/SX1278_hw.c **** #include <string.h>
-  10:HAL/Src/SX1278_hw.c **** 
-  11:HAL/Src/SX1278_hw.c **** #include "gpio.h"
-  12:HAL/Src/SX1278_hw.c **** #include "spi.h"
-  13:HAL/Src/SX1278_hw.c **** 
-  14:HAL/Src/SX1278_hw.c **** 
-  15:HAL/Src/SX1278_hw.c **** SX1278_hw_t lora_dev_hw[] = {
-  16:HAL/Src/SX1278_hw.c **** 	{
-  17:HAL/Src/SX1278_hw.c **** 		.reset.pin = LORA2_RST_Pin,
-  18:HAL/Src/SX1278_hw.c **** 		.reset.port = LORA2_RST_GPIO_Port,
-  19:HAL/Src/SX1278_hw.c **** 		.dio0.pin = LORA2_DIO0_Pin,
-  20:HAL/Src/SX1278_hw.c **** 		.dio0.port = LORA2_DIO0_GPIO_Port,
-  21:HAL/Src/SX1278_hw.c **** 		.nss.pin = LORA2_SPI_NSS_Pin,
-  22:HAL/Src/SX1278_hw.c **** 		.nss.port = LORA2_SPI_NSS_GPIO_Port,
-  23:HAL/Src/SX1278_hw.c **** 		.spi = &hspi2,
-  24:HAL/Src/SX1278_hw.c **** 	},
-  25:HAL/Src/SX1278_hw.c **** 	{
-  26:HAL/Src/SX1278_hw.c **** 		.reset.pin = LORA1_RST_Pin,
-  27:HAL/Src/SX1278_hw.c **** 		.reset.port = LORA1_RST_GPIO_Port,
-  28:HAL/Src/SX1278_hw.c **** 		.dio0.pin = LORA1_DIO0_Pin,
-  29:HAL/Src/SX1278_hw.c **** 		.dio0.port = LORA1_DIO0_GPIO_Port,
-  30:HAL/Src/SX1278_hw.c **** 		.nss.pin = LORA1_SPI_NSS_Pin,
-  31:HAL/Src/SX1278_hw.c **** 		.nss.port = LORA1_SPI_NSS_GPIO_Port,
-  32:HAL/Src/SX1278_hw.c **** 		.spi = &hspi3,
-  33:HAL/Src/SX1278_hw.c **** 	}
-  34:HAL/Src/SX1278_hw.c **** };
-  35:HAL/Src/SX1278_hw.c **** 
-  36:HAL/Src/SX1278_hw.c **** __weak void SX1278_hw_init(SX1278_hw_t *hw) {
-  51              		.loc 1 36 45
-  52              		.cfi_startproc
-  53              		@ args = 0, pretend = 0, frame = 8
-  54              		@ frame_needed = 1, uses_anonymous_args = 0
-  55 0000 80B5     		push	{r7, lr}
-  56              	.LCFI0:
-  57              		.cfi_def_cfa_offset 8
-  58              		.cfi_offset 7, -8
-  59              		.cfi_offset 14, -4
-  60 0002 82B0     		sub	sp, sp, #8
-  61              	.LCFI1:
-  62              		.cfi_def_cfa_offset 16
-  63 0004 00AF     		add	r7, sp, #0
-  64              	.LCFI2:
-  65              		.cfi_def_cfa_register 7
-  66 0006 7860     		str	r0, [r7, #4]
-  37:HAL/Src/SX1278_hw.c **** 	SX1278_hw_SetNSS(hw, 1);
-  67              		.loc 1 37 2
-  68 0008 0121     		movs	r1, #1
-  69 000a 7868     		ldr	r0, [r7, #4]
-  70 000c FFF7FEFF 		bl	SX1278_hw_SetNSS
-  38:HAL/Src/SX1278_hw.c **** 	SX1278_hw_Reset(hw);
-  71              		.loc 1 38 2
-  72 0010 7868     		ldr	r0, [r7, #4]
-  73 0012 FFF7FEFF 		bl	SX1278_hw_Reset
-  39:HAL/Src/SX1278_hw.c **** }
-  74              		.loc 1 39 1
-  75 0016 00BF     		nop
-  76 0018 0837     		adds	r7, r7, #8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 3
+  61              		@ sp needed
+  62 002a 10BD     		pop	{r4, pc}
+  64              		.section	.text.SX1278_hw_SPIReadByte,"ax",%progbits
+  65              		.align	1
+  66              		.weak	SX1278_hw_SPIReadByte
+  67              		.syntax unified
+  68              		.thumb
+  69              		.thumb_func
+  71              	SX1278_hw_SPIReadByte:
+  72              		@ args = 0, pretend = 0, frame = 8
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74 0000 1FB5     		push	{r0, r1, r2, r3, r4, lr}
+  75 0002 0021     		movs	r1, #0
+  76 0004 0446     		mov	r4, r0
+  77 0006 8DF80E10 		strb	r1, [sp, #14]
+  78 000a 8DF80F10 		strb	r1, [sp, #15]
+  79 000e FFF7FEFF 		bl	SX1278_hw_SetNSS
+  80 0012 4FF47A73 		mov	r3, #1000
+  81 0016 0093     		str	r3, [sp]
+  82 0018 206A     		ldr	r0, [r4, #32]
+  83 001a 0123     		movs	r3, #1
+  84 001c 0DF10F02 		add	r2, sp, #15
+  85 0020 0DF10E01 		add	r1, sp, #14
+  86 0024 FFF7FEFF 		bl	HAL_SPI_TransmitReceive
+  87              	.L6:
+  88 0028 206A     		ldr	r0, [r4, #32]
+  89 002a FFF7FEFF 		bl	HAL_SPI_GetState
+  90 002e 0128     		cmp	r0, #1
+  91 0030 FAD1     		bne	.L6
+  92 0032 9DF80F00 		ldrb	r0, [sp, #15]	@ zero_extendqisi2
+  93 0036 04B0     		add	sp, sp, #16
+  94              		@ sp needed
+  95 0038 10BD     		pop	{r4, pc}
+  97              		.section	.text.SX1278_hw_DelayMs,"ax",%progbits
+  98              		.align	1
+  99              		.weak	SX1278_hw_DelayMs
+ 100              		.syntax unified
+ 101              		.thumb
+ 102              		.thumb_func
+ 104              	SX1278_hw_DelayMs:
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107              		@ link register save eliminated.
+ 108 0000 FFF7FEBF 		b	Delay_ms
+ 110              		.section	.text.SX1278_hw_Reset,"ax",%progbits
+ 111              		.align	1
+ 112              		.weak	SX1278_hw_Reset
+ 113              		.syntax unified
+ 114              		.thumb
+ 115              		.thumb_func
+ 117              	SX1278_hw_Reset:
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120 0000 10B5     		push	{r4, lr}
+ 121 0002 0446     		mov	r4, r0
+ 122 0004 0121     		movs	r1, #1
+ 123 0006 FFF7FEFF 		bl	SX1278_hw_SetNSS
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s 			page 3
 
 
-  77              	.LCFI3:
-  78              		.cfi_def_cfa_offset 8
-  79 001a BD46     		mov	sp, r7
-  80              	.LCFI4:
-  81              		.cfi_def_cfa_register 13
-  82              		@ sp needed
-  83 001c 80BD     		pop	{r7, pc}
-  84              		.cfi_endproc
-  85              	.LFE288:
-  87              		.section	.text.SX1278_hw_SetNSS,"ax",%progbits
-  88              		.align	1
-  89              		.weak	SX1278_hw_SetNSS
-  90              		.syntax unified
-  91              		.thumb
-  92              		.thumb_func
-  94              	SX1278_hw_SetNSS:
-  95              	.LFB289:
-  40:HAL/Src/SX1278_hw.c **** 
-  41:HAL/Src/SX1278_hw.c **** __weak void SX1278_hw_SetNSS(SX1278_hw_t *hw, int value) {
-  96              		.loc 1 41 58
-  97              		.cfi_startproc
-  98              		@ args = 0, pretend = 0, frame = 8
-  99              		@ frame_needed = 1, uses_anonymous_args = 0
- 100 0000 80B5     		push	{r7, lr}
- 101              	.LCFI5:
- 102              		.cfi_def_cfa_offset 8
- 103              		.cfi_offset 7, -8
- 104              		.cfi_offset 14, -4
- 105 0002 82B0     		sub	sp, sp, #8
- 106              	.LCFI6:
- 107              		.cfi_def_cfa_offset 16
- 108 0004 00AF     		add	r7, sp, #0
- 109              	.LCFI7:
- 110              		.cfi_def_cfa_register 7
- 111 0006 7860     		str	r0, [r7, #4]
- 112 0008 3960     		str	r1, [r7]
-  42:HAL/Src/SX1278_hw.c **** 	HAL_GPIO_WritePin(hw->nss.port, hw->nss.pin,
- 113              		.loc 1 42 27
- 114 000a 7B68     		ldr	r3, [r7, #4]
- 115 000c D869     		ldr	r0, [r3, #28]
- 116              		.loc 1 42 41
- 117 000e 7B68     		ldr	r3, [r7, #4]
- 118 0010 9B69     		ldr	r3, [r3, #24]
- 119              		.loc 1 42 2
- 120 0012 99B2     		uxth	r1, r3
- 121 0014 3B68     		ldr	r3, [r7]
- 122 0016 012B     		cmp	r3, #1
- 123 0018 0CBF     		ite	eq
- 124 001a 0123     		moveq	r3, #1
- 125 001c 0023     		movne	r3, #0
- 126 001e DBB2     		uxtb	r3, r3
- 127 0020 1A46     		mov	r2, r3
- 128 0022 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  43:HAL/Src/SX1278_hw.c **** 			(value == 1) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-  44:HAL/Src/SX1278_hw.c **** }
- 129              		.loc 1 44 1
- 130 0026 00BF     		nop
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 4
+ 124 000a 2189     		ldrh	r1, [r4, #8]
+ 125 000c E068     		ldr	r0, [r4, #12]
+ 126 000e 0022     		movs	r2, #0
+ 127 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 128 0014 0120     		movs	r0, #1
+ 129 0016 FFF7FEFF 		bl	SX1278_hw_DelayMs
+ 130 001a E068     		ldr	r0, [r4, #12]
+ 131 001c 2189     		ldrh	r1, [r4, #8]
+ 132 001e 0122     		movs	r2, #1
+ 133 0020 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 134 0024 6420     		movs	r0, #100
+ 135 0026 FFF7FEFF 		bl	SX1278_hw_DelayMs
+ 136 002a 10BD     		pop	{r4, pc}
+ 138              		.section	.text.SX1278_hw_init,"ax",%progbits
+ 139              		.align	1
+ 140              		.weak	SX1278_hw_init
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ 145              	SX1278_hw_init:
+ 146              		@ args = 0, pretend = 0, frame = 0
+ 147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 148 0000 10B5     		push	{r4, lr}
+ 149 0002 0121     		movs	r1, #1
+ 150 0004 0446     		mov	r4, r0
+ 151 0006 FFF7FEFF 		bl	SX1278_hw_SetNSS
+ 152 000a 2046     		mov	r0, r4
+ 153 000c FFF7FEFF 		bl	SX1278_hw_Reset
+ 154 0010 10BD     		pop	{r4, pc}
+ 156              		.section	.text.SX1278_hw_GetDIO0,"ax",%progbits
+ 157              		.align	1
+ 158              		.weak	SX1278_hw_GetDIO0
+ 159              		.syntax unified
+ 160              		.thumb
+ 161              		.thumb_func
+ 163              	SX1278_hw_GetDIO0:
+ 164              		@ args = 0, pretend = 0, frame = 0
+ 165              		@ frame_needed = 0, uses_anonymous_args = 0
+ 166 0000 08B5     		push	{r3, lr}
+ 167 0002 018A     		ldrh	r1, [r0, #16]
+ 168 0004 4069     		ldr	r0, [r0, #20]
+ 169 0006 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 170 000a 431E     		subs	r3, r0, #1
+ 171 000c 5842     		rsbs	r0, r3, #0
+ 172 000e 5841     		adcs	r0, r0, r3
+ 173 0010 08BD     		pop	{r3, pc}
+ 175              		.global	lora_dev_hw
+ 176              		.section	.data.lora_dev_hw,"aw"
+ 177              		.align	2
+ 180              	lora_dev_hw:
+ 181 0000 00000000 		.space	8
+ 181      00000000 
+ 182 0008 02000000 		.word	2
+ 183 000c 00040048 		.word	1207960576
+ 184 0010 40000000 		.word	64
+ 185 0014 00000048 		.word	1207959552
+ 186 0018 00100000 		.word	4096
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s 			page 4
 
 
- 131 0028 0837     		adds	r7, r7, #8
- 132              	.LCFI8:
- 133              		.cfi_def_cfa_offset 8
- 134 002a BD46     		mov	sp, r7
- 135              	.LCFI9:
- 136              		.cfi_def_cfa_register 13
- 137              		@ sp needed
- 138 002c 80BD     		pop	{r7, pc}
- 139              		.cfi_endproc
- 140              	.LFE289:
- 142              		.section	.text.SX1278_hw_Reset,"ax",%progbits
- 143              		.align	1
- 144              		.weak	SX1278_hw_Reset
- 145              		.syntax unified
- 146              		.thumb
- 147              		.thumb_func
- 149              	SX1278_hw_Reset:
- 150              	.LFB290:
-  45:HAL/Src/SX1278_hw.c **** 
-  46:HAL/Src/SX1278_hw.c **** __weak void SX1278_hw_Reset(SX1278_hw_t *hw) {
- 151              		.loc 1 46 46
- 152              		.cfi_startproc
- 153              		@ args = 0, pretend = 0, frame = 8
- 154              		@ frame_needed = 1, uses_anonymous_args = 0
- 155 0000 80B5     		push	{r7, lr}
- 156              	.LCFI10:
- 157              		.cfi_def_cfa_offset 8
- 158              		.cfi_offset 7, -8
- 159              		.cfi_offset 14, -4
- 160 0002 82B0     		sub	sp, sp, #8
- 161              	.LCFI11:
- 162              		.cfi_def_cfa_offset 16
- 163 0004 00AF     		add	r7, sp, #0
- 164              	.LCFI12:
- 165              		.cfi_def_cfa_register 7
- 166 0006 7860     		str	r0, [r7, #4]
-  47:HAL/Src/SX1278_hw.c **** 	SX1278_hw_SetNSS(hw, 1);
- 167              		.loc 1 47 2
- 168 0008 0121     		movs	r1, #1
- 169 000a 7868     		ldr	r0, [r7, #4]
- 170 000c FFF7FEFF 		bl	SX1278_hw_SetNSS
-  48:HAL/Src/SX1278_hw.c **** 	HAL_GPIO_WritePin(hw->reset.port, hw->reset.pin, GPIO_PIN_RESET);
- 171              		.loc 1 48 29
- 172 0010 7B68     		ldr	r3, [r7, #4]
- 173 0012 D868     		ldr	r0, [r3, #12]
- 174              		.loc 1 48 45
- 175 0014 7B68     		ldr	r3, [r7, #4]
- 176 0016 9B68     		ldr	r3, [r3, #8]
- 177              		.loc 1 48 2
- 178 0018 9BB2     		uxth	r3, r3
- 179 001a 0022     		movs	r2, #0
- 180 001c 1946     		mov	r1, r3
- 181 001e FFF7FEFF 		bl	HAL_GPIO_WritePin
-  49:HAL/Src/SX1278_hw.c **** 
-  50:HAL/Src/SX1278_hw.c **** 	SX1278_hw_DelayMs(1);
- 182              		.loc 1 50 2
- 183 0022 0120     		movs	r0, #1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 5
-
-
- 184 0024 FFF7FEFF 		bl	SX1278_hw_DelayMs
-  51:HAL/Src/SX1278_hw.c **** 
-  52:HAL/Src/SX1278_hw.c **** 	HAL_GPIO_WritePin(hw->reset.port, hw->reset.pin, GPIO_PIN_SET);
- 185              		.loc 1 52 29
- 186 0028 7B68     		ldr	r3, [r7, #4]
- 187 002a D868     		ldr	r0, [r3, #12]
- 188              		.loc 1 52 45
- 189 002c 7B68     		ldr	r3, [r7, #4]
- 190 002e 9B68     		ldr	r3, [r3, #8]
- 191              		.loc 1 52 2
- 192 0030 9BB2     		uxth	r3, r3
- 193 0032 0122     		movs	r2, #1
- 194 0034 1946     		mov	r1, r3
- 195 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  53:HAL/Src/SX1278_hw.c **** 
-  54:HAL/Src/SX1278_hw.c **** 	SX1278_hw_DelayMs(100);
- 196              		.loc 1 54 2
- 197 003a 6420     		movs	r0, #100
- 198 003c FFF7FEFF 		bl	SX1278_hw_DelayMs
-  55:HAL/Src/SX1278_hw.c **** }
- 199              		.loc 1 55 1
- 200 0040 00BF     		nop
- 201 0042 0837     		adds	r7, r7, #8
- 202              	.LCFI13:
- 203              		.cfi_def_cfa_offset 8
- 204 0044 BD46     		mov	sp, r7
- 205              	.LCFI14:
- 206              		.cfi_def_cfa_register 13
- 207              		@ sp needed
- 208 0046 80BD     		pop	{r7, pc}
- 209              		.cfi_endproc
- 210              	.LFE290:
- 212              		.section	.text.SX1278_hw_SPICommand,"ax",%progbits
- 213              		.align	1
- 214              		.weak	SX1278_hw_SPICommand
- 215              		.syntax unified
- 216              		.thumb
- 217              		.thumb_func
- 219              	SX1278_hw_SPICommand:
- 220              	.LFB291:
-  56:HAL/Src/SX1278_hw.c **** 
-  57:HAL/Src/SX1278_hw.c **** __weak void SX1278_hw_SPICommand(SX1278_hw_t *hw, uint8_t cmd) {
- 221              		.loc 1 57 64
- 222              		.cfi_startproc
- 223              		@ args = 0, pretend = 0, frame = 8
- 224              		@ frame_needed = 1, uses_anonymous_args = 0
- 225 0000 80B5     		push	{r7, lr}
- 226              	.LCFI15:
- 227              		.cfi_def_cfa_offset 8
- 228              		.cfi_offset 7, -8
- 229              		.cfi_offset 14, -4
- 230 0002 82B0     		sub	sp, sp, #8
- 231              	.LCFI16:
- 232              		.cfi_def_cfa_offset 16
- 233 0004 00AF     		add	r7, sp, #0
- 234              	.LCFI17:
- 235              		.cfi_def_cfa_register 7
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 6
-
-
- 236 0006 7860     		str	r0, [r7, #4]
- 237 0008 0B46     		mov	r3, r1
- 238 000a FB70     		strb	r3, [r7, #3]
-  58:HAL/Src/SX1278_hw.c **** 	SX1278_hw_SetNSS(hw, 0);
- 239              		.loc 1 58 2
- 240 000c 0021     		movs	r1, #0
- 241 000e 7868     		ldr	r0, [r7, #4]
- 242 0010 FFF7FEFF 		bl	SX1278_hw_SetNSS
-  59:HAL/Src/SX1278_hw.c **** 	HAL_SPI_Transmit(hw->spi, &cmd, 1, 1000);
- 243              		.loc 1 59 21
- 244 0014 7B68     		ldr	r3, [r7, #4]
- 245 0016 186A     		ldr	r0, [r3, #32]
- 246              		.loc 1 59 2
- 247 0018 F91C     		adds	r1, r7, #3
- 248 001a 4FF47A73 		mov	r3, #1000
- 249 001e 0122     		movs	r2, #1
- 250 0020 FFF7FEFF 		bl	HAL_SPI_Transmit
-  60:HAL/Src/SX1278_hw.c **** 	while (HAL_SPI_GetState(hw->spi) != HAL_SPI_STATE_READY)
- 251              		.loc 1 60 8
- 252 0024 00BF     		nop
- 253              	.L5:
- 254              		.loc 1 60 28 discriminator 1
- 255 0026 7B68     		ldr	r3, [r7, #4]
- 256 0028 1B6A     		ldr	r3, [r3, #32]
- 257              		.loc 1 60 9 discriminator 1
- 258 002a 1846     		mov	r0, r3
- 259 002c FFF7FEFF 		bl	HAL_SPI_GetState
- 260 0030 0346     		mov	r3, r0
- 261              		.loc 1 60 8 discriminator 1
- 262 0032 012B     		cmp	r3, #1
- 263 0034 F7D1     		bne	.L5
-  61:HAL/Src/SX1278_hw.c **** 		;
-  62:HAL/Src/SX1278_hw.c **** }
- 264              		.loc 1 62 1
- 265 0036 00BF     		nop
- 266 0038 00BF     		nop
- 267 003a 0837     		adds	r7, r7, #8
- 268              	.LCFI18:
- 269              		.cfi_def_cfa_offset 8
- 270 003c BD46     		mov	sp, r7
- 271              	.LCFI19:
- 272              		.cfi_def_cfa_register 13
- 273              		@ sp needed
- 274 003e 80BD     		pop	{r7, pc}
- 275              		.cfi_endproc
- 276              	.LFE291:
- 278              		.section	.text.SX1278_hw_SPIReadByte,"ax",%progbits
- 279              		.align	1
- 280              		.weak	SX1278_hw_SPIReadByte
- 281              		.syntax unified
- 282              		.thumb
- 283              		.thumb_func
- 285              	SX1278_hw_SPIReadByte:
- 286              	.LFB292:
-  63:HAL/Src/SX1278_hw.c **** 
-  64:HAL/Src/SX1278_hw.c **** __weak uint8_t SX1278_hw_SPIReadByte(SX1278_hw_t *hw) {
- 287              		.loc 1 64 55
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 7
-
-
- 288              		.cfi_startproc
- 289              		@ args = 0, pretend = 0, frame = 16
- 290              		@ frame_needed = 1, uses_anonymous_args = 0
- 291 0000 80B5     		push	{r7, lr}
- 292              	.LCFI20:
- 293              		.cfi_def_cfa_offset 8
- 294              		.cfi_offset 7, -8
- 295              		.cfi_offset 14, -4
- 296 0002 86B0     		sub	sp, sp, #24
- 297              	.LCFI21:
- 298              		.cfi_def_cfa_offset 32
- 299 0004 02AF     		add	r7, sp, #8
- 300              	.LCFI22:
- 301              		.cfi_def_cfa 7, 24
- 302 0006 7860     		str	r0, [r7, #4]
-  65:HAL/Src/SX1278_hw.c **** 	uint8_t txByte = 0x00;
- 303              		.loc 1 65 10
- 304 0008 0023     		movs	r3, #0
- 305 000a FB73     		strb	r3, [r7, #15]
-  66:HAL/Src/SX1278_hw.c **** 	uint8_t rxByte = 0x00;
- 306              		.loc 1 66 10
- 307 000c 0023     		movs	r3, #0
- 308 000e BB73     		strb	r3, [r7, #14]
-  67:HAL/Src/SX1278_hw.c **** 
-  68:HAL/Src/SX1278_hw.c **** 	SX1278_hw_SetNSS(hw, 0);
- 309              		.loc 1 68 2
- 310 0010 0021     		movs	r1, #0
- 311 0012 7868     		ldr	r0, [r7, #4]
- 312 0014 FFF7FEFF 		bl	SX1278_hw_SetNSS
-  69:HAL/Src/SX1278_hw.c **** 	HAL_SPI_TransmitReceive(hw->spi, &txByte, &rxByte, 1, 1000);
- 313              		.loc 1 69 28
- 314 0018 7B68     		ldr	r3, [r7, #4]
- 315 001a 186A     		ldr	r0, [r3, #32]
- 316              		.loc 1 69 2
- 317 001c 07F10E02 		add	r2, r7, #14
- 318 0020 07F10F01 		add	r1, r7, #15
- 319 0024 4FF47A73 		mov	r3, #1000
- 320 0028 0093     		str	r3, [sp]
- 321 002a 0123     		movs	r3, #1
- 322 002c FFF7FEFF 		bl	HAL_SPI_TransmitReceive
-  70:HAL/Src/SX1278_hw.c **** 	while (HAL_SPI_GetState(hw->spi) != HAL_SPI_STATE_READY)
- 323              		.loc 1 70 8
- 324 0030 00BF     		nop
- 325              	.L7:
- 326              		.loc 1 70 28 discriminator 1
- 327 0032 7B68     		ldr	r3, [r7, #4]
- 328 0034 1B6A     		ldr	r3, [r3, #32]
- 329              		.loc 1 70 9 discriminator 1
- 330 0036 1846     		mov	r0, r3
- 331 0038 FFF7FEFF 		bl	HAL_SPI_GetState
- 332 003c 0346     		mov	r3, r0
- 333              		.loc 1 70 8 discriminator 1
- 334 003e 012B     		cmp	r3, #1
- 335 0040 F7D1     		bne	.L7
-  71:HAL/Src/SX1278_hw.c **** 		;
-  72:HAL/Src/SX1278_hw.c **** 	return rxByte;
- 336              		.loc 1 72 9
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 8
-
-
- 337 0042 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
-  73:HAL/Src/SX1278_hw.c **** }
- 338              		.loc 1 73 1
- 339 0044 1846     		mov	r0, r3
- 340 0046 1037     		adds	r7, r7, #16
- 341              	.LCFI23:
- 342              		.cfi_def_cfa_offset 8
- 343 0048 BD46     		mov	sp, r7
- 344              	.LCFI24:
- 345              		.cfi_def_cfa_register 13
- 346              		@ sp needed
- 347 004a 80BD     		pop	{r7, pc}
- 348              		.cfi_endproc
- 349              	.LFE292:
- 351              		.section	.text.SX1278_hw_DelayMs,"ax",%progbits
- 352              		.align	1
- 353              		.weak	SX1278_hw_DelayMs
- 354              		.syntax unified
- 355              		.thumb
- 356              		.thumb_func
- 358              	SX1278_hw_DelayMs:
- 359              	.LFB293:
-  74:HAL/Src/SX1278_hw.c **** 
-  75:HAL/Src/SX1278_hw.c **** __weak void SX1278_hw_DelayMs(uint32_t msec) {
- 360              		.loc 1 75 46
- 361              		.cfi_startproc
- 362              		@ args = 0, pretend = 0, frame = 8
- 363              		@ frame_needed = 1, uses_anonymous_args = 0
- 364 0000 80B5     		push	{r7, lr}
- 365              	.LCFI25:
- 366              		.cfi_def_cfa_offset 8
- 367              		.cfi_offset 7, -8
- 368              		.cfi_offset 14, -4
- 369 0002 82B0     		sub	sp, sp, #8
- 370              	.LCFI26:
- 371              		.cfi_def_cfa_offset 16
- 372 0004 00AF     		add	r7, sp, #0
- 373              	.LCFI27:
- 374              		.cfi_def_cfa_register 7
- 375 0006 7860     		str	r0, [r7, #4]
-  76:HAL/Src/SX1278_hw.c **** 	Delay_ms(msec);
- 376              		.loc 1 76 2
- 377 0008 7868     		ldr	r0, [r7, #4]
- 378 000a FFF7FEFF 		bl	Delay_ms
-  77:HAL/Src/SX1278_hw.c **** }
- 379              		.loc 1 77 1
- 380 000e 00BF     		nop
- 381 0010 0837     		adds	r7, r7, #8
- 382              	.LCFI28:
- 383              		.cfi_def_cfa_offset 8
- 384 0012 BD46     		mov	sp, r7
- 385              	.LCFI29:
- 386              		.cfi_def_cfa_register 13
- 387              		@ sp needed
- 388 0014 80BD     		pop	{r7, pc}
- 389              		.cfi_endproc
- 390              	.LFE293:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 9
-
-
- 392              		.section	.text.SX1278_hw_GetDIO0,"ax",%progbits
- 393              		.align	1
- 394              		.weak	SX1278_hw_GetDIO0
- 395              		.syntax unified
- 396              		.thumb
- 397              		.thumb_func
- 399              	SX1278_hw_GetDIO0:
- 400              	.LFB294:
-  78:HAL/Src/SX1278_hw.c **** 
-  79:HAL/Src/SX1278_hw.c **** __weak int SX1278_hw_GetDIO0(SX1278_hw_t *hw) {
- 401              		.loc 1 79 47
- 402              		.cfi_startproc
- 403              		@ args = 0, pretend = 0, frame = 8
- 404              		@ frame_needed = 1, uses_anonymous_args = 0
- 405 0000 80B5     		push	{r7, lr}
- 406              	.LCFI30:
- 407              		.cfi_def_cfa_offset 8
- 408              		.cfi_offset 7, -8
- 409              		.cfi_offset 14, -4
- 410 0002 82B0     		sub	sp, sp, #8
- 411              	.LCFI31:
- 412              		.cfi_def_cfa_offset 16
- 413 0004 00AF     		add	r7, sp, #0
- 414              	.LCFI32:
- 415              		.cfi_def_cfa_register 7
- 416 0006 7860     		str	r0, [r7, #4]
-  80:HAL/Src/SX1278_hw.c **** 	return (HAL_GPIO_ReadPin(hw->dio0.port, hw->dio0.pin) == GPIO_PIN_SET);
- 417              		.loc 1 80 35
- 418 0008 7B68     		ldr	r3, [r7, #4]
- 419 000a 5A69     		ldr	r2, [r3, #20]
- 420              		.loc 1 80 50
- 421 000c 7B68     		ldr	r3, [r7, #4]
- 422 000e 1B69     		ldr	r3, [r3, #16]
- 423              		.loc 1 80 10
- 424 0010 9BB2     		uxth	r3, r3
- 425 0012 1946     		mov	r1, r3
- 426 0014 1046     		mov	r0, r2
- 427 0016 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 428 001a 0346     		mov	r3, r0
- 429              		.loc 1 80 56
- 430 001c 012B     		cmp	r3, #1
- 431 001e 0CBF     		ite	eq
- 432 0020 0123     		moveq	r3, #1
- 433 0022 0023     		movne	r3, #0
- 434 0024 DBB2     		uxtb	r3, r3
-  81:HAL/Src/SX1278_hw.c **** }
- 435              		.loc 1 81 1
- 436 0026 1846     		mov	r0, r3
- 437 0028 0837     		adds	r7, r7, #8
- 438              	.LCFI33:
- 439              		.cfi_def_cfa_offset 8
- 440 002a BD46     		mov	sp, r7
- 441              	.LCFI34:
- 442              		.cfi_def_cfa_register 13
- 443              		@ sp needed
- 444 002c 80BD     		pop	{r7, pc}
- 445              		.cfi_endproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 10
-
-
- 446              	.LFE294:
- 448              		.text
- 449              	.Letext0:
- 450              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 451              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 452              		.file 4 "HAL/Inc/SX1278_hw.h"
- 453              		.file 5 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 454              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 455              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
- 456              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
- 457              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
- 458              		.file 10 "HAL/Inc/spi.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s 			page 11
+ 187 001c 00040048 		.word	1207960576
+ 188 0020 00000000 		.word	hspi2
+ 189 0024 00000000 		.space	8
+ 189      00000000 
+ 190 002c 40000000 		.word	64
+ 191 0030 00040048 		.word	1207960576
+ 192 0034 00020000 		.word	512
+ 193 0038 00040048 		.word	1207960576
+ 194 003c 00800000 		.word	32768
+ 195 0040 00000048 		.word	1207959552
+ 196 0044 00000000 		.word	hspi3
+ 197              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 SX1278_hw.c
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:24     .data.lora_dev_hw:00000000 lora_dev_hw
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:21     .data.lora_dev_hw:00000000 $d
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:42     .text.SX1278_hw_init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:48     .text.SX1278_hw_init:00000000 SX1278_hw_init
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:94     .text.SX1278_hw_SetNSS:00000000 SX1278_hw_SetNSS
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:149    .text.SX1278_hw_Reset:00000000 SX1278_hw_Reset
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:88     .text.SX1278_hw_SetNSS:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:143    .text.SX1278_hw_Reset:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:358    .text.SX1278_hw_DelayMs:00000000 SX1278_hw_DelayMs
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:213    .text.SX1278_hw_SPICommand:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:219    .text.SX1278_hw_SPICommand:00000000 SX1278_hw_SPICommand
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:279    .text.SX1278_hw_SPIReadByte:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:285    .text.SX1278_hw_SPIReadByte:00000000 SX1278_hw_SPIReadByte
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:352    .text.SX1278_hw_DelayMs:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:393    .text.SX1278_hw_GetDIO0:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cceKtQ7d.s:399    .text.SX1278_hw_GetDIO0:00000000 SX1278_hw_GetDIO0
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:18     .text.SX1278_hw_SetNSS:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:24     .text.SX1278_hw_SetNSS:00000000 SX1278_hw_SetNSS
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:36     .text.SX1278_hw_SPICommand:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:42     .text.SX1278_hw_SPICommand:00000000 SX1278_hw_SPICommand
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:65     .text.SX1278_hw_SPIReadByte:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:71     .text.SX1278_hw_SPIReadByte:00000000 SX1278_hw_SPIReadByte
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:98     .text.SX1278_hw_DelayMs:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:104    .text.SX1278_hw_DelayMs:00000000 SX1278_hw_DelayMs
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:111    .text.SX1278_hw_Reset:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:117    .text.SX1278_hw_Reset:00000000 SX1278_hw_Reset
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:139    .text.SX1278_hw_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:145    .text.SX1278_hw_init:00000000 SX1278_hw_init
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:157    .text.SX1278_hw_GetDIO0:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:163    .text.SX1278_hw_GetDIO0:00000000 SX1278_hw_GetDIO0
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:180    .data.lora_dev_hw:00000000 lora_dev_hw
+C:\Users\CL\AppData\Local\Temp\ccpOwT0h.s:177    .data.lora_dev_hw:00000000 $d
 
 UNDEFINED SYMBOLS
-hspi2
-hspi3
 HAL_GPIO_WritePin
 HAL_SPI_Transmit
 HAL_SPI_GetState
 HAL_SPI_TransmitReceive
 Delay_ms
 HAL_GPIO_ReadPin
+hspi2
+hspi3
