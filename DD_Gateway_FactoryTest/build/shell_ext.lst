@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -17,420 +17,1817 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 1
   14              		.eabi_attribute 18, 4
   15              		.file	"shell_ext.c"
   16              		.text
-  17              		.section	.text.shellExtParseChar,"ax",%progbits
-  18              		.align	1
-  19              		.syntax unified
-  20              		.thumb
-  21              		.thumb_func
-  23              	shellExtParseChar:
-  24              		@ args = 0, pretend = 0, frame = 0
-  25              		@ frame_needed = 0, uses_anonymous_args = 0
-  26              		@ link register save eliminated.
-  27 0000 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
-  28 0002 0346     		mov	r3, r0
-  29 0004 272A     		cmp	r2, #39
-  30 0006 08BF     		it	eq
-  31 0008 0133     		addeq	r3, r3, #1
-  32 000a 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
-  33 000c 5C28     		cmp	r0, #92
-  34 000e 14D1     		bne	.L3
-  35 0010 5878     		ldrb	r0, [r3, #1]	@ zero_extendqisi2
-  36 0012 6E28     		cmp	r0, #110
-  37 0014 0CD0     		beq	.L5
-  38 0016 05D8     		bhi	.L4
-  39 0018 3028     		cmp	r0, #48
-  40 001a 0BD0     		beq	.L6
-  41 001c 6228     		cmp	r0, #98
-  42 001e 08BF     		it	eq
-  43 0020 0820     		moveq	r0, #8
-  44 0022 7047     		bx	lr
-  45              	.L4:
-  46 0024 7228     		cmp	r0, #114
-  47 0026 07D0     		beq	.L8
-  48 0028 7428     		cmp	r0, #116
-  49 002a 08BF     		it	eq
-  50 002c 0920     		moveq	r0, #9
-  51 002e 7047     		bx	lr
-  52              	.L5:
-  53 0030 0A20     		movs	r0, #10
-  54 0032 7047     		bx	lr
-  55              	.L6:
-  56 0034 0020     		movs	r0, #0
-  57 0036 7047     		bx	lr
-  58              	.L8:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 2
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.shellExtParseChar,"ax",%progbits
+  20              		.align	1
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	shellExtParseChar:
+  26              	.LVL0:
+  27              	.LFB2:
+  28              		.file 1 "ThirdParty/Letter-shell/Src/shell_ext.c"
+   1:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+   2:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @file shell_ext.c
+   3:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @author Letter (NevermindZZT@gmail.com)
+   4:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief shell extensions
+   5:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @version 3.0.0
+   6:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @date 2019-12-31
+   7:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+   8:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @copyright (c) 2019 Letter
+   9:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+  10:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+  11:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+  12:ThirdParty/Letter-shell/Src/shell_ext.c **** #include "shell_cfg.h"
+  13:ThirdParty/Letter-shell/Src/shell_ext.c **** #include "shell.h"
+  14:ThirdParty/Letter-shell/Src/shell_ext.c **** #include "shell_ext.h"
+  15:ThirdParty/Letter-shell/Src/shell_ext.c **** #include "string.h"
+  16:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+  17:ThirdParty/Letter-shell/Src/shell_ext.c **** extern ShellCommand* shellSeekCommand(Shell *shell,
+  18:ThirdParty/Letter-shell/Src/shell_ext.c ****                                       const char *cmd,
+  19:ThirdParty/Letter-shell/Src/shell_ext.c ****                                       ShellCommand *base,
+  20:ThirdParty/Letter-shell/Src/shell_ext.c ****                                       unsigned short compareLength);
+  21:ThirdParty/Letter-shell/Src/shell_ext.c **** extern int shellGetVarValue(Shell *shell, ShellCommand *command);
+  22:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+  23:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
+  24:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+  25:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 获取下一个参数类型
+  26:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+  27:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param signature 函数签名
+  28:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param index 参数遍历在签名中的起始索引
+  29:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param type 获取到的参数类型
+  30:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 2
 
 
-  59 0038 0D20     		movs	r0, #13
-  60              	.L3:
-  61 003a 7047     		bx	lr
-  63              		.section	.text.shellExtParsePara,"ax",%progbits
-  64              		.align	1
-  65              		.global	shellExtParsePara
-  66              		.syntax unified
-  67              		.thumb
-  68              		.thumb_func
-  70              	shellExtParsePara:
-  71              		@ args = 0, pretend = 0, frame = 0
-  72              		@ frame_needed = 0, uses_anonymous_args = 0
-  73 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-  74 0004 1D46     		mov	r5, r3
-  75 0006 0646     		mov	r6, r0
-  76 0008 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
-  77 000a 32B1     		cbz	r2, .L11
-  78 000c 242B     		cmp	r3, #36
-  79 000e 01D1     		bne	.L47
-  80 0010 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
-  81 0012 7AB9     		cbnz	r2, .L13
-  82              	.L47:
-  83 0014 4FF0FF30 		mov	r0, #-1
-  84 0018 54E0     		b	.L10
-  85              	.L11:
-  86 001a 272B     		cmp	r3, #39
-  87 001c 08D1     		bne	.L14
-  88 001e 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
-  89 0020 002B     		cmp	r3, #0
-  90 0022 00F09880 		beq	.L15
-  91 0026 0846     		mov	r0, r1
-  92 0028 FFF7FEFF 		bl	shellExtParseChar
-  93              	.L31:
-  94 002c 2860     		str	r0, [r5]
-  95 002e 48E0     		b	.L59
-  96              	.L14:
-  97 0030 2D2B     		cmp	r3, #45
-  98 0032 49D0     		beq	.L38
-  99              	.L13:
- 100 0034 A3F13002 		sub	r2, r3, #48
- 101 0038 092A     		cmp	r2, #9
- 102 003a 74D8     		bhi	.L17
- 103 003c 0123     		movs	r3, #1
- 104 003e 0020     		movs	r0, #0
- 105              	.L16:
- 106 0040 0A18     		adds	r2, r1, r0
- 107 0042 085C     		ldrb	r0, [r1, r0]	@ zero_extendqisi2
- 108 0044 3028     		cmp	r0, #48
- 109 0046 4BD1     		bne	.L39
- 110 0048 5078     		ldrb	r0, [r2, #1]	@ zero_extendqisi2
- 111 004a 00F0DF00 		and	r0, r0, #223
- 112 004e 5828     		cmp	r0, #88
- 113 0050 48D0     		beq	.L40
- 114 0052 4228     		cmp	r0, #66
- 115 0054 0CBF     		ite	eq
- 116 0056 0127     		moveq	r7, #1
- 117 0058 0227     		movne	r7, #2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 3
+  31:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return int 下一个参数在签名中的索引
+  32:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+  33:ThirdParty/Letter-shell/Src/shell_ext.c **** static int shellGetNextParamType(const char *signature, int index, char *type)
+  34:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+  35:ThirdParty/Letter-shell/Src/shell_ext.c ****     const char *p = signature + index;
+  36:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (*p == 'L')
+  37:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+  38:ThirdParty/Letter-shell/Src/shell_ext.c ****         while (*p != ';' && *p != 0)
+  39:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+  40:ThirdParty/Letter-shell/Src/shell_ext.c ****             *type++ = *p++;
+  41:ThirdParty/Letter-shell/Src/shell_ext.c ****             index++;
+  42:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+  43:ThirdParty/Letter-shell/Src/shell_ext.c ****         *type++ = *p++;
+  44:ThirdParty/Letter-shell/Src/shell_ext.c ****         index++;
+  45:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+  46:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if (*p != 0)
+  47:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+  48:ThirdParty/Letter-shell/Src/shell_ext.c ****         *type++ = *p;
+  49:ThirdParty/Letter-shell/Src/shell_ext.c ****         index++;
+  50:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+  51:ThirdParty/Letter-shell/Src/shell_ext.c ****     *type = '\0';
+  52:ThirdParty/Letter-shell/Src/shell_ext.c ****     return index;
+  53:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+  54:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+  55:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+  56:ThirdParty/Letter-shell/Src/shell_ext.c **** static int shellGetParamNumExcept(const char *signature)
+  57:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+  58:ThirdParty/Letter-shell/Src/shell_ext.c ****     int num = 0;
+  59:ThirdParty/Letter-shell/Src/shell_ext.c ****     const char *p = signature;
+  60:ThirdParty/Letter-shell/Src/shell_ext.c ****     
+  61:ThirdParty/Letter-shell/Src/shell_ext.c ****     while (*p)
+  62:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+  63:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*p == 'L')
+  64:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+  65:ThirdParty/Letter-shell/Src/shell_ext.c ****             while (*p != ';' && *p != 0)
+  66:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
+  67:ThirdParty/Letter-shell/Src/shell_ext.c ****                 p++;
+  68:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
+  69:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+  70:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+  71:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
+  72:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+  73:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+  74:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+  75:ThirdParty/Letter-shell/Src/shell_ext.c ****         num++;
+  76:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+  77:ThirdParty/Letter-shell/Src/shell_ext.c ****     return num;
+  78:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+  79:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif
+  80:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+  81:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+  82:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 判断数字进制
+  83:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+  84:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 参数字符串
+  85:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return ShellNumType 进制
+  86:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+  87:ThirdParty/Letter-shell/Src/shell_ext.c **** static ShellNumType shellExtNumType(char *string)
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 3
 
 
- 118              	.L54:
- 119 005a 12F8010B 		ldrb	r0, [r2], #1	@ zero_extendqisi2
- 120 005e 0028     		cmp	r0, #0
- 121 0060 36D1     		bne	.L21
- 122              	.L20:
- 123 0062 7A1E     		subs	r2, r7, #1
- 124 0064 D2B2     		uxtb	r2, r2
- 125 0066 022A     		cmp	r2, #2
- 126 0068 9FBF     		itttt	ls
- 127 006a 4948     		ldrls	r0, .L60
- 128 006c 10F802C0 		ldrbls	ip, [r0, r2]	@ zero_extendqisi2
- 129 0070 4848     		ldrls	r0, .L60+4
- 130 0072 825C     		ldrbls	r2, [r0, r2]	@ zero_extendqisi2
- 131 0074 84BF     		itt	hi
- 132 0076 0022     		movhi	r2, #0
- 133 0078 4FF00A0C 		movhi	ip, #10
- 134 007c 0024     		movs	r4, #0
- 135 007e B3F1FF3F 		cmp	r3, #-1
- 136 0082 18BF     		it	ne
- 137 0084 013A     		subne	r2, r2, #1
- 138 0086 1144     		add	r1, r1, r2
- 139 0088 2046     		mov	r0, r4
- 140 008a 4FF00A0E 		mov	lr, #10
- 141              	.L23:
- 142 008e 11F8012F 		ldrb	r2, [r1, #1]!	@ zero_extendqisi2
- 143 0092 4ABB     		cbnz	r2, .L27
- 144 0094 042F     		cmp	r7, #4
- 145 0096 44D1     		bne	.L28
- 146 0098 002C     		cmp	r4, #0
- 147 009a 42D0     		beq	.L28
- 148 009c 07EE900A 		vmov	s15, r0	@ int
- 149 00a0 07EE104A 		vmov	s14, r4	@ int
- 150 00a4 F8EE677A 		vcvt.f32.u32	s15, s15
- 151 00a8 B8EE477A 		vcvt.f32.u32	s14, s14
- 152 00ac C7EE876A 		vdiv.f32	s13, s15, s14
- 153 00b0 07EE903A 		vmov	s15, r3	@ int
- 154 00b4 F8EEE77A 		vcvt.f32.s32	s15, s15
- 155 00b8 66EEA77A 		vmul.f32	s15, s13, s15
- 156 00bc 17EE903A 		vmov	r3, s15
- 157              	.L29:
- 158 00c0 2B60     		str	r3, [r5]
- 159              	.L59:
- 160 00c2 0020     		movs	r0, #0
- 161              	.L10:
- 162 00c4 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 163              	.L38:
- 164 00c8 4FF0FF33 		mov	r3, #-1
- 165 00cc 0120     		movs	r0, #1
- 166 00ce B7E7     		b	.L16
- 167              	.L21:
- 168 00d0 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
- 169 00d2 2E28     		cmp	r0, #46
- 170 00d4 C1D1     		bne	.L54
- 171 00d6 5078     		ldrb	r0, [r2, #1]	@ zero_extendqisi2
- 172 00d8 0028     		cmp	r0, #0
- 173 00da BED0     		beq	.L54
- 174 00dc 0427     		movs	r7, #4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 4
+  88:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+  89:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = string;
+  90:ThirdParty/Letter-shell/Src/shell_ext.c ****     ShellNumType type = NUM_TYPE_DEC;
+  91:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+  92:ThirdParty/Letter-shell/Src/shell_ext.c ****     if ((*p == '0') && ((*(p + 1) == 'x') || (*(p + 1) == 'X')))
+  93:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+  94:ThirdParty/Letter-shell/Src/shell_ext.c ****         type = NUM_TYPE_HEX;
+  95:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+  96:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if ((*p == '0') && ((*(p + 1) == 'b') || (*(p + 1) == 'B')))
+  97:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+  98:ThirdParty/Letter-shell/Src/shell_ext.c ****         type = NUM_TYPE_BIN;
+  99:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 100:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if (*p == '0')
+ 101:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 102:ThirdParty/Letter-shell/Src/shell_ext.c ****         type = NUM_TYPE_OCT;
+ 103:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 104:ThirdParty/Letter-shell/Src/shell_ext.c ****     
+ 105:ThirdParty/Letter-shell/Src/shell_ext.c ****     while (*p++)
+ 106:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 107:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*p == '.' && *(p + 1) != 0)
+ 108:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 109:ThirdParty/Letter-shell/Src/shell_ext.c ****             type = NUM_TYPE_FLOAT;
+ 110:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ 111:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 112:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 113:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 114:ThirdParty/Letter-shell/Src/shell_ext.c ****     return type;
+ 115:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 116:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 117:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 118:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+ 119:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 字符转数字
+ 120:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+ 121:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param code 字符
+ 122:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return char 数字
+ 123:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+ 124:ThirdParty/Letter-shell/Src/shell_ext.c **** static char shellExtToNum(char code)
+ 125:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 126:ThirdParty/Letter-shell/Src/shell_ext.c ****     if ((code >= '0') && (code <= '9'))
+ 127:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 128:ThirdParty/Letter-shell/Src/shell_ext.c ****         return code -'0';
+ 129:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 130:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if ((code >= 'a') && (code <= 'f'))
+ 131:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 132:ThirdParty/Letter-shell/Src/shell_ext.c ****         return code - 'a' + 10;
+ 133:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 134:ThirdParty/Letter-shell/Src/shell_ext.c ****     else if ((code >= 'A') && (code <= 'F'))
+ 135:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 136:ThirdParty/Letter-shell/Src/shell_ext.c ****         return code - 'A' + 10;
+ 137:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 138:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
+ 139:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 140:ThirdParty/Letter-shell/Src/shell_ext.c ****         return 0;
+ 141:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 142:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 143:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 144:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 4
 
 
- 175 00de C0E7     		b	.L20
- 176              	.L39:
- 177 00e0 0027     		movs	r7, #0
- 178 00e2 BAE7     		b	.L54
- 179              	.L40:
- 180 00e4 0327     		movs	r7, #3
- 181 00e6 B8E7     		b	.L54
- 182              	.L27:
- 183 00e8 2E2A     		cmp	r2, #46
- 184 00ea 18D0     		beq	.L44
- 185 00ec A2F13006 		sub	r6, r2, #48
- 186 00f0 F6B2     		uxtb	r6, r6
- 187 00f2 092E     		cmp	r6, #9
- 188 00f4 00FB0CF0 		mul	r0, r0, ip
- 189 00f8 05D9     		bls	.L25
- 190 00fa A2F16106 		sub	r6, r2, #97
- 191 00fe 052E     		cmp	r6, #5
- 192 0100 05D8     		bhi	.L26
- 193 0102 573A     		subs	r2, r2, #87
- 194              	.L58:
- 195 0104 D6B2     		uxtb	r6, r2
- 196              	.L25:
- 197 0106 3044     		add	r0, r0, r6
- 198 0108 0EFB04F4 		mul	r4, lr, r4
- 199 010c BFE7     		b	.L23
- 200              	.L26:
- 201 010e A2F14106 		sub	r6, r2, #65
- 202 0112 052E     		cmp	r6, #5
- 203 0114 01D8     		bhi	.L45
- 204 0116 373A     		subs	r2, r2, #55
- 205 0118 F4E7     		b	.L58
- 206              	.L45:
- 207 011a 0026     		movs	r6, #0
- 208 011c F3E7     		b	.L25
- 209              	.L44:
- 210 011e 0124     		movs	r4, #1
- 211 0120 B5E7     		b	.L23
- 212              	.L28:
- 213 0122 4343     		muls	r3, r0, r3
- 214 0124 CCE7     		b	.L29
- 215              	.L17:
- 216 0126 242B     		cmp	r3, #36
- 217 0128 0FD1     		bne	.L30
- 218 012a 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
- 219 012c 9BB1     		cbz	r3, .L15
- 220 012e 0131     		adds	r1, r1, #1
- 221 0130 B26D     		ldr	r2, [r6, #88]
- 222 0132 0023     		movs	r3, #0
- 223 0134 3046     		mov	r0, r6
- 224 0136 FFF7FEFF 		bl	shellSeekCommand
- 225 013a 0146     		mov	r1, r0
- 226 013c 0028     		cmp	r0, #0
- 227 013e 3FF475AF 		beq	.L31
- 228 0142 3046     		mov	r0, r6
- 229 0144 FFF7FEFF 		bl	shellGetVarValue
- 230 0148 70E7     		b	.L31
- 231              	.L30:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 5
+ 145:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+ 146:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析字符参数
+ 147:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+ 148:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 字符串参数
+ 149:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return char 解析出的字符
+ 150:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+ 151:ThirdParty/Letter-shell/Src/shell_ext.c **** static char shellExtParseChar(char *string)
+ 152:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+  29              		.loc 1 152 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+ 153:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = (*string == '\'') ? (string + 1) : string;
+  34              		.loc 1 153 5 view .LVU1
+  35              		.loc 1 153 48 is_stmt 0 view .LVU2
+  36 0000 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
+ 152:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = (*string == '\'') ? (string + 1) : string;
+  37              		.loc 1 152 1 view .LVU3
+  38 0002 0346     		mov	r3, r0
+  39              		.loc 1 153 48 view .LVU4
+  40 0004 272A     		cmp	r2, #39
+  41 0006 08BF     		it	eq
+  42 0008 0133     		addeq	r3, r3, #1
+  43              	.LVL1:
+ 154:ThirdParty/Letter-shell/Src/shell_ext.c ****     char value = 0;
+  44              		.loc 1 154 5 is_stmt 1 view .LVU5
+ 155:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 156:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (*p == '\\')
+  45              		.loc 1 156 5 view .LVU6
+  46              		.loc 1 156 9 is_stmt 0 view .LVU7
+  47 000a 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  48              	.LVL2:
+  49              		.loc 1 156 8 view .LVU8
+  50 000c 5C28     		cmp	r0, #92
+  51 000e 14D1     		bne	.L3
+ 157:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 158:ThirdParty/Letter-shell/Src/shell_ext.c ****         switch (*(p + 1))
+  52              		.loc 1 158 9 is_stmt 1 view .LVU9
+  53              		.loc 1 158 17 is_stmt 0 view .LVU10
+  54 0010 5878     		ldrb	r0, [r3, #1]	@ zero_extendqisi2
+  55              		.loc 1 158 9 view .LVU11
+  56 0012 6E28     		cmp	r0, #110
+  57 0014 0CD0     		beq	.L5
+  58 0016 05D8     		bhi	.L4
+  59 0018 3028     		cmp	r0, #48
+  60 001a 0BD0     		beq	.L6
+  61 001c 6228     		cmp	r0, #98
+  62 001e 08BF     		it	eq
+  63 0020 0820     		moveq	r0, #8
+  64 0022 7047     		bx	lr
+  65              	.L4:
+  66 0024 7228     		cmp	r0, #114
+  67 0026 07D0     		beq	.L8
+ 159:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 160:ThirdParty/Letter-shell/Src/shell_ext.c ****         case 'b':
+ 161:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = '\b';
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 5
 
 
- 232 014a 002B     		cmp	r3, #0
- 233 014c 3FF462AF 		beq	.L47
- 234 0150 222B     		cmp	r3, #34
- 235 0152 00D1     		bne	.L15
- 236 0154 0131     		adds	r1, r1, #1
- 237              	.L15:
- 238 0156 0026     		movs	r6, #0
- 239 0158 0B46     		mov	r3, r1
- 240 015a 3746     		mov	r7, r6
- 241 015c 0AE0     		b	.L35
- 242              	.L36:
- 243 015e 5C28     		cmp	r0, #92
- 244 0160 10D1     		bne	.L32
- 245 0162 581E     		subs	r0, r3, #1
- 246 0164 03F10108 		add	r8, r3, #1
- 247 0168 FFF7FEFF 		bl	shellExtParseChar
- 248 016c 4346     		mov	r3, r8
- 249 016e 2070     		strb	r0, [r4]
- 250              	.L33:
- 251 0170 0133     		adds	r3, r3, #1
- 252 0172 0136     		adds	r6, r6, #1
- 253              	.L35:
- 254 0174 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 255 0176 11FA86F4 		uxtah	r4, r1, r6
- 256 017a 0028     		cmp	r0, #0
- 257 017c EFD1     		bne	.L36
- 258 017e 2070     		strb	r0, [r4]
- 259 0180 2960     		str	r1, [r5]
- 260 0182 9FE7     		b	.L10
- 261              	.L32:
- 262 0184 2228     		cmp	r0, #34
- 263 0186 0CBF     		ite	eq
- 264 0188 2770     		strbeq	r7, [r4]
- 265 018a 2070     		strbne	r0, [r4]
- 266 018c F0E7     		b	.L33
- 267              	.L61:
- 268 018e 00BF     		.align	2
- 269              	.L60:
- 270 0190 00000000 		.word	.LANCHOR0
- 271 0194 00000000 		.word	.LANCHOR1
- 273              		.section	.text.shellExtRun,"ax",%progbits
- 274              		.align	1
- 275              		.global	shellExtRun
- 276              		.syntax unified
- 277              		.thumb
- 278              		.thumb_func
- 280              	shellExtRun:
- 281              		@ args = 0, pretend = 0, frame = 32
- 282              		@ frame_needed = 0, uses_anonymous_args = 0
- 283 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 284 0004 0C46     		mov	r4, r1
- 285 0006 8DB0     		sub	sp, sp, #52
- 286 0008 1746     		mov	r7, r2
- 287 000a 8046     		mov	r8, r0
- 288 000c 2022     		movs	r2, #32
- 289 000e 0021     		movs	r1, #0
- 290 0010 04A8     		add	r0, sp, #16
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 6
+ 162:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ 163:ThirdParty/Letter-shell/Src/shell_ext.c ****         case 'r':
+ 164:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = '\r';
+ 165:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ 166:ThirdParty/Letter-shell/Src/shell_ext.c ****         case 'n':
+ 167:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = '\n';
+ 168:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ 169:ThirdParty/Letter-shell/Src/shell_ext.c ****         case 't':
+ 170:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = '\t';
+  68              		.loc 1 170 19 view .LVU12
+  69 0028 7428     		cmp	r0, #116
+  70 002a 08BF     		it	eq
+  71 002c 0920     		moveq	r0, #9
+  72 002e 7047     		bx	lr
+  73              	.L5:
+ 167:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+  74              		.loc 1 167 19 view .LVU13
+  75 0030 0A20     		movs	r0, #10
+  76 0032 7047     		bx	lr
+  77              	.L6:
+ 171:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ 172:ThirdParty/Letter-shell/Src/shell_ext.c ****         case '0':
+ 173:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = 0;
+  78              		.loc 1 173 19 view .LVU14
+  79 0034 0020     		movs	r0, #0
+  80 0036 7047     		bx	lr
+  81              	.L8:
+ 164:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+  82              		.loc 1 164 19 view .LVU15
+  83 0038 0D20     		movs	r0, #13
+  84              	.L3:
+  85              	.LVL3:
+ 174:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ 175:ThirdParty/Letter-shell/Src/shell_ext.c ****         default:
+ 176:ThirdParty/Letter-shell/Src/shell_ext.c ****             value = *(p + 1);
+ 177:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ 178:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 179:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 180:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
+ 181:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 182:ThirdParty/Letter-shell/Src/shell_ext.c ****         value = *p;
+ 183:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 184:ThirdParty/Letter-shell/Src/shell_ext.c ****     return value;
+  86              		.loc 1 184 5 is_stmt 1 view .LVU16
+ 185:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+  87              		.loc 1 185 1 is_stmt 0 view .LVU17
+  88 003a 7047     		bx	lr
+  89              		.cfi_endproc
+  90              	.LFE2:
+  92              		.section	.text.shellExtParsePara,"ax",%progbits
+  93              		.align	1
+  94              		.global	shellExtParsePara
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  99              	shellExtParsePara:
+ 100              	.LVL4:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 6
 
 
- 291 0012 1E46     		mov	r6, r3
- 292 0014 FFF7FEFF 		bl	memset
- 293 0018 A578     		ldrb	r5, [r4, #2]	@ zero_extendqisi2
- 294 001a 07F1FF39 		add	r9, r7, #-1
- 295 001e 05F00F05 		and	r5, r5, #15
- 296 0022 BD42     		cmp	r5, r7
- 297 0024 B8BF     		it	lt
- 298 0026 4D46     		movlt	r5, r9
- 299 0028 0027     		movs	r7, #0
- 300              	.L64:
- 301 002a 4F45     		cmp	r7, r9
- 302 002c 07DB     		blt	.L66
- 303 002e 072D     		cmp	r5, #7
- 304 0030 4ED8     		bhi	.L78
- 305 0032 DFE805F0 		tbb	[pc, r5]
- 306              	.L68:
- 307 0036 11       		.byte	(.L75-.L68)/2
- 308 0037 16       		.byte	(.L74-.L68)/2
- 309 0038 1A       		.byte	(.L73-.L68)/2
- 310 0039 1F       		.byte	(.L72-.L68)/2
- 311 003a 25       		.byte	(.L71-.L68)/2
- 312 003b 2C       		.byte	(.L70-.L68)/2
- 313 003c 35       		.byte	(.L69-.L68)/2
- 314 003d 40       		.byte	(.L67-.L68)/2
- 315              		.p2align 1
- 316              	.L66:
- 317 003e 04AB     		add	r3, sp, #16
- 318 0040 56F8041F 		ldr	r1, [r6, #4]!
- 319 0044 03EB8703 		add	r3, r3, r7, lsl #2
- 320 0048 0022     		movs	r2, #0
- 321 004a 4046     		mov	r0, r8
- 322 004c FFF7FEFF 		bl	shellExtParsePara
- 323 0050 0028     		cmp	r0, #0
- 324 0052 3DD1     		bne	.L78
- 325 0054 0137     		adds	r7, r7, #1
- 326 0056 E8E7     		b	.L64
- 327              	.L75:
- 328 0058 A368     		ldr	r3, [r4, #8]
- 329 005a 9847     		blx	r3
- 330              	.L62:
- 331 005c 0DB0     		add	sp, sp, #52
- 332              		@ sp needed
- 333 005e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 334              	.L74:
- 335 0062 A368     		ldr	r3, [r4, #8]
- 336 0064 0498     		ldr	r0, [sp, #16]
- 337 0066 9847     		blx	r3
- 338 0068 F8E7     		b	.L62
- 339              	.L73:
- 340 006a DDE90401 		ldrd	r0, r1, [sp, #16]
- 341 006e A368     		ldr	r3, [r4, #8]
- 342 0070 9847     		blx	r3
- 343 0072 F3E7     		b	.L62
- 344              	.L72:
- 345 0074 DDE90512 		ldrd	r1, r2, [sp, #20]
- 346 0078 A368     		ldr	r3, [r4, #8]
- 347 007a 0498     		ldr	r0, [sp, #16]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 7
+ 101              	.LFB6:
+ 186:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 187:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 188:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+ 189:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析字符串参数
+ 190:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+ 191:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 字符串参数
+ 192:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return char* 解析出的字符串
+ 193:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+ 194:ThirdParty/Letter-shell/Src/shell_ext.c **** static char* shellExtParseString(char *string)
+ 195:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 196:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = string;
+ 197:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned short index = 0;
+ 198:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 199:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (*string == '\"')
+ 200:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 201:ThirdParty/Letter-shell/Src/shell_ext.c ****         p = ++string;
+ 202:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 203:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 204:ThirdParty/Letter-shell/Src/shell_ext.c ****     while (*p)
+ 205:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 206:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*p == '\\')
+ 207:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 208:ThirdParty/Letter-shell/Src/shell_ext.c ****             *(string + index) = shellExtParseChar(p - 1);
+ 209:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+ 210:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 211:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (*p == '\"')
+ 212:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 213:ThirdParty/Letter-shell/Src/shell_ext.c ****             *(string + index) = 0;
+ 214:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 215:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
+ 216:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 217:ThirdParty/Letter-shell/Src/shell_ext.c ****             *(string + index) = *p;
+ 218:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 219:ThirdParty/Letter-shell/Src/shell_ext.c ****         p++;
+ 220:ThirdParty/Letter-shell/Src/shell_ext.c ****         index ++;
+ 221:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 222:ThirdParty/Letter-shell/Src/shell_ext.c ****     *(string + index) = 0;
+ 223:ThirdParty/Letter-shell/Src/shell_ext.c ****     return string;
+ 224:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 225:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 226:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 227:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+ 228:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析数字参数
+ 229:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+ 230:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 字符串参数
+ 231:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return unsigned int 解析出的数字
+ 232:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+ 233:ThirdParty/Letter-shell/Src/shell_ext.c **** static unsigned int shellExtParseNumber(char *string)
+ 234:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 235:ThirdParty/Letter-shell/Src/shell_ext.c ****     ShellNumType type = NUM_TYPE_DEC;
+ 236:ThirdParty/Letter-shell/Src/shell_ext.c ****     char radix = 10;
+ 237:ThirdParty/Letter-shell/Src/shell_ext.c ****     char *p = string;
+ 238:ThirdParty/Letter-shell/Src/shell_ext.c ****     char offset = 0;
+ 239:ThirdParty/Letter-shell/Src/shell_ext.c ****     signed char sign = 1;
+ 240:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned int valueInt = 0;
+ 241:ThirdParty/Letter-shell/Src/shell_ext.c ****     float valueFloat = 0.0;
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 7
 
 
- 348 007c 9847     		blx	r3
- 349 007e EDE7     		b	.L62
- 350              	.L71:
- 351 0080 DDE90623 		ldrd	r2, r3, [sp, #24]
- 352 0084 DDE90401 		ldrd	r0, r1, [sp, #16]
- 353 0088 A468     		ldr	r4, [r4, #8]
- 354 008a A047     		blx	r4
- 355 008c E6E7     		b	.L62
- 356              	.L70:
- 357 008e 089B     		ldr	r3, [sp, #32]
- 358 0090 0093     		str	r3, [sp]
- 359 0092 DDE90401 		ldrd	r0, r1, [sp, #16]
- 360 0096 DDE90623 		ldrd	r2, r3, [sp, #24]
- 361 009a A468     		ldr	r4, [r4, #8]
- 362 009c A047     		blx	r4
- 363 009e DDE7     		b	.L62
- 364              	.L69:
- 365 00a0 099B     		ldr	r3, [sp, #36]
- 366 00a2 0193     		str	r3, [sp, #4]
- 367 00a4 089B     		ldr	r3, [sp, #32]
- 368 00a6 0093     		str	r3, [sp]
- 369 00a8 DDE90401 		ldrd	r0, r1, [sp, #16]
- 370 00ac DDE90623 		ldrd	r2, r3, [sp, #24]
- 371 00b0 A468     		ldr	r4, [r4, #8]
- 372 00b2 A047     		blx	r4
- 373 00b4 D2E7     		b	.L62
- 374              	.L67:
- 375 00b6 0A9B     		ldr	r3, [sp, #40]
- 376 00b8 0293     		str	r3, [sp, #8]
- 377 00ba 099B     		ldr	r3, [sp, #36]
- 378 00bc 0193     		str	r3, [sp, #4]
- 379 00be 089B     		ldr	r3, [sp, #32]
- 380 00c0 0093     		str	r3, [sp]
- 381 00c2 DDE90401 		ldrd	r0, r1, [sp, #16]
- 382 00c6 DDE90623 		ldrd	r2, r3, [sp, #24]
- 383 00ca A468     		ldr	r4, [r4, #8]
- 384 00cc A047     		blx	r4
- 385 00ce C5E7     		b	.L62
- 386              	.L78:
- 387 00d0 4FF0FF30 		mov	r0, #-1
- 388 00d4 C2E7     		b	.L62
- 390              		.section	.rodata.CSWTCH.13,"a"
- 391              		.set	.LANCHOR0,. + 0
- 394              	CSWTCH.13:
- 395 0000 02       		.byte	2
- 396 0001 08       		.byte	8
- 397 0002 10       		.byte	16
- 398              		.section	.rodata.CSWTCH.14,"a"
- 399              		.set	.LANCHOR1,. + 0
- 402              	CSWTCH.14:
- 403 0000 02       		.byte	2
- 404 0001 01       		.byte	1
- 405 0002 02       		.byte	2
- 406              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s 			page 8
+ 242:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned int devide = 0;
+ 243:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 244:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (*string == '-')
+ 245:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 246:ThirdParty/Letter-shell/Src/shell_ext.c ****         sign = -1;
+ 247:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 248:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 249:ThirdParty/Letter-shell/Src/shell_ext.c ****     type = shellExtNumType(string + ((sign == -1) ? 1 : 0));
+ 250:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 251:ThirdParty/Letter-shell/Src/shell_ext.c ****     switch ((char)type)
+ 252:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 253:ThirdParty/Letter-shell/Src/shell_ext.c ****     case NUM_TYPE_HEX:
+ 254:ThirdParty/Letter-shell/Src/shell_ext.c ****         radix = 16;
+ 255:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 2;
+ 256:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 257:ThirdParty/Letter-shell/Src/shell_ext.c ****     
+ 258:ThirdParty/Letter-shell/Src/shell_ext.c ****     case NUM_TYPE_OCT:
+ 259:ThirdParty/Letter-shell/Src/shell_ext.c ****         radix = 8;
+ 260:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 1;
+ 261:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 262:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 263:ThirdParty/Letter-shell/Src/shell_ext.c ****     case NUM_TYPE_BIN:
+ 264:ThirdParty/Letter-shell/Src/shell_ext.c ****         radix = 2;
+ 265:ThirdParty/Letter-shell/Src/shell_ext.c ****         offset = 2;
+ 266:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 267:ThirdParty/Letter-shell/Src/shell_ext.c ****     
+ 268:ThirdParty/Letter-shell/Src/shell_ext.c ****     default:
+ 269:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 270:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 271:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 272:ThirdParty/Letter-shell/Src/shell_ext.c ****     p = string + offset + ((sign == -1) ? 1 : 0);
+ 273:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 274:ThirdParty/Letter-shell/Src/shell_ext.c ****     while (*p)
+ 275:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 276:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*p == '.')
+ 277:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 278:ThirdParty/Letter-shell/Src/shell_ext.c ****             devide = 1;
+ 279:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+ 280:ThirdParty/Letter-shell/Src/shell_ext.c ****             continue;
+ 281:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 282:ThirdParty/Letter-shell/Src/shell_ext.c ****         valueInt = valueInt * radix + shellExtToNum(*p);
+ 283:ThirdParty/Letter-shell/Src/shell_ext.c ****         devide *= 10;
+ 284:ThirdParty/Letter-shell/Src/shell_ext.c ****         p++;
+ 285:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 286:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (type == NUM_TYPE_FLOAT && devide != 0)
+ 287:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 288:ThirdParty/Letter-shell/Src/shell_ext.c ****         valueFloat = (float)valueInt / devide * sign;
+ 289:ThirdParty/Letter-shell/Src/shell_ext.c ****         return *(unsigned int *)(&valueFloat);
+ 290:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 291:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
+ 292:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 293:ThirdParty/Letter-shell/Src/shell_ext.c ****         return valueInt * sign;
+ 294:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 295:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 296:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 297:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 298:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 8
+
+
+ 299:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析变量参数
+ 300:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+ 301:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param shell shell对象
+ 302:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param var 变量
+ 303:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return unsigned int 变量值
+ 304:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+ 305:ThirdParty/Letter-shell/Src/shell_ext.c **** static unsigned int shellExtParseVar(Shell *shell, char *var)
+ 306:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 307:ThirdParty/Letter-shell/Src/shell_ext.c ****     ShellCommand *command = shellSeekCommand(shell,
+ 308:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              var + 1,
+ 309:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              shell->commandList.base,
+ 310:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              0);
+ 311:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (command)
+ 312:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 313:ThirdParty/Letter-shell/Src/shell_ext.c ****         return shellGetVarValue(shell, command);
+ 314:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 315:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
+ 316:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 317:ThirdParty/Letter-shell/Src/shell_ext.c ****         return 0;
+ 318:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 319:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 320:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 321:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 322:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+ 323:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 解析参数
+ 324:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+ 325:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param shell shell对象
+ 326:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param string 参数
+ 327:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param result 解析结果
+ 328:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+ 329:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return int 0 解析成功 --1 解析失败
+ 330:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+ 331:ThirdParty/Letter-shell/Src/shell_ext.c **** int shellExtParsePara(Shell *shell, char *string, char *type, unsigned int *result)
+ 332:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 102              		.loc 1 332 1 is_stmt 1 view -0
+ 103              		.cfi_startproc
+ 104              		@ args = 0, pretend = 0, frame = 0
+ 105              		@ frame_needed = 0, uses_anonymous_args = 0
+ 333:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (type == NULL || (*string == '$' && *(string + 1)))
+ 106              		.loc 1 333 5 view .LVU19
+ 332:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (type == NULL || (*string == '$' && *(string + 1)))
+ 107              		.loc 1 332 1 is_stmt 0 view .LVU20
+ 108 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 109              	.LCFI0:
+ 110              		.cfi_def_cfa_offset 24
+ 111              		.cfi_offset 4, -24
+ 112              		.cfi_offset 5, -20
+ 113              		.cfi_offset 6, -16
+ 114              		.cfi_offset 7, -12
+ 115              		.cfi_offset 8, -8
+ 116              		.cfi_offset 14, -4
+ 332:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (type == NULL || (*string == '$' && *(string + 1)))
+ 117              		.loc 1 332 1 view .LVU21
+ 118 0004 1D46     		mov	r5, r3
+ 119 0006 0646     		mov	r6, r0
+ 120              		.loc 1 333 26 view .LVU22
+ 121 0008 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 9
+
+
+ 122              	.LVL5:
+ 123              		.loc 1 333 8 view .LVU23
+ 124 000a 32B1     		cbz	r2, .L11
+ 125              		.loc 1 333 22 discriminator 1 view .LVU24
+ 126 000c 242B     		cmp	r3, #36
+ 127 000e 01D1     		bne	.L47
+ 128              		.loc 1 333 41 discriminator 2 view .LVU25
+ 129 0010 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+ 130              	.LVL6:
+ 131              		.loc 1 333 41 discriminator 2 view .LVU26
+ 132 0012 7AB9     		cbnz	r2, .L13
+ 133              	.L47:
+ 334:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 335:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (*string == '\'' && *(string + 1))
+ 336:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 337:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseChar(string);
+ 338:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 339:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 340:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (*string == '-' || (*string >= '0' && *string <= '9'))
+ 341:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 342:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseNumber(string);
+ 343:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 344:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 345:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (*string == '$' && *(string + 1))
+ 346:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 347:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = shellExtParseVar(shell, string);
+ 348:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 349:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 350:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (*string)
+ 351:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 352:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseString(string);
+ 353:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 354:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 355:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 356:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
+ 357:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
+ 358:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 359:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (strcmp("c", type) == 0)
+ 360:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 361:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseChar(string);
+ 362:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 363:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 364:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (strcmp("i", type) == 0
+ 365:ThirdParty/Letter-shell/Src/shell_ext.c ****                  || strcmp("f", type) == 0
+ 366:ThirdParty/Letter-shell/Src/shell_ext.c ****                  || strcmp("p", type) == 0)
+ 367:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 368:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseNumber(string);
+ 369:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 370:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 371:ThirdParty/Letter-shell/Src/shell_ext.c ****         else if (strcmp("s", type) == 0)
+ 372:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 373:ThirdParty/Letter-shell/Src/shell_ext.c ****             *result = (unsigned int)shellExtParseString(string);
+ 374:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 375:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 376:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
+ 377:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 378:ThirdParty/Letter-shell/Src/shell_ext.c ****             ShellCommand *command = shellSeekCommand(shell,
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 10
+
+
+ 379:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      type,
+ 380:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      shell->commandList.base,
+ 381:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      0);
+ 382:ThirdParty/Letter-shell/Src/shell_ext.c ****             if (command != NULL)
+ 383:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
+ 384:ThirdParty/Letter-shell/Src/shell_ext.c ****                 void *param;
+ 385:ThirdParty/Letter-shell/Src/shell_ext.c ****                 if (command->data.paramParser.parser(shellExtParseString(string), &param) == 0)
+ 386:ThirdParty/Letter-shell/Src/shell_ext.c ****                 {
+ 387:ThirdParty/Letter-shell/Src/shell_ext.c ****                     *result = (unsigned int)param;
+ 388:ThirdParty/Letter-shell/Src/shell_ext.c ****                     return 0;
+ 389:ThirdParty/Letter-shell/Src/shell_ext.c ****                 }
+ 390:ThirdParty/Letter-shell/Src/shell_ext.c ****                 else
+ 391:ThirdParty/Letter-shell/Src/shell_ext.c ****                 {
+ 392:ThirdParty/Letter-shell/Src/shell_ext.c ****                     shellWriteString(shell, "Parse param for type: ");
+ 393:ThirdParty/Letter-shell/Src/shell_ext.c ****                     shellWriteString(shell, type);
+ 394:ThirdParty/Letter-shell/Src/shell_ext.c ****                     shellWriteString(shell, " failed\r\n");
+ 395:ThirdParty/Letter-shell/Src/shell_ext.c ****                     return -1;
+ 396:ThirdParty/Letter-shell/Src/shell_ext.c ****                 }
+ 397:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
+ 398:ThirdParty/Letter-shell/Src/shell_ext.c ****             else
+ 399:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
+ 400:ThirdParty/Letter-shell/Src/shell_ext.c ****                 shellWriteString(shell, "Can't find the param parser for type: ");
+ 401:ThirdParty/Letter-shell/Src/shell_ext.c ****                 shellWriteString(shell, type);
+ 402:ThirdParty/Letter-shell/Src/shell_ext.c ****                 shellWriteString(shell, "\r\n");
+ 403:ThirdParty/Letter-shell/Src/shell_ext.c ****                 return -1;
+ 404:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
+ 405:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 406:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 407:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_USING_FUNC_SIGNATURE == 1 */
+ 408:ThirdParty/Letter-shell/Src/shell_ext.c ****     return -1;
+ 134              		.loc 1 408 12 view .LVU27
+ 135 0014 4FF0FF30 		mov	r0, #-1
+ 136              	.LVL7:
+ 137              		.loc 1 408 12 view .LVU28
+ 138 0018 54E0     		b	.L10
+ 139              	.LVL8:
+ 140              	.L11:
+ 335:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 141              		.loc 1 335 9 is_stmt 1 view .LVU29
+ 335:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 142              		.loc 1 335 12 is_stmt 0 view .LVU30
+ 143 001a 272B     		cmp	r3, #39
+ 144 001c 08D1     		bne	.L14
+ 335:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 145              		.loc 1 335 29 discriminator 1 view .LVU31
+ 146 001e 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 147 0020 002B     		cmp	r3, #0
+ 148 0022 00F09880 		beq	.L15
+ 337:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 149              		.loc 1 337 13 is_stmt 1 view .LVU32
+ 337:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 150              		.loc 1 337 37 is_stmt 0 view .LVU33
+ 151 0026 0846     		mov	r0, r1
+ 152              	.LVL9:
+ 337:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 153              		.loc 1 337 37 view .LVU34
+ 154 0028 FFF7FEFF 		bl	shellExtParseChar
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 11
+
+
+ 155              	.LVL10:
+ 156              	.L31:
+ 347:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 157              		.loc 1 347 21 view .LVU35
+ 158 002c 2860     		str	r0, [r5]
+ 159 002e 48E0     		b	.L59
+ 160              	.LVL11:
+ 161              	.L14:
+ 340:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 162              		.loc 1 340 14 is_stmt 1 view .LVU36
+ 340:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 163              		.loc 1 340 17 is_stmt 0 view .LVU37
+ 164 0030 2D2B     		cmp	r3, #45
+ 165 0032 49D0     		beq	.L38
+ 166              	.LVL12:
+ 167              	.L13:
+ 340:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 168              		.loc 1 340 33 discriminator 1 view .LVU38
+ 169 0034 A3F13002 		sub	r2, r3, #48
+ 170 0038 092A     		cmp	r2, #9
+ 171 003a 74D8     		bhi	.L17
+ 172              	.LBB12:
+ 173              	.LBB13:
+ 239:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned int valueInt = 0;
+ 174              		.loc 1 239 17 view .LVU39
+ 175 003c 0123     		movs	r3, #1
+ 249:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 176              		.loc 1 249 55 view .LVU40
+ 177 003e 0020     		movs	r0, #0
+ 178              	.LVL13:
+ 179              	.L16:
+ 249:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 180              		.loc 1 249 12 view .LVU41
+ 181 0040 0A18     		adds	r2, r1, r0
+ 182              	.LVL14:
+ 183              	.LBB14:
+ 184              	.LBI14:
+  87:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 185              		.loc 1 87 21 is_stmt 1 view .LVU42
+ 186              	.LBB15:
+  89:ThirdParty/Letter-shell/Src/shell_ext.c ****     ShellNumType type = NUM_TYPE_DEC;
+ 187              		.loc 1 89 5 view .LVU43
+  90:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 188              		.loc 1 90 5 view .LVU44
+  92:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 189              		.loc 1 92 5 view .LVU45
+  92:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 190              		.loc 1 92 8 is_stmt 0 view .LVU46
+ 191 0042 085C     		ldrb	r0, [r1, r0]	@ zero_extendqisi2
+ 192 0044 3028     		cmp	r0, #48
+ 193 0046 4BD1     		bne	.L39
+  92:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 194              		.loc 1 92 43 view .LVU47
+ 195 0048 5078     		ldrb	r0, [r2, #1]	@ zero_extendqisi2
+ 196 004a 00F0DF00 		and	r0, r0, #223
+ 197 004e 5828     		cmp	r0, #88
+ 198 0050 48D0     		beq	.L40
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 12
+
+
+  96:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 199              		.loc 1 96 10 is_stmt 1 view .LVU48
+ 102:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 200              		.loc 1 102 14 is_stmt 0 view .LVU49
+ 201 0052 4228     		cmp	r0, #66
+ 202 0054 0CBF     		ite	eq
+ 203 0056 0127     		moveq	r7, #1
+ 204 0058 0227     		movne	r7, #2
+ 205              	.LVL15:
+ 206              	.L54:
+ 105:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 207              		.loc 1 105 11 is_stmt 1 view .LVU50
+ 105:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 208              		.loc 1 105 11 is_stmt 0 view .LVU51
+ 209 005a 12F8010B 		ldrb	r0, [r2], #1	@ zero_extendqisi2
+ 210              	.LVL16:
+ 105:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 211              		.loc 1 105 11 view .LVU52
+ 212 005e 0028     		cmp	r0, #0
+ 213 0060 36D1     		bne	.L21
+ 214              	.L20:
+ 215              	.LVL17:
+ 114:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 216              		.loc 1 114 5 is_stmt 1 view .LVU53
+ 114:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 217              		.loc 1 114 5 is_stmt 0 view .LVU54
+ 218              	.LBE15:
+ 219              	.LBE14:
+ 251:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 220              		.loc 1 251 5 is_stmt 1 view .LVU55
+ 221 0062 7A1E     		subs	r2, r7, #1
+ 222 0064 D2B2     		uxtb	r2, r2
+ 223 0066 022A     		cmp	r2, #2
+ 224 0068 9FBF     		itttt	ls
+ 225 006a 4948     		ldrls	r0, .L60
+ 226 006c 10F802C0 		ldrbls	ip, [r0, r2]	@ zero_extendqisi2
+ 227 0070 4848     		ldrls	r0, .L60+4
+ 228 0072 825C     		ldrbls	r2, [r0, r2]	@ zero_extendqisi2
+ 229              	.LBB18:
+ 230              	.LBB16:
+ 109:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ 231              		.loc 1 109 18 is_stmt 0 view .LVU56
+ 232 0074 84BF     		itt	hi
+ 233 0076 0022     		movhi	r2, #0
+ 234 0078 4FF00A0C 		movhi	ip, #10
+ 235              	.LVL18:
+ 109:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ 236              		.loc 1 109 18 view .LVU57
+ 237              	.LBE16:
+ 238              	.LBE18:
+ 272:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 239              		.loc 1 272 5 is_stmt 1 view .LVU58
+ 274:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 240              		.loc 1 274 5 view .LVU59
+ 242:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 241              		.loc 1 242 18 is_stmt 0 view .LVU60
+ 242 007c 0024     		movs	r4, #0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 13
+
+
+ 243 007e B3F1FF3F 		cmp	r3, #-1
+ 244 0082 18BF     		it	ne
+ 245 0084 013A     		subne	r2, r2, #1
+ 246              	.LVL19:
+ 242:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 247              		.loc 1 242 18 view .LVU61
+ 248 0086 1144     		add	r1, r1, r2
+ 249              	.LVL20:
+ 240:ThirdParty/Letter-shell/Src/shell_ext.c ****     float valueFloat = 0.0;
+ 250              		.loc 1 240 18 view .LVU62
+ 251 0088 2046     		mov	r0, r4
+ 252              	.LVL21:
+ 283:ThirdParty/Letter-shell/Src/shell_ext.c ****         p++;
+ 253              		.loc 1 283 16 view .LVU63
+ 254 008a 4FF00A0E 		mov	lr, #10
+ 255              	.LVL22:
+ 256              	.L23:
+ 274:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 257              		.loc 1 274 11 is_stmt 1 view .LVU64
+ 274:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 258              		.loc 1 274 12 is_stmt 0 view .LVU65
+ 259 008e 11F8012F 		ldrb	r2, [r1, #1]!	@ zero_extendqisi2
+ 260              	.LVL23:
+ 274:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 261              		.loc 1 274 11 view .LVU66
+ 262 0092 4ABB     		cbnz	r2, .L27
+ 286:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 263              		.loc 1 286 5 is_stmt 1 view .LVU67
+ 286:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 264              		.loc 1 286 8 is_stmt 0 view .LVU68
+ 265 0094 042F     		cmp	r7, #4
+ 266 0096 44D1     		bne	.L28
+ 286:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 267              		.loc 1 286 32 view .LVU69
+ 268 0098 002C     		cmp	r4, #0
+ 269 009a 42D0     		beq	.L28
+ 288:ThirdParty/Letter-shell/Src/shell_ext.c ****         return *(unsigned int *)(&valueFloat);
+ 270              		.loc 1 288 9 is_stmt 1 view .LVU70
+ 271              	.LVL24:
+ 289:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 272              		.loc 1 289 9 view .LVU71
+ 288:ThirdParty/Letter-shell/Src/shell_ext.c ****         return *(unsigned int *)(&valueFloat);
+ 273              		.loc 1 288 22 is_stmt 0 view .LVU72
+ 274 009c 07EE900A 		vmov	s15, r0	@ int
+ 288:ThirdParty/Letter-shell/Src/shell_ext.c ****         return *(unsigned int *)(&valueFloat);
+ 275              		.loc 1 288 38 view .LVU73
+ 276 00a0 07EE104A 		vmov	s14, r4	@ int
+ 288:ThirdParty/Letter-shell/Src/shell_ext.c ****         return *(unsigned int *)(&valueFloat);
+ 277              		.loc 1 288 22 view .LVU74
+ 278 00a4 F8EE677A 		vcvt.f32.u32	s15, s15
+ 288:ThirdParty/Letter-shell/Src/shell_ext.c ****         return *(unsigned int *)(&valueFloat);
+ 279              		.loc 1 288 38 view .LVU75
+ 280 00a8 B8EE477A 		vcvt.f32.u32	s14, s14
+ 281 00ac C7EE876A 		vdiv.f32	s13, s15, s14
+ 288:ThirdParty/Letter-shell/Src/shell_ext.c ****         return *(unsigned int *)(&valueFloat);
+ 282              		.loc 1 288 47 view .LVU76
+ 283 00b0 07EE903A 		vmov	s15, r3	@ int
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 14
+
+
+ 284 00b4 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 289:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 285              		.loc 1 289 16 view .LVU77
+ 286 00b8 66EEA77A 		vmul.f32	s15, s13, s15
+ 287 00bc 17EE903A 		vmov	r3, s15
+ 288              	.LVL25:
+ 289              	.L29:
+ 289:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 290              		.loc 1 289 16 view .LVU78
+ 291              	.LBE13:
+ 292              	.LBE12:
+ 342:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 293              		.loc 1 342 21 view .LVU79
+ 294 00c0 2B60     		str	r3, [r5]
+ 343:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 295              		.loc 1 343 13 is_stmt 1 view .LVU80
+ 296              	.L59:
+ 348:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 297              		.loc 1 348 13 view .LVU81
+ 348:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 298              		.loc 1 348 20 is_stmt 0 view .LVU82
+ 299 00c2 0020     		movs	r0, #0
+ 300              	.L10:
+ 409:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 301              		.loc 1 409 1 view .LVU83
+ 302 00c4 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 303              	.LVL26:
+ 304              	.L38:
+ 305              	.LBB27:
+ 306              	.LBB26:
+ 246:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 307              		.loc 1 246 14 view .LVU84
+ 308 00c8 4FF0FF33 		mov	r3, #-1
+ 249:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 309              		.loc 1 249 55 view .LVU85
+ 310 00cc 0120     		movs	r0, #1
+ 311              	.LVL27:
+ 249:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 312              		.loc 1 249 55 view .LVU86
+ 313 00ce B7E7     		b	.L16
+ 314              	.LVL28:
+ 315              	.L21:
+ 316              	.LBB19:
+ 317              	.LBB17:
+ 107:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 318              		.loc 1 107 9 is_stmt 1 view .LVU87
+ 107:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 319              		.loc 1 107 12 is_stmt 0 view .LVU88
+ 320 00d0 1078     		ldrb	r0, [r2]	@ zero_extendqisi2
+ 321 00d2 2E28     		cmp	r0, #46
+ 322 00d4 C1D1     		bne	.L54
+ 107:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 323              		.loc 1 107 23 view .LVU89
+ 324 00d6 5078     		ldrb	r0, [r2, #1]	@ zero_extendqisi2
+ 325 00d8 0028     		cmp	r0, #0
+ 326 00da BED0     		beq	.L54
+ 109:ThirdParty/Letter-shell/Src/shell_ext.c ****             break;
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 15
+
+
+ 327              		.loc 1 109 18 view .LVU90
+ 328 00dc 0427     		movs	r7, #4
+ 329 00de C0E7     		b	.L20
+ 330              	.LVL29:
+ 331              	.L39:
+  90:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 332              		.loc 1 90 18 view .LVU91
+ 333 00e0 0027     		movs	r7, #0
+ 334 00e2 BAE7     		b	.L54
+ 335              	.L40:
+  94:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 336              		.loc 1 94 14 view .LVU92
+ 337 00e4 0327     		movs	r7, #3
+ 338              	.LVL30:
+  94:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 339              		.loc 1 94 14 view .LVU93
+ 340 00e6 B8E7     		b	.L54
+ 341              	.LVL31:
+ 342              	.L27:
+  94:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 343              		.loc 1 94 14 view .LVU94
+ 344              	.LBE17:
+ 345              	.LBE19:
+ 276:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 346              		.loc 1 276 9 is_stmt 1 view .LVU95
+ 276:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 347              		.loc 1 276 12 is_stmt 0 view .LVU96
+ 348 00e8 2E2A     		cmp	r2, #46
+ 349 00ea 18D0     		beq	.L44
+ 282:ThirdParty/Letter-shell/Src/shell_ext.c ****         devide *= 10;
+ 350              		.loc 1 282 9 is_stmt 1 view .LVU97
+ 351              	.LBB20:
+ 352              	.LBB21:
+ 126:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 353              		.loc 1 126 23 is_stmt 0 view .LVU98
+ 354 00ec A2F13006 		sub	r6, r2, #48
+ 355 00f0 F6B2     		uxtb	r6, r6
+ 126:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 356              		.loc 1 126 8 view .LVU99
+ 357 00f2 092E     		cmp	r6, #9
+ 358              	.LBE21:
+ 359              	.LBE20:
+ 282:ThirdParty/Letter-shell/Src/shell_ext.c ****         devide *= 10;
+ 360              		.loc 1 282 29 view .LVU100
+ 361 00f4 00FB0CF0 		mul	r0, r0, ip
+ 362              	.LVL32:
+ 363              	.LBB24:
+ 364              	.LBI20:
+ 124:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 365              		.loc 1 124 13 is_stmt 1 view .LVU101
+ 366              	.LBB22:
+ 126:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 367              		.loc 1 126 5 view .LVU102
+ 126:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 368              		.loc 1 126 8 is_stmt 0 view .LVU103
+ 369 00f8 05D9     		bls	.L25
+ 130:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 16
+
+
+ 370              		.loc 1 130 10 is_stmt 1 view .LVU104
+ 130:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 371              		.loc 1 130 13 is_stmt 0 view .LVU105
+ 372 00fa A2F16106 		sub	r6, r2, #97
+ 373 00fe 052E     		cmp	r6, #5
+ 374 0100 05D8     		bhi	.L26
+ 132:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 375              		.loc 1 132 9 is_stmt 1 view .LVU106
+ 132:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 376              		.loc 1 132 27 is_stmt 0 view .LVU107
+ 377 0102 573A     		subs	r2, r2, #87
+ 378              	.LVL33:
+ 379              	.L58:
+ 136:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 380              		.loc 1 136 27 view .LVU108
+ 381 0104 D6B2     		uxtb	r6, r2
+ 382              	.L25:
+ 383              	.LVL34:
+ 136:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 384              		.loc 1 136 27 view .LVU109
+ 385              	.LBE22:
+ 386              	.LBE24:
+ 282:ThirdParty/Letter-shell/Src/shell_ext.c ****         devide *= 10;
+ 387              		.loc 1 282 18 view .LVU110
+ 388 0106 3044     		add	r0, r0, r6
+ 389              	.LVL35:
+ 283:ThirdParty/Letter-shell/Src/shell_ext.c ****         p++;
+ 390              		.loc 1 283 9 is_stmt 1 view .LVU111
+ 283:ThirdParty/Letter-shell/Src/shell_ext.c ****         p++;
+ 391              		.loc 1 283 16 is_stmt 0 view .LVU112
+ 392 0108 0EFB04F4 		mul	r4, lr, r4
+ 393              	.LVL36:
+ 284:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 394              		.loc 1 284 9 is_stmt 1 view .LVU113
+ 284:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 395              		.loc 1 284 9 is_stmt 0 view .LVU114
+ 396 010c BFE7     		b	.L23
+ 397              	.LVL37:
+ 398              	.L26:
+ 399              	.LBB25:
+ 400              	.LBB23:
+ 134:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 401              		.loc 1 134 10 is_stmt 1 view .LVU115
+ 134:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 402              		.loc 1 134 13 is_stmt 0 view .LVU116
+ 403 010e A2F14106 		sub	r6, r2, #65
+ 404 0112 052E     		cmp	r6, #5
+ 405 0114 01D8     		bhi	.L45
+ 136:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 406              		.loc 1 136 9 is_stmt 1 view .LVU117
+ 136:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 407              		.loc 1 136 27 is_stmt 0 view .LVU118
+ 408 0116 373A     		subs	r2, r2, #55
+ 409              	.LVL38:
+ 136:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 410              		.loc 1 136 27 view .LVU119
+ 411 0118 F4E7     		b	.L58
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 17
+
+
+ 412              	.LVL39:
+ 413              	.L45:
+ 140:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 414              		.loc 1 140 16 view .LVU120
+ 415 011a 0026     		movs	r6, #0
+ 416 011c F3E7     		b	.L25
+ 417              	.LVL40:
+ 418              	.L44:
+ 140:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 419              		.loc 1 140 16 view .LVU121
+ 420              	.LBE23:
+ 421              	.LBE25:
+ 278:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+ 422              		.loc 1 278 20 view .LVU122
+ 423 011e 0124     		movs	r4, #1
+ 424              	.LVL41:
+ 278:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+ 425              		.loc 1 278 20 view .LVU123
+ 426 0120 B5E7     		b	.L23
+ 427              	.LVL42:
+ 428              	.L28:
+ 293:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 429              		.loc 1 293 9 is_stmt 1 view .LVU124
+ 293:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 430              		.loc 1 293 25 is_stmt 0 view .LVU125
+ 431 0122 4343     		muls	r3, r0, r3
+ 432 0124 CCE7     		b	.L29
+ 433              	.LVL43:
+ 434              	.L17:
+ 293:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 435              		.loc 1 293 25 view .LVU126
+ 436              	.LBE26:
+ 437              	.LBE27:
+ 345:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 438              		.loc 1 345 14 is_stmt 1 view .LVU127
+ 345:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 439              		.loc 1 345 17 is_stmt 0 view .LVU128
+ 440 0126 242B     		cmp	r3, #36
+ 441 0128 0FD1     		bne	.L30
+ 345:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 442              		.loc 1 345 33 discriminator 1 view .LVU129
+ 443 012a 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 444 012c 9BB1     		cbz	r3, .L15
+ 347:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 445              		.loc 1 347 13 is_stmt 1 view .LVU130
+ 446              	.LVL44:
+ 447              	.LBB28:
+ 448              	.LBI28:
+ 305:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 449              		.loc 1 305 21 view .LVU131
+ 450              	.LBB29:
+ 307:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              var + 1,
+ 451              		.loc 1 307 5 view .LVU132
+ 307:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              var + 1,
+ 452              		.loc 1 307 29 is_stmt 0 view .LVU133
+ 453 012e 0131     		adds	r1, r1, #1
+ 454              	.LVL45:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 18
+
+
+ 307:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              var + 1,
+ 455              		.loc 1 307 29 view .LVU134
+ 456 0130 B26D     		ldr	r2, [r6, #88]
+ 457 0132 0023     		movs	r3, #0
+ 458 0134 3046     		mov	r0, r6
+ 459              	.LVL46:
+ 307:ThirdParty/Letter-shell/Src/shell_ext.c ****                                              var + 1,
+ 460              		.loc 1 307 29 view .LVU135
+ 461 0136 FFF7FEFF 		bl	shellSeekCommand
+ 462              	.LVL47:
+ 311:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 463              		.loc 1 311 5 is_stmt 1 view .LVU136
+ 311:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 464              		.loc 1 311 8 is_stmt 0 view .LVU137
+ 465 013a 0146     		mov	r1, r0
+ 466 013c 0028     		cmp	r0, #0
+ 467 013e 3FF475AF 		beq	.L31
+ 313:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 468              		.loc 1 313 9 is_stmt 1 view .LVU138
+ 313:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 469              		.loc 1 313 16 is_stmt 0 view .LVU139
+ 470 0142 3046     		mov	r0, r6
+ 471              	.LVL48:
+ 313:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 472              		.loc 1 313 16 view .LVU140
+ 473 0144 FFF7FEFF 		bl	shellGetVarValue
+ 474              	.LVL49:
+ 313:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 475              		.loc 1 313 16 view .LVU141
+ 476 0148 70E7     		b	.L31
+ 477              	.LVL50:
+ 478              	.L30:
+ 313:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 479              		.loc 1 313 16 view .LVU142
+ 480              	.LBE29:
+ 481              	.LBE28:
+ 350:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 482              		.loc 1 350 14 is_stmt 1 view .LVU143
+ 350:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 483              		.loc 1 350 17 is_stmt 0 view .LVU144
+ 484 014a 002B     		cmp	r3, #0
+ 485 014c 3FF462AF 		beq	.L47
+ 352:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 486              		.loc 1 352 13 is_stmt 1 view .LVU145
+ 487              	.LVL51:
+ 488              	.LBB30:
+ 489              	.LBI30:
+ 194:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 490              		.loc 1 194 14 view .LVU146
+ 491              	.LBB31:
+ 196:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned short index = 0;
+ 492              		.loc 1 196 5 view .LVU147
+ 197:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 493              		.loc 1 197 5 view .LVU148
+ 199:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 494              		.loc 1 199 5 view .LVU149
+ 199:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 19
+
+
+ 495              		.loc 1 199 8 is_stmt 0 view .LVU150
+ 496 0150 222B     		cmp	r3, #34
+ 497 0152 00D1     		bne	.L15
+ 201:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 498              		.loc 1 201 9 is_stmt 1 view .LVU151
+ 201:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 499              		.loc 1 201 11 is_stmt 0 view .LVU152
+ 500 0154 0131     		adds	r1, r1, #1
+ 501              	.LVL52:
+ 502              	.L15:
+ 209:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 503              		.loc 1 209 14 view .LVU153
+ 504 0156 0026     		movs	r6, #0
+ 505 0158 0B46     		mov	r3, r1
+ 213:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 506              		.loc 1 213 31 view .LVU154
+ 507 015a 3746     		mov	r7, r6
+ 508 015c 0AE0     		b	.L35
+ 509              	.LVL53:
+ 510              	.L36:
+ 206:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 511              		.loc 1 206 9 is_stmt 1 view .LVU155
+ 206:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 512              		.loc 1 206 12 is_stmt 0 view .LVU156
+ 513 015e 5C28     		cmp	r0, #92
+ 514 0160 10D1     		bne	.L32
+ 208:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+ 515              		.loc 1 208 33 view .LVU157
+ 516 0162 581E     		subs	r0, r3, #1
+ 209:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 517              		.loc 1 209 14 view .LVU158
+ 518 0164 03F10108 		add	r8, r3, #1
+ 208:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+ 519              		.loc 1 208 13 is_stmt 1 view .LVU159
+ 208:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+ 520              		.loc 1 208 33 is_stmt 0 view .LVU160
+ 521 0168 FFF7FEFF 		bl	shellExtParseChar
+ 522              	.LVL54:
+ 209:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 523              		.loc 1 209 14 view .LVU161
+ 524 016c 4346     		mov	r3, r8
+ 208:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+ 525              		.loc 1 208 31 view .LVU162
+ 526 016e 2070     		strb	r0, [r4]
+ 209:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 527              		.loc 1 209 13 is_stmt 1 view .LVU163
+ 528              	.LVL55:
+ 529              	.L33:
+ 219:ThirdParty/Letter-shell/Src/shell_ext.c ****         index ++;
+ 530              		.loc 1 219 9 view .LVU164
+ 219:ThirdParty/Letter-shell/Src/shell_ext.c ****         index ++;
+ 531              		.loc 1 219 10 is_stmt 0 view .LVU165
+ 532 0170 0133     		adds	r3, r3, #1
+ 533              	.LVL56:
+ 220:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 534              		.loc 1 220 9 is_stmt 1 view .LVU166
+ 220:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 20
+
+
+ 535              		.loc 1 220 9 is_stmt 0 view .LVU167
+ 536 0172 0136     		adds	r6, r6, #1
+ 537              	.LVL57:
+ 538              	.L35:
+ 204:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 539              		.loc 1 204 11 is_stmt 1 view .LVU168
+ 204:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 540              		.loc 1 204 12 is_stmt 0 view .LVU169
+ 541 0174 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 208:ThirdParty/Letter-shell/Src/shell_ext.c ****             p++;
+ 542              		.loc 1 208 22 view .LVU170
+ 543 0176 11FA86F4 		uxtah	r4, r1, r6
+ 204:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 544              		.loc 1 204 11 view .LVU171
+ 545 017a 0028     		cmp	r0, #0
+ 546 017c EFD1     		bne	.L36
+ 222:ThirdParty/Letter-shell/Src/shell_ext.c ****     return string;
+ 547              		.loc 1 222 5 is_stmt 1 view .LVU172
+ 222:ThirdParty/Letter-shell/Src/shell_ext.c ****     return string;
+ 548              		.loc 1 222 23 is_stmt 0 view .LVU173
+ 549 017e 2070     		strb	r0, [r4]
+ 223:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 550              		.loc 1 223 5 is_stmt 1 view .LVU174
+ 551              	.LVL58:
+ 223:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 552              		.loc 1 223 5 is_stmt 0 view .LVU175
+ 553              	.LBE31:
+ 554              	.LBE30:
+ 352:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 555              		.loc 1 352 21 view .LVU176
+ 556 0180 2960     		str	r1, [r5]
+ 353:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 557              		.loc 1 353 13 is_stmt 1 view .LVU177
+ 353:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 558              		.loc 1 353 20 is_stmt 0 view .LVU178
+ 559 0182 9FE7     		b	.L10
+ 560              	.LVL59:
+ 561              	.L32:
+ 562              	.LBB33:
+ 563              	.LBB32:
+ 211:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 564              		.loc 1 211 14 is_stmt 1 view .LVU179
+ 211:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 565              		.loc 1 211 17 is_stmt 0 view .LVU180
+ 566 0184 2228     		cmp	r0, #34
+ 213:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 567              		.loc 1 213 13 is_stmt 1 view .LVU181
+ 213:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 568              		.loc 1 213 31 is_stmt 0 view .LVU182
+ 569 0186 0CBF     		ite	eq
+ 570 0188 2770     		strbeq	r7, [r4]
+ 217:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 571              		.loc 1 217 13 is_stmt 1 view .LVU183
+ 217:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 572              		.loc 1 217 31 is_stmt 0 view .LVU184
+ 573 018a 2070     		strbne	r0, [r4]
+ 574 018c F0E7     		b	.L33
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 21
+
+
+ 575              	.L61:
+ 576 018e 00BF     		.align	2
+ 577              	.L60:
+ 578 0190 00000000 		.word	.LANCHOR0
+ 579 0194 00000000 		.word	.LANCHOR1
+ 580              	.LBE32:
+ 581              	.LBE33:
+ 582              		.cfi_endproc
+ 583              	.LFE6:
+ 585              		.section	.text.shellExtRun,"ax",%progbits
+ 586              		.align	1
+ 587              		.global	shellExtRun
+ 588              		.syntax unified
+ 589              		.thumb
+ 590              		.thumb_func
+ 592              	shellExtRun:
+ 593              	.LVL60:
+ 594              	.LFB7:
+ 410:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 411:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 412:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
+ 413:ThirdParty/Letter-shell/Src/shell_ext.c **** int shellExtCleanerPara(Shell *shell, char *type, unsigned int param)
+ 414:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 415:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (type == NULL)
+ 416:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 417:ThirdParty/Letter-shell/Src/shell_ext.c ****         return 0;
+ 418:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 419:ThirdParty/Letter-shell/Src/shell_ext.c ****     else
+ 420:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 421:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (strcmp("c", type) == 0
+ 422:ThirdParty/Letter-shell/Src/shell_ext.c ****             || strcmp("i", type) == 0
+ 423:ThirdParty/Letter-shell/Src/shell_ext.c ****             || strcmp("f", type) == 0
+ 424:ThirdParty/Letter-shell/Src/shell_ext.c ****             || strcmp("p", type) == 0
+ 425:ThirdParty/Letter-shell/Src/shell_ext.c ****             || strcmp("s", type) == 0)
+ 426:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 427:ThirdParty/Letter-shell/Src/shell_ext.c ****             return 0;
+ 428:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 429:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
+ 430:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 431:ThirdParty/Letter-shell/Src/shell_ext.c ****             ShellCommand *command = shellSeekCommand(shell,
+ 432:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      type,
+ 433:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      shell->commandList.base,
+ 434:ThirdParty/Letter-shell/Src/shell_ext.c ****                                                      0);
+ 435:ThirdParty/Letter-shell/Src/shell_ext.c ****             if (command != NULL && command->data.paramParser.cleaner != NULL)
+ 436:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
+ 437:ThirdParty/Letter-shell/Src/shell_ext.c ****                 return command->data.paramParser.cleaner((void *)param);
+ 438:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
+ 439:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 440:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 441:ThirdParty/Letter-shell/Src/shell_ext.c ****     return -1;
+ 442:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 443:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_USING_FUNC_SIGNATURE == 1 */
+ 444:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 445:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 446:ThirdParty/Letter-shell/Src/shell_ext.c **** /**
+ 447:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @brief 执行命令
+ 448:ThirdParty/Letter-shell/Src/shell_ext.c ****  * 
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 22
+
+
+ 449:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param shell shell对象
+ 450:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param command 命令
+ 451:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param argc 参数个数
+ 452:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @param argv 参数
+ 453:ThirdParty/Letter-shell/Src/shell_ext.c ****  * @return int 返回值
+ 454:ThirdParty/Letter-shell/Src/shell_ext.c ****  */
+ 455:ThirdParty/Letter-shell/Src/shell_ext.c **** int shellExtRun(Shell *shell, ShellCommand *command, int argc, char *argv[])
+ 456:ThirdParty/Letter-shell/Src/shell_ext.c **** {
+ 595              		.loc 1 456 1 is_stmt 1 view -0
+ 596              		.cfi_startproc
+ 597              		@ args = 0, pretend = 0, frame = 32
+ 598              		@ frame_needed = 0, uses_anonymous_args = 0
+ 457:ThirdParty/Letter-shell/Src/shell_ext.c ****     int ret = 0;
+ 599              		.loc 1 457 5 view .LVU186
+ 458:ThirdParty/Letter-shell/Src/shell_ext.c ****     unsigned int params[SHELL_PARAMETER_MAX_NUMBER] = {0};
+ 600              		.loc 1 458 5 view .LVU187
+ 456:ThirdParty/Letter-shell/Src/shell_ext.c ****     int ret = 0;
+ 601              		.loc 1 456 1 is_stmt 0 view .LVU188
+ 602 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 603              	.LCFI1:
+ 604              		.cfi_def_cfa_offset 28
+ 605              		.cfi_offset 4, -28
+ 606              		.cfi_offset 5, -24
+ 607              		.cfi_offset 6, -20
+ 608              		.cfi_offset 7, -16
+ 609              		.cfi_offset 8, -12
+ 610              		.cfi_offset 9, -8
+ 611              		.cfi_offset 14, -4
+ 612 0004 0C46     		mov	r4, r1
+ 613 0006 8DB0     		sub	sp, sp, #52
+ 614              	.LCFI2:
+ 615              		.cfi_def_cfa_offset 80
+ 456:ThirdParty/Letter-shell/Src/shell_ext.c ****     int ret = 0;
+ 616              		.loc 1 456 1 view .LVU189
+ 617 0008 1746     		mov	r7, r2
+ 618 000a 8046     		mov	r8, r0
+ 619              		.loc 1 458 18 view .LVU190
+ 620 000c 2022     		movs	r2, #32
+ 621              	.LVL61:
+ 622              		.loc 1 458 18 view .LVU191
+ 623 000e 0021     		movs	r1, #0
+ 624              	.LVL62:
+ 625              		.loc 1 458 18 view .LVU192
+ 626 0010 04A8     		add	r0, sp, #16
+ 627              	.LVL63:
+ 456:ThirdParty/Letter-shell/Src/shell_ext.c ****     int ret = 0;
+ 628              		.loc 1 456 1 view .LVU193
+ 629 0012 1E46     		mov	r6, r3
+ 630              		.loc 1 458 18 view .LVU194
+ 631 0014 FFF7FEFF 		bl	memset
+ 632              	.LVL64:
+ 459:ThirdParty/Letter-shell/Src/shell_ext.c ****     int paramNum = command->attr.attrs.paramNum > (argc - 1) ? 
+ 633              		.loc 1 459 5 is_stmt 1 view .LVU195
+ 634              		.loc 1 459 39 is_stmt 0 view .LVU196
+ 635 0018 A578     		ldrb	r5, [r4, #2]	@ zero_extendqisi2
+ 460:ThirdParty/Letter-shell/Src/shell_ext.c ****         command->attr.attrs.paramNum : (argc - 1);
+ 636              		.loc 1 460 38 view .LVU197
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 23
+
+
+ 637 001a 07F1FF39 		add	r9, r7, #-1
+ 459:ThirdParty/Letter-shell/Src/shell_ext.c ****     int paramNum = command->attr.attrs.paramNum > (argc - 1) ? 
+ 638              		.loc 1 459 39 view .LVU198
+ 639 001e 05F00F05 		and	r5, r5, #15
+ 640              		.loc 1 460 38 view .LVU199
+ 641 0022 BD42     		cmp	r5, r7
+ 642 0024 B8BF     		it	lt
+ 643 0026 4D46     		movlt	r5, r9
+ 644              	.LVL65:
+ 461:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
+ 462:ThirdParty/Letter-shell/Src/shell_ext.c ****     char type[16];
+ 463:ThirdParty/Letter-shell/Src/shell_ext.c ****     int index = 0;
+ 464:ThirdParty/Letter-shell/Src/shell_ext.c ****     
+ 465:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (command->data.cmd.signature != NULL)
+ 466:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 467:ThirdParty/Letter-shell/Src/shell_ext.c ****         int except = shellGetParamNumExcept(command->data.cmd.signature);
+ 468:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (except != argc - 1)
+ 469:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 470:ThirdParty/Letter-shell/Src/shell_ext.c ****             shellWriteString(shell, "Parameters number incorrect\r\n");
+ 471:ThirdParty/Letter-shell/Src/shell_ext.c ****             return -1;
+ 472:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 473:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 474:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif
+ 475:ThirdParty/Letter-shell/Src/shell_ext.c ****     for (int i = 0; i < argc - 1; i++)
+ 645              		.loc 1 475 5 is_stmt 1 view .LVU200
+ 646              	.LBB34:
+ 647              		.loc 1 475 10 view .LVU201
+ 648              		.loc 1 475 14 is_stmt 0 view .LVU202
+ 649 0028 0027     		movs	r7, #0
+ 650              	.LVL66:
+ 651              	.L64:
+ 652              		.loc 1 475 21 is_stmt 1 discriminator 1 view .LVU203
+ 653              		.loc 1 475 5 is_stmt 0 discriminator 1 view .LVU204
+ 654 002a 4F45     		cmp	r7, r9
+ 655 002c 07DB     		blt	.L66
+ 656              	.LBE34:
+ 476:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 477:ThirdParty/Letter-shell/Src/shell_ext.c ****     #if SHELL_USING_FUNC_SIGNATURE == 1
+ 478:ThirdParty/Letter-shell/Src/shell_ext.c ****         if (command->data.cmd.signature != NULL) {
+ 479:ThirdParty/Letter-shell/Src/shell_ext.c ****             index = shellGetNextParamType(command->data.cmd.signature, index, type);
+ 480:ThirdParty/Letter-shell/Src/shell_ext.c ****             if (shellExtParsePara(shell, argv[i + 1], type, &params[i]) != 0)
+ 481:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
+ 482:ThirdParty/Letter-shell/Src/shell_ext.c ****                 return -1;
+ 483:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
+ 484:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 485:ThirdParty/Letter-shell/Src/shell_ext.c ****         else
+ 486:ThirdParty/Letter-shell/Src/shell_ext.c ****     #endif /** SHELL_USING_FUNC_SIGNATURE == 1 */
+ 487:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 488:ThirdParty/Letter-shell/Src/shell_ext.c ****             if (shellExtParsePara(shell, argv[i + 1], NULL, &params[i]) != 0)
+ 489:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
+ 490:ThirdParty/Letter-shell/Src/shell_ext.c ****                 return -1;
+ 491:ThirdParty/Letter-shell/Src/shell_ext.c ****             }
+ 492:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 493:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 494:ThirdParty/Letter-shell/Src/shell_ext.c ****     switch (paramNum)
+ 657              		.loc 1 494 5 is_stmt 1 view .LVU205
+ 658 002e 072D     		cmp	r5, #7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 24
+
+
+ 659 0030 4ED8     		bhi	.L78
+ 660 0032 DFE805F0 		tbb	[pc, r5]
+ 661              	.L68:
+ 662 0036 11       		.byte	(.L75-.L68)/2
+ 663 0037 16       		.byte	(.L74-.L68)/2
+ 664 0038 1A       		.byte	(.L73-.L68)/2
+ 665 0039 1F       		.byte	(.L72-.L68)/2
+ 666 003a 25       		.byte	(.L71-.L68)/2
+ 667 003b 2C       		.byte	(.L70-.L68)/2
+ 668 003c 35       		.byte	(.L69-.L68)/2
+ 669 003d 40       		.byte	(.L67-.L68)/2
+ 670              		.p2align 1
+ 671              	.L66:
+ 672              	.LBB35:
+ 488:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
+ 673              		.loc 1 488 13 view .LVU206
+ 488:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
+ 674              		.loc 1 488 17 is_stmt 0 view .LVU207
+ 675 003e 04AB     		add	r3, sp, #16
+ 676 0040 56F8041F 		ldr	r1, [r6, #4]!
+ 677 0044 03EB8703 		add	r3, r3, r7, lsl #2
+ 678 0048 0022     		movs	r2, #0
+ 679 004a 4046     		mov	r0, r8
+ 680 004c FFF7FEFF 		bl	shellExtParsePara
+ 681              	.LVL67:
+ 488:ThirdParty/Letter-shell/Src/shell_ext.c ****             {
+ 682              		.loc 1 488 16 view .LVU208
+ 683 0050 0028     		cmp	r0, #0
+ 684 0052 3DD1     		bne	.L78
+ 475:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 685              		.loc 1 475 35 is_stmt 1 discriminator 2 view .LVU209
+ 475:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 686              		.loc 1 475 36 is_stmt 0 discriminator 2 view .LVU210
+ 687 0054 0137     		adds	r7, r7, #1
+ 688              	.LVL68:
+ 475:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 689              		.loc 1 475 36 discriminator 2 view .LVU211
+ 690 0056 E8E7     		b	.L64
+ 691              	.L75:
+ 475:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 692              		.loc 1 475 36 discriminator 2 view .LVU212
+ 693              	.LBE35:
+ 495:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 496:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 1
+ 497:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 0:
+ 498:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = command->data.cmd.function();
+ 694              		.loc 1 498 9 is_stmt 1 view .LVU213
+ 695              		.loc 1 498 15 is_stmt 0 view .LVU214
+ 696 0058 A368     		ldr	r3, [r4, #8]
+ 697 005a 9847     		blx	r3
+ 698              	.LVL69:
+ 499:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 699              		.loc 1 499 9 is_stmt 1 view .LVU215
+ 700              	.L62:
+ 500:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 1 */
+ 501:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 2
+ 502:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 1:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 25
+
+
+ 503:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 504:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int) = command->data.cmd.function;
+ 505:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0]);
+ 506:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 507:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 508:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 2 */
+ 509:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 3
+ 510:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 2:
+ 511:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 512:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int) = command->data.cmd.function;
+ 513:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1]);
+ 514:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 515:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 516:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 3 */
+ 517:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 4
+ 518:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 3:
+ 519:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 520:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int) = command->data.cmd.function;
+ 521:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2]);
+ 522:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 523:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 524:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 4 */
+ 525:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 5
+ 526:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 4:
+ 527:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 528:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int) = command->data.cmd.function;
+ 529:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3]);
+ 530:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 531:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 532:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 5 */
+ 533:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 6
+ 534:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 5:
+ 535:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 536:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int) = command->data.cmd.function;
+ 537:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4]);
+ 538:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 539:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 540:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 6 */
+ 541:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 7
+ 542:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 6:
+ 543:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 544:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int) = command->data.cmd.function;
+ 545:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5]);
+ 546:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 547:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 548:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 7 */
+ 549:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 8
+ 550:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 7:
+ 551:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 552:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int) = command->data.cmd.function;
+ 553:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6]);
+ 554:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 555:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 556:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 8 */
+ 557:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 9
+ 558:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 8:
+ 559:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 26
+
+
+ 560:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int) = command->data.cmd.function;
+ 561:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
+ 562:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 563:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 564:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 9 */
+ 565:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 10
+ 566:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 9:
+ 567:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 568:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int) = command->data.cmd.function;
+ 569:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
+ 570:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8]);
+ 571:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 572:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 573:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 10 */
+ 574:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 11
+ 575:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 10:
+ 576:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 577:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int) = command->data.cmd.function;
+ 578:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
+ 579:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9]);
+ 580:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 581:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 582:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 11 */
+ 583:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 12
+ 584:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 11:
+ 585:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 586:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int) = command->data.cmd.func
+ 587:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
+ 588:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10]);
+ 589:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 590:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 591:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 12 */
+ 592:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 13
+ 593:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 12:
+ 594:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 595:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int, int) = command->data.cmd
+ 596:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
+ 597:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10], params[11]);
+ 598:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 599:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 600:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 13 */
+ 601:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 14
+ 602:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 13:
+ 603:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 604:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int, int, int) = command->dat
+ 605:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
+ 606:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10], params[11], params[12]);
+ 607:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 608:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 609:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 14 */
+ 610:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 15
+ 611:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 14:
+ 612:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 613:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int, int, int, int)
+ 614:ThirdParty/Letter-shell/Src/shell_ext.c ****             = command->data.cmd.function;
+ 615:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
+ 616:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10], params[11], params[12], params[13]);
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 27
+
+
+ 617:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 618:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 619:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 15 */
+ 620:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_PARAMETER_MAX_NUMBER >= 16
+ 621:ThirdParty/Letter-shell/Src/shell_ext.c ****     case 15:
+ 622:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 623:ThirdParty/Letter-shell/Src/shell_ext.c ****         int (*func)(int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)
+ 624:ThirdParty/Letter-shell/Src/shell_ext.c ****             = command->data.cmd.function;
+ 625:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6], par
+ 626:ThirdParty/Letter-shell/Src/shell_ext.c ****                    params[8], params[9], params[10], params[11], params[12], params[13], params[14]
+ 627:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 628:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 629:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_PARAMETER_MAX_NUMBER >= 16 */
+ 630:ThirdParty/Letter-shell/Src/shell_ext.c ****     default:
+ 631:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = -1;
+ 632:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 633:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 634:ThirdParty/Letter-shell/Src/shell_ext.c ****     
+ 635:ThirdParty/Letter-shell/Src/shell_ext.c **** #if SHELL_USING_FUNC_SIGNATURE == 1
+ 636:ThirdParty/Letter-shell/Src/shell_ext.c ****     if (command->data.cmd.signature != NULL) {
+ 637:ThirdParty/Letter-shell/Src/shell_ext.c ****         index = 0;
+ 638:ThirdParty/Letter-shell/Src/shell_ext.c ****         for (int i = 0; i < argc - 1; i++)
+ 639:ThirdParty/Letter-shell/Src/shell_ext.c ****         {
+ 640:ThirdParty/Letter-shell/Src/shell_ext.c ****             index = shellGetNextParamType(command->data.cmd.signature, index, type);
+ 641:ThirdParty/Letter-shell/Src/shell_ext.c ****             shellExtCleanerPara(shell, type, params[i]);
+ 642:ThirdParty/Letter-shell/Src/shell_ext.c ****         }
+ 643:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 644:ThirdParty/Letter-shell/Src/shell_ext.c **** #endif /** SHELL_USING_FUNC_SIGNATURE == 1 */
+ 645:ThirdParty/Letter-shell/Src/shell_ext.c **** 
+ 646:ThirdParty/Letter-shell/Src/shell_ext.c ****     return ret;
+ 647:ThirdParty/Letter-shell/Src/shell_ext.c **** }
+ 701              		.loc 1 647 1 is_stmt 0 view .LVU216
+ 702 005c 0DB0     		add	sp, sp, #52
+ 703              	.LCFI3:
+ 704              		.cfi_remember_state
+ 705              		.cfi_def_cfa_offset 28
+ 706              		@ sp needed
+ 707 005e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 708              	.LVL70:
+ 709              	.L74:
+ 710              	.LCFI4:
+ 711              		.cfi_restore_state
+ 712              	.LBB36:
+ 504:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0]);
+ 713              		.loc 1 504 9 is_stmt 1 view .LVU217
+ 505:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 714              		.loc 1 505 9 view .LVU218
+ 505:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 715              		.loc 1 505 15 is_stmt 0 view .LVU219
+ 716 0062 A368     		ldr	r3, [r4, #8]
+ 717 0064 0498     		ldr	r0, [sp, #16]
+ 718 0066 9847     		blx	r3
+ 719              	.LVL71:
+ 506:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 720              		.loc 1 506 9 is_stmt 1 view .LVU220
+ 721 0068 F8E7     		b	.L62
+ 722              	.LVL72:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 28
+
+
+ 723              	.L73:
+ 506:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 724              		.loc 1 506 9 is_stmt 0 view .LVU221
+ 725              	.LBE36:
+ 726              	.LBB37:
+ 512:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1]);
+ 727              		.loc 1 512 9 is_stmt 1 view .LVU222
+ 513:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 728              		.loc 1 513 9 view .LVU223
+ 513:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 729              		.loc 1 513 15 is_stmt 0 view .LVU224
+ 730 006a DDE90401 		ldrd	r0, r1, [sp, #16]
+ 731 006e A368     		ldr	r3, [r4, #8]
+ 732 0070 9847     		blx	r3
+ 733              	.LVL73:
+ 514:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 734              		.loc 1 514 9 is_stmt 1 view .LVU225
+ 735 0072 F3E7     		b	.L62
+ 736              	.LVL74:
+ 737              	.L72:
+ 514:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 738              		.loc 1 514 9 is_stmt 0 view .LVU226
+ 739              	.LBE37:
+ 740              	.LBB38:
+ 520:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2]);
+ 741              		.loc 1 520 9 is_stmt 1 view .LVU227
+ 521:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 742              		.loc 1 521 9 view .LVU228
+ 521:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 743              		.loc 1 521 15 is_stmt 0 view .LVU229
+ 744 0074 DDE90512 		ldrd	r1, r2, [sp, #20]
+ 745 0078 A368     		ldr	r3, [r4, #8]
+ 746 007a 0498     		ldr	r0, [sp, #16]
+ 747 007c 9847     		blx	r3
+ 748              	.LVL75:
+ 522:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 749              		.loc 1 522 9 is_stmt 1 view .LVU230
+ 750 007e EDE7     		b	.L62
+ 751              	.LVL76:
+ 752              	.L71:
+ 522:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 753              		.loc 1 522 9 is_stmt 0 view .LVU231
+ 754              	.LBE38:
+ 755              	.LBB39:
+ 528:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3]);
+ 756              		.loc 1 528 9 is_stmt 1 view .LVU232
+ 529:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 757              		.loc 1 529 9 view .LVU233
+ 529:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 758              		.loc 1 529 15 is_stmt 0 view .LVU234
+ 759 0080 DDE90623 		ldrd	r2, r3, [sp, #24]
+ 760 0084 DDE90401 		ldrd	r0, r1, [sp, #16]
+ 761 0088 A468     		ldr	r4, [r4, #8]
+ 762              	.LVL77:
+ 529:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 763              		.loc 1 529 15 view .LVU235
+ 764 008a A047     		blx	r4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 29
+
+
+ 765              	.LVL78:
+ 530:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 766              		.loc 1 530 9 is_stmt 1 view .LVU236
+ 767 008c E6E7     		b	.L62
+ 768              	.LVL79:
+ 769              	.L70:
+ 530:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 770              		.loc 1 530 9 is_stmt 0 view .LVU237
+ 771              	.LBE39:
+ 772              	.LBB40:
+ 536:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4]);
+ 773              		.loc 1 536 9 is_stmt 1 view .LVU238
+ 537:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 774              		.loc 1 537 9 view .LVU239
+ 537:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 775              		.loc 1 537 15 is_stmt 0 view .LVU240
+ 776 008e 089B     		ldr	r3, [sp, #32]
+ 777 0090 0093     		str	r3, [sp]
+ 778              	.LVL80:
+ 537:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 779              		.loc 1 537 15 view .LVU241
+ 780 0092 DDE90401 		ldrd	r0, r1, [sp, #16]
+ 781 0096 DDE90623 		ldrd	r2, r3, [sp, #24]
+ 782 009a A468     		ldr	r4, [r4, #8]
+ 783              	.LVL81:
+ 537:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 784              		.loc 1 537 15 view .LVU242
+ 785 009c A047     		blx	r4
+ 786              	.LVL82:
+ 538:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 787              		.loc 1 538 9 is_stmt 1 view .LVU243
+ 788 009e DDE7     		b	.L62
+ 789              	.LVL83:
+ 790              	.L69:
+ 538:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 791              		.loc 1 538 9 is_stmt 0 view .LVU244
+ 792              	.LBE40:
+ 793              	.LBB41:
+ 544:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5]);
+ 794              		.loc 1 544 9 is_stmt 1 view .LVU245
+ 545:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 795              		.loc 1 545 9 view .LVU246
+ 545:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 796              		.loc 1 545 15 is_stmt 0 view .LVU247
+ 797 00a0 099B     		ldr	r3, [sp, #36]
+ 798 00a2 0193     		str	r3, [sp, #4]
+ 799              	.LVL84:
+ 545:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 800              		.loc 1 545 15 view .LVU248
+ 801 00a4 089B     		ldr	r3, [sp, #32]
+ 802 00a6 0093     		str	r3, [sp]
+ 803 00a8 DDE90401 		ldrd	r0, r1, [sp, #16]
+ 804 00ac DDE90623 		ldrd	r2, r3, [sp, #24]
+ 805 00b0 A468     		ldr	r4, [r4, #8]
+ 806              	.LVL85:
+ 545:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 807              		.loc 1 545 15 view .LVU249
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 30
+
+
+ 808 00b2 A047     		blx	r4
+ 809              	.LVL86:
+ 546:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 810              		.loc 1 546 9 is_stmt 1 view .LVU250
+ 811 00b4 D2E7     		b	.L62
+ 812              	.LVL87:
+ 813              	.L67:
+ 546:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 814              		.loc 1 546 9 is_stmt 0 view .LVU251
+ 815              	.LBE41:
+ 816              	.LBB42:
+ 552:ThirdParty/Letter-shell/Src/shell_ext.c ****         ret = func(params[0], params[1], params[2], params[3], params[4], params[5], params[6]);
+ 817              		.loc 1 552 9 is_stmt 1 view .LVU252
+ 553:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 818              		.loc 1 553 9 view .LVU253
+ 553:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 819              		.loc 1 553 15 is_stmt 0 view .LVU254
+ 820 00b6 0A9B     		ldr	r3, [sp, #40]
+ 821 00b8 0293     		str	r3, [sp, #8]
+ 822              	.LVL88:
+ 553:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 823              		.loc 1 553 15 view .LVU255
+ 824 00ba 099B     		ldr	r3, [sp, #36]
+ 825 00bc 0193     		str	r3, [sp, #4]
+ 826 00be 089B     		ldr	r3, [sp, #32]
+ 827 00c0 0093     		str	r3, [sp]
+ 828 00c2 DDE90401 		ldrd	r0, r1, [sp, #16]
+ 829 00c6 DDE90623 		ldrd	r2, r3, [sp, #24]
+ 830 00ca A468     		ldr	r4, [r4, #8]
+ 831              	.LVL89:
+ 553:ThirdParty/Letter-shell/Src/shell_ext.c ****         break;
+ 832              		.loc 1 553 15 view .LVU256
+ 833 00cc A047     		blx	r4
+ 834              	.LVL90:
+ 554:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 835              		.loc 1 554 9 is_stmt 1 view .LVU257
+ 836 00ce C5E7     		b	.L62
+ 837              	.LVL91:
+ 838              	.L78:
+ 554:ThirdParty/Letter-shell/Src/shell_ext.c ****     }
+ 839              		.loc 1 554 9 is_stmt 0 view .LVU258
+ 840              	.LBE42:
+ 494:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 841              		.loc 1 494 5 view .LVU259
+ 842 00d0 4FF0FF30 		mov	r0, #-1
+ 843              	.LVL92:
+ 494:ThirdParty/Letter-shell/Src/shell_ext.c ****     {
+ 844              		.loc 1 494 5 view .LVU260
+ 845 00d4 C2E7     		b	.L62
+ 846              		.cfi_endproc
+ 847              	.LFE7:
+ 849              		.section	.rodata.CSWTCH.13,"a"
+ 850              		.set	.LANCHOR0,. + 0
+ 853              	CSWTCH.13:
+ 854 0000 02       		.byte	2
+ 855 0001 08       		.byte	8
+ 856 0002 10       		.byte	16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 31
+
+
+ 857              		.section	.rodata.CSWTCH.14,"a"
+ 858              		.set	.LANCHOR1,. + 0
+ 861              	CSWTCH.14:
+ 862 0000 02       		.byte	2
+ 863 0001 01       		.byte	1
+ 864 0002 02       		.byte	2
+ 865              		.text
+ 866              	.Letext0:
+ 867              		.file 2 "ThirdParty/Letter-shell/Inc/shell.h"
+ 868              		.file 3 "ThirdParty/Letter-shell/Inc/shell_ext.h"
+ 869              		.file 4 "<built-in>"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 shell_ext.c
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:18     .text.shellExtParseChar:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:23     .text.shellExtParseChar:00000000 shellExtParseChar
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:64     .text.shellExtParsePara:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:70     .text.shellExtParsePara:00000000 shellExtParsePara
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:270    .text.shellExtParsePara:00000190 $d
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:274    .text.shellExtRun:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:280    .text.shellExtRun:00000000 shellExtRun
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:307    .text.shellExtRun:00000036 $d
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:315    .text.shellExtRun:0000003e $t
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:394    .rodata.CSWTCH.13:00000000 CSWTCH.13
-C:\Users\CL\AppData\Local\Temp\cc5ieBdY.s:402    .rodata.CSWTCH.14:00000000 CSWTCH.14
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:20     .text.shellExtParseChar:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:25     .text.shellExtParseChar:00000000 shellExtParseChar
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:93     .text.shellExtParsePara:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:99     .text.shellExtParsePara:00000000 shellExtParsePara
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:578    .text.shellExtParsePara:00000190 $d
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:586    .text.shellExtRun:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:592    .text.shellExtRun:00000000 shellExtRun
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:662    .text.shellExtRun:00000036 $d
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:670    .text.shellExtRun:0000003e $t
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:853    .rodata.CSWTCH.13:00000000 CSWTCH.13
+C:\Users\CL\AppData\Local\Temp\ccnezJlQ.s:861    .rodata.CSWTCH.14:00000000 CSWTCH.14
 
 UNDEFINED SYMBOLS
 shellSeekCommand

@@ -153,9 +153,9 @@ int ec2x_open(char *dev_name)
         {
             ec2x_io_init(&ec2x_dev[i]);
             if(ec2x_reset(i))
-                shellPrint(&shell,"ec2x initial ok\r\n");
+                shellPrint(&shell,"ec2x initial OK\r\n");
             else
-                shellPrint(&shell,"ec2x initial not ok\r\n");
+                shellPrint(&shell,"ec2x initial not Failed\r\n");
             return i;
         }
     }

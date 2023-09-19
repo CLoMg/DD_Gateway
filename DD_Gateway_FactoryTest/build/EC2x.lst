@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -17,1054 +17,2607 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 1
   14              		.eabi_attribute 18, 4
   15              		.file	"EC2x.c"
   16              		.text
-  17              		.section	.text.ec2x_io_init,"ax",%progbits
-  18              		.align	1
-  19              		.global	ec2x_io_init
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  24              	ec2x_io_init:
-  25              		@ args = 0, pretend = 0, frame = 24
-  26              		@ frame_needed = 0, uses_anonymous_args = 0
-  27 0000 70B5     		push	{r4, r5, r6, lr}
-  28 0002 0025     		movs	r5, #0
-  29 0004 86B0     		sub	sp, sp, #24
-  30 0006 CDE90355 		strd	r5, r5, [sp, #12]
-  31 000a 204B     		ldr	r3, .L2
-  32 000c 0595     		str	r5, [sp, #20]
-  33 000e DA6C     		ldr	r2, [r3, #76]
-  34 0010 42F00102 		orr	r2, r2, #1
-  35 0014 DA64     		str	r2, [r3, #76]
-  36 0016 DB6C     		ldr	r3, [r3, #76]
-  37 0018 03F00103 		and	r3, r3, #1
-  38 001c 0446     		mov	r4, r0
-  39 001e 0093     		str	r3, [sp]
-  40 0020 0126     		movs	r6, #1
-  41 0022 009B     		ldr	r3, [sp]
-  42 0024 038C     		ldrh	r3, [r0, #32]
-  43 0026 C069     		ldr	r0, [r0, #28]
-  44 0028 0193     		str	r3, [sp, #4]
-  45 002a 01A9     		add	r1, sp, #4
-  46 002c 0296     		str	r6, [sp, #8]
-  47 002e FFF7FEFF 		bl	HAL_GPIO_Init
-  48 0032 238D     		ldrh	r3, [r4, #40]
-  49 0034 606A     		ldr	r0, [r4, #36]
-  50 0036 01A9     		add	r1, sp, #4
-  51 0038 CDE90136 		strd	r3, r6, [sp, #4]
-  52 003c CDE90355 		strd	r5, r5, [sp, #12]
-  53 0040 FFF7FEFF 		bl	HAL_GPIO_Init
-  54 0044 238B     		ldrh	r3, [r4, #24]
-  55 0046 6069     		ldr	r0, [r4, #20]
-  56 0048 01A9     		add	r1, sp, #4
-  57 004a CDE90136 		strd	r3, r6, [sp, #4]
-  58 004e CDE90355 		strd	r5, r5, [sp, #12]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 2
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ec2x_io_init,"ax",%progbits
+  20              		.align	1
+  21              		.global	ec2x_io_init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	ec2x_io_init:
+  27              	.LVL0:
+  28              	.LFB291:
+  29              		.file 1 "FML/Src/EC2x.c"
+   1:FML/Src/EC2x.c **** /**
+   2:FML/Src/EC2x.c ****  ******************************************************************************
+   3:FML/Src/EC2x.c **** *
+   4:FML/Src/EC2x.c **** * @file   
+   5:FML/Src/EC2x.c **** *
+   6:FML/Src/EC2x.c **** * @brief   
+   7:FML/Src/EC2x.c **** *
+   8:FML/Src/EC2x.c **** * @attention
+   9:FML/Src/EC2x.c **** *
+  10:FML/Src/EC2x.c **** *Copyright (c) 2023 STMicroelectronics.
+  11:FML/Src/EC2x.c **** *
+  12:FML/Src/EC2x.c **** *All rights reserved.
+  13:FML/Src/EC2x.c ****  ******************************************************************************
+  14:FML/Src/EC2x.c **** */
+  15:FML/Src/EC2x.c **** 
+  16:FML/Src/EC2x.c **** 
+  17:FML/Src/EC2x.c **** /*----------------------------------include-----------------------------------*/
+  18:FML/Src/EC2x.c **** #include "EC2x.h"
+  19:FML/Src/EC2x.c **** #include "usart.h"
+  20:FML/Src/EC2x.c **** #include "timer.h"
+  21:FML/Src/EC2x.c **** #include "shell_port.h"
+  22:FML/Src/EC2x.c **** #include <stdio.h>
+  23:FML/Src/EC2x.c **** #include <string.h>
+  24:FML/Src/EC2x.c **** #include <stdlib.h>
+  25:FML/Src/EC2x.c **** #include "fsm.h"
+  26:FML/Src/EC2x.c **** #include "queue.h"
+  27:FML/Src/EC2x.c **** /*-----------------------------------macro------------------------------------*/
+  28:FML/Src/EC2x.c **** #define BUFF_LEN 200
+  29:FML/Src/EC2x.c **** /*----------------------------------typedef-----------------------------------*/
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 2
 
 
-  59 0052 FFF7FEFF 		bl	HAL_GPIO_Init
-  60 0056 218C     		ldrh	r1, [r4, #32]
-  61 0058 E069     		ldr	r0, [r4, #28]
-  62 005a 3246     		mov	r2, r6
-  63 005c FFF7FEFF 		bl	HAL_GPIO_WritePin
-  64 0060 218D     		ldrh	r1, [r4, #40]
-  65 0062 606A     		ldr	r0, [r4, #36]
-  66 0064 3246     		mov	r2, r6
-  67 0066 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  68 006a 218B     		ldrh	r1, [r4, #24]
-  69 006c 6069     		ldr	r0, [r4, #20]
-  70 006e 3246     		mov	r2, r6
-  71 0070 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  72 0074 4FF47A70 		mov	r0, #1000
-  73 0078 FFF7FEFF 		bl	Delay_ms
-  74 007c 218B     		ldrh	r1, [r4, #24]
-  75 007e 6069     		ldr	r0, [r4, #20]
-  76 0080 2A46     		mov	r2, r5
-  77 0082 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  78 0086 06B0     		add	sp, sp, #24
-  79              		@ sp needed
-  80 0088 70BD     		pop	{r4, r5, r6, pc}
-  81              	.L3:
-  82 008a 00BF     		.align	2
-  83              	.L2:
-  84 008c 00100240 		.word	1073876992
-  86              		.section	.text.ec2x_write,"ax",%progbits
-  87              		.align	1
-  88              		.global	ec2x_write
-  89              		.syntax unified
-  90              		.thumb
-  91              		.thumb_func
-  93              	ec2x_write:
-  94              		@ args = 0, pretend = 0, frame = 0
-  95              		@ frame_needed = 0, uses_anonymous_args = 0
-  96 0000 10B5     		push	{r4, lr}
-  97 0002 60B9     		cbnz	r0, .L7
-  98 0004 074C     		ldr	r4, .L10
-  99 0006 2069     		ldr	r0, [r4, #16]
- 100 0008 FFF7FEFF 		bl	HAL_UART_Transmit_IT
- 101 000c 2369     		ldr	r3, [r4, #16]
- 102 000e 1A68     		ldr	r2, [r3]
- 103              	.L6:
- 104 0010 D369     		ldr	r3, [r2, #28]
- 105 0012 5B06     		lsls	r3, r3, #25
- 106 0014 FCD5     		bpl	.L6
- 107 0016 B0FA80F0 		clz	r0, r0
- 108 001a 4009     		lsrs	r0, r0, #5
- 109              	.L4:
- 110 001c 10BD     		pop	{r4, pc}
- 111              	.L7:
- 112 001e 4FF0FF30 		mov	r0, #-1
- 113 0022 FBE7     		b	.L4
- 114              	.L11:
- 115              		.align	2
- 116              	.L10:
- 117 0024 00000000 		.word	.LANCHOR0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 3
+  30:FML/Src/EC2x.c **** 
+  31:FML/Src/EC2x.c **** 
+  32:FML/Src/EC2x.c **** /*----------------------------------variable----------------------------------*/
+  33:FML/Src/EC2x.c **** uint8_t ec2x_buff[BUFF_LEN]={0xff,};
+  34:FML/Src/EC2x.c **** 
+  35:FML/Src/EC2x.c **** //定义tcp连接字符串
+  36:FML/Src/EC2x.c **** uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2\r\n";
+  37:FML/Src/EC2x.c **** 
+  38:FML/Src/EC2x.c **** //定义tcp连接指令队列
+  39:FML/Src/EC2x.c **** uint8_t tcpconnct_step = 0;
+  40:FML/Src/EC2x.c **** ATMsg_TypeDef connectmsg_queue[] = {
+  41:FML/Src/EC2x.c ****     {"AT\r\n","OK",200,5},
+  42:FML/Src/EC2x.c ****     {"AT+CPIN?\r\n","READY",200,5},
+  43:FML/Src/EC2x.c ****     {"AT+CREG?\r\n","+CREG: 0,1", 200, 5},
+  44:FML/Src/EC2x.c ****     {"AT+CGREG?\r\n","+CGREG: 0,1", 200, 5},
+  45:FML/Src/EC2x.c ****     {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 200, 5},
+  46:FML/Src/EC2x.c ****     {"AT+QIDEACT=1\r\n", "OK", 200, 5},
+  47:FML/Src/EC2x.c ****     {"AT+QIACT=1\r\n", "OK", 200, 5},
+  48:FML/Src/EC2x.c ****     {tcp_connect, "CONNECT", 500, 5},
+  49:FML/Src/EC2x.c **** };
+  50:FML/Src/EC2x.c **** 
+  51:FML/Src/EC2x.c **** static uint8_t reset_times = 0;
+  52:FML/Src/EC2x.c **** 
+  53:FML/Src/EC2x.c **** /*----------------------------------typedef-----------------------------------*/
+  54:FML/Src/EC2x.c **** 
+  55:FML/Src/EC2x.c **** EC2x_HandleTypeDef ec2x_dev[]=
+  56:FML/Src/EC2x.c **** {
+  57:FML/Src/EC2x.c ****     {
+  58:FML/Src/EC2x.c ****         "uart1/ec200s",
+  59:FML/Src/EC2x.c ****         &huart1,
+  60:FML/Src/EC2x.c ****         GPIOA,
+  61:FML/Src/EC2x.c ****         GPIO_PIN_12,
+  62:FML/Src/EC2x.c ****         GPIOA,
+  63:FML/Src/EC2x.c ****         GPIO_PIN_8,
+  64:FML/Src/EC2x.c ****         GPIOA,
+  65:FML/Src/EC2x.c ****         GPIO_PIN_11,
+  66:FML/Src/EC2x.c ****         {
+  67:FML/Src/EC2x.c ****             0,
+  68:FML/Src/EC2x.c ****            ec2x_buff,
+  69:FML/Src/EC2x.c ****             0,
+  70:FML/Src/EC2x.c ****             0,
+  71:FML/Src/EC2x.c ****             0,
+  72:FML/Src/EC2x.c ****             BUFF_LEN 
+  73:FML/Src/EC2x.c ****         }
+  74:FML/Src/EC2x.c ****     }
+  75:FML/Src/EC2x.c **** };
+  76:FML/Src/EC2x.c **** /*-------------------------------------os-------------------------------------*/
+  77:FML/Src/EC2x.c **** 
+  78:FML/Src/EC2x.c **** /*----------------------------------function----------------------------------*/
+  79:FML/Src/EC2x.c **** 
+  80:FML/Src/EC2x.c **** /**
+  81:FML/Src/EC2x.c ****  * @brief 设备初始化函数
+  82:FML/Src/EC2x.c ****  * 
+  83:FML/Src/EC2x.c ****  */
+  84:FML/Src/EC2x.c **** void ec2x_io_init(EC2x_HandleTypeDef *device)
+  85:FML/Src/EC2x.c **** {
+  30              		.loc 1 85 1 view -0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 3
 
 
- 119              		.section	.text.ec2x_read,"ax",%progbits
- 120              		.align	1
- 121              		.global	ec2x_read
- 122              		.syntax unified
- 123              		.thumb
- 124              		.thumb_func
- 126              	ec2x_read:
- 127              		@ args = 0, pretend = 0, frame = 0
- 128              		@ frame_needed = 0, uses_anonymous_args = 0
- 129 0000 70B5     		push	{r4, r5, r6, lr}
- 130 0002 1646     		mov	r6, r2
- 131 0004 0546     		mov	r5, r0
- 132 0006 58BB     		cbnz	r0, .L18
- 133 0008 174C     		ldr	r4, .L19
- 134 000a 94F82C30 		ldrb	r3, [r4, #44]	@ zero_extendqisi2
- 135 000e 43B1     		cbz	r3, .L14
- 136 0010 6420     		movs	r0, #100
- 137 0012 FFF7FEFF 		bl	Delay_ms
- 138 0016 94F82C30 		ldrb	r3, [r4, #44]	@ zero_extendqisi2
- 139 001a 03B9     		cbnz	r3, .L13
- 140              	.L15:
- 141 001c 3546     		mov	r5, r6
- 142              	.L13:
- 143 001e 2846     		mov	r0, r5
- 144 0020 70BD     		pop	{r4, r5, r6, pc}
- 145              	.L14:
- 146 0022 0123     		movs	r3, #1
- 147 0024 84F82C30 		strb	r3, [r4, #44]
- 148 0028 238F     		ldrh	r3, [r4, #56]
- 149 002a 9A42     		cmp	r2, r3
- 150 002c 28BF     		it	cs
- 151 002e 1E46     		movcs	r6, r3
- 152 0030 8819     		adds	r0, r1, r6
- 153              	.L16:
- 154 0032 8142     		cmp	r1, r0
- 155 0034 03D1     		bne	.L17
- 156 0036 0023     		movs	r3, #0
- 157 0038 84F82C30 		strb	r3, [r4, #44]
- 158 003c EEE7     		b	.L15
- 159              	.L17:
- 160 003e A38E     		ldrh	r3, [r4, #52]
- 161 0040 226B     		ldr	r2, [r4, #48]
- 162 0042 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
- 163 0044 01F8013B 		strb	r3, [r1], #1
- 164 0048 A38E     		ldrh	r3, [r4, #52]
- 165 004a 628F     		ldrh	r2, [r4, #58]
- 166 004c 0133     		adds	r3, r3, #1
- 167 004e B3FBF2F5 		udiv	r5, r3, r2
- 168 0052 02FB1533 		mls	r3, r2, r5, r3
- 169 0056 A386     		strh	r3, [r4, #52]	@ movhi
- 170 0058 238F     		ldrh	r3, [r4, #56]
- 171 005a 013B     		subs	r3, r3, #1
- 172 005c 2387     		strh	r3, [r4, #56]	@ movhi
- 173 005e E8E7     		b	.L16
- 174              	.L18:
- 175 0060 4FF0FF35 		mov	r5, #-1
- 176 0064 DBE7     		b	.L13
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 4
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 24
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  86:FML/Src/EC2x.c ****      GPIO_InitTypeDef GPIO_InitStruct = {0};
+  34              		.loc 1 86 6 view .LVU1
+  85:FML/Src/EC2x.c ****      GPIO_InitTypeDef GPIO_InitStruct = {0};
+  35              		.loc 1 85 1 is_stmt 0 view .LVU2
+  36 0000 70B5     		push	{r4, r5, r6, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 16
+  39              		.cfi_offset 4, -16
+  40              		.cfi_offset 5, -12
+  41              		.cfi_offset 6, -8
+  42              		.cfi_offset 14, -4
+  43              		.loc 1 86 23 view .LVU3
+  44 0002 0025     		movs	r5, #0
+  85:FML/Src/EC2x.c ****      GPIO_InitTypeDef GPIO_InitStruct = {0};
+  45              		.loc 1 85 1 view .LVU4
+  46 0004 86B0     		sub	sp, sp, #24
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_offset 40
+  49              		.loc 1 86 23 view .LVU5
+  50 0006 CDE90355 		strd	r5, r5, [sp, #12]
+  51              	.LBB3:
+  87:FML/Src/EC2x.c ****     
+  88:FML/Src/EC2x.c ****     // 使能UART和GPIO时钟
+  89:FML/Src/EC2x.c ****     //__HAL_RCC_UARTX_CLK_ENABLE(); // 替换为实际的UART时钟
+  90:FML/Src/EC2x.c ****     __HAL_RCC_GPIOA_CLK_ENABLE(); // 替换为实际的GPIO时钟
+  52              		.loc 1 90 5 view .LVU6
+  53 000a 204B     		ldr	r3, .L2
+  54              	.LBE3:
+  86:FML/Src/EC2x.c ****     
+  55              		.loc 1 86 23 view .LVU7
+  56 000c 0595     		str	r5, [sp, #20]
+  57              		.loc 1 90 5 is_stmt 1 view .LVU8
+  58              	.LBB4:
+  59              		.loc 1 90 5 view .LVU9
+  60              		.loc 1 90 5 view .LVU10
+  61 000e DA6C     		ldr	r2, [r3, #76]
+  62 0010 42F00102 		orr	r2, r2, #1
+  63 0014 DA64     		str	r2, [r3, #76]
+  64              		.loc 1 90 5 view .LVU11
+  65 0016 DB6C     		ldr	r3, [r3, #76]
+  66 0018 03F00103 		and	r3, r3, #1
+  67              	.LBE4:
+  85:FML/Src/EC2x.c ****      GPIO_InitTypeDef GPIO_InitStruct = {0};
+  68              		.loc 1 85 1 is_stmt 0 view .LVU12
+  69 001c 0446     		mov	r4, r0
+  70              	.LBB5:
+  71              		.loc 1 90 5 view .LVU13
+  72 001e 0093     		str	r3, [sp]
+  73              		.loc 1 90 5 is_stmt 1 view .LVU14
+  74              	.LBE5:
+  91:FML/Src/EC2x.c ****     
+  92:FML/Src/EC2x.c ****     // 配置GPIO引脚
+  93:FML/Src/EC2x.c ****     GPIO_InitStruct.Pin = device->reset_pin;
+  94:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 4
 
 
- 177              	.L20:
- 178 0066 00BF     		.align	2
- 179              	.L19:
- 180 0068 00000000 		.word	.LANCHOR0
- 182              		.section	.rodata.ec2x_handler.str1.1,"aMS",%progbits,1
- 183              	.LC0:
- 184 0000 257300   		.ascii	"%s\000"
- 185              		.section	.text.ec2x_handler,"ax",%progbits
- 186              		.align	1
- 187              		.global	ec2x_handler
- 188              		.syntax unified
- 189              		.thumb
- 190              		.thumb_func
- 192              	ec2x_handler:
- 193              		@ args = 0, pretend = 0, frame = 0
- 194              		@ frame_needed = 0, uses_anonymous_args = 0
- 195 0000 70B5     		push	{r4, r5, r6, lr}
- 196 0002 0646     		mov	r6, r0
- 197 0004 0C46     		mov	r4, r1
- 198 0006 1B48     		ldr	r0, .L26
- 199 0008 1546     		mov	r5, r2
- 200 000a 0A46     		mov	r2, r1
- 201 000c 1A49     		ldr	r1, .L26+4
- 202 000e FFF7FEFF 		bl	shellPrint
- 203 0012 1A4B     		ldr	r3, .L26+8
- 204 0014 1A69     		ldr	r2, [r3, #16]
- 205 0016 B242     		cmp	r2, r6
- 206 0018 16D1     		bne	.L21
- 207 001a 93F82C00 		ldrb	r0, [r3, #44]	@ zero_extendqisi2
- 208 001e 98B9     		cbnz	r0, .L21
- 209 0020 0122     		movs	r2, #1
- 210 0022 83F82C20 		strb	r2, [r3, #44]
- 211              	.L23:
- 212 0026 C6B2     		uxtb	r6, r0
- 213 0028 AE42     		cmp	r6, r5
- 214 002a DA8E     		ldrh	r2, [r3, #54]
- 215 002c 00F10101 		add	r1, r0, #1
- 216 0030 0BD3     		bcc	.L24
- 217 0032 998E     		ldrh	r1, [r3, #52]
- 218 0034 9142     		cmp	r1, r2
- 219 0036 04D2     		bcs	.L25
- 220 0038 188F     		ldrh	r0, [r3, #56]
- 221 003a 598F     		ldrh	r1, [r3, #58]
- 222 003c 8842     		cmp	r0, r1
- 223 003e 08BF     		it	eq
- 224 0040 9A86     		strheq	r2, [r3, #52]	@ movhi
- 225              	.L25:
- 226 0042 0022     		movs	r2, #0
- 227 0044 83F82C20 		strb	r2, [r3, #44]
- 228              	.L21:
- 229 0048 70BD     		pop	{r4, r5, r6, pc}
- 230              	.L24:
- 231 004a 186B     		ldr	r0, [r3, #48]
- 232 004c A65D     		ldrb	r6, [r4, r6]	@ zero_extendqisi2
- 233 004e 8654     		strb	r6, [r0, r2]
- 234 0050 DA8E     		ldrh	r2, [r3, #54]
- 235 0052 5E8F     		ldrh	r6, [r3, #58]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 5
+  75              		.loc 1 94 26 is_stmt 0 view .LVU15
+  76 0020 0126     		movs	r6, #1
+  77              	.LBB6:
+  90:FML/Src/EC2x.c ****     
+  78              		.loc 1 90 5 view .LVU16
+  79 0022 009B     		ldr	r3, [sp]
+  80              	.LBE6:
+  90:FML/Src/EC2x.c ****     
+  81              		.loc 1 90 5 is_stmt 1 view .LVU17
+  93:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  82              		.loc 1 93 5 view .LVU18
+  93:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  83              		.loc 1 93 33 is_stmt 0 view .LVU19
+  84 0024 038C     		ldrh	r3, [r0, #32]
+  95:FML/Src/EC2x.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  96:FML/Src/EC2x.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  97:FML/Src/EC2x.c ****     HAL_GPIO_Init(device->reset_port, &GPIO_InitStruct);
+  85              		.loc 1 97 5 view .LVU20
+  86 0026 C069     		ldr	r0, [r0, #28]
+  87              	.LVL1:
+  93:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  88              		.loc 1 93 33 view .LVU21
+  89 0028 0193     		str	r3, [sp, #4]
+  94:FML/Src/EC2x.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  90              		.loc 1 94 5 is_stmt 1 view .LVU22
+  91              		.loc 1 97 5 is_stmt 0 view .LVU23
+  92 002a 01A9     		add	r1, sp, #4
+  94:FML/Src/EC2x.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  93              		.loc 1 94 26 view .LVU24
+  94 002c 0296     		str	r6, [sp, #8]
+  95:FML/Src/EC2x.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  95              		.loc 1 95 5 is_stmt 1 view .LVU25
+  96:FML/Src/EC2x.c ****     HAL_GPIO_Init(device->reset_port, &GPIO_InitStruct);
+  96              		.loc 1 96 5 view .LVU26
+  97              		.loc 1 97 5 view .LVU27
+  98 002e FFF7FEFF 		bl	HAL_GPIO_Init
+  99              	.LVL2:
+  98:FML/Src/EC2x.c **** 
+  99:FML/Src/EC2x.c ****     GPIO_InitStruct.Pin = device->wake_pin;
+ 100              		.loc 1 99 5 view .LVU28
+ 101              		.loc 1 99 33 is_stmt 0 view .LVU29
+ 102 0032 238D     		ldrh	r3, [r4, #40]
+ 100:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 101:FML/Src/EC2x.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 102:FML/Src/EC2x.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 103:FML/Src/EC2x.c ****     HAL_GPIO_Init(device->wake_port, &GPIO_InitStruct);
+ 103              		.loc 1 103 5 view .LVU30
+ 104 0034 606A     		ldr	r0, [r4, #36]
+ 105 0036 01A9     		add	r1, sp, #4
+ 100:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 106              		.loc 1 100 26 view .LVU31
+ 107 0038 CDE90136 		strd	r3, r6, [sp, #4]
+ 101:FML/Src/EC2x.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 108              		.loc 1 101 5 is_stmt 1 view .LVU32
+ 102:FML/Src/EC2x.c ****     HAL_GPIO_Init(device->wake_port, &GPIO_InitStruct);
+ 109              		.loc 1 102 27 is_stmt 0 view .LVU33
+ 110 003c CDE90355 		strd	r5, r5, [sp, #12]
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 5
 
 
- 236 0054 0132     		adds	r2, r2, #1
- 237 0056 B2FBF6F0 		udiv	r0, r2, r6
- 238 005a 06FB1022 		mls	r2, r6, r0, r2
- 239 005e 188F     		ldrh	r0, [r3, #56]
- 240 0060 DA86     		strh	r2, [r3, #54]	@ movhi
- 241 0062 0130     		adds	r0, r0, #1
- 242 0064 80B2     		uxth	r0, r0
- 243 0066 B042     		cmp	r0, r6
- 244 0068 28BF     		it	cs
- 245 006a 3046     		movcs	r0, r6
- 246 006c 1887     		strh	r0, [r3, #56]	@ movhi
- 247 006e 0846     		mov	r0, r1
- 248 0070 D9E7     		b	.L23
- 249              	.L27:
- 250 0072 00BF     		.align	2
- 251              	.L26:
- 252 0074 00000000 		.word	shell
- 253 0078 00000000 		.word	.LC0
- 254 007c 00000000 		.word	.LANCHOR0
- 256              		.section	.text.ec2x_replymatch,"ax",%progbits
- 257              		.align	1
- 258              		.global	ec2x_replymatch
- 259              		.syntax unified
- 260              		.thumb
- 261              		.thumb_func
- 263              	ec2x_replymatch:
- 264              		@ args = 0, pretend = 0, frame = 200
- 265              		@ frame_needed = 0, uses_anonymous_args = 0
- 266 0000 30B5     		push	{r4, r5, lr}
- 267 0002 0024     		movs	r4, #0
- 268 0004 B3B0     		sub	sp, sp, #204
- 269 0006 C422     		movs	r2, #196
- 270 0008 2146     		mov	r1, r4
- 271 000a 0546     		mov	r5, r0
- 272 000c 01A8     		add	r0, sp, #4
- 273 000e 0094     		str	r4, [sp]
- 274 0010 FFF7FEFF 		bl	memset
- 275 0014 C822     		movs	r2, #200
- 276 0016 6946     		mov	r1, sp
- 277 0018 2046     		mov	r0, r4
- 278 001a FFF7FEFF 		bl	ec2x_read
- 279 001e A042     		cmp	r0, r4
- 280 0020 08DD     		ble	.L30
- 281 0022 2946     		mov	r1, r5
- 282 0024 6846     		mov	r0, sp
- 283 0026 FFF7FEFF 		bl	strstr
- 284 002a 001B     		subs	r0, r0, r4
- 285 002c 18BF     		it	ne
- 286 002e 0120     		movne	r0, #1
- 287              	.L28:
- 288 0030 33B0     		add	sp, sp, #204
- 289              		@ sp needed
- 290 0032 30BD     		pop	{r4, r5, pc}
- 291              	.L30:
- 292 0034 2046     		mov	r0, r4
- 293 0036 FBE7     		b	.L28
- 295              		.section	.text.ec2x_cmd_send,"ax",%progbits
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 6
+ 111              		.loc 1 103 5 is_stmt 1 view .LVU34
+ 112 0040 FFF7FEFF 		bl	HAL_GPIO_Init
+ 113              	.LVL3:
+ 104:FML/Src/EC2x.c **** 
+ 105:FML/Src/EC2x.c ****     GPIO_InitStruct.Pin = device->pwren_pin;
+ 114              		.loc 1 105 5 view .LVU35
+ 115              		.loc 1 105 33 is_stmt 0 view .LVU36
+ 116 0044 238B     		ldrh	r3, [r4, #24]
+ 106:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 107:FML/Src/EC2x.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 108:FML/Src/EC2x.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 109:FML/Src/EC2x.c ****     HAL_GPIO_Init(device->pwren_port, &GPIO_InitStruct);
+ 117              		.loc 1 109 5 view .LVU37
+ 118 0046 6069     		ldr	r0, [r4, #20]
+ 119 0048 01A9     		add	r1, sp, #4
+ 106:FML/Src/EC2x.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 120              		.loc 1 106 26 view .LVU38
+ 121 004a CDE90136 		strd	r3, r6, [sp, #4]
+ 107:FML/Src/EC2x.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 122              		.loc 1 107 5 is_stmt 1 view .LVU39
+ 108:FML/Src/EC2x.c ****     HAL_GPIO_Init(device->pwren_port, &GPIO_InitStruct);
+ 123              		.loc 1 108 27 is_stmt 0 view .LVU40
+ 124 004e CDE90355 		strd	r5, r5, [sp, #12]
+ 125              		.loc 1 109 5 is_stmt 1 view .LVU41
+ 126 0052 FFF7FEFF 		bl	HAL_GPIO_Init
+ 127              	.LVL4:
+ 110:FML/Src/EC2x.c ****     
+ 111:FML/Src/EC2x.c ****     
+ 112:FML/Src/EC2x.c ****     // 初始化复位引脚为高电平
+ 113:FML/Src/EC2x.c ****     HAL_GPIO_WritePin(device->reset_port, device->reset_pin, GPIO_PIN_SET);
+ 128              		.loc 1 113 5 view .LVU42
+ 129 0056 218C     		ldrh	r1, [r4, #32]
+ 130 0058 E069     		ldr	r0, [r4, #28]
+ 131 005a 3246     		mov	r2, r6
+ 132 005c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 133              	.LVL5:
+ 114:FML/Src/EC2x.c ****     HAL_GPIO_WritePin(device->wake_port, device->wake_pin, GPIO_PIN_SET);
+ 134              		.loc 1 114 5 view .LVU43
+ 135 0060 218D     		ldrh	r1, [r4, #40]
+ 136 0062 606A     		ldr	r0, [r4, #36]
+ 137 0064 3246     		mov	r2, r6
+ 138 0066 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 139              	.LVL6:
+ 115:FML/Src/EC2x.c ****     HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_SET);
+ 140              		.loc 1 115 5 view .LVU44
+ 141 006a 218B     		ldrh	r1, [r4, #24]
+ 142 006c 6069     		ldr	r0, [r4, #20]
+ 143 006e 3246     		mov	r2, r6
+ 144 0070 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 145              	.LVL7:
+ 116:FML/Src/EC2x.c ****     Delay_ms(1000);
+ 146              		.loc 1 116 5 view .LVU45
+ 147 0074 4FF47A70 		mov	r0, #1000
+ 148 0078 FFF7FEFF 		bl	Delay_ms
+ 149              	.LVL8:
+ 117:FML/Src/EC2x.c ****     HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
+ 150              		.loc 1 117 5 view .LVU46
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 6
 
 
- 296              		.align	1
- 297              		.syntax unified
- 298              		.thumb
- 299              		.thumb_func
- 301              	ec2x_cmd_send:
- 302              		@ args = 4, pretend = 0, frame = 0
- 303              		@ frame_needed = 0, uses_anonymous_args = 0
- 304 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
- 305 0004 0646     		mov	r6, r0
- 306 0006 9046     		mov	r8, r2
- 307 0008 1D46     		mov	r5, r3
- 308 000a 0F46     		mov	r7, r1
- 309 000c A9B1     		cbz	r1, .L32
- 310 000e 174C     		ldr	r4, .L44
- 311 0010 3C23     		movs	r3, #60
- 312 0012 03FB0044 		mla	r4, r3, r0, r4
- 313 0016 4FF00009 		mov	r9, #0
- 314 001a 4FF44803 		mov	r3, #13107200
- 315 001e C822     		movs	r2, #200
- 316 0020 4946     		mov	r1, r9
- 317 0022 C4E90D93 		strd	r9, r3, [r4, #52]
- 318 0026 206B     		ldr	r0, [r4, #48]
- 319 0028 FFF7FEFF 		bl	memset
- 320 002c 84F82C90 		strb	r9, [r4, #44]
- 321 0030 4246     		mov	r2, r8
- 322 0032 3946     		mov	r1, r7
- 323 0034 3046     		mov	r0, r6
- 324 0036 FFF7FEFF 		bl	ec2x_write
- 325              	.L32:
- 326 003a 15B9     		cbnz	r5, .L33
- 327              	.L37:
- 328 003c 0020     		movs	r0, #0
- 329              	.L31:
- 330 003e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
- 331              	.L33:
- 332 0042 4FF6FF76 		movw	r6, #65535
- 333 0046 BDF82040 		ldrh	r4, [sp, #32]
- 334 004a 6423     		movs	r3, #100
- 335 004c B4FBF3F4 		udiv	r4, r4, r3
- 336              	.L35:
- 337 0050 013C     		subs	r4, r4, #1
- 338 0052 A4B2     		uxth	r4, r4
- 339 0054 B442     		cmp	r4, r6
- 340 0056 F1D0     		beq	.L37
- 341 0058 6420     		movs	r0, #100
- 342 005a FFF7FEFF 		bl	Delay_ms
- 343 005e 2846     		mov	r0, r5
- 344 0060 FFF7FEFF 		bl	ec2x_replymatch
- 345 0064 0128     		cmp	r0, #1
- 346 0066 F3D1     		bne	.L35
- 347 0068 E9E7     		b	.L31
- 348              	.L45:
- 349 006a 00BF     		.align	2
- 350              	.L44:
- 351 006c 00000000 		.word	.LANCHOR0
- 353              		.section	.rodata.ec2x_reset.constprop.0.str1.1,"aMS",%progbits,1
- 354              	.LC1:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 7
+ 151 007c 218B     		ldrh	r1, [r4, #24]
+ 152 007e 6069     		ldr	r0, [r4, #20]
+ 153 0080 2A46     		mov	r2, r5
+ 154 0082 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 155              	.LVL9:
+ 118:FML/Src/EC2x.c **** }
+ 156              		.loc 1 118 1 is_stmt 0 view .LVU47
+ 157 0086 06B0     		add	sp, sp, #24
+ 158              	.LCFI2:
+ 159              		.cfi_def_cfa_offset 16
+ 160              		@ sp needed
+ 161 0088 70BD     		pop	{r4, r5, r6, pc}
+ 162              	.LVL10:
+ 163              	.L3:
+ 164              		.loc 1 118 1 view .LVU48
+ 165 008a 00BF     		.align	2
+ 166              	.L2:
+ 167 008c 00100240 		.word	1073876992
+ 168              		.cfi_endproc
+ 169              	.LFE291:
+ 171              		.section	.text.ec2x_write,"ax",%progbits
+ 172              		.align	1
+ 173              		.global	ec2x_write
+ 174              		.syntax unified
+ 175              		.thumb
+ 176              		.thumb_func
+ 178              	ec2x_write:
+ 179              	.LVL11:
+ 180              	.LFB294:
+ 119:FML/Src/EC2x.c **** /**
+ 120:FML/Src/EC2x.c ****  * @brief 通过POWEREN引脚，对模块进行掉电复位
+ 121:FML/Src/EC2x.c ****  * 
+ 122:FML/Src/EC2x.c ****  * @param fd 
+ 123:FML/Src/EC2x.c ****  * @return int 
+ 124:FML/Src/EC2x.c ****  */
+ 125:FML/Src/EC2x.c **** int ec2x_reset(int fd){
+ 126:FML/Src/EC2x.c ****     fd = 0;
+ 127:FML/Src/EC2x.c ****     int err_code = 0;
+ 128:FML/Src/EC2x.c ****     if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
+ 129:FML/Src/EC2x.c ****         return (err_code = -1);
+ 130:FML/Src/EC2x.c ****     else{
+ 131:FML/Src/EC2x.c ****         EC2x_HandleTypeDef *device = &ec2x_dev[fd];
+ 132:FML/Src/EC2x.c ****         HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_SET);
+ 133:FML/Src/EC2x.c ****         Delay_ms(500);
+ 134:FML/Src/EC2x.c ****         HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
+ 135:FML/Src/EC2x.c ****     }
+ 136:FML/Src/EC2x.c ****     reset_times++;
+ 137:FML/Src/EC2x.c ****     return(ec2x_cmd_send(fd,NULL,0,"RDY\r\n",20000));
+ 138:FML/Src/EC2x.c **** }
+ 139:FML/Src/EC2x.c **** 
+ 140:FML/Src/EC2x.c **** /**
+ 141:FML/Src/EC2x.c ****  * @brief 设备文件open函数
+ 142:FML/Src/EC2x.c ****  * 
+ 143:FML/Src/EC2x.c ****  * @param dev_name 
+ 144:FML/Src/EC2x.c ****  * @return int 
+ 145:FML/Src/EC2x.c ****  *         返回设备文件索引，未查找到则返回-1
+ 146:FML/Src/EC2x.c ****  */
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 7
 
 
- 355 0000 5244590D 		.ascii	"RDY\015\012\000"
- 355      0A00
- 356              		.section	.text.ec2x_reset.constprop.0,"ax",%progbits
- 357              		.align	1
- 358              		.syntax unified
- 359              		.thumb
- 360              		.thumb_func
- 362              	ec2x_reset.constprop.0:
- 363              		@ args = 0, pretend = 0, frame = 0
- 364              		@ frame_needed = 0, uses_anonymous_args = 0
- 365 0000 13B5     		push	{r0, r1, r4, lr}
- 366 0002 0F4C     		ldr	r4, .L47
- 367 0004 0122     		movs	r2, #1
- 368 0006 218B     		ldrh	r1, [r4, #24]
- 369 0008 6069     		ldr	r0, [r4, #20]
- 370 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 371 000e 4FF4FA70 		mov	r0, #500
- 372 0012 FFF7FEFF 		bl	Delay_ms
- 373 0016 218B     		ldrh	r1, [r4, #24]
- 374 0018 6069     		ldr	r0, [r4, #20]
- 375 001a 0022     		movs	r2, #0
- 376 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 377 0020 084A     		ldr	r2, .L47+4
- 378 0022 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 379 0024 0133     		adds	r3, r3, #1
- 380 0026 1370     		strb	r3, [r2]
- 381 0028 0022     		movs	r2, #0
- 382 002a 44F62063 		movw	r3, #20000
- 383 002e 0093     		str	r3, [sp]
- 384 0030 1146     		mov	r1, r2
- 385 0032 054B     		ldr	r3, .L47+8
- 386 0034 1046     		mov	r0, r2
- 387 0036 FFF7FEFF 		bl	ec2x_cmd_send
- 388 003a 02B0     		add	sp, sp, #8
- 389              		@ sp needed
- 390 003c 10BD     		pop	{r4, pc}
- 391              	.L48:
- 392 003e 00BF     		.align	2
- 393              	.L47:
- 394 0040 00000000 		.word	.LANCHOR0
- 395 0044 00000000 		.word	.LANCHOR1
- 396 0048 00000000 		.word	.LC1
- 398              		.section	.rodata.ec2x_tcp_connect.str1.1,"aMS",%progbits,1
- 399              	.LC2:
- 400 0000 6E6F2069 		.ascii	"no invalid ec2x device sn\015\012\000"
- 400      6E76616C 
- 400      69642065 
- 400      63327820 
- 400      64657669 
- 401              	.LC3:
- 402 001c 54435020 		.ascii	"TCP Connect Failed\015\012\000"
- 402      436F6E6E 
- 402      65637420 
- 402      4661696C 
- 402      65640D0A 
- 403              	.LC4:
- 404 0031 25732065 		.ascii	"%s err\015\012\000"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 8
+ 147:FML/Src/EC2x.c **** int ec2x_open(char *dev_name)
+ 148:FML/Src/EC2x.c **** {
+ 149:FML/Src/EC2x.c ****     uint8_t i = 0;
+ 150:FML/Src/EC2x.c ****     for(i = 0;i < sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef);i++)
+ 151:FML/Src/EC2x.c ****     {
+ 152:FML/Src/EC2x.c ****         if(strcmp(dev_name,ec2x_dev[i].dev_name) == 0)
+ 153:FML/Src/EC2x.c ****         {
+ 154:FML/Src/EC2x.c ****             ec2x_io_init(&ec2x_dev[i]);
+ 155:FML/Src/EC2x.c ****             if(ec2x_reset(i))
+ 156:FML/Src/EC2x.c ****                 shellPrint(&shell,"ec2x initial OK\r\n");
+ 157:FML/Src/EC2x.c ****             else
+ 158:FML/Src/EC2x.c ****                 shellPrint(&shell,"ec2x initial not Failed\r\n");
+ 159:FML/Src/EC2x.c ****             return i;
+ 160:FML/Src/EC2x.c ****         }
+ 161:FML/Src/EC2x.c ****     }
+ 162:FML/Src/EC2x.c ****     return -1;
+ 163:FML/Src/EC2x.c **** };
+ 164:FML/Src/EC2x.c **** 
+ 165:FML/Src/EC2x.c **** /**
+ 166:FML/Src/EC2x.c ****  * @brief 设备文件close函数
+ 167:FML/Src/EC2x.c ****  * 
+ 168:FML/Src/EC2x.c ****  * @param fd 
+ 169:FML/Src/EC2x.c ****  * @return int 
+ 170:FML/Src/EC2x.c ****  */
+ 171:FML/Src/EC2x.c **** int ec2x_close(int fd);
+ 172:FML/Src/EC2x.c **** 
+ 173:FML/Src/EC2x.c **** /**
+ 174:FML/Src/EC2x.c ****  * @brief 设备文件写入函数
+ 175:FML/Src/EC2x.c ****  * 
+ 176:FML/Src/EC2x.c ****  * @param fd 
+ 177:FML/Src/EC2x.c ****  * @param tx_buff 
+ 178:FML/Src/EC2x.c ****  * @param len 
+ 179:FML/Src/EC2x.c ****  * @return int 
+ 180:FML/Src/EC2x.c ****  *         设备号无效返回-1
+ 181:FML/Src/EC2x.c ****  *         写入失败返回 0
+ 182:FML/Src/EC2x.c ****  *          写入成功返回1
+ 183:FML/Src/EC2x.c ****  *         
+ 184:FML/Src/EC2x.c ****  */
+ 185:FML/Src/EC2x.c **** int ec2x_write(int fd,uint8_t *tx_buff,uint16_t len){
+ 181              		.loc 1 185 53 is_stmt 1 view -0
+ 182              		.cfi_startproc
+ 183              		@ args = 0, pretend = 0, frame = 0
+ 184              		@ frame_needed = 0, uses_anonymous_args = 0
+ 186:FML/Src/EC2x.c ****     int err_code = 0;
+ 185              		.loc 1 186 5 view .LVU50
+ 187:FML/Src/EC2x.c ****     if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
+ 186              		.loc 1 187 5 view .LVU51
+ 185:FML/Src/EC2x.c ****     int err_code = 0;
+ 187              		.loc 1 185 53 is_stmt 0 view .LVU52
+ 188 0000 10B5     		push	{r4, lr}
+ 189              	.LCFI3:
+ 190              		.cfi_def_cfa_offset 8
+ 191              		.cfi_offset 4, -8
+ 192              		.cfi_offset 14, -4
+ 193              		.loc 1 187 7 view .LVU53
+ 194 0002 60B9     		cbnz	r0, .L7
+ 195              	.LBB9:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 8
 
 
- 404      72720D0A 
- 404      00
- 405              	.LC5:
- 406 003a 74637020 		.ascii	"tcp is connected\015\012\000"
- 406      69732063 
- 406      6F6E6E65 
- 406      63746564 
- 406      0D0A00
- 407              		.section	.text.ec2x_tcp_connect,"ax",%progbits
- 408              		.align	1
- 409              		.global	ec2x_tcp_connect
- 410              		.syntax unified
- 411              		.thumb
- 412              		.thumb_func
- 414              	ec2x_tcp_connect:
- 415              		@ args = 0, pretend = 0, frame = 8
- 416              		@ frame_needed = 0, uses_anonymous_args = 0
- 417 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 418 0002 514F     		ldr	r7, .L100
- 419 0004 0023     		movs	r3, #0
- 420 0006 85B0     		sub	sp, sp, #20
- 421 0008 3B70     		strb	r3, [r7]
- 422 000a 68B9     		cbnz	r0, .L82
- 423 000c 4F4D     		ldr	r5, .L100+4
- 424 000e 504C     		ldr	r4, .L100+8
- 425              	.L50:
- 426 0010 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
- 427 0012 082B     		cmp	r3, #8
- 428 0014 0DD8     		bhi	.L49
- 429 0016 3A78     		ldrb	r2, [r7]	@ zero_extendqisi2
- 430 0018 052A     		cmp	r2, #5
- 431 001a 0CD9     		bls	.L52
- 432 001c 4D48     		ldr	r0, .L100+12
- 433 001e 4E49     		ldr	r1, .L100+16
- 434 0020 FFF7FEFF 		bl	shellPrint
- 435 0024 0020     		movs	r0, #0
- 436 0026 04E0     		b	.L49
- 437              	.L82:
- 438 0028 4A48     		ldr	r0, .L100+12
- 439 002a 4C49     		ldr	r1, .L100+20
- 440 002c FFF7FEFF 		bl	shellPrint
- 441 0030 FF20     		movs	r0, #255
- 442              	.L49:
- 443 0032 05B0     		add	sp, sp, #20
- 444              		@ sp needed
- 445 0034 F0BD     		pop	{r4, r5, r6, r7, pc}
- 446              	.L52:
- 447 0036 013B     		subs	r3, r3, #1
- 448 0038 072B     		cmp	r3, #7
- 449 003a 05D8     		bhi	.L53
- 450 003c DFE803F0 		tbb	[pc, r3]
- 451              	.L55:
- 452 0040 21       		.byte	(.L62-.L55)/2
- 453 0041 2A       		.byte	(.L61-.L55)/2
- 454 0042 33       		.byte	(.L60-.L55)/2
- 455 0043 49       		.byte	(.L59-.L55)/2
- 456 0044 52       		.byte	(.L58-.L55)/2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 9
+ 196              	.LBI9:
+ 185:FML/Src/EC2x.c ****     int err_code = 0;
+ 197              		.loc 1 185 5 is_stmt 1 view .LVU54
+ 198              	.LVL12:
+ 199              	.LBB10:
+ 188:FML/Src/EC2x.c ****         return (err_code = -1);
+ 189:FML/Src/EC2x.c ****     else{
+ 190:FML/Src/EC2x.c ****         err_code =  HAL_UART_Transmit_IT(ec2x_dev[fd].huart, tx_buff,len);
+ 200              		.loc 1 190 9 view .LVU55
+ 201              		.loc 1 190 21 is_stmt 0 view .LVU56
+ 202 0004 074C     		ldr	r4, .L10
+ 203 0006 2069     		ldr	r0, [r4, #16]
+ 204              	.LVL13:
+ 205              		.loc 1 190 21 view .LVU57
+ 206 0008 FFF7FEFF 		bl	HAL_UART_Transmit_IT
+ 207              	.LVL14:
+ 191:FML/Src/EC2x.c ****         while(__HAL_UART_GET_FLAG(ec2x_dev[fd].huart,UART_FLAG_TC) != SET);
+ 208              		.loc 1 191 9 is_stmt 1 view .LVU58
+ 209              		.loc 1 191 15 is_stmt 0 view .LVU59
+ 210 000c 2369     		ldr	r3, [r4, #16]
+ 211 000e 1A68     		ldr	r2, [r3]
+ 212              	.L6:
+ 213              		.loc 1 191 75 is_stmt 1 view .LVU60
+ 214              		.loc 1 191 14 view .LVU61
+ 215              		.loc 1 191 15 is_stmt 0 view .LVU62
+ 216 0010 D369     		ldr	r3, [r2, #28]
+ 217              		.loc 1 191 14 view .LVU63
+ 218 0012 5B06     		lsls	r3, r3, #25
+ 219 0014 FCD5     		bpl	.L6
+ 192:FML/Src/EC2x.c ****         return(!err_code);
+ 220              		.loc 1 192 9 is_stmt 1 view .LVU64
+ 221              		.loc 1 192 16 is_stmt 0 view .LVU65
+ 222 0016 B0FA80F0 		clz	r0, r0
+ 223              	.LVL15:
+ 224              		.loc 1 192 16 view .LVU66
+ 225 001a 4009     		lsrs	r0, r0, #5
+ 226              	.LVL16:
+ 227              	.L4:
+ 228              		.loc 1 192 16 view .LVU67
+ 229              	.LBE10:
+ 230              	.LBE9:
+ 193:FML/Src/EC2x.c ****     }
+ 194:FML/Src/EC2x.c **** };
+ 231              		.loc 1 194 1 view .LVU68
+ 232 001c 10BD     		pop	{r4, pc}
+ 233              	.LVL17:
+ 234              	.L7:
+ 188:FML/Src/EC2x.c ****     else{
+ 235              		.loc 1 188 26 view .LVU69
+ 236 001e 4FF0FF30 		mov	r0, #-1
+ 237              	.LVL18:
+ 188:FML/Src/EC2x.c ****     else{
+ 238              		.loc 1 188 26 view .LVU70
+ 239 0022 FBE7     		b	.L4
+ 240              	.L11:
+ 241              		.align	2
+ 242              	.L10:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 9
 
 
- 457 0045 5B       		.byte	(.L57-.L55)/2
- 458 0046 64       		.byte	(.L56-.L55)/2
- 459 0047 7E       		.byte	(.L54-.L55)/2
- 460              		.p2align 1
- 461              	.L53:
- 462 0048 2168     		ldr	r1, [r4]
- 463 004a 0391     		str	r1, [sp, #12]
- 464 004c 0846     		mov	r0, r1
- 465 004e FFF7FEFF 		bl	strlen
- 466 0052 2389     		ldrh	r3, [r4, #8]
- 467 0054 0093     		str	r3, [sp]
- 468 0056 6368     		ldr	r3, [r4, #4]
- 469              	.L94:
- 470 0058 0399     		ldr	r1, [sp, #12]
- 471 005a 82B2     		uxth	r2, r0
- 472 005c 0020     		movs	r0, #0
- 473 005e FFF7FEFF 		bl	ec2x_cmd_send
- 474 0062 3F49     		ldr	r1, .L100+24
- 475 0064 0646     		mov	r6, r0
- 476 0066 0028     		cmp	r0, #0
- 477 0068 57D0     		beq	.L78
- 478 006a 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
- 479 006c 0133     		adds	r3, r3, #1
- 480 006e 2CE0     		b	.L85
- 481              	.L65:
- 482 0070 0133     		adds	r3, r3, #1
- 483 0072 C820     		movs	r0, #200
- 484 0074 0B70     		strb	r3, [r1]
- 485 0076 FFF7FEFF 		bl	Delay_ms
- 486              	.L64:
- 487 007a 6420     		movs	r0, #100
- 488 007c FFF7FEFF 		bl	Delay_ms
- 489 0080 C6E7     		b	.L50
- 490              	.L62:
- 491 0082 E168     		ldr	r1, [r4, #12]
- 492 0084 0391     		str	r1, [sp, #12]
- 493 0086 0846     		mov	r0, r1
- 494 0088 FFF7FEFF 		bl	strlen
- 495 008c 2389     		ldrh	r3, [r4, #8]
- 496 008e 0093     		str	r3, [sp]
- 497 0090 2369     		ldr	r3, [r4, #16]
- 498 0092 E1E7     		b	.L94
- 499              	.L61:
- 500 0094 A169     		ldr	r1, [r4, #24]
- 501 0096 0391     		str	r1, [sp, #12]
- 502 0098 0846     		mov	r0, r1
- 503 009a FFF7FEFF 		bl	strlen
- 504 009e 2389     		ldrh	r3, [r4, #8]
- 505 00a0 0093     		str	r3, [sp]
- 506 00a2 E369     		ldr	r3, [r4, #28]
- 507 00a4 D8E7     		b	.L94
- 508              	.L60:
- 509 00a6 616A     		ldr	r1, [r4, #36]
- 510 00a8 0391     		str	r1, [sp, #12]
- 511 00aa 0846     		mov	r0, r1
- 512 00ac FFF7FEFF 		bl	strlen
- 513 00b0 2389     		ldrh	r3, [r4, #8]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 10
+ 243 0024 00000000 		.word	.LANCHOR0
+ 244              		.cfi_endproc
+ 245              	.LFE294:
+ 247              		.section	.text.ec2x_read,"ax",%progbits
+ 248              		.align	1
+ 249              		.global	ec2x_read
+ 250              		.syntax unified
+ 251              		.thumb
+ 252              		.thumb_func
+ 254              	ec2x_read:
+ 255              	.LVL19:
+ 256              	.LFB295:
+ 195:FML/Src/EC2x.c **** /**
+ 196:FML/Src/EC2x.c ****  * @brief 设备文件读取函数
+ 197:FML/Src/EC2x.c ****  *        读取环形缓冲区指定长度数据
+ 198:FML/Src/EC2x.c ****  * 
+ 199:FML/Src/EC2x.c ****  * @param fd 
+ 200:FML/Src/EC2x.c ****  * @param rx_buff 
+ 201:FML/Src/EC2x.c ****  * @param len 
+ 202:FML/Src/EC2x.c ****  * @return int 
+ 203:FML/Src/EC2x.c ****  *         -1 接口错误
+ 204:FML/Src/EC2x.c ****  *          0 读取失败
+ 205:FML/Src/EC2x.c ****  *          n 读取成功字节数
+ 206:FML/Src/EC2x.c ****  */
+ 207:FML/Src/EC2x.c **** int ec2x_read(int fd,uint8_t *rx_buff,uint16_t len){
+ 257              		.loc 1 207 52 is_stmt 1 view -0
+ 258              		.cfi_startproc
+ 259              		@ args = 0, pretend = 0, frame = 0
+ 260              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208:FML/Src/EC2x.c ****     uint8_t *dest = rx_buff;
+ 261              		.loc 1 208 5 view .LVU72
+ 209:FML/Src/EC2x.c ****     if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
+ 262              		.loc 1 209 5 view .LVU73
+ 207:FML/Src/EC2x.c ****     uint8_t *dest = rx_buff;
+ 263              		.loc 1 207 52 is_stmt 0 view .LVU74
+ 264 0000 70B5     		push	{r4, r5, r6, lr}
+ 265              	.LCFI4:
+ 266              		.cfi_def_cfa_offset 16
+ 267              		.cfi_offset 4, -16
+ 268              		.cfi_offset 5, -12
+ 269              		.cfi_offset 6, -8
+ 270              		.cfi_offset 14, -4
+ 207:FML/Src/EC2x.c ****     uint8_t *dest = rx_buff;
+ 271              		.loc 1 207 52 view .LVU75
+ 272 0002 1646     		mov	r6, r2
+ 273              		.loc 1 209 7 view .LVU76
+ 274 0004 0546     		mov	r5, r0
+ 275 0006 58BB     		cbnz	r0, .L18
+ 276              	.LBB11:
+ 210:FML/Src/EC2x.c ****         return -1;
+ 211:FML/Src/EC2x.c ****     else{
+ 212:FML/Src/EC2x.c ****         uint16_t j = 0;
+ 277              		.loc 1 212 9 is_stmt 1 view .LVU77
+ 278              	.LVL20:
+ 213:FML/Src/EC2x.c ****         
+ 214:FML/Src/EC2x.c ****         RingBuffer_TypeDef *src = &ec2x_dev[fd].msg;
+ 279              		.loc 1 214 9 view .LVU78
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 10
 
 
- 514 00b2 0399     		ldr	r1, [sp, #12]
- 515 00b4 0093     		str	r3, [sp]
- 516 00b6 82B2     		uxth	r2, r0
- 517 00b8 A36A     		ldr	r3, [r4, #40]
- 518 00ba 0020     		movs	r0, #0
- 519 00bc FFF7FEFF 		bl	ec2x_cmd_send
- 520 00c0 2749     		ldr	r1, .L100+24
- 521 00c2 0646     		mov	r6, r0
- 522 00c4 48B3     		cbz	r0, .L78
- 523 00c6 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
- 524 00c8 0233     		adds	r3, r3, #2
- 525              	.L85:
- 526 00ca 2B70     		strb	r3, [r5]
- 527 00cc 0023     		movs	r3, #0
- 528 00ce 0B70     		strb	r3, [r1]
- 529 00d0 D3E7     		b	.L64
- 530              	.L59:
- 531 00d2 216B     		ldr	r1, [r4, #48]
- 532 00d4 0391     		str	r1, [sp, #12]
- 533 00d6 0846     		mov	r0, r1
- 534 00d8 FFF7FEFF 		bl	strlen
- 535 00dc 2389     		ldrh	r3, [r4, #8]
- 536 00de 0093     		str	r3, [sp]
- 537 00e0 636B     		ldr	r3, [r4, #52]
- 538 00e2 B9E7     		b	.L94
- 539              	.L58:
- 540 00e4 E16B     		ldr	r1, [r4, #60]
- 541 00e6 0391     		str	r1, [sp, #12]
- 542 00e8 0846     		mov	r0, r1
- 543 00ea FFF7FEFF 		bl	strlen
- 544 00ee 2389     		ldrh	r3, [r4, #8]
- 545 00f0 0093     		str	r3, [sp]
- 546 00f2 236C     		ldr	r3, [r4, #64]
- 547 00f4 B0E7     		b	.L94
- 548              	.L57:
- 549 00f6 A16C     		ldr	r1, [r4, #72]
- 550 00f8 0391     		str	r1, [sp, #12]
- 551 00fa 0846     		mov	r0, r1
- 552 00fc FFF7FEFF 		bl	strlen
- 553 0100 2389     		ldrh	r3, [r4, #8]
- 554 0102 0093     		str	r3, [sp]
- 555 0104 E36C     		ldr	r3, [r4, #76]
- 556 0106 A7E7     		b	.L94
- 557              	.L56:
- 558 0108 616D     		ldr	r1, [r4, #84]
- 559 010a 0391     		str	r1, [sp, #12]
- 560 010c 0846     		mov	r0, r1
- 561 010e FFF7FEFF 		bl	strlen
- 562 0112 2389     		ldrh	r3, [r4, #8]
- 563 0114 0093     		str	r3, [sp]
- 564 0116 A36D     		ldr	r3, [r4, #88]
- 565 0118 9EE7     		b	.L94
- 566              	.L78:
- 567 011a 2A78     		ldrb	r2, [r5]	@ zero_extendqisi2
- 568 011c 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 569 011e 0C20     		movs	r0, #12
- 570 0120 4243     		muls	r2, r0, r2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 11
+ 215:FML/Src/EC2x.c ****         //如果队列被上锁了，则等待100ms
+ 216:FML/Src/EC2x.c ****         if(src->block == 1)
+ 280              		.loc 1 216 9 view .LVU79
+ 281              		.loc 1 216 15 is_stmt 0 view .LVU80
+ 282 0008 174C     		ldr	r4, .L19
+ 283              		.loc 1 216 11 view .LVU81
+ 284 000a 94F82C30 		ldrb	r3, [r4, #44]	@ zero_extendqisi2
+ 285 000e 43B1     		cbz	r3, .L14
+ 217:FML/Src/EC2x.c ****         {
+ 218:FML/Src/EC2x.c ****             Delay_ms(100);
+ 286              		.loc 1 218 13 is_stmt 1 view .LVU82
+ 287 0010 6420     		movs	r0, #100
+ 288              	.LVL21:
+ 289              		.loc 1 218 13 is_stmt 0 view .LVU83
+ 290 0012 FFF7FEFF 		bl	Delay_ms
+ 291              	.LVL22:
+ 219:FML/Src/EC2x.c ****             if(src->block == 1)
+ 292              		.loc 1 219 13 is_stmt 1 view .LVU84
+ 293              		.loc 1 219 15 is_stmt 0 view .LVU85
+ 294 0016 94F82C30 		ldrb	r3, [r4, #44]	@ zero_extendqisi2
+ 295 001a 03B9     		cbnz	r3, .L13
+ 296              	.LVL23:
+ 297              	.L15:
+ 220:FML/Src/EC2x.c ****                 return 0;
+ 221:FML/Src/EC2x.c ****         }
+ 222:FML/Src/EC2x.c ****         else{
+ 223:FML/Src/EC2x.c ****             src->block = 1;
+ 224:FML/Src/EC2x.c ****             if(len > src->size)
+ 225:FML/Src/EC2x.c ****                 len = src->size;
+ 226:FML/Src/EC2x.c ****             for(j = 0 ; j < len; j++){
+ 227:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 228:FML/Src/EC2x.c ****                 src->head = (src->head + 1) % src->capacity;
+ 229:FML/Src/EC2x.c ****                 src->size--;
+ 230:FML/Src/EC2x.c ****             }
+ 231:FML/Src/EC2x.c ****             src->block = 0;
+ 232:FML/Src/EC2x.c ****         }
+ 233:FML/Src/EC2x.c ****         return len;
+ 298              		.loc 1 233 9 is_stmt 1 view .LVU86
+ 299              		.loc 1 233 16 is_stmt 0 view .LVU87
+ 300 001c 3546     		mov	r5, r6
+ 301              	.LVL24:
+ 302              	.L13:
+ 303              		.loc 1 233 16 view .LVU88
+ 304              	.LBE11:
+ 234:FML/Src/EC2x.c ****     }
+ 235:FML/Src/EC2x.c **** };
+ 305              		.loc 1 235 1 view .LVU89
+ 306 001e 2846     		mov	r0, r5
+ 307 0020 70BD     		pop	{r4, r5, r6, pc}
+ 308              	.LVL25:
+ 309              	.L14:
+ 310              	.LBB12:
+ 223:FML/Src/EC2x.c ****             if(len > src->size)
+ 311              		.loc 1 223 13 is_stmt 1 view .LVU90
+ 223:FML/Src/EC2x.c ****             if(len > src->size)
+ 312              		.loc 1 223 24 is_stmt 0 view .LVU91
+ 313 0022 0123     		movs	r3, #1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 11
 
 
- 571 0122 A018     		adds	r0, r4, r2
- 572 0124 807A     		ldrb	r0, [r0, #10]	@ zero_extendqisi2
- 573 0126 9842     		cmp	r0, r3
- 574 0128 A2D2     		bcs	.L65
- 575 012a A258     		ldr	r2, [r4, r2]
- 576 012c 0D49     		ldr	r1, .L100+28
- 577 012e 0948     		ldr	r0, .L100+12
- 578 0130 FFF7FEFF 		bl	shellPrint
- 579 0134 FFF7FEFF 		bl	ec2x_reset.constprop.0
- 580 0138 2E70     		strb	r6, [r5]
- 581 013a 9EE7     		b	.L64
- 582              	.L54:
- 583 013c 0548     		ldr	r0, .L100+12
- 584 013e 0A49     		ldr	r1, .L100+32
- 585 0140 FFF7FEFF 		bl	shellPrint
- 586 0144 0120     		movs	r0, #1
- 587 0146 74E7     		b	.L49
- 588              	.L101:
- 589              		.align	2
- 590              	.L100:
- 591 0148 00000000 		.word	.LANCHOR1
- 592 014c 00000000 		.word	.LANCHOR3
- 593 0150 00000000 		.word	.LANCHOR2
- 594 0154 00000000 		.word	shell
- 595 0158 1C000000 		.word	.LC3
- 596 015c 00000000 		.word	.LC2
- 597 0160 00000000 		.word	.LANCHOR4
- 598 0164 31000000 		.word	.LC4
- 599 0168 3A000000 		.word	.LC5
- 601              		.section	.rodata.EC2x_Test.str1.1,"aMS",%progbits,1
- 602              	.LC6:
- 603 0000 7463705F 		.ascii	"tcp_connect\000"
- 603      636F6E6E 
- 603      65637400 
- 604              	.LC7:
- 605 000c 45433278 		.ascii	"EC2x CMD Test OK\015\012\000"
- 605      20434D44 
- 605      20546573 
- 605      74204F4B 
- 605      0D0A00
- 606              	.LC8:
- 607 001f 45433278 		.ascii	"EC2x CMD Test Failed\015\012\000"
- 607      20434D44 
- 607      20546573 
- 607      74204661 
- 607      696C6564 
- 608              		.section	.text.EC2x_Test,"ax",%progbits
- 609              		.align	1
- 610              		.global	EC2x_Test
- 611              		.syntax unified
- 612              		.thumb
- 613              		.thumb_func
- 615              	EC2x_Test:
- 616              		@ args = 0, pretend = 0, frame = 40
- 617              		@ frame_needed = 0, uses_anonymous_args = 0
- 618 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 619 0004 8DB0     		sub	sp, sp, #52
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 12
+ 314 0024 84F82C30 		strb	r3, [r4, #44]
+ 224:FML/Src/EC2x.c ****                 len = src->size;
+ 315              		.loc 1 224 13 is_stmt 1 view .LVU92
+ 316 0028 238F     		ldrh	r3, [r4, #56]
+ 317 002a 9A42     		cmp	r2, r3
+ 318 002c 28BF     		it	cs
+ 319 002e 1E46     		movcs	r6, r3
+ 320              	.LVL26:
+ 226:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 321              		.loc 1 226 13 view .LVU93
+ 226:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 322              		.loc 1 226 13 is_stmt 0 view .LVU94
+ 323 0030 8819     		adds	r0, r1, r6
+ 324              	.LVL27:
+ 325              	.L16:
+ 226:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 326              		.loc 1 226 25 is_stmt 1 discriminator 1 view .LVU95
+ 226:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 327              		.loc 1 226 13 is_stmt 0 discriminator 1 view .LVU96
+ 328 0032 8142     		cmp	r1, r0
+ 329 0034 03D1     		bne	.L17
+ 231:FML/Src/EC2x.c ****         }
+ 330              		.loc 1 231 13 is_stmt 1 view .LVU97
+ 231:FML/Src/EC2x.c ****         }
+ 331              		.loc 1 231 24 is_stmt 0 view .LVU98
+ 332 0036 0023     		movs	r3, #0
+ 333 0038 84F82C30 		strb	r3, [r4, #44]
+ 334 003c EEE7     		b	.L15
+ 335              	.L17:
+ 227:FML/Src/EC2x.c ****                 src->head = (src->head + 1) % src->capacity;
+ 336              		.loc 1 227 17 is_stmt 1 discriminator 3 view .LVU99
+ 227:FML/Src/EC2x.c ****                 src->head = (src->head + 1) % src->capacity;
+ 337              		.loc 1 227 40 is_stmt 0 discriminator 3 view .LVU100
+ 338 003e A38E     		ldrh	r3, [r4, #52]
+ 227:FML/Src/EC2x.c ****                 src->head = (src->head + 1) % src->capacity;
+ 339              		.loc 1 227 36 discriminator 3 view .LVU101
+ 340 0040 226B     		ldr	r2, [r4, #48]
+ 341 0042 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 227:FML/Src/EC2x.c ****                 src->head = (src->head + 1) % src->capacity;
+ 342              		.loc 1 227 25 discriminator 3 view .LVU102
+ 343 0044 01F8013B 		strb	r3, [r1], #1
+ 344              	.LVL28:
+ 228:FML/Src/EC2x.c ****                 src->size--;
+ 345              		.loc 1 228 17 is_stmt 1 discriminator 3 view .LVU103
+ 228:FML/Src/EC2x.c ****                 src->size--;
+ 346              		.loc 1 228 33 is_stmt 0 discriminator 3 view .LVU104
+ 347 0048 A38E     		ldrh	r3, [r4, #52]
+ 228:FML/Src/EC2x.c ****                 src->size--;
+ 348              		.loc 1 228 50 discriminator 3 view .LVU105
+ 349 004a 628F     		ldrh	r2, [r4, #58]
+ 228:FML/Src/EC2x.c ****                 src->size--;
+ 350              		.loc 1 228 40 discriminator 3 view .LVU106
+ 351 004c 0133     		adds	r3, r3, #1
+ 228:FML/Src/EC2x.c ****                 src->size--;
+ 352              		.loc 1 228 45 discriminator 3 view .LVU107
+ 353 004e B3FBF2F5 		udiv	r5, r3, r2
+ 354 0052 02FB1533 		mls	r3, r2, r5, r3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 12
 
 
- 620 0006 0D46     		mov	r5, r1
- 621 0008 FF24     		movs	r4, #255
- 622 000a 0021     		movs	r1, #0
- 623 000c 0646     		mov	r6, r0
- 624 000e 1746     		mov	r7, r2
- 625 0010 03A8     		add	r0, sp, #12
- 626 0012 1022     		movs	r2, #16
- 627 0014 9846     		mov	r8, r3
- 628 0016 0294     		str	r4, [sp, #8]
- 629 0018 FFF7FEFF 		bl	memset
- 630 001c 0021     		movs	r1, #0
- 631 001e 1022     		movs	r2, #16
- 632 0020 08A8     		add	r0, sp, #32
- 633 0022 0794     		str	r4, [sp, #28]
- 634 0024 FFF7FEFF 		bl	memset
- 635 0028 1F49     		ldr	r1, .L106
- 636 002a 2846     		mov	r0, r5
- 637 002c FFF7FEFF 		bl	strcmp
- 638 0030 28B9     		cbnz	r0, .L103
- 639 0032 3046     		mov	r0, r6
- 640 0034 FFF7FEFF 		bl	ec2x_tcp_connect
- 641              	.L102:
- 642 0038 0DB0     		add	sp, sp, #52
- 643              		@ sp needed
- 644 003a BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 645              	.L103:
- 646 003e 2846     		mov	r0, r5
- 647 0040 FFF7FEFF 		bl	strlen
- 648 0044 0446     		mov	r4, r0
- 649 0046 3846     		mov	r0, r7
- 650 0048 FFF7FEFF 		bl	strlen
- 651 004c E4B2     		uxtb	r4, r4
- 652 004e 8146     		mov	r9, r0
- 653 0050 2246     		mov	r2, r4
- 654 0052 2946     		mov	r1, r5
- 655 0054 02A8     		add	r0, sp, #8
- 656 0056 FFF7FEFF 		bl	memcpy
- 657 005a 04F13003 		add	r3, r4, #48
- 658 005e 6B44     		add	r3, sp, r3
- 659 0060 0D22     		movs	r2, #13
- 660 0062 03F8282C 		strb	r2, [r3, #-40]
- 661 0066 0A22     		movs	r2, #10
- 662 0068 03F8272C 		strb	r2, [r3, #-39]
- 663 006c 3946     		mov	r1, r7
- 664 006e 5FFA89F2 		uxtb	r2, r9
- 665 0072 07A8     		add	r0, sp, #28
- 666 0074 FFF7FEFF 		bl	memcpy
- 667 0078 A21C     		adds	r2, r4, #2
- 668 007a CDF80080 		str	r8, [sp]
- 669 007e 07AB     		add	r3, sp, #28
- 670 0080 D2B2     		uxtb	r2, r2
- 671 0082 02A9     		add	r1, sp, #8
- 672 0084 3046     		mov	r0, r6
- 673 0086 FFF7FEFF 		bl	ec2x_cmd_send
- 674 008a 40B1     		cbz	r0, .L105
- 675 008c 0749     		ldr	r1, .L106+4
- 676 008e 0848     		ldr	r0, .L106+8
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 13
+ 228:FML/Src/EC2x.c ****                 src->size--;
+ 355              		.loc 1 228 27 discriminator 3 view .LVU108
+ 356 0056 A386     		strh	r3, [r4, #52]	@ movhi
+ 229:FML/Src/EC2x.c ****             }
+ 357              		.loc 1 229 17 is_stmt 1 discriminator 3 view .LVU109
+ 229:FML/Src/EC2x.c ****             }
+ 358              		.loc 1 229 26 is_stmt 0 discriminator 3 view .LVU110
+ 359 0058 238F     		ldrh	r3, [r4, #56]
+ 360 005a 013B     		subs	r3, r3, #1
+ 361 005c 2387     		strh	r3, [r4, #56]	@ movhi
+ 226:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 362              		.loc 1 226 34 is_stmt 1 discriminator 3 view .LVU111
+ 363              	.LVL29:
+ 226:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 364              		.loc 1 226 34 is_stmt 0 discriminator 3 view .LVU112
+ 365 005e E8E7     		b	.L16
+ 366              	.LVL30:
+ 367              	.L18:
+ 226:FML/Src/EC2x.c ****                 dest[j] = src->data[src->head];
+ 368              		.loc 1 226 34 discriminator 3 view .LVU113
+ 369              	.LBE12:
+ 210:FML/Src/EC2x.c ****     else{
+ 370              		.loc 1 210 16 view .LVU114
+ 371 0060 4FF0FF35 		mov	r5, #-1
+ 372 0064 DBE7     		b	.L13
+ 373              	.L20:
+ 374 0066 00BF     		.align	2
+ 375              	.L19:
+ 376 0068 00000000 		.word	.LANCHOR0
+ 377              		.cfi_endproc
+ 378              	.LFE295:
+ 380              		.section	.rodata.ec2x_handler.str1.1,"aMS",%progbits,1
+ 381              	.LC0:
+ 382 0000 257300   		.ascii	"%s\000"
+ 383              		.section	.text.ec2x_handler,"ax",%progbits
+ 384              		.align	1
+ 385              		.global	ec2x_handler
+ 386              		.syntax unified
+ 387              		.thumb
+ 388              		.thumb_func
+ 390              	ec2x_handler:
+ 391              	.LVL31:
+ 392              	.LFB296:
+ 236:FML/Src/EC2x.c **** int ec2x_ioctl(int fd);
+ 237:FML/Src/EC2x.c **** 
+ 238:FML/Src/EC2x.c **** /**
+ 239:FML/Src/EC2x.c ****  * @brief 将串口接收数据copy到环形缓冲区，并更新缓冲区状态
+ 240:FML/Src/EC2x.c ****  * 
+ 241:FML/Src/EC2x.c ****  * @param huart 
+ 242:FML/Src/EC2x.c ****  * @param data 
+ 243:FML/Src/EC2x.c ****  * @param len 
+ 244:FML/Src/EC2x.c ****  */
+ 245:FML/Src/EC2x.c **** void ec2x_handler(UART_HandleTypeDef *huart,uint8_t *data,uint16_t len)
+ 246:FML/Src/EC2x.c **** {
+ 393              		.loc 1 246 1 is_stmt 1 view -0
+ 394              		.cfi_startproc
+ 395              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 13
 
 
- 677 0090 FFF7FEFF 		bl	shellPrint
- 678 0094 074A     		ldr	r2, .L106+12
- 679 0096 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 680 0098 0133     		adds	r3, r3, #1
- 681 009a 1370     		strb	r3, [r2]
- 682 009c CCE7     		b	.L102
- 683              	.L105:
- 684 009e 0649     		ldr	r1, .L106+16
- 685 00a0 0348     		ldr	r0, .L106+8
- 686 00a2 FFF7FEFF 		bl	shellPrint
- 687 00a6 C7E7     		b	.L102
- 688              	.L107:
- 689              		.align	2
- 690              	.L106:
- 691 00a8 00000000 		.word	.LC6
- 692 00ac 0C000000 		.word	.LC7
- 693 00b0 00000000 		.word	shell
- 694 00b4 00000000 		.word	test_ok_cnt
- 695 00b8 1F000000 		.word	.LC8
- 697              		.section	.rodata.ec2x_open.str1.1,"aMS",%progbits,1
- 698              	.LC9:
- 699 0000 65633278 		.ascii	"ec2x initial ok\015\012\000"
- 699      20696E69 
- 699      7469616C 
- 699      206F6B0D 
- 699      0A00
- 700              	.LC10:
- 701 0012 65633278 		.ascii	"ec2x initial not ok\015\012\000"
- 701      20696E69 
- 701      7469616C 
- 701      206E6F74 
- 701      206F6B0D 
- 702              		.section	.text.ec2x_open,"ax",%progbits
- 703              		.align	1
- 704              		.global	ec2x_open
- 705              		.syntax unified
- 706              		.thumb
- 707              		.thumb_func
- 709              	ec2x_open:
- 710              		@ args = 0, pretend = 0, frame = 0
- 711              		@ frame_needed = 0, uses_anonymous_args = 0
- 712 0000 38B5     		push	{r3, r4, r5, lr}
- 713 0002 0D49     		ldr	r1, .L112
- 714 0004 FFF7FEFF 		bl	strcmp
- 715 0008 0546     		mov	r5, r0
- 716 000a 90B9     		cbnz	r0, .L111
- 717 000c 0A48     		ldr	r0, .L112
- 718 000e FFF7FEFF 		bl	ec2x_io_init
- 719 0012 FFF7FEFF 		bl	ec2x_reset.constprop.0
- 720 0016 0446     		mov	r4, r0
- 721 0018 30B1     		cbz	r0, .L110
- 722 001a 0849     		ldr	r1, .L112+4
- 723 001c 0848     		ldr	r0, .L112+8
- 724 001e FFF7FEFF 		bl	shellPrint
- 725 0022 2C46     		mov	r4, r5
- 726              	.L108:
- 727 0024 2046     		mov	r0, r4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 14
+ 396              		@ frame_needed = 0, uses_anonymous_args = 0
+ 247:FML/Src/EC2x.c ****     uint8_t i = 0,j = 0;
+ 397              		.loc 1 247 5 view .LVU116
+ 248:FML/Src/EC2x.c ****     shellPrint(&shell,"%s",data);
+ 398              		.loc 1 248 5 view .LVU117
+ 246:FML/Src/EC2x.c ****     uint8_t i = 0,j = 0;
+ 399              		.loc 1 246 1 is_stmt 0 view .LVU118
+ 400 0000 70B5     		push	{r4, r5, r6, lr}
+ 401              	.LCFI5:
+ 402              		.cfi_def_cfa_offset 16
+ 403              		.cfi_offset 4, -16
+ 404              		.cfi_offset 5, -12
+ 405              		.cfi_offset 6, -8
+ 406              		.cfi_offset 14, -4
+ 246:FML/Src/EC2x.c ****     uint8_t i = 0,j = 0;
+ 407              		.loc 1 246 1 view .LVU119
+ 408 0002 0646     		mov	r6, r0
+ 409 0004 0C46     		mov	r4, r1
+ 410              		.loc 1 248 5 view .LVU120
+ 411 0006 1B48     		ldr	r0, .L26
+ 412              	.LVL32:
+ 246:FML/Src/EC2x.c ****     uint8_t i = 0,j = 0;
+ 413              		.loc 1 246 1 view .LVU121
+ 414 0008 1546     		mov	r5, r2
+ 415              		.loc 1 248 5 view .LVU122
+ 416 000a 0A46     		mov	r2, r1
+ 417              	.LVL33:
+ 418              		.loc 1 248 5 view .LVU123
+ 419 000c 1A49     		ldr	r1, .L26+4
+ 420              	.LVL34:
+ 421              		.loc 1 248 5 view .LVU124
+ 422 000e FFF7FEFF 		bl	shellPrint
+ 423              	.LVL35:
+ 249:FML/Src/EC2x.c ****     for(i = 0;i < sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef);i++)
+ 424              		.loc 1 249 5 is_stmt 1 view .LVU125
+ 425              		.loc 1 249 15 view .LVU126
+ 250:FML/Src/EC2x.c ****     {
+ 251:FML/Src/EC2x.c ****         if(huart == ec2x_dev[i].huart)
+ 426              		.loc 1 251 9 view .LVU127
+ 427              		.loc 1 251 32 is_stmt 0 view .LVU128
+ 428 0012 1A4B     		ldr	r3, .L26+8
+ 429              		.loc 1 251 11 view .LVU129
+ 430 0014 1A69     		ldr	r2, [r3, #16]
+ 431 0016 B242     		cmp	r2, r6
+ 432 0018 16D1     		bne	.L21
+ 433              	.LBB13:
+ 252:FML/Src/EC2x.c ****         {
+ 253:FML/Src/EC2x.c ****             RingBuffer_TypeDef *dest = &ec2x_dev[i].msg;
+ 434              		.loc 1 253 13 is_stmt 1 view .LVU130
+ 435              	.LVL36:
+ 254:FML/Src/EC2x.c ****             if(dest->block  == 0){
+ 436              		.loc 1 254 13 view .LVU131
+ 437              		.loc 1 254 15 is_stmt 0 view .LVU132
+ 438 001a 93F82C00 		ldrb	r0, [r3, #44]	@ zero_extendqisi2
+ 439 001e 98B9     		cbnz	r0, .L21
+ 255:FML/Src/EC2x.c ****                 dest->block = 1;
+ 440              		.loc 1 255 17 is_stmt 1 view .LVU133
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 14
 
 
- 728 0026 38BD     		pop	{r3, r4, r5, pc}
- 729              	.L110:
- 730 0028 0649     		ldr	r1, .L112+12
- 731 002a 0548     		ldr	r0, .L112+8
- 732 002c FFF7FEFF 		bl	shellPrint
- 733 0030 F8E7     		b	.L108
- 734              	.L111:
- 735 0032 4FF0FF34 		mov	r4, #-1
- 736 0036 F5E7     		b	.L108
- 737              	.L113:
- 738              		.align	2
- 739              	.L112:
- 740 0038 00000000 		.word	.LANCHOR0
- 741 003c 00000000 		.word	.LC9
- 742 0040 00000000 		.word	shell
- 743 0044 12000000 		.word	.LC10
- 745              		.global	shellCommandec2x_connect
- 746              		.global	shellDescec2x_connect
- 747              		.global	shellCmdec2x_connect
- 748              		.global	shellCommandec2x_test
- 749              		.global	shellDescec2x_test
- 750              		.global	shellCmdec2x_test
- 751              		.global	ec2x_dev
- 752              		.global	connectmsg_queue
- 753              		.section	.rodata.str1.1,"aMS",%progbits,1
- 754              	.LC11:
- 755 0000 41540D0A 		.ascii	"AT\015\012\000"
- 755      00
- 756              	.LC12:
- 757 0005 4F4B00   		.ascii	"OK\000"
- 758              	.LC13:
- 759 0008 41542B43 		.ascii	"AT+CPIN?\015\012\000"
- 759      50494E3F 
- 759      0D0A00
- 760              	.LC14:
- 761 0013 52454144 		.ascii	"READY\000"
- 761      5900
- 762              	.LC15:
- 763 0019 41542B43 		.ascii	"AT+CREG?\015\012\000"
- 763      5245473F 
- 763      0D0A00
- 764              	.LC16:
- 765 0024 2B435245 		.ascii	"+CREG: 0,1\000"
- 765      473A2030 
- 765      2C3100
- 766              	.LC17:
- 767 002f 41542B43 		.ascii	"AT+CGREG?\015\012\000"
- 767      47524547 
- 767      3F0D0A00 
- 768              	.LC18:
- 769 003b 2B434752 		.ascii	"+CGREG: 0,1\000"
- 769      45473A20 
- 769      302C3100 
- 770              	.LC19:
- 771 0047 41542B51 		.ascii	"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\015\012\000"
- 771      49435347 
- 771      503D312C 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 15
+ 441              		.loc 1 255 29 is_stmt 0 view .LVU134
+ 442 0020 0122     		movs	r2, #1
+ 443 0022 83F82C20 		strb	r2, [r3, #44]
+ 256:FML/Src/EC2x.c ****                 for(j = 0 ; j < len; j++){
+ 444              		.loc 1 256 17 is_stmt 1 view .LVU135
+ 445              	.LVL37:
+ 446              	.L23:
+ 447              		.loc 1 256 29 discriminator 1 view .LVU136
+ 448              		.loc 1 256 31 is_stmt 0 discriminator 1 view .LVU137
+ 449 0026 C6B2     		uxtb	r6, r0
+ 450              		.loc 1 256 17 discriminator 1 view .LVU138
+ 451 0028 AE42     		cmp	r6, r5
+ 257:FML/Src/EC2x.c ****                    
+ 258:FML/Src/EC2x.c ****                     dest->data[dest->tail] = data[j];
+ 452              		.loc 1 258 36 discriminator 1 view .LVU139
+ 453 002a DA8E     		ldrh	r2, [r3, #54]
+ 256:FML/Src/EC2x.c ****                 for(j = 0 ; j < len; j++){
+ 454              		.loc 1 256 17 discriminator 1 view .LVU140
+ 455 002c 00F10101 		add	r1, r0, #1
+ 456 0030 0BD3     		bcc	.L24
+ 259:FML/Src/EC2x.c ****                     dest->tail = (dest->tail +1) % dest->capacity;
+ 260:FML/Src/EC2x.c ****                     dest->size++;
+ 261:FML/Src/EC2x.c ****                     dest->size = dest->size > dest->capacity ? dest->capacity : dest->size;
+ 262:FML/Src/EC2x.c ****                 }
+ 263:FML/Src/EC2x.c ****                 if((dest->tail > dest->head)&&(dest->size == dest->capacity))
+ 457              		.loc 1 263 17 is_stmt 1 view .LVU141
+ 458              		.loc 1 263 19 is_stmt 0 view .LVU142
+ 459 0032 998E     		ldrh	r1, [r3, #52]
+ 460 0034 9142     		cmp	r1, r2
+ 461 0036 04D2     		bcs	.L25
+ 462              		.loc 1 263 45 discriminator 1 view .LVU143
+ 463 0038 188F     		ldrh	r0, [r3, #56]
+ 464              	.LVL38:
+ 465              		.loc 1 263 45 discriminator 1 view .LVU144
+ 466 003a 598F     		ldrh	r1, [r3, #58]
+ 467 003c 8842     		cmp	r0, r1
+ 264:FML/Src/EC2x.c ****                     dest->head = dest->tail;
+ 468              		.loc 1 264 21 is_stmt 1 discriminator 1 view .LVU145
+ 469              		.loc 1 264 32 is_stmt 0 discriminator 1 view .LVU146
+ 470 003e 08BF     		it	eq
+ 471 0040 9A86     		strheq	r2, [r3, #52]	@ movhi
+ 472              	.L25:
+ 265:FML/Src/EC2x.c ****                 dest->block = 0;
+ 473              		.loc 1 265 17 is_stmt 1 view .LVU147
+ 474              		.loc 1 265 29 is_stmt 0 view .LVU148
+ 475 0042 0022     		movs	r2, #0
+ 476 0044 83F82C20 		strb	r2, [r3, #44]
+ 477              	.LVL39:
+ 478              		.loc 1 265 29 view .LVU149
+ 479              	.LBE13:
+ 249:FML/Src/EC2x.c ****     {
+ 480              		.loc 1 249 15 is_stmt 1 view .LVU150
+ 481              	.L21:
+ 266:FML/Src/EC2x.c ****             }
+ 267:FML/Src/EC2x.c ****         }
+ 268:FML/Src/EC2x.c ****     }
+ 269:FML/Src/EC2x.c **** }
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 15
 
 
- 771      312C2243 
- 771      4D4E4554 
- 772              	.LC20:
- 773 0067 41542B51 		.ascii	"AT+QIDEACT=1\015\012\000"
- 773      49444541 
- 773      43543D31 
- 773      0D0A00
- 774              	.LC21:
- 775 0076 41542B51 		.ascii	"AT+QIACT=1\015\012\000"
- 775      49414354 
- 775      3D310D0A 
- 775      00
- 776              	.LC22:
- 777 0083 434F4E4E 		.ascii	"CONNECT\000"
- 777      45435400 
- 778              		.global	tcpconnct_step
- 779              		.global	tcp_connect
- 780              		.global	ec2x_buff
- 781              		.section	.bss.reset_times,"aw",%nobits
- 782              		.set	.LANCHOR1,. + 0
- 785              	reset_times:
- 786 0000 00       		.space	1
- 787              		.section	.bss.retry.0,"aw",%nobits
- 788              		.set	.LANCHOR4,. + 0
- 791              	retry.0:
- 792 0000 00       		.space	1
- 793              		.section	.bss.step.1,"aw",%nobits
- 794              		.set	.LANCHOR3,. + 0
- 797              	step.1:
- 798 0000 00       		.space	1
- 799              		.section	.bss.tcpconnct_step,"aw",%nobits
- 802              	tcpconnct_step:
- 803 0000 00       		.space	1
- 804              		.section	.data.connectmsg_queue,"aw"
- 805              		.align	2
- 806              		.set	.LANCHOR2,. + 0
- 809              	connectmsg_queue:
- 810 0000 00000000 		.word	.LC11
- 811 0004 05000000 		.word	.LC12
- 812 0008 C800     		.short	200
- 813 000a 05       		.byte	5
- 814 000b 00       		.space	1
- 815 000c 08000000 		.word	.LC13
- 816 0010 13000000 		.word	.LC14
- 817 0014 C800     		.short	200
- 818 0016 05       		.byte	5
- 819 0017 00       		.space	1
- 820 0018 19000000 		.word	.LC15
- 821 001c 24000000 		.word	.LC16
- 822 0020 C800     		.short	200
- 823 0022 05       		.byte	5
- 824 0023 00       		.space	1
- 825 0024 2F000000 		.word	.LC17
- 826 0028 3B000000 		.word	.LC18
- 827 002c C800     		.short	200
- 828 002e 05       		.byte	5
- 829 002f 00       		.space	1
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 16
+ 482              		.loc 1 269 1 is_stmt 0 view .LVU151
+ 483 0048 70BD     		pop	{r4, r5, r6, pc}
+ 484              	.LVL40:
+ 485              	.L24:
+ 486              	.LBB14:
+ 258:FML/Src/EC2x.c ****                     dest->tail = (dest->tail +1) % dest->capacity;
+ 487              		.loc 1 258 21 is_stmt 1 discriminator 3 view .LVU152
+ 258:FML/Src/EC2x.c ****                     dest->tail = (dest->tail +1) % dest->capacity;
+ 488              		.loc 1 258 44 is_stmt 0 discriminator 3 view .LVU153
+ 489 004a 186B     		ldr	r0, [r3, #48]
+ 490              	.LVL41:
+ 258:FML/Src/EC2x.c ****                     dest->tail = (dest->tail +1) % dest->capacity;
+ 491              		.loc 1 258 50 discriminator 3 view .LVU154
+ 492 004c A65D     		ldrb	r6, [r4, r6]	@ zero_extendqisi2
+ 493              	.LVL42:
+ 258:FML/Src/EC2x.c ****                     dest->tail = (dest->tail +1) % dest->capacity;
+ 494              		.loc 1 258 44 discriminator 3 view .LVU155
+ 495 004e 8654     		strb	r6, [r0, r2]
+ 259:FML/Src/EC2x.c ****                     dest->size++;
+ 496              		.loc 1 259 21 is_stmt 1 discriminator 3 view .LVU156
+ 259:FML/Src/EC2x.c ****                     dest->size++;
+ 497              		.loc 1 259 39 is_stmt 0 discriminator 3 view .LVU157
+ 498 0050 DA8E     		ldrh	r2, [r3, #54]
+ 259:FML/Src/EC2x.c ****                     dest->size++;
+ 499              		.loc 1 259 56 discriminator 3 view .LVU158
+ 500 0052 5E8F     		ldrh	r6, [r3, #58]
+ 259:FML/Src/EC2x.c ****                     dest->size++;
+ 501              		.loc 1 259 46 discriminator 3 view .LVU159
+ 502 0054 0132     		adds	r2, r2, #1
+ 259:FML/Src/EC2x.c ****                     dest->size++;
+ 503              		.loc 1 259 50 discriminator 3 view .LVU160
+ 504 0056 B2FBF6F0 		udiv	r0, r2, r6
+ 505 005a 06FB1022 		mls	r2, r6, r0, r2
+ 260:FML/Src/EC2x.c ****                     dest->size = dest->size > dest->capacity ? dest->capacity : dest->size;
+ 506              		.loc 1 260 31 discriminator 3 view .LVU161
+ 507 005e 188F     		ldrh	r0, [r3, #56]
+ 259:FML/Src/EC2x.c ****                     dest->size++;
+ 508              		.loc 1 259 32 discriminator 3 view .LVU162
+ 509 0060 DA86     		strh	r2, [r3, #54]	@ movhi
+ 260:FML/Src/EC2x.c ****                     dest->size = dest->size > dest->capacity ? dest->capacity : dest->size;
+ 510              		.loc 1 260 21 is_stmt 1 discriminator 3 view .LVU163
+ 261:FML/Src/EC2x.c ****                 }
+ 511              		.loc 1 261 21 discriminator 3 view .LVU164
+ 260:FML/Src/EC2x.c ****                     dest->size = dest->size > dest->capacity ? dest->capacity : dest->size;
+ 512              		.loc 1 260 31 is_stmt 0 discriminator 3 view .LVU165
+ 513 0062 0130     		adds	r0, r0, #1
+ 261:FML/Src/EC2x.c ****                 }
+ 514              		.loc 1 261 79 discriminator 3 view .LVU166
+ 515 0064 80B2     		uxth	r0, r0
+ 516 0066 B042     		cmp	r0, r6
+ 517 0068 28BF     		it	cs
+ 518 006a 3046     		movcs	r0, r6
+ 261:FML/Src/EC2x.c ****                 }
+ 519              		.loc 1 261 32 discriminator 3 view .LVU167
+ 520 006c 1887     		strh	r0, [r3, #56]	@ movhi
+ 256:FML/Src/EC2x.c ****                    
+ 521              		.loc 1 256 38 is_stmt 1 discriminator 3 view .LVU168
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 16
 
 
- 830 0030 47000000 		.word	.LC19
- 831 0034 05000000 		.word	.LC12
- 832 0038 C800     		.short	200
- 833 003a 05       		.byte	5
- 834 003b 00       		.space	1
- 835 003c 67000000 		.word	.LC20
- 836 0040 05000000 		.word	.LC12
- 837 0044 C800     		.short	200
- 838 0046 05       		.byte	5
- 839 0047 00       		.space	1
- 840 0048 76000000 		.word	.LC21
- 841 004c 05000000 		.word	.LC12
- 842 0050 C800     		.short	200
- 843 0052 05       		.byte	5
- 844 0053 00       		.space	1
- 845 0054 00000000 		.word	tcp_connect
- 846 0058 83000000 		.word	.LC22
- 847 005c F401     		.short	500
- 848 005e 05       		.byte	5
- 849 005f 00       		.space	1
- 850              		.section	.data.ec2x_buff,"aw"
- 853              	ec2x_buff:
- 854 0000 FF00     		.ascii	"\377\000"
- 855 0002 00000000 		.space	198
- 855      00000000 
- 855      00000000 
- 855      00000000 
- 855      00000000 
- 856              		.section	.data.ec2x_dev,"aw"
- 857              		.align	2
- 858              		.set	.LANCHOR0,. + 0
- 861              	ec2x_dev:
- 862 0000 75617274 		.ascii	"uart1/ec200s\000"
- 862      312F6563 
- 862      32303073 
- 862      00
- 863 000d 0000     		.space	2
- 864 000f 00       		.space	1
- 865 0010 00000000 		.word	huart1
- 866 0014 00000048 		.word	1207959552
- 867 0018 0010     		.short	4096
- 868 001a 0000     		.space	2
- 869 001c 00000048 		.word	1207959552
- 870 0020 0001     		.short	256
- 871 0022 0000     		.space	2
- 872 0024 00000048 		.word	1207959552
- 873 0028 0008     		.short	2048
- 874 002a 0000     		.space	2
- 875 002c 00       		.byte	0
- 876 002d 000000   		.space	3
- 877 0030 00000000 		.word	ec2x_buff
- 878 0034 0000     		.short	0
- 879 0036 0000     		.short	0
- 880 0038 0000     		.short	0
- 881 003a C800     		.short	200
- 882              		.section	.data.tcp_connect,"aw"
- 885              	tcp_connect:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 17
+ 522              	.LVL43:
+ 261:FML/Src/EC2x.c ****                 }
+ 523              		.loc 1 261 32 is_stmt 0 discriminator 3 view .LVU169
+ 524 006e 0846     		mov	r0, r1
+ 525 0070 D9E7     		b	.L23
+ 526              	.L27:
+ 527 0072 00BF     		.align	2
+ 528              	.L26:
+ 529 0074 00000000 		.word	shell
+ 530 0078 00000000 		.word	.LC0
+ 531 007c 00000000 		.word	.LANCHOR0
+ 532              	.LBE14:
+ 533              		.cfi_endproc
+ 534              	.LFE296:
+ 536              		.section	.text.ec2x_replymatch,"ax",%progbits
+ 537              		.align	1
+ 538              		.global	ec2x_replymatch
+ 539              		.syntax unified
+ 540              		.thumb
+ 541              		.thumb_func
+ 543              	ec2x_replymatch:
+ 544              	.LVL44:
+ 545              	.LFB297:
+ 270:FML/Src/EC2x.c **** 
+ 271:FML/Src/EC2x.c **** 
+ 272:FML/Src/EC2x.c **** /**
+ 273:FML/Src/EC2x.c ****  * @brief 回复匹配函数
+ 274:FML/Src/EC2x.c ****  *        1）匹配成功，则插入回复成功事件
+ 275:FML/Src/EC2x.c ****  *        2.1）匹配失败，超时次数-1
+ 276:FML/Src/EC2x.c ****  *        2.2）匹配失败，超时次数=0，插入超时事件消息
+ 277:FML/Src/EC2x.c ****  * 
+ 278:FML/Src/EC2x.c ****  * @param expect 
+ 279:FML/Src/EC2x.c ****  * @return int 
+ 280:FML/Src/EC2x.c ****  */
+ 281:FML/Src/EC2x.c **** int ec2x_replymatch(uint8_t* expect){
+ 546              		.loc 1 281 37 is_stmt 1 view -0
+ 547              		.cfi_startproc
+ 548              		@ args = 0, pretend = 0, frame = 200
+ 549              		@ frame_needed = 0, uses_anonymous_args = 0
+ 282:FML/Src/EC2x.c ****     uint8_t rx_buff[200]  = {0x00};
+ 550              		.loc 1 282 5 view .LVU171
+ 281:FML/Src/EC2x.c ****     uint8_t rx_buff[200]  = {0x00};
+ 551              		.loc 1 281 37 is_stmt 0 view .LVU172
+ 552 0000 30B5     		push	{r4, r5, lr}
+ 553              	.LCFI6:
+ 554              		.cfi_def_cfa_offset 12
+ 555              		.cfi_offset 4, -12
+ 556              		.cfi_offset 5, -8
+ 557              		.cfi_offset 14, -4
+ 558              		.loc 1 282 13 view .LVU173
+ 559 0002 0024     		movs	r4, #0
+ 281:FML/Src/EC2x.c ****     uint8_t rx_buff[200]  = {0x00};
+ 560              		.loc 1 281 37 view .LVU174
+ 561 0004 B3B0     		sub	sp, sp, #204
+ 562              	.LCFI7:
+ 563              		.cfi_def_cfa_offset 216
+ 564              		.loc 1 282 13 view .LVU175
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 17
 
 
- 886 0000 41542B51 		.ascii	"AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2"
- 886      494F5045 
- 886      4E3D312C 
- 886      302C2254 
- 886      4350222C 
- 887 002f 0D0A00   		.ascii	"\015\012\000"
- 888              		.section	.rodata.shellCmdec2x_connect,"a"
- 891              	shellCmdec2x_connect:
- 892 0000 65633278 		.ascii	"ec2x_connect\000"
- 892      5F636F6E 
- 892      6E656374 
- 892      00
- 893              		.section	.rodata.shellCmdec2x_test,"a"
- 896              	shellCmdec2x_test:
- 897 0000 65633278 		.ascii	"ec2x_test\000"
- 897      5F746573 
- 897      7400
- 898              		.section	.rodata.shellDescec2x_connect,"a"
- 901              	shellDescec2x_connect:
- 902 0000 65633278 		.ascii	"ec2x tcp connect\000"
- 902      20746370 
- 902      20636F6E 
- 902      6E656374 
- 902      00
- 903              		.section	.rodata.shellDescec2x_test,"a"
- 906              	shellDescec2x_test:
- 907 0000 73656E64 		.ascii	"send command and wait for reply\000"
- 907      20636F6D 
- 907      6D616E64 
- 907      20616E64 
- 907      20776169 
- 908              		.section	shellCommand,"a"
- 911              	shellCommandec2x_connect:
- 912 0000 00210000 		.4byte	8448
- 913 0004 00000000 		.4byte	shellCmdec2x_connect
- 914 0008 00000000 		.4byte	ec2x_tcp_connect
- 915 000c 00000000 		.4byte	shellDescec2x_connect
- 918              	shellCommandec2x_test:
- 919 0010 00210000 		.4byte	8448
- 920 0014 00000000 		.4byte	shellCmdec2x_test
- 921 0018 00000000 		.4byte	EC2x_Test
- 922 001c 00000000 		.4byte	shellDescec2x_test
- 923              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 18
+ 565 0006 C422     		movs	r2, #196
+ 566 0008 2146     		mov	r1, r4
+ 281:FML/Src/EC2x.c ****     uint8_t rx_buff[200]  = {0x00};
+ 567              		.loc 1 281 37 view .LVU176
+ 568 000a 0546     		mov	r5, r0
+ 569              		.loc 1 282 13 view .LVU177
+ 570 000c 01A8     		add	r0, sp, #4
+ 571              	.LVL45:
+ 572              		.loc 1 282 13 view .LVU178
+ 573 000e 0094     		str	r4, [sp]
+ 574 0010 FFF7FEFF 		bl	memset
+ 575              	.LVL46:
+ 283:FML/Src/EC2x.c ****     int bytes_num = 0;
+ 576              		.loc 1 283 5 is_stmt 1 view .LVU179
+ 284:FML/Src/EC2x.c ****     bytes_num =  ec2x_read(0,rx_buff,200);
+ 577              		.loc 1 284 5 view .LVU180
+ 578              		.loc 1 284 18 is_stmt 0 view .LVU181
+ 579 0014 C822     		movs	r2, #200
+ 580 0016 6946     		mov	r1, sp
+ 581 0018 2046     		mov	r0, r4
+ 582 001a FFF7FEFF 		bl	ec2x_read
+ 583              	.LVL47:
+ 285:FML/Src/EC2x.c ****     if(bytes_num > 0)
+ 584              		.loc 1 285 5 is_stmt 1 view .LVU182
+ 585              		.loc 1 285 7 is_stmt 0 view .LVU183
+ 586 001e A042     		cmp	r0, r4
+ 587 0020 08DD     		ble	.L30
+ 286:FML/Src/EC2x.c ****     {
+ 287:FML/Src/EC2x.c ****         if(strstr((const char*)rx_buff,(const char*)expect) != NULL){
+ 588              		.loc 1 287 9 is_stmt 1 view .LVU184
+ 589              		.loc 1 287 12 is_stmt 0 view .LVU185
+ 590 0022 2946     		mov	r1, r5
+ 591 0024 6846     		mov	r0, sp
+ 592              	.LVL48:
+ 593              		.loc 1 287 12 view .LVU186
+ 594 0026 FFF7FEFF 		bl	strstr
+ 595              	.LVL49:
+ 596              		.loc 1 287 11 view .LVU187
+ 597 002a 001B     		subs	r0, r0, r4
+ 598 002c 18BF     		it	ne
+ 599 002e 0120     		movne	r0, #1
+ 600              	.L28:
+ 288:FML/Src/EC2x.c ****             return 1;
+ 289:FML/Src/EC2x.c ****         }
+ 290:FML/Src/EC2x.c ****     }
+ 291:FML/Src/EC2x.c ****     return 0;
+ 292:FML/Src/EC2x.c **** }
+ 601              		.loc 1 292 1 view .LVU188
+ 602 0030 33B0     		add	sp, sp, #204
+ 603              	.LCFI8:
+ 604              		.cfi_remember_state
+ 605              		.cfi_def_cfa_offset 12
+ 606              		@ sp needed
+ 607 0032 30BD     		pop	{r4, r5, pc}
+ 608              	.LVL50:
+ 609              	.L30:
+ 610              	.LCFI9:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 18
+
+
+ 611              		.cfi_restore_state
+ 291:FML/Src/EC2x.c **** }
+ 612              		.loc 1 291 12 view .LVU189
+ 613 0034 2046     		mov	r0, r4
+ 614              	.LVL51:
+ 291:FML/Src/EC2x.c **** }
+ 615              		.loc 1 291 12 view .LVU190
+ 616 0036 FBE7     		b	.L28
+ 617              		.cfi_endproc
+ 618              	.LFE297:
+ 620              		.section	.text.ec2x_cmd_send,"ax",%progbits
+ 621              		.align	1
+ 622              		.syntax unified
+ 623              		.thumb
+ 624              		.thumb_func
+ 626              	ec2x_cmd_send:
+ 627              	.LVL52:
+ 628              	.LFB298:
+ 293:FML/Src/EC2x.c **** 
+ 294:FML/Src/EC2x.c **** 
+ 295:FML/Src/EC2x.c **** /**
+ 296:FML/Src/EC2x.c ****  * @brief ec2x指令发送函数
+ 297:FML/Src/EC2x.c ****  *        1）发送指令
+ 298:FML/Src/EC2x.c ****  *        2）进入等待回复状态
+ 299:FML/Src/EC2x.c ****  * @param fd 
+ 300:FML/Src/EC2x.c ****  * @param tx_buff 
+ 301:FML/Src/EC2x.c ****  * @param len 
+ 302:FML/Src/EC2x.c ****  * @param expect_reply 
+ 303:FML/Src/EC2x.c ****  * @param timeout 
+ 304:FML/Src/EC2x.c ****  */
+ 305:FML/Src/EC2x.c **** int ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uint16_t timeout)
+ 306:FML/Src/EC2x.c **** {
+ 629              		.loc 1 306 1 is_stmt 1 view -0
+ 630              		.cfi_startproc
+ 631              		@ args = 4, pretend = 0, frame = 0
+ 632              		@ frame_needed = 0, uses_anonymous_args = 0
+ 307:FML/Src/EC2x.c ****     if(tx_buff !=NULL){
+ 633              		.loc 1 307 5 view .LVU192
+ 306:FML/Src/EC2x.c ****     if(tx_buff !=NULL){
+ 634              		.loc 1 306 1 is_stmt 0 view .LVU193
+ 635 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 636              	.LCFI10:
+ 637              		.cfi_def_cfa_offset 32
+ 638              		.cfi_offset 3, -32
+ 639              		.cfi_offset 4, -28
+ 640              		.cfi_offset 5, -24
+ 641              		.cfi_offset 6, -20
+ 642              		.cfi_offset 7, -16
+ 643              		.cfi_offset 8, -12
+ 644              		.cfi_offset 9, -8
+ 645              		.cfi_offset 14, -4
+ 306:FML/Src/EC2x.c ****     if(tx_buff !=NULL){
+ 646              		.loc 1 306 1 view .LVU194
+ 647 0004 0646     		mov	r6, r0
+ 648 0006 9046     		mov	r8, r2
+ 649 0008 1D46     		mov	r5, r3
+ 650              		.loc 1 307 7 view .LVU195
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 19
+
+
+ 651 000a 0F46     		mov	r7, r1
+ 652 000c A9B1     		cbz	r1, .L32
+ 308:FML/Src/EC2x.c ****         ec2x_dev[fd].msg.block = 1;
+ 653              		.loc 1 308 9 is_stmt 1 view .LVU196
+ 309:FML/Src/EC2x.c ****         ec2x_dev[fd].msg.head = 0;
+ 654              		.loc 1 309 9 view .LVU197
+ 310:FML/Src/EC2x.c ****         ec2x_dev[fd].msg.tail = 0;
+ 655              		.loc 1 310 9 view .LVU198
+ 311:FML/Src/EC2x.c ****         ec2x_dev[fd].msg.size = 0;
+ 656              		.loc 1 311 9 view .LVU199
+ 312:FML/Src/EC2x.c ****         ec2x_dev[fd].msg.capacity = BUFF_LEN;
+ 657              		.loc 1 312 9 view .LVU200
+ 658 000e 174C     		ldr	r4, .L44
+ 659 0010 3C23     		movs	r3, #60
+ 660              	.LVL53:
+ 661              		.loc 1 312 9 is_stmt 0 view .LVU201
+ 662 0012 03FB0044 		mla	r4, r3, r0, r4
+ 311:FML/Src/EC2x.c ****         ec2x_dev[fd].msg.size = 0;
+ 663              		.loc 1 311 31 view .LVU202
+ 664 0016 4FF00009 		mov	r9, #0
+ 665 001a 4FF44803 		mov	r3, #13107200
+ 313:FML/Src/EC2x.c ****         memset(ec2x_dev[fd].msg.data,0x00,BUFF_LEN);
+ 666              		.loc 1 313 9 view .LVU203
+ 667 001e C822     		movs	r2, #200
+ 668              	.LVL54:
+ 669              		.loc 1 313 9 view .LVU204
+ 670 0020 4946     		mov	r1, r9
+ 671              	.LVL55:
+ 311:FML/Src/EC2x.c ****         ec2x_dev[fd].msg.size = 0;
+ 672              		.loc 1 311 31 view .LVU205
+ 673 0022 C4E90D93 		strd	r9, r3, [r4, #52]
+ 674              		.loc 1 313 9 is_stmt 1 view .LVU206
+ 675 0026 206B     		ldr	r0, [r4, #48]
+ 676              	.LVL56:
+ 677              		.loc 1 313 9 is_stmt 0 view .LVU207
+ 678 0028 FFF7FEFF 		bl	memset
+ 679              	.LVL57:
+ 314:FML/Src/EC2x.c ****         ec2x_dev[fd].msg.block = 0;
+ 680              		.loc 1 314 9 is_stmt 1 view .LVU208
+ 681              		.loc 1 314 32 is_stmt 0 view .LVU209
+ 682 002c 84F82C90 		strb	r9, [r4, #44]
+ 315:FML/Src/EC2x.c ****         ec2x_write(fd,tx_buff,len);
+ 683              		.loc 1 315 9 is_stmt 1 view .LVU210
+ 684 0030 4246     		mov	r2, r8
+ 685 0032 3946     		mov	r1, r7
+ 686 0034 3046     		mov	r0, r6
+ 687 0036 FFF7FEFF 		bl	ec2x_write
+ 688              	.LVL58:
+ 689              	.L32:
+ 316:FML/Src/EC2x.c ****     }
+ 317:FML/Src/EC2x.c ****     if(expect_reply != NULL){
+ 690              		.loc 1 317 5 view .LVU211
+ 691              		.loc 1 317 7 is_stmt 0 view .LVU212
+ 692 003a 15B9     		cbnz	r5, .L33
+ 693              	.LVL59:
+ 694              	.L37:
+ 318:FML/Src/EC2x.c ****         uint16_t retry_times = timeout / 100;
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 20
+
+
+ 319:FML/Src/EC2x.c ****         while(retry_times--){
+ 320:FML/Src/EC2x.c ****             Delay_ms(100);
+ 321:FML/Src/EC2x.c ****             if(ec2x_replymatch(expect_reply) == 1)
+ 322:FML/Src/EC2x.c ****                 return  1;
+ 323:FML/Src/EC2x.c ****         }
+ 324:FML/Src/EC2x.c ****     }
+ 325:FML/Src/EC2x.c ****     return 0;
+ 695              		.loc 1 325 12 view .LVU213
+ 696 003c 0020     		movs	r0, #0
+ 697              	.L31:
+ 326:FML/Src/EC2x.c **** }
+ 698              		.loc 1 326 1 view .LVU214
+ 699 003e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 700              	.LVL60:
+ 701              	.L33:
+ 702              	.LBB15:
+ 318:FML/Src/EC2x.c ****         uint16_t retry_times = timeout / 100;
+ 703              		.loc 1 318 9 is_stmt 1 view .LVU215
+ 319:FML/Src/EC2x.c ****             Delay_ms(100);
+ 704              		.loc 1 319 14 is_stmt 0 view .LVU216
+ 705 0042 4FF6FF76 		movw	r6, #65535
+ 706              	.LVL61:
+ 318:FML/Src/EC2x.c ****         uint16_t retry_times = timeout / 100;
+ 707              		.loc 1 318 18 view .LVU217
+ 708 0046 BDF82040 		ldrh	r4, [sp, #32]
+ 709 004a 6423     		movs	r3, #100
+ 710 004c B4FBF3F4 		udiv	r4, r4, r3
+ 711              	.LVL62:
+ 319:FML/Src/EC2x.c ****             Delay_ms(100);
+ 712              		.loc 1 319 9 is_stmt 1 view .LVU218
+ 713              	.L35:
+ 319:FML/Src/EC2x.c ****             Delay_ms(100);
+ 714              		.loc 1 319 14 view .LVU219
+ 319:FML/Src/EC2x.c ****             Delay_ms(100);
+ 715              		.loc 1 319 26 is_stmt 0 view .LVU220
+ 716 0050 013C     		subs	r4, r4, #1
+ 717              	.LVL63:
+ 319:FML/Src/EC2x.c ****             Delay_ms(100);
+ 718              		.loc 1 319 26 view .LVU221
+ 719 0052 A4B2     		uxth	r4, r4
+ 720              	.LVL64:
+ 319:FML/Src/EC2x.c ****             Delay_ms(100);
+ 721              		.loc 1 319 14 view .LVU222
+ 722 0054 B442     		cmp	r4, r6
+ 723 0056 F1D0     		beq	.L37
+ 320:FML/Src/EC2x.c ****             if(ec2x_replymatch(expect_reply) == 1)
+ 724              		.loc 1 320 13 is_stmt 1 view .LVU223
+ 725 0058 6420     		movs	r0, #100
+ 726 005a FFF7FEFF 		bl	Delay_ms
+ 727              	.LVL65:
+ 321:FML/Src/EC2x.c ****                 return  1;
+ 728              		.loc 1 321 13 view .LVU224
+ 321:FML/Src/EC2x.c ****                 return  1;
+ 729              		.loc 1 321 16 is_stmt 0 view .LVU225
+ 730 005e 2846     		mov	r0, r5
+ 731 0060 FFF7FEFF 		bl	ec2x_replymatch
+ 732              	.LVL66:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 21
+
+
+ 321:FML/Src/EC2x.c ****                 return  1;
+ 733              		.loc 1 321 15 view .LVU226
+ 734 0064 0128     		cmp	r0, #1
+ 735 0066 F3D1     		bne	.L35
+ 736 0068 E9E7     		b	.L31
+ 737              	.L45:
+ 738 006a 00BF     		.align	2
+ 739              	.L44:
+ 740 006c 00000000 		.word	.LANCHOR0
+ 741              	.LBE15:
+ 742              		.cfi_endproc
+ 743              	.LFE298:
+ 745              		.section	.rodata.ec2x_reset.constprop.0.str1.1,"aMS",%progbits,1
+ 746              	.LC1:
+ 747 0000 5244590D 		.ascii	"RDY\015\012\000"
+ 747      0A00
+ 748              		.section	.text.ec2x_reset.constprop.0,"ax",%progbits
+ 749              		.align	1
+ 750              		.syntax unified
+ 751              		.thumb
+ 752              		.thumb_func
+ 754              	ec2x_reset.constprop.0:
+ 755              	.LFB302:
+ 125:FML/Src/EC2x.c ****     fd = 0;
+ 756              		.loc 1 125 5 is_stmt 1 view -0
+ 757              		.cfi_startproc
+ 758              		@ args = 0, pretend = 0, frame = 0
+ 759              		@ frame_needed = 0, uses_anonymous_args = 0
+ 760              	.LVL67:
+ 126:FML/Src/EC2x.c ****     int err_code = 0;
+ 761              		.loc 1 126 5 view .LVU228
+ 127:FML/Src/EC2x.c ****     if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef))
+ 762              		.loc 1 127 5 view .LVU229
+ 128:FML/Src/EC2x.c ****         return (err_code = -1);
+ 763              		.loc 1 128 5 view .LVU230
+ 764              	.LBB16:
+ 131:FML/Src/EC2x.c ****         HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_SET);
+ 765              		.loc 1 131 9 view .LVU231
+ 132:FML/Src/EC2x.c ****         Delay_ms(500);
+ 766              		.loc 1 132 9 view .LVU232
+ 767              	.LBE16:
+ 125:FML/Src/EC2x.c ****     fd = 0;
+ 768              		.loc 1 125 5 is_stmt 0 view .LVU233
+ 769 0000 13B5     		push	{r0, r1, r4, lr}
+ 770              	.LCFI11:
+ 771              		.cfi_def_cfa_offset 16
+ 772              		.cfi_offset 4, -8
+ 773              		.cfi_offset 14, -4
+ 774              	.LBB17:
+ 132:FML/Src/EC2x.c ****         Delay_ms(500);
+ 775              		.loc 1 132 9 view .LVU234
+ 776 0002 0F4C     		ldr	r4, .L47
+ 777 0004 0122     		movs	r2, #1
+ 778 0006 218B     		ldrh	r1, [r4, #24]
+ 779 0008 6069     		ldr	r0, [r4, #20]
+ 780 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 781              	.LVL68:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 22
+
+
+ 133:FML/Src/EC2x.c ****         HAL_GPIO_WritePin(device->pwren_port, device->pwren_pin, GPIO_PIN_RESET);
+ 782              		.loc 1 133 9 is_stmt 1 view .LVU235
+ 783 000e 4FF4FA70 		mov	r0, #500
+ 784 0012 FFF7FEFF 		bl	Delay_ms
+ 785              	.LVL69:
+ 134:FML/Src/EC2x.c ****     }
+ 786              		.loc 1 134 9 view .LVU236
+ 787 0016 218B     		ldrh	r1, [r4, #24]
+ 788 0018 6069     		ldr	r0, [r4, #20]
+ 789 001a 0022     		movs	r2, #0
+ 790 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 791              	.LVL70:
+ 792              	.LBE17:
+ 136:FML/Src/EC2x.c ****     return(ec2x_cmd_send(fd,NULL,0,"RDY\r\n",20000));
+ 793              		.loc 1 136 5 view .LVU237
+ 136:FML/Src/EC2x.c ****     return(ec2x_cmd_send(fd,NULL,0,"RDY\r\n",20000));
+ 794              		.loc 1 136 16 is_stmt 0 view .LVU238
+ 795 0020 084A     		ldr	r2, .L47+4
+ 796 0022 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 797 0024 0133     		adds	r3, r3, #1
+ 798 0026 1370     		strb	r3, [r2]
+ 137:FML/Src/EC2x.c **** }
+ 799              		.loc 1 137 5 is_stmt 1 view .LVU239
+ 137:FML/Src/EC2x.c **** }
+ 800              		.loc 1 137 12 is_stmt 0 view .LVU240
+ 801 0028 0022     		movs	r2, #0
+ 802 002a 44F62063 		movw	r3, #20000
+ 803 002e 0093     		str	r3, [sp]
+ 804 0030 1146     		mov	r1, r2
+ 805 0032 054B     		ldr	r3, .L47+8
+ 806 0034 1046     		mov	r0, r2
+ 807 0036 FFF7FEFF 		bl	ec2x_cmd_send
+ 808              	.LVL71:
+ 138:FML/Src/EC2x.c **** 
+ 809              		.loc 1 138 1 view .LVU241
+ 810 003a 02B0     		add	sp, sp, #8
+ 811              	.LCFI12:
+ 812              		.cfi_def_cfa_offset 8
+ 813              		@ sp needed
+ 814 003c 10BD     		pop	{r4, pc}
+ 815              	.L48:
+ 816 003e 00BF     		.align	2
+ 817              	.L47:
+ 818 0040 00000000 		.word	.LANCHOR0
+ 819 0044 00000000 		.word	.LANCHOR1
+ 820 0048 00000000 		.word	.LC1
+ 821              		.cfi_endproc
+ 822              	.LFE302:
+ 824              		.section	.rodata.ec2x_tcp_connect.str1.1,"aMS",%progbits,1
+ 825              	.LC2:
+ 826 0000 6E6F2069 		.ascii	"no invalid ec2x device sn\015\012\000"
+ 826      6E76616C 
+ 826      69642065 
+ 826      63327820 
+ 826      64657669 
+ 827              	.LC3:
+ 828 001c 54435020 		.ascii	"TCP Connect Failed\015\012\000"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 23
+
+
+ 828      436F6E6E 
+ 828      65637420 
+ 828      4661696C 
+ 828      65640D0A 
+ 829              	.LC4:
+ 830 0031 25732065 		.ascii	"%s err\015\012\000"
+ 830      72720D0A 
+ 830      00
+ 831              	.LC5:
+ 832 003a 74637020 		.ascii	"tcp is connected\015\012\000"
+ 832      69732063 
+ 832      6F6E6E65 
+ 832      63746564 
+ 832      0D0A00
+ 833              		.section	.text.ec2x_tcp_connect,"ax",%progbits
+ 834              		.align	1
+ 835              		.global	ec2x_tcp_connect
+ 836              		.syntax unified
+ 837              		.thumb
+ 838              		.thumb_func
+ 840              	ec2x_tcp_connect:
+ 841              	.LVL72:
+ 842              	.LFB299:
+ 327:FML/Src/EC2x.c **** 
+ 328:FML/Src/EC2x.c **** /**
+ 329:FML/Src/EC2x.c ****  * @brief tcp 连接流程
+ 330:FML/Src/EC2x.c ****  * 
+ 331:FML/Src/EC2x.c ****  * @param fd 
+ 332:FML/Src/EC2x.c ****  * @return uint8_t 
+ 333:FML/Src/EC2x.c ****  */
+ 334:FML/Src/EC2x.c **** uint8_t ec2x_tcp_connect(int fd){
+ 843              		.loc 1 334 33 is_stmt 1 view -0
+ 844              		.cfi_startproc
+ 845              		@ args = 0, pretend = 0, frame = 8
+ 846              		@ frame_needed = 0, uses_anonymous_args = 0
+ 335:FML/Src/EC2x.c ****     static uint8_t step = 0,retry =0;
+ 847              		.loc 1 335 5 view .LVU243
+ 336:FML/Src/EC2x.c ****     reset_times = 0;
+ 848              		.loc 1 336 5 view .LVU244
+ 334:FML/Src/EC2x.c ****     static uint8_t step = 0,retry =0;
+ 849              		.loc 1 334 33 is_stmt 0 view .LVU245
+ 850 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 851              	.LCFI13:
+ 852              		.cfi_def_cfa_offset 20
+ 853              		.cfi_offset 4, -20
+ 854              		.cfi_offset 5, -16
+ 855              		.cfi_offset 6, -12
+ 856              		.cfi_offset 7, -8
+ 857              		.cfi_offset 14, -4
+ 858              		.loc 1 336 17 view .LVU246
+ 859 0002 514F     		ldr	r7, .L100
+ 860 0004 0023     		movs	r3, #0
+ 334:FML/Src/EC2x.c ****     static uint8_t step = 0,retry =0;
+ 861              		.loc 1 334 33 view .LVU247
+ 862 0006 85B0     		sub	sp, sp, #20
+ 863              	.LCFI14:
+ 864              		.cfi_def_cfa_offset 40
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 24
+
+
+ 865              		.loc 1 336 17 view .LVU248
+ 866 0008 3B70     		strb	r3, [r7]
+ 337:FML/Src/EC2x.c ****     if(fd >= sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef)){
+ 867              		.loc 1 337 5 is_stmt 1 view .LVU249
+ 868              		.loc 1 337 7 is_stmt 0 view .LVU250
+ 869 000a 68B9     		cbnz	r0, .L82
+ 338:FML/Src/EC2x.c ****         shellPrint(&shell,"no invalid ec2x device sn\r\n");
+ 339:FML/Src/EC2x.c ****         return -1;
+ 340:FML/Src/EC2x.c ****     }
+ 341:FML/Src/EC2x.c ****     while(step < 9){
+ 870              		.loc 1 341 16 view .LVU251
+ 871 000c 4F4D     		ldr	r5, .L100+4
+ 342:FML/Src/EC2x.c ****         if(reset_times > 5){
+ 343:FML/Src/EC2x.c ****             shellPrint(&shell,"TCP Connect Failed\r\n");
+ 344:FML/Src/EC2x.c ****             return 0;
+ 345:FML/Src/EC2x.c ****         }
+ 346:FML/Src/EC2x.c ****         switch (step)
+ 347:FML/Src/EC2x.c ****         {
+ 348:FML/Src/EC2x.c ****             case 0: 
+ 349:FML/Src/EC2x.c ****             {
+ 350:FML/Src/EC2x.c ****                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txms
+ 351:FML/Src/EC2x.c ****                 {    
+ 352:FML/Src/EC2x.c ****                     step++;
+ 353:FML/Src/EC2x.c ****                     retry = 0;
+ 354:FML/Src/EC2x.c ****                 }
+ 355:FML/Src/EC2x.c ****                 else
+ 356:FML/Src/EC2x.c ****                 {
+ 357:FML/Src/EC2x.c ****                     if(connectmsg_queue[step].retry_times < retry)
+ 358:FML/Src/EC2x.c ****                     {
+ 359:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 360:FML/Src/EC2x.c ****                         ec2x_reset(fd); 
+ 361:FML/Src/EC2x.c ****                         step = 0;
+ 362:FML/Src/EC2x.c ****                     }
+ 363:FML/Src/EC2x.c ****                     else{
+ 364:FML/Src/EC2x.c ****                         retry++;
+ 365:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 366:FML/Src/EC2x.c ****                     }
+ 367:FML/Src/EC2x.c ****                 }
+ 368:FML/Src/EC2x.c ****                 Delay_ms(100);
+ 369:FML/Src/EC2x.c ****             }
+ 370:FML/Src/EC2x.c ****             break;
+ 371:FML/Src/EC2x.c ****             case 1:
+ 372:FML/Src/EC2x.c ****             {
+ 373:FML/Src/EC2x.c ****                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txms
+ 374:FML/Src/EC2x.c ****                 {    
+ 375:FML/Src/EC2x.c ****                     step++;
+ 376:FML/Src/EC2x.c ****                     retry = 0;
+ 377:FML/Src/EC2x.c ****                 }
+ 378:FML/Src/EC2x.c ****                 else
+ 379:FML/Src/EC2x.c ****                 {
+ 380:FML/Src/EC2x.c ****                     if(connectmsg_queue[step].retry_times < retry){
+ 381:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 382:FML/Src/EC2x.c ****                         ec2x_reset(fd); 
+ 383:FML/Src/EC2x.c ****                         step = 0;
+ 384:FML/Src/EC2x.c ****                     }
+ 385:FML/Src/EC2x.c ****                     else{
+ 386:FML/Src/EC2x.c ****                         retry++;
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 25
+
+
+ 387:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 388:FML/Src/EC2x.c ****                     }
+ 389:FML/Src/EC2x.c ****                 }
+ 390:FML/Src/EC2x.c ****                 Delay_ms(100);
+ 391:FML/Src/EC2x.c ****             }
+ 392:FML/Src/EC2x.c ****             break;
+ 393:FML/Src/EC2x.c ****             case 2:
+ 394:FML/Src/EC2x.c ****             {
+ 395:FML/Src/EC2x.c ****                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txms
+ 396:FML/Src/EC2x.c ****                 {    
+ 397:FML/Src/EC2x.c ****                     step++;
+ 398:FML/Src/EC2x.c ****                     retry = 0;
+ 399:FML/Src/EC2x.c ****                 }
+ 400:FML/Src/EC2x.c ****                 else
+ 401:FML/Src/EC2x.c ****                 {
+ 402:FML/Src/EC2x.c ****                     if(connectmsg_queue[step].retry_times < retry){
+ 403:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 404:FML/Src/EC2x.c ****                         ec2x_reset(fd); 
+ 405:FML/Src/EC2x.c ****                         step = 0;
+ 406:FML/Src/EC2x.c ****                     }
+ 407:FML/Src/EC2x.c **** 
+ 408:FML/Src/EC2x.c ****                     else{
+ 409:FML/Src/EC2x.c ****                         retry++;
+ 410:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 411:FML/Src/EC2x.c ****                     }
+ 412:FML/Src/EC2x.c ****                 }
+ 413:FML/Src/EC2x.c ****                 Delay_ms(100);
+ 414:FML/Src/EC2x.c ****             }
+ 415:FML/Src/EC2x.c ****             break;
+ 416:FML/Src/EC2x.c ****             case 3:
+ 417:FML/Src/EC2x.c ****             {
+ 418:FML/Src/EC2x.c ****                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txms
+ 419:FML/Src/EC2x.c ****                 {    
+ 420:FML/Src/EC2x.c ****                     step += 2;
+ 421:FML/Src/EC2x.c ****                     retry = 0;
+ 422:FML/Src/EC2x.c ****                 }
+ 423:FML/Src/EC2x.c ****                 else
+ 424:FML/Src/EC2x.c ****                 {
+ 425:FML/Src/EC2x.c ****                     if(connectmsg_queue[step].retry_times < retry){
+ 426:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 427:FML/Src/EC2x.c ****                         ec2x_reset(fd); 
+ 428:FML/Src/EC2x.c ****                         step = 0;
+ 429:FML/Src/EC2x.c ****                     }
+ 430:FML/Src/EC2x.c **** 
+ 431:FML/Src/EC2x.c ****                     else{
+ 432:FML/Src/EC2x.c ****                         retry++;
+ 433:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 434:FML/Src/EC2x.c ****                     }
+ 435:FML/Src/EC2x.c ****                 }
+ 436:FML/Src/EC2x.c ****                 Delay_ms(100);                
+ 437:FML/Src/EC2x.c ****             }
+ 438:FML/Src/EC2x.c ****             break;
+ 439:FML/Src/EC2x.c ****             case 4:
+ 440:FML/Src/EC2x.c ****             {
+ 441:FML/Src/EC2x.c ****                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txms
+ 442:FML/Src/EC2x.c ****                 {    
+ 443:FML/Src/EC2x.c ****                     step++;
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 26
+
+
+ 444:FML/Src/EC2x.c ****                     retry = 0;
+ 445:FML/Src/EC2x.c ****                 }
+ 446:FML/Src/EC2x.c ****                 else
+ 447:FML/Src/EC2x.c ****                 {
+ 448:FML/Src/EC2x.c ****                     if(connectmsg_queue[step].retry_times < retry){
+ 449:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 450:FML/Src/EC2x.c ****                         ec2x_reset(fd); 
+ 451:FML/Src/EC2x.c ****                         step = 0;
+ 452:FML/Src/EC2x.c ****                     }
+ 453:FML/Src/EC2x.c ****                     else{
+ 454:FML/Src/EC2x.c ****                         retry++;
+ 455:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 456:FML/Src/EC2x.c ****                     }
+ 457:FML/Src/EC2x.c ****                 }
+ 458:FML/Src/EC2x.c ****                 Delay_ms(100);               
+ 459:FML/Src/EC2x.c ****             }
+ 460:FML/Src/EC2x.c ****             break;
+ 461:FML/Src/EC2x.c ****             case 5:
+ 462:FML/Src/EC2x.c ****             {
+ 463:FML/Src/EC2x.c ****                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txms
+ 464:FML/Src/EC2x.c ****                 {    
+ 465:FML/Src/EC2x.c ****                     step++;
+ 466:FML/Src/EC2x.c ****                     retry = 0;
+ 467:FML/Src/EC2x.c ****                 }
+ 468:FML/Src/EC2x.c ****                 else
+ 469:FML/Src/EC2x.c ****                 {
+ 470:FML/Src/EC2x.c ****                     if(connectmsg_queue[step].retry_times < retry){
+ 471:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 472:FML/Src/EC2x.c ****                         ec2x_reset(fd); 
+ 473:FML/Src/EC2x.c ****                         step = 0;
+ 474:FML/Src/EC2x.c ****                     }
+ 475:FML/Src/EC2x.c ****                     else{
+ 476:FML/Src/EC2x.c ****                         retry++;
+ 477:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 478:FML/Src/EC2x.c ****                     }
+ 479:FML/Src/EC2x.c ****                 }
+ 480:FML/Src/EC2x.c ****                 Delay_ms(100);                
+ 481:FML/Src/EC2x.c ****             }
+ 482:FML/Src/EC2x.c ****             break; 
+ 483:FML/Src/EC2x.c ****             case 6:
+ 484:FML/Src/EC2x.c ****             {
+ 485:FML/Src/EC2x.c ****                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txms
+ 486:FML/Src/EC2x.c ****                 {    
+ 487:FML/Src/EC2x.c ****                     step++;
+ 488:FML/Src/EC2x.c ****                     retry = 0;
+ 489:FML/Src/EC2x.c ****                 }
+ 490:FML/Src/EC2x.c ****                 else
+ 491:FML/Src/EC2x.c ****                 {
+ 492:FML/Src/EC2x.c ****                     if(connectmsg_queue[step].retry_times < retry){
+ 493:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 494:FML/Src/EC2x.c ****                         ec2x_reset(fd); 
+ 495:FML/Src/EC2x.c ****                         step = 0;
+ 496:FML/Src/EC2x.c ****                     }
+ 497:FML/Src/EC2x.c ****                     else{
+ 498:FML/Src/EC2x.c ****                         retry++;
+ 499:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 500:FML/Src/EC2x.c ****                     }
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 27
+
+
+ 501:FML/Src/EC2x.c ****                 }
+ 502:FML/Src/EC2x.c ****                 Delay_ms(100);
+ 503:FML/Src/EC2x.c ****             }
+ 504:FML/Src/EC2x.c ****             break; 
+ 505:FML/Src/EC2x.c ****             case 7:
+ 506:FML/Src/EC2x.c ****             {
+ 507:FML/Src/EC2x.c ****                 if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txms
+ 872              		.loc 1 507 20 view .LVU252
+ 873 000e 504C     		ldr	r4, .L100+8
+ 874              	.LVL73:
+ 875              	.L50:
+ 341:FML/Src/EC2x.c ****         if(reset_times > 5){
+ 876              		.loc 1 341 10 is_stmt 1 view .LVU253
+ 341:FML/Src/EC2x.c ****         if(reset_times > 5){
+ 877              		.loc 1 341 16 is_stmt 0 view .LVU254
+ 878 0010 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 341:FML/Src/EC2x.c ****         if(reset_times > 5){
+ 879              		.loc 1 341 10 view .LVU255
+ 880 0012 082B     		cmp	r3, #8
+ 881 0014 0DD8     		bhi	.L49
+ 342:FML/Src/EC2x.c ****         if(reset_times > 5){
+ 882              		.loc 1 342 9 is_stmt 1 view .LVU256
+ 342:FML/Src/EC2x.c ****         if(reset_times > 5){
+ 883              		.loc 1 342 11 is_stmt 0 view .LVU257
+ 884 0016 3A78     		ldrb	r2, [r7]	@ zero_extendqisi2
+ 885 0018 052A     		cmp	r2, #5
+ 886 001a 0CD9     		bls	.L52
+ 343:FML/Src/EC2x.c ****             return 0;
+ 887              		.loc 1 343 13 is_stmt 1 view .LVU258
+ 888 001c 4D48     		ldr	r0, .L100+12
+ 889 001e 4E49     		ldr	r1, .L100+16
+ 890 0020 FFF7FEFF 		bl	shellPrint
+ 891              	.LVL74:
+ 344:FML/Src/EC2x.c ****         }
+ 892              		.loc 1 344 13 view .LVU259
+ 344:FML/Src/EC2x.c ****         }
+ 893              		.loc 1 344 20 is_stmt 0 view .LVU260
+ 894 0024 0020     		movs	r0, #0
+ 895 0026 04E0     		b	.L49
+ 896              	.LVL75:
+ 897              	.L82:
+ 338:FML/Src/EC2x.c ****         return -1;
+ 898              		.loc 1 338 9 is_stmt 1 view .LVU261
+ 899 0028 4A48     		ldr	r0, .L100+12
+ 900              	.LVL76:
+ 338:FML/Src/EC2x.c ****         return -1;
+ 901              		.loc 1 338 9 is_stmt 0 view .LVU262
+ 902 002a 4C49     		ldr	r1, .L100+20
+ 903 002c FFF7FEFF 		bl	shellPrint
+ 904              	.LVL77:
+ 339:FML/Src/EC2x.c ****     }
+ 905              		.loc 1 339 9 is_stmt 1 view .LVU263
+ 339:FML/Src/EC2x.c ****     }
+ 906              		.loc 1 339 16 is_stmt 0 view .LVU264
+ 907 0030 FF20     		movs	r0, #255
+ 908              	.L49:
+ 508:FML/Src/EC2x.c ****                 {    
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 28
+
+
+ 509:FML/Src/EC2x.c ****                     step++;
+ 510:FML/Src/EC2x.c ****                     retry = 0;
+ 511:FML/Src/EC2x.c ****                 }
+ 512:FML/Src/EC2x.c ****                 else
+ 513:FML/Src/EC2x.c ****                 {
+ 514:FML/Src/EC2x.c ****                     if(connectmsg_queue[step].retry_times < retry){
+ 515:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 516:FML/Src/EC2x.c ****                         ec2x_reset(fd); 
+ 517:FML/Src/EC2x.c ****                         step = 0;
+ 518:FML/Src/EC2x.c ****                     }
+ 519:FML/Src/EC2x.c ****                     else{
+ 520:FML/Src/EC2x.c ****                         retry++;
+ 521:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 522:FML/Src/EC2x.c ****                     }
+ 523:FML/Src/EC2x.c ****                 }
+ 524:FML/Src/EC2x.c ****                 Delay_ms(100);
+ 525:FML/Src/EC2x.c ****             }
+ 526:FML/Src/EC2x.c ****             break;  
+ 527:FML/Src/EC2x.c ****             case 8:
+ 528:FML/Src/EC2x.c ****             {
+ 529:FML/Src/EC2x.c ****                 shellPrint(&shell,"tcp is connected\r\n");
+ 530:FML/Src/EC2x.c ****                 return 1;
+ 531:FML/Src/EC2x.c ****             }
+ 532:FML/Src/EC2x.c ****             break; 
+ 533:FML/Src/EC2x.c ****             default:
+ 534:FML/Src/EC2x.c ****                 break;
+ 535:FML/Src/EC2x.c ****         }
+ 536:FML/Src/EC2x.c ****     }
+ 537:FML/Src/EC2x.c **** }
+ 909              		.loc 1 537 1 view .LVU265
+ 910 0032 05B0     		add	sp, sp, #20
+ 911              	.LCFI15:
+ 912              		.cfi_remember_state
+ 913              		.cfi_def_cfa_offset 20
+ 914              		@ sp needed
+ 915 0034 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 916              	.L52:
+ 917              	.LCFI16:
+ 918              		.cfi_restore_state
+ 346:FML/Src/EC2x.c ****         {
+ 919              		.loc 1 346 9 is_stmt 1 view .LVU266
+ 920 0036 013B     		subs	r3, r3, #1
+ 921 0038 072B     		cmp	r3, #7
+ 922 003a 05D8     		bhi	.L53
+ 923 003c DFE803F0 		tbb	[pc, r3]
+ 924              	.L55:
+ 925 0040 21       		.byte	(.L62-.L55)/2
+ 926 0041 2A       		.byte	(.L61-.L55)/2
+ 927 0042 33       		.byte	(.L60-.L55)/2
+ 928 0043 49       		.byte	(.L59-.L55)/2
+ 929 0044 52       		.byte	(.L58-.L55)/2
+ 930 0045 5B       		.byte	(.L57-.L55)/2
+ 931 0046 64       		.byte	(.L56-.L55)/2
+ 932 0047 7E       		.byte	(.L54-.L55)/2
+ 933              		.p2align 1
+ 934              	.L53:
+ 350:FML/Src/EC2x.c ****                 {    
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 29
+
+
+ 935              		.loc 1 350 17 view .LVU267
+ 350:FML/Src/EC2x.c ****                 {    
+ 936              		.loc 1 350 20 is_stmt 0 view .LVU268
+ 937 0048 2168     		ldr	r1, [r4]
+ 350:FML/Src/EC2x.c ****                 {    
+ 938              		.loc 1 350 66 view .LVU269
+ 939 004a 0391     		str	r1, [sp, #12]
+ 940 004c 0846     		mov	r0, r1
+ 941 004e FFF7FEFF 		bl	strlen
+ 942              	.LVL78:
+ 350:FML/Src/EC2x.c ****                 {    
+ 943              		.loc 1 350 20 view .LVU270
+ 944 0052 2389     		ldrh	r3, [r4, #8]
+ 945 0054 0093     		str	r3, [sp]
+ 946 0056 6368     		ldr	r3, [r4, #4]
+ 947              	.L94:
+ 507:FML/Src/EC2x.c ****                 {    
+ 948              		.loc 1 507 20 view .LVU271
+ 949 0058 0399     		ldr	r1, [sp, #12]
+ 950 005a 82B2     		uxth	r2, r0
+ 951 005c 0020     		movs	r0, #0
+ 952 005e FFF7FEFF 		bl	ec2x_cmd_send
+ 953              	.LVL79:
+ 954 0062 3F49     		ldr	r1, .L100+24
+ 507:FML/Src/EC2x.c ****                 {    
+ 955              		.loc 1 507 19 view .LVU272
+ 956 0064 0646     		mov	r6, r0
+ 957 0066 0028     		cmp	r0, #0
+ 958 0068 57D0     		beq	.L78
+ 509:FML/Src/EC2x.c ****                     retry = 0;
+ 959              		.loc 1 509 21 is_stmt 1 view .LVU273
+ 509:FML/Src/EC2x.c ****                     retry = 0;
+ 960              		.loc 1 509 25 is_stmt 0 view .LVU274
+ 961 006a 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 962 006c 0133     		adds	r3, r3, #1
+ 963 006e 2CE0     		b	.L85
+ 964              	.L65:
+ 364:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 965              		.loc 1 364 25 is_stmt 1 view .LVU275
+ 364:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 966              		.loc 1 364 30 is_stmt 0 view .LVU276
+ 967 0070 0133     		adds	r3, r3, #1
+ 365:FML/Src/EC2x.c ****                     }
+ 968              		.loc 1 365 25 view .LVU277
+ 969 0072 C820     		movs	r0, #200
+ 364:FML/Src/EC2x.c ****                         Delay_ms(200);
+ 970              		.loc 1 364 30 view .LVU278
+ 971 0074 0B70     		strb	r3, [r1]
+ 365:FML/Src/EC2x.c ****                     }
+ 972              		.loc 1 365 25 is_stmt 1 view .LVU279
+ 973 0076 FFF7FEFF 		bl	Delay_ms
+ 974              	.LVL80:
+ 975              	.L64:
+ 368:FML/Src/EC2x.c ****             }
+ 976              		.loc 1 368 17 view .LVU280
+ 977 007a 6420     		movs	r0, #100
+ 978 007c FFF7FEFF 		bl	Delay_ms
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 30
+
+
+ 979              	.LVL81:
+ 370:FML/Src/EC2x.c ****             case 1:
+ 980              		.loc 1 370 13 view .LVU281
+ 981 0080 C6E7     		b	.L50
+ 982              	.L62:
+ 373:FML/Src/EC2x.c ****                 {    
+ 983              		.loc 1 373 17 view .LVU282
+ 373:FML/Src/EC2x.c ****                 {    
+ 984              		.loc 1 373 20 is_stmt 0 view .LVU283
+ 985 0082 E168     		ldr	r1, [r4, #12]
+ 373:FML/Src/EC2x.c ****                 {    
+ 986              		.loc 1 373 66 view .LVU284
+ 987 0084 0391     		str	r1, [sp, #12]
+ 988 0086 0846     		mov	r0, r1
+ 989 0088 FFF7FEFF 		bl	strlen
+ 990              	.LVL82:
+ 373:FML/Src/EC2x.c ****                 {    
+ 991              		.loc 1 373 20 view .LVU285
+ 992 008c 2389     		ldrh	r3, [r4, #8]
+ 993 008e 0093     		str	r3, [sp]
+ 994 0090 2369     		ldr	r3, [r4, #16]
+ 995 0092 E1E7     		b	.L94
+ 996              	.L61:
+ 395:FML/Src/EC2x.c ****                 {    
+ 997              		.loc 1 395 17 is_stmt 1 view .LVU286
+ 395:FML/Src/EC2x.c ****                 {    
+ 998              		.loc 1 395 20 is_stmt 0 view .LVU287
+ 999 0094 A169     		ldr	r1, [r4, #24]
+ 395:FML/Src/EC2x.c ****                 {    
+ 1000              		.loc 1 395 66 view .LVU288
+ 1001 0096 0391     		str	r1, [sp, #12]
+ 1002 0098 0846     		mov	r0, r1
+ 1003 009a FFF7FEFF 		bl	strlen
+ 1004              	.LVL83:
+ 395:FML/Src/EC2x.c ****                 {    
+ 1005              		.loc 1 395 20 view .LVU289
+ 1006 009e 2389     		ldrh	r3, [r4, #8]
+ 1007 00a0 0093     		str	r3, [sp]
+ 1008 00a2 E369     		ldr	r3, [r4, #28]
+ 1009 00a4 D8E7     		b	.L94
+ 1010              	.L60:
+ 418:FML/Src/EC2x.c ****                 {    
+ 1011              		.loc 1 418 17 is_stmt 1 view .LVU290
+ 418:FML/Src/EC2x.c ****                 {    
+ 1012              		.loc 1 418 20 is_stmt 0 view .LVU291
+ 1013 00a6 616A     		ldr	r1, [r4, #36]
+ 418:FML/Src/EC2x.c ****                 {    
+ 1014              		.loc 1 418 66 view .LVU292
+ 1015 00a8 0391     		str	r1, [sp, #12]
+ 1016 00aa 0846     		mov	r0, r1
+ 1017 00ac FFF7FEFF 		bl	strlen
+ 1018              	.LVL84:
+ 418:FML/Src/EC2x.c ****                 {    
+ 1019              		.loc 1 418 20 view .LVU293
+ 1020 00b0 2389     		ldrh	r3, [r4, #8]
+ 1021 00b2 0399     		ldr	r1, [sp, #12]
+ 1022 00b4 0093     		str	r3, [sp]
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 31
+
+
+ 1023 00b6 82B2     		uxth	r2, r0
+ 1024 00b8 A36A     		ldr	r3, [r4, #40]
+ 1025 00ba 0020     		movs	r0, #0
+ 1026 00bc FFF7FEFF 		bl	ec2x_cmd_send
+ 1027              	.LVL85:
+ 1028 00c0 2749     		ldr	r1, .L100+24
+ 418:FML/Src/EC2x.c ****                 {    
+ 1029              		.loc 1 418 19 view .LVU294
+ 1030 00c2 0646     		mov	r6, r0
+ 1031 00c4 48B3     		cbz	r0, .L78
+ 420:FML/Src/EC2x.c ****                     retry = 0;
+ 1032              		.loc 1 420 21 is_stmt 1 view .LVU295
+ 420:FML/Src/EC2x.c ****                     retry = 0;
+ 1033              		.loc 1 420 26 is_stmt 0 view .LVU296
+ 1034 00c6 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 1035 00c8 0233     		adds	r3, r3, #2
+ 1036              	.L85:
+ 509:FML/Src/EC2x.c ****                     retry = 0;
+ 1037              		.loc 1 509 25 view .LVU297
+ 1038 00ca 2B70     		strb	r3, [r5]
+ 510:FML/Src/EC2x.c ****                 }
+ 1039              		.loc 1 510 21 is_stmt 1 view .LVU298
+ 510:FML/Src/EC2x.c ****                 }
+ 1040              		.loc 1 510 27 is_stmt 0 view .LVU299
+ 1041 00cc 0023     		movs	r3, #0
+ 1042 00ce 0B70     		strb	r3, [r1]
+ 1043 00d0 D3E7     		b	.L64
+ 1044              	.L59:
+ 441:FML/Src/EC2x.c ****                 {    
+ 1045              		.loc 1 441 17 is_stmt 1 view .LVU300
+ 441:FML/Src/EC2x.c ****                 {    
+ 1046              		.loc 1 441 20 is_stmt 0 view .LVU301
+ 1047 00d2 216B     		ldr	r1, [r4, #48]
+ 441:FML/Src/EC2x.c ****                 {    
+ 1048              		.loc 1 441 66 view .LVU302
+ 1049 00d4 0391     		str	r1, [sp, #12]
+ 1050 00d6 0846     		mov	r0, r1
+ 1051 00d8 FFF7FEFF 		bl	strlen
+ 1052              	.LVL86:
+ 441:FML/Src/EC2x.c ****                 {    
+ 1053              		.loc 1 441 20 view .LVU303
+ 1054 00dc 2389     		ldrh	r3, [r4, #8]
+ 1055 00de 0093     		str	r3, [sp]
+ 1056 00e0 636B     		ldr	r3, [r4, #52]
+ 1057 00e2 B9E7     		b	.L94
+ 1058              	.L58:
+ 463:FML/Src/EC2x.c ****                 {    
+ 1059              		.loc 1 463 17 is_stmt 1 view .LVU304
+ 463:FML/Src/EC2x.c ****                 {    
+ 1060              		.loc 1 463 20 is_stmt 0 view .LVU305
+ 1061 00e4 E16B     		ldr	r1, [r4, #60]
+ 463:FML/Src/EC2x.c ****                 {    
+ 1062              		.loc 1 463 66 view .LVU306
+ 1063 00e6 0391     		str	r1, [sp, #12]
+ 1064 00e8 0846     		mov	r0, r1
+ 1065 00ea FFF7FEFF 		bl	strlen
+ 1066              	.LVL87:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 32
+
+
+ 463:FML/Src/EC2x.c ****                 {    
+ 1067              		.loc 1 463 20 view .LVU307
+ 1068 00ee 2389     		ldrh	r3, [r4, #8]
+ 1069 00f0 0093     		str	r3, [sp]
+ 1070 00f2 236C     		ldr	r3, [r4, #64]
+ 1071 00f4 B0E7     		b	.L94
+ 1072              	.L57:
+ 485:FML/Src/EC2x.c ****                 {    
+ 1073              		.loc 1 485 17 is_stmt 1 view .LVU308
+ 485:FML/Src/EC2x.c ****                 {    
+ 1074              		.loc 1 485 20 is_stmt 0 view .LVU309
+ 1075 00f6 A16C     		ldr	r1, [r4, #72]
+ 485:FML/Src/EC2x.c ****                 {    
+ 1076              		.loc 1 485 66 view .LVU310
+ 1077 00f8 0391     		str	r1, [sp, #12]
+ 1078 00fa 0846     		mov	r0, r1
+ 1079 00fc FFF7FEFF 		bl	strlen
+ 1080              	.LVL88:
+ 485:FML/Src/EC2x.c ****                 {    
+ 1081              		.loc 1 485 20 view .LVU311
+ 1082 0100 2389     		ldrh	r3, [r4, #8]
+ 1083 0102 0093     		str	r3, [sp]
+ 1084 0104 E36C     		ldr	r3, [r4, #76]
+ 1085 0106 A7E7     		b	.L94
+ 1086              	.L56:
+ 507:FML/Src/EC2x.c ****                 {    
+ 1087              		.loc 1 507 17 is_stmt 1 view .LVU312
+ 507:FML/Src/EC2x.c ****                 {    
+ 1088              		.loc 1 507 20 is_stmt 0 view .LVU313
+ 1089 0108 616D     		ldr	r1, [r4, #84]
+ 507:FML/Src/EC2x.c ****                 {    
+ 1090              		.loc 1 507 66 view .LVU314
+ 1091 010a 0391     		str	r1, [sp, #12]
+ 1092 010c 0846     		mov	r0, r1
+ 1093 010e FFF7FEFF 		bl	strlen
+ 1094              	.LVL89:
+ 507:FML/Src/EC2x.c ****                 {    
+ 1095              		.loc 1 507 20 view .LVU315
+ 1096 0112 2389     		ldrh	r3, [r4, #8]
+ 1097 0114 0093     		str	r3, [sp]
+ 1098 0116 A36D     		ldr	r3, [r4, #88]
+ 1099 0118 9EE7     		b	.L94
+ 1100              	.L78:
+ 514:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 1101              		.loc 1 514 21 is_stmt 1 view .LVU316
+ 514:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 1102              		.loc 1 514 46 is_stmt 0 view .LVU317
+ 1103 011a 2A78     		ldrb	r2, [r5]	@ zero_extendqisi2
+ 514:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 1104              		.loc 1 514 59 view .LVU318
+ 1105 011c 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 514:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ 1106              		.loc 1 514 46 view .LVU319
+ 1107 011e 0C20     		movs	r0, #12
+ 1108 0120 4243     		muls	r2, r0, r2
+ 1109 0122 A018     		adds	r0, r4, r2
+ 514:FML/Src/EC2x.c ****                         shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 33
+
+
+ 1110              		.loc 1 514 23 view .LVU320
+ 1111 0124 807A     		ldrb	r0, [r0, #10]	@ zero_extendqisi2
+ 1112 0126 9842     		cmp	r0, r3
+ 1113 0128 A2D2     		bcs	.L65
+ 515:FML/Src/EC2x.c ****                         ec2x_reset(fd); 
+ 1114              		.loc 1 515 25 is_stmt 1 view .LVU321
+ 1115 012a A258     		ldr	r2, [r4, r2]
+ 1116 012c 0D49     		ldr	r1, .L100+28
+ 1117 012e 0948     		ldr	r0, .L100+12
+ 1118 0130 FFF7FEFF 		bl	shellPrint
+ 1119              	.LVL90:
+ 516:FML/Src/EC2x.c ****                         step = 0;
+ 1120              		.loc 1 516 25 view .LVU322
+ 1121 0134 FFF7FEFF 		bl	ec2x_reset.constprop.0
+ 1122              	.LVL91:
+ 517:FML/Src/EC2x.c ****                     }
+ 1123              		.loc 1 517 25 view .LVU323
+ 517:FML/Src/EC2x.c ****                     }
+ 1124              		.loc 1 517 30 is_stmt 0 view .LVU324
+ 1125 0138 2E70     		strb	r6, [r5]
+ 1126 013a 9EE7     		b	.L64
+ 1127              	.L54:
+ 529:FML/Src/EC2x.c ****                 return 1;
+ 1128              		.loc 1 529 17 is_stmt 1 view .LVU325
+ 1129 013c 0548     		ldr	r0, .L100+12
+ 1130 013e 0A49     		ldr	r1, .L100+32
+ 1131 0140 FFF7FEFF 		bl	shellPrint
+ 1132              	.LVL92:
+ 530:FML/Src/EC2x.c ****             }
+ 1133              		.loc 1 530 17 view .LVU326
+ 530:FML/Src/EC2x.c ****             }
+ 1134              		.loc 1 530 24 is_stmt 0 view .LVU327
+ 1135 0144 0120     		movs	r0, #1
+ 1136 0146 74E7     		b	.L49
+ 1137              	.L101:
+ 1138              		.align	2
+ 1139              	.L100:
+ 1140 0148 00000000 		.word	.LANCHOR1
+ 1141 014c 00000000 		.word	.LANCHOR3
+ 1142 0150 00000000 		.word	.LANCHOR2
+ 1143 0154 00000000 		.word	shell
+ 1144 0158 1C000000 		.word	.LC3
+ 1145 015c 00000000 		.word	.LC2
+ 1146 0160 00000000 		.word	.LANCHOR4
+ 1147 0164 31000000 		.word	.LC4
+ 1148 0168 3A000000 		.word	.LC5
+ 1149              		.cfi_endproc
+ 1150              	.LFE299:
+ 1152              		.section	.rodata.EC2x_Test.str1.1,"aMS",%progbits,1
+ 1153              	.LC6:
+ 1154 0000 7463705F 		.ascii	"tcp_connect\000"
+ 1154      636F6E6E 
+ 1154      65637400 
+ 1155              	.LC7:
+ 1156 000c 45433278 		.ascii	"EC2x CMD Test OK\015\012\000"
+ 1156      20434D44 
+ 1156      20546573 
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 34
+
+
+ 1156      74204F4B 
+ 1156      0D0A00
+ 1157              	.LC8:
+ 1158 001f 45433278 		.ascii	"EC2x CMD Test Failed\015\012\000"
+ 1158      20434D44 
+ 1158      20546573 
+ 1158      74204661 
+ 1158      696C6564 
+ 1159              		.section	.text.EC2x_Test,"ax",%progbits
+ 1160              		.align	1
+ 1161              		.global	EC2x_Test
+ 1162              		.syntax unified
+ 1163              		.thumb
+ 1164              		.thumb_func
+ 1166              	EC2x_Test:
+ 1167              	.LVL93:
+ 1168              	.LFB300:
+ 538:FML/Src/EC2x.c **** /*------------------------------------test------------------------------------*/
+ 539:FML/Src/EC2x.c **** 
+ 540:FML/Src/EC2x.c **** /**
+ 541:FML/Src/EC2x.c ****  * @brief 
+ 542:FML/Src/EC2x.c ****  * 
+ 543:FML/Src/EC2x.c ****  * @param fd 
+ 544:FML/Src/EC2x.c ****  * @param tx_buff 
+ 545:FML/Src/EC2x.c ****  * @param expect_reply 
+ 546:FML/Src/EC2x.c ****  * @param timeout 
+ 547:FML/Src/EC2x.c ****  */
+ 548:FML/Src/EC2x.c **** void EC2x_Test(int fd,char *tx_buff,char *expect_reply,uint16_t timeout)
+ 549:FML/Src/EC2x.c **** {
+ 1169              		.loc 1 549 1 is_stmt 1 view -0
+ 1170              		.cfi_startproc
+ 1171              		@ args = 0, pretend = 0, frame = 40
+ 1172              		@ frame_needed = 0, uses_anonymous_args = 0
+ 550:FML/Src/EC2x.c ****     uint8_t tx_data[20] = {0xff,};
+ 1173              		.loc 1 550 5 view .LVU329
+ 549:FML/Src/EC2x.c ****     uint8_t tx_data[20] = {0xff,};
+ 1174              		.loc 1 549 1 is_stmt 0 view .LVU330
+ 1175 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 1176              	.LCFI17:
+ 1177              		.cfi_def_cfa_offset 28
+ 1178              		.cfi_offset 4, -28
+ 1179              		.cfi_offset 5, -24
+ 1180              		.cfi_offset 6, -20
+ 1181              		.cfi_offset 7, -16
+ 1182              		.cfi_offset 8, -12
+ 1183              		.cfi_offset 9, -8
+ 1184              		.cfi_offset 14, -4
+ 1185 0004 8DB0     		sub	sp, sp, #52
+ 1186              	.LCFI18:
+ 1187              		.cfi_def_cfa_offset 80
+ 549:FML/Src/EC2x.c ****     uint8_t tx_data[20] = {0xff,};
+ 1188              		.loc 1 549 1 view .LVU331
+ 1189 0006 0D46     		mov	r5, r1
+ 1190              		.loc 1 550 13 view .LVU332
+ 1191 0008 FF24     		movs	r4, #255
+ 1192 000a 0021     		movs	r1, #0
+ 1193              	.LVL94:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 35
+
+
+ 549:FML/Src/EC2x.c ****     uint8_t tx_data[20] = {0xff,};
+ 1194              		.loc 1 549 1 view .LVU333
+ 1195 000c 0646     		mov	r6, r0
+ 1196 000e 1746     		mov	r7, r2
+ 1197              		.loc 1 550 13 view .LVU334
+ 1198 0010 03A8     		add	r0, sp, #12
+ 1199              	.LVL95:
+ 1200              		.loc 1 550 13 view .LVU335
+ 1201 0012 1022     		movs	r2, #16
+ 1202              	.LVL96:
+ 549:FML/Src/EC2x.c ****     uint8_t tx_data[20] = {0xff,};
+ 1203              		.loc 1 549 1 view .LVU336
+ 1204 0014 9846     		mov	r8, r3
+ 1205              		.loc 1 550 13 view .LVU337
+ 1206 0016 0294     		str	r4, [sp, #8]
+ 1207 0018 FFF7FEFF 		bl	memset
+ 1208              	.LVL97:
+ 551:FML/Src/EC2x.c ****     uint8_t reply_data[20] = {0xff,};
+ 1209              		.loc 1 551 5 is_stmt 1 view .LVU338
+ 1210              		.loc 1 551 13 is_stmt 0 view .LVU339
+ 1211 001c 0021     		movs	r1, #0
+ 1212 001e 1022     		movs	r2, #16
+ 1213 0020 08A8     		add	r0, sp, #32
+ 1214 0022 0794     		str	r4, [sp, #28]
+ 1215 0024 FFF7FEFF 		bl	memset
+ 1216              	.LVL98:
+ 552:FML/Src/EC2x.c ****     uint8_t tx_len = 0,reply_len = 0;
+ 1217              		.loc 1 552 5 is_stmt 1 view .LVU340
+ 553:FML/Src/EC2x.c ****     tx_len = strlen(tx_buff);
+ 1218              		.loc 1 553 5 view .LVU341
+ 554:FML/Src/EC2x.c ****     reply_len = strlen(expect_reply);
+ 1219              		.loc 1 554 5 view .LVU342
+ 555:FML/Src/EC2x.c ****     if(strcmp(tx_buff,"tcp_connect")==0){
+ 1220              		.loc 1 555 5 view .LVU343
+ 1221              		.loc 1 555 8 is_stmt 0 view .LVU344
+ 1222 0028 1F49     		ldr	r1, .L106
+ 1223 002a 2846     		mov	r0, r5
+ 1224 002c FFF7FEFF 		bl	strcmp
+ 1225              	.LVL99:
+ 1226              		.loc 1 555 7 view .LVU345
+ 1227 0030 28B9     		cbnz	r0, .L103
+ 556:FML/Src/EC2x.c ****         ec2x_tcp_connect(fd);
+ 1228              		.loc 1 556 9 is_stmt 1 view .LVU346
+ 1229 0032 3046     		mov	r0, r6
+ 1230 0034 FFF7FEFF 		bl	ec2x_tcp_connect
+ 1231              	.LVL100:
+ 1232              	.L102:
+ 557:FML/Src/EC2x.c ****     }
+ 558:FML/Src/EC2x.c ****     else{
+ 559:FML/Src/EC2x.c ****         memcpy(tx_data,tx_buff,tx_len);
+ 560:FML/Src/EC2x.c ****         tx_data[tx_len] = 0x0D;
+ 561:FML/Src/EC2x.c ****         tx_data[tx_len+1] = 0x0A;
+ 562:FML/Src/EC2x.c ****         tx_len += 2;
+ 563:FML/Src/EC2x.c ****         memcpy(reply_data,expect_reply,reply_len);
+ 564:FML/Src/EC2x.c **** 
+ 565:FML/Src/EC2x.c ****         if(ec2x_cmd_send(fd,tx_data,tx_len,reply_data,timeout)){
+ 566:FML/Src/EC2x.c ****             shellPrint(&shell,"EC2x CMD Test OK\r\n");
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 36
+
+
+ 567:FML/Src/EC2x.c ****             test_ok_cnt++;
+ 568:FML/Src/EC2x.c ****         }
+ 569:FML/Src/EC2x.c ****         else
+ 570:FML/Src/EC2x.c ****             shellPrint(&shell,"EC2x CMD Test Failed\r\n");
+ 571:FML/Src/EC2x.c ****     }
+ 572:FML/Src/EC2x.c **** }
+ 1233              		.loc 1 572 1 is_stmt 0 view .LVU347
+ 1234 0038 0DB0     		add	sp, sp, #52
+ 1235              	.LCFI19:
+ 1236              		.cfi_remember_state
+ 1237              		.cfi_def_cfa_offset 28
+ 1238              		@ sp needed
+ 1239 003a BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 1240              	.LVL101:
+ 1241              	.L103:
+ 1242              	.LCFI20:
+ 1243              		.cfi_restore_state
+ 553:FML/Src/EC2x.c ****     reply_len = strlen(expect_reply);
+ 1244              		.loc 1 553 14 view .LVU348
+ 1245 003e 2846     		mov	r0, r5
+ 1246 0040 FFF7FEFF 		bl	strlen
+ 1247              	.LVL102:
+ 1248 0044 0446     		mov	r4, r0
+ 554:FML/Src/EC2x.c ****     if(strcmp(tx_buff,"tcp_connect")==0){
+ 1249              		.loc 1 554 17 view .LVU349
+ 1250 0046 3846     		mov	r0, r7
+ 1251 0048 FFF7FEFF 		bl	strlen
+ 1252              	.LVL103:
+ 1253 004c E4B2     		uxtb	r4, r4
+ 1254 004e 8146     		mov	r9, r0
+ 559:FML/Src/EC2x.c ****         tx_data[tx_len] = 0x0D;
+ 1255              		.loc 1 559 9 is_stmt 1 view .LVU350
+ 1256 0050 2246     		mov	r2, r4
+ 1257 0052 2946     		mov	r1, r5
+ 1258 0054 02A8     		add	r0, sp, #8
+ 1259 0056 FFF7FEFF 		bl	memcpy
+ 1260              	.LVL104:
+ 560:FML/Src/EC2x.c ****         tx_data[tx_len+1] = 0x0A;
+ 1261              		.loc 1 560 9 view .LVU351
+ 560:FML/Src/EC2x.c ****         tx_data[tx_len+1] = 0x0A;
+ 1262              		.loc 1 560 25 is_stmt 0 view .LVU352
+ 1263 005a 04F13003 		add	r3, r4, #48
+ 1264 005e 6B44     		add	r3, sp, r3
+ 1265 0060 0D22     		movs	r2, #13
+ 1266 0062 03F8282C 		strb	r2, [r3, #-40]
+ 561:FML/Src/EC2x.c ****         tx_len += 2;
+ 1267              		.loc 1 561 9 is_stmt 1 view .LVU353
+ 561:FML/Src/EC2x.c ****         tx_len += 2;
+ 1268              		.loc 1 561 27 is_stmt 0 view .LVU354
+ 1269 0066 0A22     		movs	r2, #10
+ 1270 0068 03F8272C 		strb	r2, [r3, #-39]
+ 562:FML/Src/EC2x.c ****         memcpy(reply_data,expect_reply,reply_len);
+ 1271              		.loc 1 562 9 is_stmt 1 view .LVU355
+ 1272              	.LVL105:
+ 563:FML/Src/EC2x.c **** 
+ 1273              		.loc 1 563 9 view .LVU356
+ 1274 006c 3946     		mov	r1, r7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 37
+
+
+ 1275 006e 5FFA89F2 		uxtb	r2, r9
+ 1276 0072 07A8     		add	r0, sp, #28
+ 1277 0074 FFF7FEFF 		bl	memcpy
+ 1278              	.LVL106:
+ 565:FML/Src/EC2x.c ****             shellPrint(&shell,"EC2x CMD Test OK\r\n");
+ 1279              		.loc 1 565 9 view .LVU357
+ 562:FML/Src/EC2x.c ****         memcpy(reply_data,expect_reply,reply_len);
+ 1280              		.loc 1 562 16 is_stmt 0 view .LVU358
+ 1281 0078 A21C     		adds	r2, r4, #2
+ 565:FML/Src/EC2x.c ****             shellPrint(&shell,"EC2x CMD Test OK\r\n");
+ 1282              		.loc 1 565 12 view .LVU359
+ 1283 007a CDF80080 		str	r8, [sp]
+ 1284 007e 07AB     		add	r3, sp, #28
+ 1285 0080 D2B2     		uxtb	r2, r2
+ 1286 0082 02A9     		add	r1, sp, #8
+ 1287 0084 3046     		mov	r0, r6
+ 1288 0086 FFF7FEFF 		bl	ec2x_cmd_send
+ 1289              	.LVL107:
+ 565:FML/Src/EC2x.c ****             shellPrint(&shell,"EC2x CMD Test OK\r\n");
+ 1290              		.loc 1 565 11 view .LVU360
+ 1291 008a 40B1     		cbz	r0, .L105
+ 566:FML/Src/EC2x.c ****             test_ok_cnt++;
+ 1292              		.loc 1 566 13 is_stmt 1 view .LVU361
+ 1293 008c 0749     		ldr	r1, .L106+4
+ 1294 008e 0848     		ldr	r0, .L106+8
+ 1295 0090 FFF7FEFF 		bl	shellPrint
+ 1296              	.LVL108:
+ 567:FML/Src/EC2x.c ****         }
+ 1297              		.loc 1 567 13 view .LVU362
+ 567:FML/Src/EC2x.c ****         }
+ 1298              		.loc 1 567 24 is_stmt 0 view .LVU363
+ 1299 0094 074A     		ldr	r2, .L106+12
+ 1300 0096 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1301 0098 0133     		adds	r3, r3, #1
+ 1302 009a 1370     		strb	r3, [r2]
+ 1303 009c CCE7     		b	.L102
+ 1304              	.L105:
+ 570:FML/Src/EC2x.c ****     }
+ 1305              		.loc 1 570 13 is_stmt 1 view .LVU364
+ 1306 009e 0649     		ldr	r1, .L106+16
+ 1307 00a0 0348     		ldr	r0, .L106+8
+ 1308 00a2 FFF7FEFF 		bl	shellPrint
+ 1309              	.LVL109:
+ 1310              		.loc 1 572 1 is_stmt 0 view .LVU365
+ 1311 00a6 C7E7     		b	.L102
+ 1312              	.L107:
+ 1313              		.align	2
+ 1314              	.L106:
+ 1315 00a8 00000000 		.word	.LC6
+ 1316 00ac 0C000000 		.word	.LC7
+ 1317 00b0 00000000 		.word	shell
+ 1318 00b4 00000000 		.word	test_ok_cnt
+ 1319 00b8 1F000000 		.word	.LC8
+ 1320              		.cfi_endproc
+ 1321              	.LFE300:
+ 1323              		.section	.rodata.ec2x_open.str1.1,"aMS",%progbits,1
+ 1324              	.LC9:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 38
+
+
+ 1325 0000 65633278 		.ascii	"ec2x initial OK\015\012\000"
+ 1325      20696E69 
+ 1325      7469616C 
+ 1325      204F4B0D 
+ 1325      0A00
+ 1326              	.LC10:
+ 1327 0012 65633278 		.ascii	"ec2x initial not Failed\015\012\000"
+ 1327      20696E69 
+ 1327      7469616C 
+ 1327      206E6F74 
+ 1327      20466169 
+ 1328              		.section	.text.ec2x_open,"ax",%progbits
+ 1329              		.align	1
+ 1330              		.global	ec2x_open
+ 1331              		.syntax unified
+ 1332              		.thumb
+ 1333              		.thumb_func
+ 1335              	ec2x_open:
+ 1336              	.LVL110:
+ 1337              	.LFB293:
+ 148:FML/Src/EC2x.c ****     uint8_t i = 0;
+ 1338              		.loc 1 148 1 is_stmt 1 view -0
+ 1339              		.cfi_startproc
+ 1340              		@ args = 0, pretend = 0, frame = 0
+ 1341              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149:FML/Src/EC2x.c ****     for(i = 0;i < sizeof(ec2x_dev)/ sizeof(EC2x_HandleTypeDef);i++)
+ 1342              		.loc 1 149 5 view .LVU367
+ 150:FML/Src/EC2x.c ****     {
+ 1343              		.loc 1 150 5 view .LVU368
+ 150:FML/Src/EC2x.c ****     {
+ 1344              		.loc 1 150 15 view .LVU369
+ 152:FML/Src/EC2x.c ****         {
+ 1345              		.loc 1 152 9 view .LVU370
+ 148:FML/Src/EC2x.c ****     uint8_t i = 0;
+ 1346              		.loc 1 148 1 is_stmt 0 view .LVU371
+ 1347 0000 38B5     		push	{r3, r4, r5, lr}
+ 1348              	.LCFI21:
+ 1349              		.cfi_def_cfa_offset 16
+ 1350              		.cfi_offset 3, -16
+ 1351              		.cfi_offset 4, -12
+ 1352              		.cfi_offset 5, -8
+ 1353              		.cfi_offset 14, -4
+ 152:FML/Src/EC2x.c ****         {
+ 1354              		.loc 1 152 12 view .LVU372
+ 1355 0002 0D49     		ldr	r1, .L112
+ 1356 0004 FFF7FEFF 		bl	strcmp
+ 1357              	.LVL111:
+ 152:FML/Src/EC2x.c ****         {
+ 1358              		.loc 1 152 11 view .LVU373
+ 1359 0008 0546     		mov	r5, r0
+ 1360 000a 90B9     		cbnz	r0, .L111
+ 154:FML/Src/EC2x.c ****             if(ec2x_reset(i))
+ 1361              		.loc 1 154 13 is_stmt 1 view .LVU374
+ 1362 000c 0A48     		ldr	r0, .L112
+ 1363 000e FFF7FEFF 		bl	ec2x_io_init
+ 1364              	.LVL112:
+ 155:FML/Src/EC2x.c ****                 shellPrint(&shell,"ec2x initial OK\r\n");
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 39
+
+
+ 1365              		.loc 1 155 13 view .LVU375
+ 155:FML/Src/EC2x.c ****                 shellPrint(&shell,"ec2x initial OK\r\n");
+ 1366              		.loc 1 155 16 is_stmt 0 view .LVU376
+ 1367 0012 FFF7FEFF 		bl	ec2x_reset.constprop.0
+ 1368              	.LVL113:
+ 155:FML/Src/EC2x.c ****                 shellPrint(&shell,"ec2x initial OK\r\n");
+ 1369              		.loc 1 155 15 view .LVU377
+ 1370 0016 0446     		mov	r4, r0
+ 1371 0018 30B1     		cbz	r0, .L110
+ 156:FML/Src/EC2x.c ****             else
+ 1372              		.loc 1 156 17 is_stmt 1 view .LVU378
+ 1373 001a 0849     		ldr	r1, .L112+4
+ 1374 001c 0848     		ldr	r0, .L112+8
+ 1375 001e FFF7FEFF 		bl	shellPrint
+ 1376              	.LVL114:
+ 152:FML/Src/EC2x.c ****         {
+ 1377              		.loc 1 152 39 is_stmt 0 view .LVU379
+ 1378 0022 2C46     		mov	r4, r5
+ 1379              	.LVL115:
+ 1380              	.L108:
+ 163:FML/Src/EC2x.c **** 
+ 1381              		.loc 1 163 1 view .LVU380
+ 1382 0024 2046     		mov	r0, r4
+ 1383 0026 38BD     		pop	{r3, r4, r5, pc}
+ 1384              	.LVL116:
+ 1385              	.L110:
+ 158:FML/Src/EC2x.c ****             return i;
+ 1386              		.loc 1 158 17 is_stmt 1 view .LVU381
+ 1387 0028 0649     		ldr	r1, .L112+12
+ 1388 002a 0548     		ldr	r0, .L112+8
+ 1389 002c FFF7FEFF 		bl	shellPrint
+ 1390              	.LVL117:
+ 1391 0030 F8E7     		b	.L108
+ 1392              	.L111:
+ 162:FML/Src/EC2x.c **** };
+ 1393              		.loc 1 162 12 is_stmt 0 view .LVU382
+ 1394 0032 4FF0FF34 		mov	r4, #-1
+ 1395              	.LVL118:
+ 162:FML/Src/EC2x.c **** };
+ 1396              		.loc 1 162 12 view .LVU383
+ 1397 0036 F5E7     		b	.L108
+ 1398              	.L113:
+ 1399              		.align	2
+ 1400              	.L112:
+ 1401 0038 00000000 		.word	.LANCHOR0
+ 1402 003c 00000000 		.word	.LC9
+ 1403 0040 00000000 		.word	shell
+ 1404 0044 12000000 		.word	.LC10
+ 1405              		.cfi_endproc
+ 1406              	.LFE293:
+ 1408              		.global	shellCommandec2x_connect
+ 1409              		.global	shellDescec2x_connect
+ 1410              		.global	shellCmdec2x_connect
+ 1411              		.global	shellCommandec2x_test
+ 1412              		.global	shellDescec2x_test
+ 1413              		.global	shellCmdec2x_test
+ 1414              		.global	ec2x_dev
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 40
+
+
+ 1415              		.global	connectmsg_queue
+ 1416              		.section	.rodata.str1.1,"aMS",%progbits,1
+ 1417              	.LC11:
+ 1418 0000 41540D0A 		.ascii	"AT\015\012\000"
+ 1418      00
+ 1419              	.LC12:
+ 1420 0005 4F4B00   		.ascii	"OK\000"
+ 1421              	.LC13:
+ 1422 0008 41542B43 		.ascii	"AT+CPIN?\015\012\000"
+ 1422      50494E3F 
+ 1422      0D0A00
+ 1423              	.LC14:
+ 1424 0013 52454144 		.ascii	"READY\000"
+ 1424      5900
+ 1425              	.LC15:
+ 1426 0019 41542B43 		.ascii	"AT+CREG?\015\012\000"
+ 1426      5245473F 
+ 1426      0D0A00
+ 1427              	.LC16:
+ 1428 0024 2B435245 		.ascii	"+CREG: 0,1\000"
+ 1428      473A2030 
+ 1428      2C3100
+ 1429              	.LC17:
+ 1430 002f 41542B43 		.ascii	"AT+CGREG?\015\012\000"
+ 1430      47524547 
+ 1430      3F0D0A00 
+ 1431              	.LC18:
+ 1432 003b 2B434752 		.ascii	"+CGREG: 0,1\000"
+ 1432      45473A20 
+ 1432      302C3100 
+ 1433              	.LC19:
+ 1434 0047 41542B51 		.ascii	"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\015\012\000"
+ 1434      49435347 
+ 1434      503D312C 
+ 1434      312C2243 
+ 1434      4D4E4554 
+ 1435              	.LC20:
+ 1436 0067 41542B51 		.ascii	"AT+QIDEACT=1\015\012\000"
+ 1436      49444541 
+ 1436      43543D31 
+ 1436      0D0A00
+ 1437              	.LC21:
+ 1438 0076 41542B51 		.ascii	"AT+QIACT=1\015\012\000"
+ 1438      49414354 
+ 1438      3D310D0A 
+ 1438      00
+ 1439              	.LC22:
+ 1440 0083 434F4E4E 		.ascii	"CONNECT\000"
+ 1440      45435400 
+ 1441              		.global	tcpconnct_step
+ 1442              		.global	tcp_connect
+ 1443              		.global	ec2x_buff
+ 1444              		.section	.bss.reset_times,"aw",%nobits
+ 1445              		.set	.LANCHOR1,. + 0
+ 1448              	reset_times:
+ 1449 0000 00       		.space	1
+ 1450              		.section	.bss.retry.0,"aw",%nobits
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 41
+
+
+ 1451              		.set	.LANCHOR4,. + 0
+ 1454              	retry.0:
+ 1455 0000 00       		.space	1
+ 1456              		.section	.bss.step.1,"aw",%nobits
+ 1457              		.set	.LANCHOR3,. + 0
+ 1460              	step.1:
+ 1461 0000 00       		.space	1
+ 1462              		.section	.bss.tcpconnct_step,"aw",%nobits
+ 1465              	tcpconnct_step:
+ 1466 0000 00       		.space	1
+ 1467              		.section	.data.connectmsg_queue,"aw"
+ 1468              		.align	2
+ 1469              		.set	.LANCHOR2,. + 0
+ 1472              	connectmsg_queue:
+ 1473 0000 00000000 		.word	.LC11
+ 1474 0004 05000000 		.word	.LC12
+ 1475 0008 C800     		.short	200
+ 1476 000a 05       		.byte	5
+ 1477 000b 00       		.space	1
+ 1478 000c 08000000 		.word	.LC13
+ 1479 0010 13000000 		.word	.LC14
+ 1480 0014 C800     		.short	200
+ 1481 0016 05       		.byte	5
+ 1482 0017 00       		.space	1
+ 1483 0018 19000000 		.word	.LC15
+ 1484 001c 24000000 		.word	.LC16
+ 1485 0020 C800     		.short	200
+ 1486 0022 05       		.byte	5
+ 1487 0023 00       		.space	1
+ 1488 0024 2F000000 		.word	.LC17
+ 1489 0028 3B000000 		.word	.LC18
+ 1490 002c C800     		.short	200
+ 1491 002e 05       		.byte	5
+ 1492 002f 00       		.space	1
+ 1493 0030 47000000 		.word	.LC19
+ 1494 0034 05000000 		.word	.LC12
+ 1495 0038 C800     		.short	200
+ 1496 003a 05       		.byte	5
+ 1497 003b 00       		.space	1
+ 1498 003c 67000000 		.word	.LC20
+ 1499 0040 05000000 		.word	.LC12
+ 1500 0044 C800     		.short	200
+ 1501 0046 05       		.byte	5
+ 1502 0047 00       		.space	1
+ 1503 0048 76000000 		.word	.LC21
+ 1504 004c 05000000 		.word	.LC12
+ 1505 0050 C800     		.short	200
+ 1506 0052 05       		.byte	5
+ 1507 0053 00       		.space	1
+ 1508 0054 00000000 		.word	tcp_connect
+ 1509 0058 83000000 		.word	.LC22
+ 1510 005c F401     		.short	500
+ 1511 005e 05       		.byte	5
+ 1512 005f 00       		.space	1
+ 1513              		.section	.data.ec2x_buff,"aw"
+ 1516              	ec2x_buff:
+ 1517 0000 FF00     		.ascii	"\377\000"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 42
+
+
+ 1518 0002 00000000 		.space	198
+ 1518      00000000 
+ 1518      00000000 
+ 1518      00000000 
+ 1518      00000000 
+ 1519              		.section	.data.ec2x_dev,"aw"
+ 1520              		.align	2
+ 1521              		.set	.LANCHOR0,. + 0
+ 1524              	ec2x_dev:
+ 1525 0000 75617274 		.ascii	"uart1/ec200s\000"
+ 1525      312F6563 
+ 1525      32303073 
+ 1525      00
+ 1526 000d 0000     		.space	2
+ 1527 000f 00       		.space	1
+ 1528 0010 00000000 		.word	huart1
+ 1529 0014 00000048 		.word	1207959552
+ 1530 0018 0010     		.short	4096
+ 1531 001a 0000     		.space	2
+ 1532 001c 00000048 		.word	1207959552
+ 1533 0020 0001     		.short	256
+ 1534 0022 0000     		.space	2
+ 1535 0024 00000048 		.word	1207959552
+ 1536 0028 0008     		.short	2048
+ 1537 002a 0000     		.space	2
+ 1538 002c 00       		.byte	0
+ 1539 002d 000000   		.space	3
+ 1540 0030 00000000 		.word	ec2x_buff
+ 1541 0034 0000     		.short	0
+ 1542 0036 0000     		.short	0
+ 1543 0038 0000     		.short	0
+ 1544 003a C800     		.short	200
+ 1545              		.section	.data.tcp_connect,"aw"
+ 1548              	tcp_connect:
+ 1549 0000 41542B51 		.ascii	"AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2"
+ 1549      494F5045 
+ 1549      4E3D312C 
+ 1549      302C2254 
+ 1549      4350222C 
+ 1550 002f 0D0A00   		.ascii	"\015\012\000"
+ 1551              		.section	.rodata.shellCmdec2x_connect,"a"
+ 1554              	shellCmdec2x_connect:
+ 1555 0000 65633278 		.ascii	"ec2x_connect\000"
+ 1555      5F636F6E 
+ 1555      6E656374 
+ 1555      00
+ 1556              		.section	.rodata.shellCmdec2x_test,"a"
+ 1559              	shellCmdec2x_test:
+ 1560 0000 65633278 		.ascii	"ec2x_test\000"
+ 1560      5F746573 
+ 1560      7400
+ 1561              		.section	.rodata.shellDescec2x_connect,"a"
+ 1564              	shellDescec2x_connect:
+ 1565 0000 65633278 		.ascii	"ec2x tcp connect\000"
+ 1565      20746370 
+ 1565      20636F6E 
+ 1565      6E656374 
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 43
+
+
+ 1565      00
+ 1566              		.section	.rodata.shellDescec2x_test,"a"
+ 1569              	shellDescec2x_test:
+ 1570 0000 73656E64 		.ascii	"send command and wait for reply\000"
+ 1570      20636F6D 
+ 1570      6D616E64 
+ 1570      20616E64 
+ 1570      20776169 
+ 1571              		.section	shellCommand,"a"
+ 1574              	shellCommandec2x_connect:
+ 1575 0000 00210000 		.4byte	8448
+ 1576 0004 00000000 		.4byte	shellCmdec2x_connect
+ 1577 0008 00000000 		.4byte	ec2x_tcp_connect
+ 1578 000c 00000000 		.4byte	shellDescec2x_connect
+ 1581              	shellCommandec2x_test:
+ 1582 0010 00210000 		.4byte	8448
+ 1583 0014 00000000 		.4byte	shellCmdec2x_test
+ 1584 0018 00000000 		.4byte	EC2x_Test
+ 1585 001c 00000000 		.4byte	shellDescec2x_test
+ 1586              		.text
+ 1587              	.Letext0:
+ 1588              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 1589              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 1590              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 1591              		.file 5 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h"
+ 1592              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 1593              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 1594              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 1595              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h"
+ 1596              		.file 10 "FML/Inc/EC2x.h"
+ 1597              		.file 11 "ThirdParty/Letter-shell/Inc/shell.h"
+ 1598              		.file 12 "HAL/Inc/usart.h"
+ 1599              		.file 13 "ThirdParty/Letter-shell/Inc/shell_port.h"
+ 1600              		.file 14 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
+ 1601              		.file 15 "<built-in>"
+ 1602              		.file 16 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 44
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 EC2x.c
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:18     .text.ec2x_io_init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:24     .text.ec2x_io_init:00000000 ec2x_io_init
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:84     .text.ec2x_io_init:0000008c $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:87     .text.ec2x_write:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:93     .text.ec2x_write:00000000 ec2x_write
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:117    .text.ec2x_write:00000024 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:120    .text.ec2x_read:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:126    .text.ec2x_read:00000000 ec2x_read
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:180    .text.ec2x_read:00000068 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:186    .text.ec2x_handler:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:192    .text.ec2x_handler:00000000 ec2x_handler
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:252    .text.ec2x_handler:00000074 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:257    .text.ec2x_replymatch:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:263    .text.ec2x_replymatch:00000000 ec2x_replymatch
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:296    .text.ec2x_cmd_send:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:301    .text.ec2x_cmd_send:00000000 ec2x_cmd_send
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:351    .text.ec2x_cmd_send:0000006c $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:357    .text.ec2x_reset.constprop.0:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:362    .text.ec2x_reset.constprop.0:00000000 ec2x_reset.constprop.0
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:394    .text.ec2x_reset.constprop.0:00000040 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:408    .text.ec2x_tcp_connect:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:414    .text.ec2x_tcp_connect:00000000 ec2x_tcp_connect
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:452    .text.ec2x_tcp_connect:00000040 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:460    .text.ec2x_tcp_connect:00000048 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:591    .text.ec2x_tcp_connect:00000148 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:609    .text.EC2x_Test:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:615    .text.EC2x_Test:00000000 EC2x_Test
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:691    .text.EC2x_Test:000000a8 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:703    .text.ec2x_open:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:709    .text.ec2x_open:00000000 ec2x_open
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:740    .text.ec2x_open:00000038 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:911    shellCommand:00000000 shellCommandec2x_connect
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:901    .rodata.shellDescec2x_connect:00000000 shellDescec2x_connect
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:891    .rodata.shellCmdec2x_connect:00000000 shellCmdec2x_connect
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:918    shellCommand:00000010 shellCommandec2x_test
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:906    .rodata.shellDescec2x_test:00000000 shellDescec2x_test
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:896    .rodata.shellCmdec2x_test:00000000 shellCmdec2x_test
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:861    .data.ec2x_dev:00000000 ec2x_dev
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:809    .data.connectmsg_queue:00000000 connectmsg_queue
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:802    .bss.tcpconnct_step:00000000 tcpconnct_step
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:885    .data.tcp_connect:00000000 tcp_connect
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:853    .data.ec2x_buff:00000000 ec2x_buff
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:785    .bss.reset_times:00000000 reset_times
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:786    .bss.reset_times:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:791    .bss.retry.0:00000000 retry.0
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:792    .bss.retry.0:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:797    .bss.step.1:00000000 step.1
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:798    .bss.step.1:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:803    .bss.tcpconnct_step:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:805    .data.connectmsg_queue:00000000 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:855    .data.ec2x_buff:00000002 $d
-C:\Users\CL\AppData\Local\Temp\ccarHezp.s:857    .data.ec2x_dev:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:20     .text.ec2x_io_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:26     .text.ec2x_io_init:00000000 ec2x_io_init
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:167    .text.ec2x_io_init:0000008c $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:172    .text.ec2x_write:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:178    .text.ec2x_write:00000000 ec2x_write
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:243    .text.ec2x_write:00000024 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:248    .text.ec2x_read:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:254    .text.ec2x_read:00000000 ec2x_read
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:376    .text.ec2x_read:00000068 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:384    .text.ec2x_handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:390    .text.ec2x_handler:00000000 ec2x_handler
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:529    .text.ec2x_handler:00000074 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:537    .text.ec2x_replymatch:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:543    .text.ec2x_replymatch:00000000 ec2x_replymatch
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:621    .text.ec2x_cmd_send:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:626    .text.ec2x_cmd_send:00000000 ec2x_cmd_send
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:740    .text.ec2x_cmd_send:0000006c $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:749    .text.ec2x_reset.constprop.0:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:754    .text.ec2x_reset.constprop.0:00000000 ec2x_reset.constprop.0
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:818    .text.ec2x_reset.constprop.0:00000040 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:834    .text.ec2x_tcp_connect:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:840    .text.ec2x_tcp_connect:00000000 ec2x_tcp_connect
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:925    .text.ec2x_tcp_connect:00000040 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:933    .text.ec2x_tcp_connect:00000048 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1140   .text.ec2x_tcp_connect:00000148 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1160   .text.EC2x_Test:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1166   .text.EC2x_Test:00000000 EC2x_Test
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1315   .text.EC2x_Test:000000a8 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1329   .text.ec2x_open:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1335   .text.ec2x_open:00000000 ec2x_open
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1401   .text.ec2x_open:00000038 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1574   shellCommand:00000000 shellCommandec2x_connect
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1564   .rodata.shellDescec2x_connect:00000000 shellDescec2x_connect
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1554   .rodata.shellCmdec2x_connect:00000000 shellCmdec2x_connect
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1581   shellCommand:00000010 shellCommandec2x_test
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1569   .rodata.shellDescec2x_test:00000000 shellDescec2x_test
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1559   .rodata.shellCmdec2x_test:00000000 shellCmdec2x_test
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1524   .data.ec2x_dev:00000000 ec2x_dev
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1472   .data.connectmsg_queue:00000000 connectmsg_queue
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1465   .bss.tcpconnct_step:00000000 tcpconnct_step
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1548   .data.tcp_connect:00000000 tcp_connect
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1516   .data.ec2x_buff:00000000 ec2x_buff
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1448   .bss.reset_times:00000000 reset_times
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1449   .bss.reset_times:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1454   .bss.retry.0:00000000 retry.0
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1455   .bss.retry.0:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1460   .bss.step.1:00000000 step.1
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1461   .bss.step.1:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1466   .bss.tcpconnct_step:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1468   .data.connectmsg_queue:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1518   .data.ec2x_buff:00000002 $d
+C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s:1520   .data.ec2x_dev:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_Init
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccarHezp.s 			page 19
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc9VaAyI.s 			page 45
 
 
 HAL_GPIO_WritePin

@@ -66,7 +66,7 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+void DeviceID_Print(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -81,7 +81,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+  
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -137,6 +137,11 @@ int main(void)
   {
     // uint16_t shellidle_upper = 30;
     /* USER CODE END WHILE */
+    /*电量LED D6 D7*/
+    LED_On(&dev_led[0]);
+    LED_On(&dev_led[1]);
+    /*Mac地址打印*/
+    DeviceID_Print();
     /* ADC 电压监测接口测试*/
     Battery_Test();
     /* LED 测试 */ 
@@ -152,11 +157,12 @@ int main(void)
     BDS_Test("read",100);
      /* LORA 1发送 LORA2 接收测试*/
     LORA_Send(0,"Lora0 tx test\r\n",200);
+    Delay_ms(500);
      /* LORA2发送 LORA1 接收测试*/
     LORA_Send(1,"Lora1 tx test\r\n",200);
-
+    Delay_ms(500);
      /* Cat-1 测试 */
-    EC2x_Test(0,"AT","OK",100);
+    EC2x_Test(0,"AT","OK",500);
     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
     shellPrint(&shell,"Type [help] for the list of instructions\r\n");
     while(1){
@@ -214,6 +220,30 @@ void Test_All(void)
 SHELL_EXPORT_CMD(
 SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
 test_all, Test_All, test all device);
+
+/**
+ * @brief printf Device ID 8bytes
+ * 
+ */
+void DeviceID_Print(void){
+    int i = 0;
+    shellPrint(&shell,"MAC:");
+
+    for(i = 0;i < 2 ;++i){
+      uint32_t u32_mac = 0xffff;
+      u32_mac = *((uint32_t *)(0x1FFF7594 - i * 4));
+      //shellPrint(&shell,"%x",u32_mac);
+      shellPrint(&shell,"%02x",(uint8_t)(u32_mac >> 24));
+      shellPrint(&shell,"%02x",(uint8_t)(u32_mac >> 16));
+      shellPrint(&shell,"%02x",(uint8_t)(u32_mac >> 8));
+      shellPrint(&shell,"%02x",(uint8_t)(u32_mac ));
+    }
+    shellPrint(&shell,"\r\n");
+}
+
+SHELL_EXPORT_CMD(
+SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+mac_print, DeviceID_Print, printf mac_id);
 /**
   * @brief System Clock Configuration
   * @retval None

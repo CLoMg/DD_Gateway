@@ -219,7 +219,7 @@ void LDR_Value_Get(void)
       test_ok_cnt++;
     }
     else{
-      shellPrint(&shell,"LDR:%d,LDR Test Exception\r\n",ldr_adc_value);
+      shellPrint(&shell,"LDR:%d,LDR Test Failed\r\n",ldr_adc_value);
       test_error_cnt++;
     }
 }
@@ -249,7 +249,7 @@ void Battery_Test(void)
       test_ok_cnt++;
     }
     else{
-      shellPrint(&shell,"voltage:%.2fv,Battery Test Exception\r\n",voltage);
+      shellPrint(&shell,"voltage:%.2fv,Battery Test Failed\r\n",voltage);
       test_error_cnt++;
     }  
 }

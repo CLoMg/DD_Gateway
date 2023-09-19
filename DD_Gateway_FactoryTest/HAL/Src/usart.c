@@ -310,11 +310,9 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 /* USER CODE BEGIN 1 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *UartHandle)
 {
-
-
   if(UartHandle->Instance == USART3){
-     shellHandler(&shell,u3_cache);
-     HAL_UART_Receive_IT(&huart3,(uint8_t *)&u3_cache,1);
+    shellHandler(&shell,u3_cache);
+    HAL_UART_Receive_IT(&huart3,(uint8_t *)&u3_cache,1);
   }
 
 }

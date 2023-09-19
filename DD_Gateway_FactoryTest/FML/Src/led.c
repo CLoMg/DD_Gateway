@@ -49,7 +49,7 @@ void LED_Init(LED_HandleTypeDef *led) {
  * @param led 
  */
 void LED_On(LED_HandleTypeDef *led) {
-    HAL_GPIO_WritePin(led->port, led->pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(led->port, led->pin, GPIO_PIN_RESET);
 }
 /**
  * @brief 
@@ -57,7 +57,7 @@ void LED_On(LED_HandleTypeDef *led) {
  * @param led 
  */
 void LED_Off(LED_HandleTypeDef *led) {
-    HAL_GPIO_WritePin(led->port, led->pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(led->port, led->pin, GPIO_PIN_SET);
 }
 /**
  * @brief 

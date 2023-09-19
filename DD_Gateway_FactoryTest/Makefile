@@ -20,7 +20,7 @@ TARGET = DD_Gateway_FactoryTest
 # building variables
 ######################################
 # debug build?
-DEBUG = 0
+DEBUG = 1
 # optimization
 OPT = -Os
 

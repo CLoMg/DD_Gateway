@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc7jvshh.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -17,327 +17,785 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cc7jvshh.s 			page 1
   14              		.eabi_attribute 18, 4
   15              		.file	"led.c"
   16              		.text
-  17              		.section	.text.LED_Init,"ax",%progbits
-  18              		.align	1
-  19              		.global	LED_Init
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
-  24              	LED_Init:
-  25              		@ args = 0, pretend = 0, frame = 32
-  26              		@ frame_needed = 0, uses_anonymous_args = 0
-  27 0000 30B5     		push	{r4, r5, lr}
-  28 0002 0025     		movs	r5, #0
-  29 0004 89B0     		sub	sp, sp, #36
-  30 0006 CDE90555 		strd	r5, r5, [sp, #20]
-  31 000a 124B     		ldr	r3, .L2
-  32 000c 0795     		str	r5, [sp, #28]
-  33 000e DA6C     		ldr	r2, [r3, #76]
-  34 0010 42F00202 		orr	r2, r2, #2
-  35 0014 DA64     		str	r2, [r3, #76]
-  36 0016 DA6C     		ldr	r2, [r3, #76]
-  37 0018 02F00202 		and	r2, r2, #2
-  38 001c 0192     		str	r2, [sp, #4]
-  39 001e 019A     		ldr	r2, [sp, #4]
-  40 0020 DA6C     		ldr	r2, [r3, #76]
-  41 0022 42F00402 		orr	r2, r2, #4
-  42 0026 DA64     		str	r2, [r3, #76]
-  43 0028 DB6C     		ldr	r3, [r3, #76]
-  44 002a 03F00403 		and	r3, r3, #4
-  45 002e 0293     		str	r3, [sp, #8]
-  46 0030 0446     		mov	r4, r0
-  47 0032 029B     		ldr	r3, [sp, #8]
-  48 0034 8388     		ldrh	r3, [r0, #4]
-  49 0036 0393     		str	r3, [sp, #12]
-  50 0038 03A9     		add	r1, sp, #12
-  51 003a 0123     		movs	r3, #1
-  52 003c 0068     		ldr	r0, [r0]
-  53 003e 0493     		str	r3, [sp, #16]
-  54 0040 FFF7FEFF 		bl	HAL_GPIO_Init
-  55 0044 A188     		ldrh	r1, [r4, #4]
-  56 0046 2068     		ldr	r0, [r4]
-  57 0048 2A46     		mov	r2, r5
-  58 004a FFF7FEFF 		bl	HAL_GPIO_WritePin
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc7jvshh.s 			page 2
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LED_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	LED_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	LED_Init:
+  27              	.LVL0:
+  28              	.LFB288:
+  29              		.file 1 "FML/Src/led.c"
+   1:FML/Src/led.c **** 
+   2:FML/Src/led.c **** /*----------------------------------include-----------------------------------*/
+   3:FML/Src/led.c **** #include "led.h"
+   4:FML/Src/led.c **** #include "shell_port.h"
+   5:FML/Src/led.c **** #include <stdarg.h>
+   6:FML/Src/led.c **** /*-----------------------------------macro------------------------------------*/
+   7:FML/Src/led.c **** 
+   8:FML/Src/led.c **** /*----------------------------------typedef-----------------------------------*/
+   9:FML/Src/led.c **** 
+  10:FML/Src/led.c **** /*----------------------------------variable----------------------------------*/
+  11:FML/Src/led.c **** LED_HandleTypeDef dev_led[] = {
+  12:FML/Src/led.c ****     {
+  13:FML/Src/led.c ****         GPIOB,
+  14:FML/Src/led.c ****         GPIO_PIN_2
+  15:FML/Src/led.c ****     },
+  16:FML/Src/led.c ****     {
+  17:FML/Src/led.c ****         GPIOC,
+  18:FML/Src/led.c ****         GPIO_PIN_13
+  19:FML/Src/led.c ****     }
+  20:FML/Src/led.c **** };
+  21:FML/Src/led.c **** /*-------------------------------------os-------------------------------------*/
+  22:FML/Src/led.c **** 
+  23:FML/Src/led.c **** /*----------------------------------function----------------------------------*/
+  24:FML/Src/led.c **** /**
+  25:FML/Src/led.c ****  * @brief 
+  26:FML/Src/led.c ****  * 
+  27:FML/Src/led.c ****  * @param led 
+  28:FML/Src/led.c ****  */
+  29:FML/Src/led.c **** void LED_Init(LED_HandleTypeDef *led) {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 2
 
 
-  59 004e 09B0     		add	sp, sp, #36
-  60              		@ sp needed
-  61 0050 30BD     		pop	{r4, r5, pc}
-  62              	.L3:
-  63 0052 00BF     		.align	2
-  64              	.L2:
-  65 0054 00100240 		.word	1073876992
-  67              		.section	.text.LED_On,"ax",%progbits
-  68              		.align	1
-  69              		.global	LED_On
-  70              		.syntax unified
-  71              		.thumb
-  72              		.thumb_func
-  74              	LED_On:
-  75              		@ args = 0, pretend = 0, frame = 0
-  76              		@ frame_needed = 0, uses_anonymous_args = 0
-  77              		@ link register save eliminated.
-  78 0000 8188     		ldrh	r1, [r0, #4]
-  79 0002 0068     		ldr	r0, [r0]
-  80 0004 0122     		movs	r2, #1
-  81 0006 FFF7FEBF 		b	HAL_GPIO_WritePin
-  83              		.section	.text.LED_Off,"ax",%progbits
-  84              		.align	1
-  85              		.global	LED_Off
-  86              		.syntax unified
-  87              		.thumb
-  88              		.thumb_func
-  90              	LED_Off:
-  91              		@ args = 0, pretend = 0, frame = 0
-  92              		@ frame_needed = 0, uses_anonymous_args = 0
-  93              		@ link register save eliminated.
-  94 0000 8188     		ldrh	r1, [r0, #4]
-  95 0002 0068     		ldr	r0, [r0]
-  96 0004 0022     		movs	r2, #0
-  97 0006 FFF7FEBF 		b	HAL_GPIO_WritePin
-  99              		.section	.text.LED_Toggle,"ax",%progbits
- 100              		.align	1
- 101              		.global	LED_Toggle
- 102              		.syntax unified
- 103              		.thumb
- 104              		.thumb_func
- 106              	LED_Toggle:
- 107              		@ args = 0, pretend = 0, frame = 0
- 108              		@ frame_needed = 0, uses_anonymous_args = 0
- 109              		@ link register save eliminated.
- 110 0000 8188     		ldrh	r1, [r0, #4]
- 111 0002 0068     		ldr	r0, [r0]
- 112 0004 FFF7FEBF 		b	HAL_GPIO_TogglePin
- 114              		.section	.text.LED1_Toggle,"ax",%progbits
- 115              		.align	1
- 116              		.global	LED1_Toggle
- 117              		.syntax unified
- 118              		.thumb
- 119              		.thumb_func
- 121              	LED1_Toggle:
- 122              		@ args = 0, pretend = 0, frame = 0
- 123              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc7jvshh.s 			page 3
+  30              		.loc 1 29 39 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 32
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  30:FML/Src/led.c ****     GPIO_InitTypeDef GPIO_InitStruct = {0};
+  34              		.loc 1 30 5 view .LVU1
+  29:FML/Src/led.c ****     GPIO_InitTypeDef GPIO_InitStruct = {0};
+  35              		.loc 1 29 39 is_stmt 0 view .LVU2
+  36 0000 30B5     		push	{r4, r5, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 12
+  39              		.cfi_offset 4, -12
+  40              		.cfi_offset 5, -8
+  41              		.cfi_offset 14, -4
+  42              		.loc 1 30 22 view .LVU3
+  43 0002 0025     		movs	r5, #0
+  29:FML/Src/led.c ****     GPIO_InitTypeDef GPIO_InitStruct = {0};
+  44              		.loc 1 29 39 view .LVU4
+  45 0004 89B0     		sub	sp, sp, #36
+  46              	.LCFI1:
+  47              		.cfi_def_cfa_offset 48
+  48              		.loc 1 30 22 view .LVU5
+  49 0006 CDE90555 		strd	r5, r5, [sp, #20]
+  50              	.LBB2:
+  31:FML/Src/led.c ****     
+  32:FML/Src/led.c ****     // 使能GPIO时钟
+  33:FML/Src/led.c ****     __HAL_RCC_GPIOB_CLK_ENABLE(); // 替换为实际的GPIO时钟
+  51              		.loc 1 33 5 view .LVU6
+  52 000a 124B     		ldr	r3, .L2
+  53              	.LBE2:
+  30:FML/Src/led.c ****     
+  54              		.loc 1 30 22 view .LVU7
+  55 000c 0795     		str	r5, [sp, #28]
+  56              		.loc 1 33 5 is_stmt 1 view .LVU8
+  57              	.LBB3:
+  58              		.loc 1 33 5 view .LVU9
+  59              		.loc 1 33 5 view .LVU10
+  60 000e DA6C     		ldr	r2, [r3, #76]
+  61 0010 42F00202 		orr	r2, r2, #2
+  62 0014 DA64     		str	r2, [r3, #76]
+  63              		.loc 1 33 5 view .LVU11
+  64 0016 DA6C     		ldr	r2, [r3, #76]
+  65 0018 02F00202 		and	r2, r2, #2
+  66 001c 0192     		str	r2, [sp, #4]
+  67              		.loc 1 33 5 view .LVU12
+  68 001e 019A     		ldr	r2, [sp, #4]
+  69              	.LBE3:
+  70              		.loc 1 33 5 view .LVU13
+  34:FML/Src/led.c ****     __HAL_RCC_GPIOC_CLK_ENABLE(); // 替换为实际的GPIO时钟
+  71              		.loc 1 34 5 view .LVU14
+  72              	.LBB4:
+  73              		.loc 1 34 5 view .LVU15
+  74              		.loc 1 34 5 view .LVU16
+  75 0020 DA6C     		ldr	r2, [r3, #76]
+  76 0022 42F00402 		orr	r2, r2, #4
+  77 0026 DA64     		str	r2, [r3, #76]
+  78              		.loc 1 34 5 view .LVU17
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 3
 
 
- 124              		@ link register save eliminated.
- 125 0000 0148     		ldr	r0, .L8
- 126 0002 FFF7FEBF 		b	LED_Toggle
- 127              	.L9:
- 128 0006 00BF     		.align	2
- 129              	.L8:
- 130 0008 00000000 		.word	.LANCHOR0
- 132              		.section	.text.LED_Blink,"ax",%progbits
- 133              		.align	1
- 134              		.global	LED_Blink
- 135              		.syntax unified
- 136              		.thumb
- 137              		.thumb_func
- 139              	LED_Blink:
- 140              		@ args = 0, pretend = 0, frame = 0
- 141              		@ frame_needed = 0, uses_anonymous_args = 0
- 142 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 143 0002 0446     		mov	r4, r0
- 144 0004 0F46     		mov	r7, r1
- 145 0006 5600     		lsls	r6, r2, #1
- 146 0008 0025     		movs	r5, #0
- 147              	.L11:
- 148 000a EBB2     		uxtb	r3, r5
- 149 000c B342     		cmp	r3, r6
- 150 000e 05F10105 		add	r5, r5, #1
- 151 0012 00DB     		blt	.L12
- 152 0014 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 153              	.L12:
- 154 0016 2068     		ldr	r0, [r4]
- 155 0018 A188     		ldrh	r1, [r4, #4]
- 156 001a FFF7FEFF 		bl	HAL_GPIO_TogglePin
- 157 001e 3846     		mov	r0, r7
- 158 0020 FFF7FEFF 		bl	Delay_ms
- 159 0024 F1E7     		b	.L11
- 161              		.section	.rodata.LED_Test.str1.1,"aMS",%progbits,1
- 162              	.LC0:
- 163 0000 443600   		.ascii	"D6\000"
- 164              	.LC1:
- 165 0003 443700   		.ascii	"D7\000"
- 166              	.LC2:
- 167 0006 696E7661 		.ascii	"invalid led name\000"
- 167      6C696420 
- 167      6C656420 
- 167      6E616D65 
- 167      00
- 168              	.LC3:
- 169 0017 6F6E00   		.ascii	"on\000"
- 170              	.LC4:
- 171 001a 6F666600 		.ascii	"off\000"
- 172              	.LC5:
- 173 001e 746F6767 		.ascii	"toggle\000"
- 173      6C6500
- 174              	.LC6:
- 175 0025 626C696E 		.ascii	"blink\000"
- 175      6B00
- 176              	.LC7:
- 177 002b 696E7661 		.ascii	"invalid cmd type\000"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc7jvshh.s 			page 4
+  79 0028 DB6C     		ldr	r3, [r3, #76]
+  80 002a 03F00403 		and	r3, r3, #4
+  81 002e 0293     		str	r3, [sp, #8]
+  82              		.loc 1 34 5 view .LVU18
+  83              	.LBE4:
+  29:FML/Src/led.c ****     GPIO_InitTypeDef GPIO_InitStruct = {0};
+  84              		.loc 1 29 39 is_stmt 0 view .LVU19
+  85 0030 0446     		mov	r4, r0
+  86              	.LBB5:
+  87              		.loc 1 34 5 view .LVU20
+  88 0032 029B     		ldr	r3, [sp, #8]
+  89              	.LBE5:
+  90              		.loc 1 34 5 is_stmt 1 view .LVU21
+  35:FML/Src/led.c ****     // 配置GPIO引脚
+  36:FML/Src/led.c ****     GPIO_InitStruct.Pin = led->pin;
+  91              		.loc 1 36 5 view .LVU22
+  92              		.loc 1 36 30 is_stmt 0 view .LVU23
+  93 0034 8388     		ldrh	r3, [r0, #4]
+  94 0036 0393     		str	r3, [sp, #12]
+  37:FML/Src/led.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  95              		.loc 1 37 5 is_stmt 1 view .LVU24
+  38:FML/Src/led.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  39:FML/Src/led.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  40:FML/Src/led.c ****     HAL_GPIO_Init(led->port, &GPIO_InitStruct);
+  96              		.loc 1 40 5 is_stmt 0 view .LVU25
+  97 0038 03A9     		add	r1, sp, #12
+  37:FML/Src/led.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  98              		.loc 1 37 26 view .LVU26
+  99 003a 0123     		movs	r3, #1
+ 100              		.loc 1 40 5 view .LVU27
+ 101 003c 0068     		ldr	r0, [r0]
+ 102              	.LVL1:
+  37:FML/Src/led.c ****     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 103              		.loc 1 37 26 view .LVU28
+ 104 003e 0493     		str	r3, [sp, #16]
+  38:FML/Src/led.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 105              		.loc 1 38 5 is_stmt 1 view .LVU29
+  39:FML/Src/led.c ****     HAL_GPIO_Init(led->port, &GPIO_InitStruct);
+ 106              		.loc 1 39 5 view .LVU30
+ 107              		.loc 1 40 5 view .LVU31
+ 108 0040 FFF7FEFF 		bl	HAL_GPIO_Init
+ 109              	.LVL2:
+  41:FML/Src/led.c ****     
+  42:FML/Src/led.c ****     // 关闭LED初始状态
+  43:FML/Src/led.c ****     HAL_GPIO_WritePin(led->port, led->pin, GPIO_PIN_RESET);
+ 110              		.loc 1 43 5 view .LVU32
+ 111 0044 A188     		ldrh	r1, [r4, #4]
+ 112 0046 2068     		ldr	r0, [r4]
+ 113 0048 2A46     		mov	r2, r5
+ 114 004a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 115              	.LVL3:
+  44:FML/Src/led.c **** }
+ 116              		.loc 1 44 1 is_stmt 0 view .LVU33
+ 117 004e 09B0     		add	sp, sp, #36
+ 118              	.LCFI2:
+ 119              		.cfi_def_cfa_offset 12
+ 120              		@ sp needed
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 4
 
 
- 177      6C696420 
- 177      636D6420 
- 177      74797065 
- 177      00
- 178              		.section	.text.LED_Test,"ax",%progbits
- 179              		.align	1
- 180              		.global	LED_Test
- 181              		.syntax unified
- 182              		.thumb
- 183              		.thumb_func
- 185              	LED_Test:
- 186              		@ args = 4, pretend = 12, frame = 8
- 187              		@ frame_needed = 0, uses_anonymous_args = 1
- 188 0000 0EB4     		push	{r1, r2, r3}
- 189 0002 33B5     		push	{r0, r1, r4, r5, lr}
- 190 0004 2049     		ldr	r1, .L23
- 191 0006 059D     		ldr	r5, [sp, #20]
- 192 0008 0446     		mov	r4, r0
- 193 000a FFF7FEFF 		bl	strcmp
- 194 000e 48B1     		cbz	r0, .L20
- 195 0010 1E49     		ldr	r1, .L23+4
- 196 0012 2046     		mov	r0, r4
- 197 0014 FFF7FEFF 		bl	strcmp
- 198 0018 90B1     		cbz	r0, .L21
- 199 001a 1D49     		ldr	r1, .L23+8
- 200              	.L22:
- 201 001c 1D48     		ldr	r0, .L23+12
- 202 001e FFF7FEFF 		bl	shellPrint
- 203 0022 08E0     		b	.L13
- 204              	.L20:
- 205 0024 1C4C     		ldr	r4, .L23+16
- 206              	.L14:
- 207 0026 1D49     		ldr	r1, .L23+20
- 208 0028 2846     		mov	r0, r5
- 209 002a FFF7FEFF 		bl	strcmp
- 210 002e 48B9     		cbnz	r0, .L16
- 211 0030 2046     		mov	r0, r4
- 212 0032 FFF7FEFF 		bl	LED_On
- 213              	.L13:
- 214 0036 02B0     		add	sp, sp, #8
- 215              		@ sp needed
- 216 0038 BDE83040 		pop	{r4, r5, lr}
- 217 003c 03B0     		add	sp, sp, #12
- 218 003e 7047     		bx	lr
- 219              	.L21:
- 220 0040 174C     		ldr	r4, .L23+24
- 221 0042 F0E7     		b	.L14
- 222              	.L16:
- 223 0044 1749     		ldr	r1, .L23+28
- 224 0046 2846     		mov	r0, r5
- 225 0048 FFF7FEFF 		bl	strcmp
- 226 004c 18B9     		cbnz	r0, .L17
- 227 004e 2046     		mov	r0, r4
- 228 0050 FFF7FEFF 		bl	LED_Off
- 229 0054 EFE7     		b	.L13
- 230              	.L17:
- 231 0056 1449     		ldr	r1, .L23+32
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc7jvshh.s 			page 5
+ 121 0050 30BD     		pop	{r4, r5, pc}
+ 122              	.LVL4:
+ 123              	.L3:
+ 124              		.loc 1 44 1 view .LVU34
+ 125 0052 00BF     		.align	2
+ 126              	.L2:
+ 127 0054 00100240 		.word	1073876992
+ 128              		.cfi_endproc
+ 129              	.LFE288:
+ 131              		.section	.text.LED_On,"ax",%progbits
+ 132              		.align	1
+ 133              		.global	LED_On
+ 134              		.syntax unified
+ 135              		.thumb
+ 136              		.thumb_func
+ 138              	LED_On:
+ 139              	.LVL5:
+ 140              	.LFB289:
+  45:FML/Src/led.c **** 
+  46:FML/Src/led.c **** /**
+  47:FML/Src/led.c ****  * @brief 
+  48:FML/Src/led.c ****  * 
+  49:FML/Src/led.c ****  * @param led 
+  50:FML/Src/led.c ****  */
+  51:FML/Src/led.c **** void LED_On(LED_HandleTypeDef *led) {
+ 141              		.loc 1 51 37 is_stmt 1 view -0
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+  52:FML/Src/led.c ****     HAL_GPIO_WritePin(led->port, led->pin, GPIO_PIN_RESET);
+ 146              		.loc 1 52 5 view .LVU36
+ 147 0000 8188     		ldrh	r1, [r0, #4]
+ 148 0002 0068     		ldr	r0, [r0]
+ 149              	.LVL6:
+ 150              		.loc 1 52 5 is_stmt 0 view .LVU37
+ 151 0004 0022     		movs	r2, #0
+ 152 0006 FFF7FEBF 		b	HAL_GPIO_WritePin
+ 153              	.LVL7:
+ 154              		.cfi_endproc
+ 155              	.LFE289:
+ 157              		.section	.text.LED_Off,"ax",%progbits
+ 158              		.align	1
+ 159              		.global	LED_Off
+ 160              		.syntax unified
+ 161              		.thumb
+ 162              		.thumb_func
+ 164              	LED_Off:
+ 165              	.LVL8:
+ 166              	.LFB290:
+  53:FML/Src/led.c **** }
+  54:FML/Src/led.c **** /**
+  55:FML/Src/led.c ****  * @brief 
+  56:FML/Src/led.c ****  * 
+  57:FML/Src/led.c ****  * @param led 
+  58:FML/Src/led.c ****  */
+  59:FML/Src/led.c **** void LED_Off(LED_HandleTypeDef *led) {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 5
 
 
- 232 0058 2846     		mov	r0, r5
- 233 005a FFF7FEFF 		bl	strcmp
- 234 005e 18B9     		cbnz	r0, .L18
- 235 0060 2046     		mov	r0, r4
- 236 0062 FFF7FEFF 		bl	LED_Toggle
- 237 0066 E6E7     		b	.L13
- 238              	.L18:
- 239 0068 1049     		ldr	r1, .L23+36
- 240 006a 2846     		mov	r0, r5
- 241 006c FFF7FEFF 		bl	strcmp
- 242 0070 40B9     		cbnz	r0, .L19
- 243 0072 06AB     		add	r3, sp, #24
- 244 0074 9DF81C20 		ldrb	r2, [sp, #28]	@ zero_extendqisi2
- 245 0078 0699     		ldr	r1, [sp, #24]
- 246 007a 0193     		str	r3, [sp, #4]
- 247 007c 2046     		mov	r0, r4
- 248 007e FFF7FEFF 		bl	LED_Blink
- 249 0082 D8E7     		b	.L13
- 250              	.L19:
- 251 0084 0A49     		ldr	r1, .L23+40
- 252 0086 C9E7     		b	.L22
- 253              	.L24:
- 254              		.align	2
- 255              	.L23:
- 256 0088 00000000 		.word	.LC0
- 257 008c 03000000 		.word	.LC1
- 258 0090 06000000 		.word	.LC2
- 259 0094 00000000 		.word	shell
- 260 0098 00000000 		.word	.LANCHOR0
- 261 009c 17000000 		.word	.LC3
- 262 00a0 08000000 		.word	.LANCHOR0+8
- 263 00a4 1A000000 		.word	.LC4
- 264 00a8 1E000000 		.word	.LC5
- 265 00ac 25000000 		.word	.LC6
- 266 00b0 2B000000 		.word	.LC7
- 268              		.global	shellCommandled_test
- 269              		.global	shellDescled_test
- 270              		.global	shellCmdled_test
- 271              		.global	dev_led
- 272              		.section	.data.dev_led,"aw"
- 273              		.align	2
- 274              		.set	.LANCHOR0,. + 0
- 277              	dev_led:
- 278 0000 00040048 		.word	1207960576
- 279 0004 0400     		.short	4
- 280 0006 0000     		.space	2
- 281 0008 00080048 		.word	1207961600
- 282 000c 0020     		.short	8192
- 283 000e 0000     		.space	2
- 284              		.section	.rodata.shellCmdled_test,"a"
- 287              	shellCmdled_test:
- 288 0000 6C65645F 		.ascii	"led_test\000"
- 288      74657374 
- 288      00
- 289              		.section	.rodata.shellDescled_test,"a"
- 292              	shellDescled_test:
- 293 0000 74657374 		.ascii	"test led func\000"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc7jvshh.s 			page 6
+ 167              		.loc 1 59 38 is_stmt 1 view -0
+ 168              		.cfi_startproc
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 171              		@ link register save eliminated.
+  60:FML/Src/led.c ****     HAL_GPIO_WritePin(led->port, led->pin, GPIO_PIN_SET);
+ 172              		.loc 1 60 5 view .LVU39
+ 173 0000 8188     		ldrh	r1, [r0, #4]
+ 174 0002 0068     		ldr	r0, [r0]
+ 175              	.LVL9:
+ 176              		.loc 1 60 5 is_stmt 0 view .LVU40
+ 177 0004 0122     		movs	r2, #1
+ 178 0006 FFF7FEBF 		b	HAL_GPIO_WritePin
+ 179              	.LVL10:
+ 180              		.cfi_endproc
+ 181              	.LFE290:
+ 183              		.section	.text.LED_Toggle,"ax",%progbits
+ 184              		.align	1
+ 185              		.global	LED_Toggle
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 190              	LED_Toggle:
+ 191              	.LVL11:
+ 192              	.LFB291:
+  61:FML/Src/led.c **** }
+  62:FML/Src/led.c **** /**
+  63:FML/Src/led.c ****  * @brief 
+  64:FML/Src/led.c ****  * 
+  65:FML/Src/led.c ****  * @param led 
+  66:FML/Src/led.c ****  */
+  67:FML/Src/led.c **** void LED_Toggle(LED_HandleTypeDef *led) {
+ 193              		.loc 1 67 41 is_stmt 1 view -0
+ 194              		.cfi_startproc
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197              		@ link register save eliminated.
+  68:FML/Src/led.c ****     HAL_GPIO_TogglePin(led->port, led->pin);
+ 198              		.loc 1 68 5 view .LVU42
+ 199 0000 8188     		ldrh	r1, [r0, #4]
+ 200 0002 0068     		ldr	r0, [r0]
+ 201              	.LVL12:
+ 202              		.loc 1 68 5 is_stmt 0 view .LVU43
+ 203 0004 FFF7FEBF 		b	HAL_GPIO_TogglePin
+ 204              	.LVL13:
+ 205              		.cfi_endproc
+ 206              	.LFE291:
+ 208              		.section	.text.LED1_Toggle,"ax",%progbits
+ 209              		.align	1
+ 210              		.global	LED1_Toggle
+ 211              		.syntax unified
+ 212              		.thumb
+ 213              		.thumb_func
+ 215              	LED1_Toggle:
+ 216              	.LFB292:
+  69:FML/Src/led.c **** }
+  70:FML/Src/led.c **** 
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 6
 
 
- 293      206C6564 
- 293      2066756E 
- 293      6300
- 294              		.section	shellCommand,"a"
- 297              	shellCommandled_test:
- 298 0000 00210000 		.4byte	8448
- 299 0004 00000000 		.4byte	shellCmdled_test
- 300 0008 00000000 		.4byte	LED_Test
- 301 000c 00000000 		.4byte	shellDescled_test
- 302              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cc7jvshh.s 			page 7
+  71:FML/Src/led.c **** void LED1_Toggle(void){
+ 217              		.loc 1 71 23 is_stmt 1 view -0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221              		@ link register save eliminated.
+  72:FML/Src/led.c ****     LED_Toggle(&dev_led[0]);
+ 222              		.loc 1 72 5 view .LVU45
+ 223 0000 0148     		ldr	r0, .L8
+ 224 0002 FFF7FEBF 		b	LED_Toggle
+ 225              	.LVL14:
+ 226              	.L9:
+ 227 0006 00BF     		.align	2
+ 228              	.L8:
+ 229 0008 00000000 		.word	.LANCHOR0
+ 230              		.cfi_endproc
+ 231              	.LFE292:
+ 233              		.section	.text.LED_Blink,"ax",%progbits
+ 234              		.align	1
+ 235              		.global	LED_Blink
+ 236              		.syntax unified
+ 237              		.thumb
+ 238              		.thumb_func
+ 240              	LED_Blink:
+ 241              	.LVL15:
+ 242              	.LFB293:
+  73:FML/Src/led.c **** }
+  74:FML/Src/led.c **** /**
+  75:FML/Src/led.c ****  * @brief 
+  76:FML/Src/led.c ****  * 
+  77:FML/Src/led.c ****  * @param led 
+  78:FML/Src/led.c ****  * @param gap 
+  79:FML/Src/led.c ****  * @param cycle 
+  80:FML/Src/led.c ****  */
+  81:FML/Src/led.c **** void LED_Blink(LED_HandleTypeDef *led,uint32_t gap,uint8_t cycle){
+ 243              		.loc 1 81 66 view -0
+ 244              		.cfi_startproc
+ 245              		@ args = 0, pretend = 0, frame = 0
+ 246              		@ frame_needed = 0, uses_anonymous_args = 0
+  82:FML/Src/led.c ****     uint8_t i = 0;
+ 247              		.loc 1 82 5 view .LVU47
+  83:FML/Src/led.c ****     for(i = 0; i < cycle * 2; i++){
+ 248              		.loc 1 83 5 view .LVU48
+  81:FML/Src/led.c ****     uint8_t i = 0;
+ 249              		.loc 1 81 66 is_stmt 0 view .LVU49
+ 250 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 251              	.LCFI3:
+ 252              		.cfi_def_cfa_offset 24
+ 253              		.cfi_offset 3, -24
+ 254              		.cfi_offset 4, -20
+ 255              		.cfi_offset 5, -16
+ 256              		.cfi_offset 6, -12
+ 257              		.cfi_offset 7, -8
+ 258              		.cfi_offset 14, -4
+  81:FML/Src/led.c ****     uint8_t i = 0;
+ 259              		.loc 1 81 66 view .LVU50
+ 260 0002 0446     		mov	r4, r0
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 7
+
+
+ 261 0004 0F46     		mov	r7, r1
+ 262              		.loc 1 83 26 view .LVU51
+ 263 0006 5600     		lsls	r6, r2, #1
+ 264              		.loc 1 83 5 view .LVU52
+ 265 0008 0025     		movs	r5, #0
+ 266              	.LVL16:
+ 267              	.L11:
+ 268              		.loc 1 83 16 is_stmt 1 discriminator 1 view .LVU53
+ 269              		.loc 1 83 18 is_stmt 0 discriminator 1 view .LVU54
+ 270 000a EBB2     		uxtb	r3, r5
+ 271              		.loc 1 83 5 discriminator 1 view .LVU55
+ 272 000c B342     		cmp	r3, r6
+ 273 000e 05F10105 		add	r5, r5, #1
+ 274              	.LVL17:
+ 275              		.loc 1 83 5 discriminator 1 view .LVU56
+ 276 0012 00DB     		blt	.L12
+  84:FML/Src/led.c ****         HAL_GPIO_TogglePin(led->port,led->pin);
+  85:FML/Src/led.c ****         Delay_ms(gap);
+  86:FML/Src/led.c ****     } 
+  87:FML/Src/led.c **** }
+ 277              		.loc 1 87 1 view .LVU57
+ 278 0014 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 279              	.LVL18:
+ 280              	.L12:
+  84:FML/Src/led.c ****         HAL_GPIO_TogglePin(led->port,led->pin);
+ 281              		.loc 1 84 9 is_stmt 1 discriminator 3 view .LVU58
+ 282 0016 2068     		ldr	r0, [r4]
+ 283 0018 A188     		ldrh	r1, [r4, #4]
+ 284 001a FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 285              	.LVL19:
+  85:FML/Src/led.c ****     } 
+ 286              		.loc 1 85 9 discriminator 3 view .LVU59
+ 287 001e 3846     		mov	r0, r7
+ 288 0020 FFF7FEFF 		bl	Delay_ms
+ 289              	.LVL20:
+  83:FML/Src/led.c ****         HAL_GPIO_TogglePin(led->port,led->pin);
+ 290              		.loc 1 83 31 discriminator 3 view .LVU60
+  83:FML/Src/led.c ****         HAL_GPIO_TogglePin(led->port,led->pin);
+ 291              		.loc 1 83 31 is_stmt 0 discriminator 3 view .LVU61
+ 292 0024 F1E7     		b	.L11
+ 293              		.cfi_endproc
+ 294              	.LFE293:
+ 296              		.section	.rodata.LED_Test.str1.1,"aMS",%progbits,1
+ 297              	.LC0:
+ 298 0000 443600   		.ascii	"D6\000"
+ 299              	.LC1:
+ 300 0003 443700   		.ascii	"D7\000"
+ 301              	.LC2:
+ 302 0006 696E7661 		.ascii	"invalid led name\000"
+ 302      6C696420 
+ 302      6C656420 
+ 302      6E616D65 
+ 302      00
+ 303              	.LC3:
+ 304 0017 6F6E00   		.ascii	"on\000"
+ 305              	.LC4:
+ 306 001a 6F666600 		.ascii	"off\000"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 8
+
+
+ 307              	.LC5:
+ 308 001e 746F6767 		.ascii	"toggle\000"
+ 308      6C6500
+ 309              	.LC6:
+ 310 0025 626C696E 		.ascii	"blink\000"
+ 310      6B00
+ 311              	.LC7:
+ 312 002b 696E7661 		.ascii	"invalid cmd type\000"
+ 312      6C696420 
+ 312      636D6420 
+ 312      74797065 
+ 312      00
+ 313              		.section	.text.LED_Test,"ax",%progbits
+ 314              		.align	1
+ 315              		.global	LED_Test
+ 316              		.syntax unified
+ 317              		.thumb
+ 318              		.thumb_func
+ 320              	LED_Test:
+ 321              	.LVL21:
+ 322              	.LFB294:
+  88:FML/Src/led.c **** /*------------------------------------test------------------------------------*/
+  89:FML/Src/led.c **** /**
+  90:FML/Src/led.c ****  * @brief LED测试函数
+  91:FML/Src/led.c ****  * 
+  92:FML/Src/led.c ****  * @param name LED接口（D6/D7）
+  93:FML/Src/led.c ****  * @param type LED状态 ON/OFF/TOGGLE/BLINK
+  94:FML/Src/led.c ****  * @param ...  可变参数（仅type为blink时有效）args[0]:gap(闪烁间隔ms) args[1]:cycle(
+  95:FML/Src/led.c ****  */
+  96:FML/Src/led.c **** void LED_Test(char *name, char *type, ...){
+ 323              		.loc 1 96 43 is_stmt 1 view -0
+ 324              		.cfi_startproc
+ 325              		@ args = 4, pretend = 12, frame = 8
+ 326              		@ frame_needed = 0, uses_anonymous_args = 1
+  97:FML/Src/led.c ****   LED_HandleTypeDef *test_led;
+ 327              		.loc 1 97 3 view .LVU63
+  98:FML/Src/led.c ****   uint32_t gap = 0;
+ 328              		.loc 1 98 3 view .LVU64
+  99:FML/Src/led.c ****   uint8_t cycle = 0;
+ 329              		.loc 1 99 3 view .LVU65
+ 100:FML/Src/led.c **** 
+ 101:FML/Src/led.c ****   if(strcmp(name,"D6") == 0)
+ 330              		.loc 1 101 3 view .LVU66
+  96:FML/Src/led.c ****   LED_HandleTypeDef *test_led;
+ 331              		.loc 1 96 43 is_stmt 0 view .LVU67
+ 332 0000 0EB4     		push	{r1, r2, r3}
+ 333              	.LCFI4:
+ 334              		.cfi_def_cfa_offset 12
+ 335              		.cfi_offset 1, -12
+ 336              		.cfi_offset 2, -8
+ 337              		.cfi_offset 3, -4
+ 338 0002 33B5     		push	{r0, r1, r4, r5, lr}
+ 339              	.LCFI5:
+ 340              		.cfi_def_cfa_offset 32
+ 341              		.cfi_offset 4, -24
+ 342              		.cfi_offset 5, -20
+ 343              		.cfi_offset 14, -16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 9
+
+
+ 344              	.LBB6:
+ 345              		.loc 1 101 6 view .LVU68
+ 346 0004 2049     		ldr	r1, .L23
+ 347              	.LBE6:
+  96:FML/Src/led.c ****   LED_HandleTypeDef *test_led;
+ 348              		.loc 1 96 43 view .LVU69
+ 349 0006 059D     		ldr	r5, [sp, #20]
+ 350 0008 0446     		mov	r4, r0
+ 351              	.LBB7:
+ 352              		.loc 1 101 6 view .LVU70
+ 353 000a FFF7FEFF 		bl	strcmp
+ 354              	.LVL22:
+ 355              		.loc 1 101 5 view .LVU71
+ 356 000e 48B1     		cbz	r0, .L20
+ 102:FML/Src/led.c ****     test_led = &dev_led[0];
+ 103:FML/Src/led.c ****   else if((strcmp(name,"D7") == 0))
+ 357              		.loc 1 103 8 is_stmt 1 view .LVU72
+ 358              		.loc 1 103 12 is_stmt 0 view .LVU73
+ 359 0010 1E49     		ldr	r1, .L23+4
+ 360 0012 2046     		mov	r0, r4
+ 361 0014 FFF7FEFF 		bl	strcmp
+ 362              	.LVL23:
+ 363              		.loc 1 103 10 view .LVU74
+ 364 0018 90B1     		cbz	r0, .L21
+ 104:FML/Src/led.c ****     test_led = &dev_led[1];
+ 105:FML/Src/led.c ****   else{
+ 106:FML/Src/led.c ****     shellPrint(&shell,"invalid led name");
+ 365              		.loc 1 106 5 is_stmt 1 view .LVU75
+ 366 001a 1D49     		ldr	r1, .L23+8
+ 367              	.LVL24:
+ 368              	.L22:
+ 369              		.loc 1 106 5 is_stmt 0 view .LVU76
+ 370              	.LBE7:
+ 371              	.LBB8:
+ 107:FML/Src/led.c ****     return;
+ 108:FML/Src/led.c ****   }
+ 109:FML/Src/led.c **** 
+ 110:FML/Src/led.c ****   if(strcmp(type,"on") == 0)
+ 111:FML/Src/led.c ****     LED_On(test_led);
+ 112:FML/Src/led.c ****   else if(strcmp(type,"off") == 0)
+ 113:FML/Src/led.c ****     LED_Off(test_led);
+ 114:FML/Src/led.c ****   else if(strcmp(type,"toggle") == 0)
+ 115:FML/Src/led.c ****     LED_Toggle(test_led);
+ 116:FML/Src/led.c ****   else if(strcmp(type,"blink") == 0)
+ 117:FML/Src/led.c ****   {
+ 118:FML/Src/led.c ****     va_list p_args;
+ 119:FML/Src/led.c ****     va_start(p_args,type);
+ 120:FML/Src/led.c ****     gap = va_arg(p_args,int);
+ 121:FML/Src/led.c ****     cycle = va_arg(p_args,int);
+ 122:FML/Src/led.c ****     va_end(p_args);
+ 123:FML/Src/led.c ****     LED_Blink(test_led, gap, cycle);
+ 124:FML/Src/led.c ****   }
+ 125:FML/Src/led.c ****   else{
+ 126:FML/Src/led.c ****     shellPrint(&shell,"invalid cmd type");
+ 372              		.loc 1 126 5 view .LVU77
+ 373 001c 1D48     		ldr	r0, .L23+12
+ 374 001e FFF7FEFF 		bl	shellPrint
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 10
+
+
+ 375              	.LVL25:
+ 127:FML/Src/led.c ****     return;
+ 376              		.loc 1 127 5 is_stmt 1 view .LVU78
+ 377 0022 08E0     		b	.L13
+ 378              	.LVL26:
+ 379              	.L20:
+ 380              		.loc 1 127 5 is_stmt 0 view .LVU79
+ 381              	.LBE8:
+ 382              	.LBB10:
+ 102:FML/Src/led.c ****   else if((strcmp(name,"D7") == 0))
+ 383              		.loc 1 102 14 view .LVU80
+ 384 0024 1C4C     		ldr	r4, .L23+16
+ 385              	.LVL27:
+ 386              	.L14:
+ 102:FML/Src/led.c ****   else if((strcmp(name,"D7") == 0))
+ 387              		.loc 1 102 14 view .LVU81
+ 388              	.LBE10:
+ 110:FML/Src/led.c ****     LED_On(test_led);
+ 389              		.loc 1 110 3 is_stmt 1 view .LVU82
+ 390              	.LBB11:
+ 110:FML/Src/led.c ****     LED_On(test_led);
+ 391              		.loc 1 110 6 is_stmt 0 view .LVU83
+ 392 0026 1D49     		ldr	r1, .L23+20
+ 393 0028 2846     		mov	r0, r5
+ 394 002a FFF7FEFF 		bl	strcmp
+ 395              	.LVL28:
+ 110:FML/Src/led.c ****     LED_On(test_led);
+ 396              		.loc 1 110 5 view .LVU84
+ 397 002e 48B9     		cbnz	r0, .L16
+ 111:FML/Src/led.c ****   else if(strcmp(type,"off") == 0)
+ 398              		.loc 1 111 5 is_stmt 1 view .LVU85
+ 399 0030 2046     		mov	r0, r4
+ 400 0032 FFF7FEFF 		bl	LED_On
+ 401              	.LVL29:
+ 402              	.L13:
+ 111:FML/Src/led.c ****   else if(strcmp(type,"off") == 0)
+ 403              		.loc 1 111 5 is_stmt 0 view .LVU86
+ 404              	.LBE11:
+ 128:FML/Src/led.c ****   }
+ 129:FML/Src/led.c **** }
+ 405              		.loc 1 129 1 view .LVU87
+ 406 0036 02B0     		add	sp, sp, #8
+ 407              	.LCFI6:
+ 408              		.cfi_remember_state
+ 409              		.cfi_def_cfa_offset 24
+ 410              		@ sp needed
+ 411 0038 BDE83040 		pop	{r4, r5, lr}
+ 412              	.LCFI7:
+ 413              		.cfi_restore 14
+ 414              		.cfi_restore 5
+ 415              		.cfi_restore 4
+ 416              		.cfi_def_cfa_offset 12
+ 417 003c 03B0     		add	sp, sp, #12
+ 418              	.LCFI8:
+ 419              		.cfi_restore 3
+ 420              		.cfi_restore 2
+ 421              		.cfi_restore 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 11
+
+
+ 422              		.cfi_def_cfa_offset 0
+ 423 003e 7047     		bx	lr
+ 424              	.LVL30:
+ 425              	.L21:
+ 426              	.LCFI9:
+ 427              		.cfi_restore_state
+ 428              	.LBB12:
+ 104:FML/Src/led.c ****   else{
+ 429              		.loc 1 104 14 view .LVU88
+ 430 0040 174C     		ldr	r4, .L23+24
+ 431              	.LVL31:
+ 104:FML/Src/led.c ****   else{
+ 432              		.loc 1 104 14 view .LVU89
+ 433 0042 F0E7     		b	.L14
+ 434              	.LVL32:
+ 435              	.L16:
+ 104:FML/Src/led.c ****   else{
+ 436              		.loc 1 104 14 view .LVU90
+ 437              	.LBE12:
+ 438              	.LBB13:
+ 112:FML/Src/led.c ****     LED_Off(test_led);
+ 439              		.loc 1 112 8 is_stmt 1 view .LVU91
+ 112:FML/Src/led.c ****     LED_Off(test_led);
+ 440              		.loc 1 112 11 is_stmt 0 view .LVU92
+ 441 0044 1749     		ldr	r1, .L23+28
+ 442 0046 2846     		mov	r0, r5
+ 443 0048 FFF7FEFF 		bl	strcmp
+ 444              	.LVL33:
+ 112:FML/Src/led.c ****     LED_Off(test_led);
+ 445              		.loc 1 112 10 view .LVU93
+ 446 004c 18B9     		cbnz	r0, .L17
+ 113:FML/Src/led.c ****   else if(strcmp(type,"toggle") == 0)
+ 447              		.loc 1 113 5 is_stmt 1 view .LVU94
+ 448 004e 2046     		mov	r0, r4
+ 449 0050 FFF7FEFF 		bl	LED_Off
+ 450              	.LVL34:
+ 451 0054 EFE7     		b	.L13
+ 452              	.L17:
+ 114:FML/Src/led.c ****     LED_Toggle(test_led);
+ 453              		.loc 1 114 8 view .LVU95
+ 114:FML/Src/led.c ****     LED_Toggle(test_led);
+ 454              		.loc 1 114 11 is_stmt 0 view .LVU96
+ 455 0056 1449     		ldr	r1, .L23+32
+ 456 0058 2846     		mov	r0, r5
+ 457 005a FFF7FEFF 		bl	strcmp
+ 458              	.LVL35:
+ 114:FML/Src/led.c ****     LED_Toggle(test_led);
+ 459              		.loc 1 114 10 view .LVU97
+ 460 005e 18B9     		cbnz	r0, .L18
+ 115:FML/Src/led.c ****   else if(strcmp(type,"blink") == 0)
+ 461              		.loc 1 115 5 is_stmt 1 view .LVU98
+ 462 0060 2046     		mov	r0, r4
+ 463 0062 FFF7FEFF 		bl	LED_Toggle
+ 464              	.LVL36:
+ 465 0066 E6E7     		b	.L13
+ 466              	.L18:
+ 116:FML/Src/led.c ****   {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 12
+
+
+ 467              		.loc 1 116 8 view .LVU99
+ 116:FML/Src/led.c ****   {
+ 468              		.loc 1 116 11 is_stmt 0 view .LVU100
+ 469 0068 1049     		ldr	r1, .L23+36
+ 470 006a 2846     		mov	r0, r5
+ 471 006c FFF7FEFF 		bl	strcmp
+ 472              	.LVL37:
+ 116:FML/Src/led.c ****   {
+ 473              		.loc 1 116 10 view .LVU101
+ 474 0070 40B9     		cbnz	r0, .L19
+ 475              	.LBB9:
+ 118:FML/Src/led.c ****     va_start(p_args,type);
+ 476              		.loc 1 118 5 is_stmt 1 view .LVU102
+ 119:FML/Src/led.c ****     gap = va_arg(p_args,int);
+ 477              		.loc 1 119 5 view .LVU103
+ 478 0072 06AB     		add	r3, sp, #24
+ 123:FML/Src/led.c ****   }
+ 479              		.loc 1 123 5 is_stmt 0 view .LVU104
+ 480 0074 9DF81C20 		ldrb	r2, [sp, #28]	@ zero_extendqisi2
+ 481 0078 0699     		ldr	r1, [sp, #24]
+ 119:FML/Src/led.c ****     gap = va_arg(p_args,int);
+ 482              		.loc 1 119 5 view .LVU105
+ 483 007a 0193     		str	r3, [sp, #4]
+ 120:FML/Src/led.c ****     cycle = va_arg(p_args,int);
+ 484              		.loc 1 120 5 is_stmt 1 view .LVU106
+ 485              	.LVL38:
+ 121:FML/Src/led.c ****     va_end(p_args);
+ 486              		.loc 1 121 5 view .LVU107
+ 122:FML/Src/led.c ****     LED_Blink(test_led, gap, cycle);
+ 487              		.loc 1 122 5 view .LVU108
+ 123:FML/Src/led.c ****   }
+ 488              		.loc 1 123 5 view .LVU109
+ 489 007c 2046     		mov	r0, r4
+ 490 007e FFF7FEFF 		bl	LED_Blink
+ 491              	.LVL39:
+ 123:FML/Src/led.c ****   }
+ 492              		.loc 1 123 5 is_stmt 0 view .LVU110
+ 493              	.LBE9:
+ 494 0082 D8E7     		b	.L13
+ 495              	.LVL40:
+ 496              	.L19:
+ 126:FML/Src/led.c ****     return;
+ 497              		.loc 1 126 5 is_stmt 1 view .LVU111
+ 498 0084 0A49     		ldr	r1, .L23+40
+ 499 0086 C9E7     		b	.L22
+ 500              	.L24:
+ 501              		.align	2
+ 502              	.L23:
+ 503 0088 00000000 		.word	.LC0
+ 504 008c 03000000 		.word	.LC1
+ 505 0090 06000000 		.word	.LC2
+ 506 0094 00000000 		.word	shell
+ 507 0098 00000000 		.word	.LANCHOR0
+ 508 009c 17000000 		.word	.LC3
+ 509 00a0 08000000 		.word	.LANCHOR0+8
+ 510 00a4 1A000000 		.word	.LC4
+ 511 00a8 1E000000 		.word	.LC5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 13
+
+
+ 512 00ac 25000000 		.word	.LC6
+ 513 00b0 2B000000 		.word	.LC7
+ 514              	.LBE13:
+ 515              		.cfi_endproc
+ 516              	.LFE294:
+ 518              		.global	shellCommandled_test
+ 519              		.global	shellDescled_test
+ 520              		.global	shellCmdled_test
+ 521              		.global	dev_led
+ 522              		.section	.data.dev_led,"aw"
+ 523              		.align	2
+ 524              		.set	.LANCHOR0,. + 0
+ 527              	dev_led:
+ 528 0000 00040048 		.word	1207960576
+ 529 0004 0400     		.short	4
+ 530 0006 0000     		.space	2
+ 531 0008 00080048 		.word	1207961600
+ 532 000c 0020     		.short	8192
+ 533 000e 0000     		.space	2
+ 534              		.section	.rodata.shellCmdled_test,"a"
+ 537              	shellCmdled_test:
+ 538 0000 6C65645F 		.ascii	"led_test\000"
+ 538      74657374 
+ 538      00
+ 539              		.section	.rodata.shellDescled_test,"a"
+ 542              	shellDescled_test:
+ 543 0000 74657374 		.ascii	"test led func\000"
+ 543      206C6564 
+ 543      2066756E 
+ 543      6300
+ 544              		.section	shellCommand,"a"
+ 547              	shellCommandled_test:
+ 548 0000 00210000 		.4byte	8448
+ 549 0004 00000000 		.4byte	shellCmdled_test
+ 550 0008 00000000 		.4byte	LED_Test
+ 551 000c 00000000 		.4byte	shellDescled_test
+ 552              		.text
+ 553              	.Letext0:
+ 554              		.file 2 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 555              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 556              		.file 4 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 557              		.file 5 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 558              		.file 6 "FML/Inc/led.h"
+ 559              		.file 7 "ThirdParty/Letter-shell/Inc/shell.h"
+ 560              		.file 8 "ThirdParty/Letter-shell/Inc/shell_port.h"
+ 561              		.file 9 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\lib\\gcc\\arm-n
+ 562              		.file 10 "<built-in>"
+ 563              		.file 11 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\cc26jO0y.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 led.c
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:18     .text.LED_Init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:24     .text.LED_Init:00000000 LED_Init
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:65     .text.LED_Init:00000054 $d
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:68     .text.LED_On:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:74     .text.LED_On:00000000 LED_On
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:84     .text.LED_Off:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:90     .text.LED_Off:00000000 LED_Off
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:100    .text.LED_Toggle:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:106    .text.LED_Toggle:00000000 LED_Toggle
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:115    .text.LED1_Toggle:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:121    .text.LED1_Toggle:00000000 LED1_Toggle
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:130    .text.LED1_Toggle:00000008 $d
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:133    .text.LED_Blink:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:139    .text.LED_Blink:00000000 LED_Blink
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:179    .text.LED_Test:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:185    .text.LED_Test:00000000 LED_Test
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:256    .text.LED_Test:00000088 $d
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:297    shellCommand:00000000 shellCommandled_test
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:292    .rodata.shellDescled_test:00000000 shellDescled_test
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:287    .rodata.shellCmdled_test:00000000 shellCmdled_test
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:277    .data.dev_led:00000000 dev_led
-C:\Users\CL\AppData\Local\Temp\cc7jvshh.s:273    .data.dev_led:00000000 $d
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:20     .text.LED_Init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:26     .text.LED_Init:00000000 LED_Init
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:127    .text.LED_Init:00000054 $d
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:132    .text.LED_On:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:138    .text.LED_On:00000000 LED_On
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:158    .text.LED_Off:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:164    .text.LED_Off:00000000 LED_Off
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:184    .text.LED_Toggle:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:190    .text.LED_Toggle:00000000 LED_Toggle
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:209    .text.LED1_Toggle:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:215    .text.LED1_Toggle:00000000 LED1_Toggle
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:229    .text.LED1_Toggle:00000008 $d
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:234    .text.LED_Blink:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:240    .text.LED_Blink:00000000 LED_Blink
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:314    .text.LED_Test:00000000 $t
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:320    .text.LED_Test:00000000 LED_Test
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:503    .text.LED_Test:00000088 $d
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:547    shellCommand:00000000 shellCommandled_test
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:542    .rodata.shellDescled_test:00000000 shellDescled_test
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:537    .rodata.shellCmdled_test:00000000 shellCmdled_test
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:527    .data.dev_led:00000000 dev_led
+C:\Users\CL\AppData\Local\Temp\cc26jO0y.s:523    .data.dev_led:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_Init
