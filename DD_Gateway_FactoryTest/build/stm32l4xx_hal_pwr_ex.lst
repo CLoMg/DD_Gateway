@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
   28:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @{
   29:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   */
   30:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 2
 
 
   31:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** /** @defgroup PWREx PWREx
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
   85:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
   86:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** /* Private macro -------------------------------------------------------------*/
   87:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** /* Private variables ---------------------------------------------------------*/
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 3
 
 
   88:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** /* Private function prototypes -----------------------------------------------*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  133:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** }
   38              		.loc 1 133 1 view .LVU3
   39 0004 00F4C060 		and	r0, r0, #1536
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 4
 
 
   40 0008 7047     		bx	lr
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  166:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
  167:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   assert_param(IS_PWR_VOLTAGE_SCALING_RANGE(VoltageScaling));
   64              		.loc 1 167 3 view .LVU6
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 5
 
 
  168:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  222:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****     else
  223:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****     {
  224:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       /* Disable Range 1 Boost (no issue if bit already set) */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 6
 
 
  225:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       SET_BIT(PWR->CR5, PWR_CR5_R1MODE);
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  262:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       /* Set Range 2 */
  263:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       MODIFY_REG(PWR->CR1, PWR_CR1_VOS, PWR_REGULATOR_VOLTAGE_SCALE2);
  264:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       /* No need to wait for VOSF to be cleared for this transition */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 7
 
 
  265:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****     }
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  117 003c 5369     		ldr	r3, [r2, #20]
  118              	.LVL4:
  252:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 8
 
 
  119              		.loc 1 252 10 view .LVU28
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  272:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
  273:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** /**
  274:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @brief Enable battery charging.
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 9
 
 
  275:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   *        When VDD is present, charge the external battery on VBAT thru an internal resistor.
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  295:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @brief Disable battery charging.
  296:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @retval None
  297:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 10
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 10
 
 
  298:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** void HAL_PWREx_DisableBatteryCharging(void)
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  326:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** #if defined(PWR_CR2_IOSV)
  327:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** /**
  328:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @brief Enable VDDIO2 supply.
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 11
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 11
 
 
  329:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @note  Remove VDDIO2 electrical and logical isolation, once VDDIO2 supply is present.
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  357:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
  358:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
  359:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** /**
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 12
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 12
 
 
  360:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @brief Disable Internal Wake-up Line.
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  387:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   *         I/O pins are available) or the logical OR of several of them to set
  388:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   *         several bits for a given port in a single API call.
  389:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @retval HAL Status
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 13
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 13
 
 
  390:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   */
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  404:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****     case PWR_GPIO_B:
  405:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****        SET_BIT(PWR->PUCRB, GPIONumber);
  406:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****        CLEAR_BIT(PWR->PDCRB, (GPIONumber & (~(PWR_GPIO_BIT_4))));
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 14
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 14
 
 
  407:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****        break;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  415:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****        CLEAR_BIT(PWR->PDCRD, GPIONumber);
  369              		.loc 1 415 8 view .LVU73
  370 005c DA6B     		ldr	r2, [r3, #60]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 15
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 15
 
 
  371 005e 22EA0101 		bic	r1, r2, r1
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  439:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****        CLEAR_BIT(PWR->PDCRH, ((GPIONumber & PWR_PORTH_AVAILABLE_PINS) & (~(PWR_GPIO_BIT_3))));
  440:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** #else
  441:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****        CLEAR_BIT(PWR->PDCRH, (GPIONumber & PWR_PORTH_AVAILABLE_PINS));
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 16
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 16
 
 
  402              		.loc 1 441 8 is_stmt 1 view .LVU82
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  466:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   *          (or PWR_GPIO_I depending on the devices) to select the GPIO peripheral.
  467:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @param  GPIONumber Specify the I/O pins numbers.
  468:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   *         This parameter can be one of the following values:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 17
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 17
 
 
  469:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   *         PWR_GPIO_BIT_0, ..., PWR_GPIO_BIT_15 (except for the port where less
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  476:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
  467              		.loc 1 476 21 is_stmt 0 view .LVU96
  468 001e 0020     		movs	r0, #0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 18
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 18
 
 
  469              	.LVL28:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  510              	.LVL36:
  511              		.loc 1 499 8 is_stmt 0 view .LVU107
  512 004e 1164     		str	r1, [r2, #64]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 19
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 19
 
 
  500:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****        break;
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  539              		.cfi_endproc
  540              	.LFE295:
  542              		.section	.text.HAL_PWREx_EnableGPIOPullDown,"ax",%progbits
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 20
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 20
 
 
  543              		.align	1
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  566 0009 12       		.byte	(.L67-.L63)/2
  567 000a 1D       		.byte	(.L66-.L63)/2
  568 000b 26       		.byte	(.L65-.L63)/2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 21
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 21
 
 
  569 000c 2F       		.byte	(.L64-.L63)/2
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  610              	.LVL46:
  566:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****        break;
  611              		.loc 1 566 8 is_stmt 0 view .LVU131
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 22
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 22
 
 
  612 003e 9962     		str	r1, [r3, #40]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  652 006e 1A6C     		ldr	r2, [r3, #64]
  653 0070 22EA0101 		bic	r1, r2, r1
  654              	.LVL52:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 23
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 23
 
 
  655              		.loc 1 581 8 is_stmt 0 view .LVU142
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  610:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****     default:
  611:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       status = HAL_ERROR;
  612:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       break;
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 24
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 24
 
 
  613:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   }
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  641:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   switch (GPIO)
  708              		.loc 1 641 3 view .LVU155
  709 0000 0728     		cmp	r0, #7
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 25
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 25
 
 
  710 0002 30D8     		bhi	.L82
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  752              		.loc 1 650 8 is_stmt 1 view .LVU164
  753 0032 0E4A     		ldr	r2, .L84
  754 0034 536B     		ldr	r3, [r2, #52]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 26
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 26
 
 
  755 0036 23EA0101 		bic	r1, r3, r1
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  675:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** #else
  676:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****        CLEAR_BIT(PWR->PDCRH, (GPIONumber & PWR_PORTH_AVAILABLE_PINS));
  785              		.loc 1 676 8 view .LVU173
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 27
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 27
 
 
  786 0056 054A     		ldr	r2, .L84
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  699:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   *        PDy bit of PWR_PDCRx register is also set (pull-down configuration priority is higher).
  700:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   *        HAL_PWREx_EnableGPIOPullUp() and HAL_PWREx_EnableGPIOPullDown() API's ensure there
  701:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   *        is no conflict when setting PUy or PDy bit.
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 28
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 28
 
 
  702:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @retval None
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  857              		.loc 1 719 1 is_stmt 0 view .LVU184
  858 000a 7047     		bx	lr
  859              	.L91:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 29
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 29
 
 
  860              		.align	2
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  884              		.loc 1 751 19 view .LVU187
  885              	.LBE8:
  752:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 30
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 30
 
 
  753:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   assert_param(IS_PWR_SRAM2_RETENTION(SRAM2Size));
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  755:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   {
  929              		.loc 1 755 3 view .LVU197
  755:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 31
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 31
 
 
  930              		.loc 1 755 6 is_stmt 0 view .LVU198
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  967              	.L99:
  968 0028 00700040 		.word	1073770496
  969              		.cfi_endproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 32
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 32
 
 
  970              	.LFE302:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  797:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** }
  798:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** #endif /* PWR_CR3_ENULP */
  799:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 33
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 33
 
 
  800:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  854:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @brief Enable pull-down activation on DSI pins.
  855:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @retval None
  856:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 34
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 34
 
 
  857:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** void HAL_PWREx_EnableDSIPinsPDActivation(void)
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  911:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** }
  912:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** #endif /* PWR_CR2_PVME2 */
  913:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 35
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 35
 
 
  914:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1041              		.loc 1 931 1 is_stmt 0 view .LVU216
  1042 000a 7047     		bx	lr
  1043              	.L107:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 36
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 36
 
 
  1044              		.align	2
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  947:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** void HAL_PWREx_DisablePVM4(void)
  948:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** {
  1087              		.loc 1 948 1 is_stmt 1 view -0
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 37
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 37
 
 
  1088              		.cfi_startproc
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  971:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   /* Check the parameters */
  972:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   assert_param(IS_PWR_PVM_TYPE(sConfigPVM->PVMType));
  1122              		.loc 1 972 3 view .LVU225
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 38
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 38
 
 
  973:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   assert_param(IS_PWR_PVM_MODE(sConfigPVM->Mode));
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
 1012:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** #endif /* PWR_CR2_PVME1 */
 1013:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
 1014:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** #if defined(PWR_CR2_PVME2)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 39
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 39
 
 
 1015:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****     case PWR_PVM_2:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1154 002e 9A62     		str	r2, [r3, #40]
 1053:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
 1054:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       /* Configure interrupt mode */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 40
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 40
 
 
 1055:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       if((sConfigPVM->Mode & PVM_MODE_IT) == PVM_MODE_IT)
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
 1073:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       {
 1074:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****         __HAL_PWR_PVM3_EXTI_ENABLE_FALLING_EDGE();
 1075:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 41
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 41
 
 
 1076:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       break;
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1202              	.LVL85:
  1203              	.L116:
 1080:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       __HAL_PWR_PVM4_EXTI_DISABLE_IT();
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 42
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 42
 
 
  1204              		.loc 1 1080 7 is_stmt 1 view .LVU252
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1245 00a8 996A     		ldrmi	r1, [r3, #40]
  1246 00aa 41F04001 		orrmi	r1, r1, #64
  1247 00ae 9962     		strmi	r1, [r3, #40]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 43
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 43
 
 
 1103:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****       {
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1283 000a 7047     		bx	lr
  1284              	.L153:
  1285              		.align	2
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 44
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 44
 
 
  1286              	.L152:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
 1153:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   while ((HAL_IS_BIT_SET(PWR->SR2, PWR_SR2_REGLPF)) && (wait_loop_index != 0U))
  1323              		.loc 1 1153 3 is_stmt 1 view .LVU279
  1324              	.L155:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 45
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 45
 
 
  1325              		.loc 1 1153 9 view .LVU280
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1367              		.thumb_func
  1369              	HAL_PWREx_EnterSTOP0Mode:
  1370              	.LVL91:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 46
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 46
 
 
  1371              	.LFB310:
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
 1197:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
  1388              		.loc 1 1197 3 view .LVU296
  1389 0010 42F00402 		orr	r2, r2, #4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 47
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 47
 
 
  1390 0014 1A61     		str	r2, [r3, #16]
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1426              		.align	2
  1427              	.L168:
  1428 002c 00700040 		.word	1073770496
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 48
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 48
 
 
  1429 0030 00ED00E0 		.word	-536810240
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
 1246:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
 1247:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   /* Set SLEEPDEEP bit of Cortex System Control Register */
 1248:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPDEEP_Msk));
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 49
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 49
 
 
  1455              		.loc 1 1248 3 view .LVU308
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1488 002a 20BF     		wfe
  1489              	@ 0 "" 2
 1261:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 50
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 50
 
 
  1490              		.loc 1 1261 5 view .LVU318
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1519              		@ link register save eliminated.
 1294:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   /* Check the parameter */
 1295:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   assert_param(IS_PWR_STOP_ENTRY(STOPEntry));
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 51
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 51
 
 
  1520              		.loc 1 1295 3 view .LVU320
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
 1319:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** }
  1550              		.loc 1 1319 1 is_stmt 0 view .LVU329
  1551 0026 7047     		bx	lr
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 52
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 52
 
 
  1552              	.L176:
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1589              		@ frame_needed = 0, uses_anonymous_args = 0
  1590              		@ link register save eliminated.
 1336:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 53
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 53
 
 
 1337:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   /* Set Shutdown mode */
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
 1356:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @note This API should be called under the PVD_PVM_IRQHandler().
 1357:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @retval None
 1358:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 54
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 54
 
 
 1359:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** void HAL_PWREx_PVD_PVM_IRQHandler(void)
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
 1413:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   * @retval None
 1414:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   */
 1415:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** __weak void HAL_PWREx_PVM1Callback(void)
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 55
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 55
 
 
 1416:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c **** {
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1655              		.section	.text.HAL_PWREx_PVD_PVM_IRQHandler,"ax",%progbits
  1656              		.align	1
  1657              		.global	HAL_PWREx_PVD_PVM_IRQHandler
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 56
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 56
 
 
  1658              		.syntax unified
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
 1399:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   {
  1701              		.loc 1 1399 3 view .LVU352
 1399:Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr_ex.c ****   {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 57
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 57
 
 
  1702              		.loc 1 1399 6 is_stmt 0 view .LVU353
@@ -3395,106 +3395,106 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 1
  1730              		.file 7 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h"
  1731              		.file 8 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h"
  1732              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 58
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 58
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32l4xx_hal_pwr_ex.c
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:20     .text.HAL_PWREx_GetVoltageRange:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:26     .text.HAL_PWREx_GetVoltageRange:00000000 HAL_PWREx_GetVoltageRange
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:44     .text.HAL_PWREx_GetVoltageRange:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:49     .text.HAL_PWREx_ControlVoltageScaling:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:55     .text.HAL_PWREx_ControlVoltageScaling:00000000 HAL_PWREx_ControlVoltageScaling
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:150    .text.HAL_PWREx_ControlVoltageScaling:00000060 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:157    .text.HAL_PWREx_EnableBatteryCharging:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:163    .text.HAL_PWREx_EnableBatteryCharging:00000000 HAL_PWREx_EnableBatteryCharging
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:189    .text.HAL_PWREx_EnableBatteryCharging:00000018 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:194    .text.HAL_PWREx_DisableBatteryCharging:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:200    .text.HAL_PWREx_DisableBatteryCharging:00000000 HAL_PWREx_DisableBatteryCharging
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:217    .text.HAL_PWREx_DisableBatteryCharging:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:222    .text.HAL_PWREx_EnableInternalWakeUpLine:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:228    .text.HAL_PWREx_EnableInternalWakeUpLine:00000000 HAL_PWREx_EnableInternalWakeUpLine
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:245    .text.HAL_PWREx_EnableInternalWakeUpLine:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:250    .text.HAL_PWREx_DisableInternalWakeUpLine:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:256    .text.HAL_PWREx_DisableInternalWakeUpLine:00000000 HAL_PWREx_DisableInternalWakeUpLine
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:273    .text.HAL_PWREx_DisableInternalWakeUpLine:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:278    .text.HAL_PWREx_EnableGPIOPullUp:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:284    .text.HAL_PWREx_EnableGPIOPullUp:00000000 HAL_PWREx_EnableGPIOPullUp
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:300    .text.HAL_PWREx_EnableGPIOPullUp:00000008 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:308    .text.HAL_PWREx_EnableGPIOPullUp:00000010 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:419    .text.HAL_PWREx_EnableGPIOPullUp:00000094 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:424    .text.HAL_PWREx_DisableGPIOPullUp:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:430    .text.HAL_PWREx_DisableGPIOPullUp:00000000 HAL_PWREx_DisableGPIOPullUp
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:446    .text.HAL_PWREx_DisableGPIOPullUp:00000008 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:454    .text.HAL_PWREx_DisableGPIOPullUp:00000010 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:538    .text.HAL_PWREx_DisableGPIOPullUp:00000068 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:543    .text.HAL_PWREx_EnableGPIOPullDown:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:549    .text.HAL_PWREx_EnableGPIOPullDown:00000000 HAL_PWREx_EnableGPIOPullDown
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:565    .text.HAL_PWREx_EnableGPIOPullDown:00000008 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:573    .text.HAL_PWREx_EnableGPIOPullDown:00000010 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:686    .text.HAL_PWREx_EnableGPIOPullDown:00000094 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:691    .text.HAL_PWREx_DisableGPIOPullDown:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:697    .text.HAL_PWREx_DisableGPIOPullDown:00000000 HAL_PWREx_DisableGPIOPullDown
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:713    .text.HAL_PWREx_DisableGPIOPullDown:00000008 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:721    .text.HAL_PWREx_DisableGPIOPullDown:00000010 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:806    .text.HAL_PWREx_DisableGPIOPullDown:0000006c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:811    .text.HAL_PWREx_EnablePullUpPullDownConfig:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:817    .text.HAL_PWREx_EnablePullUpPullDownConfig:00000000 HAL_PWREx_EnablePullUpPullDownConfig
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:834    .text.HAL_PWREx_EnablePullUpPullDownConfig:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:839    .text.HAL_PWREx_DisablePullUpPullDownConfig:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:845    .text.HAL_PWREx_DisablePullUpPullDownConfig:00000000 HAL_PWREx_DisablePullUpPullDownConfig
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:862    .text.HAL_PWREx_DisablePullUpPullDownConfig:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:867    .text.HAL_PWREx_EnableSRAM2ContentRetention:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:873    .text.HAL_PWREx_EnableSRAM2ContentRetention:00000000 HAL_PWREx_EnableSRAM2ContentRetention
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:909    .text.HAL_PWREx_EnableSRAM2ContentRetention:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:914    .text.HAL_PWREx_SetSRAM2ContentRetention:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:920    .text.HAL_PWREx_SetSRAM2ContentRetention:00000000 HAL_PWREx_SetSRAM2ContentRetention
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:968    .text.HAL_PWREx_SetSRAM2ContentRetention:00000028 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:973    .text.HAL_PWREx_DisableSRAM2ContentRetention:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:979    .text.HAL_PWREx_DisableSRAM2ContentRetention:00000000 HAL_PWREx_DisableSRAM2ContentRetention
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:995    .text.HAL_PWREx_EnablePVM3:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1001   .text.HAL_PWREx_EnablePVM3:00000000 HAL_PWREx_EnablePVM3
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1018   .text.HAL_PWREx_EnablePVM3:0000000c $d
-ARM GAS  C:\Users\CL\AppData\Local\Temp\cclHofRb.s 			page 59
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:20     .text.HAL_PWREx_GetVoltageRange:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:26     .text.HAL_PWREx_GetVoltageRange:00000000 HAL_PWREx_GetVoltageRange
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:44     .text.HAL_PWREx_GetVoltageRange:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:49     .text.HAL_PWREx_ControlVoltageScaling:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:55     .text.HAL_PWREx_ControlVoltageScaling:00000000 HAL_PWREx_ControlVoltageScaling
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:150    .text.HAL_PWREx_ControlVoltageScaling:00000060 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:157    .text.HAL_PWREx_EnableBatteryCharging:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:163    .text.HAL_PWREx_EnableBatteryCharging:00000000 HAL_PWREx_EnableBatteryCharging
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:189    .text.HAL_PWREx_EnableBatteryCharging:00000018 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:194    .text.HAL_PWREx_DisableBatteryCharging:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:200    .text.HAL_PWREx_DisableBatteryCharging:00000000 HAL_PWREx_DisableBatteryCharging
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:217    .text.HAL_PWREx_DisableBatteryCharging:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:222    .text.HAL_PWREx_EnableInternalWakeUpLine:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:228    .text.HAL_PWREx_EnableInternalWakeUpLine:00000000 HAL_PWREx_EnableInternalWakeUpLine
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:245    .text.HAL_PWREx_EnableInternalWakeUpLine:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:250    .text.HAL_PWREx_DisableInternalWakeUpLine:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:256    .text.HAL_PWREx_DisableInternalWakeUpLine:00000000 HAL_PWREx_DisableInternalWakeUpLine
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:273    .text.HAL_PWREx_DisableInternalWakeUpLine:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:278    .text.HAL_PWREx_EnableGPIOPullUp:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:284    .text.HAL_PWREx_EnableGPIOPullUp:00000000 HAL_PWREx_EnableGPIOPullUp
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:300    .text.HAL_PWREx_EnableGPIOPullUp:00000008 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:308    .text.HAL_PWREx_EnableGPIOPullUp:00000010 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:419    .text.HAL_PWREx_EnableGPIOPullUp:00000094 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:424    .text.HAL_PWREx_DisableGPIOPullUp:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:430    .text.HAL_PWREx_DisableGPIOPullUp:00000000 HAL_PWREx_DisableGPIOPullUp
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:446    .text.HAL_PWREx_DisableGPIOPullUp:00000008 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:454    .text.HAL_PWREx_DisableGPIOPullUp:00000010 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:538    .text.HAL_PWREx_DisableGPIOPullUp:00000068 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:543    .text.HAL_PWREx_EnableGPIOPullDown:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:549    .text.HAL_PWREx_EnableGPIOPullDown:00000000 HAL_PWREx_EnableGPIOPullDown
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:565    .text.HAL_PWREx_EnableGPIOPullDown:00000008 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:573    .text.HAL_PWREx_EnableGPIOPullDown:00000010 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:686    .text.HAL_PWREx_EnableGPIOPullDown:00000094 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:691    .text.HAL_PWREx_DisableGPIOPullDown:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:697    .text.HAL_PWREx_DisableGPIOPullDown:00000000 HAL_PWREx_DisableGPIOPullDown
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:713    .text.HAL_PWREx_DisableGPIOPullDown:00000008 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:721    .text.HAL_PWREx_DisableGPIOPullDown:00000010 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:806    .text.HAL_PWREx_DisableGPIOPullDown:0000006c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:811    .text.HAL_PWREx_EnablePullUpPullDownConfig:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:817    .text.HAL_PWREx_EnablePullUpPullDownConfig:00000000 HAL_PWREx_EnablePullUpPullDownConfig
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:834    .text.HAL_PWREx_EnablePullUpPullDownConfig:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:839    .text.HAL_PWREx_DisablePullUpPullDownConfig:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:845    .text.HAL_PWREx_DisablePullUpPullDownConfig:00000000 HAL_PWREx_DisablePullUpPullDownConfig
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:862    .text.HAL_PWREx_DisablePullUpPullDownConfig:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:867    .text.HAL_PWREx_EnableSRAM2ContentRetention:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:873    .text.HAL_PWREx_EnableSRAM2ContentRetention:00000000 HAL_PWREx_EnableSRAM2ContentRetention
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:909    .text.HAL_PWREx_EnableSRAM2ContentRetention:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:914    .text.HAL_PWREx_SetSRAM2ContentRetention:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:920    .text.HAL_PWREx_SetSRAM2ContentRetention:00000000 HAL_PWREx_SetSRAM2ContentRetention
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:968    .text.HAL_PWREx_SetSRAM2ContentRetention:00000028 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:973    .text.HAL_PWREx_DisableSRAM2ContentRetention:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:979    .text.HAL_PWREx_DisableSRAM2ContentRetention:00000000 HAL_PWREx_DisableSRAM2ContentRetention
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:995    .text.HAL_PWREx_EnablePVM3:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1001   .text.HAL_PWREx_EnablePVM3:00000000 HAL_PWREx_EnablePVM3
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1018   .text.HAL_PWREx_EnablePVM3:0000000c $d
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s 			page 59
 
 
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1023   .text.HAL_PWREx_DisablePVM3:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1029   .text.HAL_PWREx_DisablePVM3:00000000 HAL_PWREx_DisablePVM3
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1046   .text.HAL_PWREx_DisablePVM3:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1051   .text.HAL_PWREx_EnablePVM4:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1057   .text.HAL_PWREx_EnablePVM4:00000000 HAL_PWREx_EnablePVM4
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1074   .text.HAL_PWREx_EnablePVM4:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1079   .text.HAL_PWREx_DisablePVM4:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1085   .text.HAL_PWREx_DisablePVM4:00000000 HAL_PWREx_DisablePVM4
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1102   .text.HAL_PWREx_DisablePVM4:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1107   .text.HAL_PWREx_ConfigPVM:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1113   .text.HAL_PWREx_ConfigPVM:00000000 HAL_PWREx_ConfigPVM
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1259   .text.HAL_PWREx_ConfigPVM:000000bc $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1264   .text.HAL_PWREx_EnableLowPowerRunMode:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1270   .text.HAL_PWREx_EnableLowPowerRunMode:00000000 HAL_PWREx_EnableLowPowerRunMode
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1287   .text.HAL_PWREx_EnableLowPowerRunMode:0000000c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1292   .text.HAL_PWREx_DisableLowPowerRunMode:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1298   .text.HAL_PWREx_DisableLowPowerRunMode:00000000 HAL_PWREx_DisableLowPowerRunMode
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1356   .text.HAL_PWREx_DisableLowPowerRunMode:00000034 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1363   .text.HAL_PWREx_EnterSTOP0Mode:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1369   .text.HAL_PWREx_EnterSTOP0Mode:00000000 HAL_PWREx_EnterSTOP0Mode
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1428   .text.HAL_PWREx_EnterSTOP0Mode:0000002c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1434   .text.HAL_PWREx_EnterSTOP1Mode:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1440   .text.HAL_PWREx_EnterSTOP1Mode:00000000 HAL_PWREx_EnterSTOP1Mode
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1500   .text.HAL_PWREx_EnterSTOP1Mode:00000030 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1506   .text.HAL_PWREx_EnterSTOP2Mode:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1512   .text.HAL_PWREx_EnterSTOP2Mode:00000000 HAL_PWREx_EnterSTOP2Mode
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1572   .text.HAL_PWREx_EnterSTOP2Mode:00000030 $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1578   .text.HAL_PWREx_EnterSHUTDOWNMode:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1584   .text.HAL_PWREx_EnterSHUTDOWNMode:00000000 HAL_PWREx_EnterSHUTDOWNMode
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1614   .text.HAL_PWREx_EnterSHUTDOWNMode:0000001c $d
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1620   .text.HAL_PWREx_PVM3Callback:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1626   .text.HAL_PWREx_PVM3Callback:00000000 HAL_PWREx_PVM3Callback
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1639   .text.HAL_PWREx_PVM4Callback:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1645   .text.HAL_PWREx_PVM4Callback:00000000 HAL_PWREx_PVM4Callback
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1656   .text.HAL_PWREx_PVD_PVM_IRQHandler:00000000 $t
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1662   .text.HAL_PWREx_PVD_PVM_IRQHandler:00000000 HAL_PWREx_PVD_PVM_IRQHandler
-C:\Users\CL\AppData\Local\Temp\cclHofRb.s:1719   .text.HAL_PWREx_PVD_PVM_IRQHandler:00000034 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1023   .text.HAL_PWREx_DisablePVM3:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1029   .text.HAL_PWREx_DisablePVM3:00000000 HAL_PWREx_DisablePVM3
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1046   .text.HAL_PWREx_DisablePVM3:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1051   .text.HAL_PWREx_EnablePVM4:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1057   .text.HAL_PWREx_EnablePVM4:00000000 HAL_PWREx_EnablePVM4
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1074   .text.HAL_PWREx_EnablePVM4:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1079   .text.HAL_PWREx_DisablePVM4:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1085   .text.HAL_PWREx_DisablePVM4:00000000 HAL_PWREx_DisablePVM4
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1102   .text.HAL_PWREx_DisablePVM4:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1107   .text.HAL_PWREx_ConfigPVM:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1113   .text.HAL_PWREx_ConfigPVM:00000000 HAL_PWREx_ConfigPVM
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1259   .text.HAL_PWREx_ConfigPVM:000000bc $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1264   .text.HAL_PWREx_EnableLowPowerRunMode:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1270   .text.HAL_PWREx_EnableLowPowerRunMode:00000000 HAL_PWREx_EnableLowPowerRunMode
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1287   .text.HAL_PWREx_EnableLowPowerRunMode:0000000c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1292   .text.HAL_PWREx_DisableLowPowerRunMode:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1298   .text.HAL_PWREx_DisableLowPowerRunMode:00000000 HAL_PWREx_DisableLowPowerRunMode
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1356   .text.HAL_PWREx_DisableLowPowerRunMode:00000034 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1363   .text.HAL_PWREx_EnterSTOP0Mode:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1369   .text.HAL_PWREx_EnterSTOP0Mode:00000000 HAL_PWREx_EnterSTOP0Mode
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1428   .text.HAL_PWREx_EnterSTOP0Mode:0000002c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1434   .text.HAL_PWREx_EnterSTOP1Mode:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1440   .text.HAL_PWREx_EnterSTOP1Mode:00000000 HAL_PWREx_EnterSTOP1Mode
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1500   .text.HAL_PWREx_EnterSTOP1Mode:00000030 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1506   .text.HAL_PWREx_EnterSTOP2Mode:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1512   .text.HAL_PWREx_EnterSTOP2Mode:00000000 HAL_PWREx_EnterSTOP2Mode
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1572   .text.HAL_PWREx_EnterSTOP2Mode:00000030 $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1578   .text.HAL_PWREx_EnterSHUTDOWNMode:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1584   .text.HAL_PWREx_EnterSHUTDOWNMode:00000000 HAL_PWREx_EnterSHUTDOWNMode
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1614   .text.HAL_PWREx_EnterSHUTDOWNMode:0000001c $d
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1620   .text.HAL_PWREx_PVM3Callback:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1626   .text.HAL_PWREx_PVM3Callback:00000000 HAL_PWREx_PVM3Callback
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1639   .text.HAL_PWREx_PVM4Callback:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1645   .text.HAL_PWREx_PVM4Callback:00000000 HAL_PWREx_PVM4Callback
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1656   .text.HAL_PWREx_PVD_PVM_IRQHandler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1662   .text.HAL_PWREx_PVD_PVM_IRQHandler:00000000 HAL_PWREx_PVD_PVM_IRQHandler
+C:\Users\CL\AppData\Local\Temp\ccXbdCCn.s:1719   .text.HAL_PWREx_PVD_PVM_IRQHandler:00000034 $d
 
 UNDEFINED SYMBOLS
 SystemCoreClock

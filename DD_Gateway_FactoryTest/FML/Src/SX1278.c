@@ -245,7 +245,7 @@ uint8_t SX1278_LoRaRxPacket(SX1278_t *module) {
 
 	modele_sn = ((uint32_t)module - (uint32_t)&Lora_dev[0])/((uint32_t)sizeof(Lora_dev[0]));
 	shellPrint(&shell,"Lora%d has received %dbytes,\r\nRx_Str:%s\r\n\
-Lora%d RX Test OK\r\n",modele_sn,module->readBytes,module->rxBuffer,modele_sn);
+Lora%d RX Test OK\r\n",2 - modele_sn,module->readBytes,module->rxBuffer,2 - modele_sn);
     test_ok_cnt++;
 	return module->readBytes;
 }
@@ -377,9 +377,9 @@ void LORA_Send(char fd,char *tx_buff,uint32_t timeout)
 	
 
     if(SX1278_transmit(&Lora_dev[fd],tx_data,len,timeout))
-		shellPrint(&shell,"Lora %d TX Test OK\r\n",fd);
+		shellPrint(&shell,"Lora %d TX Test OK\r\n",2-fd);
 	else
-		shellPrint(&shell,"Lora %d TX Test Failed\r\n",fd);
+		shellPrint(&shell,"Lora %d TX Test Failed\r\n",2-fd);
     free(tx_data);
     tx_data = NULL;
     SX1278_receive(&Lora_dev[fd],100,100);

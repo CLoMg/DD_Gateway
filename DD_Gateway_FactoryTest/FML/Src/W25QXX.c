@@ -368,9 +368,9 @@ void Flash_Test(void)
 Capacity:0x%02x = %dK-Bit = %d.%02dM-Bit\r\n",flash_id[0],flash_id[1],JEDEC_id[0],JEDEC_id[1],JEDEC_id[2],cap_kb,(uint32_t)cap_mb,((uint32_t)(cap_mb*100))%100);
   
   /**/
-  BSP_W25Qx_Write(test_buff,cap_kb*1024-10,10);
+  BSP_W25Qx_Write(test_buff,0,10);
   Delay_ms(50);
-  BSP_W25Qx_Read(read_buff,cap_kb*1024-10,10);
+  BSP_W25Qx_Read(read_buff,0,10);
   if(strcmp(read_buff,test_buff) == 0){
 	shellPrint(&shell,"Flash Test OK\r\n");
 	test_ok_cnt++;

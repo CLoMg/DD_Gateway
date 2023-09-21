@@ -156,15 +156,18 @@ int main(void)
     /* ATGM223D接口测试 */
     BDS_Test("read",100);
      /* LORA 1发送 LORA2 接收测试*/
-    LORA_Send(0,"Lora0 tx test\r\n",200);
+    LORA_Send(1,"Lora1 tx test\r\n",200);
     Delay_ms(500);
      /* LORA2发送 LORA1 接收测试*/
-    LORA_Send(1,"Lora1 tx test\r\n",200);
+    LORA_Send(0,"Lora2 tx test\r\n",200);
     Delay_ms(500);
      /* Cat-1 测试 */
     EC2x_Test(0,"AT","OK",500);
     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
+    
     shellPrint(&shell,"Type [help] for the list of instructions\r\n");
+    Delay_ms(500);
+    ec2x_tcp_connect(0);
     while(1){
       // shellidle_cnt++;
       // if((shellidle_cnt > 10*10)&&(shellidle_cnt % 10 == 0)){

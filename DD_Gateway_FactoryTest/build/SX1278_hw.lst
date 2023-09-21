@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 1
   27:HAL/Src/SX1278_hw.c **** 		.reset.port = LORA1_RST_GPIO_Port,
   28:HAL/Src/SX1278_hw.c **** 		.dio0.pin = LORA1_DIO0_Pin,
   29:HAL/Src/SX1278_hw.c **** 		.dio0.port = LORA1_DIO0_GPIO_Port,
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s 			page 2
 
 
   30:HAL/Src/SX1278_hw.c **** 		.nss.pin = LORA1_SPI_NSS_Pin,
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 1
   55:HAL/Src/SX1278_hw.c **** }
   56:HAL/Src/SX1278_hw.c **** 
   57:HAL/Src/SX1278_hw.c **** __weak void SX1278_hw_SPICommand(SX1278_hw_t *hw, uint8_t cmd) {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 3
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s 			page 3
 
 
   61              		.loc 1 57 64 is_stmt 1 view -0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 1
  105              		.loc 1 62 1 view .LVU18
  106              		.cfi_endproc
  107              	.LFE291:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 4
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s 			page 4
 
 
  109              		.section	.text.SX1278_hw_SPIReadByte,"ax",%progbits
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 1
  153              		.loc 1 71 3 discriminator 1 view .LVU30
   70:HAL/Src/SX1278_hw.c **** 	while (HAL_SPI_GetState(hw->spi) != HAL_SPI_STATE_READY)
  154              		.loc 1 70 8 discriminator 1 view .LVU31
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 5
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s 			page 5
 
 
   70:HAL/Src/SX1278_hw.c **** 	while (HAL_SPI_GetState(hw->spi) != HAL_SPI_STATE_READY)
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 1
   46:HAL/Src/SX1278_hw.c **** 	SX1278_hw_SetNSS(hw, 1);
  206              		.loc 1 46 46 is_stmt 1 view -0
  207              		.cfi_startproc
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 6
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s 			page 6
 
 
  208              		@ args = 0, pretend = 0, frame = 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 1
  253              		.thumb
  254              		.thumb_func
  256              	SX1278_hw_init:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s 			page 7
 
 
  257              	.LVL21:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 1
   80:HAL/Src/SX1278_hw.c **** 	return (HAL_GPIO_ReadPin(hw->dio0.port, hw->dio0.pin) == GPIO_PIN_SET);
  301              		.loc 1 80 2 view .LVU61
   79:HAL/Src/SX1278_hw.c **** 	return (HAL_GPIO_ReadPin(hw->dio0.port, hw->dio0.pin) == GPIO_PIN_SET);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s 			page 8
 
 
  302              		.loc 1 79 47 is_stmt 0 view .LVU62
@@ -476,27 +476,27 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 1
  354              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_spi.h"
  355              		.file 10 "HAL/Inc/spi.h"
  356              		.file 11 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s 			page 9
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 SX1278_hw.c
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:20     .text.SX1278_hw_SetNSS:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:26     .text.SX1278_hw_SetNSS:00000000 SX1278_hw_SetNSS
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:52     .text.SX1278_hw_SPICommand:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:58     .text.SX1278_hw_SPICommand:00000000 SX1278_hw_SPICommand
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:110    .text.SX1278_hw_SPIReadByte:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:116    .text.SX1278_hw_SPIReadByte:00000000 SX1278_hw_SPIReadByte
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:175    .text.SX1278_hw_DelayMs:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:181    .text.SX1278_hw_DelayMs:00000000 SX1278_hw_DelayMs
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:197    .text.SX1278_hw_Reset:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:203    .text.SX1278_hw_Reset:00000000 SX1278_hw_Reset
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:250    .text.SX1278_hw_init:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:256    .text.SX1278_hw_init:00000000 SX1278_hw_init
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:288    .text.SX1278_hw_GetDIO0:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:294    .text.SX1278_hw_GetDIO0:00000000 SX1278_hw_GetDIO0
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:328    .data.lora_dev_hw:00000000 lora_dev_hw
-C:\Users\CL\AppData\Local\Temp\ccRfjYqG.s:325    .data.lora_dev_hw:00000000 $d
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:20     .text.SX1278_hw_SetNSS:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:26     .text.SX1278_hw_SetNSS:00000000 SX1278_hw_SetNSS
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:52     .text.SX1278_hw_SPICommand:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:58     .text.SX1278_hw_SPICommand:00000000 SX1278_hw_SPICommand
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:110    .text.SX1278_hw_SPIReadByte:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:116    .text.SX1278_hw_SPIReadByte:00000000 SX1278_hw_SPIReadByte
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:175    .text.SX1278_hw_DelayMs:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:181    .text.SX1278_hw_DelayMs:00000000 SX1278_hw_DelayMs
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:197    .text.SX1278_hw_Reset:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:203    .text.SX1278_hw_Reset:00000000 SX1278_hw_Reset
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:250    .text.SX1278_hw_init:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:256    .text.SX1278_hw_init:00000000 SX1278_hw_init
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:288    .text.SX1278_hw_GetDIO0:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:294    .text.SX1278_hw_GetDIO0:00000000 SX1278_hw_GetDIO0
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:328    .data.lora_dev_hw:00000000 lora_dev_hw
+C:\Users\CL\AppData\Local\Temp\ccdJFWNy.s:325    .data.lora_dev_hw:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

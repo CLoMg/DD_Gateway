@@ -33,18 +33,19 @@
 uint8_t ec2x_buff[BUFF_LEN]={0xff,};
 
 //定义tcp连接字符串
-uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2\r\n";
-
+//uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2\r\n";
+uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"47.108.254.101\",7002,0,2\r\n";
 //定义tcp连接指令队列
 uint8_t tcpconnct_step = 0;
 ATMsg_TypeDef connectmsg_queue[] = {
     {"AT\r\n","OK",200,5},
-    {"AT+CPIN?\r\n","READY",200,5},
-    {"AT+CREG?\r\n","+CREG: 0,1", 200, 5},
-    {"AT+CGREG?\r\n","+CGREG: 0,1", 200, 5},
-    {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 200, 5},
-    {"AT+QIDEACT=1\r\n", "OK", 200, 5},
-    {"AT+QIACT=1\r\n", "OK", 200, 5},
+    {"ATE0\r\n","OK",200,5},
+    {"AT+CPIN?\r\n","READY",500,5},
+    {"AT+CREG?\r\n","+CREG: 0,1", 500, 5},
+    {"AT+CGREG?\r\n","+CGREG: 0,1", 500, 5},
+    {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 500, 5},
+    {"AT+QIDEACT=1\r\n", "OK", 500, 5},
+    {"AT+QIACT=1\r\n", "OK", 500, 5},
     {tcp_connect, "CONNECT", 500, 5},
 };
 
@@ -315,9 +316,9 @@ int ec2x_cmd_send(int fd,uint8_t *tx_buff,uint16_t len,uint8_t *expect_reply,uin
         ec2x_write(fd,tx_buff,len);
     }
     if(expect_reply != NULL){
-        uint16_t retry_times = timeout / 100;
+        uint16_t retry_times = timeout / 200;
         while(retry_times--){
-            Delay_ms(100);
+            Delay_ms(200);
             if(ec2x_replymatch(expect_reply) == 1)
                 return  1;
         }
@@ -339,201 +340,32 @@ uint8_t ec2x_tcp_connect(int fd){
         return -1;
     }
     while(step < 9){
-        if(reset_times > 5){
+        if(reset_times > 3)
+        {
             shellPrint(&shell,"TCP Connect Failed\r\n");
             return 0;
         }
-        switch (step)
+        if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
+        {    
+            step++;
+            retry = 0;
+        }
+        else
         {
-            case 0: 
+            if(connectmsg_queue[step].retry_times < retry)
             {
-                if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
-                {    
-                    step++;
-                    retry = 0;
-                }
-                else
-                {
-                    if(connectmsg_queue[step].retry_times < retry)
-                    {
-                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
-                        ec2x_reset(fd); 
-                        step = 0;
-                    }
-                    else{
-                        retry++;
-                        Delay_ms(200);
-                    }
-                }
-                Delay_ms(100);
+                shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
+                ec2x_reset(fd); 
+                step = 0;
             }
-            break;
-            case 1:
+            else
             {
-                if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
-                {    
-                    step++;
-                    retry = 0;
-                }
-                else
-                {
-                    if(connectmsg_queue[step].retry_times < retry){
-                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
-                        ec2x_reset(fd); 
-                        step = 0;
-                    }
-                    else{
-                        retry++;
-                        Delay_ms(200);
-                    }
-                }
-                Delay_ms(100);
+                retry++;
+                Delay_ms(1000);
             }
-            break;
-            case 2:
-            {
-                if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
-                {    
-                    step++;
-                    retry = 0;
-                }
-                else
-                {
-                    if(connectmsg_queue[step].retry_times < retry){
-                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
-                        ec2x_reset(fd); 
-                        step = 0;
-                    }
-
-                    else{
-                        retry++;
-                        Delay_ms(200);
-                    }
-                }
-                Delay_ms(100);
-            }
-            break;
-            case 3:
-            {
-                if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
-                {    
-                    step += 2;
-                    retry = 0;
-                }
-                else
-                {
-                    if(connectmsg_queue[step].retry_times < retry){
-                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
-                        ec2x_reset(fd); 
-                        step = 0;
-                    }
-
-                    else{
-                        retry++;
-                        Delay_ms(200);
-                    }
-                }
-                Delay_ms(100);                
-            }
-            break;
-            case 4:
-            {
-                if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
-                {    
-                    step++;
-                    retry = 0;
-                }
-                else
-                {
-                    if(connectmsg_queue[step].retry_times < retry){
-                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
-                        ec2x_reset(fd); 
-                        step = 0;
-                    }
-                    else{
-                        retry++;
-                        Delay_ms(200);
-                    }
-                }
-                Delay_ms(100);               
-            }
-            break;
-            case 5:
-            {
-                if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
-                {    
-                    step++;
-                    retry = 0;
-                }
-                else
-                {
-                    if(connectmsg_queue[step].retry_times < retry){
-                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
-                        ec2x_reset(fd); 
-                        step = 0;
-                    }
-                    else{
-                        retry++;
-                        Delay_ms(200);
-                    }
-                }
-                Delay_ms(100);                
-            }
-            break; 
-            case 6:
-            {
-                if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
-                {    
-                    step++;
-                    retry = 0;
-                }
-                else
-                {
-                    if(connectmsg_queue[step].retry_times < retry){
-                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
-                        ec2x_reset(fd); 
-                        step = 0;
-                    }
-                    else{
-                        retry++;
-                        Delay_ms(200);
-                    }
-                }
-                Delay_ms(100);
-            }
-            break; 
-            case 7:
-            {
-                if(ec2x_cmd_send(fd,connectmsg_queue[step].txmsg,strlen(connectmsg_queue[step].txmsg),connectmsg_queue[step].expect_reply,connectmsg_queue->timeout))
-                {    
-                    step++;
-                    retry = 0;
-                }
-                else
-                {
-                    if(connectmsg_queue[step].retry_times < retry){
-                        shellPrint(&shell,"%s err\r\n",connectmsg_queue[step].txmsg);
-                        ec2x_reset(fd); 
-                        step = 0;
-                    }
-                    else{
-                        retry++;
-                        Delay_ms(200);
-                    }
-                }
-                Delay_ms(100);
-            }
-            break;  
-            case 8:
-            {
-                shellPrint(&shell,"tcp is connected\r\n");
-                return 1;
-            }
-            break; 
-            default:
-                break;
         }
     }
+    shellPrint(&shell,"tcp connect success\r\n");
 }
 /*------------------------------------test------------------------------------*/
 
