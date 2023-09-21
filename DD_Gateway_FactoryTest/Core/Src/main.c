@@ -210,13 +210,15 @@ void Test_All(void)
     Flash_Test();
     /* ATGM223D接口测试 */
     BDS_Test("read",100);
-     /* LORA 1发送 LORA2 接收测试*/
-    LORA_Send(0,"Lora0 tx test\r\n",200);
-     /* LORA2发送 LORA1 接收测试*/
     LORA_Send(1,"Lora1 tx test\r\n",200);
+    Delay_ms(500);
+     /* LORA2发送 LORA1 接收测试*/
+    LORA_Send(0,"Lora2 tx test\r\n",200);
+    Delay_ms(500);
 
      /* Cat-1 测试 */
-    EC2x_Test(0,"AT","OK",100);
+    EC2x_Test(0,"AT","OK",500);
+    Delay_ms(100);
     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
 }
 

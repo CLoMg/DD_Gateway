@@ -33,8 +33,8 @@
 uint8_t ec2x_buff[BUFF_LEN]={0xff,};
 
 //定义tcp连接字符串
-//uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,2\r\n";
-uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"47.108.254.101\",7002,0,2\r\n";
+//uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"115.236.153.170\",52894,0,0\r\n";
+uint8_t tcp_connect[]="AT+QIOPEN=1,0,\"TCP\",\"47.108.254.101\",7002,0,0\r\n";
 //定义tcp连接指令队列
 uint8_t tcpconnct_step = 0;
 ATMsg_TypeDef connectmsg_queue[] = {
@@ -46,7 +46,7 @@ ATMsg_TypeDef connectmsg_queue[] = {
     {"AT+QICSGP=1,1,\"CMNET\",\"\",\"\",1\r\n","OK", 500, 5},
     {"AT+QIDEACT=1\r\n", "OK", 500, 5},
     {"AT+QIACT=1\r\n", "OK", 500, 5},
-    {tcp_connect, "CONNECT", 500, 5},
+    {tcp_connect, "OK", 500, 5},
 };
 
 static uint8_t reset_times = 0;
@@ -366,6 +366,7 @@ uint8_t ec2x_tcp_connect(int fd){
         }
     }
     shellPrint(&shell,"tcp connect success\r\n");
+    //ec2x_cmd_send(fd,"AT+QIOPEN=0,500\r\n",strlen("AT+QIOPEN=0,500\r\n"),"OK",500);
 }
 /*------------------------------------test------------------------------------*/
 
