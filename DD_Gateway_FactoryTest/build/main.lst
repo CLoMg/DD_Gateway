@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,48 +19,24 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.rodata.Test_All.str1.1,"aMS",%progbits,1
+  19              		.section	.rodata.DeviceID_Print.str1.1,"aMS",%progbits,1
   20              	.LC0:
-  21 0000 52533438 		.ascii	"RS485 TRANSMIT OK\015\012\000"
-  21      35205452 
-  21      414E534D 
-  21      4954204F 
-  21      4B0D0A00 
+  21 0000 4D41433A 		.ascii	"MAC:\000"
+  21      00
   22              	.LC1:
-  23 0014 72656164 		.ascii	"read\000"
+  23 0005 25303278 		.ascii	"%02x\000"
   23      00
   24              	.LC2:
-  25 0019 4C6F7261 		.ascii	"Lora1 tx test\015\012\000"
-  25      31207478 
-  25      20746573 
-  25      740D0A00 
-  26              	.LC3:
-  27 0029 4C6F7261 		.ascii	"Lora2 tx test\015\012\000"
-  27      32207478 
-  27      20746573 
-  27      740D0A00 
-  28              	.LC4:
-  29 0039 4F4B00   		.ascii	"OK\000"
-  30              	.LC5:
-  31 003c 415400   		.ascii	"AT\000"
-  32              	.LC6:
-  33 003f 54657374 		.ascii	"Test OK Count:%d/8\015\012\000"
-  33      204F4B20 
-  33      436F756E 
-  33      743A2564 
-  33      2F380D0A 
-  34              		.section	.text.Test_All,"ax",%progbits
-  35              		.align	1
-  36              		.global	Test_All
-  37              		.syntax unified
-  38              		.thumb
-  39              		.thumb_func
-  41              	Test_All:
-  42              	.LFB292:
-  43              		.file 1 "Core/Src/main.c"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 2
-
-
+  25 000a 0D0A00   		.ascii	"\015\012\000"
+  26              		.section	.text.DeviceID_Print,"ax",%progbits
+  27              		.align	1
+  28              		.global	DeviceID_Print
+  29              		.syntax unified
+  30              		.thumb
+  31              		.thumb_func
+  33              	DeviceID_Print:
+  34              	.LFB293:
+  35              		.file 1 "Core/Src/main.c"
    1:Core/Src/main.c **** /* USER CODE BEGIN Header */
    2:Core/Src/main.c **** /**
    3:Core/Src/main.c ****   ******************************************************************************
@@ -82,6 +58,9 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
   19:Core/Src/main.c **** /* Includes ------------------------------------------------------------------*/
   20:Core/Src/main.c **** #include "main.h"
   21:Core/Src/main.c **** #include "led.h"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 2
+
+
   22:Core/Src/main.c **** #include "adc.h"
   23:Core/Src/main.c **** #include "spi.h"
   24:Core/Src/main.c **** #include "usart.h"
@@ -118,9 +97,6 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
   55:Core/Src/main.c **** /* Private macro -------------------------------------------------------------*/
   56:Core/Src/main.c **** /* USER CODE BEGIN PM */
   57:Core/Src/main.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 3
-
-
   58:Core/Src/main.c **** /* USER CODE END PM */
   59:Core/Src/main.c **** 
   60:Core/Src/main.c **** /* Private variables ---------------------------------------------------------*/
@@ -142,6 +118,9 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
   76:Core/Src/main.c **** 
   77:Core/Src/main.c **** /**
   78:Core/Src/main.c ****   * @brief  The application entry point.
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 3
+
+
   79:Core/Src/main.c ****   * @retval int
   80:Core/Src/main.c ****   */
   81:Core/Src/main.c **** int main(void)
@@ -178,9 +157,6 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
  112:Core/Src/main.c ****   MX_USART2_UART_Init();
  113:Core/Src/main.c ****   MX_USART3_UART_Init();
  114:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 4
-
-
  115:Core/Src/main.c ****   /* TODO:fix shell initialize */
  116:Core/Src/main.c ****   User_Shell_Init();
  117:Core/Src/main.c ****   BSP_W25Qx_Init();
@@ -202,6 +178,9 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
  133:Core/Src/main.c ****   /* Infinite loop */
  134:Core/Src/main.c ****   /* USER CODE BEGIN WHILE */
  135:Core/Src/main.c ****  
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 4
+
+
  136:Core/Src/main.c ****   while (1)
  137:Core/Src/main.c ****   {
  138:Core/Src/main.c ****     // uint16_t shellidle_upper = 30;
@@ -225,460 +204,628 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
  156:Core/Src/main.c ****     /* ATGM223D接口测试 */
  157:Core/Src/main.c ****     BDS_Test("read",100);
  158:Core/Src/main.c ****      /* LORA 1发送 LORA2 接收测试*/
- 159:Core/Src/main.c ****     LORA_Send(1,"Lora1 tx test\r\n",200);
- 160:Core/Src/main.c ****     Delay_ms(500);
- 161:Core/Src/main.c ****      /* LORA2发送 LORA1 接收测试*/
- 162:Core/Src/main.c ****     LORA_Send(0,"Lora2 tx test\r\n",200);
- 163:Core/Src/main.c ****     Delay_ms(500);
- 164:Core/Src/main.c ****      /* Cat-1 测试 */
- 165:Core/Src/main.c ****     EC2x_Test(0,"AT","OK",500);
- 166:Core/Src/main.c ****     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
- 167:Core/Src/main.c ****     
- 168:Core/Src/main.c ****     shellPrint(&shell,"Type [help] for the list of instructions\r\n");
- 169:Core/Src/main.c ****     Delay_ms(500);
- 170:Core/Src/main.c ****     ec2x_tcp_connect(0);
- 171:Core/Src/main.c ****     while(1){
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 5
+ 159:Core/Src/main.c ****     
+ 160:Core/Src/main.c ****     LORA_Send(1,"Lora1 tx test\r\n",200);
+ 161:Core/Src/main.c ****     Delay_ms(500);
+ 162:Core/Src/main.c ****     if(strstr(lora_cache[0],"Lora1 tx test\r\n") != NULL)
+ 163:Core/Src/main.c ****     { 
+ 164:Core/Src/main.c ****       shellPrint(&shell,"Lora2 RX Test OK\r\n");
+ 165:Core/Src/main.c ****       test_ok_cnt++;
+ 166:Core/Src/main.c ****     }
+ 167:Core/Src/main.c ****     else
+ 168:Core/Src/main.c ****       shellPrint(&shell,"Lora2 RX Test Failed\r\n");
+ 169:Core/Src/main.c ****      /* LORA2发送 LORA1 接收测试*/
+ 170:Core/Src/main.c ****     LORA_Send(0,"Lora2 tx test\r\n",200);
+ 171:Core/Src/main.c ****     Delay_ms(500);
+ 172:Core/Src/main.c ****      if(strstr(lora_cache[1],"Lora2 tx test\r\n") != NULL)
+ 173:Core/Src/main.c ****     { 
+ 174:Core/Src/main.c ****       shellPrint(&shell,"Lora1 RX Test OK\r\n");
+ 175:Core/Src/main.c ****       test_ok_cnt++;
+ 176:Core/Src/main.c ****     }
+ 177:Core/Src/main.c ****     else
+ 178:Core/Src/main.c ****       shellPrint(&shell,"Lora1 RX Test Failed\r\n");
+ 179:Core/Src/main.c ****      /* Cat-1 测试 */
+ 180:Core/Src/main.c ****     EC2x_Test(0,"AT","OK",500);
+ 181:Core/Src/main.c ****     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
+ 182:Core/Src/main.c ****     
+ 183:Core/Src/main.c ****     shellPrint(&shell,"Type [help] for the list of instructions\r\n");
+ 184:Core/Src/main.c ****     Delay_ms(500);
+ 185:Core/Src/main.c ****     ec2x_tcp_connect(0);
+ 186:Core/Src/main.c ****     while(1){
+ 187:Core/Src/main.c ****       // shellidle_cnt++;
+ 188:Core/Src/main.c ****       // if((shellidle_cnt > 10*10)&&(shellidle_cnt % 10 == 0)){
+ 189:Core/Src/main.c ****       //   shellPrint(&shell,"If no instruction is entered within %ds, it will jump to the app prog
+ 190:Core/Src/main.c ****       // }
+ 191:Core/Src/main.c ****       // if(shellidle_cnt > shellidle_upper*10)
+ 192:Core/Src/main.c ****       // {
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 5
 
 
- 172:Core/Src/main.c ****       // shellidle_cnt++;
- 173:Core/Src/main.c ****       // if((shellidle_cnt > 10*10)&&(shellidle_cnt % 10 == 0)){
- 174:Core/Src/main.c ****       //   shellPrint(&shell,"If no instruction is entered within %ds, it will jump to the app prog
- 175:Core/Src/main.c ****       // }
- 176:Core/Src/main.c ****       // if(shellidle_cnt > shellidle_upper*10)
- 177:Core/Src/main.c ****       // {
- 178:Core/Src/main.c ****       //    shellPrint(&shell,"It will jump to the app program now\r\n");
- 179:Core/Src/main.c ****       //    shellidle_cnt = 0;
- 180:Core/Src/main.c ****       // }
- 181:Core/Src/main.c ****       Delay_ms(100);
- 182:Core/Src/main.c ****     }
- 183:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
- 184:Core/Src/main.c ****   }
- 185:Core/Src/main.c ****   /* USER CODE END 3 */
- 186:Core/Src/main.c **** }
- 187:Core/Src/main.c **** /* USER CODE BEGIN 4 */
- 188:Core/Src/main.c **** /**
- 189:Core/Src/main.c ****  * @brief 
- 190:Core/Src/main.c ****  * 
- 191:Core/Src/main.c ****  * @param fd 
- 192:Core/Src/main.c ****  * @param tx_buff 
- 193:Core/Src/main.c ****  * @param expect_reply 
- 194:Core/Src/main.c ****  * @param timeout 
- 195:Core/Src/main.c ****  */
- 196:Core/Src/main.c **** void Test_All(void)
- 197:Core/Src/main.c **** {
-  44              		.loc 1 197 1 view -0
-  45              		.cfi_startproc
-  46              		@ args = 0, pretend = 0, frame = 0
-  47              		@ frame_needed = 0, uses_anonymous_args = 0
- 198:Core/Src/main.c ****     test_ok_cnt = 0;
-  48              		.loc 1 198 5 view .LVU1
- 197:Core/Src/main.c ****     test_ok_cnt = 0;
-  49              		.loc 1 197 1 is_stmt 0 view .LVU2
-  50 0000 38B5     		push	{r3, r4, r5, lr}
-  51              	.LCFI0:
-  52              		.cfi_def_cfa_offset 16
-  53              		.cfi_offset 3, -16
-  54              		.cfi_offset 4, -12
-  55              		.cfi_offset 5, -8
-  56              		.cfi_offset 14, -4
-  57              		.loc 1 198 17 view .LVU3
-  58 0002 194D     		ldr	r5, .L2
-  59 0004 0024     		movs	r4, #0
-  60 0006 2C70     		strb	r4, [r5]
- 199:Core/Src/main.c ****         /* USER CODE END WHILE */
- 200:Core/Src/main.c ****     /* ADC 电压监测接口测试*/
- 201:Core/Src/main.c ****     Battery_Test();
-  61              		.loc 1 201 5 is_stmt 1 view .LVU4
-  62 0008 FFF7FEFF 		bl	Battery_Test
-  63              	.LVL0:
- 202:Core/Src/main.c ****     /* LED 测试 */ 
- 203:Core/Src/main.c ****     // LED_Blink(&dev_led[0],500,10); //LED0每隔500ms翻转一次
- 204:Core/Src/main.c ****     // LED_Blink(&dev_led[1],1000,10);//LED1每个1000ms翻转一次
- 205:Core/Src/main.c ****     /* 亮度监测接口测试 */
- 206:Core/Src/main.c ****     LDR_Value_Get();
-  64              		.loc 1 206 5 view .LVU5
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 6
-
-
-  65 000c FFF7FEFF 		bl	LDR_Value_Get
-  66              	.LVL1:
- 207:Core/Src/main.c ****     /* RS485接口测试 */
- 208:Core/Src/main.c ****     RS485_Test("RS485 TRANSMIT OK\r\n");
-  67              		.loc 1 208 5 view .LVU6
-  68 0010 1648     		ldr	r0, .L2+4
-  69 0012 FFF7FEFF 		bl	RS485_Test
-  70              	.LVL2:
- 209:Core/Src/main.c ****      /* Flash 接口测试 */
- 210:Core/Src/main.c ****     Flash_Test();
-  71              		.loc 1 210 5 view .LVU7
-  72 0016 FFF7FEFF 		bl	Flash_Test
-  73              	.LVL3:
- 211:Core/Src/main.c ****     /* ATGM223D接口测试 */
- 212:Core/Src/main.c ****     BDS_Test("read",100);
-  74              		.loc 1 212 5 view .LVU8
-  75 001a 1548     		ldr	r0, .L2+8
-  76 001c 6421     		movs	r1, #100
-  77 001e FFF7FEFF 		bl	BDS_Test
-  78              	.LVL4:
- 213:Core/Src/main.c ****     LORA_Send(1,"Lora1 tx test\r\n",200);
-  79              		.loc 1 213 5 view .LVU9
-  80 0022 1449     		ldr	r1, .L2+12
-  81 0024 C822     		movs	r2, #200
-  82 0026 0120     		movs	r0, #1
-  83 0028 FFF7FEFF 		bl	LORA_Send
-  84              	.LVL5:
- 214:Core/Src/main.c ****     Delay_ms(500);
-  85              		.loc 1 214 5 view .LVU10
-  86 002c 4FF4FA70 		mov	r0, #500
-  87 0030 FFF7FEFF 		bl	Delay_ms
-  88              	.LVL6:
- 215:Core/Src/main.c ****      /* LORA2发送 LORA1 接收测试*/
- 216:Core/Src/main.c ****     LORA_Send(0,"Lora2 tx test\r\n",200);
-  89              		.loc 1 216 5 view .LVU11
-  90 0034 1049     		ldr	r1, .L2+16
-  91 0036 C822     		movs	r2, #200
-  92 0038 2046     		mov	r0, r4
-  93 003a FFF7FEFF 		bl	LORA_Send
-  94              	.LVL7:
- 217:Core/Src/main.c ****     Delay_ms(500);
-  95              		.loc 1 217 5 view .LVU12
-  96 003e 4FF4FA70 		mov	r0, #500
-  97 0042 FFF7FEFF 		bl	Delay_ms
-  98              	.LVL8:
- 218:Core/Src/main.c **** 
- 219:Core/Src/main.c ****      /* Cat-1 测试 */
- 220:Core/Src/main.c ****     EC2x_Test(0,"AT","OK",500);
-  99              		.loc 1 220 5 view .LVU13
- 100 0046 0D4A     		ldr	r2, .L2+20
- 101 0048 0D49     		ldr	r1, .L2+24
- 102 004a 4FF4FA73 		mov	r3, #500
- 103 004e 2046     		mov	r0, r4
- 104 0050 FFF7FEFF 		bl	EC2x_Test
- 105              	.LVL9:
- 221:Core/Src/main.c ****     Delay_ms(100);
- 106              		.loc 1 221 5 view .LVU14
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 7
-
-
- 107 0054 6420     		movs	r0, #100
- 108 0056 FFF7FEFF 		bl	Delay_ms
- 109              	.LVL10:
- 222:Core/Src/main.c ****     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
- 110              		.loc 1 222 5 view .LVU15
- 111 005a 2A78     		ldrb	r2, [r5]	@ zero_extendqisi2
- 112 005c 0949     		ldr	r1, .L2+28
- 113 005e 0A48     		ldr	r0, .L2+32
- 223:Core/Src/main.c **** }
- 114              		.loc 1 223 1 is_stmt 0 view .LVU16
- 115 0060 BDE83840 		pop	{r3, r4, r5, lr}
- 116              	.LCFI1:
- 117              		.cfi_restore 14
- 118              		.cfi_restore 5
- 119              		.cfi_restore 4
- 120              		.cfi_restore 3
- 121              		.cfi_def_cfa_offset 0
- 222:Core/Src/main.c ****     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
- 122              		.loc 1 222 5 view .LVU17
- 123 0064 FFF7FEBF 		b	shellPrint
- 124              	.LVL11:
- 125              	.L3:
- 126              		.align	2
- 127              	.L2:
- 128 0068 00000000 		.word	test_ok_cnt
- 129 006c 00000000 		.word	.LC0
- 130 0070 14000000 		.word	.LC1
- 131 0074 19000000 		.word	.LC2
- 132 0078 29000000 		.word	.LC3
- 133 007c 39000000 		.word	.LC4
- 134 0080 3C000000 		.word	.LC5
- 135 0084 3F000000 		.word	.LC6
- 136 0088 00000000 		.word	shell
- 137              		.cfi_endproc
- 138              	.LFE292:
- 140              		.section	.rodata.DeviceID_Print.str1.1,"aMS",%progbits,1
- 141              	.LC7:
- 142 0000 4D41433A 		.ascii	"MAC:\000"
- 142      00
- 143              	.LC8:
- 144 0005 25303278 		.ascii	"%02x\000"
- 144      00
- 145              	.LC9:
- 146 000a 0D0A00   		.ascii	"\015\012\000"
- 147              		.section	.text.DeviceID_Print,"ax",%progbits
- 148              		.align	1
- 149              		.global	DeviceID_Print
- 150              		.syntax unified
- 151              		.thumb
- 152              		.thumb_func
- 154              	DeviceID_Print:
- 155              	.LFB293:
- 224:Core/Src/main.c **** 
- 225:Core/Src/main.c **** SHELL_EXPORT_CMD(
- 226:Core/Src/main.c **** SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
- 227:Core/Src/main.c **** test_all, Test_All, test all device);
- 228:Core/Src/main.c **** 
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 8
-
-
- 229:Core/Src/main.c **** /**
- 230:Core/Src/main.c ****  * @brief printf Device ID 8bytes
- 231:Core/Src/main.c ****  * 
- 232:Core/Src/main.c ****  */
- 233:Core/Src/main.c **** void DeviceID_Print(void){
- 156              		.loc 1 233 26 is_stmt 1 view -0
- 157              		.cfi_startproc
- 158              		@ args = 0, pretend = 0, frame = 0
- 159              		@ frame_needed = 0, uses_anonymous_args = 0
- 234:Core/Src/main.c ****     int i = 0;
- 160              		.loc 1 234 5 view .LVU19
- 161              	.LVL12:
- 235:Core/Src/main.c ****     shellPrint(&shell,"MAC:");
- 162              		.loc 1 235 5 view .LVU20
- 233:Core/Src/main.c ****     int i = 0;
- 163              		.loc 1 233 26 is_stmt 0 view .LVU21
- 164 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 165              	.LCFI2:
- 166              		.cfi_def_cfa_offset 24
- 167              		.cfi_offset 3, -24
- 168              		.cfi_offset 4, -20
- 169              		.cfi_offset 5, -16
- 170              		.cfi_offset 6, -12
- 171              		.cfi_offset 7, -8
- 172              		.cfi_offset 14, -4
- 173              		.loc 1 235 5 view .LVU22
- 174 0002 1349     		ldr	r1, .L7
- 175 0004 1348     		ldr	r0, .L7+4
- 176 0006 144E     		ldr	r6, .L7+8
- 177              	.LBB16:
- 236:Core/Src/main.c **** 
- 237:Core/Src/main.c ****     for(i = 0;i < 2 ;++i){
- 238:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
- 239:Core/Src/main.c ****       u32_mac = *((uint32_t *)(0x1FFF7594 - i * 4));
- 240:Core/Src/main.c ****       //shellPrint(&shell,"%x",u32_mac);
- 241:Core/Src/main.c ****       shellPrint(&shell,"%02x",(uint8_t)(u32_mac >> 24));
- 178              		.loc 1 241 7 view .LVU23
- 179 0008 144C     		ldr	r4, .L7+12
- 180              	.LBE16:
- 237:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
- 181              		.loc 1 237 5 view .LVU24
- 182 000a 154F     		ldr	r7, .L7+16
- 235:Core/Src/main.c **** 
- 183              		.loc 1 235 5 view .LVU25
- 184 000c FFF7FEFF 		bl	shellPrint
- 185              	.LVL13:
- 237:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
- 186              		.loc 1 237 5 is_stmt 1 view .LVU26
- 237:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
- 187              		.loc 1 237 15 view .LVU27
- 188              	.L5:
- 189              	.LBB17:
- 238:Core/Src/main.c ****       u32_mac = *((uint32_t *)(0x1FFF7594 - i * 4));
- 190              		.loc 1 238 7 discriminator 3 view .LVU28
- 239:Core/Src/main.c ****       //shellPrint(&shell,"%x",u32_mac);
- 191              		.loc 1 239 7 discriminator 3 view .LVU29
- 239:Core/Src/main.c ****       //shellPrint(&shell,"%x",u32_mac);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 9
-
-
- 192              		.loc 1 239 15 is_stmt 0 discriminator 3 view .LVU30
- 193 0010 56F80459 		ldr	r5, [r6], #-4
- 194              	.LVL14:
- 195              		.loc 1 241 7 is_stmt 1 discriminator 3 view .LVU31
- 196 0014 0F48     		ldr	r0, .L7+4
- 197 0016 2A0E     		lsrs	r2, r5, #24
- 198 0018 2146     		mov	r1, r4
- 199 001a FFF7FEFF 		bl	shellPrint
- 200              	.LVL15:
- 242:Core/Src/main.c ****       shellPrint(&shell,"%02x",(uint8_t)(u32_mac >> 16));
- 201              		.loc 1 242 7 discriminator 3 view .LVU32
- 202 001e 0D48     		ldr	r0, .L7+4
- 203 0020 C5F30742 		ubfx	r2, r5, #16, #8
- 204 0024 2146     		mov	r1, r4
- 205 0026 FFF7FEFF 		bl	shellPrint
- 206              	.LVL16:
- 243:Core/Src/main.c ****       shellPrint(&shell,"%02x",(uint8_t)(u32_mac >> 8));
- 207              		.loc 1 243 7 discriminator 3 view .LVU33
- 208 002a 0A48     		ldr	r0, .L7+4
- 209 002c C5F30722 		ubfx	r2, r5, #8, #8
- 210 0030 2146     		mov	r1, r4
- 211 0032 FFF7FEFF 		bl	shellPrint
- 212              	.LVL17:
- 244:Core/Src/main.c ****       shellPrint(&shell,"%02x",(uint8_t)(u32_mac ));
- 213              		.loc 1 244 7 discriminator 3 view .LVU34
- 214 0036 0748     		ldr	r0, .L7+4
- 215 0038 EAB2     		uxtb	r2, r5
- 216 003a 2146     		mov	r1, r4
- 217 003c FFF7FEFF 		bl	shellPrint
- 218              	.LVL18:
- 219              	.LBE17:
- 237:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
- 220              		.loc 1 237 22 discriminator 3 view .LVU35
- 237:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
- 221              		.loc 1 237 15 discriminator 3 view .LVU36
- 237:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
- 222              		.loc 1 237 5 is_stmt 0 discriminator 3 view .LVU37
- 223 0040 BE42     		cmp	r6, r7
- 224 0042 E5D1     		bne	.L5
+ 193:Core/Src/main.c ****       //    shellPrint(&shell,"It will jump to the app program now\r\n");
+ 194:Core/Src/main.c ****       //    shellidle_cnt = 0;
+ 195:Core/Src/main.c ****       // }
+ 196:Core/Src/main.c ****       Delay_ms(100);
+ 197:Core/Src/main.c ****     }
+ 198:Core/Src/main.c ****     /* USER CODE BEGIN 3 */
+ 199:Core/Src/main.c ****   }
+ 200:Core/Src/main.c ****   /* USER CODE END 3 */
+ 201:Core/Src/main.c **** }
+ 202:Core/Src/main.c **** /* USER CODE BEGIN 4 */
+ 203:Core/Src/main.c **** /**
+ 204:Core/Src/main.c ****  * @brief 
+ 205:Core/Src/main.c ****  * 
+ 206:Core/Src/main.c ****  * @param fd 
+ 207:Core/Src/main.c ****  * @param tx_buff 
+ 208:Core/Src/main.c ****  * @param expect_reply 
+ 209:Core/Src/main.c ****  * @param timeout 
+ 210:Core/Src/main.c ****  */
+ 211:Core/Src/main.c **** void Test_All(void)
+ 212:Core/Src/main.c **** {
+ 213:Core/Src/main.c ****     test_ok_cnt = 0;
+ 214:Core/Src/main.c ****         /* USER CODE END WHILE */
+ 215:Core/Src/main.c ****     /* ADC 电压监测接口测试*/
+ 216:Core/Src/main.c ****     Battery_Test();
+ 217:Core/Src/main.c ****     /* LED 测试 */ 
+ 218:Core/Src/main.c ****     // LED_Blink(&dev_led[0],500,10); //LED0每隔500ms翻转一次
+ 219:Core/Src/main.c ****     // LED_Blink(&dev_led[1],1000,10);//LED1每个1000ms翻转一次
+ 220:Core/Src/main.c ****     /* 亮度监测接口测试 */
+ 221:Core/Src/main.c ****     LDR_Value_Get();
+ 222:Core/Src/main.c ****     /* RS485接口测试 */
+ 223:Core/Src/main.c ****     RS485_Test("RS485 TRANSMIT OK\r\n");
+ 224:Core/Src/main.c ****      /* Flash 接口测试 */
+ 225:Core/Src/main.c ****     Flash_Test();
+ 226:Core/Src/main.c ****     /* ATGM223D接口测试 */
+ 227:Core/Src/main.c ****     BDS_Test("read",100);
+ 228:Core/Src/main.c ****       /* LORA1发送 LORA2 接收测试*/
+ 229:Core/Src/main.c ****     LORA_Send(1,"Lora1 tx test\r\n",200);
+ 230:Core/Src/main.c ****     Delay_ms(500);
+ 231:Core/Src/main.c ****     if(strstr(lora_cache[0],"Lora1 tx test\r\n") != NULL)
+ 232:Core/Src/main.c ****     { 
+ 233:Core/Src/main.c ****       shellPrint(&shell,"Lora2 RX Test OK\r\n");
+ 234:Core/Src/main.c ****       test_ok_cnt++;
+ 235:Core/Src/main.c ****     }
+ 236:Core/Src/main.c ****     else
+ 237:Core/Src/main.c ****       shellPrint(&shell,"Lora2 RX Test Failed\r\n");
+ 238:Core/Src/main.c ****      /* LORA2发送 LORA1 接收测试*/
+ 239:Core/Src/main.c ****     LORA_Send(0,"Lora2 tx test\r\n",200);
+ 240:Core/Src/main.c ****     Delay_ms(500);
+ 241:Core/Src/main.c ****      if(strstr(lora_cache[1],"Lora2 tx test\r\n") != NULL)
+ 242:Core/Src/main.c ****     { 
+ 243:Core/Src/main.c ****       shellPrint(&shell,"Lora1 RX Test OK\r\n");
+ 244:Core/Src/main.c ****       test_ok_cnt++;
  245:Core/Src/main.c ****     }
- 246:Core/Src/main.c ****     shellPrint(&shell,"\r\n");
- 225              		.loc 1 246 5 is_stmt 1 view .LVU38
- 247:Core/Src/main.c **** }
- 226              		.loc 1 247 1 is_stmt 0 view .LVU39
- 227 0044 BDE8F840 		pop	{r3, r4, r5, r6, r7, lr}
- 228              	.LCFI3:
- 229              		.cfi_restore 14
- 230              		.cfi_restore 7
- 231              		.cfi_restore 6
- 232              		.cfi_restore 5
- 233              		.cfi_restore 4
- 234              		.cfi_restore 3
- 235              		.cfi_def_cfa_offset 0
- 236              	.LVL19:
- 246:Core/Src/main.c **** }
- 237              		.loc 1 246 5 view .LVU40
- 238 0048 0649     		ldr	r1, .L7+20
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 10
-
-
- 239 004a 0248     		ldr	r0, .L7+4
- 240 004c FFF7FEBF 		b	shellPrint
- 241              	.LVL20:
- 242              	.L8:
- 243              		.align	2
- 244              	.L7:
- 245 0050 00000000 		.word	.LC7
- 246 0054 00000000 		.word	shell
- 247 0058 9475FF1F 		.word	536835476
- 248 005c 05000000 		.word	.LC8
- 249 0060 8C75FF1F 		.word	536835468
- 250 0064 0A000000 		.word	.LC9
- 251              		.cfi_endproc
- 252              	.LFE293:
- 254              		.section	.text.SystemClock_Config,"ax",%progbits
- 255              		.align	1
- 256              		.global	SystemClock_Config
- 257              		.syntax unified
- 258              		.thumb
- 259              		.thumb_func
- 261              	SystemClock_Config:
- 262              	.LFB294:
+ 246:Core/Src/main.c ****     else
+ 247:Core/Src/main.c ****       shellPrint(&shell,"Lora1 RX Test Failed\r\n");
  248:Core/Src/main.c **** 
- 249:Core/Src/main.c **** SHELL_EXPORT_CMD(
- 250:Core/Src/main.c **** SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
- 251:Core/Src/main.c **** mac_print, DeviceID_Print, printf mac_id);
- 252:Core/Src/main.c **** /**
- 253:Core/Src/main.c ****   * @brief System Clock Configuration
- 254:Core/Src/main.c ****   * @retval None
- 255:Core/Src/main.c ****   */
- 256:Core/Src/main.c **** void SystemClock_Config(void)
- 257:Core/Src/main.c **** {
- 263              		.loc 1 257 1 is_stmt 1 view -0
- 264              		.cfi_startproc
- 265              		@ args = 0, pretend = 0, frame = 88
- 266              		@ frame_needed = 0, uses_anonymous_args = 0
- 258:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 267              		.loc 1 258 3 view .LVU42
- 257:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 268              		.loc 1 257 1 is_stmt 0 view .LVU43
- 269 0000 30B5     		push	{r4, r5, lr}
- 270              	.LCFI4:
- 271              		.cfi_def_cfa_offset 12
- 272              		.cfi_offset 4, -12
- 273              		.cfi_offset 5, -8
- 274              		.cfi_offset 14, -4
- 275 0002 97B0     		sub	sp, sp, #92
- 276              	.LCFI5:
- 277              		.cfi_def_cfa_offset 104
- 278              		.loc 1 258 22 view .LVU44
- 279 0004 4422     		movs	r2, #68
- 280 0006 0021     		movs	r1, #0
- 281 0008 05A8     		add	r0, sp, #20
- 259:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 282              		.loc 1 259 22 view .LVU45
- 283 000a 1425     		movs	r5, #20
- 258:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 11
+ 249:Core/Src/main.c ****      /* Cat-1 测试 */
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 6
 
 
- 284              		.loc 1 258 22 view .LVU46
- 285 000c FFF7FEFF 		bl	memset
- 286              	.LVL21:
- 287              		.loc 1 259 3 is_stmt 1 view .LVU47
- 288              		.loc 1 259 22 is_stmt 0 view .LVU48
- 289 0010 2A46     		mov	r2, r5
- 290 0012 0021     		movs	r1, #0
- 291 0014 6846     		mov	r0, sp
- 292 0016 FFF7FEFF 		bl	memset
- 293              	.LVL22:
- 260:Core/Src/main.c **** 
- 261:Core/Src/main.c ****   /** Configure the main internal regulator output voltage
- 262:Core/Src/main.c ****   */
- 263:Core/Src/main.c ****   if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1) != HAL_OK)
- 294              		.loc 1 263 3 is_stmt 1 view .LVU49
- 295              		.loc 1 263 7 is_stmt 0 view .LVU50
- 296 001a 4FF40070 		mov	r0, #512
- 297 001e FFF7FEFF 		bl	HAL_PWREx_ControlVoltageScaling
- 298              	.LVL23:
- 299              		.loc 1 263 6 view .LVU51
- 300 0022 08B1     		cbz	r0, .L10
- 264:Core/Src/main.c ****   {
- 265:Core/Src/main.c ****     Error_Handler();
- 301              		.loc 1 265 5 is_stmt 1 view .LVU52
- 302              	.LBB18:
- 303              	.LBI18:
- 266:Core/Src/main.c ****   }
- 267:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
- 268:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
- 269:Core/Src/main.c ****   */
- 270:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
- 271:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
- 272:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 273:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
- 274:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 1;
- 275:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 20;
- 276:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
- 277:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
- 278:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
- 279:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 280:Core/Src/main.c ****   {
- 281:Core/Src/main.c ****     Error_Handler();
- 282:Core/Src/main.c ****   }
- 283:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
- 284:Core/Src/main.c ****   */
- 285:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
- 286:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 287:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
- 288:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 289:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
- 290:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 291:Core/Src/main.c **** 
- 292:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
- 293:Core/Src/main.c ****   {
- 294:Core/Src/main.c ****     Error_Handler();
- 295:Core/Src/main.c ****   }
- 296:Core/Src/main.c **** }
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 12
+ 250:Core/Src/main.c ****     EC2x_Test(0,"AT","OK",500);
+ 251:Core/Src/main.c ****     Delay_ms(100);
+ 252:Core/Src/main.c ****     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
+ 253:Core/Src/main.c **** }
+ 254:Core/Src/main.c **** 
+ 255:Core/Src/main.c **** SHELL_EXPORT_CMD(
+ 256:Core/Src/main.c **** SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+ 257:Core/Src/main.c **** test_all, Test_All, test all device);
+ 258:Core/Src/main.c **** 
+ 259:Core/Src/main.c **** /**
+ 260:Core/Src/main.c ****  * @brief printf Device ID 8bytes
+ 261:Core/Src/main.c ****  * 
+ 262:Core/Src/main.c ****  */
+ 263:Core/Src/main.c **** void DeviceID_Print(void){
+  36              		.loc 1 263 26 view -0
+  37              		.cfi_startproc
+  38              		@ args = 0, pretend = 0, frame = 0
+  39              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264:Core/Src/main.c ****     int i = 0;
+  40              		.loc 1 264 5 view .LVU1
+  41              	.LVL0:
+ 265:Core/Src/main.c ****     shellPrint(&shell,"MAC:");
+  42              		.loc 1 265 5 view .LVU2
+ 263:Core/Src/main.c ****     int i = 0;
+  43              		.loc 1 263 26 is_stmt 0 view .LVU3
+  44 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  45              	.LCFI0:
+  46              		.cfi_def_cfa_offset 24
+  47              		.cfi_offset 3, -24
+  48              		.cfi_offset 4, -20
+  49              		.cfi_offset 5, -16
+  50              		.cfi_offset 6, -12
+  51              		.cfi_offset 7, -8
+  52              		.cfi_offset 14, -4
+  53              		.loc 1 265 5 view .LVU4
+  54 0002 1349     		ldr	r1, .L4
+  55 0004 1348     		ldr	r0, .L4+4
+  56 0006 144E     		ldr	r6, .L4+8
+  57              	.LBB16:
+ 266:Core/Src/main.c **** 
+ 267:Core/Src/main.c ****     for(i = 0;i < 2 ;++i){
+ 268:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
+ 269:Core/Src/main.c ****       u32_mac = *((uint32_t *)(0x1FFF7594 - i * 4));
+ 270:Core/Src/main.c ****       //shellPrint(&shell,"%x",u32_mac);
+ 271:Core/Src/main.c ****       shellPrint(&shell,"%02x",(uint8_t)(u32_mac >> 24));
+  58              		.loc 1 271 7 view .LVU5
+  59 0008 144C     		ldr	r4, .L4+12
+  60              	.LBE16:
+ 267:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
+  61              		.loc 1 267 5 view .LVU6
+  62 000a 154F     		ldr	r7, .L4+16
+ 265:Core/Src/main.c **** 
+  63              		.loc 1 265 5 view .LVU7
+  64 000c FFF7FEFF 		bl	shellPrint
+  65              	.LVL1:
+ 267:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
+  66              		.loc 1 267 5 is_stmt 1 view .LVU8
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 7
 
 
- 297:Core/Src/main.c **** /* USER CODE END 4 */
- 298:Core/Src/main.c **** 
- 299:Core/Src/main.c **** /**
- 300:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
- 301:Core/Src/main.c ****   * @retval None
- 302:Core/Src/main.c ****   */
- 303:Core/Src/main.c **** void Error_Handler(void)
- 304              		.loc 1 303 6 view .LVU53
- 305              	.LBE18:
- 304:Core/Src/main.c **** {
- 305:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
- 306:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
- 307:Core/Src/main.c ****   __disable_irq();
- 306              		.loc 1 307 3 view .LVU54
- 307              	.LBB21:
- 308              	.LBB19:
- 309              	.LBI19:
- 310              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 267:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
+  67              		.loc 1 267 15 view .LVU9
+  68              	.L2:
+  69              	.LBB17:
+ 268:Core/Src/main.c ****       u32_mac = *((uint32_t *)(0x1FFF7594 - i * 4));
+  70              		.loc 1 268 7 discriminator 3 view .LVU10
+ 269:Core/Src/main.c ****       //shellPrint(&shell,"%x",u32_mac);
+  71              		.loc 1 269 7 discriminator 3 view .LVU11
+ 269:Core/Src/main.c ****       //shellPrint(&shell,"%x",u32_mac);
+  72              		.loc 1 269 15 is_stmt 0 discriminator 3 view .LVU12
+  73 0010 56F80459 		ldr	r5, [r6], #-4
+  74              	.LVL2:
+  75              		.loc 1 271 7 is_stmt 1 discriminator 3 view .LVU13
+  76 0014 0F48     		ldr	r0, .L4+4
+  77 0016 2A0E     		lsrs	r2, r5, #24
+  78 0018 2146     		mov	r1, r4
+  79 001a FFF7FEFF 		bl	shellPrint
+  80              	.LVL3:
+ 272:Core/Src/main.c ****       shellPrint(&shell,"%02x",(uint8_t)(u32_mac >> 16));
+  81              		.loc 1 272 7 discriminator 3 view .LVU14
+  82 001e 0D48     		ldr	r0, .L4+4
+  83 0020 C5F30742 		ubfx	r2, r5, #16, #8
+  84 0024 2146     		mov	r1, r4
+  85 0026 FFF7FEFF 		bl	shellPrint
+  86              	.LVL4:
+ 273:Core/Src/main.c ****       shellPrint(&shell,"%02x",(uint8_t)(u32_mac >> 8));
+  87              		.loc 1 273 7 discriminator 3 view .LVU15
+  88 002a 0A48     		ldr	r0, .L4+4
+  89 002c C5F30722 		ubfx	r2, r5, #8, #8
+  90 0030 2146     		mov	r1, r4
+  91 0032 FFF7FEFF 		bl	shellPrint
+  92              	.LVL5:
+ 274:Core/Src/main.c ****       shellPrint(&shell,"%02x",(uint8_t)(u32_mac ));
+  93              		.loc 1 274 7 discriminator 3 view .LVU16
+  94 0036 0748     		ldr	r0, .L4+4
+  95 0038 EAB2     		uxtb	r2, r5
+  96 003a 2146     		mov	r1, r4
+  97 003c FFF7FEFF 		bl	shellPrint
+  98              	.LVL6:
+  99              	.LBE17:
+ 267:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
+ 100              		.loc 1 267 22 discriminator 3 view .LVU17
+ 267:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
+ 101              		.loc 1 267 15 discriminator 3 view .LVU18
+ 267:Core/Src/main.c ****       uint32_t u32_mac = 0xffff;
+ 102              		.loc 1 267 5 is_stmt 0 discriminator 3 view .LVU19
+ 103 0040 BE42     		cmp	r6, r7
+ 104 0042 E5D1     		bne	.L2
+ 275:Core/Src/main.c ****     }
+ 276:Core/Src/main.c ****     shellPrint(&shell,"\r\n");
+ 105              		.loc 1 276 5 is_stmt 1 view .LVU20
+ 277:Core/Src/main.c **** }
+ 106              		.loc 1 277 1 is_stmt 0 view .LVU21
+ 107 0044 BDE8F840 		pop	{r3, r4, r5, r6, r7, lr}
+ 108              	.LCFI1:
+ 109              		.cfi_restore 14
+ 110              		.cfi_restore 7
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 8
+
+
+ 111              		.cfi_restore 6
+ 112              		.cfi_restore 5
+ 113              		.cfi_restore 4
+ 114              		.cfi_restore 3
+ 115              		.cfi_def_cfa_offset 0
+ 116              	.LVL7:
+ 276:Core/Src/main.c **** }
+ 117              		.loc 1 276 5 view .LVU22
+ 118 0048 0649     		ldr	r1, .L4+20
+ 119 004a 0248     		ldr	r0, .L4+4
+ 120 004c FFF7FEBF 		b	shellPrint
+ 121              	.LVL8:
+ 122              	.L5:
+ 123              		.align	2
+ 124              	.L4:
+ 125 0050 00000000 		.word	.LC0
+ 126 0054 00000000 		.word	shell
+ 127 0058 9475FF1F 		.word	536835476
+ 128 005c 05000000 		.word	.LC1
+ 129 0060 8C75FF1F 		.word	536835468
+ 130 0064 0A000000 		.word	.LC2
+ 131              		.cfi_endproc
+ 132              	.LFE293:
+ 134              		.section	.rodata.Test_All.str1.1,"aMS",%progbits,1
+ 135              	.LC3:
+ 136 0000 52533438 		.ascii	"RS485 TRANSMIT OK\015\012\000"
+ 136      35205452 
+ 136      414E534D 
+ 136      4954204F 
+ 136      4B0D0A00 
+ 137              	.LC4:
+ 138 0014 72656164 		.ascii	"read\000"
+ 138      00
+ 139              	.LC5:
+ 140 0019 4C6F7261 		.ascii	"Lora1 tx test\015\012\000"
+ 140      31207478 
+ 140      20746573 
+ 140      740D0A00 
+ 141              	.LC6:
+ 142 0029 4C6F7261 		.ascii	"Lora2 RX Test OK\015\012\000"
+ 142      32205258 
+ 142      20546573 
+ 142      74204F4B 
+ 142      0D0A00
+ 143              	.LC7:
+ 144 003c 4C6F7261 		.ascii	"Lora2 RX Test Failed\015\012\000"
+ 144      32205258 
+ 144      20546573 
+ 144      74204661 
+ 144      696C6564 
+ 145              	.LC8:
+ 146 0053 4C6F7261 		.ascii	"Lora2 tx test\015\012\000"
+ 146      32207478 
+ 146      20746573 
+ 146      740D0A00 
+ 147              	.LC9:
+ 148 0063 4C6F7261 		.ascii	"Lora1 RX Test OK\015\012\000"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 9
+
+
+ 148      31205258 
+ 148      20546573 
+ 148      74204F4B 
+ 148      0D0A00
+ 149              	.LC10:
+ 150 0076 4C6F7261 		.ascii	"Lora1 RX Test Failed\015\012\000"
+ 150      31205258 
+ 150      20546573 
+ 150      74204661 
+ 150      696C6564 
+ 151              	.LC11:
+ 152 008d 4F4B00   		.ascii	"OK\000"
+ 153              	.LC12:
+ 154 0090 415400   		.ascii	"AT\000"
+ 155              	.LC13:
+ 156 0093 54657374 		.ascii	"Test OK Count:%d/8\015\012\000"
+ 156      204F4B20 
+ 156      436F756E 
+ 156      743A2564 
+ 156      2F380D0A 
+ 157              		.section	.text.Test_All,"ax",%progbits
+ 158              		.align	1
+ 159              		.global	Test_All
+ 160              		.syntax unified
+ 161              		.thumb
+ 162              		.thumb_func
+ 164              	Test_All:
+ 165              	.LFB292:
+ 212:Core/Src/main.c ****     test_ok_cnt = 0;
+ 166              		.loc 1 212 1 is_stmt 1 view -0
+ 167              		.cfi_startproc
+ 168              		@ args = 0, pretend = 0, frame = 0
+ 169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 213:Core/Src/main.c ****         /* USER CODE END WHILE */
+ 170              		.loc 1 213 5 view .LVU24
+ 212:Core/Src/main.c ****     test_ok_cnt = 0;
+ 171              		.loc 1 212 1 is_stmt 0 view .LVU25
+ 172 0000 10B5     		push	{r4, lr}
+ 173              	.LCFI2:
+ 174              		.cfi_def_cfa_offset 8
+ 175              		.cfi_offset 4, -8
+ 176              		.cfi_offset 14, -4
+ 213:Core/Src/main.c ****         /* USER CODE END WHILE */
+ 177              		.loc 1 213 17 view .LVU26
+ 178 0002 2A4C     		ldr	r4, .L11
+ 179 0004 0023     		movs	r3, #0
+ 180 0006 2370     		strb	r3, [r4]
+ 216:Core/Src/main.c ****     /* LED 测试 */ 
+ 181              		.loc 1 216 5 is_stmt 1 view .LVU27
+ 182 0008 FFF7FEFF 		bl	Battery_Test
+ 183              	.LVL9:
+ 221:Core/Src/main.c ****     /* RS485接口测试 */
+ 184              		.loc 1 221 5 view .LVU28
+ 185 000c FFF7FEFF 		bl	LDR_Value_Get
+ 186              	.LVL10:
+ 223:Core/Src/main.c ****      /* Flash 接口测试 */
+ 187              		.loc 1 223 5 view .LVU29
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 10
+
+
+ 188 0010 2748     		ldr	r0, .L11+4
+ 189 0012 FFF7FEFF 		bl	RS485_Test
+ 190              	.LVL11:
+ 225:Core/Src/main.c ****     /* ATGM223D接口测试 */
+ 191              		.loc 1 225 5 view .LVU30
+ 192 0016 FFF7FEFF 		bl	Flash_Test
+ 193              	.LVL12:
+ 227:Core/Src/main.c ****       /* LORA1发送 LORA2 接收测试*/
+ 194              		.loc 1 227 5 view .LVU31
+ 195 001a 2648     		ldr	r0, .L11+8
+ 196 001c 6421     		movs	r1, #100
+ 197 001e FFF7FEFF 		bl	BDS_Test
+ 198              	.LVL13:
+ 229:Core/Src/main.c ****     Delay_ms(500);
+ 199              		.loc 1 229 5 view .LVU32
+ 200 0022 2549     		ldr	r1, .L11+12
+ 201 0024 C822     		movs	r2, #200
+ 202 0026 0120     		movs	r0, #1
+ 203 0028 FFF7FEFF 		bl	LORA_Send
+ 204              	.LVL14:
+ 230:Core/Src/main.c ****     if(strstr(lora_cache[0],"Lora1 tx test\r\n") != NULL)
+ 205              		.loc 1 230 5 view .LVU33
+ 206 002c 4FF4FA70 		mov	r0, #500
+ 207 0030 FFF7FEFF 		bl	Delay_ms
+ 208              	.LVL15:
+ 231:Core/Src/main.c ****     { 
+ 209              		.loc 1 231 5 view .LVU34
+ 231:Core/Src/main.c ****     { 
+ 210              		.loc 1 231 8 is_stmt 0 view .LVU35
+ 211 0034 2049     		ldr	r1, .L11+12
+ 212 0036 2148     		ldr	r0, .L11+16
+ 213 0038 FFF7FEFF 		bl	strstr
+ 214              	.LVL16:
+ 231:Core/Src/main.c ****     { 
+ 215              		.loc 1 231 7 view .LVU36
+ 216 003c 60B3     		cbz	r0, .L7
+ 233:Core/Src/main.c ****       test_ok_cnt++;
+ 217              		.loc 1 233 7 is_stmt 1 view .LVU37
+ 218 003e 2049     		ldr	r1, .L11+20
+ 219 0040 2048     		ldr	r0, .L11+24
+ 220 0042 FFF7FEFF 		bl	shellPrint
+ 221              	.LVL17:
+ 234:Core/Src/main.c ****     }
+ 222              		.loc 1 234 7 view .LVU38
+ 234:Core/Src/main.c ****     }
+ 223              		.loc 1 234 18 is_stmt 0 view .LVU39
+ 224 0046 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 225 0048 0133     		adds	r3, r3, #1
+ 226 004a 2370     		strb	r3, [r4]
+ 227              	.L8:
+ 239:Core/Src/main.c ****     Delay_ms(500);
+ 228              		.loc 1 239 5 is_stmt 1 view .LVU40
+ 229 004c 1E49     		ldr	r1, .L11+28
+ 230 004e C822     		movs	r2, #200
+ 231 0050 0020     		movs	r0, #0
+ 232 0052 FFF7FEFF 		bl	LORA_Send
+ 233              	.LVL18:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 11
+
+
+ 240:Core/Src/main.c ****      if(strstr(lora_cache[1],"Lora2 tx test\r\n") != NULL)
+ 234              		.loc 1 240 5 view .LVU41
+ 235 0056 4FF4FA70 		mov	r0, #500
+ 236 005a FFF7FEFF 		bl	Delay_ms
+ 237              	.LVL19:
+ 241:Core/Src/main.c ****     { 
+ 238              		.loc 1 241 6 view .LVU42
+ 241:Core/Src/main.c ****     { 
+ 239              		.loc 1 241 9 is_stmt 0 view .LVU43
+ 240 005e 1A49     		ldr	r1, .L11+28
+ 241 0060 1A48     		ldr	r0, .L11+32
+ 242 0062 FFF7FEFF 		bl	strstr
+ 243              	.LVL20:
+ 241:Core/Src/main.c ****     { 
+ 244              		.loc 1 241 8 view .LVU44
+ 245 0066 E0B1     		cbz	r0, .L9
+ 243:Core/Src/main.c ****       test_ok_cnt++;
+ 246              		.loc 1 243 7 is_stmt 1 view .LVU45
+ 247 0068 1949     		ldr	r1, .L11+36
+ 248 006a 1648     		ldr	r0, .L11+24
+ 249 006c FFF7FEFF 		bl	shellPrint
+ 250              	.LVL21:
+ 244:Core/Src/main.c ****     }
+ 251              		.loc 1 244 7 view .LVU46
+ 244:Core/Src/main.c ****     }
+ 252              		.loc 1 244 18 is_stmt 0 view .LVU47
+ 253 0070 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 254 0072 0133     		adds	r3, r3, #1
+ 255 0074 2370     		strb	r3, [r4]
+ 256              	.L10:
+ 250:Core/Src/main.c ****     Delay_ms(100);
+ 257              		.loc 1 250 5 is_stmt 1 view .LVU48
+ 258 0076 174A     		ldr	r2, .L11+40
+ 259 0078 1749     		ldr	r1, .L11+44
+ 260 007a 4FF4FA73 		mov	r3, #500
+ 261 007e 0020     		movs	r0, #0
+ 262 0080 FFF7FEFF 		bl	EC2x_Test
+ 263              	.LVL22:
+ 251:Core/Src/main.c ****     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
+ 264              		.loc 1 251 5 view .LVU49
+ 265 0084 6420     		movs	r0, #100
+ 266 0086 FFF7FEFF 		bl	Delay_ms
+ 267              	.LVL23:
+ 252:Core/Src/main.c **** }
+ 268              		.loc 1 252 5 view .LVU50
+ 269 008a 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
+ 270 008c 1349     		ldr	r1, .L11+48
+ 271 008e 0D48     		ldr	r0, .L11+24
+ 253:Core/Src/main.c **** 
+ 272              		.loc 1 253 1 is_stmt 0 view .LVU51
+ 273 0090 BDE81040 		pop	{r4, lr}
+ 274              	.LCFI3:
+ 275              		.cfi_remember_state
+ 276              		.cfi_restore 14
+ 277              		.cfi_restore 4
+ 278              		.cfi_def_cfa_offset 0
+ 252:Core/Src/main.c **** }
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 12
+
+
+ 279              		.loc 1 252 5 view .LVU52
+ 280 0094 FFF7FEBF 		b	shellPrint
+ 281              	.LVL24:
+ 282              	.L7:
+ 283              	.LCFI4:
+ 284              		.cfi_restore_state
+ 237:Core/Src/main.c ****      /* LORA2发送 LORA1 接收测试*/
+ 285              		.loc 1 237 7 is_stmt 1 view .LVU53
+ 286 0098 1149     		ldr	r1, .L11+52
+ 287 009a 0A48     		ldr	r0, .L11+24
+ 288 009c FFF7FEFF 		bl	shellPrint
+ 289              	.LVL25:
+ 290 00a0 D4E7     		b	.L8
+ 291              	.L9:
+ 247:Core/Src/main.c **** 
+ 292              		.loc 1 247 7 view .LVU54
+ 293 00a2 1049     		ldr	r1, .L11+56
+ 294 00a4 0748     		ldr	r0, .L11+24
+ 295 00a6 FFF7FEFF 		bl	shellPrint
+ 296              	.LVL26:
+ 297 00aa E4E7     		b	.L10
+ 298              	.L12:
+ 299              		.align	2
+ 300              	.L11:
+ 301 00ac 00000000 		.word	test_ok_cnt
+ 302 00b0 00000000 		.word	.LC3
+ 303 00b4 14000000 		.word	.LC4
+ 304 00b8 19000000 		.word	.LC5
+ 305 00bc 00000000 		.word	lora_cache
+ 306 00c0 29000000 		.word	.LC6
+ 307 00c4 00000000 		.word	shell
+ 308 00c8 53000000 		.word	.LC8
+ 309 00cc 1E000000 		.word	lora_cache+30
+ 310 00d0 63000000 		.word	.LC9
+ 311 00d4 8D000000 		.word	.LC11
+ 312 00d8 90000000 		.word	.LC12
+ 313 00dc 93000000 		.word	.LC13
+ 314 00e0 3C000000 		.word	.LC7
+ 315 00e4 76000000 		.word	.LC10
+ 316              		.cfi_endproc
+ 317              	.LFE292:
+ 319              		.section	.text.SystemClock_Config,"ax",%progbits
+ 320              		.align	1
+ 321              		.global	SystemClock_Config
+ 322              		.syntax unified
+ 323              		.thumb
+ 324              		.thumb_func
+ 326              	SystemClock_Config:
+ 327              	.LFB294:
+ 278:Core/Src/main.c **** 
+ 279:Core/Src/main.c **** SHELL_EXPORT_CMD(
+ 280:Core/Src/main.c **** SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC)|SHELL_CMD_DISABLE_RETURN,
+ 281:Core/Src/main.c **** mac_print, DeviceID_Print, printf mac_id);
+ 282:Core/Src/main.c **** /**
+ 283:Core/Src/main.c ****   * @brief System Clock Configuration
+ 284:Core/Src/main.c ****   * @retval None
+ 285:Core/Src/main.c ****   */
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 13
+
+
+ 286:Core/Src/main.c **** void SystemClock_Config(void)
+ 287:Core/Src/main.c **** {
+ 328              		.loc 1 287 1 view -0
+ 329              		.cfi_startproc
+ 330              		@ args = 0, pretend = 0, frame = 88
+ 331              		@ frame_needed = 0, uses_anonymous_args = 0
+ 288:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 332              		.loc 1 288 3 view .LVU56
+ 287:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 333              		.loc 1 287 1 is_stmt 0 view .LVU57
+ 334 0000 30B5     		push	{r4, r5, lr}
+ 335              	.LCFI5:
+ 336              		.cfi_def_cfa_offset 12
+ 337              		.cfi_offset 4, -12
+ 338              		.cfi_offset 5, -8
+ 339              		.cfi_offset 14, -4
+ 340 0002 97B0     		sub	sp, sp, #92
+ 341              	.LCFI6:
+ 342              		.cfi_def_cfa_offset 104
+ 343              		.loc 1 288 22 view .LVU58
+ 344 0004 4422     		movs	r2, #68
+ 345 0006 0021     		movs	r1, #0
+ 346 0008 05A8     		add	r0, sp, #20
+ 289:Core/Src/main.c ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 347              		.loc 1 289 22 view .LVU59
+ 348 000a 1425     		movs	r5, #20
+ 288:Core/Src/main.c ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 349              		.loc 1 288 22 view .LVU60
+ 350 000c FFF7FEFF 		bl	memset
+ 351              	.LVL27:
+ 352              		.loc 1 289 3 is_stmt 1 view .LVU61
+ 353              		.loc 1 289 22 is_stmt 0 view .LVU62
+ 354 0010 2A46     		mov	r2, r5
+ 355 0012 0021     		movs	r1, #0
+ 356 0014 6846     		mov	r0, sp
+ 357 0016 FFF7FEFF 		bl	memset
+ 358              	.LVL28:
+ 290:Core/Src/main.c **** 
+ 291:Core/Src/main.c ****   /** Configure the main internal regulator output voltage
+ 292:Core/Src/main.c ****   */
+ 293:Core/Src/main.c ****   if (HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1) != HAL_OK)
+ 359              		.loc 1 293 3 is_stmt 1 view .LVU63
+ 360              		.loc 1 293 7 is_stmt 0 view .LVU64
+ 361 001a 4FF40070 		mov	r0, #512
+ 362 001e FFF7FEFF 		bl	HAL_PWREx_ControlVoltageScaling
+ 363              	.LVL29:
+ 364              		.loc 1 293 6 view .LVU65
+ 365 0022 08B1     		cbz	r0, .L14
+ 294:Core/Src/main.c ****   {
+ 295:Core/Src/main.c ****     Error_Handler();
+ 366              		.loc 1 295 5 is_stmt 1 view .LVU66
+ 367              	.LBB18:
+ 368              	.LBI18:
+ 296:Core/Src/main.c ****   }
+ 297:Core/Src/main.c ****   /** Initializes the RCC Oscillators according to the specified parameters
+ 298:Core/Src/main.c ****   * in the RCC_OscInitTypeDef structure.
+ 299:Core/Src/main.c ****   */
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 14
+
+
+ 300:Core/Src/main.c ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+ 301:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+ 302:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 303:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 304:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 1;
+ 305:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 20;
+ 306:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
+ 307:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+ 308:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+ 309:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 310:Core/Src/main.c ****   {
+ 311:Core/Src/main.c ****     Error_Handler();
+ 312:Core/Src/main.c ****   }
+ 313:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
+ 314:Core/Src/main.c ****   */
+ 315:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 316:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 317:Core/Src/main.c ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 318:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 319:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 320:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 321:Core/Src/main.c **** 
+ 322:Core/Src/main.c ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+ 323:Core/Src/main.c ****   {
+ 324:Core/Src/main.c ****     Error_Handler();
+ 325:Core/Src/main.c ****   }
+ 326:Core/Src/main.c **** }
+ 327:Core/Src/main.c **** /* USER CODE END 4 */
+ 328:Core/Src/main.c **** 
+ 329:Core/Src/main.c **** /**
+ 330:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
+ 331:Core/Src/main.c ****   * @retval None
+ 332:Core/Src/main.c ****   */
+ 333:Core/Src/main.c **** void Error_Handler(void)
+ 369              		.loc 1 333 6 view .LVU67
+ 370              	.LBE18:
+ 334:Core/Src/main.c **** {
+ 335:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 336:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ 337:Core/Src/main.c ****   __disable_irq();
+ 371              		.loc 1 337 3 view .LVU68
+ 372              	.LBB21:
+ 373              	.LBB19:
+ 374              	.LBI19:
+ 375              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -691,6 +838,9 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
   10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
   11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 15
+
+
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
   15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
@@ -718,9 +868,6 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
   37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   38:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   39:Drivers/CMSIS/Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 13
-
-
   40:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ASM
   41:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ASM                                  __asm
   42:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -751,6 +898,9 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
   67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
   68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
   69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 16
+
+
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
@@ -778,9 +928,6 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
   94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
   95:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   96:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 14
-
-
   97:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   98:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
   99:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
@@ -811,6 +958,9 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
  124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Initializes data and bss sections
  126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details This default implementations initialized all data and additional bss
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 17
+
+
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            sections relying on .copy.table and .zero.table specified properly
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****            in the used linker script.
  129:Drivers/CMSIS/Include/cmsis_gcc.h ****   
@@ -838,9 +988,6 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
  151:Drivers/CMSIS/Include/cmsis_gcc.h ****   for (__copy_table_t const* pTable = &__copy_table_start__; pTable < &__copy_table_end__; ++pTable
  152:Drivers/CMSIS/Include/cmsis_gcc.h ****     for(uint32_t i=0u; i<pTable->wlen; ++i) {
  153:Drivers/CMSIS/Include/cmsis_gcc.h ****       pTable->dest[i] = pTable->src[i];
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 15
-
-
  154:Drivers/CMSIS/Include/cmsis_gcc.h ****     }
  155:Drivers/CMSIS/Include/cmsis_gcc.h ****   }
  156:Drivers/CMSIS/Include/cmsis_gcc.h ****  
@@ -871,6 +1018,9 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
  181:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __VECTOR_TABLE_ATTRIBUTE
  182:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __VECTOR_TABLE_ATTRIBUTE  __attribute((used, section(".vectors")))
  183:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 18
+
+
  184:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  185:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
  186:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
@@ -895,640 +1045,716 @@ ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 1
  205:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  206:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  207:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
- 311              		.loc 2 207 27 view .LVU55
- 312              	.LBB20:
+ 376              		.loc 2 207 27 view .LVU69
+ 377              	.LBB20:
  208:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 16
-
-
  209:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
- 313              		.loc 2 209 3 view .LVU56
- 314              		.syntax unified
- 315              	@ 209 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 316 0024 72B6     		cpsid i
- 317              	@ 0 "" 2
- 318              		.thumb
- 319              		.syntax unified
- 320              	.L11:
- 321              	.LBE20:
- 322              	.LBE19:
- 323              	.LBE21:
- 308:Core/Src/main.c ****   while (1)
- 324              		.loc 1 308 3 view .LVU57
+ 378              		.loc 2 209 3 view .LVU70
+ 379              		.syntax unified
+ 380              	@ 209 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 381 0024 72B6     		cpsid i
+ 382              	@ 0 "" 2
+ 383              		.thumb
+ 384              		.syntax unified
+ 385              	.L15:
+ 386              	.LBE20:
+ 387              	.LBE19:
+ 388              	.LBE21:
+ 338:Core/Src/main.c ****   while (1)
+ 389              		.loc 1 338 3 view .LVU71
+ 339:Core/Src/main.c ****   {
+ 340:Core/Src/main.c ****   }
+ 390              		.loc 1 340 3 view .LVU72
+ 338:Core/Src/main.c ****   while (1)
+ 391              		.loc 1 338 9 view .LVU73
+ 392 0026 FEE7     		b	.L15
+ 393              	.L14:
+ 300:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+ 394              		.loc 1 300 3 view .LVU74
+ 301:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 395              		.loc 1 301 30 is_stmt 0 view .LVU75
+ 396 0028 0122     		movs	r2, #1
+ 397 002a 4FF48033 		mov	r3, #65536
+ 398 002e CDE90523 		strd	r2, r3, [sp, #20]
+ 302:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+ 399              		.loc 1 302 3 is_stmt 1 view .LVU76
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 19
+
+
+ 305:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
+ 400              		.loc 1 305 30 is_stmt 0 view .LVU77
+ 401 0032 CDE91125 		strd	r2, r5, [sp, #68]
+ 303:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 1;
+ 402              		.loc 1 303 35 view .LVU78
+ 403 0036 0223     		movs	r3, #2
+ 404 0038 0324     		movs	r4, #3
+ 306:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+ 405              		.loc 1 306 30 view .LVU79
+ 406 003a 0722     		movs	r2, #7
  309:Core/Src/main.c ****   {
- 310:Core/Src/main.c ****   }
- 325              		.loc 1 310 3 view .LVU58
- 308:Core/Src/main.c ****   while (1)
- 326              		.loc 1 308 9 view .LVU59
- 327 0026 FEE7     		b	.L11
- 328              	.L10:
- 270:Core/Src/main.c ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
- 329              		.loc 1 270 3 view .LVU60
- 271:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
- 330              		.loc 1 271 30 is_stmt 0 view .LVU61
- 331 0028 0122     		movs	r2, #1
- 332 002a 4FF48033 		mov	r3, #65536
- 333 002e CDE90523 		strd	r2, r3, [sp, #20]
- 272:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
- 334              		.loc 1 272 3 is_stmt 1 view .LVU62
- 275:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV7;
- 335              		.loc 1 275 30 is_stmt 0 view .LVU63
- 336 0032 CDE91125 		strd	r2, r5, [sp, #68]
- 273:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 1;
- 337              		.loc 1 273 35 view .LVU64
- 338 0036 0223     		movs	r3, #2
- 339 0038 0324     		movs	r4, #3
- 276:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
- 340              		.loc 1 276 30 view .LVU65
- 341 003a 0722     		movs	r2, #7
- 279:Core/Src/main.c ****   {
- 342              		.loc 1 279 7 view .LVU66
- 343 003c 05A8     		add	r0, sp, #20
- 273:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 1;
- 344              		.loc 1 273 35 view .LVU67
- 345 003e CDE90F34 		strd	r3, r4, [sp, #60]
- 274:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 20;
- 346              		.loc 1 274 3 is_stmt 1 view .LVU68
- 276:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
- 347              		.loc 1 276 3 view .LVU69
- 277:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
- 348              		.loc 1 277 30 is_stmt 0 view .LVU70
- 349 0042 CDE91323 		strd	r2, r3, [sp, #76]
- 278:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 350              		.loc 1 278 3 is_stmt 1 view .LVU71
- 278:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 351              		.loc 1 278 30 is_stmt 0 view .LVU72
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 17
-
-
- 352 0046 1593     		str	r3, [sp, #84]
- 279:Core/Src/main.c ****   {
- 353              		.loc 1 279 3 is_stmt 1 view .LVU73
- 279:Core/Src/main.c ****   {
- 354              		.loc 1 279 7 is_stmt 0 view .LVU74
- 355 0048 FFF7FEFF 		bl	HAL_RCC_OscConfig
- 356              	.LVL24:
- 279:Core/Src/main.c ****   {
- 357              		.loc 1 279 6 view .LVU75
- 358 004c 08B1     		cbz	r0, .L12
- 281:Core/Src/main.c ****   }
- 359              		.loc 1 281 5 is_stmt 1 view .LVU76
- 360              	.LBB22:
- 361              	.LBI22:
- 303:Core/Src/main.c **** {
- 362              		.loc 1 303 6 view .LVU77
- 363              	.LBE22:
- 307:Core/Src/main.c ****   while (1)
- 364              		.loc 1 307 3 view .LVU78
- 365              	.LBB25:
- 366              	.LBB23:
- 367              	.LBI23:
+ 407              		.loc 1 309 7 view .LVU80
+ 408 003c 05A8     		add	r0, sp, #20
+ 303:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLM = 1;
+ 409              		.loc 1 303 35 view .LVU81
+ 410 003e CDE90F34 		strd	r3, r4, [sp, #60]
+ 304:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLN = 20;
+ 411              		.loc 1 304 3 is_stmt 1 view .LVU82
+ 306:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+ 412              		.loc 1 306 3 view .LVU83
+ 307:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+ 413              		.loc 1 307 30 is_stmt 0 view .LVU84
+ 414 0042 CDE91323 		strd	r2, r3, [sp, #76]
+ 308:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 415              		.loc 1 308 3 is_stmt 1 view .LVU85
+ 308:Core/Src/main.c ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 416              		.loc 1 308 30 is_stmt 0 view .LVU86
+ 417 0046 1593     		str	r3, [sp, #84]
+ 309:Core/Src/main.c ****   {
+ 418              		.loc 1 309 3 is_stmt 1 view .LVU87
+ 309:Core/Src/main.c ****   {
+ 419              		.loc 1 309 7 is_stmt 0 view .LVU88
+ 420 0048 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 421              	.LVL30:
+ 309:Core/Src/main.c ****   {
+ 422              		.loc 1 309 6 view .LVU89
+ 423 004c 08B1     		cbz	r0, .L16
+ 311:Core/Src/main.c ****   }
+ 424              		.loc 1 311 5 is_stmt 1 view .LVU90
+ 425              	.LBB22:
+ 426              	.LBI22:
+ 333:Core/Src/main.c **** {
+ 427              		.loc 1 333 6 view .LVU91
+ 428              	.LBE22:
+ 337:Core/Src/main.c ****   while (1)
+ 429              		.loc 1 337 3 view .LVU92
+ 430              	.LBB25:
+ 431              	.LBB23:
+ 432              	.LBI23:
  207:Drivers/CMSIS/Include/cmsis_gcc.h **** {
- 368              		.loc 2 207 27 view .LVU79
- 369              	.LBB24:
- 370              		.loc 2 209 3 view .LVU80
- 371              		.syntax unified
- 372              	@ 209 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 373 004e 72B6     		cpsid i
- 374              	@ 0 "" 2
- 375              		.thumb
- 376              		.syntax unified
- 377              	.L13:
- 378              	.LBE24:
- 379              	.LBE23:
- 380              	.LBE25:
- 308:Core/Src/main.c ****   {
- 381              		.loc 1 308 3 view .LVU81
- 382              		.loc 1 310 3 view .LVU82
- 308:Core/Src/main.c ****   {
- 383              		.loc 1 308 9 view .LVU83
- 384 0050 FEE7     		b	.L13
- 385              	.L12:
- 285:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 386              		.loc 1 285 3 view .LVU84
- 289:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 387              		.loc 1 289 36 is_stmt 0 view .LVU85
- 388 0052 CDE90200 		strd	r0, r0, [sp, #8]
- 285:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
- 389              		.loc 1 285 31 view .LVU86
- 390 0056 0F23     		movs	r3, #15
- 290:Core/Src/main.c **** 
- 391              		.loc 1 290 36 view .LVU87
- 392 0058 0490     		str	r0, [sp, #16]
- 292:Core/Src/main.c ****   {
- 393              		.loc 1 292 7 view .LVU88
- 394 005a 0421     		movs	r1, #4
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 18
+ 433              		.loc 2 207 27 view .LVU93
+ 434              	.LBB24:
+ 435              		.loc 2 209 3 view .LVU94
+ 436              		.syntax unified
+ 437              	@ 209 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 438 004e 72B6     		cpsid i
+ 439              	@ 0 "" 2
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 20
 
 
- 395 005c 6846     		mov	r0, sp
- 287:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 396              		.loc 1 287 34 view .LVU89
- 397 005e CDE90034 		strd	r3, r4, [sp]
- 288:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
- 398              		.loc 1 288 3 is_stmt 1 view .LVU90
- 290:Core/Src/main.c **** 
- 399              		.loc 1 290 3 view .LVU91
- 292:Core/Src/main.c ****   {
- 400              		.loc 1 292 3 view .LVU92
- 292:Core/Src/main.c ****   {
- 401              		.loc 1 292 7 is_stmt 0 view .LVU93
- 402 0062 FFF7FEFF 		bl	HAL_RCC_ClockConfig
- 403              	.LVL25:
- 292:Core/Src/main.c ****   {
- 404              		.loc 1 292 6 view .LVU94
- 405 0066 08B1     		cbz	r0, .L9
- 294:Core/Src/main.c ****   }
- 406              		.loc 1 294 5 is_stmt 1 view .LVU95
- 407              	.LBB26:
- 408              	.LBI26:
- 303:Core/Src/main.c **** {
- 409              		.loc 1 303 6 view .LVU96
- 410              	.LBE26:
- 307:Core/Src/main.c ****   while (1)
- 411              		.loc 1 307 3 view .LVU97
- 412              	.LBB29:
- 413              	.LBB27:
- 414              	.LBI27:
+ 440              		.thumb
+ 441              		.syntax unified
+ 442              	.L17:
+ 443              	.LBE24:
+ 444              	.LBE23:
+ 445              	.LBE25:
+ 338:Core/Src/main.c ****   {
+ 446              		.loc 1 338 3 view .LVU95
+ 447              		.loc 1 340 3 view .LVU96
+ 338:Core/Src/main.c ****   {
+ 448              		.loc 1 338 9 view .LVU97
+ 449 0050 FEE7     		b	.L17
+ 450              	.L16:
+ 315:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 451              		.loc 1 315 3 view .LVU98
+ 319:Core/Src/main.c ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 452              		.loc 1 319 36 is_stmt 0 view .LVU99
+ 453 0052 CDE90200 		strd	r0, r0, [sp, #8]
+ 315:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 454              		.loc 1 315 31 view .LVU100
+ 455 0056 0F23     		movs	r3, #15
+ 320:Core/Src/main.c **** 
+ 456              		.loc 1 320 36 view .LVU101
+ 457 0058 0490     		str	r0, [sp, #16]
+ 322:Core/Src/main.c ****   {
+ 458              		.loc 1 322 7 view .LVU102
+ 459 005a 0421     		movs	r1, #4
+ 460 005c 6846     		mov	r0, sp
+ 317:Core/Src/main.c ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 461              		.loc 1 317 34 view .LVU103
+ 462 005e CDE90034 		strd	r3, r4, [sp]
+ 318:Core/Src/main.c ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 463              		.loc 1 318 3 is_stmt 1 view .LVU104
+ 320:Core/Src/main.c **** 
+ 464              		.loc 1 320 3 view .LVU105
+ 322:Core/Src/main.c ****   {
+ 465              		.loc 1 322 3 view .LVU106
+ 322:Core/Src/main.c ****   {
+ 466              		.loc 1 322 7 is_stmt 0 view .LVU107
+ 467 0062 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 468              	.LVL31:
+ 322:Core/Src/main.c ****   {
+ 469              		.loc 1 322 6 view .LVU108
+ 470 0066 08B1     		cbz	r0, .L13
+ 324:Core/Src/main.c ****   }
+ 471              		.loc 1 324 5 is_stmt 1 view .LVU109
+ 472              	.LBB26:
+ 473              	.LBI26:
+ 333:Core/Src/main.c **** {
+ 474              		.loc 1 333 6 view .LVU110
+ 475              	.LBE26:
+ 337:Core/Src/main.c ****   while (1)
+ 476              		.loc 1 337 3 view .LVU111
+ 477              	.LBB29:
+ 478              	.LBB27:
+ 479              	.LBI27:
  207:Drivers/CMSIS/Include/cmsis_gcc.h **** {
- 415              		.loc 2 207 27 view .LVU98
- 416              	.LBB28:
- 417              		.loc 2 209 3 view .LVU99
- 418              		.syntax unified
- 419              	@ 209 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 420 0068 72B6     		cpsid i
- 421              	@ 0 "" 2
- 422              		.thumb
- 423              		.syntax unified
- 424              	.L15:
- 425              	.LBE28:
- 426              	.LBE27:
- 427              	.LBE29:
- 308:Core/Src/main.c ****   {
- 428              		.loc 1 308 3 view .LVU100
- 429              		.loc 1 310 3 view .LVU101
- 308:Core/Src/main.c ****   {
- 430              		.loc 1 308 9 view .LVU102
- 431 006a FEE7     		b	.L15
- 432              	.L9:
- 296:Core/Src/main.c **** /* USER CODE END 4 */
- 433              		.loc 1 296 1 is_stmt 0 view .LVU103
- 434 006c 17B0     		add	sp, sp, #92
- 435              	.LCFI6:
- 436              		.cfi_def_cfa_offset 12
- 437              		@ sp needed
- 438 006e 30BD     		pop	{r4, r5, pc}
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 19
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 21
 
 
- 439              		.cfi_endproc
- 440              	.LFE294:
- 442              		.section	.rodata.main.str1.1,"aMS",%progbits,1
- 443              	.LC10:
- 444 0000 75617274 		.ascii	"uart2/bds_0\000"
- 444      322F6264 
- 444      735F3000 
- 445              	.LC11:
- 446 000c 75617274 		.ascii	"uart1/ec200s\000"
- 446      312F6563 
- 446      32303073 
- 446      00
- 447              	.LC12:
- 448 0019 54797065 		.ascii	"Type [help] for the list of instructions\015\012\000"
- 448      205B6865 
- 448      6C705D20 
- 448      666F7220 
- 448      74686520 
- 449              		.section	.text.startup.main,"ax",%progbits
- 450              		.align	1
- 451              		.global	main
- 452              		.syntax unified
- 453              		.thumb
- 454              		.thumb_func
- 456              	main:
- 457              	.LFB291:
+ 480              		.loc 2 207 27 view .LVU112
+ 481              	.LBB28:
+ 482              		.loc 2 209 3 view .LVU113
+ 483              		.syntax unified
+ 484              	@ 209 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 485 0068 72B6     		cpsid i
+ 486              	@ 0 "" 2
+ 487              		.thumb
+ 488              		.syntax unified
+ 489              	.L19:
+ 490              	.LBE28:
+ 491              	.LBE27:
+ 492              	.LBE29:
+ 338:Core/Src/main.c ****   {
+ 493              		.loc 1 338 3 view .LVU114
+ 494              		.loc 1 340 3 view .LVU115
+ 338:Core/Src/main.c ****   {
+ 495              		.loc 1 338 9 view .LVU116
+ 496 006a FEE7     		b	.L19
+ 497              	.L13:
+ 326:Core/Src/main.c **** /* USER CODE END 4 */
+ 498              		.loc 1 326 1 is_stmt 0 view .LVU117
+ 499 006c 17B0     		add	sp, sp, #92
+ 500              	.LCFI7:
+ 501              		.cfi_def_cfa_offset 12
+ 502              		@ sp needed
+ 503 006e 30BD     		pop	{r4, r5, pc}
+ 504              		.cfi_endproc
+ 505              	.LFE294:
+ 507              		.section	.rodata.main.str1.1,"aMS",%progbits,1
+ 508              	.LC14:
+ 509 0000 75617274 		.ascii	"uart2/bds_0\000"
+ 509      322F6264 
+ 509      735F3000 
+ 510              	.LC15:
+ 511 000c 75617274 		.ascii	"uart1/ec200s\000"
+ 511      312F6563 
+ 511      32303073 
+ 511      00
+ 512              	.LC16:
+ 513 0019 54797065 		.ascii	"Type [help] for the list of instructions\015\012\000"
+ 513      205B6865 
+ 513      6C705D20 
+ 513      666F7220 
+ 513      74686520 
+ 514              		.section	.text.startup.main,"ax",%progbits
+ 515              		.align	1
+ 516              		.global	main
+ 517              		.syntax unified
+ 518              		.thumb
+ 519              		.thumb_func
+ 521              	main:
+ 522              	.LFB291:
   82:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
- 458              		.loc 1 82 1 is_stmt 1 view -0
- 459              		.cfi_startproc
- 460              		@ Volatile: function does not return.
- 461              		@ args = 0, pretend = 0, frame = 0
- 462              		@ frame_needed = 0, uses_anonymous_args = 0
+ 523              		.loc 1 82 1 is_stmt 1 view -0
+ 524              		.cfi_startproc
+ 525              		@ Volatile: function does not return.
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 22
+
+
+ 526              		@ args = 0, pretend = 0, frame = 0
+ 527              		@ frame_needed = 0, uses_anonymous_args = 0
   91:Core/Src/main.c **** 
- 463              		.loc 1 91 3 view .LVU105
+ 528              		.loc 1 91 3 view .LVU119
   82:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
- 464              		.loc 1 82 1 is_stmt 0 view .LVU106
- 465 0000 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
- 466              	.LCFI7:
- 467              		.cfi_def_cfa_offset 32
- 468              		.cfi_offset 14, -4
+ 529              		.loc 1 82 1 is_stmt 0 view .LVU120
+ 530 0000 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+ 531              	.LCFI8:
+ 532              		.cfi_def_cfa_offset 32
+ 533              		.cfi_offset 14, -4
   91:Core/Src/main.c **** 
- 469              		.loc 1 91 3 view .LVU107
- 470 0002 FFF7FEFF 		bl	HAL_Init
- 471              	.LVL26:
+ 534              		.loc 1 91 3 view .LVU121
+ 535 0002 FFF7FEFF 		bl	HAL_Init
+ 536              	.LVL32:
   94:Core/Src/main.c ****   /* USER CODE END Init */
- 472              		.loc 1 94 3 is_stmt 1 view .LVU108
- 473 0006 FFF7FEFF 		bl	timer_init
- 474              	.LVL27:
+ 537              		.loc 1 94 3 is_stmt 1 view .LVU122
+ 538 0006 FFF7FEFF 		bl	timer_init
+ 539              	.LVL33:
   98:Core/Src/main.c **** 
- 475              		.loc 1 98 3 view .LVU109
- 476 000a FFF7FEFF 		bl	SystemClock_Config
- 477              	.LVL28:
+ 540              		.loc 1 98 3 view .LVU123
+ 541 000a FFF7FEFF 		bl	SystemClock_Config
+ 542              	.LVL34:
  105:Core/Src/main.c ****   LED_Init(&dev_led[0]);
- 478              		.loc 1 105 3 view .LVU110
- 479 000e FFF7FEFF 		bl	MX_GPIO_Init
- 480              	.LVL29:
+ 543              		.loc 1 105 3 view .LVU124
+ 544 000e FFF7FEFF 		bl	MX_GPIO_Init
+ 545              	.LVL35:
  106:Core/Src/main.c ****   LED_Init(&dev_led[1]);
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 20
-
-
- 481              		.loc 1 106 3 view .LVU111
- 482 0012 4948     		ldr	r0, .L18
+ 546              		.loc 1 106 3 view .LVU125
+ 547 0012 5A48     		ldr	r0, .L26
  123:Core/Src/main.c **** 		Lora_dev[0].LoRa_SF, Lora_dev[0].LoRa_BW, Lora_dev[0].LoRa_CR,
- 483              		.loc 1 123 3 is_stmt 0 view .LVU112
- 484 0014 494C     		ldr	r4, .L18+4
+ 548              		.loc 1 123 3 is_stmt 0 view .LVU126
+ 549 0014 5A4C     		ldr	r4, .L26+4
  106:Core/Src/main.c ****   LED_Init(&dev_led[1]);
- 485              		.loc 1 106 3 view .LVU113
- 486 0016 FFF7FEFF 		bl	LED_Init
- 487              	.LVL30:
+ 550              		.loc 1 106 3 view .LVU127
+ 551 0016 FFF7FEFF 		bl	LED_Init
+ 552              	.LVL36:
  107:Core/Src/main.c ****   MX_ADC1_Init();
- 488              		.loc 1 107 3 is_stmt 1 view .LVU114
- 489 001a 4948     		ldr	r0, .L18+8
- 490 001c FFF7FEFF 		bl	LED_Init
- 491              	.LVL31:
+ 553              		.loc 1 107 3 is_stmt 1 view .LVU128
+ 554 001a 5A48     		ldr	r0, .L26+8
+ 555 001c FFF7FEFF 		bl	LED_Init
+ 556              	.LVL37:
  108:Core/Src/main.c ****   MX_SPI2_Init();
- 492              		.loc 1 108 3 view .LVU115
- 493 0020 FFF7FEFF 		bl	MX_ADC1_Init
- 494              	.LVL32:
+ 557              		.loc 1 108 3 view .LVU129
+ 558 0020 FFF7FEFF 		bl	MX_ADC1_Init
+ 559              	.LVL38:
  109:Core/Src/main.c ****   MX_SPI3_Init();
- 495              		.loc 1 109 3 view .LVU116
- 496 0024 FFF7FEFF 		bl	MX_SPI2_Init
- 497              	.LVL33:
+ 560              		.loc 1 109 3 view .LVU130
+ 561 0024 FFF7FEFF 		bl	MX_SPI2_Init
+ 562              	.LVL39:
  110:Core/Src/main.c ****   MX_USART1_UART_Init();
- 498              		.loc 1 110 3 view .LVU117
- 499 0028 FFF7FEFF 		bl	MX_SPI3_Init
- 500              	.LVL34:
+ 563              		.loc 1 110 3 view .LVU131
+ 564 0028 FFF7FEFF 		bl	MX_SPI3_Init
+ 565              	.LVL40:
  111:Core/Src/main.c ****   MX_USART2_UART_Init();
- 501              		.loc 1 111 3 view .LVU118
- 502 002c FFF7FEFF 		bl	MX_USART1_UART_Init
- 503              	.LVL35:
+ 566              		.loc 1 111 3 view .LVU132
+ 567 002c FFF7FEFF 		bl	MX_USART1_UART_Init
+ 568              	.LVL41:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 23
+
+
  112:Core/Src/main.c ****   MX_USART3_UART_Init();
- 504              		.loc 1 112 3 view .LVU119
- 505 0030 FFF7FEFF 		bl	MX_USART2_UART_Init
- 506              	.LVL36:
+ 569              		.loc 1 112 3 view .LVU133
+ 570 0030 FFF7FEFF 		bl	MX_USART2_UART_Init
+ 571              	.LVL42:
  113:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
- 507              		.loc 1 113 3 view .LVU120
- 508 0034 FFF7FEFF 		bl	MX_USART3_UART_Init
- 509              	.LVL37:
+ 572              		.loc 1 113 3 view .LVU134
+ 573 0034 FFF7FEFF 		bl	MX_USART3_UART_Init
+ 574              	.LVL43:
  116:Core/Src/main.c ****   BSP_W25Qx_Init();
- 510              		.loc 1 116 3 view .LVU121
- 511 0038 FFF7FEFF 		bl	User_Shell_Init
- 512              	.LVL38:
+ 575              		.loc 1 116 3 view .LVU135
+ 576 0038 FFF7FEFF 		bl	User_Shell_Init
+ 577              	.LVL44:
  117:Core/Src/main.c ****   bds_dev = atgm_open("uart2/bds_0");
- 513              		.loc 1 117 3 view .LVU122
- 514 003c FFF7FEFF 		bl	BSP_W25Qx_Init
- 515              	.LVL39:
+ 578              		.loc 1 117 3 view .LVU136
+ 579 003c FFF7FEFF 		bl	BSP_W25Qx_Init
+ 580              	.LVL45:
  118:Core/Src/main.c ****   ec2x_open("uart1/ec200s");
- 516              		.loc 1 118 3 view .LVU123
+ 581              		.loc 1 118 3 view .LVU137
  118:Core/Src/main.c ****   ec2x_open("uart1/ec200s");
- 517              		.loc 1 118 13 is_stmt 0 view .LVU124
- 518 0040 4048     		ldr	r0, .L18+12
- 519 0042 FFF7FEFF 		bl	atgm_open
- 520              	.LVL40:
+ 582              		.loc 1 118 13 is_stmt 0 view .LVU138
+ 583 0040 5148     		ldr	r0, .L26+12
+ 584 0042 FFF7FEFF 		bl	atgm_open
+ 585              	.LVL46:
  118:Core/Src/main.c ****   ec2x_open("uart1/ec200s");
- 521              		.loc 1 118 11 view .LVU125
- 522 0046 404B     		ldr	r3, .L18+16
- 523 0048 1860     		str	r0, [r3]
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 21
-
-
+ 586              		.loc 1 118 11 view .LVU139
+ 587 0046 514B     		ldr	r3, .L26+16
+ 588 0048 1860     		str	r0, [r3]
  119:Core/Src/main.c **** 
- 524              		.loc 1 119 3 is_stmt 1 view .LVU126
- 525 004a 4048     		ldr	r0, .L18+20
- 526 004c FFF7FEFF 		bl	ec2x_open
- 527              	.LVL41:
+ 589              		.loc 1 119 3 is_stmt 1 view .LVU140
+ 590 004a 5148     		ldr	r0, .L26+20
+ 591 004c FFF7FEFF 		bl	ec2x_open
+ 592              	.LVL47:
  123:Core/Src/main.c **** 		Lora_dev[0].LoRa_SF, Lora_dev[0].LoRa_BW, Lora_dev[0].LoRa_CR,
- 528              		.loc 1 123 3 view .LVU127
- 529 0050 637D     		ldrb	r3, [r4, #21]	@ zero_extendqisi2
- 530 0052 0593     		str	r3, [sp, #20]
- 531 0054 237D     		ldrb	r3, [r4, #20]	@ zero_extendqisi2
- 532 0056 0493     		str	r3, [sp, #16]
- 533 0058 E37C     		ldrb	r3, [r4, #19]	@ zero_extendqisi2
- 534 005a 0393     		str	r3, [sp, #12]
- 535 005c A37C     		ldrb	r3, [r4, #18]	@ zero_extendqisi2
- 536 005e 0293     		str	r3, [sp, #8]
- 537 0060 637C     		ldrb	r3, [r4, #17]	@ zero_extendqisi2
- 538 0062 0193     		str	r3, [sp, #4]
- 539 0064 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
- 540 0066 0093     		str	r3, [sp]
- 541 0068 2046     		mov	r0, r4
- 542 006a D4E90223 		ldrd	r2, [r4, #8]
- 543 006e FFF7FEFF 		bl	SX1278_init
- 544              	.LVL42:
+ 593              		.loc 1 123 3 view .LVU141
+ 594 0050 637D     		ldrb	r3, [r4, #21]	@ zero_extendqisi2
+ 595 0052 0593     		str	r3, [sp, #20]
+ 596 0054 237D     		ldrb	r3, [r4, #20]	@ zero_extendqisi2
+ 597 0056 0493     		str	r3, [sp, #16]
+ 598 0058 E37C     		ldrb	r3, [r4, #19]	@ zero_extendqisi2
+ 599 005a 0393     		str	r3, [sp, #12]
+ 600 005c A37C     		ldrb	r3, [r4, #18]	@ zero_extendqisi2
+ 601 005e 0293     		str	r3, [sp, #8]
+ 602 0060 637C     		ldrb	r3, [r4, #17]	@ zero_extendqisi2
+ 603 0062 0193     		str	r3, [sp, #4]
+ 604 0064 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
+ 605 0066 0093     		str	r3, [sp]
+ 606 0068 D4E90223 		ldrd	r2, [r4, #8]
+ 607 006c 2046     		mov	r0, r4
+ 608 006e FFF7FEFF 		bl	SX1278_init
+ 609              	.LVL48:
  126:Core/Src/main.c ****   SX1278_init(&Lora_dev[1], Lora_dev[1].frequency, Lora_dev[0].power,
- 545              		.loc 1 126 4 view .LVU128
- 546 0072 6421     		movs	r1, #100
- 547 0074 4FF4FA72 		mov	r2, #500
- 548 0078 2046     		mov	r0, r4
- 549 007a FFF7FEFF 		bl	SX1278_receive
- 550              	.LVL43:
+ 610              		.loc 1 126 4 view .LVU142
+ 611 0072 6421     		movs	r1, #100
+ 612 0074 4FF4FA72 		mov	r2, #500
+ 613 0078 2046     		mov	r0, r4
+ 614 007a FFF7FEFF 		bl	SX1278_receive
+ 615              	.LVL49:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 24
+
+
  127:Core/Src/main.c **** 		Lora_dev[0].LoRa_SF, Lora_dev[0].LoRa_BW, Lora_dev[0].LoRa_CR,
- 551              		.loc 1 127 3 view .LVU129
- 552 007e 637D     		ldrb	r3, [r4, #21]	@ zero_extendqisi2
- 553 0080 0593     		str	r3, [sp, #20]
- 554 0082 237D     		ldrb	r3, [r4, #20]	@ zero_extendqisi2
- 555 0084 0493     		str	r3, [sp, #16]
- 556 0086 E37C     		ldrb	r3, [r4, #19]	@ zero_extendqisi2
- 557 0088 0393     		str	r3, [sp, #12]
- 558 008a A37C     		ldrb	r3, [r4, #18]	@ zero_extendqisi2
- 559 008c 0293     		str	r3, [sp, #8]
- 560 008e 637C     		ldrb	r3, [r4, #17]	@ zero_extendqisi2
- 561 0090 0193     		str	r3, [sp, #4]
- 562 0092 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
- 563 0094 0093     		str	r3, [sp]
- 564 0096 04F58C70 		add	r0, r4, #280
- 565 009a D4E94823 		ldrd	r2, [r4, #288]
- 566 009e FFF7FEFF 		bl	SX1278_init
- 567              	.LVL44:
+ 616              		.loc 1 127 3 view .LVU143
+ 617 007e 637D     		ldrb	r3, [r4, #21]	@ zero_extendqisi2
+ 618 0080 0593     		str	r3, [sp, #20]
+ 619 0082 237D     		ldrb	r3, [r4, #20]	@ zero_extendqisi2
+ 620 0084 0493     		str	r3, [sp, #16]
+ 621 0086 E37C     		ldrb	r3, [r4, #19]	@ zero_extendqisi2
+ 622 0088 0393     		str	r3, [sp, #12]
+ 623 008a A37C     		ldrb	r3, [r4, #18]	@ zero_extendqisi2
+ 624 008c 0293     		str	r3, [sp, #8]
+ 625 008e 637C     		ldrb	r3, [r4, #17]	@ zero_extendqisi2
+ 626 0090 0193     		str	r3, [sp, #4]
+ 627 0092 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
+ 628 0094 0093     		str	r3, [sp]
+ 629 0096 D4E94823 		ldrd	r2, [r4, #288]
+ 630 009a 04F58C70 		add	r0, r4, #280
+ 631 009e FFF7FEFF 		bl	SX1278_init
+ 632              	.LVL50:
  130:Core/Src/main.c ****   /* USER CODE END 2 */
- 568              		.loc 1 130 4 view .LVU130
- 569 00a2 4FF4FA72 		mov	r2, #500
- 570 00a6 6421     		movs	r1, #100
- 571 00a8 04F58C70 		add	r0, r4, #280
- 572 00ac FFF7FEFF 		bl	SX1278_receive
- 573              	.LVL45:
+ 633              		.loc 1 130 4 view .LVU144
+ 634 00a2 4FF4FA72 		mov	r2, #500
+ 635 00a6 6421     		movs	r1, #100
+ 636 00a8 04F58C70 		add	r0, r4, #280
+ 637 00ac FFF7FEFF 		bl	SX1278_receive
+ 638              	.LVL51:
  136:Core/Src/main.c ****   {
- 574              		.loc 1 136 3 view .LVU131
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 22
-
-
- 575              	.LBB30:
+ 639              		.loc 1 136 3 view .LVU145
+ 640              	.LBB30:
  141:Core/Src/main.c ****     LED_On(&dev_led[1]);
- 576              		.loc 1 141 5 view .LVU132
- 577 00b0 2148     		ldr	r0, .L18
- 578 00b2 FFF7FEFF 		bl	LED_On
- 579              	.LVL46:
+ 641              		.loc 1 141 5 view .LVU146
+ 642 00b0 3248     		ldr	r0, .L26
+ 643 00b2 384C     		ldr	r4, .L26+24
+ 644 00b4 FFF7FEFF 		bl	LED_On
+ 645              	.LVL52:
  142:Core/Src/main.c ****     /*Mac地址打印*/
- 580              		.loc 1 142 5 view .LVU133
- 581 00b6 2248     		ldr	r0, .L18+8
- 582 00b8 FFF7FEFF 		bl	LED_On
- 583              	.LVL47:
+ 646              		.loc 1 142 5 view .LVU147
+ 647 00b8 3248     		ldr	r0, .L26+8
+ 648 00ba FFF7FEFF 		bl	LED_On
+ 649              	.LVL53:
  144:Core/Src/main.c ****     /* ADC 电压监测接口测试*/
- 584              		.loc 1 144 5 view .LVU134
- 585 00bc FFF7FEFF 		bl	DeviceID_Print
- 586              	.LVL48:
+ 650              		.loc 1 144 5 view .LVU148
+ 651 00be FFF7FEFF 		bl	DeviceID_Print
+ 652              	.LVL54:
  146:Core/Src/main.c ****     /* LED 测试 */ 
- 587              		.loc 1 146 5 view .LVU135
- 588 00c0 FFF7FEFF 		bl	Battery_Test
- 589              	.LVL49:
+ 653              		.loc 1 146 5 view .LVU149
+ 654 00c2 FFF7FEFF 		bl	Battery_Test
+ 655              	.LVL55:
  151:Core/Src/main.c ****     /* RS485接口测试 */
- 590              		.loc 1 151 5 view .LVU136
- 591 00c4 FFF7FEFF 		bl	LDR_Value_Get
- 592              	.LVL50:
+ 656              		.loc 1 151 5 view .LVU150
+ 657 00c6 FFF7FEFF 		bl	LDR_Value_Get
+ 658              	.LVL56:
  153:Core/Src/main.c ****      /* Flash 接口测试 */
- 593              		.loc 1 153 5 view .LVU137
- 594 00c8 2148     		ldr	r0, .L18+24
- 595 00ca FFF7FEFF 		bl	RS485_Test
- 596              	.LVL51:
+ 659              		.loc 1 153 5 view .LVU151
+ 660 00ca 3348     		ldr	r0, .L26+28
+ 661 00cc FFF7FEFF 		bl	RS485_Test
+ 662              	.LVL57:
  155:Core/Src/main.c ****     /* ATGM223D接口测试 */
- 597              		.loc 1 155 5 view .LVU138
- 598 00ce FFF7FEFF 		bl	Flash_Test
- 599              	.LVL52:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 25
+
+
+ 663              		.loc 1 155 5 view .LVU152
+ 664 00d0 FFF7FEFF 		bl	Flash_Test
+ 665              	.LVL58:
  157:Core/Src/main.c ****      /* LORA 1发送 LORA2 接收测试*/
- 600              		.loc 1 157 5 view .LVU139
- 601 00d2 2048     		ldr	r0, .L18+28
- 602 00d4 6421     		movs	r1, #100
- 603 00d6 FFF7FEFF 		bl	BDS_Test
- 604              	.LVL53:
- 159:Core/Src/main.c ****     Delay_ms(500);
- 605              		.loc 1 159 5 view .LVU140
- 606 00da 1F49     		ldr	r1, .L18+32
- 607 00dc C822     		movs	r2, #200
- 608 00de 0120     		movs	r0, #1
- 609 00e0 FFF7FEFF 		bl	LORA_Send
- 610              	.LVL54:
- 160:Core/Src/main.c ****      /* LORA2发送 LORA1 接收测试*/
- 611              		.loc 1 160 5 view .LVU141
- 612 00e4 4FF4FA70 		mov	r0, #500
- 613 00e8 FFF7FEFF 		bl	Delay_ms
- 614              	.LVL55:
- 162:Core/Src/main.c ****     Delay_ms(500);
- 615              		.loc 1 162 5 view .LVU142
- 616 00ec 1B49     		ldr	r1, .L18+36
- 617 00ee C822     		movs	r2, #200
- 618 00f0 0020     		movs	r0, #0
- 619 00f2 FFF7FEFF 		bl	LORA_Send
- 620              	.LVL56:
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 23
+ 666              		.loc 1 157 5 view .LVU153
+ 667 00d4 3148     		ldr	r0, .L26+32
+ 668 00d6 6421     		movs	r1, #100
+ 669 00d8 FFF7FEFF 		bl	BDS_Test
+ 670              	.LVL59:
+ 160:Core/Src/main.c ****     Delay_ms(500);
+ 671              		.loc 1 160 5 view .LVU154
+ 672 00dc 3049     		ldr	r1, .L26+36
+ 673 00de C822     		movs	r2, #200
+ 674 00e0 0120     		movs	r0, #1
+ 675 00e2 FFF7FEFF 		bl	LORA_Send
+ 676              	.LVL60:
+ 161:Core/Src/main.c ****     if(strstr(lora_cache[0],"Lora1 tx test\r\n") != NULL)
+ 677              		.loc 1 161 5 view .LVU155
+ 678 00e6 4FF4FA70 		mov	r0, #500
+ 679 00ea FFF7FEFF 		bl	Delay_ms
+ 680              	.LVL61:
+ 162:Core/Src/main.c ****     { 
+ 681              		.loc 1 162 5 view .LVU156
+ 162:Core/Src/main.c ****     { 
+ 682              		.loc 1 162 8 is_stmt 0 view .LVU157
+ 683 00ee 2C49     		ldr	r1, .L26+36
+ 684 00f0 2C48     		ldr	r0, .L26+40
+ 685 00f2 FFF7FEFF 		bl	strstr
+ 686              	.LVL62:
+ 162:Core/Src/main.c ****     { 
+ 687              		.loc 1 162 7 view .LVU158
+ 688 00f6 0028     		cmp	r0, #0
+ 689 00f8 36D0     		beq	.L21
+ 164:Core/Src/main.c ****       test_ok_cnt++;
+ 690              		.loc 1 164 7 is_stmt 1 view .LVU159
+ 691 00fa 2B49     		ldr	r1, .L26+44
+ 692 00fc 2B48     		ldr	r0, .L26+48
+ 693 00fe FFF7FEFF 		bl	shellPrint
+ 694              	.LVL63:
+ 165:Core/Src/main.c ****     }
+ 695              		.loc 1 165 7 view .LVU160
+ 165:Core/Src/main.c ****     }
+ 696              		.loc 1 165 18 is_stmt 0 view .LVU161
+ 697 0102 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 698 0104 0133     		adds	r3, r3, #1
+ 699 0106 2370     		strb	r3, [r4]
+ 700              	.L22:
+ 170:Core/Src/main.c ****     Delay_ms(500);
+ 701              		.loc 1 170 5 is_stmt 1 view .LVU162
+ 702 0108 2949     		ldr	r1, .L26+52
+ 703 010a C822     		movs	r2, #200
+ 704 010c 0020     		movs	r0, #0
+ 705 010e FFF7FEFF 		bl	LORA_Send
+ 706              	.LVL64:
+ 171:Core/Src/main.c ****      if(strstr(lora_cache[1],"Lora2 tx test\r\n") != NULL)
+ 707              		.loc 1 171 5 view .LVU163
+ 708 0112 4FF4FA70 		mov	r0, #500
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 26
 
 
- 163:Core/Src/main.c ****      /* Cat-1 测试 */
- 621              		.loc 1 163 5 view .LVU143
- 622 00f6 4FF4FA70 		mov	r0, #500
- 623 00fa FFF7FEFF 		bl	Delay_ms
- 624              	.LVL57:
- 165:Core/Src/main.c ****     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
- 625              		.loc 1 165 5 view .LVU144
- 626 00fe 184A     		ldr	r2, .L18+40
- 627 0100 1849     		ldr	r1, .L18+44
- 628 0102 4FF4FA73 		mov	r3, #500
- 629 0106 0020     		movs	r0, #0
- 630 0108 FFF7FEFF 		bl	EC2x_Test
- 631              	.LVL58:
- 166:Core/Src/main.c ****     
- 632              		.loc 1 166 5 view .LVU145
- 633 010c 164B     		ldr	r3, .L18+48
- 634 010e 1749     		ldr	r1, .L18+52
- 635 0110 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 636 0112 1748     		ldr	r0, .L18+56
- 637 0114 FFF7FEFF 		bl	shellPrint
- 638              	.LVL59:
- 168:Core/Src/main.c ****     Delay_ms(500);
- 639              		.loc 1 168 5 view .LVU146
- 640 0118 1649     		ldr	r1, .L18+60
- 641 011a 1548     		ldr	r0, .L18+56
- 642 011c FFF7FEFF 		bl	shellPrint
- 643              	.LVL60:
- 169:Core/Src/main.c ****     ec2x_tcp_connect(0);
- 644              		.loc 1 169 5 view .LVU147
- 645 0120 4FF4FA70 		mov	r0, #500
- 646 0124 FFF7FEFF 		bl	Delay_ms
- 647              	.LVL61:
- 170:Core/Src/main.c ****     while(1){
- 648              		.loc 1 170 5 view .LVU148
- 649 0128 0020     		movs	r0, #0
- 650 012a FFF7FEFF 		bl	ec2x_tcp_connect
- 651              	.LVL62:
- 652              	.L17:
- 171:Core/Src/main.c ****       // shellidle_cnt++;
- 653              		.loc 1 171 5 discriminator 1 view .LVU149
- 181:Core/Src/main.c ****     }
- 654              		.loc 1 181 7 discriminator 1 view .LVU150
- 655 012e 6420     		movs	r0, #100
- 656 0130 FFF7FEFF 		bl	Delay_ms
- 657              	.LVL63:
- 171:Core/Src/main.c ****       // shellidle_cnt++;
- 658              		.loc 1 171 10 discriminator 1 view .LVU151
- 659 0134 FBE7     		b	.L17
- 660              	.L19:
- 661 0136 00BF     		.align	2
- 662              	.L18:
- 663 0138 00000000 		.word	dev_led
- 664 013c 00000000 		.word	Lora_dev
- 665 0140 08000000 		.word	dev_led+8
- 666 0144 00000000 		.word	.LC10
- 667 0148 00000000 		.word	bds_dev
- 668 014c 0C000000 		.word	.LC11
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 24
+ 709 0116 FFF7FEFF 		bl	Delay_ms
+ 710              	.LVL65:
+ 172:Core/Src/main.c ****     { 
+ 711              		.loc 1 172 6 view .LVU164
+ 172:Core/Src/main.c ****     { 
+ 712              		.loc 1 172 9 is_stmt 0 view .LVU165
+ 713 011a 2549     		ldr	r1, .L26+52
+ 714 011c 2548     		ldr	r0, .L26+56
+ 715 011e FFF7FEFF 		bl	strstr
+ 716              	.LVL66:
+ 172:Core/Src/main.c ****     { 
+ 717              		.loc 1 172 8 view .LVU166
+ 718 0122 30B3     		cbz	r0, .L23
+ 174:Core/Src/main.c ****       test_ok_cnt++;
+ 719              		.loc 1 174 7 is_stmt 1 view .LVU167
+ 720 0124 2449     		ldr	r1, .L26+60
+ 721 0126 2148     		ldr	r0, .L26+48
+ 722 0128 FFF7FEFF 		bl	shellPrint
+ 723              	.LVL67:
+ 175:Core/Src/main.c ****     }
+ 724              		.loc 1 175 7 view .LVU168
+ 175:Core/Src/main.c ****     }
+ 725              		.loc 1 175 18 is_stmt 0 view .LVU169
+ 726 012c 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 727 012e 0133     		adds	r3, r3, #1
+ 728 0130 2370     		strb	r3, [r4]
+ 729              	.L24:
+ 180:Core/Src/main.c ****     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
+ 730              		.loc 1 180 5 is_stmt 1 view .LVU170
+ 731 0132 4FF4FA73 		mov	r3, #500
+ 732 0136 214A     		ldr	r2, .L26+64
+ 733 0138 2149     		ldr	r1, .L26+68
+ 734 013a 0020     		movs	r0, #0
+ 735 013c FFF7FEFF 		bl	EC2x_Test
+ 736              	.LVL68:
+ 181:Core/Src/main.c ****     
+ 737              		.loc 1 181 5 view .LVU171
+ 738 0140 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
+ 739 0142 2049     		ldr	r1, .L26+72
+ 740 0144 1948     		ldr	r0, .L26+48
+ 741 0146 FFF7FEFF 		bl	shellPrint
+ 742              	.LVL69:
+ 183:Core/Src/main.c ****     Delay_ms(500);
+ 743              		.loc 1 183 5 view .LVU172
+ 744 014a 1F49     		ldr	r1, .L26+76
+ 745 014c 1748     		ldr	r0, .L26+48
+ 746 014e FFF7FEFF 		bl	shellPrint
+ 747              	.LVL70:
+ 184:Core/Src/main.c ****     ec2x_tcp_connect(0);
+ 748              		.loc 1 184 5 view .LVU173
+ 749 0152 4FF4FA70 		mov	r0, #500
+ 750 0156 FFF7FEFF 		bl	Delay_ms
+ 751              	.LVL71:
+ 185:Core/Src/main.c ****     while(1){
+ 752              		.loc 1 185 5 view .LVU174
+ 753 015a 0020     		movs	r0, #0
+ 754 015c FFF7FEFF 		bl	ec2x_tcp_connect
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 27
 
 
- 669 0150 00000000 		.word	.LC0
- 670 0154 14000000 		.word	.LC1
- 671 0158 19000000 		.word	.LC2
- 672 015c 29000000 		.word	.LC3
- 673 0160 39000000 		.word	.LC4
- 674 0164 3C000000 		.word	.LC5
- 675 0168 00000000 		.word	test_ok_cnt
- 676 016c 3F000000 		.word	.LC6
- 677 0170 00000000 		.word	shell
- 678 0174 19000000 		.word	.LC12
- 679              	.LBE30:
- 680              		.cfi_endproc
- 681              	.LFE291:
- 683              		.section	.text.Error_Handler,"ax",%progbits
- 684              		.align	1
- 685              		.global	Error_Handler
- 686              		.syntax unified
- 687              		.thumb
- 688              		.thumb_func
- 690              	Error_Handler:
- 691              	.LFB295:
- 304:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
- 692              		.loc 1 304 1 view -0
- 693              		.cfi_startproc
- 694              		@ Volatile: function does not return.
- 695              		@ args = 0, pretend = 0, frame = 0
- 696              		@ frame_needed = 0, uses_anonymous_args = 0
- 697              		@ link register save eliminated.
- 307:Core/Src/main.c ****   while (1)
- 698              		.loc 1 307 3 view .LVU153
- 699              	.LBB31:
- 700              	.LBI31:
+ 755              	.LVL72:
+ 756              	.L25:
+ 186:Core/Src/main.c ****       // shellidle_cnt++;
+ 757              		.loc 1 186 5 discriminator 1 view .LVU175
+ 196:Core/Src/main.c ****     }
+ 758              		.loc 1 196 7 discriminator 1 view .LVU176
+ 759 0160 6420     		movs	r0, #100
+ 760 0162 FFF7FEFF 		bl	Delay_ms
+ 761              	.LVL73:
+ 186:Core/Src/main.c ****       // shellidle_cnt++;
+ 762              		.loc 1 186 10 discriminator 1 view .LVU177
+ 763 0166 FBE7     		b	.L25
+ 764              	.L21:
+ 168:Core/Src/main.c ****      /* LORA2发送 LORA1 接收测试*/
+ 765              		.loc 1 168 7 view .LVU178
+ 766 0168 1849     		ldr	r1, .L26+80
+ 767 016a 1048     		ldr	r0, .L26+48
+ 768 016c FFF7FEFF 		bl	shellPrint
+ 769              	.LVL74:
+ 770 0170 CAE7     		b	.L22
+ 771              	.L23:
+ 178:Core/Src/main.c ****      /* Cat-1 测试 */
+ 772              		.loc 1 178 7 view .LVU179
+ 773 0172 1749     		ldr	r1, .L26+84
+ 774 0174 0D48     		ldr	r0, .L26+48
+ 775 0176 FFF7FEFF 		bl	shellPrint
+ 776              	.LVL75:
+ 777 017a DAE7     		b	.L24
+ 778              	.L27:
+ 779              		.align	2
+ 780              	.L26:
+ 781 017c 00000000 		.word	dev_led
+ 782 0180 00000000 		.word	Lora_dev
+ 783 0184 08000000 		.word	dev_led+8
+ 784 0188 00000000 		.word	.LC14
+ 785 018c 00000000 		.word	bds_dev
+ 786 0190 0C000000 		.word	.LC15
+ 787 0194 00000000 		.word	test_ok_cnt
+ 788 0198 00000000 		.word	.LC3
+ 789 019c 14000000 		.word	.LC4
+ 790 01a0 19000000 		.word	.LC5
+ 791 01a4 00000000 		.word	lora_cache
+ 792 01a8 29000000 		.word	.LC6
+ 793 01ac 00000000 		.word	shell
+ 794 01b0 53000000 		.word	.LC8
+ 795 01b4 1E000000 		.word	lora_cache+30
+ 796 01b8 63000000 		.word	.LC9
+ 797 01bc 8D000000 		.word	.LC11
+ 798 01c0 90000000 		.word	.LC12
+ 799 01c4 93000000 		.word	.LC13
+ 800 01c8 19000000 		.word	.LC16
+ 801 01cc 3C000000 		.word	.LC7
+ 802 01d0 76000000 		.word	.LC10
+ 803              	.LBE30:
+ 804              		.cfi_endproc
+ 805              	.LFE291:
+ 807              		.section	.text.Error_Handler,"ax",%progbits
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 28
+
+
+ 808              		.align	1
+ 809              		.global	Error_Handler
+ 810              		.syntax unified
+ 811              		.thumb
+ 812              		.thumb_func
+ 814              	Error_Handler:
+ 815              	.LFB295:
+ 334:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 816              		.loc 1 334 1 view -0
+ 817              		.cfi_startproc
+ 818              		@ Volatile: function does not return.
+ 819              		@ args = 0, pretend = 0, frame = 0
+ 820              		@ frame_needed = 0, uses_anonymous_args = 0
+ 821              		@ link register save eliminated.
+ 337:Core/Src/main.c ****   while (1)
+ 822              		.loc 1 337 3 view .LVU181
+ 823              	.LBB31:
+ 824              	.LBI31:
  207:Drivers/CMSIS/Include/cmsis_gcc.h **** {
- 701              		.loc 2 207 27 view .LVU154
- 702              	.LBB32:
- 703              		.loc 2 209 3 view .LVU155
- 704              		.syntax unified
- 705              	@ 209 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 706 0000 72B6     		cpsid i
- 707              	@ 0 "" 2
- 708              		.thumb
- 709              		.syntax unified
- 710              	.L21:
- 711              	.LBE32:
- 712              	.LBE31:
- 308:Core/Src/main.c ****   {
- 713              		.loc 1 308 3 discriminator 1 view .LVU156
- 714              		.loc 1 310 3 discriminator 1 view .LVU157
- 308:Core/Src/main.c ****   {
- 715              		.loc 1 308 9 discriminator 1 view .LVU158
- 716 0002 FEE7     		b	.L21
- 717              		.cfi_endproc
- 718              	.LFE295:
- 720              		.global	shellCommandmac_print
- 721              		.global	shellDescmac_print
- 722              		.global	shellCmdmac_print
- 723              		.global	shellCommandtest_all
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 25
+ 825              		.loc 2 207 27 view .LVU182
+ 826              	.LBB32:
+ 827              		.loc 2 209 3 view .LVU183
+ 828              		.syntax unified
+ 829              	@ 209 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 830 0000 72B6     		cpsid i
+ 831              	@ 0 "" 2
+ 832              		.thumb
+ 833              		.syntax unified
+ 834              	.L29:
+ 835              	.LBE32:
+ 836              	.LBE31:
+ 338:Core/Src/main.c ****   {
+ 837              		.loc 1 338 3 discriminator 1 view .LVU184
+ 838              		.loc 1 340 3 discriminator 1 view .LVU185
+ 338:Core/Src/main.c ****   {
+ 839              		.loc 1 338 9 discriminator 1 view .LVU186
+ 840 0002 FEE7     		b	.L29
+ 841              		.cfi_endproc
+ 842              	.LFE295:
+ 844              		.global	shellCommandmac_print
+ 845              		.global	shellDescmac_print
+ 846              		.global	shellCmdmac_print
+ 847              		.global	shellCommandtest_all
+ 848              		.global	shellDesctest_all
+ 849              		.global	shellCmdtest_all
+ 850              		.section	.rodata.shellCmdmac_print,"a"
+ 853              	shellCmdmac_print:
+ 854 0000 6D61635F 		.ascii	"mac_print\000"
+ 854      7072696E 
+ 854      7400
+ 855              		.section	.rodata.shellCmdtest_all,"a"
+ 858              	shellCmdtest_all:
+ 859 0000 74657374 		.ascii	"test_all\000"
+ 859      5F616C6C 
+ 859      00
+ 860              		.section	.rodata.shellDescmac_print,"a"
+ 863              	shellDescmac_print:
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 29
 
 
- 724              		.global	shellDesctest_all
- 725              		.global	shellCmdtest_all
- 726              		.section	.rodata.shellCmdmac_print,"a"
- 729              	shellCmdmac_print:
- 730 0000 6D61635F 		.ascii	"mac_print\000"
- 730      7072696E 
- 730      7400
- 731              		.section	.rodata.shellCmdtest_all,"a"
- 734              	shellCmdtest_all:
- 735 0000 74657374 		.ascii	"test_all\000"
- 735      5F616C6C 
- 735      00
- 736              		.section	.rodata.shellDescmac_print,"a"
- 739              	shellDescmac_print:
- 740 0000 7072696E 		.ascii	"printf mac_id\000"
- 740      7466206D 
- 740      61635F69 
- 740      6400
- 741              		.section	.rodata.shellDesctest_all,"a"
- 744              	shellDesctest_all:
- 745 0000 74657374 		.ascii	"test all device\000"
- 745      20616C6C 
- 745      20646576 
- 745      69636500 
- 746              		.section	shellCommand,"a"
- 749              	shellCommandmac_print:
- 750 0000 00210000 		.4byte	8448
- 751 0004 00000000 		.4byte	shellCmdmac_print
- 752 0008 00000000 		.4byte	DeviceID_Print
- 753 000c 00000000 		.4byte	shellDescmac_print
- 756              	shellCommandtest_all:
- 757 0010 00210000 		.4byte	8448
- 758 0014 00000000 		.4byte	shellCmdtest_all
- 759 0018 00000000 		.4byte	Test_All
- 760 001c 00000000 		.4byte	shellDesctest_all
- 761              		.text
- 762              	.Letext0:
- 763              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 764              		.file 4 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
- 765              		.file 5 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
- 766              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h"
- 767              		.file 7 "FML/Inc/led.h"
- 768              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
- 769              		.file 9 "ThirdParty/Letter-shell/Inc/shell.h"
- 770              		.file 10 "ThirdParty/Letter-shell/Inc/shell_port.h"
- 771              		.file 11 "FML/Inc/ATGM332D.h"
- 772              		.file 12 "HAL/Inc/SX1278_hw.h"
- 773              		.file 13 "FML/Inc/SX1278.h"
- 774              		.file 14 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h"
- 775              		.file 15 "HAL/Inc/adc.h"
- 776              		.file 16 "FML/Inc/rs485.h"
- 777              		.file 17 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
- 778              		.file 18 "FML/Inc/EC2x.h"
- 779              		.file 19 "HAL/Inc/timer.h"
- 780              		.file 20 "HAL/Inc/gpio.h"
- 781              		.file 21 "HAL/Inc/spi.h"
- 782              		.file 22 "HAL/Inc/usart.h"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 26
-
-
- 783              		.file 23 "FML/Inc/W25QXX.h"
- 784              		.file 24 "<built-in>"
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 27
+ 864 0000 7072696E 		.ascii	"printf mac_id\000"
+ 864      7466206D 
+ 864      61635F69 
+ 864      6400
+ 865              		.section	.rodata.shellDesctest_all,"a"
+ 868              	shellDesctest_all:
+ 869 0000 74657374 		.ascii	"test all device\000"
+ 869      20616C6C 
+ 869      20646576 
+ 869      69636500 
+ 870              		.section	shellCommand,"a"
+ 873              	shellCommandmac_print:
+ 874 0000 00210000 		.4byte	8448
+ 875 0004 00000000 		.4byte	shellCmdmac_print
+ 876 0008 00000000 		.4byte	DeviceID_Print
+ 877 000c 00000000 		.4byte	shellDescmac_print
+ 880              	shellCommandtest_all:
+ 881 0010 00210000 		.4byte	8448
+ 882 0014 00000000 		.4byte	shellCmdtest_all
+ 883 0018 00000000 		.4byte	Test_All
+ 884 001c 00000000 		.4byte	shellDesctest_all
+ 885              		.text
+ 886              	.Letext0:
+ 887              		.file 3 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 888              		.file 4 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\\
+ 889              		.file 5 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l431xx.h"
+ 890              		.file 6 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc.h"
+ 891              		.file 7 "FML/Inc/led.h"
+ 892              		.file 8 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 893              		.file 9 "ThirdParty/Letter-shell/Inc/shell.h"
+ 894              		.file 10 "ThirdParty/Letter-shell/Inc/shell_port.h"
+ 895              		.file 11 "FML/Inc/ATGM332D.h"
+ 896              		.file 12 "HAL/Inc/SX1278_hw.h"
+ 897              		.file 13 "FML/Inc/SX1278.h"
+ 898              		.file 14 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex.h"
+ 899              		.file 15 "HAL/Inc/adc.h"
+ 900              		.file 16 "FML/Inc/rs485.h"
+ 901              		.file 17 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 902              		.file 18 "e:\\gcc-arm-none-eabi-10.3-2021.10-win32\\gcc-arm-none-eabi-10.3-2021.10\\arm-none-eabi\
+ 903              		.file 19 "FML/Inc/EC2x.h"
+ 904              		.file 20 "HAL/Inc/timer.h"
+ 905              		.file 21 "HAL/Inc/gpio.h"
+ 906              		.file 22 "HAL/Inc/spi.h"
+ 907              		.file 23 "HAL/Inc/usart.h"
+ 908              		.file 24 "FML/Inc/W25QXX.h"
+ 909              		.file 25 "<built-in>"
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:35     .text.Test_All:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:41     .text.Test_All:00000000 Test_All
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:128    .text.Test_All:00000068 $d
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:148    .text.DeviceID_Print:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:154    .text.DeviceID_Print:00000000 DeviceID_Print
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:245    .text.DeviceID_Print:00000050 $d
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:255    .text.SystemClock_Config:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:261    .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:450    .text.startup.main:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:456    .text.startup.main:00000000 main
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:663    .text.startup.main:00000138 $d
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:684    .text.Error_Handler:00000000 $t
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:690    .text.Error_Handler:00000000 Error_Handler
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:749    shellCommand:00000000 shellCommandmac_print
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:739    .rodata.shellDescmac_print:00000000 shellDescmac_print
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:729    .rodata.shellCmdmac_print:00000000 shellCmdmac_print
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:756    shellCommand:00000010 shellCommandtest_all
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:744    .rodata.shellDesctest_all:00000000 shellDesctest_all
-C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s:734    .rodata.shellCmdtest_all:00000000 shellCmdtest_all
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:27     .text.DeviceID_Print:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:33     .text.DeviceID_Print:00000000 DeviceID_Print
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:125    .text.DeviceID_Print:00000050 $d
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:158    .text.Test_All:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:164    .text.Test_All:00000000 Test_All
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:301    .text.Test_All:000000ac $d
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:320    .text.SystemClock_Config:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:326    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:515    .text.startup.main:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:521    .text.startup.main:00000000 main
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:781    .text.startup.main:0000017c $d
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:808    .text.Error_Handler:00000000 $t
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:814    .text.Error_Handler:00000000 Error_Handler
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:873    shellCommand:00000000 shellCommandmac_print
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:863    .rodata.shellDescmac_print:00000000 shellDescmac_print
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:853    .rodata.shellCmdmac_print:00000000 shellCmdmac_print
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:880    shellCommand:00000010 shellCommandtest_all
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:868    .rodata.shellDesctest_all:00000000 shellDesctest_all
+C:\Users\CL\AppData\Local\Temp\ccGlybGr.s:858    .rodata.shellCmdtest_all:00000000 shellCmdtest_all
 
 UNDEFINED SYMBOLS
+shellPrint
+shell
 Battery_Test
 LDR_Value_Get
 RS485_Test
@@ -1536,10 +1762,10 @@ Flash_Test
 BDS_Test
 LORA_Send
 Delay_ms
+strstr
 EC2x_Test
-shellPrint
 test_ok_cnt
-shell
+lora_cache
 memset
 HAL_PWREx_ControlVoltageScaling
 HAL_RCC_OscConfig
@@ -1561,10 +1787,10 @@ ec2x_open
 SX1278_init
 SX1278_receive
 LED_On
+ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGlybGr.s 			page 31
+
+
 ec2x_tcp_connect
 dev_led
-ARM GAS  C:\Users\CL\AppData\Local\Temp\ccGWW7nv.s 			page 28
-
-
 Lora_dev
 bds_dev

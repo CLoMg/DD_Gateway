@@ -16,6 +16,7 @@
 
 #define SX1278_MAX_PACKET	256
 #define SX1278_DEFAULT_TIMEOUT		3000
+extern uint8_t lora_cache[2][30];
 
 //RFM98 Internal registers Address
 /********************LoRa mode***************************/

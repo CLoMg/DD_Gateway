@@ -156,11 +156,26 @@ int main(void)
     /* ATGM223D接口测试 */
     BDS_Test("read",100);
      /* LORA 1发送 LORA2 接收测试*/
+    
     LORA_Send(1,"Lora1 tx test\r\n",200);
     Delay_ms(500);
+    if(strstr(lora_cache[0],"Lora1 tx test\r\n") != NULL)
+    { 
+      shellPrint(&shell,"Lora2 RX Test OK\r\n");
+      test_ok_cnt++;
+    }
+    else
+      shellPrint(&shell,"Lora2 RX Test Failed\r\n");
      /* LORA2发送 LORA1 接收测试*/
     LORA_Send(0,"Lora2 tx test\r\n",200);
     Delay_ms(500);
+     if(strstr(lora_cache[1],"Lora2 tx test\r\n") != NULL)
+    { 
+      shellPrint(&shell,"Lora1 RX Test OK\r\n");
+      test_ok_cnt++;
+    }
+    else
+      shellPrint(&shell,"Lora1 RX Test Failed\r\n");
      /* Cat-1 测试 */
     EC2x_Test(0,"AT","OK",500);
     shellPrint(&shell,"Test OK Count:%d/8\r\n",test_ok_cnt);
@@ -210,11 +225,26 @@ void Test_All(void)
     Flash_Test();
     /* ATGM223D接口测试 */
     BDS_Test("read",100);
+      /* LORA1发送 LORA2 接收测试*/
     LORA_Send(1,"Lora1 tx test\r\n",200);
     Delay_ms(500);
+    if(strstr(lora_cache[0],"Lora1 tx test\r\n") != NULL)
+    { 
+      shellPrint(&shell,"Lora2 RX Test OK\r\n");
+      test_ok_cnt++;
+    }
+    else
+      shellPrint(&shell,"Lora2 RX Test Failed\r\n");
      /* LORA2发送 LORA1 接收测试*/
     LORA_Send(0,"Lora2 tx test\r\n",200);
     Delay_ms(500);
+     if(strstr(lora_cache[1],"Lora2 tx test\r\n") != NULL)
+    { 
+      shellPrint(&shell,"Lora1 RX Test OK\r\n");
+      test_ok_cnt++;
+    }
+    else
+      shellPrint(&shell,"Lora1 RX Test Failed\r\n");
 
      /* Cat-1 测试 */
     EC2x_Test(0,"AT","OK",500);

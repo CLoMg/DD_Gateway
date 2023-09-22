@@ -11,6 +11,8 @@
 #include "spi.h"
 #include "shell_port.h"
 
+uint8_t lora_cache[2][30] = {0xff,};
+
 
 SX1278_t Lora_dev[]={
 	{
@@ -242,11 +244,17 @@ uint8_t SX1278_LoRaRxPacket(SX1278_t *module) {
 		module->readBytes = packet_size;
 		SX1278_clearLoRaIrq(module);
 	}
+	if(module->readBytes != 0)
+	{
+		modele_sn = ((uint32_t)module - (uint32_t)&Lora_dev[0])/((uint32_t)sizeof(Lora_dev[0]));
+		memset(lora_cache[modele_sn],0x00,30);
+		memcpy(lora_cache[modele_sn],module->rxBuffer,module->readBytes);
 
-	modele_sn = ((uint32_t)module - (uint32_t)&Lora_dev[0])/((uint32_t)sizeof(Lora_dev[0]));
-	shellPrint(&shell,"Lora%d has received %dbytes,\r\nRx_Str:%s\r\n\
-Lora%d RX Test OK\r\n",2 - modele_sn,module->readBytes,module->rxBuffer,2 - modele_sn);
-    test_ok_cnt++;
+	}
+// 	modele_sn = ((uint32_t)module - (uint32_t)&Lora_dev[0])/((uint32_t)sizeof(Lora_dev[0]));
+// 	shellPrint(&shell,"Lora%d has received %dbytes,\r\nRx_Str:%s\r\n\
+// Lora%d RX Test OK\r\n",2 - modele_sn,module->readBytes,module->rxBuffer,2 - modele_sn);
+//     test_ok_cnt++;
 	return module->readBytes;
 }
 
@@ -370,6 +378,7 @@ uint8_t SX1278_RSSI(SX1278_t *module) {
 void LORA_Send(char fd,char *tx_buff,uint32_t timeout)
 {
     uint8_t *tx_data,len=0;
+	memset(lora_cache[fd],0x00,30);
     len = strlen(tx_buff);
 
     tx_data = (char *)malloc((len)*sizeof(uint8_t));
